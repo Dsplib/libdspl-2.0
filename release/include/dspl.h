@@ -1,3 +1,24 @@
+/*
+* Copyright (c) 2015-2018 Sergey Bakhurin
+* Digital Signal Processing Library [http://dsplib.org]
+*
+* This file is part of libdspl-2.0.
+*  
+* is free software: you can redistribute it and/or modify
+* it under the terms of the GNU Lesser  General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* DSPL is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU Lesser General Public License
+* along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+
 #ifndef DSPL_H
 #define DSPL_H
 
@@ -14,6 +35,7 @@
 	#define M_2PI	6.283185307179586476925286766559
 #endif
      
+
 
 typedef double complex_t[2];	 
 
@@ -69,6 +91,7 @@ typedef struct
 /* G									0x07xxxxxx*/
 /* H									0x08xxxxxx*/
 /* I									0x09xxxxxx*/
+#define ERROR_INC_SIZE                  0x09140319
 /* J									0x10xxxxxx*/
 /* K									0x11xxxxxx*/
 /* L									0x12xxxxxx*/
@@ -103,6 +126,37 @@ typedef struct
 
 
 
+
+#define DSPL_SYMMETRIC                  0x00000000
+#define DSPL_PERIODIC                   0x00000001
+
+#define DSPL_WIN_SYM_MASK               0x00000001
+#define DSPL_WIN_MASK                   0x000FFFFE
+
+#define DSPL_WIN_SYMMETRIC              DSPL_SYMMETRIC
+#define DSPL_WIN_PERIODIC               DSPL_PERIODIC
+
+
+#define DSPL_WIN_BARTLETT               0x00000004
+#define DSPL_WIN_BARTLETT_HANN          0x00000008	
+#define DSPL_WIN_BLACKMAN               0x00000010			
+#define DSPL_WIN_BLACKMAN_HARRIS        0x00000040	 
+#define DSPL_WIN_BLACKMAN_NUTTALL       0x00000080    	
+#define DSPL_WIN_FLAT_TOP               0x00000100			
+#define DSPL_WIN_GAUSSIAN               0x00000400			
+#define DSPL_WIN_HAMMING                0x00000800			
+#define DSPL_WIN_HANN                   0x00001000				
+#define DSPL_WIN_LANCZOS                0x00004000			
+#define DSPL_WIN_NUTTALL                0x00008000			
+#define DSPL_WIN_RECT                   0x00010000				
+#define DSPL_WIN_COS                    0x00040000
+
+
+#define ELLIP_ITER       16
+#define ELLIP_MAX_ORD    24
+
+
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -120,7 +174,10 @@ extern "C" {
 #endif //LINUX_OS
 
 
-void DSPL_API blas_dscal(int n, double a, double* x, int incx);
+int DSPL_API blas_dscal(int n, double a, double* x, int incx);
+
+int DSPL_API cheby_poly1(double* x, int n, int ord, double* y);
+int DSPL_API cheby_poly2(double* x, int n, int ord, double* y);
 
 int	DSPL_API	dft			(double* x,		int n,	complex_t *y);
 int	DSPL_API	dft_cmplx	(complex_t* x,	int n,	complex_t *y);
@@ -136,7 +193,10 @@ int DSPL_API	fft_shift	(double* x,		int n, double* y);
 
 
 
-typedef void (*p_blas_dscal)(int n, double a, double* x, int incx);
+typedef int (*p_blas_dscal  )   (int n, double a, double* x, int incx);
+
+typedef int (*p_cheby_poly1 )   (double* x, int n, int ord, double* y);
+typedef int (*p_cheby_poly2 )   (double* x, int n, int ord, double* y);
 
 typedef int (*p_dft			)	(double* x,		int n,	complex_t *y);
 typedef int (*p_dft_cmplx	)	(complex_t* x,	int n,	complex_t *y);
@@ -147,9 +207,14 @@ typedef int (*p_fft_shift	)	(double* x,		int n, double* y);
 
 
 
-extern p_blas_dscal         blas_dscal      ;      
+extern p_blas_dscal         blas_dscal      ;
+      
+extern p_cheby_poly1        cheby_poly1     ;
+extern p_cheby_poly2        cheby_poly2     ;
+
 extern p_dft				dft				;
 extern p_dft_cmplx			dft_cmplx		;
+
 extern p_fft_create			fft_create		;	
 extern p_fft_destroy	    fft_destroy		;
 extern p_fft_cmplx	        fft_cmplx		;

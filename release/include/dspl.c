@@ -1,3 +1,26 @@
+/*
+* Copyright (c) 2015-2018 Sergey Bakhurin
+* Digital Signal Processing Library [http://dsplib.org]
+*
+* This file is part of libdspl-2.0.
+*  
+* is free software: you can redistribute it and/or modify
+* it under the terms of the GNU Lesser  General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* DSPL is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU Lesser General Public License
+* along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+
+
+
 #ifdef WIN_OS
 #include <windows.h>
 #endif  //WIN_OS
@@ -13,8 +36,13 @@
 
 #ifndef BUILD_LIB
 p_blas_dscal            blas_dscal      ; 
+
+p_cheby_poly1           cheby_poly1     ;
+p_cheby_poly2           cheby_poly2     ;
+
 p_dft                 	dft				;
 p_dft_cmplx           	dft_cmplx		;
+
 p_fft_create			fft_create		;
 p_fft_destroy	   		fft_destroy		;
 p_fft_cmplx	       		fft_cmplx		;
@@ -40,7 +68,21 @@ void* dspl_load()
 			printf("libdspl.dll loading ERROR!\n");
 			return NULL;
 		}
-				
+			
+
+        fname = "blas_dscal";
+		blas_dscal = (p_blas_dscal)GetProcAddress(handle, fname);
+		if(!blas_dscal) goto exit_label;
+
+
+        fname = "cheby_poly1";
+		cheby_poly1 = (p_cheby_poly1)GetProcAddress(handle, fname);
+		if(!cheby_poly1) goto exit_label;
+
+        fname = "cheby_poly2";
+		cheby_poly2 = (p_cheby_poly2)GetProcAddress(handle, fname);
+		if(!cheby_poly2) goto exit_label;
+	
 		fname = "dft";
 		dft = (p_dft)GetProcAddress(handle, fname);
 		if(!dft) goto exit_label;
@@ -98,6 +140,15 @@ void* dspl_load()
         fname = "blas_dscal";
 		blas_dscal = (p_blas_dscal)dlsym(handle, fname);
 		if ((error = dlerror()) != NULL) goto exit_label;
+
+        fname = "cheby_poly1";
+		cheby_poly1 = (p_cheby_poly1)dlsym(handle, fname);
+		if ((error = dlerror()) != NULL) goto exit_label;
+
+        fname = "cheby_poly2";
+		cheby_poly2 = (p_cheby_poly2)dlsym(handle, fname);
+   		if ((error = dlerror()) != NULL) goto exit_label;
+		
 		
 		fname = "dft";
 		dft = (p_dft)dlsym(handle, fname);

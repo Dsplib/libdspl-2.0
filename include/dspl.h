@@ -126,6 +126,37 @@ typedef struct
 
 
 
+
+#define DSPL_SYMMETRIC                  0x00000000
+#define DSPL_PERIODIC                   0x00000001
+
+#define DSPL_WIN_SYM_MASK               0x00000001
+#define DSPL_WIN_MASK                   0x000FFFFE
+
+#define DSPL_WIN_SYMMETRIC              DSPL_SYMMETRIC
+#define DSPL_WIN_PERIODIC               DSPL_PERIODIC
+
+
+#define DSPL_WIN_BARTLETT               0x00000004
+#define DSPL_WIN_BARTLETT_HANN          0x00000008	
+#define DSPL_WIN_BLACKMAN               0x00000010			
+#define DSPL_WIN_BLACKMAN_HARRIS        0x00000040	 
+#define DSPL_WIN_BLACKMAN_NUTTALL       0x00000080    	
+#define DSPL_WIN_FLAT_TOP               0x00000100			
+#define DSPL_WIN_GAUSSIAN               0x00000400			
+#define DSPL_WIN_HAMMING                0x00000800			
+#define DSPL_WIN_HANN                   0x00001000				
+#define DSPL_WIN_LANCZOS                0x00004000			
+#define DSPL_WIN_NUTTALL                0x00008000			
+#define DSPL_WIN_RECT                   0x00010000				
+#define DSPL_WIN_COS                    0x00040000
+
+
+#define ELLIP_ITER       16
+#define ELLIP_MAX_ORD    24
+
+
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -145,6 +176,9 @@ extern "C" {
 
 int DSPL_API blas_dscal(int n, double a, double* x, int incx);
 
+int DSPL_API cheby_poly1(double* x, int n, int ord, double* y);
+int DSPL_API cheby_poly2(double* x, int n, int ord, double* y);
+
 int	DSPL_API	dft			(double* x,		int n,	complex_t *y);
 int	DSPL_API	dft_cmplx	(complex_t* x,	int n,	complex_t *y);
 
@@ -160,6 +194,10 @@ int DSPL_API	fft_shift	(double* x,		int n, double* y);
 
 
 typedef int (*p_blas_dscal  )   (int n, double a, double* x, int incx);
+
+typedef int (*p_cheby_poly1 )   (double* x, int n, int ord, double* y);
+typedef int (*p_cheby_poly2 )   (double* x, int n, int ord, double* y);
+
 typedef int (*p_dft			)	(double* x,		int n,	complex_t *y);
 typedef int (*p_dft_cmplx	)	(complex_t* x,	int n,	complex_t *y);
 typedef int (*p_fft_create	)	(fft_t *pfft,	int n);
@@ -169,9 +207,14 @@ typedef int (*p_fft_shift	)	(double* x,		int n, double* y);
 
 
 
-extern p_blas_dscal         blas_dscal      ;      
+extern p_blas_dscal         blas_dscal      ;
+      
+extern p_cheby_poly1        cheby_poly1     ;
+extern p_cheby_poly2        cheby_poly2     ;
+
 extern p_dft				dft				;
 extern p_dft_cmplx			dft_cmplx		;
+
 extern p_fft_create			fft_create		;	
 extern p_fft_destroy	    fft_destroy		;
 extern p_fft_cmplx	        fft_cmplx		;

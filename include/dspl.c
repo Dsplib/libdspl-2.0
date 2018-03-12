@@ -36,8 +36,13 @@
 
 #ifndef BUILD_LIB
 p_blas_dscal            blas_dscal      ; 
+
+p_cheby_poly1           cheby_poly1     ;
+p_cheby_poly2           cheby_poly2     ;
+
 p_dft                 	dft				;
 p_dft_cmplx           	dft_cmplx		;
+
 p_fft_create			fft_create		;
 p_fft_destroy	   		fft_destroy		;
 p_fft_cmplx	       		fft_cmplx		;
@@ -63,7 +68,21 @@ void* dspl_load()
 			printf("libdspl.dll loading ERROR!\n");
 			return NULL;
 		}
-				
+			
+
+        fname = "blas_dscal";
+		blas_dscal = (p_blas_dscal)GetProcAddress(handle, fname);
+		if(!blas_dscal) goto exit_label;
+
+
+        fname = "cheby_poly1";
+		cheby_poly1 = (p_cheby_poly1)GetProcAddress(handle, fname);
+		if(!cheby_poly1) goto exit_label;
+
+        fname = "cheby_poly2";
+		cheby_poly2 = (p_cheby_poly2)GetProcAddress(handle, fname);
+		if(!cheby_poly2) goto exit_label;
+	
 		fname = "dft";
 		dft = (p_dft)GetProcAddress(handle, fname);
 		if(!dft) goto exit_label;
@@ -121,6 +140,15 @@ void* dspl_load()
         fname = "blas_dscal";
 		blas_dscal = (p_blas_dscal)dlsym(handle, fname);
 		if ((error = dlerror()) != NULL) goto exit_label;
+
+        fname = "cheby_poly1";
+		cheby_poly1 = (p_cheby_poly1)dlsym(handle, fname);
+		if ((error = dlerror()) != NULL) goto exit_label;
+
+        fname = "cheby_poly2";
+		cheby_poly2 = (p_cheby_poly2)dlsym(handle, fname);
+   		if ((error = dlerror()) != NULL) goto exit_label;
+		
 		
 		fname = "dft";
 		dft = (p_dft)dlsym(handle, fname);
