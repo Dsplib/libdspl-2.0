@@ -1,0 +1,31 @@
+LIB_DIR    = dspl
+
+include Makefile.dirs
+
+
+SRC_DIR = $(LIB_DIR)/src
+OBJ_DIR = $(LIB_DIR)/obj
+
+COMMON_SRC_DIR = $(COMMON_DIR)/src
+
+
+LIB_NAME = $(DSPL_LIBNAME)
+
+CFLAGS  = -c -fPIC -Wall -O3 -I$(INC_DIR) -DBUILD_LIB -D$(DEF_OS)
+
+SRC_FILES	= $(wildcard $(SRC_DIR)/*.c)
+OBJ_FILES	= $(addprefix $(OBJ_DIR)/,$(notdir $(SRC_FILES:.c=.o)))
+
+
+all: $(RELEASE_DIR)/$(LIB_NAME)
+
+
+$(RELEASE_DIR)/$(LIB_NAME): $(OBJ_FILES)
+	$(CC) -shared -o $(RELEASE_DIR)/$(LIB_NAME)  $(OBJ_FILES) -L$(EXTLIB_DIR) -lfftw3 -lblas -lm
+
+$(OBJ_DIR)/%.o:$(SRC_DIR)/%.c
+	$(CC) $(CFLAGS)  $< -o $@ -L$(EXTLIB_DIR) -lfftw3 -lblas -llapack -lgfortran -lm
+
+clean:
+	rm -f   $(OBJ_DIR)/*.o
+	rm -f   $(RELEASE_DIR)/$(LIB_NAME)

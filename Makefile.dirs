@@ -1,0 +1,39 @@
+CC       = gcc
+INC_DIR = include
+
+ifeq ($(OS),Windows_NT)
+    DSPL_LIBNAME = libdspl.dll
+    DEF_OS = WIN_OS
+	LFLAGS = -lm
+    ifeq ($(PROCESSOR_ARCHITEW6432),AMD64)
+        RELEASE_DIR = release/lib/win64
+		EXTLIB_DIR = ext/win64
+    else
+        ifeq ($(PROCESSOR_ARCHITECTURE),AMD64)
+            RELEASE_DIR = release/lib/win64
+			EXTLIB_DIR = ext/win64
+        endif
+        ifeq ($(PROCESSOR_ARCHITECTURE),x86)
+            RELEASE_DIR = release/lib/win32
+			EXTLIB_DIR = ext/win32
+        endif
+    endif
+else
+    UNAME_S := $(shell uname -s)
+    UNAME_P := $(shell uname -p)
+    ifeq ($(UNAME_S),Linux)
+        DSPL_LIBNAME = libdspl.so
+        DEF_OS = LINUX_OS
+		LFLAGS = -lm -ldl
+        ifeq ($(UNAME_P),x86_64)
+            RELEASE_DIR = release/lib/linux64
+			EXTLIB_DIR = ext/linux64
+        endif
+        ifneq ($(filter %86,$(UNAME_P)),)
+            RELEASE_DIR = release/lib/linux32
+			EXTLIB_DIR = ext/linux32
+        endif        
+    endif
+endif
+
+
