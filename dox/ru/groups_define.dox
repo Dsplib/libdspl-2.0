@@ -1,0 +1,95 @@
+/*!
+	\defgroup MAIN_GROUP	Библиотека DSPL 
+	
+	\defgroup GETTING_START Быстрый старт использования библиотеки DSPL
+	\ingroup MAIN_GROUP
+	
+	\defgroup TYPES_GROUP Типы данных DSPL 
+	\ingroup MAIN_GROUP
+    В данной группе описаны типы данных библиотеки DSPL и методы их преобразования. 	
+
+	
+
+	\defgroup SPECTRAL_GROUP	Спектральный анализ
+	\ingroup MAIN_GROUP	
+	В данной группе собраны функции реализующие алгоритмы дискретного преобразования Фурье (ДПФ),
+	быстрого преобразования Фурье (БПФ), функции оконного взвешивания, расчета спектральной плотности мощности. 
+	
+	\defgroup DFT_GROUP	Алгоритмы дискретного и быстрого преобразования Фурье
+	\ingroup SPECTRAL_GROUP
+	
+	Алгоритмы дискретного и быстрого преобразования Фурье используют функции из библиотеки FFTW
+
+
+	\defgroup WIN_GROUP	Функции оконного взвешивания
+	\ingroup SPECTRAL_GROUP	
+	
+	
+	\defgroup HILBERT_GROUP	Преобразование Гильберта
+	\ingroup MAIN_GROUP
+	
+	В данной группе собраны функции реализующие алгоритмы преобразования Гильберта.
+		
+
+	
+	\defgroup FILTER_GROUP	Цифровая фильтрация. Синтез и анализ цифровых фильтров.
+	\ingroup MAIN_GROUP
+	
+	
+	\defgroup FILTER_CONV_GROUP	Свертка и цифровая фильтрация
+	\ingroup FILTER_GROUP
+	
+	Функции для расчета циклической и линейной сверток, а также цифровой КИХ и БИХ фильтрации. 
+	
+	
+	\defgroup IIR_FILTER_DESIGN_GROUP	Расчет БИХ-фильтров
+	\ingroup FILTER_GROUP	
+	Функции расчета цифровых БИХ-фильтров. 
+	
+	
+	\defgroup FIR_FILTER_DESIGN_GROUP	Расчет КИХ-фильтров
+	\ingroup FILTER_GROUP	
+	Функции расчета цифровых КИХ-фильтров.
+
+	\defgroup FILTER_ANALYSIS_GROUP Функции анализа аналоговых и цифровых фильтров
+	\ingroup FILTER_GROUP	
+	Функции анализа аналоговых и цифровых фильтров
+	
+	\defgroup RESAMPLING_GROUP Цифровая передискретизация сигналов
+	\ingroup MAIN_GROUP
+	
+	
+	\defgroup SPEC_MATH_GROUP	Специальные математические функции
+	\ingroup MAIN_GROUP
+	
+	\defgroup SPEC_MATH_COMMON_GROUP	Базовые математические функции.
+	\ingroup SPEC_MATH_GROUP
+	
+	\defgroup SPEC_MATH_TRIG_GROUP Тригонометрические и гиперболические функции 
+	вещественного и комплексного аргумента.
+	\ingroup SPEC_MATH_GROUP
+	
+	\defgroup SPEC_MATH_ELLIP_GROUP Эллиптические функции вещественного и комплексного аргумента.
+	\ingroup SPEC_MATH_GROUP
+
+	\defgroup SPEC_MATH_RAND_GEN_GROUP Генерация случайных чисел
+	\ingroup SPEC_MATH_GROUP
+
+	\defgroup SPEC_MATH_STAT_GROUP Функции математической статистики
+	\ingroup SPEC_MATH_GROUP
+	
+ 
+	\defgroup IN_OUT_GROUP Функции ввода - вывода данных
+	\ingroup MAIN_GROUP
+	Функции ввода и вывода данных. Запись и считывание данных в бинарные и текстовые файлы.
+
+	
+	\defgroup MACRO_DEFINE_GROUP Макросы и константы
+	\ingroup MAIN_GROUP
+	
+	\defgroup ERROR_CODE_GROUP Коды ошибок при вызове функций
+	\ingroup MACRO_DEFINE_GROUP	
+	В данной группе приведены возможные коды ошибок, возвращаемые функциями библиотеки в процессе 
+	работы. 
+
+*/
