@@ -1,11 +1,11 @@
 /*
-* Copyright (c) 2015-2017 Sergey Bakhurin
+* Copyright (c) 2015-2018 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
-* This file is part of DSPL.
+* This file is part of libdspl-2.0.
 *  
 * is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
+* it under the terms of the GNU Lesser  General Public License as published by
 * the Free Software Foundation, either version 3 of the License, or
 * (at your option) any later version.
 *
@@ -14,7 +14,7 @@
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 * GNU General Public License for more details.
 *
-* You should have received a copy of the GNU General Public License
+* You should have received a copy of the GNU Lesser General Public License
 * along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 */
 
@@ -28,7 +28,7 @@
 /**************************************************************************************************
 Linspace array filling
 ***************************************************************************************************/
-int linspace(double x0, double x1, int n, int type, double* x)
+int DSPL_API linspace(double x0, double x1, int n, int type, double* x)
 {
     double dx;
 	int k;
@@ -65,7 +65,7 @@ int linspace(double x0, double x1, int n, int type, double* x)
 /**************************************************************************************************
 Logspace array filling
 ***************************************************************************************************/
-int logspace(double x0, double x1, int n, int type, double* x)
+int DSPL_API logspace(double x0, double x1, int n, int type, double* x)
 {
 	double mx, a, b;
 	int k;

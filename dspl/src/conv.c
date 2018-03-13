@@ -1,11 +1,11 @@
 /*
-* Copyright (c) 2015-2017 Sergey Bakhurin
+* Copyright (c) 2015-2018 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
-* This file is part of DSPL.
+* This file is part of libdspl-2.0.
 *  
 * is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
+* it under the terms of the GNU Lesser  General Public License as published by
 * the Free Software Foundation, either version 3 of the License, or
 * (at your option) any later version.
 *
@@ -14,7 +14,7 @@
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 * GNU General Public License for more details.
 *
-* You should have received a copy of the GNU General Public License
+* You should have received a copy of the GNU Lesser General Public License
 * along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 */
 
@@ -29,7 +29,7 @@
 /**************************************************************************************************
 Real vectors linear convolution 
 ***************************************************************************************************/
-int conv(double* a, int na, double* b, int nb, double* c)
+int DSPL_API conv(double* a, int na, double* b, int nb, double* c)
 {
 	int k;
 	int n;
@@ -72,7 +72,7 @@ int conv(double* a, int na, double* b, int nb, double* c)
 /**************************************************************************************************
 Complex vectors linear convolution 
 ***************************************************************************************************/
-int conv_cmplx(complex_t* a, int na, complex_t* b, int nb, complex_t* c)
+int DSPL_API conv_cmplx(complex_t* a, int na, complex_t* b, int nb, complex_t* c)
 {
 	int k;
 	int n;
@@ -119,7 +119,7 @@ int conv_cmplx(complex_t* a, int na, complex_t* b, int nb, complex_t* c)
 /**************************************************************************************************
 IIR FILTER for real vector
 **************************************************************************************************/
-int filter_iir(double* b, double* a, int ord, double* x, int n, double* y)
+int DSPL_API filter_iir(double* b, double* a, int ord, double* x, int n, double* y)
 {
 	double* buf = NULL;
 	double* an  = NULL;

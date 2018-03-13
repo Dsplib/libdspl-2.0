@@ -162,65 +162,44 @@ extern "C" {
 #endif
 
 
-// Declare DSPL_API for Windows OS
-#ifdef BUILD_LIB
 
+#ifdef BUILD_LIB
+// Declare DSPL_API for Windows OS
 #ifdef WIN_OS
 #define DSPL_API __declspec(dllexport)
 #endif // WIN_OS
-
+// Declare DSPL_API for LINUX OS
 #ifdef LINUX_OS
 #define DSPL_API
 #endif //LINUX_OS
-
-
-int DSPL_API blas_dscal(int n, double a, double* x, int incx);
-
-int DSPL_API cheby_poly1(double* x, int n, int ord, double* y);
-int DSPL_API cheby_poly2(double* x, int n, int ord, double* y);
-
-int	DSPL_API	dft			(double* x,		int n,	complex_t *y);
-int	DSPL_API	dft_cmplx	(complex_t* x,	int n,	complex_t *y);
-
-
-int DSPL_API	fft_create	( fft_t *pfft,	int n);
-void DSPL_API	fft_destroy	(fft_t *pfft);
-int DSPL_API	fft_cmplx	(complex_t *x,	int n, fft_t* pfft, complex_t* y);
-int DSPL_API	fft_shift	(double* x,		int n, double* y);
-
-
-#else //BUILD_LIB 
-
-
-
-typedef int (*p_blas_dscal  )   (int n, double a, double* x, int incx);
-
-typedef int (*p_cheby_poly1 )   (double* x, int n, int ord, double* y);
-typedef int (*p_cheby_poly2 )   (double* x, int n, int ord, double* y);
-
-typedef int (*p_dft			)	(double* x,		int n,	complex_t *y);
-typedef int (*p_dft_cmplx	)	(complex_t* x,	int n,	complex_t *y);
-typedef int (*p_fft_create	)	(fft_t *pfft,	int n);
-typedef void(*p_fft_destroy	)	(fft_t *pfft);
-typedef int (*p_fft_cmplx	)	(complex_t *x,	int n, fft_t* pfft, complex_t* y);
-typedef int (*p_fft_shift	)	(double* x,		int n, double* y);
-
-
-
-extern p_blas_dscal         blas_dscal      ;
-      
-extern p_cheby_poly1        cheby_poly1     ;
-extern p_cheby_poly2        cheby_poly2     ;
-
-extern p_dft				dft				;
-extern p_dft_cmplx			dft_cmplx		;
-
-extern p_fft_create			fft_create		;	
-extern p_fft_destroy	    fft_destroy		;
-extern p_fft_cmplx	        fft_cmplx		;
-extern p_fft_shift	        fft_shift		;
-
 #endif //BUILD_DLL
+
+#define COMMA ,
+
+
+#ifdef BUILD_LIB
+#define DECLARE_FUNC(type, fn, param)\
+                type DSPL_API fn(param);\
+
+#endif
+
+#ifndef BUILD_LIB
+#define DECLARE_FUNC(type, fn, param)\
+                typedef type (*p_##fn)(param);\
+                extern p_##fn   fn;
+
+#endif
+
+
+DECLARE_FUNC(int,   cheby_poly1,        double*     COMMA int       COMMA int           COMMA double*);
+DECLARE_FUNC(int,   cheby_poly2,        double*     COMMA int       COMMA int           COMMA double*);
+DECLARE_FUNC(int,   conv,               double*     COMMA int       COMMA double*       COMMA int COMMA double*);
+DECLARE_FUNC(int,   conv_cmplx,         complex_t*  COMMA int       COMMA complex_t*    COMMA int COMMA complex_t*);
+DECLARE_FUNC(int,   dft,                double*     COMMA int       COMMA complex_t*);
+DECLARE_FUNC(int,   dft_cmplx,          complex_t*  COMMA int       COMMA complex_t*);
+DECLARE_FUNC(int,   filter_iir,         double*     COMMA double*   COMMA int COMMA double* COMMA int COMMA double*);
+DECLARE_FUNC(int,   linspace,           double      COMMA double    COMMA int COMMA int COMMA double*);
+DECLARE_FUNC(int,   logspace,           double      COMMA double    COMMA int COMMA int COMMA double*);
 
 
 #ifdef __cplusplus

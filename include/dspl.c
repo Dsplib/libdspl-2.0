@@ -20,7 +20,6 @@
 
 
 
-
 #ifdef WIN_OS
 #include <windows.h>
 #endif  //WIN_OS
@@ -35,82 +34,82 @@
 
 
 #ifndef BUILD_LIB
-p_blas_dscal            blas_dscal      ; 
 
-p_cheby_poly1           cheby_poly1     ;
-p_cheby_poly2           cheby_poly2     ;
-
+p_cheby_poly1           cheby_poly1		;
+p_cheby_poly2           cheby_poly2		;
+p_conv                  conv            ;
+p_conv_cmplx            conv_cmplx      ;
 p_dft                 	dft				;
 p_dft_cmplx           	dft_cmplx		;
-
-p_fft_create			fft_create		;
-p_fft_destroy	   		fft_destroy		;
-p_fft_cmplx	       		fft_cmplx		;
-p_fft_shift	       		fft_shift		;
-
-
+p_filter_iir            filter_iir      ;
+p_linspace              linspace        ;
+p_logspace              logspace        ;
 #endif //BUILD_LIB
 
 
 
+
+#ifdef WIN_OS
+#define LOAD_FUNC(fn) \
+        fname = #fn;\
+        fn = (p_##fn)GetProcAddress(handle, fname);\
+        if(! fn) goto exit_label;
+#endif
+
+
+
+#ifdef LINUX_OS
+#define LOAD_FUNC(fn) \
+        fname = #fn;\
+        fn = (p_##fn)dlsym(handle, fname);\
+        if ((error = dlerror()) != NULL) goto exit_label
+#endif
 
 
 
 
 void* dspl_load()
 {
+    char* fname;
 	#ifdef WIN_OS
-		HINSTANCE handle;
-		char* fname;
+		HINSTANCE handle;		
 		handle = LoadLibrary(TEXT("libdspl.dll"));
 		if (!handle)
 		{
 			printf("libdspl.dll loading ERROR!\n");
 			return NULL;
 		}
-			
-
-        fname = "blas_dscal";
-		blas_dscal = (p_blas_dscal)GetProcAddress(handle, fname);
-		if(!blas_dscal) goto exit_label;
+    #endif //WIN_OS		
 
 
-        fname = "cheby_poly1";
-		cheby_poly1 = (p_cheby_poly1)GetProcAddress(handle, fname);
-		if(!cheby_poly1) goto exit_label;
+    #ifdef LINUX_OS
+		char* error;
+		void *handle;
+		// open the *.so
+		handle = dlopen ("./libdspl.so", RTLD_LAZY);
+		if (!handle) 
+		{
+			printf("libdspl.so loading ERROR!\n");
+			return NULL;
+		}
+    #endif	//LINUX_OS
 
-        fname = "cheby_poly2";
-		cheby_poly2 = (p_cheby_poly2)GetProcAddress(handle, fname);
-		if(!cheby_poly2) goto exit_label;
-	
-		fname = "dft";
-		dft = (p_dft)GetProcAddress(handle, fname);
-		if(!dft) goto exit_label;
-		
-		fname = "dft_cmplx";
-		dft_cmplx = (p_dft_cmplx)GetProcAddress(handle, fname);
-		if(!dft_cmplx) goto exit_label;
-		
-		
-		fname = "fft_create";
-		fft_create = (p_fft_create)GetProcAddress(handle, fname);
-		if(!fft_create) goto exit_label;
-		
-		fname = "fft_destroy";
-		fft_destroy = (p_fft_destroy)GetProcAddress(handle, fname);
-		if(!fft_destroy) goto exit_label;
-		
-		
-		fname = "fft_cmplx";
-		fft_cmplx = (p_fft_cmplx)GetProcAddress(handle, fname);
-		if(!fft_cmplx) goto exit_label;
-		
-		fname = "fft_shift";
-		fft_shift = (p_fft_shift)GetProcAddress(handle, fname);
-		if(!fft_shift) goto exit_label;
-		
-		
-		return (void*)handle;
+
+    
+    LOAD_FUNC(cheby_poly1);
+    LOAD_FUNC(cheby_poly2);
+    LOAD_FUNC(conv);
+    LOAD_FUNC(conv_cmplx);
+    LOAD_FUNC(dft);
+    LOAD_FUNC(dft_cmplx);
+    LOAD_FUNC(filter_iir);
+    LOAD_FUNC(linspace);
+    LOAD_FUNC(logspace);
+
+
+
+    #ifdef WIN_OS
+        return (void*)handle;   
 	exit_label:
 		printf("function %s loading ERROR!\n", fname);
 		if(handle)
@@ -119,75 +118,14 @@ void* dspl_load()
 	#endif //WIN_OS
 
 
-
-	
-
-
-	#ifdef LINUX_OS
-		char* error;
-		void *handle;
-		char* fname;
-		
-		// open the *.so
-		handle = dlopen ("./libdspl.so", RTLD_LAZY);
-		if (!handle) 
-		{
-			printf("libdspl.so loading ERROR!\n");
-			return NULL;
-		}
-		
-
-        fname = "blas_dscal";
-		blas_dscal = (p_blas_dscal)dlsym(handle, fname);
-		if ((error = dlerror()) != NULL) goto exit_label;
-
-        fname = "cheby_poly1";
-		cheby_poly1 = (p_cheby_poly1)dlsym(handle, fname);
-		if ((error = dlerror()) != NULL) goto exit_label;
-
-        fname = "cheby_poly2";
-		cheby_poly2 = (p_cheby_poly2)dlsym(handle, fname);
-   		if ((error = dlerror()) != NULL) goto exit_label;
-		
-		
-		fname = "dft";
-		dft = (p_dft)dlsym(handle, fname);
-		if ((error = dlerror()) != NULL) goto exit_label;
-		
-		
-		fname = "dft_cmplx";
-		dft_cmplx = (p_dft_cmplx)dlsym(handle, fname);
-		if ((error = dlerror()) != NULL) goto exit_label;
-
-        fname = "fft_create";
-		fft_create = (p_fft_create)dlsym(handle, fname);
-		if ((error = dlerror()) != NULL) goto exit_label;
-
-
-        fname = "fft_destroy";
-		fft_destroy = (p_fft_destroy)dlsym(handle, fname);
-		if ((error = dlerror()) != NULL) goto exit_label;
-
-
-        fname = "fft_cmplx";
-		fft_cmplx = (p_fft_cmplx)dlsym(handle, fname);
-		if ((error = dlerror()) != NULL) goto exit_label;
-
-
-        fname = "fft_shift";
-		fft_shift = (p_fft_shift)dlsym(handle, fname);
-		if ((error = dlerror()) != NULL) goto exit_label;
-
-		
-		return handle;
-		
+     #ifdef LINUX_OS
+		return handle;		
 	exit_label:
 		printf("function %s loading ERROR!\n", fname);
 		if(handle)
 			dlclose(handle);
 		return NULL;		
-	#endif //LINUX_OS
-	
+	#endif //LINUX_OS	
 }
 
 

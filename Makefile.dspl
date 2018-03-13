@@ -21,10 +21,10 @@ all: $(RELEASE_DIR)/$(LIB_NAME)
 
 
 $(RELEASE_DIR)/$(LIB_NAME): $(OBJ_FILES)
-	$(CC) -shared -o $(RELEASE_DIR)/$(LIB_NAME)  $(OBJ_FILES) -L$(EXTLIB_DIR) -lfftw3 -lblas -lm
+	$(CC) -shared -o $(RELEASE_DIR)/$(LIB_NAME)  $(OBJ_FILES) -lm
 
 $(OBJ_DIR)/%.o:$(SRC_DIR)/%.c
-	$(CC) $(CFLAGS)  $< -o $@ -L$(EXTLIB_DIR) -lfftw3 -lblas -llapack -lgfortran -lm
+	$(CC) $(CFLAGS)  $< -o $@ -lm
 
 clean:
 	rm -f   $(OBJ_DIR)/*.o
