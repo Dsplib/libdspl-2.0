@@ -1,0 +1,17 @@
+digraph "Цифровая фильтрация. Синтез и анализ цифровых фильтров."
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir=LR;
+  Node2 [label="Свертка и цифровая\l фильтрация",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___f_i_l_t_e_r___c_o_n_v___g_r_o_u_p.html"];
+  Node4 [label="Расчет КИХ\l-фильтров",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___f_i_r___f_i_l_t_e_r___d_e_s_i_g_n___g_r_o_u_p.html"];
+  Node1 [label="Библиотека DSPL",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___m_a_i_n___g_r_o_u_p.html"];
+  Node3 [label="Расчет БИХ\l-фильтров",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___i_i_r___f_i_l_t_e_r___d_e_s_i_g_n___g_r_o_u_p.html"];
+  Node0 [label="Цифровая фильтрация.\l Синтез и анализ\l цифровых фильтров.",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node5 [label="Функции анализа\l аналоговых и\l цифровых фильтров",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___f_i_l_t_e_r___a_n_a_l_y_s_i_s___g_r_o_u_p.html"];
+  Node1->Node0 [shape=plaintext, dir="back", style="solid"];
+  Node0->Node2 [shape=plaintext, dir="back", style="solid"];
+  Node0->Node3 [shape=plaintext, dir="back", style="solid"];
+  Node0->Node4 [shape=plaintext, dir="back", style="solid"];
+  Node0->Node5 [shape=plaintext, dir="back", style="solid"];
+}

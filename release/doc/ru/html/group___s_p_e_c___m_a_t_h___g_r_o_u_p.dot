@@ -1,0 +1,19 @@
+digraph "Специальные математические функции"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir=LR;
+  Node2 [label="Базовые математические\l функции.",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html"];
+  Node3 [label="Тригонометрические\l и гиперболические\l функции",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___s_p_e_c___m_a_t_h___t_r_i_g___g_r_o_u_p.html"];
+  Node1 [label="Библиотека DSPL",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___m_a_i_n___g_r_o_u_p.html"];
+  Node4 [label="Эллиптические\l функции вещественного\l и комплексного аргумента.",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___s_p_e_c___m_a_t_h___e_l_l_i_p___g_r_o_u_p.html"];
+  Node6 [label="Функции математической\l статистики",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___s_p_e_c___m_a_t_h___s_t_a_t___g_r_o_u_p.html"];
+  Node0 [label="Специальные\l математические\l функции",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node5 [label="Генерация\l случайных\l чисел",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___s_p_e_c___m_a_t_h___r_a_n_d___g_e_n___g_r_o_u_p.html"];
+  Node1->Node0 [shape=plaintext, dir="back", style="solid"];
+  Node0->Node2 [shape=plaintext, dir="back", style="solid"];
+  Node0->Node3 [shape=plaintext, dir="back", style="solid"];
+  Node0->Node4 [shape=plaintext, dir="back", style="solid"];
+  Node0->Node5 [shape=plaintext, dir="back", style="solid"];
+  Node0->Node6 [shape=plaintext, dir="back", style="solid"];
+}

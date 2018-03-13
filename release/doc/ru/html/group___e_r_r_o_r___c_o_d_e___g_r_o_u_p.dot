@@ -1,0 +1,9 @@
+digraph "Коды ошибок при вызове функций"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir=LR;
+  Node0 [label="Коды ошибок\l при вызове\l функций",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 [label="Макросы и константы",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group___m_a_c_r_o___d_e_f_i_n_e___g_r_o_u_p.html"];
+  Node1->Node0 [shape=plaintext, dir="back", style="solid"];
+}
