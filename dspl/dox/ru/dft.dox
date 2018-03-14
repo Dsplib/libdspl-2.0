@@ -7,7 +7,7 @@
 	Функция рассчитывает \f$ n \f$-точечное  дискретное преобразование Фурье 
 	вещественного сигнала \f$ x(m) \f$, \f$ m = 0 \ldots n-1 \f$.<BR>
 	\f[
-		Y(k) = \sum_{m = 0}^{n-1} x(m) \exp \left( -j  \frac{2\pi}{n}  m  k \right),
+		Y(k) = \sum_{m = 0}^{n-1} x(m) \cdot  \exp \left( -j \cdot  \frac{2\pi}{n} \cdot   m \cdot   k \right),
 	\f]
 	где \f$ k = 0 \ldots n-1 \f$.
 	
@@ -47,7 +47,7 @@
 	Функция рассчитывает \f$ n \f$-точечное  дискретное преобразование Фурье 
 	комплексного сигнала \f$ x(m) \f$, \f$ m = 0 \ldots n-1 \f$.<BR>
 	\f[
-		Y(k) = \sum_{m = 0}^{n-1} x(m) \exp \left( -j  \frac{2\pi}{n}  m  k \right),
+		Y(k) = \sum_{m = 0}^{n-1} x(m) \cdot  \exp \left( -j \cdot  \frac{2\pi}{n} \cdot  m \cdot  k \right),
 	\f]
 	где \f$ k = 0 \ldots n-1 \f$.
 	

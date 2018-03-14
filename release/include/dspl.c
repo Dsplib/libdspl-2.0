@@ -42,8 +42,14 @@ p_conv_cmplx            conv_cmplx      ;
 p_dft                 	dft				;
 p_dft_cmplx           	dft_cmplx		;
 p_filter_iir            filter_iir      ;
+p_goertzel              goertzel        ;
+p_goertzel_cmplx        goertzel_cmplx  ;
 p_linspace              linspace        ;
 p_logspace              logspace        ;
+p_polyval               polyval         ;
+p_polyval_cmplx         polyval_cmplx   ;
+
+
 #endif //BUILD_LIB
 
 
@@ -103,8 +109,13 @@ void* dspl_load()
     LOAD_FUNC(dft);
     LOAD_FUNC(dft_cmplx);
     LOAD_FUNC(filter_iir);
+    LOAD_FUNC(goertzel);
+    LOAD_FUNC(goertzel_cmplx);
     LOAD_FUNC(linspace);
     LOAD_FUNC(logspace);
+    LOAD_FUNC(polyval);
+    LOAD_FUNC(polyval_cmplx);
+
 
 
 

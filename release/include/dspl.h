@@ -43,11 +43,14 @@ typedef double complex_t[2];
 
 typedef struct
 {
-    void      *pfftw;
-    complex_t *in;
-    complex_t *out;
-    size_t     size;
+    complex_t*  w;
+    complex_t*  t0;
+    complex_t*  t1;
+    int         n;
+    int         p2;
 } fft_t;
+
+
 
 
 #define RE(x)           (x[0])
@@ -63,8 +66,6 @@ typedef struct
 
 #define CMCONJRE(a, b)  ((RE(a)) * (RE(b)) + (IM(a)) * (IM(b)))
 #define CMCONJIM(a, b)  ((IM(a)) * (RE(b)) - (RE(a)) * (IM(b))) 
-
-
 
 
 
@@ -179,7 +180,7 @@ extern "C" {
 
 #ifdef BUILD_LIB
 #define DECLARE_FUNC(type, fn, param)\
-                type DSPL_API fn(param);\
+                type DSPL_API fn(param);
 
 #endif
 
@@ -198,8 +199,15 @@ DECLARE_FUNC(int,   conv_cmplx,         complex_t*  COMMA int       COMMA comple
 DECLARE_FUNC(int,   dft,                double*     COMMA int       COMMA complex_t*);
 DECLARE_FUNC(int,   dft_cmplx,          complex_t*  COMMA int       COMMA complex_t*);
 DECLARE_FUNC(int,   filter_iir,         double*     COMMA double*   COMMA int COMMA double* COMMA int COMMA double*);
+DECLARE_FUNC(int,   goertzel,           double*     COMMA int       COMMA int* COMMA int COMMA complex_t*);
+DECLARE_FUNC(int,   goertzel_cmplx,     complex_t*  COMMA int       COMMA int* COMMA int COMMA complex_t*);
 DECLARE_FUNC(int,   linspace,           double      COMMA double    COMMA int COMMA int COMMA double*);
 DECLARE_FUNC(int,   logspace,           double      COMMA double    COMMA int COMMA int COMMA double*);
+DECLARE_FUNC(int,   polyval,            double*     COMMA int       COMMA double* COMMA int COMMA double*);
+DECLARE_FUNC(int,   polyval_cmplx,      complex_t*  COMMA int       COMMA complex_t* COMMA int COMMA complex_t*);
+
+
+
 
 
 #ifdef __cplusplus
