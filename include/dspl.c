@@ -35,20 +35,42 @@
 
 #ifndef BUILD_LIB
 
-p_cheby_poly1           cheby_poly1		;
-p_cheby_poly2           cheby_poly2		;
-p_conv                  conv            ;
-p_conv_cmplx            conv_cmplx      ;
-p_dft                 	dft				;
-p_dft_cmplx           	dft_cmplx		;
-p_filter_iir            filter_iir      ;
-p_goertzel              goertzel        ;
-p_goertzel_cmplx        goertzel_cmplx  ;
-p_linspace              linspace        ;
-p_logspace              logspace        ;
-p_polyval               polyval         ;
-p_polyval_cmplx         polyval_cmplx   ;
-
+p_acos_cmplx                acos_cmplx          ;
+p_asin_cmplx                asin_cmplx          ;
+p_cheby_poly1               cheby_poly1		    ;
+p_cheby_poly2               cheby_poly2		    ;
+p_cmplx2re                  cmplx2re            ;
+p_concat                    concat              ;
+p_conv                      conv                ;
+p_conv_cmplx                conv_cmplx          ;
+p_cos_cmplx                 cos_cmplx           ;
+p_dft                      	dft				    ;
+p_dft_cmplx               	dft_cmplx		    ;
+p_dmod                      dmod                ;
+p_farrow_lagrange           farrow_lagrange     ;
+p_farrow_spline             farrow_spline       ;
+p_filter_iir                filter_iir          ;
+p_flipip                    flipip              ;
+p_flipip_cmplx              flipip_cmplx        ;
+p_fourier_series_dec        fourier_series_dec  ;
+p_fourier_series_rec        fourier_series_rec  ;
+p_goertzel                  goertzel            ;
+p_goertzel_cmplx            goertzel_cmplx      ;
+p_linspace                  linspace            ;
+p_log_cmplx                 log_cmplx           ;
+p_logspace                  logspace            ;
+p_polyval                   polyval             ;
+p_polyval_cmplx             polyval_cmplx       ;
+p_randn                     randn               ;
+p_randu                     randu               ;
+p_re2cmplx                  re2cmplx            ;
+p_signal_pimp               signal_pimp         ;
+p_sin_cmplx                 sin_cmplx           ;
+p_sqrt_cmplx                sqrt_cmplx          ;
+p_trapint                   trapint             ;
+p_trapint_cmplx             trapint_cmplx       ;
+p_writebin                  writebin            ;
+p_writetxt                  writetxt            ;
 
 #endif //BUILD_LIB
 
@@ -100,23 +122,42 @@ void* dspl_load()
 		}
     #endif	//LINUX_OS
 
-
-    
+    LOAD_FUNC(acos_cmplx);
+    LOAD_FUNC(asin_cmplx);    
     LOAD_FUNC(cheby_poly1);
     LOAD_FUNC(cheby_poly2);
+    LOAD_FUNC(cmplx2re);
+    LOAD_FUNC(concat);
     LOAD_FUNC(conv);
     LOAD_FUNC(conv_cmplx);
+    LOAD_FUNC(cos_cmplx);
     LOAD_FUNC(dft);
     LOAD_FUNC(dft_cmplx);
+    LOAD_FUNC(dmod);
+    LOAD_FUNC(farrow_lagrange);
+    LOAD_FUNC(farrow_spline);
     LOAD_FUNC(filter_iir);
+    LOAD_FUNC(flipip);
+    LOAD_FUNC(flipip_cmplx);
+    LOAD_FUNC(fourier_series_dec);
+    LOAD_FUNC(fourier_series_rec);
     LOAD_FUNC(goertzel);
     LOAD_FUNC(goertzel_cmplx);
     LOAD_FUNC(linspace);
+    LOAD_FUNC(log_cmplx);
     LOAD_FUNC(logspace);
     LOAD_FUNC(polyval);
     LOAD_FUNC(polyval_cmplx);
-
-
+    LOAD_FUNC(randn);
+    LOAD_FUNC(randu);
+    LOAD_FUNC(re2cmplx);
+    LOAD_FUNC(signal_pimp);
+    LOAD_FUNC(sin_cmplx);
+    LOAD_FUNC(sqrt_cmplx);
+    LOAD_FUNC(trapint);
+    LOAD_FUNC(trapint_cmplx);
+    LOAD_FUNC(writebin);
+    LOAD_FUNC(writetxt);
 
 
     #ifdef WIN_OS

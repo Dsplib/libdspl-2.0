@@ -191,24 +191,42 @@ extern "C" {
 
 #endif
 
-
+DECLARE_FUNC(int,   acos_cmplx,         complex_t*  COMMA int       COMMA complex_t*);
+DECLARE_FUNC(int,   asin_cmplx,         complex_t*  COMMA int       COMMA complex_t*);
 DECLARE_FUNC(int,   cheby_poly1,        double*     COMMA int       COMMA int           COMMA double*);
 DECLARE_FUNC(int,   cheby_poly2,        double*     COMMA int       COMMA int           COMMA double*);
+DECLARE_FUNC(int,   cmplx2re,           complex_t*  COMMA int       COMMA double* COMMA double*);
+DECLARE_FUNC(int,   concat,             void*       COMMA size_t    COMMA void* COMMA size_t COMMA void*);
 DECLARE_FUNC(int,   conv,               double*     COMMA int       COMMA double*       COMMA int COMMA double*);
 DECLARE_FUNC(int,   conv_cmplx,         complex_t*  COMMA int       COMMA complex_t*    COMMA int COMMA complex_t*);
+DECLARE_FUNC(int,   cos_cmplx,          complex_t*  COMMA int       COMMA complex_t*);
 DECLARE_FUNC(int,   dft,                double*     COMMA int       COMMA complex_t*);
 DECLARE_FUNC(int,   dft_cmplx,          complex_t*  COMMA int       COMMA complex_t*);
+DECLARE_FUNC(double,dmod,               double      COMMA double);
+DECLARE_FUNC(int,   farrow_lagrange,    double*     COMMA int       COMMA double COMMA double COMMA double COMMA double** COMMA int*);
+DECLARE_FUNC(int,   farrow_spline,      double*     COMMA int       COMMA double COMMA double COMMA double COMMA double** COMMA int*);
 DECLARE_FUNC(int,   filter_iir,         double*     COMMA double*   COMMA int COMMA double* COMMA int COMMA double*);
+DECLARE_FUNC(int,   flipip,             double*     COMMA int);
+DECLARE_FUNC(int,   flipip_cmplx,       complex_t*  COMMA int);
+DECLARE_FUNC(int,   fourier_series_dec, double*     COMMA double*   COMMA int COMMA double COMMA int COMMA double* COMMA complex_t*);
+DECLARE_FUNC(int,   fourier_series_rec, double*     COMMA complex_t* COMMA int COMMA double* COMMA int COMMA complex_t*);
 DECLARE_FUNC(int,   goertzel,           double*     COMMA int       COMMA int* COMMA int COMMA complex_t*);
 DECLARE_FUNC(int,   goertzel_cmplx,     complex_t*  COMMA int       COMMA int* COMMA int COMMA complex_t*);
 DECLARE_FUNC(int,   linspace,           double      COMMA double    COMMA int COMMA int COMMA double*);
+DECLARE_FUNC(int,   log_cmplx,          complex_t*  COMMA int       COMMA complex_t*);
 DECLARE_FUNC(int,   logspace,           double      COMMA double    COMMA int COMMA int COMMA double*);
 DECLARE_FUNC(int,   polyval,            double*     COMMA int       COMMA double* COMMA int COMMA double*);
 DECLARE_FUNC(int,   polyval_cmplx,      complex_t*  COMMA int       COMMA complex_t* COMMA int COMMA complex_t*);
-
-
-
-
+DECLARE_FUNC(int,   randn,              double*     COMMA int       COMMA double COMMA double);
+DECLARE_FUNC(int,   randu,              double*     COMMA int);
+DECLARE_FUNC(int,   re2cmplx,           double*     COMMA int       COMMA complex_t*);
+DECLARE_FUNC(int,   signal_pimp,        double*     COMMA size_t    COMMA double COMMA double COMMA double COMMA double COMMA double*);
+DECLARE_FUNC(int,   sin_cmplx,          complex_t*  COMMA int       COMMA complex_t*);
+DECLARE_FUNC(int,   sqrt_cmplx,         complex_t*  COMMA int       COMMA complex_t*);
+DECLARE_FUNC(int,   trapint,            double*     COMMA double*   COMMA int COMMA double* sum);
+DECLARE_FUNC(int,   trapint_cmplx,      double*     COMMA complex_t* COMMA int COMMA complex_t*);
+DECLARE_FUNC(int,   writebin,           void*       COMMA int       COMMA int COMMA char*);
+DECLARE_FUNC(int,   writetxt,           double*     COMMA double*   COMMA int COMMA char*);
 
 #ifdef __cplusplus
 }
