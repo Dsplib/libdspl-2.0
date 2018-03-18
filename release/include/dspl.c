@@ -35,6 +35,8 @@
 
 #ifndef BUILD_LIB
 
+
+
 p_acos_cmplx                acos_cmplx          ;
 p_asin_cmplx                asin_cmplx          ;
 p_cheby_poly1               cheby_poly1		    ;
@@ -50,6 +52,11 @@ p_dmod                      dmod                ;
 p_farrow_lagrange           farrow_lagrange     ;
 p_farrow_spline             farrow_spline       ;
 p_filter_iir                filter_iir          ;
+p_fft                       fft                 ;
+p_fft_cmplx                 fft_cmplx           ;   
+p_fft_create                fft_create          ; 
+p_fft_free                  fft_free            ; 
+p_fft_shift                 fft_shift           ;
 p_flipip                    flipip              ;
 p_flipip_cmplx              flipip_cmplx        ;
 p_fourier_series_dec        fourier_series_dec  ;
@@ -137,6 +144,11 @@ void* dspl_load()
     LOAD_FUNC(farrow_lagrange);
     LOAD_FUNC(farrow_spline);
     LOAD_FUNC(filter_iir);
+    LOAD_FUNC(fft);
+    LOAD_FUNC(fft_cmplx);
+    LOAD_FUNC(fft_create);
+    LOAD_FUNC(fft_free);
+    LOAD_FUNC(fft_shift);
     LOAD_FUNC(flipip);
     LOAD_FUNC(flipip_cmplx);
     LOAD_FUNC(fourier_series_dec);

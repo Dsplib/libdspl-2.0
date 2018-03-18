@@ -1,7 +1,7 @@
-PRJ_DIR  = test
-
+PRJ_DIR = test
 SRC_DIR = $(PRJ_DIR)/src
 BIN_DIR = $(PRJ_DIR)/bin
+
 
 include Makefile.dirs
 
@@ -11,12 +11,11 @@ DSPL_O_FILE = $(PRJ_DIR)/obj/dspl.o
 SRC_FILES	= $(wildcard $(SRC_DIR)/*.c)
 BIN_FILES	= $(addprefix $(BIN_DIR)/,$(notdir $(SRC_FILES:.c=.exe)))
 
-
 CFLAGS  = -Wall -O3 -I$(INC_DIR) -D$(DEF_OS) 
 
 all: $(BIN_FILES)
 
-$(BIN_DIR)/%.exe: $(SRC_DIR)/%.c $(DSPL_O_FILE)
+$(BIN_DIR)/%.exe:$(SRC_DIR)/%.c $(DSPL_O_FILE)
 	$(CC)  $(CFLAGS)  $< $(DSPL_O_FILE)  -o $@ $(LFLAGS) 
 
 $(DSPL_O_FILE):$(DSPL_C_FILE)

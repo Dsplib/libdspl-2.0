@@ -82,6 +82,7 @@ typedef struct
 #define ERROR_ELLIP_MODULE              0x05121315
 /* F									0x06xxxxxx*/
 #define ERROR_FFT_CREATE                0x06060318
+#define ERROR_FFT_SIZE                  0x06062021
 #define ERROR_FILTER_A0                 0x06100100
 #define ERROR_FILTER_ORD                0x06101518
 #define ERROR_FILTER_RP                 0x06101816
@@ -206,6 +207,13 @@ DECLARE_FUNC(double,dmod,               double      COMMA double);
 DECLARE_FUNC(int,   farrow_lagrange,    double*     COMMA int       COMMA double COMMA double COMMA double COMMA double** COMMA int*);
 DECLARE_FUNC(int,   farrow_spline,      double*     COMMA int       COMMA double COMMA double COMMA double COMMA double** COMMA int*);
 DECLARE_FUNC(int,   filter_iir,         double*     COMMA double*   COMMA int COMMA double* COMMA int COMMA double*);
+
+
+DECLARE_FUNC(int,   fft,                double*     COMMA int       COMMA fft_t* COMMA complex_t* );
+DECLARE_FUNC(int,   fft_cmplx,          complex_t*  COMMA int       COMMA fft_t* COMMA complex_t* );
+DECLARE_FUNC(int,   fft_create,         fft_t*      COMMA int);
+DECLARE_FUNC(void,  fft_free,           fft_t*);
+DECLARE_FUNC(int,   fft_shift,          double*     COMMA int n     COMMA double*);
 DECLARE_FUNC(int,   flipip,             double*     COMMA int);
 DECLARE_FUNC(int,   flipip_cmplx,       complex_t*  COMMA int);
 DECLARE_FUNC(int,   fourier_series_dec, double*     COMMA double*   COMMA int COMMA double COMMA int COMMA double* COMMA complex_t*);

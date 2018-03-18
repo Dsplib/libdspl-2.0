@@ -23,8 +23,58 @@
 #include "dspl.h"
 
 int fft_bit_reverse(complex_t* x, complex_t* y, int n, int p2);
+int fft_dit(fft_t *pfft, int n, complex_t* y);
+void fft_dit_krn(complex_t *x0, complex_t *x1, complex_t *w, int n, complex_t *y0, complex_t *y1);
 int fft_p2(int n);
 
+
+
+/**************************************************************************************************
+Real vector FFT
+**************************************************************************************************/
+int DSPL_API fft(double *x, int n, fft_t* pfft, complex_t* y)
+{
+    int err;
+
+    if(!x || !pfft || !y)
+        return ERROR_PTR;
+    if(n<1)
+        return ERROR_SIZE;
+
+
+    err = fft_create(pfft, n);
+    if(err != RES_OK)
+        return err;
+    
+    re2cmplx(x, n, pfft->t1);
+
+    return fft_dit(pfft, n, y);
+}
+
+
+
+
+/**************************************************************************************************
+COMPLEX vector FFT
+**************************************************************************************************/
+int DSPL_API fft_cmplx(complex_t *x, int n, fft_t* pfft, complex_t* y)
+{
+    int err;
+
+    if(!x || !pfft || !y)
+        return ERROR_PTR;
+    if(n<1)
+        return ERROR_SIZE;
+
+
+    err = fft_create(pfft, n);
+    if(err != RES_OK)
+        return err;
+    
+    memcpy(pfft->t1, x, n*sizeof(complex_t));
+
+    return fft_dit(pfft, n, y);
+}
 
 
 
@@ -77,6 +127,150 @@ int fft_bit_reverse(complex_t* x, complex_t* y, int n, int p2)
 
 
 
+/**************************************************************************************************
+FFT create
+**************************************************************************************************/
+int DSPL_API fft_create(fft_t *pfft, int n)
+{
+    int p2, k,r,m,addr,s;
+    double phi;
+
+    p2 = fft_p2(n);
+    if(p2 < 1)
+        return ERROR_FFT_SIZE;
+    if(n < pfft->n+1)
+        return RES_OK;
+
+    pfft->n = n;
+    pfft->p2 = p2;
+
+    pfft->w = pfft->w   ? (complex_t*) realloc(pfft->w,  n*sizeof(complex_t)):
+                          (complex_t*) malloc(           n*sizeof(complex_t));
+
+
+    pfft->t0 = pfft->t0 ? (complex_t*) realloc(pfft->t0, n*sizeof(complex_t)):
+                          (complex_t*) malloc(           n*sizeof(complex_t));
+
+
+    pfft->t1 = pfft->t1 ? (complex_t*) realloc(pfft->t1, n*sizeof(complex_t)):
+                          (complex_t*) malloc(           n*sizeof(complex_t));
+
+    m = 0;
+    addr = 0;
+
+    for(k = 0; k < p2; k++)
+    {
+        s = 1<<m;
+        for( r = 0; r < s; r++)
+        {
+            phi = -M_2PI *(double)r / (double)(2*s);
+            RE(pfft->w[addr+r]) = cos(phi);
+            IM(pfft->w[addr+r]) = sin(phi);
+        }
+        addr+=s;
+        m++;
+    }
+    return RES_OK;
+}
+
+
+
+/**************************************************************************************************
+FFT decimation in time
+**************************************************************************************************/
+int fft_dit(fft_t *pfft, int n, complex_t* y)
+{
+    int k,s,m,waddr, dm,p2;
+    complex_t *t, *t0, *t1, *w;
+    int err;
+
+    p2 = fft_p2(n);
+    if(p2<0)
+        return ERROR_FFT_SIZE;
+
+    t0 = pfft->t0;
+    t1 = pfft->t1;
+    w  = pfft->w;
+
+    s = n>>1;
+    m = 1;
+    waddr = 0;
+ 
+    err = fft_bit_reverse(t1, t0, n, p2);
+    if(err!= RES_OK)
+        return err;
+   
+    while(s)
+    {
+        dm = m<<1;
+        if(s > 1)
+        {
+            for(k = 0; k < n; k+=dm)
+            {
+                fft_dit_krn(t0+k, t0+k+m, w+waddr, m, t1+k, t1+k+m);
+                t = t1;
+                t1 = t0;
+                t0 = t;
+                waddr+=m;
+                m <<= 1;
+            }
+        }
+        else
+        {
+            fft_dit_krn(t0, t0+m, w+waddr, m, y, y+m);
+        }
+        s >>= 1;     
+    }
+    
+
+    return RES_OK;
+}
+
+
+
+
+
+/**************************************************************************************************
+FFT decimation in time kernel
+**************************************************************************************************/
+void fft_dit_krn(complex_t *x0, complex_t *x1, complex_t *w, int n, complex_t *y0, complex_t *y1)
+{
+    int k;
+    complex_t mul;
+    for(k = 0; k < n; k++)
+    {
+        RE(mul) = CMRE(x1[k], w[k]);
+        IM(mul) = CMIM(x1[k], w[k]);
+
+        RE(y0[k]) = RE(x0[k]) + RE(mul);
+        IM(y0[k]) = IM(x0[k]) + IM(mul);
+        
+        RE(y1[k]) = RE(x0[k]) - RE(mul);
+        IM(y1[k]) = IM(x0[k]) - IM(mul);
+    } 
+    
+}
+
+
+
+
+
+/**************************************************************************************************
+FFT free
+**************************************************************************************************/
+void DSPL_API fft_free(fft_t *pfft)
+{
+    if(!pfft)
+        return;
+    if(pfft->w)
+        free(pfft->w);
+    if(pfft->t0)
+        free(pfft->t0);
+    if(pfft->t1)
+        free(pfft->t1);
+}
+
+
 
 
 
@@ -93,3 +287,56 @@ int fft_p2(int n)
         return -1;
     return p2;
 }
+
+
+
+
+
+
+
+/**************************************************************************************************
+FFT shifting
+***************************************************************************************************/
+int DSPL_API fft_shift(double* x, int n, double* y)
+{
+	int n2, r;
+	int k;
+	double tmp;
+	double *buf;
+	
+	if(!x || !y)
+		return ERROR_PTR;
+
+	if(n<1)
+		return ERROR_SIZE;
+		
+	r = n%2;
+	if(!r)
+	{
+		n2 = n>>1;
+		for(k = 0; k < n2; k++)
+		{
+			tmp = x[k];
+			y[k] = x[k+n2];
+			y[k+n2] = tmp;
+		}			
+	}
+	else
+	{
+		n2 = (n-1) >> 1;
+		buf = (double*) malloc(n2*sizeof(double));
+		memcpy(buf, x, n2*sizeof(double));
+		memcpy(y, x+n2, (n2+1)*sizeof(double));
+		memcpy(y+n2+1, buf, n2*sizeof(double));
+		free(buf);
+	}	
+	return RES_OK;
+}
+
+
+
+
+
+
+
+

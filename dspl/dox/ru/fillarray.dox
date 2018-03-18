@@ -38,7 +38,7 @@
 		Пример 1. Периодическое заполнение.
 		\code
 			double x[5];
-			dspl_linspace(0, 5, 5, DSPL_PERIODIC, x);
+			linspace(0, 5, 5, DSPL_PERIODIC, x);
 		\endcode
 		В массиве `x` будут лежать значения:
 		\code
@@ -48,7 +48,7 @@
 		Пример 2. Симметричное заполнение.
 		\code
 			double x[5];
-			dspl_linspace(0, 5, 5, DSPL_SYMMETRIC, x);
+			linspace(0, 5, 5, DSPL_SYMMETRIC, x);
 		\endcode
 		В массиве `x` будут лежать значения:
 		\code
@@ -108,7 +108,7 @@
 		Пример 1. Периодическое заполнение.
 		\code
 			double x[5];
-			dspl_logspace(-2, 3, 5, DSPL_PERIODIC, x);
+			logspace(-2, 3, 5, DSPL_PERIODIC, x);
 		\endcode
 		В массиве `x` будут лежать значения:
 		\code
@@ -118,7 +118,7 @@
 		Пример 2. Симметричное заполнение.
 		\code
 			double x[5];
-			dspl_logspace(-2, 3, 5, DSPL_SYMMETRIC, x);
+			logspace(-2, 3, 5, DSPL_SYMMETRIC, x);
 		\endcode
 		В массиве `x` будут лежать значения:
 		\code
