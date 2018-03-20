@@ -112,7 +112,7 @@ int fft_bit_reverse(complex_t* x, complex_t* y, int n, int p2)
 
     for(v = 0; v < n; v++)
     {
-        c = 
+        c = (unsigned int)
             ((rb_table[ v        & 0xff] << 24) |
              (rb_table[(v >>  8) & 0xff] << 16) | 
              (rb_table[(v >> 16) & 0xff] <<  8) | 
@@ -208,12 +208,12 @@ int fft_dit(fft_t *pfft, int n, complex_t* y)
             for(k = 0; k < n; k+=dm)
             {
                 fft_dit_krn(t0+k, t0+k+m, w+waddr, m, t1+k, t1+k+m);
-                t = t1;
-                t1 = t0;
-                t0 = t;
-                waddr+=m;
-                m <<= 1;
             }
+            t = t1;
+            t1 = t0;
+            t0 = t;
+            waddr+=m;
+            m <<= 1;
         }
         else
         {

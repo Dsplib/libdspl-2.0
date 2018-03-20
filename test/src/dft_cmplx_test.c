@@ -10,13 +10,16 @@ int main()
     void* handle;           // DSPL handle
     handle = dspl_load();   // Load DSPL function
 
-    double    x[N];         // real input signal
+    complex_t x[N];         // complex input signal
     complex_t y[N];         // DFT
 
     for(int k = 0; k < N; k++)
-        x[k] = (double)k;
+    {
+        RE(x[k]) = (double)k;
+        IM(x[k]) = 0.0;
+    }
 
-    dft(x, N, y);
+    dft_cmplx(x,N,y);
 
     for(int k = 0; k < N; k++)
         printf("y[%2d] = %9.3f%9.3f\n", k, RE(y[k]), IM(y[k]));
