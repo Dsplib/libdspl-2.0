@@ -25,6 +25,42 @@
 
 
 
+/**************************************************************************************************
+Polynomial zeros to coefficients
+***************************************************************************************************/
+int DSPL_API poly_z2a_cmplx(complex_t* z, int nz, int ord, complex_t* a)
+{
+    int k, ind, res;
+    complex_t x[2];
+
+    if(!z || !a)
+        return ERROR_PTR;
+    if(nz < 1)
+        return ERROR_SIZE;
+    if(nz > ord || ord < 1)
+        return ERROR_POLY_ORD;
+
+    RE(x[1]) = 1.0;
+    IM(x[1]) = 0.0;
+
+    memset(a, 0, (ord+1) * sizeof(complex_t));
+
+    RE(a[0]) = 1.0;
+    ind = 1;
+    for(k = 0; k < nz; k++)
+    {
+        RE(x[0]) = -RE(z[k]);
+        IM(x[0]) = -IM(z[k]);
+        res = conv_cmplx(a, ind, x, 2, a);
+        if(res!=RES_OK)
+            return res;
+        ind++;
+    }
+
+    return RES_OK;
+}
+
+
 
 
 /**************************************************************************************************
@@ -83,53 +119,6 @@ int DSPL_API polyval_cmplx(complex_t* a, int ord, complex_t* x, int n, complex_t
 	}  	
 	return RES_OK;
 }
-
-
-
-
-
-
-
-/**************************************************************************************************
-polynomial zeros to coeff reecalc 
-***************************************************************************************************/
-int poly_z2a(complex_t *z, int nz, int ord, complex_t *a)
-{
-    int k, ind, res;
-    complex_t x[2];
-
-    if(!z || !a)
-	    return ERROR_PTR;	
-	if(ord<0)
-		return ERROR_POLY_ORD;	
-	if(nz<1 || nz > ord)
-		return ERROR_SIZE;
-
-    memset(a, 0, (ord+1) * sizeof(complex_t));
-    RE(a[0]) = 1.0;
-    IM(a[0]) = 0.0;
-
-    RE(x[1]) = 1.0;
-    IM(x[1]) = 0.0;
-
-
-    ind = 1;
-    for(k=0; k < nz; k++)
-    {
-        RE(x[0]) = -RE(z[k]);
-        IM(x[0]) = -IM(z[k]);
-        res = conv_cmplx(a, ind, x, 2, a);
-        if(res!=RES_OK)
-            return res;        
-        ind++;        
-    }
-    return RES_OK;
-}
-
-
-
-
-
 
 
 

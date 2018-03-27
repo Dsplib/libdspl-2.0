@@ -207,7 +207,7 @@ DECLARE_FUNC(double,dmod,               double      COMMA double);
 DECLARE_FUNC(int,   farrow_lagrange,    double*     COMMA int       COMMA double COMMA double COMMA double COMMA double** COMMA int*);
 DECLARE_FUNC(int,   farrow_spline,      double*     COMMA int       COMMA double COMMA double COMMA double COMMA double** COMMA int*);
 DECLARE_FUNC(int,   filter_iir,         double*     COMMA double*   COMMA int COMMA double* COMMA int COMMA double*);
-
+DECLARE_FUNC(int,   filter_zp2ab,       complex_t*  COMMA int       COMMA complex_t* COMMA int COMMA int COMMA double* COMMA double*);
 
 DECLARE_FUNC(int,   fft,                double*     COMMA int       COMMA fft_t* COMMA complex_t* );
 DECLARE_FUNC(int,   fft_cmplx,          complex_t*  COMMA int       COMMA fft_t* COMMA complex_t* );
@@ -223,6 +223,7 @@ DECLARE_FUNC(int,   goertzel_cmplx,     complex_t*  COMMA int       COMMA int* C
 DECLARE_FUNC(int,   linspace,           double      COMMA double    COMMA int COMMA int COMMA double*);
 DECLARE_FUNC(int,   log_cmplx,          complex_t*  COMMA int       COMMA complex_t*);
 DECLARE_FUNC(int,   logspace,           double      COMMA double    COMMA int COMMA int COMMA double*);
+DECLARE_FUNC(int,   poly_z2a_cmplx,     complex_t*  COMMA int       COMMA int COMMA complex_t*);
 DECLARE_FUNC(int,   polyval,            double*     COMMA int       COMMA double* COMMA int COMMA double*);
 DECLARE_FUNC(int,   polyval_cmplx,      complex_t*  COMMA int       COMMA complex_t* COMMA int COMMA complex_t*);
 DECLARE_FUNC(int,   randn,              double*     COMMA int       COMMA double COMMA double);
