@@ -218,6 +218,8 @@ DECLARE_FUNC(int,   flipip,             double*     COMMA int);
 DECLARE_FUNC(int,   flipip_cmplx,       complex_t*  COMMA int);
 DECLARE_FUNC(int,   fourier_series_dec, double*     COMMA double*   COMMA int COMMA double COMMA int COMMA double* COMMA complex_t*);
 DECLARE_FUNC(int,   fourier_series_rec, double*     COMMA complex_t* COMMA int COMMA double* COMMA int COMMA complex_t*);
+DECLARE_FUNC(int,   freqs,              double*     COMMA double*   COMMA int COMMA double* COMMA int COMMA complex_t*);
+DECLARE_FUNC(int,   freqz,              double*     COMMA double*   COMMA int COMMA double* COMMA int COMMA complex_t*);
 DECLARE_FUNC(int,   goertzel,           double*     COMMA int       COMMA int* COMMA int COMMA complex_t*);
 DECLARE_FUNC(int,   goertzel_cmplx,     complex_t*  COMMA int       COMMA int* COMMA int COMMA complex_t*);
 DECLARE_FUNC(int,   linspace,           double      COMMA double    COMMA int COMMA int COMMA double*);

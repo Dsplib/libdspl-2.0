@@ -39,15 +39,15 @@
 
 p_acos_cmplx                acos_cmplx          ;
 p_asin_cmplx                asin_cmplx          ;
-p_cheby_poly1               cheby_poly1		    ;
-p_cheby_poly2               cheby_poly2		    ;
+p_cheby_poly1               cheby_poly1         ;
+p_cheby_poly2               cheby_poly2         ;
 p_cmplx2re                  cmplx2re            ;
 p_concat                    concat              ;
 p_conv                      conv                ;
 p_conv_cmplx                conv_cmplx          ;
 p_cos_cmplx                 cos_cmplx           ;
-p_dft                      	dft				    ;
-p_dft_cmplx               	dft_cmplx		    ;
+p_dft                       dft                 ;
+p_dft_cmplx                 dft_cmplx           ;
 p_dmod                      dmod                ;
 p_farrow_lagrange           farrow_lagrange     ;
 p_farrow_spline             farrow_spline       ;
@@ -62,6 +62,8 @@ p_flipip                    flipip              ;
 p_flipip_cmplx              flipip_cmplx        ;
 p_fourier_series_dec        fourier_series_dec  ;
 p_fourier_series_rec        fourier_series_rec  ;
+p_freqs                     freqs               ;
+p_freqz                     freqz               ;
 p_goertzel                  goertzel            ;
 p_goertzel_cmplx            goertzel_cmplx      ;
 p_linspace                  linspace            ;
@@ -156,6 +158,8 @@ void* dspl_load()
     LOAD_FUNC(flipip_cmplx);
     LOAD_FUNC(fourier_series_dec);
     LOAD_FUNC(fourier_series_rec);
+    LOAD_FUNC(freqz);
+    LOAD_FUNC(freqs);
     LOAD_FUNC(goertzel);
     LOAD_FUNC(goertzel_cmplx);
     LOAD_FUNC(linspace);
