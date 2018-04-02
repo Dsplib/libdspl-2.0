@@ -35,10 +35,10 @@
 
 #ifndef BUILD_LIB
 
-
-
 p_acos_cmplx                acos_cmplx          ;
 p_asin_cmplx                asin_cmplx          ;
+p_butter_ap                 butter_ap           ;                
+p_butter_ap_zp              butter_ap_zp        ;
 p_cheby_poly1               cheby_poly1         ;
 p_cheby_poly2               cheby_poly2         ;
 p_cmplx2re                  cmplx2re            ;
@@ -134,7 +134,9 @@ void* dspl_load()
     #endif	//LINUX_OS
 
     LOAD_FUNC(acos_cmplx);
-    LOAD_FUNC(asin_cmplx);    
+    LOAD_FUNC(asin_cmplx);
+    LOAD_FUNC(butter_ap);
+    LOAD_FUNC(butter_ap_zp);
     LOAD_FUNC(cheby_poly1);
     LOAD_FUNC(cheby_poly2);
     LOAD_FUNC(cmplx2re);

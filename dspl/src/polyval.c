@@ -35,7 +35,7 @@ int DSPL_API poly_z2a_cmplx(complex_t* z, int nz, int ord, complex_t* a)
 
     if(!z || !a)
         return ERROR_PTR;
-    if(nz < 1)
+    if(nz < 0)
         return ERROR_SIZE;
     if(nz > ord || ord < 1)
         return ERROR_POLY_ORD;

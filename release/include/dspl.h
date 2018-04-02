@@ -194,8 +194,12 @@ extern "C" {
 
 DECLARE_FUNC(int,   acos_cmplx,         complex_t*  COMMA int       COMMA complex_t*);
 DECLARE_FUNC(int,   asin_cmplx,         complex_t*  COMMA int       COMMA complex_t*);
-DECLARE_FUNC(int,   cheby_poly1,        double*     COMMA int       COMMA int           COMMA double*);
-DECLARE_FUNC(int,   cheby_poly2,        double*     COMMA int       COMMA int           COMMA double*);
+
+DECLARE_FUNC(int,   butter_ap,          double      COMMA int       COMMA double* COMMA double*);
+DECLARE_FUNC(int,   butter_ap_zp,       int         COMMA double    COMMA complex_t* COMMA int* COMMA complex_t* COMMA int*);
+
+DECLARE_FUNC(int,   cheby_poly1,        double*     COMMA int       COMMA int COMMA double*);
+DECLARE_FUNC(int,   cheby_poly2,        double*     COMMA int       COMMA int COMMA double*);
 DECLARE_FUNC(int,   cmplx2re,           complex_t*  COMMA int       COMMA double* COMMA double*);
 DECLARE_FUNC(int,   concat,             void*       COMMA size_t    COMMA void* COMMA size_t COMMA void*);
 DECLARE_FUNC(int,   conv,               double*     COMMA int       COMMA double*       COMMA int COMMA double*);
