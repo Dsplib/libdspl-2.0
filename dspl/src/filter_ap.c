@@ -30,14 +30,14 @@
 /**************************************************************************************************
 Analog Normalized Butterworth filter  
 ***************************************************************************************************/
-int DSPL_API butter_ap(double Rp, int ord, double* b, double* a)
+int DSPL_API butter_ap(double rp, int ord, double* b, double* a)
 {
-	int res;
+int res;
     complex_t *z = NULL;
     complex_t *p = NULL;
     int nz, np;
 
-    if(Rp < 0.0)
+    if(rp < 0.0)
         return ERROR_FILTER_RP;
     if(ord < 1)
         return ERROR_FILTER_ORD;
@@ -48,7 +48,7 @@ int DSPL_API butter_ap(double Rp, int ord, double* b, double* a)
     p = (complex_t*) malloc(ord*sizeof(complex_t));
     
     
-    res = butter_ap_zp(ord, Rp, z, &nz, p, &np);
+    res = butter_ap_zp(ord, rp, z, &nz, p, &np);
     if(res != RES_OK)
         goto exit_label;
     
@@ -76,23 +76,23 @@ Analog Normalized Butterworth filter zeros and poles
 ***************************************************************************************************/
 int DSPL_API butter_ap_zp(int ord, double rp, complex_t *z, int* nz, complex_t *p, int* np)
 {
-  	double alpha;
-	double theta; 
+  double alpha;
+double theta; 
     double ep; 
     int r;
-	int L;
+int L;
     int ind = 0, k;
 
     if(rp < 0 || rp == 0)
-		return ERROR_FILTER_RP;
-	if(ord < 1)
-		return ERROR_FILTER_ORD;
-	if(!z || !p || !nz || !np)
-		return ERROR_PTR;
+        return ERROR_FILTER_RP;
+    if(ord < 1)
+        return ERROR_FILTER_ORD;
+    if(!z || !p || !nz || !np)
+        return ERROR_PTR;
 
     ep = sqrt(pow(10.0, rp*0.1) - 1.0);
-	r = ord % 2;
-	L = (int)((ord-r)/2);
+    r = ord % 2;
+    L = (int)((ord-r)/2);
 
     alpha = pow(ep, -1.0/(double)ord);
     if(r)
@@ -116,6 +116,115 @@ int DSPL_API butter_ap_zp(int ord, double rp, complex_t *z, int* nz, complex_t *
 
 
 
+
+
+
+/**************************************************************************************************
+Analog Normalized Chebyshev type 1 filter  
+***************************************************************************************************/
+int DSPL_API cheby1_ap(double rp, int ord, double* b, double* a)
+{
+int res;
+    complex_t *z = NULL;
+    complex_t *p = NULL;
+    int nz, np, k;
+    complex_t h0 = {1.0, 0.0};
+    double tmp;
+    
+    
+    if(rp < 0.0)
+        return ERROR_FILTER_RP;
+    if(ord < 1)
+        return ERROR_FILTER_ORD;
+    if(!a || !b)
+        return ERROR_PTR;
+
+    z = (complex_t*) malloc(ord*sizeof(complex_t));
+    p = (complex_t*) malloc(ord*sizeof(complex_t));
+    
+    
+    res = cheby1_ap_zp(ord, rp, z, &nz, p, &np);
+    if(res != RES_OK)
+        goto exit_label;
+    
+    res = filter_zp2ab(z, nz, p, np, ord, b, a);
+    if(res != RES_OK)
+        goto exit_label;
+
+
+    if(!(ord % 2))
+        RE(h0) = 1.0 / pow(10.0, rp*0.05);
+ 
+    for(k = 0; k < np; k++)
+    {
+        tmp    = CMRE(h0, p[k]);
+        IM(h0) = CMIM(h0, p[k]);
+        RE(h0) = tmp;
+    }
+        
+    b[0] = fabs(RE(h0));
+
+exit_label:
+    if(z)
+        free(z);
+    if(p)
+        free(p);
+    return res;   
+}
+
+
+
+
+
+/**************************************************************************************************
+Analog Normalized Chebyshev type 1 filter zeros and poles  
+***************************************************************************************************/
+int DSPL_API cheby1_ap_zp(int ord, double rp, complex_t *z, int* nz, complex_t *p, int* np)
+{
+    double alpha;
+    double theta; 
+    double ep;
+    double beta; 
+    double shbeta;
+    double chbeta;
+    int r;
+    int L;
+    int ind = 0, k;
+
+    if(rp < 0 || rp == 0)
+        return ERROR_FILTER_RP;
+    if(ord < 1)
+        return ERROR_FILTER_ORD;
+    if(!z || !p || !nz || !np)
+        return ERROR_PTR;
+
+    ep = sqrt(pow(10.0, rp*0.1) - 1.0);
+    r = ord % 2;
+    L = (int)((ord-r)/2);
+    
+    
+    beta   = asinh(1.0/ep)/(double)ord;
+    chbeta = cosh(beta);
+    shbeta = sinh(beta);
+
+    if(r)
+    {
+        RE(p[ind]) = -shbeta;
+        IM(p[ind]) =  0.0;  
+        ind++;      
+    }
+    for(k = 0; k < L; k++)
+    {
+        theta = M_PI*(double)(2*k + 1)/(double)(2*ord);
+        RE(p[ind]) = RE(p[ind+1]) = -shbeta *  sin(theta);
+        IM(p[ind]) =    chbeta *  cos(theta);
+        IM(p[ind+1]) = -IM(p[ind]);
+        ind+=2;
+    }  
+    *np = ord;
+    *nz = 0;  
+    return RES_OK;
+}
 
 
 

@@ -41,6 +41,8 @@ p_butter_ap                 butter_ap           ;
 p_butter_ap_zp              butter_ap_zp        ;
 p_cheby_poly1               cheby_poly1         ;
 p_cheby_poly2               cheby_poly2         ;
+p_cheby1_ap                 cheby1_ap           ;
+p_cheby1_ap_zp              cheby1_ap_zp        ;
 p_cmplx2re                  cmplx2re            ;
 p_concat                    concat              ;
 p_conv                      conv                ;
@@ -139,6 +141,8 @@ void* dspl_load()
     LOAD_FUNC(butter_ap_zp);
     LOAD_FUNC(cheby_poly1);
     LOAD_FUNC(cheby_poly2);
+    LOAD_FUNC(cheby1_ap);
+    LOAD_FUNC(cheby1_ap_zp);
     LOAD_FUNC(cmplx2re);
     LOAD_FUNC(concat);
     LOAD_FUNC(conv);
