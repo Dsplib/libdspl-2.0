@@ -114,6 +114,7 @@ typedef struct
 #define ERROR_SYM_TYPE                  0x19251320
 /* T									0x20xxxxxx*/
 /* U									0x21xxxxxx*/
+#define ERROR_UNWRAP                    0x21142318
 /* V									0x22xxxxxx*/
 /* W									0x23xxxxxx*/
 #define ERROR_WIN_TYPE                  0x23092025
@@ -131,6 +132,10 @@ typedef struct
 
 #define DSPL_SYMMETRIC                  0x00000000
 #define DSPL_PERIODIC                   0x00000001
+
+
+#define DSPL_FLAG_LOG                   0x00000001
+#define DSPL_FLAG_UNWRAP                0x00000002
 
 #define DSPL_WIN_SYM_MASK               0x00000001
 #define DSPL_WIN_MASK                   0x000FFFFE
@@ -194,10 +199,8 @@ extern "C" {
 
 DECLARE_FUNC(int,   acos_cmplx,         complex_t*  COMMA int       COMMA complex_t*);
 DECLARE_FUNC(int,   asin_cmplx,         complex_t*  COMMA int       COMMA complex_t*);
-
 DECLARE_FUNC(int,   butter_ap,          double      COMMA int       COMMA double* COMMA double*);
 DECLARE_FUNC(int,   butter_ap_zp,       int         COMMA double    COMMA complex_t* COMMA int* COMMA complex_t* COMMA int*);
-
 DECLARE_FUNC(int,   cheby_poly1,        double*     COMMA int       COMMA int COMMA double*);
 DECLARE_FUNC(int,   cheby_poly2,        double*     COMMA int       COMMA int COMMA double*);
 DECLARE_FUNC(int,   cheby1_ap,          double      COMMA int       COMMA double* COMMA double*);
@@ -214,7 +217,6 @@ DECLARE_FUNC(int,   farrow_lagrange,    double*     COMMA int       COMMA double
 DECLARE_FUNC(int,   farrow_spline,      double*     COMMA int       COMMA double COMMA double COMMA double COMMA double** COMMA int*);
 DECLARE_FUNC(int,   filter_iir,         double*     COMMA double*   COMMA int COMMA double* COMMA int COMMA double*);
 DECLARE_FUNC(int,   filter_zp2ab,       complex_t*  COMMA int       COMMA complex_t* COMMA int COMMA int COMMA double* COMMA double*);
-
 DECLARE_FUNC(int,   fft,                double*     COMMA int       COMMA fft_t* COMMA complex_t* );
 DECLARE_FUNC(int,   fft_cmplx,          complex_t*  COMMA int       COMMA fft_t* COMMA complex_t* );
 DECLARE_FUNC(int,   fft_create,         fft_t*      COMMA int);
@@ -225,6 +227,7 @@ DECLARE_FUNC(int,   flipip_cmplx,       complex_t*  COMMA int);
 DECLARE_FUNC(int,   fourier_series_dec, double*     COMMA double*   COMMA int COMMA double COMMA int COMMA double* COMMA complex_t*);
 DECLARE_FUNC(int,   fourier_series_rec, double*     COMMA complex_t* COMMA int COMMA double* COMMA int COMMA complex_t*);
 DECLARE_FUNC(int,   freqs,              double*     COMMA double*   COMMA int COMMA double* COMMA int COMMA complex_t*);
+DECLARE_FUNC(int,   freqs_resp,         double*     COMMA double*   COMMA int COMMA double* COMMA int COMMA int COMMA double* COMMA double* COMMA double*);
 DECLARE_FUNC(int,   freqz,              double*     COMMA double*   COMMA int COMMA double* COMMA int COMMA complex_t*);
 DECLARE_FUNC(int,   goertzel,           double*     COMMA int       COMMA int* COMMA int COMMA complex_t*);
 DECLARE_FUNC(int,   goertzel_cmplx,     complex_t*  COMMA int       COMMA int* COMMA int COMMA complex_t*);
@@ -242,6 +245,7 @@ DECLARE_FUNC(int,   sin_cmplx,          complex_t*  COMMA int       COMMA comple
 DECLARE_FUNC(int,   sqrt_cmplx,         complex_t*  COMMA int       COMMA complex_t*);
 DECLARE_FUNC(int,   trapint,            double*     COMMA double*   COMMA int COMMA double* sum);
 DECLARE_FUNC(int,   trapint_cmplx,      double*     COMMA complex_t* COMMA int COMMA complex_t*);
+DECLARE_FUNC(int,   unwrap,             double*     COMMA int       COMMA double COMMA double);
 DECLARE_FUNC(int,   writebin,           void*       COMMA int       COMMA int COMMA char*);
 DECLARE_FUNC(int,   writetxt,           double*     COMMA double*   COMMA int COMMA char*);
 

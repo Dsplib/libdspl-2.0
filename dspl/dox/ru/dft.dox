@@ -91,12 +91,10 @@
 	\return
 	`RES_OK`        если ДПФ рассчитана успешно. <BR>
 	                В противном случае \ref ERROR_CODE_GROUP "код ошибки".
-                
 
- 
-	
 
-	
+
+
 	Пример использования функции `dft_cmplx`:
 	
 	\include dft_cmplx_test.c

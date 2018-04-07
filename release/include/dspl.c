@@ -65,6 +65,7 @@ p_flipip_cmplx              flipip_cmplx        ;
 p_fourier_series_dec        fourier_series_dec  ;
 p_fourier_series_rec        fourier_series_rec  ;
 p_freqs                     freqs               ;
+p_freqs_resp                freqs_resp          ;
 p_freqz                     freqz               ;
 p_goertzel                  goertzel            ;
 p_goertzel_cmplx            goertzel_cmplx      ;
@@ -82,6 +83,7 @@ p_sin_cmplx                 sin_cmplx           ;
 p_sqrt_cmplx                sqrt_cmplx          ;
 p_trapint                   trapint             ;
 p_trapint_cmplx             trapint_cmplx       ;
+p_unwrap                    unwrap              ;
 p_writebin                  writebin            ;
 p_writetxt                  writetxt            ;
 
@@ -166,6 +168,7 @@ void* dspl_load()
     LOAD_FUNC(fourier_series_rec);
     LOAD_FUNC(freqz);
     LOAD_FUNC(freqs);
+    LOAD_FUNC(freqs_resp);
     LOAD_FUNC(goertzel);
     LOAD_FUNC(goertzel_cmplx);
     LOAD_FUNC(linspace);
@@ -182,6 +185,7 @@ void* dspl_load()
     LOAD_FUNC(sqrt_cmplx);
     LOAD_FUNC(trapint);
     LOAD_FUNC(trapint_cmplx);
+    LOAD_FUNC(unwrap);
     LOAD_FUNC(writebin);
     LOAD_FUNC(writetxt);
 

@@ -181,7 +181,6 @@ Analog Normalized Chebyshev type 1 filter zeros and poles
 ***************************************************************************************************/
 int DSPL_API cheby1_ap_zp(int ord, double rp, complex_t *z, int* nz, complex_t *p, int* np)
 {
-    double alpha;
     double theta; 
     double ep;
     double beta; 
