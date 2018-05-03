@@ -30,16 +30,16 @@ Concntenate arrays
 ***************************************************************************************************/
 int DSPL_API concat(void* a, size_t na, void *b, size_t nb, void* c)
 {
-	if(!a || !b || !c || c == b)
-		return ERROR_PTR;
-	if(na < 1 || nb < 1)
-		return ERROR_SIZE;
-	
+        if(!a || !b || !c || c == b)
+                return ERROR_PTR;
+        if(na < 1 || nb < 1)
+                return ERROR_SIZE;
+        
     if(c != a)
         memcpy(c, a, na);
 
     memcpy(c+na, b, nb);
-	return RES_OK;	
+        return RES_OK;	
 }
 
 

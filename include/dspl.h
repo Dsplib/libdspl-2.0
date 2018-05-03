@@ -205,6 +205,7 @@ DECLARE_FUNC(int,   cheby_poly1,        double*     COMMA int       COMMA int CO
 DECLARE_FUNC(int,   cheby_poly2,        double*     COMMA int       COMMA int COMMA double*);
 DECLARE_FUNC(int,   cheby1_ap,          double      COMMA int       COMMA double* COMMA double*);
 DECLARE_FUNC(int,   cheby1_ap_zp,       int         COMMA double    COMMA complex_t* COMMA int* COMMA complex_t* COMMA int*);
+DECLARE_FUNC(int,   cheby2_ap_zp,       int         COMMA double    COMMA complex_t* COMMA int* COMMA complex_t* COMMA int*);
 DECLARE_FUNC(int,   cmplx2re,           complex_t*  COMMA int       COMMA double* COMMA double*);
 DECLARE_FUNC(int,   concat,             void*       COMMA size_t    COMMA void* COMMA size_t COMMA void*);
 DECLARE_FUNC(int,   conv,               double*     COMMA int       COMMA double*       COMMA int COMMA double*);
@@ -213,6 +214,7 @@ DECLARE_FUNC(int,   cos_cmplx,          complex_t*  COMMA int       COMMA comple
 DECLARE_FUNC(int,   dft,                double*     COMMA int       COMMA complex_t*);
 DECLARE_FUNC(int,   dft_cmplx,          complex_t*  COMMA int       COMMA complex_t*);
 DECLARE_FUNC(double,dmod,               double      COMMA double);
+DECLARE_FUNC(void,  dspl_info,          void);
 DECLARE_FUNC(int,   farrow_lagrange,    double*     COMMA int       COMMA double COMMA double COMMA double COMMA double** COMMA int*);
 DECLARE_FUNC(int,   farrow_spline,      double*     COMMA int       COMMA double COMMA double COMMA double COMMA double** COMMA int*);
 DECLARE_FUNC(int,   filter_iir,         double*     COMMA double*   COMMA int COMMA double* COMMA int COMMA double*);
