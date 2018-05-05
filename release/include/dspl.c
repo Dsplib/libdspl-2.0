@@ -43,6 +43,7 @@ p_cheby_poly1               cheby_poly1         ;
 p_cheby_poly2               cheby_poly2         ;
 p_cheby1_ap                 cheby1_ap           ;
 p_cheby1_ap_zp              cheby1_ap_zp        ;
+p_cheby2_ap_zp              cheby2_ap_zp        ;
 p_cmplx2re                  cmplx2re            ;
 p_concat                    concat              ;
 p_conv                      conv                ;
@@ -53,6 +54,7 @@ p_dft_cmplx                 dft_cmplx           ;
 p_dmod                      dmod                ;
 p_idft_cmplx                idft_cmplx          ;
 p_ifft_cmplx                ifft_cmplx          ;
+p_dspl_info                 dspl_info           ;
 p_farrow_lagrange           farrow_lagrange     ;
 p_farrow_spline             farrow_spline       ;
 p_filter_iir                filter_iir          ;
@@ -149,6 +151,7 @@ void* dspl_load()
     LOAD_FUNC(cheby_poly2);
     LOAD_FUNC(cheby1_ap);
     LOAD_FUNC(cheby1_ap_zp);
+    LOAD_FUNC(cheby2_ap_zp);
     LOAD_FUNC(cmplx2re);
     LOAD_FUNC(concat);
     LOAD_FUNC(conv);
@@ -159,6 +162,7 @@ void* dspl_load()
     LOAD_FUNC(dmod);
     LOAD_FUNC(idft_cmplx);
     LOAD_FUNC(ifft_cmplx);
+    LOAD_FUNC(dspl_info);
     LOAD_FUNC(farrow_lagrange);
     LOAD_FUNC(farrow_spline);
     LOAD_FUNC(filter_iir);
@@ -199,7 +203,7 @@ void* dspl_load()
 
 
     #ifdef WIN_OS
-        return (void*)handle;   
+	return (void*)handle;
 	exit_label:
 		printf("function %s loading ERROR!\n", fname);
 		if(handle)
@@ -208,13 +212,13 @@ void* dspl_load()
 	#endif //WIN_OS
 
 
-     #ifdef LINUX_OS
+	#ifdef LINUX_OS
 		return handle;		
 	exit_label:
 		printf("function %s loading ERROR!\n", fname);
 		if(handle)
 			dlclose(handle);
-		return NULL;		
+		return NULL;	
 	#endif //LINUX_OS	
 }
 
@@ -229,8 +233,6 @@ void dspl_free(void* handle)
 	#ifdef WIN_OS
 		FreeLibrary((HINSTANCE)handle);
 	#endif //WIN_OS
-
-
 	
 	#ifdef LINUX_OS
 		dlclose(handle);

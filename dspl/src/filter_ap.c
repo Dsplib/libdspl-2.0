@@ -71,6 +71,9 @@ exit_label:
 
 
 
+
+
+
 /**************************************************************************************************
 Analog Normalized Butterworth filter zeros and poles  
 ***************************************************************************************************/
@@ -222,6 +225,78 @@ int DSPL_API cheby1_ap_zp(int ord, double rp, complex_t *z, int* nz, complex_t *
     }  
     *np = ord;
     *nz = 0;  
+    return RES_OK;
+}
+
+
+
+
+
+
+
+/**************************************************************************************************
+Analog Normalized Chebyshev type 2 filter zeros and poles  
+***************************************************************************************************/
+int DSPL_API cheby2_ap_zp(int ord, double rs, complex_t *z, int* nz, complex_t *p, int* np)
+{
+    double es;
+    int L, r, k;
+    double beta;
+    int iz, ip;
+    
+    double alpha;
+    double chb, shb, sa, ca;
+    double ssh2, cch2;
+    
+    if(rs < 0 || rs == 0)
+        return ERROR_FILTER_RS;
+    if(ord < 1)
+        return ERROR_FILTER_ORD;
+    if(!z || !p || !nz || !np)
+        return ERROR_PTR;
+
+    es = sqrt(pow(10.0, rs*0.1) - 1.0);
+    r = ord % 2;
+    L = (int)((ord-r)/2);
+    
+    beta   = asinh(es)/(double)ord;
+    
+    chb = cosh(beta);
+    shb = sinh(beta);
+    
+    iz = ip = 0;
+    
+    if(r)
+    {
+        RE(p[0]) = -1.0 / sinh(beta);
+        IM(p[0]) =  0.0;
+        ip = 1;
+    }
+    
+    for(k = 0; k < L; k++)
+    {
+        alpha = M_PI*(double)(2*k + 1)/(double)(2*ord);
+        sa = sin(alpha);
+        ca = cos(alpha);
+        ssh2  = sa*shb;
+        ssh2 *= ssh2;
+        
+        cch2  = ca*chb;
+        cch2 *= cch2;
+        
+        RE(z[iz]) = RE(z[iz+1]) = 0.0;
+        IM(z[iz]) = 1.0 / ca;
+        IM(z[iz+1]) = -IM(z[iz]);
+        iz+=2;
+        
+        RE(p[ip]) = RE(p[ip+1]) = -sa*shb / (ssh2 + cch2);
+        IM(p[ip]) = ca*chb / (ssh2 + cch2);
+        IM(p[ip+1]) = -IM(p[ip]);
+        ip+=2;        
+    } 
+    *nz = iz;
+    *np = ip;
+    
     return RES_OK;
 }
 

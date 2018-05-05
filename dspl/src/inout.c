@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2017 Sergey Bakhurin
+* Copyright (c) 2015-2018 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -22,6 +22,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "dspl.h"
+
+
+
+/**************************************************************************************************
+Print DSPL info
+**************************************************************************************************/
+void DSPL_API dspl_info()
+{
+    printf("\n\n        D S P L - 2.0\n");
+    printf("        version 2.18.5.3\n");
+    printf("\n        Сopyright (C) 2015-2018\n");
+    printf("        Sergey Bakhurin        www.dsplib.org\n\n");
+}
+
+
+
+
 
 
 /**************************************************************************************************
