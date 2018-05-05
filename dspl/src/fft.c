@@ -29,6 +29,47 @@ int fft_p2(int n);
 
 
 
+
+/**************************************************************************************************
+COMPLEX vector IFFT
+**************************************************************************************************/
+int DSPL_API ifft_cmplx(complex_t *x, int n, fft_t* pfft, complex_t* y)
+{
+    int err, k;
+    double norm;
+
+    if(!x || !pfft || !y)
+        return ERROR_PTR;
+    if(n<1)
+        return ERROR_SIZE;
+
+
+    err = fft_create(pfft, n);
+    if(err != RES_OK)
+        return err;
+    
+    memcpy(pfft->t1, x, n*sizeof(complex_t));
+    for(k = 0; k < n; k++)
+        IM(pfft->t1[k]) = -IM(pfft->t1[k]);
+    
+    err = fft_dit(pfft, n, y);
+    
+    if(err!=RES_OK)
+        return err;
+    
+    norm = 1.0 / (double)n;
+    for(k = 0; k < n; k++)
+    {
+        RE(y[k]) =  RE(y[k])*norm;
+        IM(y[k]) = -IM(y[k])*norm;
+    }
+    return RES_OK; 
+}
+
+
+
+
+
 /**************************************************************************************************
 Real vector FFT
 **************************************************************************************************/
@@ -328,6 +369,52 @@ int DSPL_API fft_shift(double* x, int n, double* y)
 		memcpy(buf, x, n2*sizeof(double));
 		memcpy(y, x+n2, (n2+1)*sizeof(double));
 		memcpy(y+n2+1, buf, n2*sizeof(double));
+		free(buf);
+	}	
+	return RES_OK;
+}
+
+
+
+/**************************************************************************************************
+FFT shifting for complex vector
+***************************************************************************************************/
+int DSPL_API fft_shift_cmplx(complex_t* x, int n, complex_t* y)
+{
+	int n2, r;
+	int k;
+	complex_t tmp;
+	complex_t *buf;
+	
+	if(!x || !y)
+		return ERROR_PTR;
+
+	if(n<1)
+		return ERROR_SIZE;
+		
+	r = n%2;
+	if(!r)
+	{
+		n2 = n>>1;
+		for(k = 0; k < n2; k++)
+		{
+			RE(tmp) = RE(x[k]);
+			IM(tmp) = IM(x[k]);
+                        
+                        RE(y[k]) = RE(x[k+n2]);
+			IM(y[k]) = IM(x[k+n2]);
+                        
+                        RE(y[k+n2]) = RE(tmp);
+                        IM(y[k+n2]) = IM(tmp);
+		}			
+	}
+	else
+	{
+		n2 = (n-1) >> 1;
+		buf = (complex_t*) malloc(n2*sizeof(complex_t));
+		memcpy(buf, x, n2*sizeof(complex_t));
+		memcpy(y, x+n2, (n2+1)*sizeof(complex_t));
+		memcpy(y+n2+1, buf, n2*sizeof(complex_t));
 		free(buf);
 	}	
 	return RES_OK;

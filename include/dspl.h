@@ -213,6 +213,8 @@ DECLARE_FUNC(int,   cos_cmplx,          complex_t*  COMMA int       COMMA comple
 DECLARE_FUNC(int,   dft,                double*     COMMA int       COMMA complex_t*);
 DECLARE_FUNC(int,   dft_cmplx,          complex_t*  COMMA int       COMMA complex_t*);
 DECLARE_FUNC(double,dmod,               double      COMMA double);
+DECLARE_FUNC(int,   idft_cmplx,         complex_t*  COMMA int       COMMA complex_t*);
+DECLARE_FUNC(int,   ifft_cmplx,         complex_t*  COMMA int       COMMA fft_t* COMMA complex_t* );
 DECLARE_FUNC(int,   farrow_lagrange,    double*     COMMA int       COMMA double COMMA double COMMA double COMMA double** COMMA int*);
 DECLARE_FUNC(int,   farrow_spline,      double*     COMMA int       COMMA double COMMA double COMMA double COMMA double** COMMA int*);
 DECLARE_FUNC(int,   filter_iir,         double*     COMMA double*   COMMA int COMMA double* COMMA int COMMA double*);
@@ -221,13 +223,15 @@ DECLARE_FUNC(int,   fft,                double*     COMMA int       COMMA fft_t*
 DECLARE_FUNC(int,   fft_cmplx,          complex_t*  COMMA int       COMMA fft_t* COMMA complex_t* );
 DECLARE_FUNC(int,   fft_create,         fft_t*      COMMA int);
 DECLARE_FUNC(void,  fft_free,           fft_t*);
-DECLARE_FUNC(int,   fft_shift,          double*     COMMA int n     COMMA double*);
+DECLARE_FUNC(int,   fft_shift,          double*     COMMA int       COMMA double*);
+DECLARE_FUNC(int,   fft_shift_cmplx,    complex_t*  COMMA int       COMMA complex_t*);
 DECLARE_FUNC(int,   flipip,             double*     COMMA int);
 DECLARE_FUNC(int,   flipip_cmplx,       complex_t*  COMMA int);
 DECLARE_FUNC(int,   fourier_series_dec, double*     COMMA double*   COMMA int COMMA double COMMA int COMMA double* COMMA complex_t*);
 DECLARE_FUNC(int,   fourier_series_rec, double*     COMMA complex_t* COMMA int COMMA double* COMMA int COMMA complex_t*);
 DECLARE_FUNC(int,   freqs,              double*     COMMA double*   COMMA int COMMA double* COMMA int COMMA complex_t*);
 DECLARE_FUNC(int,   freqs_resp,         double*     COMMA double*   COMMA int COMMA double* COMMA int COMMA int COMMA double* COMMA double* COMMA double*);
+DECLARE_FUNC(int,   freqs2time,         double*     COMMA double*   COMMA int COMMA double COMMA int COMMA fft_t* COMMA double* COMMA double*);
 DECLARE_FUNC(int,   freqz,              double*     COMMA double*   COMMA int COMMA double* COMMA int COMMA complex_t*);
 DECLARE_FUNC(int,   goertzel,           double*     COMMA int       COMMA int* COMMA int COMMA complex_t*);
 DECLARE_FUNC(int,   goertzel_cmplx,     complex_t*  COMMA int       COMMA int* COMMA int COMMA complex_t*);

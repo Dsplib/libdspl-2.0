@@ -92,6 +92,69 @@ exit_label:
 
 
 
+/**************************************************************************************************
+impulse response of an analog filter H(s)
+***************************************************************************************************/
+int DSPL_API freqs2time(double* b, double* a, int ord, double fs, int n, fft_t* pfft, double *t, double *h)
+{
+    double *w = NULL;
+    complex_t *hs = NULL;
+    complex_t *ht = NULL;
+    int err, k;
+    
+    if(!b || !a || !t || !h)
+        return ERROR_PTR;
+    if(ord<1)
+        return ERROR_FILTER_ORD;
+    if(n<1)
+        return ERROR_SIZE;
+    
+    w  = (double*)malloc(n*sizeof(double));
+    hs = (complex_t*)malloc(n*sizeof(complex_t));
+    
+    
+    err = linspace(-fs*0.5, fs*0.5, n, DSPL_PERIODIC, w); 
+    if(err != RES_OK)
+        goto exit_label;
+    
+    err = freqs(b, a, ord, w, n, hs);
+    if(err != RES_OK)
+        goto exit_label;
+    
+    err = fft_shift_cmplx(hs, n, hs);
+    if(err != RES_OK)
+        goto exit_label;
+    
+    ht = (complex_t*)malloc(n*sizeof(complex_t));
+    
+    err = ifft_cmplx(hs, n, pfft, ht);
+    if(err != RES_OK)
+    {
+        err = idft_cmplx(hs, n, ht);
+        if(err != RES_OK)
+            goto exit_label;
+    }
+      
+    for(k = 0; k < n; k++)
+    {
+        t[k] = (double)k/fs;
+        h[k] = RE(ht[k]) * fs;
+    }
+      
+exit_label:
+    if(w)
+        free(w);
+    if(hs)
+        free(hs);
+    if(ht)
+        free(ht);
+    return err;
+    
+}
+
+
+
+
 
 /**************************************************************************************************
 Magnitude, phase response and group delay of an analog filter H(s)

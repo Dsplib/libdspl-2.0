@@ -3,7 +3,7 @@
 #include <string.h>
 #include "dspl.h"
 
-#define ORD 4
+#define ORD 3
 #define N   1000
 
 
@@ -13,7 +13,7 @@ int main()
     handle = dspl_load();   // Load DSPL function
 
     double a[ORD+1], b[ORD+1];
-    double Rp = 3.0;
+    double Rp = 1.0;
     double w[N], mag[N], phi[N], tau[N];
 
    
