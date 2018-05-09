@@ -26,42 +26,45 @@
 
 
 
-/**************************************************************************************************
+
+
+
+/*******************************************************************************
 Real vectors linear convolution 
-***************************************************************************************************/
+*******************************************************************************/
 int DSPL_API conv(double* a, int na, double* b, int nb, double* c)
 {
 	int k;
 	int n;
 
-    double *t;
-	size_t bufsize;	    
+	double *t;
+	size_t bufsize;
 	
-    if(!a || !b || !c)
-        return ERROR_PTR;
-    if(na < 1 || nb < 1)
-        return ERROR_SIZE;
+	if(!a || !b || !c)
+		return ERROR_PTR;
+	if(na < 1 || nb < 1)
+		return ERROR_SIZE;
 
 
-    bufsize = (na + nb - 1) * sizeof(double);	
+	bufsize = (na + nb - 1) * sizeof(double);	
 	
-    if((a != c) && (b != c))
+	if((a != c) && (b != c))
 		t = c;
 	else
 		t = (double*)malloc(bufsize);
-
-    memset(t, 0, bufsize);
+	
+	memset(t, 0, bufsize);
 
 	for(k = 0; k < na; k++)
 		for(n = 0; n < nb; n++)
 			t[k+n] += a[k]*b[n];
 
-    if(t!=c)
+	if(t!=c)
 	{
 		memcpy(c, t, bufsize);
 		free(t);
 	}
-    return RES_OK;
+	return RES_OK;
 }
 
 
@@ -77,33 +80,33 @@ int DSPL_API conv_cmplx(complex_t* a, int na, complex_t* b, int nb, complex_t* c
 	int k;
 	int n;
 
-    complex_t *t;
+	complex_t *t;
 	size_t bufsize;	    
 	
-    if(!a || !b || !c)
-        return ERROR_PTR;
-    if(na < 1 || nb < 1)
-        return ERROR_SIZE;
+	if(!a || !b || !c)
+		return ERROR_PTR;
+	if(na < 1 || nb < 1)
+		return ERROR_SIZE;
 
-    bufsize = (na + nb - 1) * sizeof(complex_t);	
+	bufsize = (na + nb - 1) * sizeof(complex_t);	
 	
-    if((a != c) && (b != c))
+	if((a != c) && (b != c))
 		t = c;
 	else
 		t = (complex_t*)malloc(bufsize);
 
-    memset(t, 0, bufsize);
+	memset(t, 0, bufsize);
 
 	for(k = 0; k < na; k++)
-    {
+	{
 		for(n = 0; n < nb; n++)
-        {
+        	{
 			RE(t[k+n]) += CMRE(a[k], b[n]);
-            IM(t[k+n]) += CMIM(a[k], b[n]);
-        }
-    }
+			IM(t[k+n]) += CMIM(a[k], b[n]);
+		}
+	}
 
-    if(t!=c)
+	if(t!=c)
 	{
 		memcpy(c, t, bufsize);
 		free(t);
@@ -116,9 +119,101 @@ int DSPL_API conv_cmplx(complex_t* a, int na, complex_t* b, int nb, complex_t* c
 
 
 
-/**************************************************************************************************
+
+/*******************************************************************************
+ Complex vectors FFT linear convolution
+ ******************************************************************************/
+int DSPL_API conv_fft_cmplx(complex_t* a, int na, complex_t* b, int nb, 
+				fft_t* pfft, complex_t* c)
+{
+	complex_t *pa = NULL;		
+	complex_t *pb = NULL;
+	complex_t *pc = NULL;
+	complex_t *pA = NULL;		
+	complex_t *pB = NULL;
+	complex_t *pC = NULL;
+	
+	int nfft, nfft2, n, npos;
+	
+	
+	nfft = 4;
+	n = nb-1;
+	while(n>>=1)
+		nfft <<= 1;
+	nfft2 = nfft >> 1;
+	
+	pa = (complex_t*)malloc(nfft * sizeof(complex_t));
+	pb = (complex_t*)malloc(nfft * sizeof(complex_t));
+	pc = (complex_t*)malloc(nfft * sizeof(complex_t));
+	pA = (complex_t*)malloc(nfft * sizeof(complex_t));
+	pB = (complex_t*)malloc(nfft * sizeof(complex_t));
+	pC = (complex_t*)malloc(nfft * sizeof(complex_t));
+	
+	npos = -nfft2;
+	memset(pa, 0, nfft*sizeof(complex_t));
+	memset(pb, 0, nfft*sizeof(complex_t));
+	
+	memcpy(pa + nfft2, a, nfft2*sizeof(complex_t));
+	memcpy(pb,	   b, nb*sizeof(complex_t));
+	
+	fft_cmplx(pa, nfft, pfft, pA);
+	fft_cmplx(pb, nfft, pfft, pB);
+	for(n = 0; n < nfft2; n++)
+	{
+		RE(pC[n]) =  CMRE(pA[n], pB[n]);
+		IM(pC[n]) = -CMIM(pA[n], pB[n]);
+	}
+	
+	ifft_cmplx(pC, nfft, pfft, pc);
+	memcpy(c, pc+nfft2, nfft2*sizeof(complex_t));
+	
+	npos = 0;
+	while(npos < na)
+	{
+		if(npos+nfft > na)
+		{
+			memset(pa, 0, nfft * sizeof(complex_t));
+			memcpy(pa, a+npos, (na - npos) * sizeof(complex_t));
+			fft_cmplx(pa, nfft, pfft, pA);
+		}
+		else
+			fft_cmplx(a+npos, nfft, pfft, pA);
+		
+		for(n = 0; n < nfft2; n++)
+		{
+			RE(pC[n]) =  CMRE(pA[n], pB[n]);
+			IM(pC[n]) = -CMIM(pA[n], pB[n]);
+		}
+		
+		ifft_cmplx(pC, nfft, pfft, pc);
+		
+		if(npos+nfft <= na+nb-1)
+			memcpy(c+npos+nfft2, pc+nfft2, nfft2*sizeof(complex_t));
+		else
+		{
+			memcpy(c+npos+nfft2, pc+nfft2, 
+				(na+nb-1-npos-nfft2)*sizeof(complex_t));
+		}
+		npos+=nfft2;
+	}
+	
+	if(pa)	free(pa);
+	if(pb)	free(pb);
+	if(pc)	free(pc);
+	if(pA)	free(pA);
+	if(pB)	free(pB);
+	if(pB)	free(pC);
+
+	return RES_OK;	
+}
+
+
+
+
+
+/*******************************************************************************
 IIR FILTER for real vector
-**************************************************************************************************/
+*******************************************************************************/
 int DSPL_API filter_iir(double* b, double* a, int ord, double* x, int n, double* y)
 {
 	double* buf = NULL;
