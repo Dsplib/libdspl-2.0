@@ -133,70 +133,149 @@ int DSPL_API conv_fft_cmplx(complex_t* a, int na, complex_t* b, int nb,
 	complex_t *pB = NULL;
 	complex_t *pC = NULL;
 	
-	int nfft, nfft2, n, npos;
+	int nfft, nfft2, n, npos, err;
+	int ma, mb;
+	complex_t *ta, *tb;
+	
+	if(!a || !b || !c)
+		return ERROR_PTR;
+	if(na < 1 || nb < 1)
+		return ERROR_SIZE;
 	
 	
-	nfft = 4;
-	n = nb-1;
-	while(n>>=1)
-		nfft <<= 1;
-	nfft2 = nfft >> 1;
-	
-	pa = (complex_t*)malloc(nfft * sizeof(complex_t));
-	pb = (complex_t*)malloc(nfft * sizeof(complex_t));
-	pc = (complex_t*)malloc(nfft * sizeof(complex_t));
-	pA = (complex_t*)malloc(nfft * sizeof(complex_t));
-	pB = (complex_t*)malloc(nfft * sizeof(complex_t));
-	pC = (complex_t*)malloc(nfft * sizeof(complex_t));
-	
-	npos = -nfft2;
-	memset(pa, 0, nfft*sizeof(complex_t));
-	memset(pb, 0, nfft*sizeof(complex_t));
-	
-	memcpy(pa + nfft2, a, nfft2*sizeof(complex_t));
-	memcpy(pb,	   b, nb*sizeof(complex_t));
-	
-	fft_cmplx(pa, nfft, pfft, pA);
-	fft_cmplx(pb, nfft, pfft, pB);
-	for(n = 0; n < nfft2; n++)
+	if(na > nb)
 	{
-		RE(pC[n]) =  CMRE(pA[n], pB[n]);
-		IM(pC[n]) = -CMIM(pA[n], pB[n]);
+		ma = na;
+		mb = nb;
+		ta = a;
+		tb = b;
 	}
-	
-	ifft_cmplx(pC, nfft, pfft, pc);
-	memcpy(c, pc+nfft2, nfft2*sizeof(complex_t));
-	
-	npos = 0;
-	while(npos < na)
+	else
 	{
-		if(npos+nfft > na)
-		{
-			memset(pa, 0, nfft * sizeof(complex_t));
-			memcpy(pa, a+npos, (na - npos) * sizeof(complex_t));
-			fft_cmplx(pa, nfft, pfft, pA);
-		}
-		else
-			fft_cmplx(a+npos, nfft, pfft, pA);
-		
-		for(n = 0; n < nfft2; n++)
-		{
-			RE(pC[n]) =  CMRE(pA[n], pB[n]);
-			IM(pC[n]) = -CMIM(pA[n], pB[n]);
-		}
-		
-		ifft_cmplx(pC, nfft, pfft, pc);
-		
-		if(npos+nfft <= na+nb-1)
-			memcpy(c+npos+nfft2, pc+nfft2, nfft2*sizeof(complex_t));
-		else
-		{
-			memcpy(c+npos+nfft2, pc+nfft2, 
-				(na+nb-1-npos-nfft2)*sizeof(complex_t));
-		}
-		npos+=nfft2;
+		ma = nb;
+		mb = na;
+		ta = b;
+		tb = a;		
 	}
-	
+	if(ma > 2*mb)
+	{
+		nfft = 4;
+		n = mb-1;
+		while(n>>=1)
+			nfft <<= 1;
+		nfft2 = nfft >> 1;
+		
+		pa = (complex_t*)malloc(nfft * sizeof(complex_t));
+		pb = (complex_t*)malloc(nfft * sizeof(complex_t));
+		pc = (complex_t*)malloc(nfft * sizeof(complex_t));
+		pA = (complex_t*)malloc(nfft * sizeof(complex_t));
+		pB = (complex_t*)malloc(nfft * sizeof(complex_t));
+		pC = (complex_t*)malloc(nfft * sizeof(complex_t));
+		
+		npos = -nfft2;
+		memset(pa, 0, nfft*sizeof(complex_t));
+		memset(pb, 0, nfft*sizeof(complex_t));
+		
+		memcpy(pa + nfft2, ta, nfft2 * sizeof(complex_t));
+		memcpy(pb,	   tb,    mb * sizeof(complex_t));
+		
+		err = fft_cmplx(pa, nfft, pfft, pA);
+		if(err != RES_OK)
+			goto exit_label;
+		
+		err = fft_cmplx(pb, nfft, pfft, pB);
+		if(err != RES_OK)
+			goto exit_label;
+		
+		for(n = 0; n < nfft; n++)
+		{
+			RE(pC[n]) = CMRE(pA[n], pB[n]);
+			IM(pC[n]) = CMIM(pA[n], pB[n]);
+		}
+		
+		err = ifft_cmplx(pC, nfft, pfft, pc);
+		if(err != RES_OK)
+			goto exit_label;
+		
+		memcpy(c, pc+nfft2, nfft2*sizeof(complex_t));
+		
+		npos = 0;
+		while(npos < ma)
+		{
+			if(npos+nfft > ma)
+			{
+				memset(pa, 0, nfft * sizeof(complex_t));
+				memcpy(pa, ta+npos, 
+				       (ma - npos) * sizeof(complex_t));
+				err = fft_cmplx(pa, nfft, pfft, pA);
+				
+				
+			}
+			else
+				err = fft_cmplx(ta+npos, nfft, pfft, pA);
+			if(err != RES_OK)
+				goto exit_label;
+			for(n = 0; n < nfft; n++)
+			{
+				RE(pC[n]) = CMRE(pA[n], pB[n]);
+				IM(pC[n]) = CMIM(pA[n], pB[n]);
+			}
+			
+			err = ifft_cmplx(pC, nfft, pfft, pc);
+			if(err != RES_OK)
+				goto exit_label;
+			if(npos+nfft <= ma+mb-1)
+				memcpy(c+npos+nfft2, pc+nfft2, 
+						nfft2*sizeof(complex_t));
+			else
+			{
+				if(ma+mb-1-npos-nfft2 > 0)
+				{
+					memcpy(c+npos+nfft2, pc+nfft2, 
+					(ma+mb-1-npos-nfft2)*sizeof(complex_t));
+				}
+			}
+			npos+=nfft2;
+		}
+	}
+	else
+	{
+		nfft = 4;
+		n = ma - 1;
+		while(n>>=1)
+			nfft <<= 1;
+		
+		pa = (complex_t*)malloc(nfft * sizeof(complex_t));
+		pb = (complex_t*)malloc(nfft * sizeof(complex_t));
+		pc = (complex_t*)malloc(nfft * sizeof(complex_t));
+		pA = (complex_t*)malloc(nfft * sizeof(complex_t));
+		pB = (complex_t*)malloc(nfft * sizeof(complex_t));
+		pC = (complex_t*)malloc(nfft * sizeof(complex_t));
+		
+		
+		memset(pa, 0, nfft*sizeof(complex_t));
+		memset(pb, 0, nfft*sizeof(complex_t));
+		
+		memcpy(pa, ta, ma * sizeof(complex_t));
+		memcpy(pb, tb, mb * sizeof(complex_t));
+		
+		err = fft_cmplx(pa, nfft, pfft, pA);
+		if(err != RES_OK)
+			goto exit_label;
+		err = fft_cmplx(pb, nfft, pfft, pB);
+		if(err != RES_OK)
+			goto exit_label;
+		for(n = 0; n < nfft; n++)
+		{
+			RE(pC[n]) = CMRE(pA[n], pB[n]);
+			IM(pC[n]) = CMIM(pA[n], pB[n]);
+		}
+		err = ifft_cmplx(pC, nfft, pfft, pc);
+		if(err != RES_OK)
+			goto exit_label;
+		memcpy(c, pc, (ma+mb-1)*sizeof(complex_t));
+	}
+exit_label:	
 	if(pa)	free(pa);
 	if(pb)	free(pb);
 	if(pc)	free(pc);
@@ -204,7 +283,7 @@ int DSPL_API conv_fft_cmplx(complex_t* a, int na, complex_t* b, int nb,
 	if(pB)	free(pB);
 	if(pB)	free(pC);
 
-	return RES_OK;	
+	return err;	
 }
 
 
