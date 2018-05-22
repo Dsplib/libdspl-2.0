@@ -300,6 +300,61 @@ DECLARE_FUNC(double,	dmod,				double
 //------------------------------------------------------------------------------
 DECLARE_FUNC(void,	dspl_info,			void);
 //------------------------------------------------------------------------------
+DECLARE_FUNC(int,	ellip_acd,			double* 	w
+						COMMA	int 		n
+						COMMA	double 		k
+						COMMA	double* 	u);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,	ellip_acd_cmplx,		complex_t*	w
+						COMMA	int		n
+						COMMA	double 		k
+						COMMA	complex_t* 	u);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,	ellip_asn,			double*		w
+						COMMA	int		n
+						COMMA	double		k
+						COMMA	double*		u);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,	ellip_asn_cmplx,		complex_t*	w
+						COMMA	int		n
+						COMMA	double		k
+						COMMA	complex_t* 	u);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,	ellip_cd,			double*		u
+						COMMA	int		n
+						COMMA	double		k
+						COMMA	double*		y);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,	ellip_cd_cmplx,			complex_t*	u
+						COMMA	int		n
+						COMMA	double		k
+						COMMA	complex_t*	y);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,	ellip_landen,			double		k
+						COMMA	int		n
+						COMMA	double*		y);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,	ellip_modulareq,		double		rp
+						COMMA	double		rs
+						COMMA	int		ord
+						COMMA	double*		k);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,	ellip_rat,			double*		w
+						COMMA	int		n
+						COMMA	int		ord
+						COMMA	double		k
+						COMMA	double*		u);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,	ellip_sn,			double*		u
+						COMMA	int		n
+						COMMA	double		k
+						COMMA	double*		y);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,	ellip_sn_cmplx,			complex_t*	u
+						COMMA	int		n
+						COMMA	double		k
+						COMMA	complex_t*	y);
+//------------------------------------------------------------------------------
 DECLARE_FUNC(int,	idft_cmplx,			complex_t*
 						COMMA	int
 						COMMA	complex_t*);
