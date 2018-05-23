@@ -351,6 +351,108 @@ int DSPL_API cheby2_ap_zp(int ord, double rs, complex_t *z, int* nz,
 
 
 
+
+
+
+
+
+/******************************************************************************
+ A *nalog Normalized Chebyshev type 2 filter zeros and poles 
+ *******************************************************************************/
+int DSPL_API ellip_ap_zp(int ord, double rp, double rs, 
+			 	complex_t *z, int* nz, complex_t *p, int* np)
+{
+	double es, ep;
+	int L, r, n, res;
+	int iz, ip;
+	double ke, k, u, t;
+	complex_t tc, v0, jv0;
+	
+	
+	if(rp < 0 || rp == 0)
+		return ERROR_FILTER_RP;
+	if(rs < 0 || rs == 0)
+		return ERROR_FILTER_RS;
+	if(ord < 1)
+		return ERROR_FILTER_ORD;
+	if(!z || !p || !nz || !np)
+		return ERROR_PTR;
+	
+	es = sqrt(pow(10.0, rs*0.1) - 1.0);
+	ep = sqrt(pow(10.0, rp*0.1) - 1.0);
+	ke = ep / es;
+	
+	r = ord % 2;
+	L = (int)((ord-r)/2);
+	
+	res = ellip_modulareq(rp, rs, ord, &k);
+	if(res != RES_OK)
+		return res;
+	// v0
+	RE(tc) = 0.0;
+	IM(tc) = 1.0 / ep;
+	
+	ellip_asn_cmplx(&tc, 1, ke, &v0);
+	
+	t = RE(v0);
+	RE(v0) = IM(v0) / (double)ord;
+	IM(v0) = -t / (double)ord;
+	
+	RE(jv0) = -IM(v0);
+	IM(jv0) =  RE(v0);
+	
+	
+	iz = ip = 0;
+	
+	if(r)
+	{
+		res = ellip_sn_cmplx(&jv0, 1, k, &tc);
+		if(res != RES_OK)
+			return res;
+		RE(p[0]) = -IM(tc);
+		IM(p[0]) =  RE(tc);
+		ip = 1;
+	}
+	
+	for(n = 0; n < L; n++)
+	{
+		u = (double)(2 * n + 1)/(double)ord;
+		
+		res = ellip_cd(& u, 1, k, &t);
+		if(res != RES_OK)
+			return res;
+		
+		RE(z[iz]) = RE(z[iz+1]) = 0.0;
+		IM(z[iz])   =  1.0/(k*t);
+		IM(z[iz+1]) = -1.0/(k*t);
+		iz+=2;
+		
+		RE(tc) = u - RE(jv0);
+		IM(tc) =   - IM(jv0);
+		
+		res = ellip_cd_cmplx(&tc, 1, k, p+ip+1);
+		if(res != RES_OK)
+			return res;
+		
+		RE(p[ip]) = -IM(p[ip+1]);
+		IM(p[ip]) =  RE(p[ip+1]);
+		
+		RE(p[ip+1]) =   RE(p[ip]);
+		IM(p[ip+1]) =  -IM(p[ip]);
+		
+		ip+=2;
+		
+		
+	} 
+	*nz = iz;
+	*np = ip;
+	
+	return RES_OK;
+}
+
+
+
+
 /******************************************************************************
 Zeros and poles to filter coefficients recalc
 *******************************************************************************/

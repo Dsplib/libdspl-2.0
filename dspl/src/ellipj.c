@@ -101,8 +101,8 @@ int DSPL_API ellip_acd_cmplx(complex_t* w, int n, double k, complex_t* u)
 			
 			t = 2.0 / ABSSQR(tmp1);
 			
-			RE(tmp0) = t * CMCONJRE(tmp1, u[m]);
-			IM(tmp0) = t * CMCONJIM(tmp1, u[m]);
+			RE(tmp0) = t * CMCONJRE(u[m], tmp1);
+			IM(tmp0) = t * CMCONJIM(u[m], tmp1);
 			
 			RE(u[m]) = RE(tmp0);
 			IM(u[m]) = IM(tmp0);
@@ -195,8 +195,8 @@ int DSPL_API ellip_asn_cmplx(complex_t* w, int n, double k, complex_t* u)
 			
 			t = 2.0 / ABSSQR(tmp1);
 			
-			RE(tmp0) = t * CMCONJRE(tmp1, u[m]);
-			IM(tmp0) = t * CMCONJIM(tmp1, u[m]);
+			RE(tmp0) = t * CMCONJRE(u[m], tmp1);
+			IM(tmp0) = t * CMCONJIM(u[m], tmp1);
 			
 			RE(u[m]) = RE(tmp0);
 			IM(u[m]) = IM(tmp0);
