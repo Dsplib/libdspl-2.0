@@ -310,6 +310,12 @@ DECLARE_FUNC(int,	ellip_acd_cmplx,		complex_t*	w
 						COMMA	double 		k
 						COMMA	complex_t* 	u);
 //------------------------------------------------------------------------------
+DECLARE_FUNC(int,	ellip_ap,			double		rp
+						COMMA	double		rs
+						COMMA	int		ord
+						COMMA	double*		b
+						COMMA	double*		a);
+//------------------------------------------------------------------------------
 DECLARE_FUNC(int,	ellip_ap_zp,			int		ord
 						COMMA	double		rp
 						COMMA	double		rs 

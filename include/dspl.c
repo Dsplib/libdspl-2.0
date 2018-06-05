@@ -56,6 +56,7 @@ p_dft_cmplx          		dft_cmplx         	;
 p_dmod               		dmod              	;
 p_ellip_acd			ellip_acd		;
 p_ellip_acd_cmplx		ellip_acd_cmplx		;
+p_ellip_ap			ellip_ap		;
 p_ellip_ap_zp			ellip_ap_zp		;
 p_ellip_asn			ellip_asn		;
 p_ellip_asn_cmplx		ellip_asn_cmplx		;
@@ -178,6 +179,7 @@ void* dspl_load()
 	LOAD_FUNC(dmod);
 	LOAD_FUNC(ellip_acd);
 	LOAD_FUNC(ellip_acd_cmplx);
+	LOAD_FUNC(ellip_ap);
 	LOAD_FUNC(ellip_ap_zp);
 	LOAD_FUNC(ellip_asn);
 	LOAD_FUNC(ellip_asn_cmplx);

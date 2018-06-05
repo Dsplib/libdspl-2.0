@@ -353,6 +353,62 @@ int DSPL_API cheby2_ap_zp(int ord, double rs, complex_t *z, int* nz,
 
 
 
+/******************************************************************************
+ * Analog Normalized Elliptic filter
+ *******************************************************************************/
+int DSPL_API ellip_ap(double rp, double rs, int ord, double* b, double* a)
+{
+	int res;
+	complex_t *z = NULL;
+	complex_t *p = NULL;
+	int nz, np;
+	double norm, g0;
+	
+	
+	if(rp < 0.0)
+		return ERROR_FILTER_RP;
+	if(rs < 0.0)
+		return ERROR_FILTER_RS;	
+	if(ord < 1)
+		return ERROR_FILTER_ORD;
+	if(!a || !b)
+		return ERROR_PTR;
+	
+	z = (complex_t*) malloc(ord*sizeof(complex_t));
+	p = (complex_t*) malloc(ord*sizeof(complex_t));
+	
+	
+	res = ellip_ap_zp(ord, rp, rs, z, &nz, p, &np);
+	if(res != RES_OK)
+		goto exit_label;
+	
+	res = filter_zp2ab(z, nz, p, np, ord, b, a);
+	if(res != RES_OK)
+		goto exit_label;
+	
+	
+	g0 = 1.0;
+	if(!(ord % 2))
+	{
+		g0 = 1.0 / pow(10.0, rp*0.05);	
+	}
+		
+	
+	norm = g0 * a[0] / b[0];
+	
+	for(nz = 0; nz < ord+1; nz++)
+		b[nz]*=norm;
+	
+	exit_label:
+	if(z)
+		free(z);
+	if(p)
+		free(p);
+	return res;
+}
+
+
+
 
 
 
