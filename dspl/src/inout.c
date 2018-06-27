@@ -25,15 +25,15 @@
 
 
 
-/**************************************************************************************************
+/*******************************************************************************
 Print DSPL info
-**************************************************************************************************/
+*******************************************************************************/
 void DSPL_API dspl_info()
 {
-    printf("\n\n        D S P L - 2.0\n");
-    printf("        version 2.18.5.3\n");
-    printf("\n        Сopyright (C) 2015-2018\n");
-    printf("        Sergey Bakhurin        www.dsplib.org\n\n");
+	printf("\n\n        D S P L - 2.0\n");
+	printf("        version 2.18.6.14\n");
+	printf("\n        Сopyright (C) 2015-2018\n");
+	printf("        Sergey Bakhurin        www.dsplib.org\n\n");
 }
 
 
@@ -41,9 +41,9 @@ void DSPL_API dspl_info()
 
 
 
-/**************************************************************************************************
+/******************************************************************************
 Write a real array to the binary file "fn" 
-***************************************************************************************************/
+*******************************************************************************/
 int DSPL_API writebin(void* x, int n, int dtype, char* fn)
 {
 	int k, res;
@@ -59,52 +59,53 @@ int DSPL_API writebin(void* x, int n, int dtype, char* fn)
 	pFile = fopen(fn, "wb");
 	if(pFile == NULL)
 	    return ERROR_FOPEN;
-		
+
 
 	if(fwrite(&dtype, sizeof(int), 1, pFile) != 1)
-    {   
-        res = ERROR_FWRITE_SIZE;
-        goto exit_label;
-    }
+	{   
+		res = ERROR_FWRITE_SIZE;
+		goto exit_label;
+	}
 
 	
-    if(fwrite(&n, sizeof(int),   1, pFile) != 1)
-    {   
-        res = ERROR_FWRITE_SIZE;
-        goto exit_label;
-    }
+	if(fwrite(&n, sizeof(int),   1, pFile) != 1)
+	{   
+		res = ERROR_FWRITE_SIZE;
+		goto exit_label;
+	}
 
 	k = 1;
 	if(fwrite(&k, sizeof(int),   1, pFile) != 1)
-    {   
-        res = ERROR_FWRITE_SIZE;
-        goto exit_label;
-    };
-
-    switch(dtype)
-    {
-        case DAT_DOUBLE:
-            if(fwrite((double*)x, sizeof(double), n, pFile) != n)
-            {   
-                res = ERROR_FWRITE_SIZE;
-                goto exit_label;
-            }
-            break;
-        case DAT_COMPLEX:
-            if(fwrite((complex_t*)x, sizeof(complex_t), n, pFile) != n)
-            {   
-                res = ERROR_FWRITE_SIZE;
-                goto exit_label;
-            }
-            break; 
-        default:
-            res = ERROR_DAT_TYPE;
-            goto exit_label;
-    }
-    res = RES_OK;
+	{   
+		res = ERROR_FWRITE_SIZE;
+		goto exit_label;
+	};
+	
+	switch(dtype)
+	{
+		case DAT_DOUBLE:
+			if(fwrite((double*)x, sizeof(double), n, pFile) != n)
+			{
+				res = ERROR_FWRITE_SIZE;
+				goto exit_label;
+			}
+			break;
+		case DAT_COMPLEX:
+			if(fwrite((complex_t*)x, 
+					sizeof(complex_t), n, pFile) != n)
+			{
+				res = ERROR_FWRITE_SIZE;
+				goto exit_label;
+			}
+			break; 
+		default:
+			res = ERROR_DAT_TYPE;
+			goto exit_label;
+	}
+	res = RES_OK;
 exit_label:
-    if(pFile)
-	    fclose(pFile);
+	if(pFile)
+		fclose(pFile);
 	return res;	
 }
 
@@ -113,9 +114,9 @@ exit_label:
 
 
 
-/**************************************************************************************************
+/******************************************************************************
 Write a real arrays to the text file "fn" 
-***************************************************************************************************/
+*******************************************************************************/
 int DSPL_API writetxt(double* x, double *y, int n, char* fn)
 {
 	int k;
@@ -143,4 +144,72 @@ int DSPL_API writetxt(double* x, double *y, int n, char* fn)
 	return RES_OK;	
 }
 
+
+
+
+
+
+/******************************************************************************
+ * Write a 3d plot data to file "fn" (pgfplots3d accepteble)
+ ******************************************************************************/
+int DSPL_API writetxt_3d(double* x, int nx, double *y, int ny, 
+			 				double* z, char* fn)
+{
+	int k, n;
+	FILE* pFile = NULL;
+	
+	if(!x || !y || !z)
+		return ERROR_PTR;
+	if(nx < 1 || ny < 1)
+		return ERROR_SIZE;
+	if(!fn)
+		return ERROR_FNAME;
+	
+	pFile = fopen(fn, "w+");
+	if(pFile == NULL)
+		return ERROR_FOPEN;
+	
+	for(k = 0; k < ny; k++)
+	{
+        	for(n = 0; n < nx; n++)
+			fprintf(pFile, "%+.12E\t%+.12E\t%+.12E\n", 
+							x[n], y[k], z[n+k*nx]);
+		fprintf(pFile, "\n");
+		
+	}
+	fclose(pFile);
+	return RES_OK;	
+}
+
+
+
+
+
+
+
+/******************************************************************************
+ * Write a 3d line data to file "fn" (pgfplots3d accepteble)
+ ******************************************************************************/
+int DSPL_API writetxt_3dline(double* x, double *y, double* z, int n, char* fn)
+{
+	int k;
+	FILE* pFile = NULL;
+	
+	if(!x || !y || !z)
+		return ERROR_PTR;
+	if(n < 1)
+		return ERROR_SIZE;
+	if(!fn)
+		return ERROR_FNAME;
+	
+	pFile = fopen(fn, "w+");
+	if(pFile == NULL)
+		return ERROR_FOPEN;
+	
+	for(k = 0; k < n; k++)
+		fprintf(pFile, "%+.12E\t%+.12E\t%+.12E\n", x[k], y[k], z[k]);
+	fprintf(pFile, "\n");
+	fclose(pFile);
+	return RES_OK;	
+}
 

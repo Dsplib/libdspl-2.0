@@ -460,6 +460,13 @@ DECLARE_FUNC(int,	freqs,				double*
 						COMMA	int 
 						COMMA	complex_t*);
 //------------------------------------------------------------------------------
+DECLARE_FUNC(int,	freqs_cmplx,			double*		b
+						COMMA	double*		a
+						COMMA	int		ord 
+						COMMA	complex_t*	s
+						COMMA	int		n
+						COMMA	complex_t*	h);
+//------------------------------------------------------------------------------
 DECLARE_FUNC(int,	freqs_resp,			double*
 						COMMA	double*   
 						COMMA	int 
@@ -584,7 +591,19 @@ DECLARE_FUNC(int,	writetxt,			double*
 						COMMA	int 
 						COMMA	char*);
 //------------------------------------------------------------------------------
-
+DECLARE_FUNC(int,	writetxt_3d,			double*		x
+						COMMA	int 		nx
+						COMMA	double*		y
+						COMMA	int		ny 
+						COMMA	double*		z
+						COMMA	char*		fn);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,	writetxt_3dline,		double*		x
+						COMMA	double*		y
+						COMMA	double*		z
+						COMMA	int		n
+						COMMA	char* 		fn);
+//------------------------------------------------------------------------------
 
 #ifdef __cplusplus
 }

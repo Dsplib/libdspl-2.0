@@ -85,6 +85,7 @@ p_flipip_cmplx       		flipip_cmplx      	;
 p_fourier_series_dec 		fourier_series_dec	;
 p_fourier_series_rec 		fourier_series_rec	;
 p_freqs              		freqs             	;
+p_freqs_cmplx			freqs_cmplx	  	;	
 p_freqs_resp         		freqs_resp        	;
 p_freqs2time         		freqs2time        	;
 p_freqz              		freqz             	;
@@ -107,6 +108,8 @@ p_trapint_cmplx      		trapint_cmplx     	;
 p_unwrap             		unwrap   		;
 p_writebin           		writebin 		;
 p_writetxt           		writetxt 		;
+p_writetxt_3d			writetxt_3d		;
+p_writetxt_3dline		writetxt_3dline		;
 
 #endif //BUILD_LIB
 
@@ -209,6 +212,7 @@ void* dspl_load()
 	LOAD_FUNC(fourier_series_rec);
 	LOAD_FUNC(freqz);
 	LOAD_FUNC(freqs);
+	LOAD_FUNC(freqs_cmplx);
 	LOAD_FUNC(freqs_resp);
 	LOAD_FUNC(freqs2time);
 	LOAD_FUNC(goertzel);
@@ -230,6 +234,8 @@ void* dspl_load()
 	LOAD_FUNC(unwrap);
 	LOAD_FUNC(writebin);
 	LOAD_FUNC(writetxt);
+	LOAD_FUNC(writetxt_3d);
+	LOAD_FUNC(writetxt_3dline);
 	
 	
 	#ifdef WIN_OS
