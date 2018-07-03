@@ -84,6 +84,7 @@ typedef struct
 #define ERROR_FFT_CREATE		0x06060318
 #define ERROR_FFT_SIZE			0x06062021
 #define ERROR_FILTER_A0			0x06100100
+#define ERROR_FILTER_FT			0x06100620
 #define ERROR_FILTER_ORD		0x06101518
 #define ERROR_FILTER_RP			0x06101816
 #define ERROR_FILTER_RS			0x06101819
@@ -521,6 +522,14 @@ DECLARE_FUNC(int,	logspace,			double
 						COMMA	int
 						COMMA	double*);
 //------------------------------------------------------------------------------
+DECLARE_FUNC(int,	low2low,			double*		b
+						COMMA	double*		a
+						COMMA	int		ord
+						COMMA	double		w0
+						COMMA 	double		w1
+						COMMA	double*		beta
+						COMMA	double*		alpha);
+//------------------------------------------------------------------------------
 DECLARE_FUNC(int,	poly_z2a_cmplx,			complex_t* 
 						COMMA	int 
 						COMMA	int 
@@ -545,6 +554,15 @@ DECLARE_FUNC(int,	randn,				double*
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	randu,				double* 
 						COMMA	int);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,	ratcompos,			double*		b
+						COMMA	double*		a
+						COMMA	int		n 
+						COMMA	double*		c
+						COMMA	double*		d
+						COMMA	int		p 
+						COMMA	double*		beta
+						COMMA	double*		alpha);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	re2cmplx,			double* 
 						COMMA	int
