@@ -522,6 +522,14 @@ DECLARE_FUNC(int,	logspace,			double
 						COMMA	int
 						COMMA	double*);
 //------------------------------------------------------------------------------
+DECLARE_FUNC(int,	low2high,			double*		b
+						COMMA	double*		a
+						COMMA	int		ord
+						COMMA	double		w0
+						COMMA 	double		w1
+						COMMA	double*		beta
+						COMMA	double*		alpha);
+//------------------------------------------------------------------------------
 DECLARE_FUNC(int,	low2low,			double*		b
 						COMMA	double*		a
 						COMMA	int		ord

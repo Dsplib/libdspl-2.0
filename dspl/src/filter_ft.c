@@ -25,6 +25,33 @@
 
 
 
+/******************************************************************************
+ * low 2 high transformation
+ *******************************************************************************/
+int DSPL_API low2high(double* b, double* a, int ord, double w0, double w1,
+		     double* beta, double* alpha)
+{
+	
+	double num[2] = {0.0, 0.0};
+	double den[2] = {0.0, 1.0};
+	
+	if(!b || !a || !beta || !alpha)
+		return ERROR_PTR;
+	if(ord < 1)
+		return ERROR_FILTER_ORD;
+	if(w0 <= 0.0 || w1 <= 0.0)
+		return ERROR_FILTER_FT;
+	
+	num[0] = w1 / w0;
+	
+	return ratcompos(b, a, ord, num, den, 1, beta, alpha);
+}
+
+
+
+
+
+
 
 /******************************************************************************
  low 2 low transformation
@@ -43,7 +70,7 @@ int DSPL_API low2low(double* b, double* a, int ord, double w0, double w1,
 	if(w0 <= 0.0 || w1 <= 0.0)
 		return ERROR_FILTER_FT;
 	
-	den[0] = w0 / w1;
+	den[0] = w1 / w0;
 	
 	return ratcompos(b, a, ord, num, den, 1, beta, alpha);
 }

@@ -786,7 +786,8 @@ INPUT                  = ru \
                          ../dspl/src \
                          ../include \
                          ../test/dox/ru \
-                         ../test/src
+                         ../test/src \
+                         ../test/bin/gnuplot
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
@@ -853,7 +854,8 @@ FILE_PATTERNS          = *.c \
                          *.ucf \
                          *.qsf \
                          *.as \
-                         *.js
+                         *.js \
+                         *.plt
 
 # The RECURSIVE tag can be used to specify whether or not subdirectories should
 # be searched for input files as well.
@@ -902,7 +904,8 @@ EXCLUDE_SYMBOLS        =
 # command).
 
 EXAMPLE_PATH           = ../test/src \
-                         ../test/dox
+                         ../test/dox \
+                         ../test/bin/gnuplot
 
 # If the value of the EXAMPLE_PATH tag contains directories, you can use the
 # EXAMPLE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp and
