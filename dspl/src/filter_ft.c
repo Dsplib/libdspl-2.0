@@ -25,9 +25,37 @@
 
 
 
+
+/******************************************************************************
+ * low 2 bandpass transformation
+ ******************************************************************************/
+int DSPL_API low2bp(  double* b, double* a, int ord, 
+		      double w0, double wpl, double wph,
+		      double* beta, double* alpha)
+{
+	
+	double num[3] = {0.0, 0.0, 1.0};
+	double den[3] = {0.0, 0.0, 0.0};
+	
+	if(!b || !a || !beta || !alpha)
+		return ERROR_PTR;
+	if(ord < 1)
+		return ERROR_FILTER_ORD;
+	if(w0 <= 0.0 || wpl <= 0.0 || wph <= 0.0 || wph <= wpl)
+		return ERROR_FILTER_FT;
+	
+	num[0] = (wph * wpl) / (w0 * w0);
+	den[1] = (wph - wpl) / w0;
+	
+	return ratcompos(b, a, ord, num, den, 2, beta, alpha);
+}
+
+
+
+
 /******************************************************************************
  * low 2 high transformation
- *******************************************************************************/
+ ******************************************************************************/
 int DSPL_API low2high(double* b, double* a, int ord, double w0, double w1,
 		     double* beta, double* alpha)
 {
