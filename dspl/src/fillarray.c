@@ -3,7 +3,7 @@
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
-*  
+*
 * is free software: you can redistribute it and/or modify
 * it under the terms of the GNU Lesser  General Public License as published by
 * the Free Software Foundation, either version 3 of the License, or
@@ -25,18 +25,18 @@
 
 
 
-/**************************************************************************************************
+/*******************************************************************************
 Linspace array filling
-***************************************************************************************************/
+*******************************************************************************/
 int DSPL_API linspace(double x0, double x1, int n, int type, double* x)
 {
     double dx;
 	int k;
-		
+
 	if(n < 2)
 		return ERROR_SIZE;
 	if(!x)
-		return ERROR_PTR;	
+		return ERROR_PTR;
 
     switch (type)
     {
@@ -54,22 +54,22 @@ int DSPL_API linspace(double x0, double x1, int n, int type, double* x)
             break;
         default:
             return ERROR_SYM_TYPE;
-	}	
-	return RES_OK;		
+	}
+	return RES_OK;
 }
 
 
 
 
 
-/**************************************************************************************************
+/*******************************************************************************
 Logspace array filling
-***************************************************************************************************/
+*******************************************************************************/
 int DSPL_API logspace(double x0, double x1, int n, int type, double* x)
 {
 	double mx, a, b;
 	int k;
-	
+
 	if(n < 2)
 		return ERROR_SIZE;
 	if(!x)
@@ -77,7 +77,7 @@ int DSPL_API logspace(double x0, double x1, int n, int type, double* x)
 
 	a = pow(10.0, x0);
 	b = pow(10.0, x1);
-	
+
     switch (type)
     {
         case DSPL_SYMMETRIC:
@@ -94,12 +94,7 @@ int DSPL_API logspace(double x0, double x1, int n, int type, double* x)
             break;
         default:
             return ERROR_SYM_TYPE;
-	}	
-	return RES_OK;		
+	}
+	return RES_OK;
 }
-
-
-
-
-
 

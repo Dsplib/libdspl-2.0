@@ -3,7 +3,7 @@
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
-*  
+*
 * is free software: you can redistribute it and/or modify
 * it under the terms of the GNU Lesser  General Public License as published by
 * the Free Software Foundation, either version 3 of the License, or
@@ -73,11 +73,11 @@ p_dspl_info          		dspl_info         	;
 p_farrow_lagrange    		farrow_lagrange   	;
 p_farrow_spline      		farrow_spline     	;
 p_filter_iir         		filter_iir        	;
-p_filter_zp2ab       		filter_zp2ab      	; 
+p_filter_zp2ab       		filter_zp2ab      	;
 p_fft                		fft               	;
-p_fft_cmplx          		fft_cmplx         	;   
-p_fft_create         		fft_create        	; 
-p_fft_free           		fft_free          	; 
+p_fft_cmplx          		fft_cmplx         	;
+p_fft_create         		fft_create        	;
+p_fft_free           		fft_free          	;
 p_fft_shift          		fft_shift         	;
 p_fft_shift_cmplx    		fft_shift_cmplx   	;
 p_flipip             		flipip            	;
@@ -105,7 +105,9 @@ p_randu              		randu             	;
 p_ratcompos			ratcompos		;
 p_re2cmplx           		re2cmplx          	;
 p_signal_pimp        		signal_pimp       	;
+p_signal_saw        		signal_saw       	;
 p_sin_cmplx          		sin_cmplx         	;
+p_sinc				sinc			;
 p_sqrt_cmplx         		sqrt_cmplx        	;
 p_trapint            		trapint           	;
 p_trapint_cmplx      		trapint_cmplx     	;
@@ -143,14 +145,14 @@ void* dspl_load()
 {
 	char* fname;
 	#ifdef WIN_OS
-		HINSTANCE handle;		
+		HINSTANCE handle;
 		handle = LoadLibrary(TEXT("libdspl.dll"));
 		if (!handle)
 		{
 			printf("libdspl.dll loading ERROR!\n");
 			return NULL;
 		}
-		#endif //WIN_OS		
+		#endif //WIN_OS
 
 
 	#ifdef LINUX_OS
@@ -158,7 +160,7 @@ void* dspl_load()
 		void *handle;
 		// open the *.so
 		handle = dlopen ("./libdspl.so", RTLD_LAZY);
-		if (!handle) 
+		if (!handle)
 		{
 			printf("libdspl.so loading ERROR!\n");
 			return NULL;
@@ -235,7 +237,9 @@ void* dspl_load()
 	LOAD_FUNC(ratcompos);
 	LOAD_FUNC(re2cmplx);
 	LOAD_FUNC(signal_pimp);
+	LOAD_FUNC(signal_saw);
 	LOAD_FUNC(sin_cmplx);
+	LOAD_FUNC(sinc);
 	LOAD_FUNC(sqrt_cmplx);
 	LOAD_FUNC(trapint);
 	LOAD_FUNC(trapint_cmplx);
@@ -244,26 +248,26 @@ void* dspl_load()
 	LOAD_FUNC(writetxt);
 	LOAD_FUNC(writetxt_3d);
 	LOAD_FUNC(writetxt_3dline);
-	
-	
+
+
 	#ifdef WIN_OS
 	return (void*)handle;
 	exit_label:
 		printf("function %s loading ERROR!\n", fname);
 		if(handle)
 			FreeLibrary(handle);
-		return NULL;		
+		return NULL;
 	#endif //WIN_OS
 
 
 	#ifdef LINUX_OS
-		return handle;		
+		return handle;
 	exit_label:
 		printf("function %s loading ERROR!\n", fname);
 		if(handle)
 			dlclose(handle);
-		return NULL;	
-	#endif //LINUX_OS	
+		return NULL;
+	#endif //LINUX_OS
 }
 
 
@@ -277,13 +281,10 @@ void dspl_free(void* handle)
 	#ifdef WIN_OS
 		FreeLibrary((HINSTANCE)handle);
 	#endif //WIN_OS
-	
+
 	#ifdef LINUX_OS
 		dlclose(handle);
-	#endif //LINUX_OS	
-	
+	#endif //LINUX_OS
+
 }
-
-
-
 

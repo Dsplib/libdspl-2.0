@@ -3,7 +3,7 @@
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
-*  
+*
 * is free software: you can redistribute it and/or modify
 * it under the terms of the GNU Lesser  General Public License as published by
 * the Free Software Foundation, either version 3 of the License, or
@@ -25,7 +25,7 @@
 
 
 #include <math.h>
-  
+
 
 /* math const definition */
 #ifndef M_PI
@@ -34,10 +34,10 @@
 #ifndef M_2PI
 	#define M_2PI	6.283185307179586476925286766559
 #endif
-     
 
 
-typedef double complex_t[2];	 
+
+typedef double complex_t[2];
 
 
 
@@ -54,10 +54,10 @@ typedef struct
 
 
 #define RE(x)           (x[0])
-#define IM(x)           (x[1]) 
+#define IM(x)           (x[1])
 
 
-#define SQR(x)          ((x) * (x)) 
+#define SQR(x)          ((x) * (x))
 #define ABSSQR(x)       ((SQR(RE(x))) + (SQR(IM(x))))
 #define ABS(x)          sqrt((ABSSQR(x)))
 
@@ -65,7 +65,7 @@ typedef struct
 #define CMIM(a,b)       ((RE(a)) * (IM(b)) + (IM(a)) * (RE(b)))
 
 #define CMCONJRE(a, b)  ((RE(a)) * (RE(b)) + (IM(a)) * (IM(b)))
-#define CMCONJIM(a, b)  ((IM(a)) * (RE(b)) - (RE(a)) * (IM(b))) 
+#define CMCONJIM(a, b)  ((IM(a)) * (RE(b)) - (RE(a)) * (IM(b)))
 
 
 
@@ -198,7 +198,7 @@ extern "C" {
 
 #endif
 
-			
+
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	acos_cmplx,			complex_t*
 						COMMA	int
@@ -208,9 +208,9 @@ DECLARE_FUNC(int,	asin_cmplx,			complex_t*
 						COMMA	int
 						COMMA	complex_t*);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,	butter_ap,			double	
+DECLARE_FUNC(int,	butter_ap,			double
 						COMMA	int
-						COMMA	double* 
+						COMMA	double*
 						COMMA	double*);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	butter_ap_zp,			int
@@ -235,11 +235,11 @@ DECLARE_FUNC(int,	cheby1_ap,			double
 						COMMA	double*
 						COMMA	double*);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,	cheby1_ap_zp,			int         
-						COMMA	double    
-						COMMA	complex_t* 
-						COMMA	int* 
-						COMMA	complex_t* 
+DECLARE_FUNC(int,	cheby1_ap_zp,			int
+						COMMA	double
+						COMMA	complex_t*
+						COMMA	int*
+						COMMA	complex_t*
 						COMMA	int*);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	cheby2_ap,			double 		rs
@@ -249,54 +249,54 @@ DECLARE_FUNC(int,	cheby2_ap,			double 		rs
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	cheby2_ap_zp, 			int
 						COMMA	double
-						COMMA	complex_t* 
-						COMMA	int* 
-						COMMA	complex_t* 
+						COMMA	complex_t*
+						COMMA	int*
+						COMMA	complex_t*
 						COMMA	int*);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	cmplx2re,			complex_t*
 						COMMA	int
-						COMMA	double* 
+						COMMA	double*
 						COMMA	double*);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	concat,	 			void*
 						COMMA	size_t
-						COMMA	void* 
-						COMMA	size_t 
+						COMMA	void*
+						COMMA	size_t
 						COMMA	void*);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,	conv,	 			double*     
-						COMMA	int       
-						COMMA	double*       
-						COMMA	int 
+DECLARE_FUNC(int,	conv,	 			double*
+						COMMA	int
+						COMMA	double*
+						COMMA	int
 						COMMA	double*);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,	conv_cmplx,			complex_t*  
-						COMMA	int       
-						COMMA	complex_t*    
-						COMMA	int 
+DECLARE_FUNC(int,	conv_cmplx,			complex_t*
+						COMMA	int
+						COMMA	complex_t*
+						COMMA	int
 						COMMA	complex_t*);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	conv_fft_cmplx,			complex_t*	a
 						COMMA	int 		na
 						COMMA	complex_t* 	b
-						COMMA	int 		nb 
+						COMMA	int 		nb
 						COMMA	fft_t* 		pfft
 						COMMA	complex_t* 	c);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,	cos_cmplx,			complex_t*  
-						COMMA	int       
+DECLARE_FUNC(int,	cos_cmplx,			complex_t*
+						COMMA	int
 						COMMA	complex_t*);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,	dft,				double*     
-						COMMA	int       
+DECLARE_FUNC(int,	dft,				double*
+						COMMA	int
 						COMMA	complex_t*);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,	dft_cmplx,			complex_t*  
-						COMMA	int       
+DECLARE_FUNC(int,	dft_cmplx,			complex_t*
+						COMMA	int
 						COMMA	complex_t*);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(double,	dmod,				double 
+DECLARE_FUNC(double,	dmod,				double
 						COMMA	double);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(void,	dspl_info,			void);
@@ -319,7 +319,7 @@ DECLARE_FUNC(int,	ellip_ap,			double		rp
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	ellip_ap_zp,			int		ord
 						COMMA	double		rp
-						COMMA	double		rs 
+						COMMA	double		rs
 						COMMA	complex_t*	z
 						COMMA	int* 		nz
 						COMMA	complex_t*	p
@@ -376,57 +376,57 @@ DECLARE_FUNC(int,	idft_cmplx,			complex_t*
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	ifft_cmplx,			complex_t*
 						COMMA	int
-						COMMA	fft_t* 
+						COMMA	fft_t*
 						COMMA	complex_t* );
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,	farrow_lagrange,		double*     
-						COMMA	int       
-						COMMA	double 
-						COMMA	double 
-						COMMA	double 
-						COMMA	double** 
+DECLARE_FUNC(int,	farrow_lagrange,		double*
+						COMMA	int
+						COMMA	double
+						COMMA	double
+						COMMA	double
+						COMMA	double**
 						COMMA	int*);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,	farrow_spline,			double*     
-						COMMA	int       
-						COMMA	double 
-						COMMA	double 
-						COMMA	double 
-						COMMA	double** 
+DECLARE_FUNC(int,	farrow_spline,			double*
+						COMMA	int
+						COMMA	double
+						COMMA	double
+						COMMA	double
+						COMMA	double**
 						COMMA	int*);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,	filter_iir,			double*     
-						COMMA	double*   
-						COMMA	int 
-						COMMA	double* 
-						COMMA	int 
+DECLARE_FUNC(int,	filter_iir,			double*
+						COMMA	double*
+						COMMA	int
+						COMMA	double*
+						COMMA	int
 						COMMA	double*);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,	filter_zp2ab,			complex_t*  
-						COMMA	int      
-						COMMA	complex_t* 
-						COMMA	int 
-						COMMA	int 
-						COMMA	double* 
+DECLARE_FUNC(int,	filter_zp2ab,			complex_t*
+						COMMA	int
+						COMMA	complex_t*
+						COMMA	int
+						COMMA	int
+						COMMA	double*
 						COMMA	double*);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	fft,				double*
-						COMMA	int       
-						COMMA	fft_t* 
-						COMMA	complex_t* );
-//------------------------------------------------------------------------------
-DECLARE_FUNC(int,	fft_cmplx,			complex_t*  
 						COMMA	int
-						COMMA	fft_t* 
+						COMMA	fft_t*
 						COMMA	complex_t* );
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,	fft_create,			fft_t*      
+DECLARE_FUNC(int,	fft_cmplx,			complex_t*
+						COMMA	int
+						COMMA	fft_t*
+						COMMA	complex_t* );
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,	fft_create,			fft_t*
 						COMMA	int);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(void,	fft_free,			fft_t*);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,	fft_shift,			double*     
-						COMMA	int n     
+DECLARE_FUNC(int,	fft_shift,			double*
+						COMMA	int n
 						COMMA	double*);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	fft_shift_cmplx,		complex_t*
@@ -439,43 +439,43 @@ DECLARE_FUNC(int,	flipip,				double*
 DECLARE_FUNC(int,	flipip_cmplx,			complex_t*
 						COMMA	int);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,	fourier_series_dec,		double*     
-						COMMA	double*   
-						COMMA	int 
-						COMMA	double 
-						COMMA	int 
-						COMMA	double* 
+DECLARE_FUNC(int,	fourier_series_dec,		double*
+						COMMA	double*
+						COMMA	int
+						COMMA	double
+						COMMA	int
+						COMMA	double*
 						COMMA	complex_t*);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	fourier_series_rec,		double*
-						COMMA	complex_t* 
-						COMMA	int 
-						COMMA	double* 
-						COMMA	int 
+						COMMA	complex_t*
+						COMMA	int
+						COMMA	double*
+						COMMA	int
 						COMMA	complex_t*);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,	freqs,				double*     
-						COMMA	double*   
-						COMMA	int 
-						COMMA	double* 
-						COMMA	int 
+DECLARE_FUNC(int,	freqs,				double*
+						COMMA	double*
+						COMMA	int
+						COMMA	double*
+						COMMA	int
 						COMMA	complex_t*);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	freqs_cmplx,			double*		b
 						COMMA	double*		a
-						COMMA	int		ord 
+						COMMA	int		ord
 						COMMA	complex_t*	s
 						COMMA	int		n
 						COMMA	complex_t*	h);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	freqs_resp,			double*
-						COMMA	double*   
-						COMMA	int 
-						COMMA	double* 
-						COMMA	int 
-						COMMA	int 
-						COMMA	double* 
-						COMMA	double* 
+						COMMA	double*
+						COMMA	int
+						COMMA	double*
+						COMMA	int
+						COMMA	int
+						COMMA	double*
+						COMMA	double*
 						COMMA	double*);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	freqs2time,			double*
@@ -487,11 +487,11 @@ DECLARE_FUNC(int,	freqs2time,			double*
 						COMMA	double*
 						COMMA	double*);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,	freqz,				double*     
-						COMMA	double*   
-						COMMA	int 
-						COMMA	double* 
-						COMMA	int 
+DECLARE_FUNC(int,	freqz,				double*
+						COMMA	double*
+						COMMA	int
+						COMMA	double*
+						COMMA	int
 						COMMA	complex_t*);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	goertzel,			double*
@@ -502,14 +502,14 @@ DECLARE_FUNC(int,	goertzel,			double*
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	goertzel_cmplx,			complex_t*
 						COMMA	int
-						COMMA	int* 
-						COMMA	int 
+						COMMA	int*
+						COMMA	int
 						COMMA	complex_t*);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	linspace,			double
 						COMMA	double
-						COMMA	int 
-						COMMA	int 
+						COMMA	int
+						COMMA	int
 						COMMA	double*);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	log_cmplx,			complex_t*
@@ -524,7 +524,7 @@ DECLARE_FUNC(int,	logspace,			double
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	low2bp,				double*		b
 						COMMA	double*		a
-						COMMA	int		ord 
+						COMMA	int		ord
 						COMMA	double		w0
 						COMMA	double		wpl
 						COMMA	double		wph
@@ -547,41 +547,41 @@ DECLARE_FUNC(int,	low2low,			double*		b
 						COMMA	double*		beta
 						COMMA	double*		alpha);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,	poly_z2a_cmplx,			complex_t* 
-						COMMA	int 
-						COMMA	int 
+DECLARE_FUNC(int,	poly_z2a_cmplx,			complex_t*
+						COMMA	int
+						COMMA	int
 						COMMA	complex_t*);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	polyval,			double*
 						COMMA	int
 						COMMA	double*
-						COMMA	int 
+						COMMA	int
 						COMMA	double*);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	polyval_cmplx,			complex_t*
 						COMMA	int
 						COMMA	complex_t*
-						COMMA	int 
+						COMMA	int
 						COMMA	complex_t*);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,	randn,				double* 
-						COMMA	int 
-						COMMA	double 
+DECLARE_FUNC(int,	randn,				double*
+						COMMA	int
+						COMMA	double
 						COMMA	double);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,	randu,				double* 
+DECLARE_FUNC(int,	randu,				double*
 						COMMA	int);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	ratcompos,			double*		b
 						COMMA	double*		a
-						COMMA	int		n 
+						COMMA	int		n
 						COMMA	double*		c
 						COMMA	double*		d
-						COMMA	int		p 
+						COMMA	int		p
 						COMMA	double*		beta
 						COMMA	double*		alpha);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,	re2cmplx,			double* 
+DECLARE_FUNC(int,	re2cmplx,			double*
 						COMMA	int
 						COMMA	complex_t*);
 //------------------------------------------------------------------------------
@@ -593,43 +593,54 @@ DECLARE_FUNC(int,	signal_pimp,			double*
 						COMMA	double
 						COMMA	double*);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,	sin_cmplx,			complex_t*  
-						COMMA	int       
+DECLARE_FUNC(int,	signal_saw,			double*		t
+						COMMA	size_t		n
+						COMMA	double		amp
+						COMMA	double		dt
+						COMMA	double		period
+						COMMA	double* 	y);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,	sin_cmplx,			complex_t*
+						COMMA	int
 						COMMA	complex_t*);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,	sqrt_cmplx,			complex_t*  
-						COMMA	int       
+DECLARE_FUNC(int,	sinc,				double*		x
+						COMMA	int		n
+						COMMA	double* 	y);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,	sqrt_cmplx,			complex_t*
+						COMMA	int
 						COMMA	complex_t*);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,	trapint,			double*     
-						COMMA	double*   
-						COMMA	int 
+DECLARE_FUNC(int,	trapint,			double*
+						COMMA	double*
+						COMMA	int
 						COMMA	double*);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,	trapint_cmplx,			double*     
+DECLARE_FUNC(int,	trapint_cmplx,			double*
 						COMMA	complex_t*
-						COMMA	int 
+						COMMA	int
 						COMMA	complex_t*);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	unwrap,				double*
 						COMMA	int
-						COMMA	double 
+						COMMA	double
 						COMMA	double);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	writebin,			void*
-						COMMA	int 
-						COMMA	int 
+						COMMA	int
+						COMMA	int
 						COMMA	char*);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,	writetxt,			double* 
-						COMMA	double* 
-						COMMA	int 
+DECLARE_FUNC(int,	writetxt,			double*
+						COMMA	double*
+						COMMA	int
 						COMMA	char*);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	writetxt_3d,			double*		x
 						COMMA	int 		nx
 						COMMA	double*		y
-						COMMA	int		ny 
+						COMMA	int		ny
 						COMMA	double*		z
 						COMMA	char*		fn);
 //------------------------------------------------------------------------------
