@@ -43,14 +43,22 @@ typedef double complex_t[2];
 
 typedef struct
 {
-    complex_t*  w;
-    complex_t*  t0;
-    complex_t*  t1;
-    int         n;
-    int         p2;
+	complex_t*  w;
+	complex_t*  t0;
+	complex_t*  t1;
+	int         n;
+	int         p2;
 } fft_t;
 
 
+
+typedef struct
+{
+	void* dat;
+	int n;
+	int m;
+	int type;
+} matrix_t;
 
 
 #define RE(x)           (x[0])
@@ -99,6 +107,7 @@ typedef struct
 /* K					0x11xxxxxx*/
 /* L					0x12xxxxxx*/
 /* M					0x13xxxxxx*/
+#define	ERROR_MATRIX_SIZE		0x13011909
 /* N					0x14xxxxxx*/
 #define ERROR_NEGATIVE			0x14050701
 /* O					0x15xxxxxx*/
@@ -124,11 +133,11 @@ typedef struct
 /* Y					0x25xxxxxx*/
 /* Z					0x26xxxxxx*/
 
+#define DAT_MASK			0x00000001
+#define DAT_DOUBLE			0x00000000
+#define DAT_COMPLEX			0x00000001
 
-#define DAT_DOUBLE			0
-#define DAT_COMPLEX			1
-
-
+#define DSPL_MATRIX_BLOCK		32
 
 
 #define DSPL_SYMMETRIC			0x00000000
@@ -547,6 +556,11 @@ DECLARE_FUNC(int,	low2low,			double*		b
 						COMMA	double*		beta
 						COMMA	double*		alpha);
 //------------------------------------------------------------------------------
+DECLARE_FUNC(int,	matrix_create,			matrix_t*	a
+						COMMA	int 		n
+						COMMA	int		m
+						COMMA	int		type);
+//------------------------------------------------------------------------------
 DECLARE_FUNC(int,	poly_z2a_cmplx,			complex_t*
 						COMMA	int
 						COMMA	int
@@ -606,6 +620,7 @@ DECLARE_FUNC(int,	sin_cmplx,			complex_t*
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	sinc,				double*		x
 						COMMA	int		n
+						COMMA	double		a
 						COMMA	double* 	y);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	sqrt_cmplx,			complex_t*

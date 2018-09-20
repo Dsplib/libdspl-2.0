@@ -97,6 +97,7 @@ p_logspace           		logspace          	;
 p_low2bp			low2bp			;
 p_low2high			low2high		;
 p_low2low			low2low			;
+p_matrix_create			matrix_create		;
 p_poly_z2a_cmplx     		poly_z2a_cmplx    	;
 p_polyval            		polyval           	;
 p_polyval_cmplx      		polyval_cmplx     	;
@@ -229,6 +230,7 @@ void* dspl_load()
 	LOAD_FUNC(low2bp);
 	LOAD_FUNC(low2high);
 	LOAD_FUNC(low2low);
+	LOAD_FUNC(matrix_create);
 	LOAD_FUNC(poly_z2a_cmplx);
 	LOAD_FUNC(polyval);
 	LOAD_FUNC(polyval_cmplx);

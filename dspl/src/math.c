@@ -41,7 +41,7 @@ double DSPL_API dmod (double x, double y)
 /*******************************************************************************
 sinc(x) = sin(pi*x)/(pi*x)
 *******************************************************************************/
-int DSPL_API sinc(double* x, int n, double* y)
+int DSPL_API sinc(double* x, int n, double a, double* y)
 {
 	int k;
 
@@ -51,7 +51,7 @@ int DSPL_API sinc(double* x, int n, double* y)
 		return ERROR_SIZE;
 
 	for(k = 0; k < n; k++)
-		y[k] = (x[k]==0.0) ? 1.0 : sin(M_PI*x[k])/(M_PI*x[k]);
+		y[k] = (x[k]==0.0) ? 1.0 : sin(a*x[k])/(a*x[k]);
 
 	return RES_OK;
 
