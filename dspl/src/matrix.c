@@ -17,7 +17,7 @@
 * You should have received a copy of the GNU Lesser General Public License
 * along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 */
-
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "dspl.h"
@@ -30,8 +30,9 @@ void transpose_hermite(complex_t* a, int n, int m, complex_t* b);
 
 
 
+
 /*******************************************************************************
-Real matrx transpose
+matrix_create
 *******************************************************************************/
 int DSPL_API matrix_create(matrix_t* a, int n, int m, int type)
 {
@@ -63,6 +64,123 @@ int DSPL_API matrix_create(matrix_t* a, int n, int m, int type)
 
 
 
+
+
+/*******************************************************************************
+matrix_free
+*******************************************************************************/
+void DSPL_API matrix_free(matrix_t* a)
+{
+	if(!a)
+		return;
+	if(a->dat)
+		free(a->dat);
+	a->n = a->m = a->type = 0;
+}
+
+
+
+
+
+
+/*******************************************************************************
+matrix transposition
+*******************************************************************************/
+int DSPL_API matrix_print(matrix_t* a, const char* name, const char* format)
+{
+	int n,m;
+	if(!a)
+		return ERROR_PTR;
+	if(!a->dat)
+		return ERROR_PTR;
+
+	if((a->type & DAT_MASK) == DAT_DOUBLE)
+	{
+		printf("\nMatrix %s size [%d x %d] type: real\n",
+							name, a->n, a->m);
+		double* p = (double*)(a->dat);
+		for(n = 0; n < a->n; n++)
+		{
+			for(m = 0; m < a->m; m++)
+			{
+				printf(format, p[m*a->n + n]);
+			}
+			printf("\n");
+		}
+	}
+
+
+	if((a->type & DAT_MASK) == DAT_COMPLEX)
+	{
+		printf("\nMatrix %s size [%d x %d] type: complex\n",
+							name, a->n, a->m);
+		complex_t* p = (complex_t*)(a->dat);
+		for(n = 0; n < a->n; n++)
+		{
+			for(m = 0; m < a->m; m++)
+			{
+				printf(format, RE(p[m*a->n + n]),
+							IM(p[m*a->n + n]));
+			}
+			printf("\n");
+		}
+	}
+	return RES_OK;
+}
+
+
+
+
+
+
+
+/*******************************************************************************
+matrix transposition
+*******************************************************************************/
+int DSPL_API matrix_transpose(matrix_t* a, matrix_t* b)
+{
+	int err;
+	if(!a || !b)
+		return ERROR_PTR;
+
+	err = matrix_create(b, a->m, a->n, a->type);
+	if(err != RES_OK)
+		return err;
+
+	if((a->type & DAT_MASK) == DAT_DOUBLE)
+		transpose((double*)(a->dat), a->n, a->m, (double*)(b->dat));
+	if((a->type & DAT_MASK) == DAT_COMPLEX)
+		transpose_cmplx((complex_t*)(a->dat), a->n, a->m,
+						(complex_t*)(b->dat));
+
+	return RES_OK;
+}
+
+
+
+
+
+/*******************************************************************************
+matrix Hermite transposition
+*******************************************************************************/
+int DSPL_API matrix_transpose_hermite(matrix_t* a, matrix_t* b)
+{
+	int err;
+	if(!a || !b)
+		return ERROR_PTR;
+
+	err = matrix_create(b, a->m, a->n, a->type);
+	if(err != RES_OK)
+		return err;
+
+	if((a->type & DAT_MASK) == DAT_DOUBLE)
+		transpose((double*)(a->dat), a->n, a->m, (double*)(b->dat));
+	if((a->type & DAT_MASK) == DAT_COMPLEX)
+		transpose_hermite((complex_t*)(a->dat), a->n, a->m,
+						(complex_t*)(b->dat));
+
+	return RES_OK;
+}
 
 
 
@@ -101,6 +219,7 @@ void transpose(double* a, int n, int m, double* b)
 			b[i*m + j] = a[j*n+i];
 
 }
+
 
 
 
@@ -150,6 +269,7 @@ void transpose_cmplx(complex_t* a, int n, int m, complex_t* b)
 
 
 
+
 /*******************************************************************************
 Hermite matrx transpose
 *******************************************************************************/
@@ -178,7 +298,7 @@ void transpose_hermite(complex_t* a, int n, int m, complex_t* b)
 		for(j = 0; j < m; j++)
 		{
 			RE(b[i*m + j]) = RE(a[j*n+i]);
-			IM(b[i*m + j]) = IM(a[j*n+i]);
+			IM(b[i*m + j]) = -IM(a[j*n+i]);
 		}
 	}
 

@@ -560,6 +560,19 @@ DECLARE_FUNC(int,	matrix_create,			matrix_t*	a
 						COMMA	int 		n
 						COMMA	int		m
 						COMMA	int		type);
+
+//------------------------------------------------------------------------------
+DECLARE_FUNC(void,	matrix_free,			matrix_t* 	a);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,	matrix_print,			matrix_t*	a
+						COMMA	const char* 	name
+						COMMA	const char*	format);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,	matrix_transpose,		matrix_t*	a
+						COMMA	matrix_t* 	b);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,	matrix_transpose_hermite,	matrix_t*	a
+						COMMA	matrix_t* 	b);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	poly_z2a_cmplx,			complex_t*
 						COMMA	int
