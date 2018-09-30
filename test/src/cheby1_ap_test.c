@@ -46,7 +46,7 @@ int main()
 	
 	// выполнить скрипт GNUPLOT для построения графиков 
 	// по рассчитанным данным
-	return system("gnuplot gnuplot/cheby1_ap_test.plt");;
+	return system("gnuplot -p gnuplot/cheby1_ap_test.plt");;
 }
 
 

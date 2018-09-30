@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 
 cd ../
 make
@@ -14,3 +14,6 @@ doxygen doxyfile_ru
 cd ../
 make clean
 cd dox
+
+pkill -x gnuplot
+

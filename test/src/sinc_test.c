@@ -27,6 +27,10 @@ int main()
 
 	// выполнить скрипт GNUPLOT для построения графиков
 	// по рассчитанным данным
-	return system("gnuplot gnuplot/sinc_test.plt");;
+	int err =  system("gnuplot -p  gnuplot/sinc_test.plt");
+	printf("err = %d\n", err);
+	
+	
+	return err;
 }
 
