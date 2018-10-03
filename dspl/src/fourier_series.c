@@ -102,3 +102,4 @@ int DSPL_API fourier_series_rec(double* w, complex_t* s, int nw,
 	}
 	return RES_OK;
 }
+

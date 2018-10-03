@@ -1,4 +1,3 @@
-
 /*! ****************************************************************************
 \ingroup SPEC_MATH_COMMON_GROUP
 \fn int sinc(double* x, int n, double a, double* y)
@@ -26,29 +25,6 @@
 			В противном случае
 			\ref ERROR_CODE_GROUP "код ошибки".<BR>
 
-
-Пример использования функции `sinc`:
-
-\include sinc_test.c
-
-
-<BR><BR>
-В каталоге `dat` будут созданы три файла:<BR>
-
-<pre>
-sinc_test_1.0.txt	  параметр a = 1.0
-sinc_test_pi.txt	  параметр a = pi
-sinc_test_2pi.txt	  параметр a = 2*pi
-</pre>
-
-Кроме того программа GNUPLOT произведет построение графика
-по сохраненным в файлах данным:
-
-График: `img/sinc_test.png`
-\image html sinc_test.png
-
-Скрипт GNUPLOT для построения графиков из текстовых файлов:
-\include sinc_test.plt
 
 \author
 			Бахурин Сергей
