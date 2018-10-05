@@ -11,7 +11,8 @@ int main()
     dspl_info();            // Print     DSPL information
     
     dspl_free(handle);      // free dspl handle
-    return 0;
+	getch();
+	return 0;
 }
 
 

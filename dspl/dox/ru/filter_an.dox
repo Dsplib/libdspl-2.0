@@ -147,14 +147,8 @@ butter_ap_test_tau.txt	  ГВЗ фильтра
 Кроме того программа GNUPLOT произведет построение следующих графиков 
 по сохраненным в файлах данным:
 
-АЧХ фильтра: `butter_ap_test_mag.png` 
-\image html butter_ap_test_mag.png
+\image html butter_ap_test.png
 
-ФЧХ фильтра: `butter_ap_test_phi.png` 
-\image html butter_ap_test_phi.png
-
-ГВЗ фильтра: `butter_ap_test_tau.png` 
-\image html butter_ap_test_tau.png
 
 \return
 	`RES_OK`	Параметры фильтра рассчитаны успешно.<BR>

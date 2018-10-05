@@ -182,14 +182,7 @@ cheby1_ap_test_tau.txt	  ГВЗ фильтра
 Кроме того программа GNUPLOT произведет построение следующих графиков 
 по сохраненным в файлах данным:
 
-АЧХ фильтра: `cheby1_ap_test_mag.png` 
-\image html cheby1_ap_test_mag.png
-
-ФЧХ фильтра: `cheby1_ap_test_phi.png` 
-\image html cheby1_ap_test_phi.png
-
-ГВЗ фильтра: `butter_ap_test_tau.png` 
-\image html cheby1_ap_test_tau.png			
+\image html cheby1_ap_test.png
 
 
 Скрипт GNUPLOT для построения графиков из текстовых файлов:

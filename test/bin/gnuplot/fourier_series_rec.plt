@@ -1,5 +1,3 @@
-### Start multiplot (2x2 layout)
-
 set terminal wxt 0 size 800,640 enhanced font 'Verdana,8' position 0,0
 unset key
 set multiplot layout 4,2 rowsfirst

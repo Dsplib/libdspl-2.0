@@ -174,7 +174,7 @@ int fft_bit_reverse(complex_t* x, complex_t* y, int n, int p2)
 
 	unsigned int v, c;
 
-	for(v = 0; v < n; v++)
+	for(v = 0; v < (unsigned int)n; v++)
 	{
 		c = (unsigned int)
 			((rb_table[ v        & 0xff] << 24) |

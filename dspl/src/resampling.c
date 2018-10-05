@@ -65,7 +65,7 @@ int DSPL_API farrow_lagrange(double *s, int n, double p, double q, double frd, d
 	k = 0;
 	while(k < (*ny))
 	{
-		ind = floor(t)+1;
+		ind = (int)floor(t)+1;
 		x = t - (double)ind;
 		ind-=2;
 		if(ind < 0)
@@ -144,7 +144,7 @@ int DSPL_API farrow_spline(double *s, int n, double p, double q, double frd, dou
 	k = 0;
 	while(k < (*ny))
 	{
-		ind = floor(t)+1;
+		ind = (int)floor(t)+1;
 		x = t - (double)ind;
 		ind-=2;
 		if(ind < 0)

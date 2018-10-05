@@ -1,3 +1,8 @@
 *.exe
 *.so
 *.dll
+*.exp
+*.ipdb
+*.pdb
+*.iobj
+*.lib

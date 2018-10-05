@@ -35,7 +35,7 @@ Rectangle pulse signal
 int  DSPL_API signal_pimp(double* t, size_t n, double amp,
 				double tau, double dt, double period, double* y)
 {
-	int k;
+	size_t k;
 	double ll, lr, p2, tp;
 
 	if(!t || !y)
@@ -65,7 +65,7 @@ Saw periodic signal
 int  DSPL_API signal_saw(double* t, size_t n, double amp,
 				double dt, double period, double* y)
 {
-	int k;
+	size_t k;
 	double p2, tp;
 
 	if(!t || !y)

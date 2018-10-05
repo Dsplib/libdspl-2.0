@@ -38,7 +38,7 @@ int DSPL_API concat(void* a, size_t na, void *b, size_t nb, void* c)
     if(c != a)
         memcpy(c, a, na);
 
-    memcpy(c+na, b, nb);
+    memcpy((char*)c+na, b, nb);
         return RES_OK;	
 }
 
