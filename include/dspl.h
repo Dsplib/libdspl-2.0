@@ -297,6 +297,18 @@ DECLARE_FUNC(int,	cos_cmplx,			complex_t*
 						COMMA	int
 						COMMA	complex_t*);
 //------------------------------------------------------------------------------
+DECLARE_FUNC(int,	decimate,			double*		x
+						COMMA	int		n
+						COMMA	int 		dec
+						COMMA	double* 	y
+						COMMA	int* cnt);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,	decimate_cmplx,			complex_t*	x
+						COMMA	int		n
+						COMMA	int 		dec
+						COMMA	complex_t* 	y
+						COMMA	int* cnt);
+//------------------------------------------------------------------------------
 DECLARE_FUNC(int,	dft,				double*
 						COMMA	int
 						COMMA	complex_t*);
@@ -455,6 +467,14 @@ DECLARE_FUNC(int,	fourier_series_dec,		double*
 						COMMA	int
 						COMMA	double*
 						COMMA	complex_t*);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,	fourier_series_dec_cmplx,	double* 	t
+						COMMA	complex_t* 	s
+						COMMA	int 		nt
+						COMMA	double 		period
+						COMMA	int		nw
+						COMMA	double*	 	w
+						COMMA	complex_t* 	y);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,	fourier_series_rec,		double*
 						COMMA	complex_t*
@@ -677,6 +697,17 @@ DECLARE_FUNC(int,	writetxt_3dline,		double*		x
 						COMMA	double*		z
 						COMMA	int		n
 						COMMA	char* 		fn);
+
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,	writetxt_cmplx_im,		double*
+						COMMA	complex_t*
+						COMMA	int
+						COMMA	char*);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,	writetxt_cmplx_re,		double*
+						COMMA	complex_t*
+						COMMA	int
+						COMMA	char*);
 //------------------------------------------------------------------------------
 
 #ifdef __cplusplus

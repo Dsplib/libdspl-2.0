@@ -51,6 +51,8 @@ p_conv         			conv              	;
 p_conv_cmplx   			conv_cmplx        	;
 p_conv_fft_cmplx		conv_fft_cmplx    	;
 p_cos_cmplx          		cos_cmplx         	;
+p_decimate			decimate		;
+p_decimate_cmplx		decimate_cmplx		;
 p_dft                		dft               	;
 p_dft_cmplx          		dft_cmplx         	;
 p_dmod               		dmod              	;
@@ -83,6 +85,7 @@ p_fft_shift_cmplx    		fft_shift_cmplx   	;
 p_flipip             		flipip            	;
 p_flipip_cmplx       		flipip_cmplx      	;
 p_fourier_series_dec 		fourier_series_dec	;
+p_fourier_series_dec_cmplx	fourier_series_dec_cmplx;
 p_fourier_series_rec 		fourier_series_rec	;
 p_freqs              		freqs             	;
 p_freqs_cmplx			freqs_cmplx	  	;
@@ -121,7 +124,8 @@ p_writebin           		writebin 		;
 p_writetxt           		writetxt 		;
 p_writetxt_3d			writetxt_3d		;
 p_writetxt_3dline		writetxt_3dline		;
-
+p_writetxt_cmplx_im           	writetxt_cmplx_im	;
+p_writetxt_cmplx_re           	writetxt_cmplx_re	;
 #endif //BUILD_LIB
 
 
@@ -188,6 +192,8 @@ void* dspl_load()
 	LOAD_FUNC(conv_cmplx);
 	LOAD_FUNC(conv_fft_cmplx);
 	LOAD_FUNC(cos_cmplx);
+	LOAD_FUNC(decimate);
+	LOAD_FUNC(decimate_cmplx);
 	LOAD_FUNC(dft);
 	LOAD_FUNC(dft_cmplx);
 	LOAD_FUNC(dmod);
@@ -220,6 +226,7 @@ void* dspl_load()
 	LOAD_FUNC(flipip);
 	LOAD_FUNC(flipip_cmplx);
 	LOAD_FUNC(fourier_series_dec);
+	LOAD_FUNC(fourier_series_dec_cmplx);
 	LOAD_FUNC(fourier_series_rec);
 	LOAD_FUNC(freqz);
 	LOAD_FUNC(freqs);
@@ -258,7 +265,8 @@ void* dspl_load()
 	LOAD_FUNC(writetxt);
 	LOAD_FUNC(writetxt_3d);
 	LOAD_FUNC(writetxt_3dline);
-
+	LOAD_FUNC(writetxt_cmplx_im);
+	LOAD_FUNC(writetxt_cmplx_re);
 
 	#ifdef WIN_OS
 	return (void*)handle;
