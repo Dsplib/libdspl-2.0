@@ -29,9 +29,9 @@ module operator for double
 *******************************************************************************/
 double DSPL_API dmod (double x, double y)
 {
-	if(y == 0.0)
-		return x;
-	return  x - floor(x/y) * y;
+  if(y == 0.0)
+    return x;
+  return  x - floor(x/y) * y;
 }
 
 
@@ -43,17 +43,17 @@ sinc(x) = sin(pi*x)/(pi*x)
 *******************************************************************************/
 int DSPL_API sinc(double* x, int n, double a, double* y)
 {
-	int k;
+  int k;
 
-	if(!x || !y)
-		return ERROR_PTR;
-	if(n<1)
-		return ERROR_SIZE;
+  if(!x || !y)
+    return ERROR_PTR;
+  if(n<1)
+    return ERROR_SIZE;
 
-	for(k = 0; k < n; k++)
-		y[k] = (x[k]==0.0) ? 1.0 : sin(a*x[k])/(a*x[k]);
+  for(k = 0; k < n; k++)
+    y[k] = (x[k]==0.0) ? 1.0 : sin(a*x[k])/(a*x[k]);
 
-	return RES_OK;
+  return RES_OK;
 
 
 }

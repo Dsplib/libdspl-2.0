@@ -33,28 +33,28 @@
 Rectangle pulse signal
 *******************************************************************************/
 int  DSPL_API signal_pimp(double* t, size_t n, double amp,
-				double tau, double dt, double period, double* y)
+                          double tau, double dt, double period, double* y)
 {
-	size_t k;
-	double ll, lr, p2, tp;
+  size_t k;
+  double ll, lr, p2, tp;
 
-	if(!t || !y)
-		return ERROR_PTR;
-	if(n < 1)
-		return ERROR_SIZE;
-	if(tau < 0.0 || period < 0.0)
-		return ERROR_NEGATIVE;
+  if(!t || !y)
+    return ERROR_PTR;
+  if(n < 1)
+    return ERROR_SIZE;
+  if(tau < 0.0 || period < 0.0)
+    return ERROR_NEGATIVE;
 
 
-	ll = -0.5 * tau;
-	lr =  0.5 * tau;
-	p2 = period*0.5;
-	for(k = 0; k < n; k++)
-	{
-		tp = dmod(t[k] - dt + p2, period) - p2;
-		y[k] = (tp < ll || tp > lr) ? 0.0 : amp;
-	}
-	return RES_OK;
+  ll = -0.5 * tau;
+  lr =  0.5 * tau;
+  p2 = period*0.5;
+  for(k = 0; k < n; k++)
+  {
+    tp = dmod(t[k] - dt + p2, period) - p2;
+    y[k] = (tp < ll || tp > lr) ? 0.0 : amp;
+  }
+  return RES_OK;
 }
 
 
@@ -63,24 +63,24 @@ int  DSPL_API signal_pimp(double* t, size_t n, double amp,
 Saw periodic signal
 *******************************************************************************/
 int  DSPL_API signal_saw(double* t, size_t n, double amp,
-				double dt, double period, double* y)
+                         double dt, double period, double* y)
 {
-	size_t k;
-	double p2, tp;
+  size_t k;
+  double p2, tp;
 
-	if(!t || !y)
-		return ERROR_PTR;
-	if(n < 1)
-		return ERROR_SIZE;
-	if(period < 0.0)
-		return ERROR_NEGATIVE;
+  if(!t || !y)
+    return ERROR_PTR;
+  if(n < 1)
+    return ERROR_SIZE;
+  if(period < 0.0)
+    return ERROR_NEGATIVE;
 
-	p2 = period*0.5;
-	for(k = 0; k < n; k++)
-	{
-		tp = dmod(t[k] - dt + p2, period) - p2;
-		y[k] = amp * tp;
-	}
-	return RES_OK;
+  p2 = period*0.5;
+  for(k = 0; k < n; k++)
+  {
+    tp = dmod(t[k] - dt + p2, period) - p2;
+    y[k] = amp * tp;
+  }
+  return RES_OK;
 }
 

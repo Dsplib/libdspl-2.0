@@ -7,7 +7,7 @@
 
 int main(int argc, char* argv[])
 {
-	double t[N],  s[N];
+  double t[N],  s[N];
 	void* handle;
 	int k;
 	handle = dspl_load();
@@ -29,6 +29,7 @@ int main(int argc, char* argv[])
 	writetxt(t, s, N, "dat/fourier_series_signal1.txt");
 	// remember to free the resource
 	dspl_free(handle);
+
 
 	return 0;
 }

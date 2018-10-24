@@ -28,44 +28,44 @@
 /*******************************************************************************
 Fourier Series Decomposition
 *******************************************************************************/
-int DSPL_API fourier_series_dec(double* t, double* s, int nt,
-			double period, int nw, double* w, complex_t* y)
+int DSPL_API fourier_series_dec(double* t, double* s, int nt, double period,
+                                int nw, double* w, complex_t* y)
 {
-	int k, m;
-	double dw = M_2PI / period;
-	complex_t e[2];
+  int k, m;
+  double dw = M_2PI / period;
+  complex_t e[2];
 
-	if(!t || !s || !w || !y)
-		return ERROR_PTR;
-	if(nt<1 || nw < 1)
-		return ERROR_SIZE;
-	if(period <= 0.0)
-		return ERROR_NEGATIVE;
+  if(!t || !s || !w || !y)
+    return ERROR_PTR;
+  if(nt<1 || nw < 1)
+    return ERROR_SIZE;
+  if(period <= 0.0)
+    return ERROR_NEGATIVE;
 
-	memset(y, 0 , nw*sizeof(complex_t));
+  memset(y, 0 , nw*sizeof(complex_t));
 
-	for(k = 0; k < nw; k++)
-	{
-		w[k] = (k - nw/2) * dw;
-		RE(e[1]) =  s[0] * cos(w[k] * t[0]);
-		IM(e[1]) = -s[0] * sin(w[k] * t[0]);
-		for(m = 1; m < nt; m++)
-		{
-			RE(e[0]) = RE(e[1]);
-			IM(e[0]) = IM(e[1]);
-			RE(e[1]) =   s[m] * cos(w[k] * t[m]);
-			IM(e[1]) = - s[m] * sin(w[k] * t[m]);
-			RE(y[k]) += 0.5 * (RE(e[0]) + RE(e[1]))*(t[m] - t[m-1]);
-			IM(y[k]) += 0.5 * (IM(e[0]) + IM(e[1]))*(t[m] - t[m-1]);
-		}
-		RE(y[k]) /= period;
-		IM(y[k]) /= period;
-	}
+  for(k = 0; k < nw; k++)
+  {
+    w[k] = (k - nw/2) * dw;
+    RE(e[1]) =  s[0] * cos(w[k] * t[0]);
+    IM(e[1]) = -s[0] * sin(w[k] * t[0]);
+    for(m = 1; m < nt; m++)
+    {
+      RE(e[0]) = RE(e[1]);
+      IM(e[0]) = IM(e[1]);
+      RE(e[1]) =   s[m] * cos(w[k] * t[m]);
+      IM(e[1]) = - s[m] * sin(w[k] * t[m]);
+      RE(y[k]) += 0.5 * (RE(e[0]) + RE(e[1]))*(t[m] - t[m-1]);
+      IM(y[k]) += 0.5 * (IM(e[0]) + IM(e[1]))*(t[m] - t[m-1]);
+    }
+    RE(y[k]) /= period;
+    IM(y[k]) /= period;
+  }
 
-	if(!(nw%2))
-		RE(y[0]) = RE(y[1]) = 0.0;
+  if(!(nw%2))
+    RE(y[0]) = RE(y[1]) = 0.0;
 
-	return RES_OK;
+  return RES_OK;
 }
 
 
@@ -74,47 +74,47 @@ int DSPL_API fourier_series_dec(double* t, double* s, int nt,
 Fourier Series Decomposition for complex input signal
 *******************************************************************************/
 int DSPL_API fourier_series_dec_cmplx(double* t, complex_t* s, int nt,
-			double period, int nw, double* w, complex_t* y)
+      double period, int nw, double* w, complex_t* y)
 {
-	int k, m;
-	double dw = M_2PI / period;
-	complex_t e[2];
+  int k, m;
+  double dw = M_2PI / period;
+  complex_t e[2];
 
-	if(!t || !s || !w || !y)
-		return ERROR_PTR;
-	if(nt<1 || nw < 1)
-		return ERROR_SIZE;
-	if(period <= 0.0)
-		return ERROR_NEGATIVE;
+  if(!t || !s || !w || !y)
+    return ERROR_PTR;
+  if(nt<1 || nw < 1)
+    return ERROR_SIZE;
+  if(period <= 0.0)
+    return ERROR_NEGATIVE;
 
-	memset(y, 0 , nw*sizeof(complex_t));
+  memset(y, 0 , nw*sizeof(complex_t));
 
-	for(k = 0; k < nw; k++)
-	{
-		w[k] = (k - nw/2) * dw;
-		RE(e[1]) =  RE(s[0]) * cos(w[k] * t[0]) +
-				IM(s[0]) * sin(w[k] * t[0]);
-		IM(e[1]) = -RE(s[0]) * sin(w[k] * t[0]) +
-				IM(s[0]) * cos(w[k] * t[0]);
-		for(m = 1; m < nt; m++)
-		{
-			RE(e[0]) = RE(e[1]);
-			IM(e[0]) = IM(e[1]);
-			RE(e[1]) =   RE(s[m]) * cos(w[k] * t[m]) +
-					IM(s[m]) * sin(w[k] * t[m]);
-			IM(e[1]) = -RE(s[m]) * sin(w[k] * t[m]) +
-					IM(s[m]) * cos(w[k] * t[m]);
-			RE(y[k]) += 0.5 * (RE(e[0]) + RE(e[1]))*(t[m] - t[m-1]);
-			IM(y[k]) += 0.5 * (IM(e[0]) + IM(e[1]))*(t[m] - t[m-1]);
-		}
-		RE(y[k]) /= period;
-		IM(y[k]) /= period;
-	}
+  for(k = 0; k < nw; k++)
+  {
+    w[k] = (k - nw/2) * dw;
+    RE(e[1]) =  RE(s[0]) * cos(w[k] * t[0]) +
+    IM(s[0]) * sin(w[k] * t[0]);
+    IM(e[1]) = -RE(s[0]) * sin(w[k] * t[0]) +
+    IM(s[0]) * cos(w[k] * t[0]);
+    for(m = 1; m < nt; m++)
+    {
+      RE(e[0]) = RE(e[1]);
+      IM(e[0]) = IM(e[1]);
+      RE(e[1]) =   RE(s[m]) * cos(w[k] * t[m]) +
+      IM(s[m]) * sin(w[k] * t[m]);
+      IM(e[1]) = -RE(s[m]) * sin(w[k] * t[m]) +
+      IM(s[m]) * cos(w[k] * t[m]);
+      RE(y[k]) += 0.5 * (RE(e[0]) + RE(e[1]))*(t[m] - t[m-1]);
+      IM(y[k]) += 0.5 * (IM(e[0]) + IM(e[1]))*(t[m] - t[m-1]);
+    }
+    RE(y[k]) /= period;
+    IM(y[k]) /= period;
+  }
 
-	if(!(nw%2))
-		RE(y[0]) = RE(y[1]) = 0.0;
+  if(!(nw%2))
+    RE(y[0]) = RE(y[1]) = 0.0;
 
-	return RES_OK;
+  return RES_OK;
 }
 
 
@@ -127,30 +127,30 @@ int DSPL_API fourier_series_dec_cmplx(double* t, complex_t* s, int nt,
 Fourier Series Reconstruction
 *******************************************************************************/
 int DSPL_API fourier_series_rec(double* w, complex_t* s, int nw,
-						double *t, int nt, complex_t* y)
+            double *t, int nt, complex_t* y)
 {
-	int k, m;
-	complex_t e;
+  int k, m;
+  complex_t e;
 
-	if(!t || !s || !w || !y)
-		return ERROR_PTR;
-	if(nt<1 || nw < 1)
-		return ERROR_SIZE;
+  if(!t || !s || !w || !y)
+    return ERROR_PTR;
+  if(nt<1 || nw < 1)
+    return ERROR_SIZE;
 
-	memset(y, 0, nt*sizeof(complex_t));
+  memset(y, 0, nt*sizeof(complex_t));
 
 
-	for(k = 0; k < nw; k++)
-	{
-		for(m = 0; m < nt; m++)
-		{
-			RE(e) =  cos(w[k] * t[m]);
-			IM(e) =  sin(w[k] * t[m]);
+  for(k = 0; k < nw; k++)
+  {
+    for(m = 0; m < nt; m++)
+    {
+      RE(e) =  cos(w[k] * t[m]);
+      IM(e) =  sin(w[k] * t[m]);
 
-			RE(y[m]) += CMRE(s[k], e);
-			IM(y[m]) += CMIM(s[k], e);
-		}
-	}
-	return RES_OK;
+      RE(y[m]) += CMRE(s[k], e);
+      IM(y[m]) += CMIM(s[k], e);
+    }
+  }
+  return RES_OK;
 }
 

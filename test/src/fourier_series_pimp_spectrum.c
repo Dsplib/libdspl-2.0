@@ -19,8 +19,6 @@ int main(int argc, char* argv[])
 	void* handle;
 	int k, n;
 
-
-
 	handle = dspl_load();
 	if(!handle)
 	{

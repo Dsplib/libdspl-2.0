@@ -30,16 +30,16 @@ Concntenate arrays
 *******************************************************************************/
 int DSPL_API concat(void* a, size_t na, void *b, size_t nb, void* c)
 {
-	if(!a || !b || !c || c == b)
-                return ERROR_PTR;
-        if(na < 1 || nb < 1)
-                return ERROR_SIZE;
+  if(!a || !b || !c || c == b)
+    return ERROR_PTR;
+  if(na < 1 || nb < 1)
+    return ERROR_SIZE;
 
-	if(c != a)
-        memcpy(c, a, na);
+  if(c != a)
+    memcpy(c, a, na);
 
-	memcpy((char*)c+na, b, nb);
-	return RES_OK;
+  memcpy((char*)c+na, b, nb);
+  return RES_OK;
 }
 
 
@@ -51,25 +51,25 @@ decimate real vector
 *******************************************************************************/
 int DSPL_API decimate(double* x, int n, int dec, double* y, int* cnt)
 {
-	int k = 0, i = 0;
-	if(!x || !y)
-		return ERROR_PTR;
-	if(n < 1)
-		return ERROR_SIZE;
-	if(dec < 1)
-		return ERROR_NEGATIVE;
+  int k = 0, i = 0;
+  if(!x || !y)
+    return ERROR_PTR;
+  if(n < 1)
+    return ERROR_SIZE;
+  if(dec < 1)
+    return ERROR_NEGATIVE;
 
-	k = i = 0;
-	while(k + dec < n)
-	{
-		y[i] = x[k];
-		k+=dec;
-		i++;
-	}
-	if(cnt)
-		*cnt = i;
+  k = i = 0;
+  while(k + dec < n)
+  {
+    y[i] = x[k];
+    k+=dec;
+    i++;
+  }
+  if(cnt)
+    *cnt = i;
 
-	return RES_OK;
+  return RES_OK;
 }
 
 
@@ -79,28 +79,28 @@ int DSPL_API decimate(double* x, int n, int dec, double* y, int* cnt)
 decimate complex vector
 *******************************************************************************/
 int DSPL_API decimate_cmplx(complex_t* x, int n, int dec,
-							complex_t* y, int* cnt)
+              complex_t* y, int* cnt)
 {
-	int k = 0, i = 0;
-	if(!x || !y)
-		return ERROR_PTR;
-	if(n < 1)
-		return ERROR_SIZE;
-	if(dec < 1)
-		return ERROR_NEGATIVE;
+  int k = 0, i = 0;
+  if(!x || !y)
+    return ERROR_PTR;
+  if(n < 1)
+    return ERROR_SIZE;
+  if(dec < 1)
+    return ERROR_NEGATIVE;
 
-	k = i = 0;
-	while(k + dec < n)
-	{
-		RE(y[i]) = RE(x[k]);
-		IM(y[i]) = IM(x[k]);
-		k+=dec;
-		i++;
-	}
-	if(cnt)
-		*cnt = i;
+  k = i = 0;
+  while(k + dec < n)
+  {
+    RE(y[i]) = RE(x[k]);
+    IM(y[i]) = IM(x[k]);
+    k+=dec;
+    i++;
+  }
+  if(cnt)
+    *cnt = i;
 
-	return RES_OK;
+  return RES_OK;
 }
 
 
@@ -109,20 +109,20 @@ Flip real array in place
 *******************************************************************************/
 int DSPL_API flipip(double* x, int n)
 {
-	int k;
-	double tmp;
-	if(!x)
-		return ERROR_PTR;
-	if(n<1)
-		return ERROR_SIZE;
+  int k;
+  double tmp;
+  if(!x)
+    return ERROR_PTR;
+  if(n<1)
+    return ERROR_SIZE;
 
-	for(k = 0; k < n/2; k++)
-	{
-		tmp = x[k];
-		x[k] = x[n-1-k];
-		x[n-1-k] = tmp;
-	}
-	return RES_OK;
+  for(k = 0; k < n/2; k++)
+  {
+    tmp = x[k];
+    x[k] = x[n-1-k];
+    x[n-1-k] = tmp;
+  }
+  return RES_OK;
 }
 
 
@@ -132,23 +132,23 @@ Flip complex array in place
 *******************************************************************************/
 int DSPL_API flipip_cmplx(complex_t* x, int n)
 {
-	int k;
-	complex_t tmp;
-	if(!x)
-		return ERROR_PTR;
-	if(n<1)
-		return ERROR_SIZE;
+  int k;
+  complex_t tmp;
+  if(!x)
+    return ERROR_PTR;
+  if(n<1)
+    return ERROR_SIZE;
 
-	for(k = 0; k < n/2; k++)
-	{
-		RE(tmp) = RE(x[k]);
-		RE(x[k]) = RE(x[n-1-k]);
-		RE(x[n-1-k]) = RE(tmp);
+  for(k = 0; k < n/2; k++)
+  {
+    RE(tmp) = RE(x[k]);
+    RE(x[k]) = RE(x[n-1-k]);
+    RE(x[n-1-k]) = RE(tmp);
 
-		IM(tmp) = IM(x[k]);
-		IM(x[k]) = IM(x[n-1-k]);
-		IM(x[n-1-k]) = IM(tmp);
-	}
-	return RES_OK;
+    IM(tmp) = IM(x[k]);
+    IM(x[k]) = IM(x[n-1-k]);
+    IM(x[n-1-k]) = IM(tmp);
+  }
+  return RES_OK;
 }
 

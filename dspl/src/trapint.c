@@ -3,7 +3,7 @@
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
-*  
+*
 * is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
 * the Free Software Foundation, either version 3 of the License, or
@@ -24,47 +24,48 @@
 #include "dspl.h"
 
 
-/**************************************************************************************************
-Numerical integration of real data using the trapezoidal method. 
-***************************************************************************************************/
+/******************************************************************************
+Numerical integration of real data using the trapezoidal method.
+*******************************************************************************/
 int DSPL_API trapint(double* x, double* y, int n, double* sum)
 {
-    int k;
+  int k;
 
-    if(!x || !y)
-        return ERROR_PTR;
-    if(n<2)
-        return ERROR_SIZE;
-    *sum = 0.0;
+  if(!x || !y)
+    return ERROR_PTR;
+  if(n<2)
+    return ERROR_SIZE;
+  *sum = 0.0;
 
-    for(k = 1; k < n; k++)
-        *sum += 0.5 * (x[k] - x[k-1]) * (y[k] + y[k-1]);
+  for(k = 1; k < n; k++)
+    *sum += 0.5 * (x[k] - x[k-1]) * (y[k] + y[k-1]);
 
-    return RES_OK; 
+  return RES_OK;
 }
 
 
 
 
-/**************************************************************************************************
-Numerical integration of complex data using the trapezoidal method. 
-***************************************************************************************************/
+/*******************************************************************************
+Numerical integration of complex data using the trapezoidal method.
+*******************************************************************************/
 int DSPL_API trapint_cmplx(double* x, complex_t* y, int n, complex_t* sum)
 {
 
-    int k;
-    double dx;
-    if(!x || !y)
-        return ERROR_PTR;
-    if(n<2)
-        return ERROR_SIZE;
-    RE(*sum) = IM(*sum) = 0.0;
+  int k;
+  double dx;
+  if(!x || !y)
+    return ERROR_PTR;
+  if(n<2)
+    return ERROR_SIZE;
+  RE(*sum) = IM(*sum) = 0.0;
 
-    for(k = 1; k < n; k++)
-    {
-        dx = 0.5 * (x[k] - x[k-1]);
-        RE(*sum) +=  dx * (RE(y[k]) + RE(y[k-1]));
-        IM(*sum) +=  dx * (IM(y[k]) + IM(y[k-1]));
-    }
-    return RES_OK; 
+  for(k = 1; k < n; k++)
+  {
+    dx = 0.5 * (x[k] - x[k-1]);
+    RE(*sum) +=  dx * (RE(y[k]) + RE(y[k-1]));
+    IM(*sum) +=  dx * (IM(y[k]) + IM(y[k-1]));
+  }
+  return RES_OK;
 }
+
