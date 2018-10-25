@@ -42,7 +42,7 @@ p_butter_ap_zp                         butter_ap_zp                  ;
 p_cheby_poly1                          cheby_poly1                   ;
 p_cheby_poly2                          cheby_poly2                   ;
 p_cheby1_ap                            cheby1_ap                     ;
-p_cheby1_ap_zp                         cheby1_ap_zp                  ; 
+p_cheby1_ap_zp                         cheby1_ap_zp                  ;
 p_cheby2_ap                            cheby2_ap                     ;
 p_cheby2_ap_zp                         cheby2_ap_zp                  ;
 p_cmplx2re                             cmplx2re                      ;
@@ -82,6 +82,8 @@ p_fft_create                           fft_create                    ;
 p_fft_free                             fft_free                      ;
 p_fft_shift                            fft_shift                     ;
 p_fft_shift_cmplx                      fft_shift_cmplx               ;
+p_fftn_create                          fftn_create                   ;
+p_fftn_krn                             fftn_krn                      ;
 p_flipip                               flipip                        ;
 p_flipip_cmplx                         flipip_cmplx                  ;
 p_fourier_series_dec                   fourier_series_dec            ;
@@ -126,6 +128,8 @@ p_writetxt_3d                          writetxt_3d                   ;
 p_writetxt_3dline                      writetxt_3dline               ;
 p_writetxt_cmplx_im                    writetxt_cmplx_im             ;
 p_writetxt_cmplx_re                    writetxt_cmplx_re             ;
+
+
 #endif //BUILD_LIB
 
 
@@ -223,6 +227,8 @@ void* dspl_load()
   LOAD_FUNC(fft_free);
   LOAD_FUNC(fft_shift);
   LOAD_FUNC(fft_shift_cmplx);
+  LOAD_FUNC(fftn_create);
+  LOAD_FUNC(fftn_krn);
   LOAD_FUNC(flipip);
   LOAD_FUNC(flipip_cmplx);
   LOAD_FUNC(fourier_series_dec);

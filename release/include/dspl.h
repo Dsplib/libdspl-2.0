@@ -317,10 +317,10 @@ DECLARE_FUNC(int,        dft_cmplx,                   complex_t*
                                                 COMMA int
                                                 COMMA complex_t*);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(double,        dmod,                     double
+DECLARE_FUNC(double,     dmod,                        double
                                                 COMMA double);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(void,        dspl_info,                  void);
+DECLARE_FUNC(void,       dspl_info,                   void);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,        ellip_acd,                   double*           w
                                                 COMMA int               n
@@ -444,7 +444,7 @@ DECLARE_FUNC(int,        fft_cmplx,                   complex_t*
 DECLARE_FUNC(int,        fft_create,                  fft_t*
                                                 COMMA int);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(void,        fft_free,                   fft_t*);
+DECLARE_FUNC(void,       fft_free,                    fft_t*);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,        fft_shift,                   double*
                                                 COMMA int n
@@ -453,6 +453,15 @@ DECLARE_FUNC(int,        fft_shift,                   double*
 DECLARE_FUNC(int,        fft_shift_cmplx,             complex_t*
                                                 COMMA int
                                                 COMMA complex_t*);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,        fftn_create,                 fft_t*          pfft
+                                                COMMA int             n);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,       fftn_krn,                     complex_t*      t0
+                                                COMMA complex_t*      t1
+                                                COMMA fft_t*          p
+                                                COMMA int             n
+                                                COMMA int             addr);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,        flipip,                      double*
                                                 COMMA int);

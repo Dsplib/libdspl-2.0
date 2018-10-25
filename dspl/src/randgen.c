@@ -24,10 +24,9 @@
 #include <time.h>
 
 #include "dspl.h"
+#include "dspl_internal.h"
 
 
-#define DSPL_RAND_MOD_X1  2147483647
-#define DSPL_RAND_MOD_X2  2145483479
 
 
 /******************************************************************************

@@ -21,18 +21,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include "dspl.h"
+#include "dspl_internal.h"
 
-int fft_bit_reverse(complex_t* x, complex_t* y, int n, int p2);
-
-int fft_dit(fft_t *pfft, int n, complex_t* y);
-
-void fft_dit_krn(complex_t *x0, complex_t *x1, complex_t *w, int n,
-                 complex_t *y0, complex_t *y1);
-
-int fft_p2(int n);
-
-
-void dft2 (complex_t *x,  complex_t* y)
 
 
 
@@ -256,6 +246,116 @@ int DSPL_API fft_create(fft_t *pfft, int n)
 
 
 
+
+/*******************************************************************************
+composite FFT kernel
+*******************************************************************************/
+int DSPL_API fftn_krn(complex_t* t0, complex_t* t1, fft_t* p, int n, int addr)
+{
+  int n1, n2, s, k;
+  s = n;
+  addr = 0;
+
+  n2 = 1;
+  if(s%2 == 0)
+  {
+    n2 = 2;
+    goto label_size;
+  }
+
+label_size:
+  if(n2 == 1)
+    return ERROR_FFT_SIZE;
+  n1 = s / n2;
+  memcpy(t1, t0, n*sizeof(complex_t));
+
+  transpose_cmplx(t1, n1, n2, t0);
+
+  if(n2 == 2)
+  {
+    for(k = 0; k < n1; k++)
+    {
+      dft2(t0+2*k, t1+2*k);
+    }
+  }
+
+  if(n1 > 1)
+  {
+    for(k =0; k < n; k++)
+    {
+      RE(t0[k]) = CMRE(t1[k], p->w[addr+k]);
+      IM(t0[k]) = CMIM(t1[k], p->w[addr+k]);
+    }
+    transpose_cmplx(t0, n2, n1, t1);
+
+    for(k = 0; k < n2; k++)
+    {
+      fftn_krn(t1, t0, p, s, addr+n);
+    }
+    transpose_cmplx(t0, n1, n2, t1);
+  }
+  return RES_OK;
+
+}
+
+
+
+
+/*******************************************************************************
+FFT create for composite N
+*******************************************************************************/
+int DSPL_API fftn_create(fft_t *pfft, int n)
+{
+
+  int n1, n2, addr, s, k, m, nw;
+  double phi;
+  s = n;
+  nw = addr = 0;
+
+  while(s > 1)
+  {
+    n2 = 1;
+    if(s%2 == 0)
+    {
+      n2 = 2;
+      goto label_size;
+    }
+
+
+label_size:
+    if(n2 == 1)
+      return ERROR_FFT_SIZE;
+    n1 = s / n2;
+    nw += s;
+    pfft->w = pfft->w ? (complex_t*) realloc(pfft->w,  nw*sizeof(complex_t)):
+                        (complex_t*) malloc(           nw*sizeof(complex_t));
+
+    for(k = 0; k < n2; k++)
+    {
+      for(m = 0; m < n1; m++)
+      {
+        phi = - M_2PI * (double)(k*m) / (double)s;
+        RE(pfft->w[addr]) = cos(phi);
+        IM(pfft->w[addr]) = sin(phi);
+        addr++;
+      }
+    }
+    s /= n2;
+  }
+
+  pfft->t0 = pfft->t0 ? (complex_t*) realloc(pfft->t0, n*sizeof(complex_t)):
+                        (complex_t*) malloc(           n*sizeof(complex_t));
+
+
+  pfft->t1 = pfft->t1 ? (complex_t*) realloc(pfft->t1, n*sizeof(complex_t)):
+                        (complex_t*) malloc(           n*sizeof(complex_t));
+
+  return RES_OK;
+}
+
+
+
+
 /*******************************************************************************
 FFT decimation in time
 *******************************************************************************/
@@ -347,6 +447,7 @@ void DSPL_API fft_free(fft_t *pfft)
     free(pfft->t0);
   if(pfft->t1)
     free(pfft->t1);
+  memset(pfft, 0, sizeof(fft_t));
 }
 
 

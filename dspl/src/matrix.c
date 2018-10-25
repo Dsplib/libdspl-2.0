@@ -21,11 +21,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include "dspl.h"
+#include "dspl_internal.h"
 
-
-void transpose(double* a, int n, int m, double* b);
-void transpose_cmplx(complex_t* a, int n, int m, complex_t* b);
-void transpose_hermite(complex_t* a, int n, int m, complex_t* b);
 
 
 

@@ -24,8 +24,8 @@
 #include <string.h>
 #include <math.h>
 #include "dspl.h"
+#include "dspl_internal.h"
 
-#define DSPL_FARROW_LAGRANGE_COEFF  0.16666666666666666666666666666667
 
 
 
