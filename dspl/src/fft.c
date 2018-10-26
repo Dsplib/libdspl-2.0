@@ -19,6 +19,7 @@
 */
 
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 #include "dspl.h"
 #include "dspl_internal.h"
@@ -252,28 +253,27 @@ composite FFT kernel
 *******************************************************************************/
 int DSPL_API fftn_krn(complex_t* t0, complex_t* t1, fft_t* p, int n, int addr)
 {
-  int n1, n2, s, k;
-  s = n;
-  addr = 0;
+  int n1, n2, k;
+  complex_t *pw = p->w+addr;
 
-  n2 = 1;
-  if(s%2 == 0)
+  n1 = 1;
+  if(n%2 == 0)
   {
-    n2 = 2;
+    n1 = 2;
     goto label_size;
   }
 
 label_size:
-  if(n2 == 1)
+  if(n1 == 1)
     return ERROR_FFT_SIZE;
-  n1 = s / n2;
+  n2 = n / n1;
   memcpy(t1, t0, n*sizeof(complex_t));
 
-  transpose_cmplx(t1, n1, n2, t0);
+  transpose_cmplx(t1, n2, n1, t0);
 
-  if(n2 == 2)
+  if(n1 == 2)
   {
-    for(k = 0; k < n1; k++)
+    for(k = 0; k < n2; k++)
     {
       dft2(t0+2*k, t1+2*k);
     }
@@ -281,18 +281,23 @@ label_size:
 
   if(n1 > 1)
   {
+
     for(k =0; k < n; k++)
     {
-      RE(t0[k]) = CMRE(t1[k], p->w[addr+k]);
-      IM(t0[k]) = CMIM(t1[k], p->w[addr+k]);
+      RE(t0[k]) = CMRE(t1[k], pw[k]);
+      IM(t0[k]) = CMIM(t1[k], pw[k]);
     }
-    transpose_cmplx(t0, n2, n1, t1);
 
-    for(k = 0; k < n2; k++)
-    {
-      fftn_krn(t1, t0, p, s, addr+n);
-    }
     transpose_cmplx(t0, n1, n2, t1);
+
+
+    for(k = 0; k < n1; k++)
+    {
+      fftn_krn(t1+k*n2, t0+k*n2, p, n2, addr+n);
+    }
+
+
+    transpose_cmplx(t0, n2, n1, t1);
   }
   return RES_OK;
 
@@ -330,9 +335,9 @@ label_size:
     pfft->w = pfft->w ? (complex_t*) realloc(pfft->w,  nw*sizeof(complex_t)):
                         (complex_t*) malloc(           nw*sizeof(complex_t));
 
-    for(k = 0; k < n2; k++)
+    for(k = 0; k < n1; k++)
     {
-      for(m = 0; m < n1; m++)
+      for(m = 0; m < n2; m++)
       {
         phi = - M_2PI * (double)(k*m) / (double)s;
         RE(pfft->w[addr]) = cos(phi);

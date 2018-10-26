@@ -3,7 +3,7 @@
 #include <string.h>
 #include "dspl.h"
 
-#define N 16
+#define N 32
 int main()
 {
   void* handle;           // DSPL handle
@@ -26,7 +26,20 @@ int main()
     IM(x[n]) = 0.0;
   }
 
+
+  for(n = 0; n < N*2; n++)
+  {
+    printf("W[%3d] = %12.4f%12.4f\n", n, RE(pfft.w[n]), IM(pfft.w[n]));
+  }
+
+
   fftn_krn(x, y, &pfft, N, 0);
+
+
+  for(n = 0; n < N; n++)
+  {
+    printf("y[%3d] = %12.4f%12.4f\n", n, RE(y[n]), IM(y[n]));
+  }
 
 
   fft_free(&pfft);        // clear FFT object
