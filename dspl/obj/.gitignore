@@ -1,0 +1,8 @@
+*.o
+*.so
+*.dll
+*.exe
+*.txt
+*.dat
+*.bin
+*.csv

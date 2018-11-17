@@ -122,6 +122,49 @@ int DSPL_API fourier_series_dec_cmplx(double* t, complex_t* s, int nt,
 
 
 
+/*******************************************************************************
+Fourier Transform
+*******************************************************************************/
+int DSPL_API fourier_integral_cmplx(double* t, complex_t* s, int nt,
+      int nw, double* w, complex_t* y)
+{
+  int k, m;
+  complex_t e[2];
+
+  if(!t || !s || !w || !y)
+    return ERROR_PTR;
+  if(nt<1 || nw < 1)
+    return ERROR_SIZE;
+
+
+  memset(y, 0 , nw*sizeof(complex_t));
+
+  for(k = 0; k < nw; k++)
+  {
+    RE(e[1]) =  RE(s[0]) * cos(w[k] * t[0]) +
+    IM(s[0]) * sin(w[k] * t[0]);
+    IM(e[1]) = -RE(s[0]) * sin(w[k] * t[0]) +
+    IM(s[0]) * cos(w[k] * t[0]);
+    for(m = 1; m < nt; m++)
+    {
+      RE(e[0]) = RE(e[1]);
+      IM(e[0]) = IM(e[1]);
+      RE(e[1]) =   RE(s[m]) * cos(w[k] * t[m]) +
+      IM(s[m]) * sin(w[k] * t[m]);
+      IM(e[1]) = -RE(s[m]) * sin(w[k] * t[m]) +
+      IM(s[m]) * cos(w[k] * t[m]);
+      RE(y[k]) += 0.5 * (RE(e[0]) + RE(e[1]))*(t[m] - t[m-1]);
+      IM(y[k]) += 0.5 * (IM(e[0]) + IM(e[1]))*(t[m] - t[m-1]);
+    }
+  }
+
+  return RES_OK;
+}
+
+
+
+
+
 
 /*******************************************************************************
 Fourier Series Reconstruction

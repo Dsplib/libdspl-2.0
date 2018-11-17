@@ -69,6 +69,7 @@ typedef struct
 #define SQR(x)          ((x) * (x))
 #define ABSSQR(x)       ((SQR(RE(x))) + (SQR(IM(x))))
 #define ABS(x)          sqrt((ABSSQR(x)))
+#define ARG(x)          atan2(IM(x), RE(x))
 
 #define CMRE(a,b)       ((RE(a)) * (RE(b)) - (IM(a)) * (IM(b)))
 #define CMIM(a,b)       ((RE(a)) * (IM(b)) + (IM(a)) * (RE(b)))
@@ -457,7 +458,7 @@ DECLARE_FUNC(int,        fft_shift_cmplx,             complex_t*
 DECLARE_FUNC(int,        fftn_create,                 fft_t*          pfft
                                                 COMMA int             n);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,       fftn_krn,                     complex_t*      t0
+DECLARE_FUNC(int,        fftn_krn,                    complex_t*      t0
                                                 COMMA complex_t*      t1
                                                 COMMA fft_t*          p
                                                 COMMA int             n
@@ -468,6 +469,13 @@ DECLARE_FUNC(int,        flipip,                      double*
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,        flipip_cmplx,                complex_t*
                                                 COMMA int);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,        fourier_integral_cmplx,      double*         t
+                                                COMMA complex_t* s
+                                                COMMA int nt
+                                                COMMA int nw
+                                                COMMA double* w
+                                                COMMA complex_t* y);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,        fourier_series_dec,          double*
                                                 COMMA double*

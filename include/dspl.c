@@ -86,6 +86,7 @@ p_fftn_create                          fftn_create                   ;
 p_fftn_krn                             fftn_krn                      ;
 p_flipip                               flipip                        ;
 p_flipip_cmplx                         flipip_cmplx                  ;
+p_fourier_integral_cmplx               fourier_integral_cmplx        ;
 p_fourier_series_dec                   fourier_series_dec            ;
 p_fourier_series_dec_cmplx             fourier_series_dec_cmplx      ;
 p_fourier_series_rec                   fourier_series_rec            ;
@@ -231,6 +232,7 @@ void* dspl_load()
   LOAD_FUNC(fftn_krn);
   LOAD_FUNC(flipip);
   LOAD_FUNC(flipip_cmplx);
+  LOAD_FUNC(fourier_integral_cmplx);
   LOAD_FUNC(fourier_series_dec);
   LOAD_FUNC(fourier_series_dec_cmplx);
   LOAD_FUNC(fourier_series_rec);
