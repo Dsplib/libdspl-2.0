@@ -13,6 +13,10 @@ else
 		DSPL_LIBNAME = libdspl.so
 		DEF_OS = LINUX_OS
 		LFLAGS = -lm -ldl
+	else ifeq ($(UNAME_S),Darwin)
+		DSPL_LIBNAME = libdspl.so
+		DEF_OS = LINUX_OS
+		LFLAGS = -lm -ldl
 	endif
 endif
 

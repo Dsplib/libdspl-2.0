@@ -7,7 +7,9 @@ ifeq ($(OS),Windows_NT)
 else
     UNAME_S := $(shell uname -s)
     ifeq ($(UNAME_S),Linux)
-        MAKE = make       
+        MAKE = make
+    else ifeq ($(UNAME_S),Darwin)
+    	MAKE = make
     endif
 endif
 
