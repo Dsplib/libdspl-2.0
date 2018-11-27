@@ -3,7 +3,7 @@
 #include <string.h>
 #include <time.h>
 #include "dspl.h"
-#define N 2097152
+#define N 1048576
 int main()
 {
   void* handle;           // DSPL handle
