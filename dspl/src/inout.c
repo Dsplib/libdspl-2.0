@@ -39,6 +39,78 @@ void DSPL_API dspl_info()
 
 
 
+/******************************************************************************
+Write a real array to the binary file "fn"
+*******************************************************************************/
+int DSPL_API readbin(char* fn, void** x,  int* k, int* dtype)
+{
+  FILE* pFile = NULL;
+  int n, m, t, err;
+  
+  if(!x)
+    return ERROR_PTR;
+  if(!fn)
+    return  ERROR_FNAME;
+
+  pFile = fopen(fn, "rb");
+  if(pFile == NULL)
+      return ERROR_FOPEN;  
+
+  if(fread(&t, sizeof(int), 1, pFile) != 1)
+  {
+    err = ERROR_FREAD_SIZE;
+    goto exit_label;
+  }
+  
+  if(dtype) 
+    *dtype = t;
+  
+  if(fread(&n, sizeof(int), 1, pFile) != 1)
+  {
+    err = ERROR_FREAD_SIZE;
+    goto exit_label;
+  }
+  
+  if(fread(&m, sizeof(int), 1, pFile) != 1)
+  {
+    err = ERROR_FREAD_SIZE;
+    goto exit_label;
+  }
+  
+  if(k)
+    *k = n*m;
+  
+  switch(t)
+  {
+    case DAT_DOUBLE:
+      (*x) = (*x) ? realloc(*x, n*m*sizeof(double)) : 
+                     malloc(n*m*sizeof(double)); 
+      if(fread(*x, sizeof(double), n*m, pFile) != n*m)
+      {
+        err = ERROR_FREAD_SIZE;
+        goto exit_label;
+      }               
+            
+      break;
+    case DAT_COMPLEX:
+      (*x) = (*x) ? realloc(*x, n*m*sizeof(complex_t)) : 
+                     malloc(n*m*sizeof(complex_t)); 
+      if(fread(*x, sizeof(complex_t), n*m, pFile) != n*m)
+      {
+        err = ERROR_FREAD_SIZE;
+        goto exit_label;
+      }   
+    default:
+      err = ERROR_DAT_TYPE;
+      goto exit_label;
+  }
+  err = RES_OK;
+exit_label:
+  if(pFile)
+    fclose(pFile);
+  return err;   
+}
+
 
 
 /******************************************************************************

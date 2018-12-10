@@ -24,6 +24,8 @@ all:
 	cp  -r include/dspl.c release/include/dspl.c
 	$(MAKE) -f Makefile.test
 	cp  -r $(RELEASE_DIR)/$(DSPL_LIBNAME) test/bin/$(DSPL_LIBNAME)
+	$(MAKE) -f Makefile.verif
+	cp  -r $(RELEASE_DIR)/$(DSPL_LIBNAME) verif/bin/$(DSPL_LIBNAME)
 
 	
 	

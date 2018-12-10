@@ -24,25 +24,6 @@
 #include "dspl.h"
 #include "dspl_internal.h"
 
-
-
-
-
-/*******************************************************************************
-2 points DFT
-*******************************************************************************/
-void dft2 (complex_t *x,  complex_t* y)
-{
-  RE(y[0]) = RE(x[0]) + RE(x[1]);
-  IM(y[0]) = IM(x[0]) + IM(x[1]);
-
-  RE(y[1]) = RE(x[0]) - RE(x[1]);
-  IM(y[1]) = IM(x[0]) - IM(x[1]);
-}
-
-
-
-
 /*******************************************************************************
 COMPLEX vector IFFT
 *******************************************************************************/
@@ -78,11 +59,6 @@ int DSPL_API ifft_cmplx(complex_t *x, int n, fft_t* pfft, complex_t* y)
    }
    return RES_OK;
 }
-
-
-
-
-
 
 
 /*******************************************************************************
@@ -257,29 +233,50 @@ int DSPL_API fftn_krn(complex_t* t0, complex_t* t1, fft_t* p, int n, int addr)
   complex_t *pw = p->w+addr;
 
   n1 = 1;
-  if(n%2 == 0)
-  {
-    n1 = 2;
-    goto label_size;
-  }
+  if(n%16== 0) { n1 = 16;   goto label_size;  }
+  if(n%7 == 0) { n1 =  7;   goto label_size;  }
+  if(n%5 == 0) { n1 =  5;   goto label_size;  }
+  if(n%4 == 0) { n1 =  4;   goto label_size;  }
+  if(n%3 == 0) { n1 =  3;   goto label_size;  }
+  if(n%2 == 0) { n1 =  2;   goto label_size;  }
 
 label_size:
   if(n1 == 1)
     return ERROR_FFT_SIZE;
+  
   n2 = n / n1;
-  memcpy(t1, t0, n*sizeof(complex_t));
-
-  transpose_cmplx(t1, n2, n1, t0);
-
-  if(n1 == 2)
+  
+  if(n2>1)
   {
-    for(k = 0; k < n2; k++)
-    {
-      dft2(t0+2*k, t1+2*k);
-    }
+    memcpy(t1, t0, n*sizeof(complex_t));
+   transpose_cmplx(t1, n2, n1, t0);
   }
+ 
+  if(n1 == 16)
+    for(k = 0; k < n2; k++)
+      dft16(t0+16*k, t1+16*k);
+      
+  if(n1 == 7)
+    for(k = 0; k < n2; k++)
+      dft7(t0+7*k, t1+7*k); 
+      
+  if(n1 == 5)
+    for(k = 0; k < n2; k++)
+      dft5(t0+5*k, t1+5*k);
+ 
+  if(n1 == 4)
+    for(k = 0; k < n2; k++)
+      dft4(t0+4*k, t1+4*k);
+  
+  if(n1 == 3)
+    for(k = 0; k < n2; k++)
+      dft3(t0+3*k, t1+3*k);
+  
+  if(n1 == 2)
+    for(k = 0; k < n2; k++)
+      dft2(t0+2*k, t1+2*k);
 
-  if(n1 > 1)
+  if(n2 > 1)
   {
 
     for(k =0; k < n; k++)
@@ -289,14 +286,11 @@ label_size:
     }
 
     transpose_cmplx(t0, n1, n2, t1);
-
-
+    
     for(k = 0; k < n1; k++)
     {
       fftn_krn(t1+k*n2, t0+k*n2, p, n2, addr+n);
     }
-
-
     transpose_cmplx(t0, n2, n1, t1);
   }
   return RES_OK;
@@ -320,16 +314,18 @@ int DSPL_API fftn_create(fft_t *pfft, int n)
   while(s > 1)
   {
     n2 = 1;
-    if(s%2 == 0)
-    {
-      n2 = 2;
-      goto label_size;
-    }
+    if(s%16== 0) { n2 = 16; goto label_size; }
+    if(s%7 == 0) { n2 =  7; goto label_size; }
+    if(s%5 == 0) { n2 =  5; goto label_size; }
+    if(s%4 == 0) { n2 =  4; goto label_size; }
+    if(s%3 == 0) { n2 =  3; goto label_size; }
+    if(s%2 == 0) { n2 =  2; goto label_size; }
 
 
 label_size:
     if(n2 == 1)
       return ERROR_FFT_SIZE;
+    
     n1 = s / n2;
     nw += s;
     pfft->w = pfft->w ? (complex_t*) realloc(pfft->w,  nw*sizeof(complex_t)):

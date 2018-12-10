@@ -152,3 +152,87 @@ int DSPL_API flipip_cmplx(complex_t* x, int n)
   return RES_OK;
 }
 
+
+
+
+/******************************************************************************
+Verif double
+*******************************************************************************/
+int DSPL_API verif(double* x,  double* y, size_t n, double eps, double* err)
+{
+  double d, maxd; 
+  size_t k; 
+  if(!x || !y)
+    return ERROR_PTR;
+  if(n < 1)
+    return ERROR_SIZE;
+  if(eps <= 0.0 )
+    return ERROR_NEGATIVE;
+    
+  maxd = -100.0;
+  
+  for(k = 0; k < n; k++)
+  {
+    d = fabs(x[k] - y[k]);
+    if(fabs(x[k]) > 0.0)
+    {
+      d = d / fabs(x[k]);
+      if(d > maxd)
+        maxd = d;
+    }
+  }
+  if(err) 
+    *err = maxd;
+    
+  if(maxd > eps)
+    err = DSPL_VERIF_FAILED;
+  else
+    err = DSPL_VERIF_SUCCESS;
+ 
+  return err;
+}
+
+
+
+/******************************************************************************
+Verif double
+*******************************************************************************/
+int DSPL_API verif_cmplx(complex_t* x,  complex_t* y, size_t n, 
+                         double eps, double* err)
+{
+  
+  complex_t d;
+  double mx, md, maxd; 
+  size_t k; 
+  if(!x || !y)
+    return ERROR_PTR;
+  if(n < 1)
+    return ERROR_SIZE;
+  if(eps <= 0.0 )
+    return ERROR_NEGATIVE;
+    
+  maxd = -100.0;
+  
+  for(k = 0; k < n; k++)
+  {
+    RE(d) = RE(x[k]) - RE(y[k]);
+    IM(d) = IM(x[k]) - IM(y[k]);
+    md = ABS(d);
+    mx = ABS(x[k]);
+    if(mx > 0.0)
+    {
+      md = md / mx;
+      if(md > maxd)
+        maxd = md;
+    }
+  }
+  if(err) 
+    *err = maxd;
+    
+  if(maxd > eps)
+    err = DSPL_VERIF_FAILED;
+  else
+    err = DSPL_VERIF_SUCCESS;
+ 
+  return err;
+}

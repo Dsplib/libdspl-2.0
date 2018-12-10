@@ -100,6 +100,7 @@ typedef struct
 #define ERROR_FILTER_RS                       0x06101819
 #define ERROR_FNAME                           0x06140113
 #define ERROR_FOPEN                           0x06151605
+#define ERROR_FREAD_SIZE                      0x06180501
 #define ERROR_FWRITE_SIZE                     0x06231820
 /* G                                          0x07xxxxxx*/
 /* H                                          0x08xxxxxx*/
@@ -174,7 +175,8 @@ typedef struct
 #define ELLIP_ITER                            16
 #define ELLIP_MAX_ORD                         24
 
-
+#define  DSPL_VERIF_FAILED                    1
+#define  DSPL_VERIF_SUCCESS                   0
 
 #ifdef __cplusplus
   extern "C" {
@@ -648,6 +650,11 @@ DECLARE_FUNC(int,        ratcompos,                   double*          b
 DECLARE_FUNC(int,        re2cmplx,                    double*
                                                 COMMA int
                                                 COMMA complex_t*);
+//------------------------------------------------------------------------------                                                
+DECLARE_FUNC(int,        readbin,                     char*           fn
+                                                COMMA void**          x
+                                                COMMA int*            k
+                                                COMMA int*            dtype);                                                
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,        signal_pimp,                 double*
                                                 COMMA size_t
@@ -691,6 +698,18 @@ DECLARE_FUNC(int,        unwrap,                      double*
                                                 COMMA int
                                                 COMMA double
                                                 COMMA double);
+//------------------------------------------------------------------------------                                               
+DECLARE_FUNC(int,        verif,                       double*          x
+                                                COMMA double*          y
+                                                COMMA size_t           n
+                                                COMMA double           eps
+                                                COMMA double*          err);    
+//------------------------------------------------------------------------------                                               
+DECLARE_FUNC(int,        verif_cmplx,                 complex_t*       x
+                                                COMMA complex_t*       y
+                                                COMMA size_t           n
+                                                COMMA double           eps
+                                                COMMA double*          err);                                             
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,        writebin,                    void*
                                                 COMMA int
