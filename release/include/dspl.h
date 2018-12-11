@@ -457,15 +457,6 @@ DECLARE_FUNC(int,        fft_shift_cmplx,             complex_t*
                                                 COMMA int
                                                 COMMA complex_t*);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,        fftn_create,                 fft_t*          pfft
-                                                COMMA int             n);
-//------------------------------------------------------------------------------
-DECLARE_FUNC(int,        fftn_krn,                    complex_t*      t0
-                                                COMMA complex_t*      t1
-                                                COMMA fft_t*          p
-                                                COMMA int             n
-                                                COMMA int             addr);
-//------------------------------------------------------------------------------
 DECLARE_FUNC(int,        flipip,                      double*
                                                 COMMA int);
 //------------------------------------------------------------------------------

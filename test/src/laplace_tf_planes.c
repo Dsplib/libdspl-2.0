@@ -15,7 +15,7 @@ int main(int argc, char* argv[])
 	double w[N], sigma[N], hr[N], hi[N];
 	void* handle;
 	double b[ORD+1], a[ORD+1];
-	complex_t p[ORD], z[ORD];
+	//complex_t p[ORD], z[ORD];
 	complex_t hs[N];
 	int k;
 	

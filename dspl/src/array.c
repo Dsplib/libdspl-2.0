@@ -162,6 +162,7 @@ int DSPL_API verif(double* x,  double* y, size_t n, double eps, double* err)
 {
   double d, maxd; 
   size_t k; 
+  int res;
   if(!x || !y)
     return ERROR_PTR;
   if(n < 1)
@@ -185,11 +186,11 @@ int DSPL_API verif(double* x,  double* y, size_t n, double eps, double* err)
     *err = maxd;
     
   if(maxd > eps)
-    err = DSPL_VERIF_FAILED;
+    res = DSPL_VERIF_FAILED;
   else
-    err = DSPL_VERIF_SUCCESS;
+    res = DSPL_VERIF_SUCCESS;
  
-  return err;
+  return res;
 }
 
 
@@ -204,6 +205,7 @@ int DSPL_API verif_cmplx(complex_t* x,  complex_t* y, size_t n,
   complex_t d;
   double mx, md, maxd; 
   size_t k; 
+  int res;
   if(!x || !y)
     return ERROR_PTR;
   if(n < 1)
@@ -230,9 +232,9 @@ int DSPL_API verif_cmplx(complex_t* x,  complex_t* y, size_t n,
     *err = maxd;
     
   if(maxd > eps)
-    err = DSPL_VERIF_FAILED;
+    res = DSPL_VERIF_FAILED;
   else
-    err = DSPL_VERIF_SUCCESS;
+    res = DSPL_VERIF_SUCCESS;
  
-  return err;
+  return res;
 }

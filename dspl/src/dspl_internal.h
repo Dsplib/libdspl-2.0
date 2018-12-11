@@ -12,12 +12,7 @@ void transpose(double* a, int n, int m, double* b);
 void transpose_cmplx(complex_t* a, int n, int m, complex_t* b);
 void transpose_hermite(complex_t* a, int n, int m, complex_t* b);
 
-int fft_bit_reverse(complex_t* x, complex_t* y, int n, int p2);
-int fft_dit(fft_t *pfft, int n, complex_t* y);
-void fft_dit_krn(complex_t *x0, complex_t *x1, complex_t *w, int n,
-                 complex_t *y0, complex_t *y1);
-
-int fft_p2(int n);
+int fft_krn(complex_t* t0, complex_t* t1, fft_t* p, int n, int addr);
 
 
 void dft2 (complex_t *x,  complex_t* y);

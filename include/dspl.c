@@ -82,8 +82,6 @@ p_fft_create                           fft_create                    ;
 p_fft_free                             fft_free                      ;
 p_fft_shift                            fft_shift                     ;
 p_fft_shift_cmplx                      fft_shift_cmplx               ;
-p_fftn_create                          fftn_create                   ;
-p_fftn_krn                             fftn_krn                      ;
 p_flipip                               flipip                        ;
 p_flipip_cmplx                         flipip_cmplx                  ;
 p_fourier_integral_cmplx               fourier_integral_cmplx        ;
@@ -231,8 +229,6 @@ void* dspl_load()
   LOAD_FUNC(fft_free);
   LOAD_FUNC(fft_shift);
   LOAD_FUNC(fft_shift_cmplx);
-  LOAD_FUNC(fftn_create);
-  LOAD_FUNC(fftn_krn);
   LOAD_FUNC(flipip);
   LOAD_FUNC(flipip_cmplx);
   LOAD_FUNC(fourier_integral_cmplx);

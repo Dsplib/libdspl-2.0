@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <math.h>
 #include "dspl.h"
@@ -17,7 +18,8 @@ int main(int argc, char* argv[])
 	double mag[K];	// амплитудный спектр
 	double phi[K];	// фазовый спектр
 	void* handle;
-	int k, n;
+  // test
+	int n;
 
 	handle = dspl_load();
 	if(!handle)

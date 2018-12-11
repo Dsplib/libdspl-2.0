@@ -23,11 +23,11 @@ int main()
 	
 	printf("\nChebyshev type 2 zeros:\n");
 	for(k = 0; k < nz; k++)
-		printf("(%9.3f,  %9.3f)\n", k, SCALE*RE(z[k]), SCALE*IM(z[k]));
+		printf("(%9.3f,  %9.3f)\n",  SCALE*RE(z[k]), SCALE*IM(z[k]));
 	
 	printf("\nChebyshev type 2 poles:\n");
 	for(k = 0; k < np; k++)
-		printf("(%9.3f,  %9.3f)\n", k, SCALE*RE(p[k]), SCALE*IM(p[k]));
+		printf("(%9.3f,  %9.3f)\n",  SCALE*RE(p[k]), SCALE*IM(p[k]));
 	
 	
 	double alpha[N], sigma[N], omega[N];
@@ -67,11 +67,11 @@ int main()
 	
 	printf("\nChebyshev type 2 zeros:\n");
 	for(k = 0; k < nz; k++)
-		printf("(%9.3f,  %9.3f)\n", k, SCALE*RE(z[k]), SCALE*IM(z[k]));
+		printf("(%9.3f,  %9.3f)\n",  SCALE*RE(z[k]), SCALE*IM(z[k]));
 	
 	printf("\nChebyshev type 2 poles:\n");
 	for(k = 0; k < np; k++)
-		printf("(%9.3f,  %9.3f)\n", k, SCALE*RE(p[k]), SCALE*IM(p[k]));
+		printf("(%9.3f,  %9.3f)\n",  SCALE*RE(p[k]), SCALE*IM(p[k]));
 	
 	for(m = 1; m < 12; m++)
 	{

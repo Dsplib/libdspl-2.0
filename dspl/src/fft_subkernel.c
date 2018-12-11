@@ -218,8 +218,8 @@ void dft7 (complex_t *x,  complex_t* y)
   RE(sum[13]) = RE(sum[2]) + RE(sum[4]);
   IM(sum[13]) = IM(sum[2]) + IM(sum[4]);
   
-  RE(sum[14]) = RE(sum[13]) + RE(x[6]);
-  IM(sum[14]) = IM(sum[13]) + IM(x[6]);
+  RE(sum[14]) = RE(sum[13]) + RE(sum[6]);
+  IM(sum[14]) = IM(sum[13]) + IM(sum[6]);
   
   RE(sum[15]) = RE(sum[2]) - RE(sum[4]);
   IM(sum[15]) = IM(sum[2]) - IM(sum[4]);

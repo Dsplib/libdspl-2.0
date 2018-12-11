@@ -20,17 +20,28 @@ int main()
   randn(xr,   N, 0, 1.0);
   randn((double*)xc, 2*N, 0, 1.0);
   
-  writebin(xr, N, DAT_DOUBLE,  "dat/in_real.dat");
-  writebin(xc, N, DAT_COMPLEX, "dat/in_cmplx.dat");
   
-  readbin("dat/in_real.dat",  (void**)&yr, NULL, NULL);
-  readbin("dat/in_cmplx.dat", (void**)&yc, NULL, NULL);  
+  writebin(xr, N, DAT_DOUBLE,  "dat/in.dat");
+  system("octave octave/readbin_verif.m");
+  readbin("dat/out.dat",  (void**)&yr, NULL, NULL);
   
   vr = verif(xr, yr, N, 1E-12, &err);
-  printf("readbin real verification error:          %12.4e\n", err);
+  if(vr == DSPL_VERIF_SUCCESS)
+    printf("readbin real verification OK:          %12.4e\n", err);
+  else
+    printf("readbin real verification ERROR:       %12.4e\n", err);
+  
+  
+  writebin(xc, N, DAT_COMPLEX,  "dat/in.dat");
+  system("octave octave/readbin_verif.m");
+  readbin("dat/out.dat",  (void**)&yc, NULL, NULL); 
+  
   
   vr = verif_cmplx(xc, yc, N, 1E-12, &err);
-  printf("readbin cmplx verification error:         %12.4e\n", err);
+  if(vr == DSPL_VERIF_SUCCESS)
+    printf("readbin cmplx verification OK:         %12.4e\n", err);
+  else
+    printf("readbin cmplx verification ERROR:      %12.4e\n", err);
   
   dspl_free(handle);      // free dspl handle
 
