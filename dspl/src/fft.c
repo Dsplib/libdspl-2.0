@@ -119,7 +119,7 @@ int fft_krn(complex_t* t0, complex_t* t1, fft_t* p, int n, int addr)
   complex_t *pw = p->w+addr;
 
   n1 = 1;
-  //if(n%16== 0) { n1 = 16;   goto label_size;  }
+  if(n%16== 0) { n1 = 16;   goto label_size;  }
   if(n%7 == 0) { n1 =  7;   goto label_size;  }
   if(n%5 == 0) { n1 =  5;   goto label_size;  }
   if(n%4 == 0) { n1 =  4;   goto label_size;  }
@@ -197,10 +197,13 @@ int DSPL_API fft_create(fft_t *pfft, int n)
   s = n;
   nw = addr = 0;
 
+  if(pfft->n == n)
+    return RES_OK;
+
   while(s > 1)
   {
     n2 = 1;
-    //if(s%16== 0) { n2 = 16; goto label_size; }
+    if(s%16== 0) { n2 = 16; goto label_size; }
     if(s%7 == 0) { n2 =  7; goto label_size; }
     if(s%5 == 0) { n2 =  5; goto label_size; }
     if(s%4 == 0) { n2 =  4; goto label_size; }
@@ -211,7 +214,6 @@ int DSPL_API fft_create(fft_t *pfft, int n)
 label_size:
     if(n2 == 1)
       return ERROR_FFT_SIZE;
-    
     n1 = s / n2;
     nw += s;
     pfft->w = pfft->w ? (complex_t*) realloc(pfft->w,  nw*sizeof(complex_t)):
@@ -236,6 +238,8 @@ label_size:
 
   pfft->t1 = pfft->t1 ? (complex_t*) realloc(pfft->t1, n*sizeof(complex_t)):
                         (complex_t*) malloc(           n*sizeof(complex_t));
+                        
+  pfft->n = n;
 
   return RES_OK;
 }
