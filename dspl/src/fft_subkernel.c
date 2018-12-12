@@ -323,7 +323,7 @@ void dft16 (complex_t *x,  complex_t* y)
   complex_t t1[16];
   double tmp;
   
-  transpose16x16(x, t0);
+  transpose4x4(x, t0);
   
   dft4(t0,    t1);
   dft4(t0+4,  t1+4);
@@ -387,14 +387,14 @@ void dft16 (complex_t *x,  complex_t* y)
   dft4(t0+8,  t1+8);
   dft4(t0+12, t1+12);
   
-  transpose16x16(t1, y);
+  transpose4x4(t1, y);
 
 }
 
 /*******************************************************************************
 16 x 16 matrix transpose
 *******************************************************************************/
-void transpose16x16(complex_t *x,  complex_t* y)
+void transpose4x4(complex_t *x,  complex_t* y)
 {
   RE(y[ 0]) = RE(x[ 0]);  IM(y[ 0]) = IM(x[ 0]);   
   RE(y[ 1]) = RE(x[ 4]);  IM(y[ 1]) = IM(x[ 4]);   

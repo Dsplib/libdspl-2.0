@@ -44,7 +44,7 @@ void dft7 (complex_t *x,  complex_t* y);
 #define DFT16_W3       0.707106781186548
 void dft16 (complex_t *x,  complex_t* y);
 
-void transpose16x16(complex_t *x,  complex_t* y);
+void transpose4x4(complex_t *x,  complex_t* y);
 
 
 
