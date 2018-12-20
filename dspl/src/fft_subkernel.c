@@ -380,7 +380,7 @@ void dft16 (complex_t *x,  complex_t* y)
   IM(t1[15]) =  RE(t1[15]) * DFT16_W2 - IM(t1[15]) * DFT16_W1;
   RE(t1[15]) = tmp;
   
-  transpose16x16(t1, t0);
+  transpose4x4(t1, t0);
   
   dft4(t0,    t1);
   dft4(t0+4,  t1+4);

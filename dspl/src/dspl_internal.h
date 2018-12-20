@@ -7,6 +7,8 @@
 #define DSPL_RAND_MOD_X1            2147483647
 #define DSPL_RAND_MOD_X2            2145483479
 
+// sqrt(2^31)
+#define FFT_COMPOSITE_MAX           46340
 
 void transpose(double* a, int n, int m, double* b);
 void transpose_cmplx(complex_t* a, int n, int m, complex_t* b);

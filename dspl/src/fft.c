@@ -115,9 +115,10 @@ composite FFT kernel
 *******************************************************************************/
 int fft_krn(complex_t* t0, complex_t* t1, fft_t* p, int n, int addr)
 {
-  int n1, n2, k;
+  int n1, n2, k, m, i;
   complex_t *pw = p->w+addr;
-
+  complex_t tmp;
+  
   n1 = 1;
   if(n%16== 0) { n1 = 16;   goto label_size;  }
   if(n%7 == 0) { n1 =  7;   goto label_size;  }
@@ -128,56 +129,71 @@ int fft_krn(complex_t* t0, complex_t* t1, fft_t* p, int n, int addr)
 
 label_size:
   if(n1 == 1)
-    return ERROR_FFT_SIZE;
-  
-  n2 = n / n1;
-  
-  if(n2>1)
   {
-    memcpy(t1, t0, n*sizeof(complex_t));
-   transpose_cmplx(t1, n2, n1, t0);
+    for(k = 0; k < n; k++)
+    {
+      RE(t1[k]) = IM(t1[k]) = 0.0;
+      for(m = 0; m < n; m++)
+      {
+        i = addr + ((k*m) % n);
+        RE(tmp) = CMRE(t0[m], pw[i]);
+        IM(tmp) = CMIM(t0[m], pw[i]);
+        RE(t1[k]) += RE(tmp);
+        IM(t1[k]) += IM(tmp);
+      }
+    }
   }
- 
-  if(n1 == 16)
-    for(k = 0; k < n2; k++)
-      dft16(t0+16*k, t1+16*k);
-      
-  if(n1 == 7)
-    for(k = 0; k < n2; k++)
-      dft7(t0+7*k, t1+7*k); 
-      
-  if(n1 == 5)
-    for(k = 0; k < n2; k++)
-      dft5(t0+5*k, t1+5*k);
- 
-  if(n1 == 4)
-    for(k = 0; k < n2; k++)
-      dft4(t0+4*k, t1+4*k);
-  
-  if(n1 == 3)
-    for(k = 0; k < n2; k++)
-      dft3(t0+3*k, t1+3*k);
-  
-  if(n1 == 2)
-    for(k = 0; k < n2; k++)
-      dft2(t0+2*k, t1+2*k);
-
-  if(n2 > 1)
+  else
   {
-
-    for(k =0; k < n; k++)
-    {
-      RE(t0[k]) = CMRE(t1[k], pw[k]);
-      IM(t0[k]) = CMIM(t1[k], pw[k]);
-    }
-
-    transpose_cmplx(t0, n1, n2, t1);
+    n2 = n / n1;
     
-    for(k = 0; k < n1; k++)
+    if(n2>1)
     {
-      fft_krn(t1+k*n2, t0+k*n2, p, n2, addr+n);
+      memcpy(t1, t0, n*sizeof(complex_t));
+      transpose_cmplx(t1, n2, n1, t0);
     }
-    transpose_cmplx(t0, n2, n1, t1);
+   
+    if(n1 == 16)
+      for(k = 0; k < n2; k++)
+        dft16(t0+16*k, t1+16*k);
+        
+    if(n1 == 7)
+      for(k = 0; k < n2; k++)
+        dft7(t0+7*k, t1+7*k); 
+        
+    if(n1 == 5)
+      for(k = 0; k < n2; k++)
+        dft5(t0+5*k, t1+5*k);
+   
+    if(n1 == 4)
+      for(k = 0; k < n2; k++)
+        dft4(t0+4*k, t1+4*k);
+    
+    if(n1 == 3)
+      for(k = 0; k < n2; k++)
+        dft3(t0+3*k, t1+3*k);
+    
+    if(n1 == 2)
+      for(k = 0; k < n2; k++)
+        dft2(t0+2*k, t1+2*k);
+
+    if(n2 > 1)
+    {
+
+      for(k =0; k < n; k++)
+      {
+        RE(t0[k]) = CMRE(t1[k], pw[k]);
+        IM(t0[k]) = CMIM(t1[k], pw[k]);
+      }
+
+      transpose_cmplx(t0, n1, n2, t1);
+      
+      for(k = 0; k < n1; k++)
+      {
+        fft_krn(t1+k*n2, t0+k*n2, p, n2, addr+n);
+      }
+      transpose_cmplx(t0, n2, n1, t1);
+    }
   }
   return RES_OK;
 
@@ -192,7 +208,7 @@ FFT create for composite N
 int DSPL_API fft_create(fft_t *pfft, int n)
 {
 
-  int n1, n2, addr, s, k, m, nw;
+  int n1, n2, addr, s, k, m, nw, err;
   double phi;
   s = n;
   nw = addr = 0;
@@ -213,28 +229,47 @@ int DSPL_API fft_create(fft_t *pfft, int n)
 
 label_size:
     if(n2 == 1)
-      return ERROR_FFT_SIZE;
-    n1 = s / n2;
-    nw += s;
-    pfft->w = pfft->w ? (complex_t*) realloc(pfft->w,  nw*sizeof(complex_t)):
-                        (complex_t*) malloc(           nw*sizeof(complex_t));
-
-    for(k = 0; k < n1; k++)
     {
-      for(m = 0; m < n2; m++)
+      if(s > FFT_COMPOSITE_MAX)
       {
-        phi = - M_2PI * (double)(k*m) / (double)s;
+        err = ERROR_FFT_SIZE;
+        goto error_proc;
+      }
+      
+      nw += s;
+      pfft->w = pfft->w ? (complex_t*) realloc(pfft->w,  nw*sizeof(complex_t)):
+                          (complex_t*) malloc(           nw*sizeof(complex_t));
+      for(k = 0; k < s; k++)
+      {
+        phi = - M_2PI * (double)k / (double)s;
         RE(pfft->w[addr]) = cos(phi);
         IM(pfft->w[addr]) = sin(phi);
         addr++;
       }
     }
-    s /= n2;
+    else
+    {
+      n1 = s / n2;
+      nw += s;
+      pfft->w = pfft->w ? (complex_t*) realloc(pfft->w,  nw*sizeof(complex_t)):
+                          (complex_t*) malloc(           nw*sizeof(complex_t));
+
+      for(k = 0; k < n1; k++)
+      {
+        for(m = 0; m < n2; m++)
+        {
+          phi = - M_2PI * (double)(k*m) / (double)s;
+          RE(pfft->w[addr]) = cos(phi);
+          IM(pfft->w[addr]) = sin(phi);
+          addr++;
+        }
+      }
+    }
+    s /= n2;    
   }
 
   pfft->t0 = pfft->t0 ? (complex_t*) realloc(pfft->t0, n*sizeof(complex_t)):
                         (complex_t*) malloc(           n*sizeof(complex_t));
-
 
   pfft->t1 = pfft->t1 ? (complex_t*) realloc(pfft->t1, n*sizeof(complex_t)):
                         (complex_t*) malloc(           n*sizeof(complex_t));
@@ -242,6 +277,12 @@ label_size:
   pfft->n = n;
 
   return RES_OK;
+error_proc:
+  if(pfft->t0) free(pfft->t0);
+  if(pfft->t1) free(pfft->t1);
+  if(pfft->w)  free(pfft->w);
+  pfft->n = 0;
+  return err;
 }
 
 
