@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2018 Sergey Bakhurin
+* Copyright (c) 2015-2019 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -135,7 +135,7 @@ label_size:
       RE(t1[k]) = IM(t1[k]) = 0.0;
       for(m = 0; m < n; m++)
       {
-        i = addr + ((k*m) % n);
+        i = (k*m) % n;
         RE(tmp) = CMRE(t0[m], pw[i]);
         IM(tmp) = CMIM(t0[m], pw[i]);
         RE(t1[k]) += RE(tmp);
@@ -246,6 +246,7 @@ label_size:
         IM(pfft->w[addr]) = sin(phi);
         addr++;
       }
+	  s = 1;
     }
     else
     {
