@@ -6,7 +6,7 @@ find ../../ru -name "*.dox" -exec cp -rf  {} ../test/dox/ru \;
 find ../../ru -name "*.plt" -exec cp -rf  {} ../test/bin/gnuplot \;
 
 cd ../
-make
+mingw32-make
 cd test/bin
 for file in *.exe
 do
@@ -17,7 +17,7 @@ cd ../../dox
 doxygen doxyfile_ru
 
 cd ../
-make clean
+mingw32-make clean
 cd dox
 
 pkill -x gnuplot

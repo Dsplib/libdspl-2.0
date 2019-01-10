@@ -48,7 +48,6 @@ typedef struct
    complex_t*  t0;
    complex_t*  t1;
    int         n;
-   int         p2;
 } fft_t;
 
 
