@@ -11,8 +11,8 @@
 передаточной функции \f$ H(s) \f$:
 
 \f[
-	H(s) = \frac	{\sum_{k = 0}^{N} b_k \cdot s^k}
-			{\sum_{m = 0}^{N} a_m \cdot s^m},
+	H(s) = \frac	{\sum_{k = 0}^{N} b_k  s^k}
+			{\sum_{m = 0}^{N} a_m  s^m},
 \f]
 где \f$ N \f$ - порядок фильтра (параметр `ord`).
 
@@ -182,8 +182,8 @@ butter_ap_test_tau.txt	  ГВЗ фильтра
 коэффициентами передаточной функции \f$H(z)\f$:
 
 \f[
-H(z) = \frac	{\sum_{k = 0}^{N} b_k \cdot z^{-k}}
-		{\sum_{m = 0}^{N} a_m \cdot z^{-m}},
+H(z) = \frac	{\sum_{k = 0}^{N} b_k  z^{-k}}
+		{\sum_{m = 0}^{N} a_m z^{-m}},
 \f]
 
 где \f$N\f$ - порядок фильтра (параметр `ord`).<BR>

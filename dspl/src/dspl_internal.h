@@ -70,5 +70,21 @@ void transpose4x4(complex_t *x,  complex_t* y);
 
 
 
+int win_bartlett		    (double *w, int n, int win_type);
+int win_bartlett_hann	  (double *w, int n, int win_type);
+int win_blackman		    (double *w, int n, int win_type);
+int win_blackman_harris	(double *w, int n, int win_type);
+int win_blackman_nuttall(double *w, int n, int win_type);
+int win_cos				      (double *w, int n, int win_type);
+int win_flat_top		    (double *w, int n, int win_type);
+int win_gaussian		    (double *w, int n, int win_type, double sigma);
+int win_hamming			    (double *w, int n, int win_type);
+int win_hann			      (double *w, int n, int win_type);
+int win_lanczos			    (double *w, int n, int win_type);
+int win_nuttall			    (double *w, int n, int win_type);
+int win_rect			      (double *w, int n);
+
+
+
 #endif
 

@@ -136,12 +136,9 @@
 Функция рассчитывает композицию вида \f$Y(s) = (H \circ F)(s) = H(F(s))\f$, где
 
 \f[
-H(s) = \frac{\sum\limits_{m = 0}^{n} b_m s^m}
-{\sum\limits_{k = 0}^{n} a_k s^k}, \ \ \ \ 
-F(s) = \frac{\sum\limits_{m = 0}^{p} d_m s^m}
-{\sum\limits_{k = 0}^{p} с_k s^k}, \ \ \ \ 
-Y(s) = \frac{\sum\limits_{m = 0}^{n \cdot p} \beta_m s^m}
-{\sum\limits_{k = 0}^{n \cdot p} \alpha_k s^k}
+H(s) = \frac{\sum\limits_{m = 0}^{n} b_m s^m}{\sum\limits_{k = 0}^{n} a_k s^k}, \quad 
+F(s) = \frac{\sum\limits_{m = 0}^{p} d_m s^m}{\sum\limits_{k = 0}^{p} c_k s^k}, \quad 
+Y(s) = \frac{\sum\limits_{m = 0}^{n p} \beta_m s^m}{\sum\limits_{k = 0}^{n  p} \alpha_k s^k}
 \f]
 
 Функция рациональной композиции необходима для произведения частотных
