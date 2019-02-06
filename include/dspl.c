@@ -118,6 +118,7 @@ p_signal_pimp                          signal_pimp                   ;
 p_signal_saw                           signal_saw                    ;
 p_sin_cmplx                            sin_cmplx                     ;
 p_sinc                                 sinc                          ;
+p_sine_int                             sine_int                      ;
 p_sqrt_cmplx                           sqrt_cmplx                    ;
 p_trapint                              trapint                       ;
 p_trapint_cmplx                        trapint_cmplx                 ;
@@ -265,6 +266,7 @@ void* dspl_load()
   LOAD_FUNC(signal_saw);
   LOAD_FUNC(sin_cmplx);
   LOAD_FUNC(sinc);
+  LOAD_FUNC(sine_int);
   LOAD_FUNC(sqrt_cmplx);
   LOAD_FUNC(trapint);
   LOAD_FUNC(trapint_cmplx);

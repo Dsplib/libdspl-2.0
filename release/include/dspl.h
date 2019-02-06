@@ -463,11 +463,11 @@ DECLARE_FUNC(int,        flipip_cmplx,                complex_t*
                                                 COMMA int);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,        fourier_integral_cmplx,      double*         t
-                                                COMMA complex_t* s
-                                                COMMA int nt
-                                                COMMA int nw
-                                                COMMA double* w
-                                                COMMA complex_t* y);
+                                                COMMA complex_t*      s
+                                                COMMA int             nt
+                                                COMMA int             nw
+                                                COMMA double*         w
+                                                COMMA complex_t*      y);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,        fourier_series_dec,          double*
                                                 COMMA double*
@@ -591,7 +591,7 @@ DECLARE_FUNC(int,        matrix_create,               matrix_t*        a
                                                 COMMA int              type);
 
 //------------------------------------------------------------------------------
-DECLARE_FUNC(void,        matrix_free,                matrix_t*        a);
+DECLARE_FUNC(void,       matrix_free,                 matrix_t*        a);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,        matrix_print,                matrix_t*        a
                                                 COMMA const char*      name
@@ -640,11 +640,11 @@ DECLARE_FUNC(int,        ratcompos,                   double*          b
 DECLARE_FUNC(int,        re2cmplx,                    double*
                                                 COMMA int
                                                 COMMA complex_t*);
-//------------------------------------------------------------------------------                                                
+//------------------------------------------------------------------------------
 DECLARE_FUNC(int,        readbin,                     char*           fn
                                                 COMMA void**          x
                                                 COMMA int*            k
-                                                COMMA int*            dtype);                                                
+                                                COMMA int*            dtype);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,        signal_pimp,                 double*
                                                 COMMA size_t
@@ -670,6 +670,10 @@ DECLARE_FUNC(int,        sinc,                        double*          x
                                                 COMMA double           a
                                                 COMMA double*          y);
 //------------------------------------------------------------------------------
+DECLARE_FUNC(int,        sine_int,                    double*          x
+                                                COMMA int              n
+                                                COMMA double*          si);
+//------------------------------------------------------------------------------
 DECLARE_FUNC(int,        sqrt_cmplx,                  complex_t*
                                                 COMMA int
                                                 COMMA complex_t*);
@@ -688,18 +692,18 @@ DECLARE_FUNC(int,        unwrap,                      double*
                                                 COMMA int
                                                 COMMA double
                                                 COMMA double);
-//------------------------------------------------------------------------------                                               
+//------------------------------------------------------------------------------
 DECLARE_FUNC(int,        verif,                       double*          x
                                                 COMMA double*          y
                                                 COMMA size_t           n
                                                 COMMA double           eps
                                                 COMMA double*          err);    
-//------------------------------------------------------------------------------                                               
+//------------------------------------------------------------------------------
 DECLARE_FUNC(int,        verif_cmplx,                 complex_t*       x
                                                 COMMA complex_t*       y
                                                 COMMA size_t           n
                                                 COMMA double           eps
-                                                COMMA double*          err);                                             
+                                                COMMA double*          err);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,        writebin,                    void*
                                                 COMMA int
