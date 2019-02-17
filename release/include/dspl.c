@@ -125,6 +125,7 @@ p_trapint_cmplx                        trapint_cmplx                 ;
 p_unwrap                               unwrap                        ;
 p_verif                                verif                         ;
 p_verif_cmplx                          verif_cmplx                   ;
+p_window                               window                        ;
 p_writebin                             writebin                      ;
 p_writetxt                             writetxt                      ;
 p_writetxt_3d                          writetxt_3d                   ;
@@ -273,6 +274,7 @@ void* dspl_load()
   LOAD_FUNC(unwrap);
   LOAD_FUNC(verif);
   LOAD_FUNC(verif_cmplx);
+  LOAD_FUNC(window);
   LOAD_FUNC(writebin);
   LOAD_FUNC(writetxt);
   LOAD_FUNC(writetxt_3d);

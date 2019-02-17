@@ -109,7 +109,7 @@ typedef struct
 /* K                                          0x11xxxxxx*/
 /* L                                          0x12xxxxxx*/
 /* M                                          0x13xxxxxx*/
-#define        ERROR_MATRIX_SIZE              0x13011909
+#define ERROR_MATRIX_SIZE                     0x13011909
 /* N                                          0x14xxxxxx*/
 #define ERROR_NEGATIVE                        0x14050701
 /* O                                          0x15xxxxxx*/
@@ -129,8 +129,9 @@ typedef struct
 #define ERROR_UNWRAP                          0x21142318
 /* V                                          0x22xxxxxx*/
 /* W                                          0x23xxxxxx*/
-#define ERROR_WIN_TYPE                        0x23092025
+#define ERROR_WIN_PARAM                       0x23091601
 #define ERROR_WIN_SYM                         0x23091925
+#define ERROR_WIN_TYPE                        0x23092025
 /* X                                          0x24xxxxxx*/
 /* Y                                          0x25xxxxxx*/
 /* Z                                          0x26xxxxxx*/
@@ -150,7 +151,7 @@ typedef struct
 #define DSPL_FLAG_UNWRAP                      0x00000002
 
 #define DSPL_WIN_SYM_MASK                     0x00000001
-#define DSPL_WIN_MASK                         0x000FFFFE
+#define DSPL_WIN_MASK                         0x00FFFFFE
 
 #define DSPL_WIN_SYMMETRIC                    DSPL_SYMMETRIC
 #define DSPL_WIN_PERIODIC                     DSPL_PERIODIC
@@ -169,6 +170,7 @@ typedef struct
 #define DSPL_WIN_NUTTALL                      0x00008000
 #define DSPL_WIN_RECT                         0x00010000
 #define DSPL_WIN_COS                          0x00040000
+#define DSPL_WIN_CHEBY                        0x00080000
 
 
 #define ELLIP_ITER                            16
@@ -704,6 +706,11 @@ DECLARE_FUNC(int,        verif_cmplx,                 complex_t*       x
                                                 COMMA size_t           n
                                                 COMMA double           eps
                                                 COMMA double*          err);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,        window,                      double*          w
+                                                COMMA int              n
+                                                COMMA int              win_type
+                                                COMMA double           param);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,        writebin,                    void*
                                                 COMMA int
