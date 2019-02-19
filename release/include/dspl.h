@@ -97,6 +97,8 @@ typedef struct
 #define ERROR_FILTER_ORD                      0x06101518
 #define ERROR_FILTER_RP                       0x06101816
 #define ERROR_FILTER_RS                       0x06101819
+#define ERROR_FILTER_WP                       0x06102316
+#define ERROR_FILTER_WS                       0x06102319
 #define ERROR_FNAME                           0x06140113
 #define ERROR_FOPEN                           0x06151605
 #define ERROR_FREAD_SIZE                      0x06180501
@@ -172,6 +174,13 @@ typedef struct
 #define DSPL_WIN_COS                          0x00040000
 #define DSPL_WIN_CHEBY                        0x00080000
 
+#define DSPL_FILTER_TYPE_MASK                 0x0000000F
+#define DSPL_FILTER_LPF                       0x00000001
+#define DSPL_FILTER_HPF                       0x00000002
+#define DSPL_FILTER_BPASS                     0x00000004
+#define DSPL_FILTER_BSTOP                     0x00000008
+
+
 
 #define ELLIP_ITER                            16
 #define ELLIP_MAX_ORD                         24
@@ -220,6 +229,10 @@ DECLARE_FUNC(int,        acos_cmplx,                  complex_t*
 DECLARE_FUNC(int,        asin_cmplx,                  complex_t*
                                                 COMMA int
                                                 COMMA complex_t*);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,        bessel_i0,                   double*       x
+                                                COMMA int           n
+                                                COMMA double*       y);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,        butter_ap,                   double
                                                 COMMA int
@@ -420,21 +433,6 @@ DECLARE_FUNC(int,        farrow_spline,               double*
                                                 COMMA double**
                                                 COMMA int*);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,        filter_iir,                  double*
-                                                COMMA double*
-                                                COMMA int
-                                                COMMA double*
-                                                COMMA int
-                                                COMMA double*);
-//------------------------------------------------------------------------------
-DECLARE_FUNC(int,        filter_zp2ab,                complex_t*
-                                                COMMA int
-                                                COMMA complex_t*
-                                                COMMA int
-                                                COMMA int
-                                                COMMA double*
-                                                COMMA double*);
-//------------------------------------------------------------------------------
 DECLARE_FUNC(int,        fft,                         double*
                                                 COMMA int
                                                 COMMA fft_t*
@@ -457,6 +455,29 @@ DECLARE_FUNC(int,        fft_shift,                   double*
 DECLARE_FUNC(int,        fft_shift_cmplx,             complex_t*
                                                 COMMA int
                                                 COMMA complex_t*);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,        filter_iir,                  double*
+                                                COMMA double*
+                                                COMMA int
+                                                COMMA double*
+                                                COMMA int
+                                                COMMA double*);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,        filter_zp2ab,                complex_t*
+                                                COMMA int
+                                                COMMA complex_t*
+                                                COMMA int
+                                                COMMA int
+                                                COMMA double*
+                                                COMMA double*);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,        fir_linphase,                int            ord
+                                                COMMA double         w0
+                                                COMMA double         w1
+                                                COMMA int            filter_type
+                                                COMMA int            wintype
+                                                COMMA double         winparam
+                                                COMMA double*        h);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,        flipip,                      double*
                                                 COMMA int);

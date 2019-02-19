@@ -85,7 +85,8 @@ int win_lanczos	        (double *w, int n, int win_type);
 int win_nuttall	        (double *w, int n, int win_type);
 int win_rect            (double *w, int n);
 
-
+int fir_linphase_lpf(int ord, double wp, int wintype, 
+                     double winparam, double* h);
 
 #endif
 
