@@ -33,7 +33,7 @@ Modified Bessel Function of the First Kind – I0(x) [1]
     
     https://www.advanpix.com/2015/11/11/
 *******************************************************************************/
-int DSPL_API bessel_i0(double *x, int n, double* y)
+int DSPL_API bessel_i0(double* x, int n, double* y)
 {
   double P16[17] = { 1.0000000000000000000000801e+00,
                      2.4999999999999999999629693e-01,

@@ -32,7 +32,6 @@ all:
 
 clean:
 	$(MAKE) -f Makefile.dspl  clean
-	$(MAKE) -f Makefile.test  clean
 	$(MAKE) -f Makefile.verif  clean
 	$(MAKE) -f Makefile.examples  clean
 

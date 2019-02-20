@@ -173,6 +173,7 @@ typedef struct
 #define DSPL_WIN_RECT                         0x00010000
 #define DSPL_WIN_COS                          0x00040000
 #define DSPL_WIN_CHEBY                        0x00080000
+#define DSPL_WIN_KAISER                       0x00100000
 
 #define DSPL_FILTER_TYPE_MASK                 0x0000000F
 #define DSPL_FILTER_LPF                       0x00000001

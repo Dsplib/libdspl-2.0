@@ -55,6 +55,8 @@ int window(double* w, int n, int win_type, double param)
       return win_hamming(w, n, win_type);
     case  DSPL_WIN_HANN:
       return win_hann(w, n, win_type);
+    case DSPL_WIN_KAISER:
+      return win_kaiser(w, n, win_type, param);
     case  DSPL_WIN_LANCZOS:
       return win_lanczos(w, n, win_type);
     case  DSPL_WIN_NUTTALL:
@@ -168,68 +170,6 @@ int win_blackman(double *w, int n, int win_type)
 
 
 
-/******************************************************************************
-Chebyshev parametric window function
-param sets spectrum sidelobes level in dB
-ATTENTION! ONLY SYMMETRIC WINDOW
-*******************************************************************************/
-int win_cheby(double *w, int n, double param)
-{
-  int k, i, m;
-  double z, dz, sum = 0, wmax=0, r1, x0, chx, chy, in;  
- 
-  if(!w)
-    return ERROR_PTR;
-  
-  if(n<2)
-    return ERROR_SIZE;
-  
-  if(param <= 0.0)
-    return ERROR_WIN_PARAM;
- 
-  r1 = pow(10, param/20);   
-  x0 = cosh((1.0/(double)(n-1)) * acosh(r1));  
-  
-  // check window length even or odd
-  if(n%2==0)
-  {
-    dz = 0.5;  
-    m = n/2-1;    
-  }
-  else
-  {
-    m = (n-1)/2;
-    dz = 0.0;    
-  }
-  
-  for(k = 0; k < m+2; k++)
-  {
-    z = (double)(k - m) - dz;
-    sum = 0;
-
-    for(i = 1; i <= m; i++)
-    {
-      in = (double)i / (double)n;
-      chx = x0 * cos(M_PI * in);
-      cheby_poly1(&chx, 1, n-1, &chy);       
-      sum += chy * cos(2.0 * z * M_PI * in);
-    }
-
-    w[k] = r1 + 2.0 * sum;
-    w[n-1-k] = w[k];
-    
-    // max value calculation
-    if(w[k]>wmax)
-      wmax=w[k];
-  }
-
-  // normalization
-  for(k=0; k < n; k++) 
-    w[k] /= wmax;
-
-  return RES_OK;
-}
-
 
 /******************************************************************************
 Blackman - Harris window function
@@ -307,6 +247,68 @@ int win_blackman_nuttall(double *w, int n, int win_type)
 
 
 
+
+/******************************************************************************
+Chebyshev parametric window function
+param sets spectrum sidelobes level in dB
+ATTENTION! ONLY SYMMETRIC WINDOW
+*******************************************************************************/
+int win_cheby(double *w, int n, double param)
+{
+  int k, i, m;
+  double z, dz, sum = 0, wmax=0, r1, x0, chx, chy, in;  
+ 
+  if(!w)
+    return ERROR_PTR;
+  
+  if(n<2)
+    return ERROR_SIZE;
+  
+  if(param <= 0.0)
+    return ERROR_WIN_PARAM;
+ 
+  r1 = pow(10, param/20);   
+  x0 = cosh((1.0/(double)(n-1)) * acosh(r1));  
+  
+  // check window length even or odd
+  if(n%2==0)
+  {
+    dz = 0.5;  
+    m = n/2-1;    
+  }
+  else
+  {
+    m = (n-1)/2;
+    dz = 0.0;    
+  }
+  
+  for(k = 0; k < m+2; k++)
+  {
+    z = (double)(k - m) - dz;
+    sum = 0;
+
+    for(i = 1; i <= m; i++)
+    {
+      in = (double)i / (double)n;
+      chx = x0 * cos(M_PI * in);
+      cheby_poly1(&chx, 1, n-1, &chy);       
+      sum += chy * cos(2.0 * z * M_PI * in);
+    }
+
+    w[k] = r1 + 2.0 * sum;
+    w[n-1-k] = w[k];
+    
+    // max value calculation
+    if(w[k]>wmax)
+      wmax=w[k];
+  }
+
+  // normalization
+  for(k=0; k < n; k++) 
+    w[k] /= wmax;
+
+  return RES_OK;
+}
 
 
 
@@ -485,6 +487,40 @@ int win_hann(double *w, int n, int win_type)
   return RES_OK;
 }
 
+
+/******************************************************************************
+Kaiser window function
+******************************************************************************/
+int win_kaiser(double* w, int n, int win_type, double param)
+{
+  double num, den, x, y;
+  int i, err;
+  if(!w)
+    return ERROR_PTR;
+  if(n<2)
+    return ERROR_SIZE;
+  
+  switch(win_type & DSPL_WIN_SYM_MASK)
+  {
+    case DSPL_WIN_SYMMETRIC:    x = 1.0/(double)(n-1);    break;
+    case DSPL_WIN_PERIODIC :    x = 1.0/(double)n;        break;
+    default: return ERROR_WIN_SYM;
+  }
+  
+  err = bessel_i0(&param, 1, &den);
+  if(err != RES_OK)
+    return err;
+  for(i = 0; i < n; i++)
+  {
+    y = (double)(2*i) / x - 1.0;
+    y = param * sqrt(1.0 - y*y);
+    err = bessel_i0(&y, 1, &num);
+    if(err != RES_OK)
+      return err;
+    w[i] = num / den;
+  }
+  return err;
+}
 
 
 

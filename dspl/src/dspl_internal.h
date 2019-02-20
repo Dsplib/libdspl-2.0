@@ -81,6 +81,7 @@ int win_flat_top        (double *w, int n, int win_type);
 int win_gaussian        (double *w, int n, int win_type, double sigma);
 int win_hamming         (double *w, int n, int win_type);
 int win_hann            (double *w, int n, int win_type);
+int win_kaiser          (double* w, int n, int win_type, double param);
 int win_lanczos	        (double *w, int n, int win_type);
 int win_nuttall	        (double *w, int n, int win_type);
 int win_rect            (double *w, int n);

@@ -1,35 +1,84 @@
 /*! ****************************************************************************
-\ingroup SPEC_MATH_COMMON_GROUP
-\fn int sinc(double* x, int n, double a, double* y)
-\brief	Функция \f$ \textrm{sinc}(x,a) = \frac{\sin(ax)}{ax}\f$
+\ingroup SPEC_MATH_TRANSCEND
+\fn int bessel_i0(double* x, int n, double* y)
+\brief Модифицированная функция Бесселя первого рода \f$ I_0(x)\f$
 
-Функция рассчитывает занчения значения функции для вещественного вектора `x`.
+Функция рассчитывает значения функции для вещественного вектора `x`, 
+который должен принимать неотрицательные значения.
 <BR>
 
-\param[in]	x	Указатель на вектор переменной \f$ x \f$.<BR>
-			Размер вектора `[n x 1]`.<BR>
-			Память должна быть выделена.<BR><BR>
+\param[in]  x  Указатель на вектор переменной \f$ x \f$.<BR>
+               Размер вектора `[n x 1]`.<BR>
+               Память должна быть выделена.<BR><BR>
 
-\param[in]	n	Размер входного вектора `x`. <BR><BR>
+\param[in]  n  Размер входного вектора `x`. <BR><BR>
 
-\param[in]	a	Параметр функции
-			\f$ \textrm{sinc}(x,a) = \frac{\sin(ax)}{ax}\f$
+\param[out] y  Указатель на вектор значений функции \f$ I_0(x)\f$.<BR>
+               Размер вектора `[n x 1]`.<BR>
+               Память должна быть выделена.<BR><BR>
 
-\param[out]	y	Указатель на вектор значений функции.<BR>
-			Размер вектора `[n x 1]`.<BR>
-			Память должна быть выделена.<BR><BR>
+\return
+`RES_OK`  Расчет произведен успешно.<BR>
+В противном случае \ref ERROR_CODE_GROUP "код ошибки".<BR>
+
+\note Для расчета используется аппроксимация приведенная в статье:<BR>
+    <a href="https://www.advanpix.com/2015/11/11/rational-approximations-for-the-modified-bessel-function-of-the-first-kind-i0-computations-double-precision/">
+    Rational Approximations for the Modified Bessel Function 
+    of the First Kind – I0(x) for Computations with Double Precision<BR>
+    by PAVEL HOLOBORODKO on NOVEMBER 11, 2015<BR>
+    </a>
+
+
+Пример использования функции `bessel_i0`:
+
+\include bessel_i0.c
+
+Данная программа рассчитывает значения функции \f$ I_0(x)\f$ переменной `x` 
+в интервале \f$[0 \ 3]\f$. 
+Рассчитанные данные сохраняются в текстовый файл `dat/dat0.txt` 
+и выводятся на график `img/bessel_i0.png`
+
+\image html bessel_i0.png
+
+Скрипт GNUPLOT для построения графиков из текстовых файлов:
+\include bessel_i0.plt
+
+\author
+Бахурин Сергей
+www.dsplib.org
+***************************************************************************** */
+
+
+
+/*! ****************************************************************************
+\ingroup SPEC_MATH_COMMON_GROUP
+\fn int sinc(double* x, int n, double a, double* y)
+\brief  Функция \f$ \textrm{sinc}(x,a) = \frac{\sin(ax)}{ax}\f$
+
+Функция рассчитывает значения функции для вещественного вектора `x`.
+<BR>
+
+\param[in]  x  Указатель на вектор переменной \f$ x \f$.<BR>
+               Размер вектора `[n x 1]`.<BR>
+               Память должна быть выделена.<BR><BR>
+
+\param[in]  n  Размер входного вектора `x`. <BR><BR>
+
+\param[in]  a  Параметр функции
+               \f$ \textrm{sinc}(x,a) = \frac{\sin(ax)}{ax}\f$
+
+\param[out]  y  Указатель на вектор значений функции.<BR>
+                Размер вектора `[n x 1]`.<BR>
+                Память должна быть выделена.<BR><BR>
 
 
 \return
-	`RES_OK`	Расчет произведен успешно.<BR>
-			В противном случае
-			\ref ERROR_CODE_GROUP "код ошибки".<BR>
-
+`RES_OK`  Расчет произведен успешно.<BR>
+В противном случае \ref ERROR_CODE_GROUP "код ошибки".<BR>
 
 \author
-			Бахурин Сергей
-			www.dsplib.org
-
+Бахурин Сергей
+www.dsplib.org
 ***************************************************************************** */
 
 
@@ -78,12 +127,9 @@
 Скрипт GNUPLOT для построения графиков из текстовых файлов:
 \include sine_int.plt
 
-расчет функции производится на осове 
-
 \author
-            Бахурин Сергей
-            www.dsplib.org
-
+Бахурин Сергей
+www.dsplib.org
 ***************************************************************************** */
 
 
