@@ -88,6 +88,9 @@ int win_rect            (double *w, int n);
 
 int fir_linphase_lpf(int ord, double wp, int wintype, 
                      double winparam, double* h);
+                     
+#define MATRIX_SINGULAR_THRESHOLD 1E-14
+                     
 
 #endif
 

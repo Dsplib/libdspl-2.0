@@ -103,6 +103,34 @@ int DSPL_API decimate_cmplx(complex_t* x, int n, int dec,
   return RES_OK;
 }
 
+/******************************************************************************
+Find max(|a|)
+*******************************************************************************/
+int DSPL_API find_max_abs(double* a, int n, double* m, int* ind)
+{
+  int k, i;
+  double t;
+  if(!a)
+    return ERROR_PTR;
+  if(n < 1)
+    return ERROR_SIZE;
+  t = fabs(a[0]);
+  i = 0;
+  for(k = 1; k < n; k++)
+  {
+    if(fabs(a[k]) > t)
+    {
+      t = a[k];
+      i = k;
+    }
+  }
+  if(m)
+    *m = t;
+  if(ind)
+    *ind = i;
+  return RES_OK;
+}
+
 
 /******************************************************************************
 Flip real array in place

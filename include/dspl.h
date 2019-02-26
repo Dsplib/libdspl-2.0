@@ -111,7 +111,9 @@ typedef struct
 /* K                                          0x11xxxxxx*/
 /* L                                          0x12xxxxxx*/
 /* M                                          0x13xxxxxx*/
-#define ERROR_MATRIX_SIZE                     0x13011909
+#define ERROR_MATRIX_INDEX                    0x13010914
+#define ERROR_MATRIX_SINGULAR                 0x13011914
+#define ERROR_MATRIX_SIZE                     0x13011926
 /* N                                          0x14xxxxxx*/
 #define ERROR_NEGATIVE                        0x14050701
 /* O                                          0x15xxxxxx*/
@@ -472,6 +474,11 @@ DECLARE_FUNC(int,        filter_zp2ab,                complex_t*
                                                 COMMA double*
                                                 COMMA double*);
 //------------------------------------------------------------------------------
+DECLARE_FUNC(int,        find_max_abs,                double*        a
+                                                COMMA int            n
+                                                COMMA double*        m
+                                                COMMA int*          ind);
+//------------------------------------------------------------------------------
 DECLARE_FUNC(int,        fir_linphase,                int            ord
                                                 COMMA double         w0
                                                 COMMA double         w1
@@ -613,13 +620,31 @@ DECLARE_FUNC(int,        matrix_create,               matrix_t*        a
                                                 COMMA int              n
                                                 COMMA int              m
                                                 COMMA int              type);
-
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,        matrix_create_eye,           matrix_t*        a
+                                                COMMA int              n
+                                                COMMA int              type);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(void,       matrix_free,                 matrix_t*        a);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,        matrix_lu,                   matrix_t*        a
+                                                COMMA matrix_t*        L
+                                                COMMA matrix_t*        U
+                                                COMMA matrix_t*        P);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,        matrix_print,                matrix_t*        a
                                                 COMMA const char*      name
                                                 COMMA const char*      format);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,        matrix_swap,                 matrix_t*        a
+                                                COMMA int              r0
+                                                COMMA int              c0
+                                                COMMA int              r1
+                                                COMMA int              c1);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,        matrix_swap_rows,            matrix_t*        a 
+                                                COMMA int              r0
+                                                COMMA int              r1);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,        matrix_transpose,            matrix_t*        a
                                                 COMMA matrix_t*        b);

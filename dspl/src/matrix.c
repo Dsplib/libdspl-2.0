@@ -59,7 +59,43 @@ int DSPL_API matrix_create(matrix_t* a, int n, int m, int type)
 }
 
 
-
+/*******************************************************************************
+matrix_create eye
+*******************************************************************************/
+int DSPL_API matrix_create_eye(matrix_t* a, int n, int type)
+{
+  double    *pr;
+  complex_t *pc;
+  int err, m, k;
+  
+  err = matrix_create(a, n, n, type);
+  if(err != RES_OK)
+    return RES_OK;
+  
+  k = 0;
+  if((a->type & DAT_MASK) == DAT_DOUBLE)
+  {
+    pr = (double*) a->dat;
+    memset(pr, 0, n*n*sizeof(double));
+    for(m = 0; m < n; m++)
+    {
+      pr[k] = 1.0;
+      k += n+1;
+    }
+  }
+  
+  if((a->type & DAT_MASK) == DAT_COMPLEX)
+  {
+    pc = (complex_t*) a->dat;
+    memset(pc, 0, n*n*sizeof(complex_t));
+    for(m = 0; m < n; m++)
+    {
+      RE(pc[k]) = 1.0;
+      k += n+1;      
+    }
+  }
+  return RES_OK;
+}
 
 
 
@@ -76,7 +112,68 @@ void DSPL_API matrix_free(matrix_t* a)
 }
 
 
+/*******************************************************************************
+matrix LU decomposition
+*******************************************************************************/
+int DSPL_API matrix_lu(matrix_t* a, matrix_t* L, matrix_t* U, matrix_t* P)
+{
+  int err, k, n, m, N, ind;
+  double *ra, *rl, *ru, mu, ukk, gmax;
+   
+  if(!a || !L || !U || !P)
+    return ERROR_PTR;
+  
+  if(a->n != a->m || a->n < 1)
+    return ERROR_MATRIX_SIZE;
+  
+  N = a->n;
+  err = matrix_create(L, N, N, a->type);
+  if(err != RES_OK)
+    return err;
+  
+  err = matrix_create(U, N, N, a->type);
+  if(err != RES_OK)
+    return err;
+  err = matrix_create_eye(P, N, a->type);
+  if(err != RES_OK)
+    return err;
 
+  if((a->type & DAT_MASK) == DAT_DOUBLE)
+  {
+    rl = (double*)L->dat;
+    ru = (double*)U->dat;
+    
+    memcpy(ru, (double*)a->dat, N*N*sizeof(double));
+    memset(rl, 0,  N*N*sizeof(double));
+    
+    find_max_abs(ru, N*N, &gmax, NULL);
+    for(k = 0; k < N; k++)
+    {
+      find_max_abs(ru+k*N+k, N-k, NULL, &ind);
+      ind += k;
+      matrix_swap_rows(U, k, ind);
+      matrix_swap_rows(L, k, ind);
+      matrix_swap_rows(P, k, ind);
+      ukk = ru[N*k+k];
+      if(fabs(ukk / gmax) < MATRIX_SINGULAR_THRESHOLD)
+        return ERROR_MATRIX_SINGULAR;
+      
+      for(m = k+1; m < N; m++)
+      {
+        mu = ru[m+k*N] / ukk;
+        rl[m+k*N] = mu;
+        for(n = k; n < N; n++)
+        {
+          ru[m + n*N] -= ru[k + n*N] * mu;
+        }
+      }
+    }
+    for(n =0; n < N; n++)
+      rl[n+n*N] = 1.0;
+  }
+  
+  return RES_OK;
+}
 
 
 
@@ -125,7 +222,65 @@ int DSPL_API matrix_print(matrix_t* a, const char* name, const char* format)
 }
 
 
+/*******************************************************************************
+matrix swap 2 elements
+*******************************************************************************/
+int  DSPL_API matrix_swap(matrix_t* a, int r0, int c0, int r1, int c1)
+{
+  double    tr;
+  complex_t tc;
+  double *pr;
+  complex_t *pc;
 
+  if(!a)
+    return ERROR_PTR;
+  if(r0 >= a->n || r1 >= a->n || c0 >= a->m || c1 >= a->m)
+    return ERROR_MATRIX_INDEX;
+  
+  if((a->type & DAT_MASK) == DAT_DOUBLE)
+  { 
+    pr = (double*)(a->dat);
+    tr = pr[r0 + c0 * a->n];
+    pr[r0 + c0 * a->n] = pr[r1 + c1 * a->n];
+    pr[r1 + c1 * a->n] = tr;
+  }
+  
+  if((a->type & DAT_MASK) == DAT_COMPLEX)
+  {
+    pc = (complex_t*)(a->dat);
+    RE(tc) = RE(pc[r0 + c0 * a->n]);
+    IM(tc) = IM(pc[r0 + c0 * a->n]);
+    
+    RE(pc[r0 + c0 * a->n]) = RE(pc[r1 + c1 * a->n]);
+    IM(pc[r0 + c0 * a->n]) = IM(pc[r1 + c1 * a->n]);
+    
+    RE(pc[r1 + c1 * a->n]) = RE(tc);
+    IM(pc[r1 + c1 * a->n]) = IM(tc);
+  }
+  return RES_OK;
+}
+
+
+
+/*******************************************************************************
+matrix swap 2 rows
+*******************************************************************************/
+int  DSPL_API matrix_swap_rows(matrix_t* a, int r0, int r1)
+{
+  int c, err;
+  if(!a)
+    return ERROR_PTR;
+  if(r0 >= a->n || r1 >= a->n)
+    return ERROR_MATRIX_INDEX;
+  
+  for(c = 0; c < a->m; c++)
+  {
+    err = matrix_swap(a, r0, c, r1, c);
+    if(err != RES_OK)
+      break;
+  }
+  return err;
+}
 
 
 
