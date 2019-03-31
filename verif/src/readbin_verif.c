@@ -17,8 +17,11 @@ int main()
   xr = (double*)    malloc(N * sizeof(double));
   xc = (complex_t*) malloc(N * sizeof(complex_t));
   
-  randn(xr,   N, 0, 1.0);
-  randn((double*)xc, 2*N, 0, 1.0);
+  random_t rnd;
+  random_init(&rnd);
+  
+  randn(xr,   N, 0, 1.0,&rnd);
+  randn((double*)xc, 2*N, 0, 1.0,&rnd);
   
   
   writebin(xr, N, DAT_DOUBLE,  "dat/in.dat");

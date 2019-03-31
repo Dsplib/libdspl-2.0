@@ -42,6 +42,7 @@ typedef double complex_t[2];
 
 
 
+
 typedef struct
 {
    complex_t*  w;
@@ -59,6 +60,18 @@ typedef struct
   int m;
   int type;
 } matrix_t;
+
+
+
+typedef struct
+{
+  double mrg32k3a_seed;
+  double mrg32k3a_x[3];
+  double mrg32k3a_y[3];
+  
+}random_t;
+
+
 
 
 #define RE(x)           (x[0])
@@ -672,10 +685,14 @@ DECLARE_FUNC(int,        polyval_cmplx,               complex_t*
 DECLARE_FUNC(int,        randn,                       double*
                                                 COMMA int
                                                 COMMA double
-                                                COMMA double);
+                                                COMMA double
+                                                COMMA random_t*        prnd);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(void,       random_init,                 random_t* prnd);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,        randu,                       double*
-                                                COMMA int);
+                                                COMMA int
+                                                COMMA random_t*        prnd);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,        ratcompos,                   double*          b
                                                 COMMA double*          a

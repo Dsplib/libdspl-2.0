@@ -89,8 +89,18 @@ int win_rect            (double *w, int n);
 int fir_linphase_lpf(int ord, double wp, int wintype, 
                      double winparam, double* h);
                      
-#define MATRIX_SINGULAR_THRESHOLD 1E-14
+#define MATRIX_SINGULAR_THRESHOLD       1E-14
                      
+
+/* random MRG32K3A algorithm constants */
+#define MRG32K3A_NORM       2.328306549295728e-10
+#define MRG32K3A_M1         4294967087.0
+#define MRG32K3A_M2         4294944443.0
+#define MRG32K3A_A12           1403580.0
+#define MRG32K3A_A13            810728.0
+#define MRG32K3A_A21            527612.0
+#define MRG32K3A_A23           1370589.0
+
 
 #endif
 

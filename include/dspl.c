@@ -116,6 +116,7 @@ p_poly_z2a_cmplx                       poly_z2a_cmplx                ;
 p_polyval                              polyval                       ;
 p_polyval_cmplx                        polyval_cmplx                 ;
 p_randn                                randn                         ;
+p_random_init                          random_init                   ;
 p_randu                                randu                         ;
 p_ratcompos                            ratcompos                     ;
 p_re2cmplx                             re2cmplx                      ;
@@ -271,6 +272,7 @@ void* dspl_load()
   LOAD_FUNC(polyval);
   LOAD_FUNC(polyval_cmplx);
   LOAD_FUNC(randn);
+  LOAD_FUNC(random_init);
   LOAD_FUNC(randu);
   LOAD_FUNC(ratcompos);
   LOAD_FUNC(re2cmplx);

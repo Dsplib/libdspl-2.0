@@ -29,12 +29,72 @@
 
 
 
+
+void DSPL_API random_init(random_t* prnd)
+{
+  srand(time(NULL));
+  // MRG32k3a init  
+  prnd->mrg32k3a_x[0] = prnd->mrg32k3a_x[1] = 1.0;
+  prnd->mrg32k3a_y[0] = prnd->mrg32k3a_y[1] = prnd->mrg32k3a_y[2] = 1.0;
+  prnd->mrg32k3a_x[2] = rand();
+}
+
+int randu_mrg32k3a (double* u, int n, random_t* prnd)
+{
+  
+  if(!u || !prnd)
+    return ERROR_PTR;
+  if(n < 1)
+    return ERROR_SIZE;
+
+  long z;
+  double xn, yn, *x, *y;
+  int k;
+  
+  x = prnd->mrg32k3a_x;
+  y = prnd->mrg32k3a_y;
+  for(k = 0; k < n; k++)
+  {
+    /* Component x[n] */
+    xn = MRG32K3A_A12 * x[1] - MRG32K3A_A13 * x[2];
+    
+    z = (long)(xn / MRG32K3A_M1);
+    xn -= (double)z * MRG32K3A_M1;
+    if (xn < 0.0)
+      xn += MRG32K3A_M1;
+    
+    x[2] = x[1];
+    x[1] = x[0];
+    x[0] = xn;
+    
+    /* Component y[n] */
+    yn = MRG32K3A_A21 * y[0] - MRG32K3A_A23 * y[2];
+    z = (long)(yn / MRG32K3A_M2);
+    yn -= (double)z * MRG32K3A_M2;
+    if (yn < 0.0)
+       yn += MRG32K3A_M2;
+     
+    y[2] = y[1];
+    y[1] = y[0];
+    y[0] = yn;
+    
+    /* Combination */
+    u[k] = (xn <= yn) ? ((xn - yn + MRG32K3A_M1) * MRG32K3A_NORM):
+                         (xn - yn) * MRG32K3A_NORM;
+  }
+  return RES_OK;
+}
+
+
+
+
 /******************************************************************************
 Uniform random numbers generator
 *******************************************************************************/
-int DSPL_API randu(double* x, int n)
+int DSPL_API randu(double* x, int n, random_t* prnd)
 {
-   int k,m;
+   
+   /*int k,m;
    unsigned int x1[4], x2[4], y;
 
    if(!x)
@@ -61,8 +121,8 @@ int DSPL_API randu(double* x, int n)
 
      x[k] = (double)y/DSPL_RAND_MOD_X1;
    }
-
-  return RES_OK;
+  */
+  return randu_mrg32k3a(x, n, prnd);
 }
 
 
@@ -72,7 +132,7 @@ int DSPL_API randu(double* x, int n)
 /*******************************************************************************
 Gaussian random numbers generator
 *******************************************************************************/
-int DSPL_API randn(double* x, int n, double mu, double sigma)
+int DSPL_API randn(double* x, int n, double mu, double sigma, random_t* prnd)
 {
   int k, m;
   double x1[128], x2[128];
@@ -89,11 +149,11 @@ int DSPL_API randn(double* x, int n, double mu, double sigma)
   k=0;
   while(k < n)
   {
-    res = randu(x1, 128);
+    res = randu(x1, 128, prnd);
     if(res != RES_OK)
       goto exit_label;
 
-    res = randu(x2, 128);
+    res = randu(x2, 128, prnd);
     if(res != RES_OK)
       goto exit_label;
     m = 0 ;
