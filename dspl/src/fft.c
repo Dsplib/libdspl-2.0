@@ -64,7 +64,7 @@ int DSPL_API ifft_cmplx(complex_t *x, int n, fft_t* pfft, complex_t* y)
 /*******************************************************************************
 Real vector FFT
 *******************************************************************************/
-int DSPL_API fft(double *x, int n, fft_t* pfft, complex_t* y)
+int DSPL_API fft(double* x, int n, fft_t* pfft, complex_t* y)
 {
   int err;
 
@@ -89,7 +89,7 @@ int DSPL_API fft(double *x, int n, fft_t* pfft, complex_t* y)
 /*******************************************************************************
 COMPLEX vector FFT
 *******************************************************************************/
-int DSPL_API fft_cmplx(complex_t *x, int n, fft_t* pfft, complex_t* y)
+int DSPL_API fft_cmplx(complex_t* x, int n, fft_t* pfft, complex_t* y)
 {
     int err;
 
@@ -205,7 +205,7 @@ label_size:
 /*******************************************************************************
 FFT create for composite N
 *******************************************************************************/
-int DSPL_API fft_create(fft_t *pfft, int n)
+int DSPL_API fft_create(fft_t* pfft, int n)
 {
 
   int n1, n2, addr, s, k, m, nw, err;

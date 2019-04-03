@@ -2,6 +2,7 @@
 
 body, table, div, p, dl {
 	font: 400 14px/22px Roboto,sans-serif;
+  background-color: #EFEFEF;
 }
 
 p.reference, p.definition {

@@ -588,6 +588,18 @@ DECLARE_FUNC(int,        goertzel_cmplx,              complex_t*
                                                 COMMA int
                                                 COMMA complex_t*);
 //------------------------------------------------------------------------------
+DECLARE_FUNC(int,       histogram,                    double*          x
+                                                COMMA int              n
+                                                COMMA int              nh
+                                                COMMA double*          pedges
+                                                COMMA double*          ph);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,       histogram_norm,               double*          y
+                                                COMMA int              n
+                                                COMMA int              nh
+                                                COMMA double*          x
+                                                COMMA double*          w);
+//------------------------------------------------------------------------------
 DECLARE_FUNC(int,        linspace,                    double
                                                 COMMA double
                                                 COMMA int
@@ -664,6 +676,11 @@ DECLARE_FUNC(int,        matrix_transpose,            matrix_t*        a
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,        matrix_transpose_hermite,    matrix_t*        a
                                                 COMMA matrix_t*        b);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,        minmax,                      double*          x
+                                                COMMA int              n
+                                                COMMA double*          xmin
+                                                COMMA double*          xmax);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,        poly_z2a_cmplx,              complex_t*
                                                 COMMA int
