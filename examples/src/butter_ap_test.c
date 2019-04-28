@@ -27,7 +27,9 @@ int main()
 
 
     logspace(-2.0, 2.0, N , DSPL_SYMMETRIC, w);
-    freqs_resp(b, a, ORD, w, N, DSPL_FLAG_LOG|DSPL_FLAG_UNWRAP, mag, phi, tau);
+    filter_freq_resp(b, a, ORD, w, N, 
+                     DSPL_FLAG_LOGMAG|DSPL_FLAG_UNWRAP|DSPL_FLAG_ANALOG, 
+                     mag, phi, tau);
 
     writetxt(w, mag, N, "dat/butter_ap_test_mag.txt");
     writetxt(w, phi, N, "dat/butter_ap_test_phi.txt");

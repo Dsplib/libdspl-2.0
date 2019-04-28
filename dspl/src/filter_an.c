@@ -27,6 +27,113 @@
 
 
 
+
+/******************************************************************************
+Magnitude, phase response and group delay of a digital filter H(z) or
+analog filter H(s)
+*******************************************************************************/
+int DSPL_API filter_freq_resp(double* b, double* a, int ord,
+                              double* w, int n, int flag,
+                              double* mag, double* phi, double* tau)
+{
+  int res, k, flag_analog;
+
+  complex_t *hc = NULL;
+  double *phi0 = NULL;
+  double *phi1 = NULL;
+  double *w0   = NULL;
+  double *w1   = NULL;
+
+  if(!b || !a || !w)
+    return ERROR_PTR;
+  if(ord < 1)
+    return ERROR_FILTER_ORD;
+  if(n < 1)
+    return ERROR_SIZE;
+
+  flag_analog = flag & DSPL_FLAG_ANALOG;
+  
+  hc = (complex_t*) malloc (n*sizeof(complex_t));
+  
+  res = flag_analog ? freqs(b, a, ord, w, n, hc) : freqz(b, a, ord, w, n, hc);
+  if(res != RES_OK)
+    goto exit_label;
+
+
+  if(mag)
+  {
+    if(flag & DSPL_FLAG_LOGMAG)
+    {
+      for(k = 0; k < n; k++)
+        mag[k] = 10.0 * log10(ABSSQR(hc[k]));
+    }
+    else
+    {
+      for(k = 0; k < n; k++)
+        mag[k] = sqrt(ABSSQR(hc[k]));
+    }
+  }
+
+
+  if(phi)
+  {
+    for(k = 0; k < n; k++)
+      phi[k] = atan2(IM(hc[k]), RE(hc[k]));
+
+    if(flag & DSPL_FLAG_UNWRAP)
+    {
+      res = unwrap(phi, n, M_2PI, 0.8);
+      if(res != RES_OK)
+        goto exit_label;
+    }
+  }
+
+
+  if(tau)
+  {
+    phi0 = (double*) malloc(n*sizeof(double));
+    phi1 = (double*) malloc(n*sizeof(double));
+    w0   = (double*) malloc(n*sizeof(double));
+    w1   = (double*) malloc(n*sizeof(double));
+
+    w0[0] = w[0] - (w[1] - w[0])*0.02;
+    w1[0] = w[0] + (w[1] - w[0])*0.02;
+
+    for(k = 1; k < n; k++)
+    {
+      w0[k] = w[k] - (w[k] - w[k-1])*0.02;
+      w1[k] = w[k] + (w[k] - w[k-1])*0.02;
+    }
+    res = filter_freq_resp(b, a, ord, w0, n, 
+                           DSPL_FLAG_UNWRAP | flag_analog, NULL, phi0, NULL);
+    if(res != RES_OK)
+      goto exit_label;
+    res = filter_freq_resp(b, a, ord, w1, n, 
+                           DSPL_FLAG_UNWRAP | flag_analog, NULL, phi1, NULL);
+    if(res != RES_OK)
+      goto exit_label;
+    for(k = 0; k < n; k++)
+        tau[k] = (phi0[k] - phi1[k])/(w1[k] - w0[k]);
+  }
+
+
+exit_label:
+  if(hc)
+    free(hc);
+  if(phi0)
+    free(phi0);
+  if(phi1)
+    free(phi1);
+  if(w0)
+    free(w0);
+  if(w1)
+    free(w1);
+  return res;
+}
+
+
+
+
 /******************************************************************************
 Complex frequency response of an analog filter H(s)
 *******************************************************************************/
@@ -224,9 +331,10 @@ exit_label:
 
 
 
+
 /******************************************************************************
 Magnitude, phase response and group delay of an analog filter H(s)
-*******************************************************************************/
+
 int DSPL_API freqs_resp(double* b, double* a, int ord,
                         double* w, int n, int flag,
                         double *h, double* phi, double* tau)
@@ -321,6 +429,10 @@ exit_label:
     free(w1);
   return res;
 }
+
+*******************************************************************************/
+
+
 
 
 

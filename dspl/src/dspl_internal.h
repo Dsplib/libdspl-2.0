@@ -39,16 +39,16 @@ int fft_krn(complex_t* t0, complex_t* t1, fft_t* p, int n, int addr);
 
 void dft2 (complex_t *x,  complex_t* y);
 
-#define DFT3_W         0.866025403784439  
+#define DFT3_W         0.866025403784439
 void dft3 (complex_t *x,  complex_t* y);
 
 void dft4 (complex_t *x,  complex_t* y);
 
-#define DFT5_W1       -1.250000000000000         
-#define DFT5_W2        0.559016994374947         
-#define DFT5_W3        1.538841768587630         
-#define DFT5_W4        0.587785252292473        
-#define DFT5_W5        0.363271264002680      
+#define DFT5_W1       -1.250000000000000
+#define DFT5_W2        0.559016994374947
+#define DFT5_W3        1.538841768587630
+#define DFT5_W4        0.587785252292473
+#define DFT5_W5        0.363271264002680
 void dft5 (complex_t *x,  complex_t* y);
 
 #define DFT7_W1      -1.166666666666666518636930
@@ -91,7 +91,6 @@ int fir_linphase_lpf(int ord, double wp, int wintype,
                      
 #define MATRIX_SINGULAR_THRESHOLD       1E-14
                      
-
 /* random MRG32K3A algorithm constants */
 #define MRG32K3A_NORM       2.328306549295728e-10
 #define MRG32K3A_M1         4294967087.0
@@ -100,6 +99,8 @@ int fir_linphase_lpf(int ord, double wp, int wintype,
 #define MRG32K3A_A13            810728.0
 #define MRG32K3A_A21            527612.0
 #define MRG32K3A_A23           1370589.0
+
+int iir_ap(double rp, double rs, int ord, int type, double* b, double* a);
 
 
 #endif

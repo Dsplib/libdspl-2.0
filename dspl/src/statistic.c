@@ -25,7 +25,9 @@
 #include "dspl.h"
 
 
-
+/*******************************************************************************
+Histogram calculation
+*******************************************************************************/
 int DSPL_API histogram(double* x, int n, int nh, double* pedges, double* ph)
 {
   double xmin, xmax;
@@ -60,6 +62,9 @@ int DSPL_API histogram(double* x, int n, int nh, double* pedges, double* ph)
 
 
 
+/*******************************************************************************
+Histogram normalization
+*******************************************************************************/
 int DSPL_API histogram_norm(double* y, int n, int nh, double* x, double* w)
 {
   double *pedges = NULL;
@@ -95,6 +100,9 @@ exit_label:
 
 
 
+/*******************************************************************************
+minimum and maximum values
+*******************************************************************************/
 int DSPL_API minmax(double* x, int n, double* xmin, double* xmax)
 {
   int k; 

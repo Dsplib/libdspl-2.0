@@ -330,7 +330,7 @@ int DSPL_API ellip_landen(double k, int n, double* y)
  ******************************************************************************/
 int DSPL_API ellip_modulareq(double rp, double rs, int ord, double *k)
 {
-  double ep, es, ke, kp, t, sn;
+  double ep, es, ke, kp, t, sn = 0.0;
   int i, L, r;
 
   if(rp < 0 || rp == 0)

@@ -105,13 +105,16 @@ typedef struct
 /* F                                          0x06xxxxxx*/
 #define ERROR_FFT_CREATE                      0x06060318
 #define ERROR_FFT_SIZE                        0x06062021
-#define ERROR_FILTER_A0                       0x06100100
-#define ERROR_FILTER_FT                       0x06100620
-#define ERROR_FILTER_ORD                      0x06101518
-#define ERROR_FILTER_RP                       0x06101816
-#define ERROR_FILTER_RS                       0x06101819
-#define ERROR_FILTER_WP                       0x06102316
-#define ERROR_FILTER_WS                       0x06102319
+#define ERROR_FILTER_A0                       0x06090100
+#define ERROR_FILTER_APPROX                   0x06090116
+#define ERROR_FILTER_FT                       0x06090620
+#define ERROR_FILTER_ORD                      0x06091518
+#define ERROR_FILTER_ORD_BP                   0x06091519
+#define ERROR_FILTER_RP                       0x06091816
+#define ERROR_FILTER_RS                       0x06091819
+#define ERROR_FILTER_TYPE                     0x06092025
+#define ERROR_FILTER_WP                       0x06092316
+#define ERROR_FILTER_WS                       0x06092319
 #define ERROR_FNAME                           0x06140113
 #define ERROR_FOPEN                           0x06151605
 #define ERROR_FREAD_SIZE                      0x06180501
@@ -163,9 +166,12 @@ typedef struct
 #define DSPL_SYMMETRIC                        0x00000000
 #define DSPL_PERIODIC                         0x00000001
 
+#define DSPL_FLAG_DIGITAL                     0x00000000
+#define DSPL_FLAG_ANALOG                      0x00000001
+#define DSPL_FLAG_LOGMAG                      0x00000002
+#define DSPL_FLAG_UNWRAP                      0x00000004
 
-#define DSPL_FLAG_LOG                         0x00000001
-#define DSPL_FLAG_UNWRAP                      0x00000002
+
 
 #define DSPL_WIN_SYM_MASK                     0x00000001
 #define DSPL_WIN_MASK                         0x00FFFFFE
@@ -190,11 +196,18 @@ typedef struct
 #define DSPL_WIN_CHEBY                        0x00080000
 #define DSPL_WIN_KAISER                       0x00100000
 
-#define DSPL_FILTER_TYPE_MASK                 0x0000000F
+
+#define DSPL_FILTER_TYPE_MASK                 0x000000FF
 #define DSPL_FILTER_LPF                       0x00000001
 #define DSPL_FILTER_HPF                       0x00000002
 #define DSPL_FILTER_BPASS                     0x00000004
 #define DSPL_FILTER_BSTOP                     0x00000008
+
+#define DSPL_FILTER_APPROX_MASK               0x0000FF00
+#define DSPL_FILTER_BUTTER                    0x00000100
+#define DSPL_FILTER_CHEBY1                    0x00000200
+#define DSPL_FILTER_CHEBY2                    0x00000400
+#define DSPL_FILTER_ELLIP                     0x00000800
 
 
 
@@ -249,6 +262,12 @@ DECLARE_FUNC(int,        asin_cmplx,                  complex_t*
 DECLARE_FUNC(int,        bessel_i0,                   double*       x
                                                 COMMA int           n
                                                 COMMA double*       y);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,        bilinear,                    double*       bs
+                                                COMMA double*       as
+                                                COMMA int           ord
+                                                COMMA double*       bz
+                                                COMMA double*       az);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,        butter_ap,                   double
                                                 COMMA int
@@ -424,15 +443,6 @@ DECLARE_FUNC(int,        ellip_sn_cmplx,              complex_t*        u
                                                 COMMA double            k
                                                 COMMA complex_t*        y);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,        idft_cmplx,                  complex_t*
-                                                COMMA int
-                                                COMMA complex_t*);
-//------------------------------------------------------------------------------
-DECLARE_FUNC(int,        ifft_cmplx,                  complex_t*
-                                                COMMA int
-                                                COMMA fft_t*
-                                                COMMA complex_t* );
-//------------------------------------------------------------------------------
 DECLARE_FUNC(int,        farrow_lagrange,             double*
                                                 COMMA int
                                                 COMMA double
@@ -471,6 +481,16 @@ DECLARE_FUNC(int,        fft_shift,                   double*
 DECLARE_FUNC(int,        fft_shift_cmplx,             complex_t*
                                                 COMMA int
                                                 COMMA complex_t*);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,        filter_freq_resp,            double*          b
+                                                COMMA double*          a
+                                                COMMA int              ord
+                                                COMMA double*          w
+                                                COMMA int              n
+                                                COMMA int              flag
+                                                COMMA double*          mag
+                                                COMMA double*          phi
+                                                COMMA double*          tau);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,        filter_iir,                  double*
                                                 COMMA double*
@@ -550,16 +570,6 @@ DECLARE_FUNC(int,        freqs_cmplx,                 double*          b
                                                 COMMA int              n
                                                 COMMA complex_t*       h);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,        freqs_resp,                  double*
-                                                COMMA double*
-                                                COMMA int
-                                                COMMA double*
-                                                COMMA int
-                                                COMMA int
-                                                COMMA double*
-                                                COMMA double*
-                                                COMMA double*);
-//------------------------------------------------------------------------------
 DECLARE_FUNC(int,        freqs2time,                  double*
                                                 COMMA double*
                                                 COMMA int
@@ -588,17 +598,35 @@ DECLARE_FUNC(int,        goertzel_cmplx,              complex_t*
                                                 COMMA int
                                                 COMMA complex_t*);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,       histogram,                    double*          x
+DECLARE_FUNC(int,        histogram,                   double*          x
                                                 COMMA int              n
                                                 COMMA int              nh
                                                 COMMA double*          pedges
                                                 COMMA double*          ph);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(int,       histogram_norm,               double*          y
+DECLARE_FUNC(int,        histogram_norm,              double*          y
                                                 COMMA int              n
                                                 COMMA int              nh
                                                 COMMA double*          x
                                                 COMMA double*          w);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,        idft_cmplx,                  complex_t*
+                                                COMMA int
+                                                COMMA complex_t*);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,        ifft_cmplx,                  complex_t*
+                                                COMMA int
+                                                COMMA fft_t*
+                                                COMMA complex_t* );
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,        iir,                         double           rp
+                                                COMMA double           rs
+                                                COMMA int              ord
+                                                COMMA double           w0
+                                                COMMA double           w1
+                                                COMMA int              type
+                                                COMMA double*          b
+                                                COMMA double*          a);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,        linspace,                    double
                                                 COMMA double
@@ -705,7 +733,7 @@ DECLARE_FUNC(int,        randn,                       double*
                                                 COMMA double
                                                 COMMA random_t*        prnd);
 //------------------------------------------------------------------------------
-DECLARE_FUNC(void,       random_init,                 random_t* prnd);
+DECLARE_FUNC(void,       random_init,                 random_t*        prnd);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,        randu,                       double*
                                                 COMMA int

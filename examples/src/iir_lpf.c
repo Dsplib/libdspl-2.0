@@ -4,7 +4,7 @@
 #include "dspl.h"
 
 // Порядок фильтра
-#define ORD 4
+#define ORD 5
 
 // размер векторов частотной характериситки фильтра
 #define N   1000
@@ -16,13 +16,15 @@ int main()
   handle = dspl_load();   // Load DSPL function
   
   double a[ORD+1], b[ORD+1];  // коэффицинеты H(s)
-  double Rp = 3.0;  // неравномерность в полосе пропускания 3дБ
+  double rs = 60.0;  // неравномерность в полосе пропускания 3дБ
+  double rp = 1.0;
   // Частота (w), АЧХ (mag), ФЧХ (phi) и ГВЗ (tau)
   double w[N], mag[N], phi[N], tau[N];
   int k;
 
-  // рассчитываем нормированный ФНЧ Чебышева 1 рода 
-  int res = cheby1_ap(Rp, ORD, b, a);
+  // рассчитываем цифровой ФНЧ Чебышева 2 рода 
+  int res = iir(rp, rs, ORD, 0.3, 0.0, 
+                DSPL_FILTER_CHEBY1 | DSPL_FILTER_LPF, b, a);
   if(res != RES_OK)
     printf("error code = 0x%8x\n", res);
   
@@ -30,24 +32,25 @@ int main()
   for(k = 0; k < ORD+1; k++)
     printf("b[%2d] = %9.3f     a[%2d] = %9.3f\n", k, b[k], k, a[k]);
   
-  // вектор частоты в логарифмической шакале от 0.01 до 100 рад/c
-  logspace(-2.0, 2.0, N , DSPL_SYMMETRIC, w);
+  // вектор нормированной частоты от 0 до pi
+  linspace(0, M_PI, N , DSPL_PERIODIC, w);
   
   //частотные характеристика фильтра
-  filter_freq_resp(b, a, ORD, w, N, 
-                   DSPL_FLAG_LOGMAG|DSPL_FLAG_UNWRAP | DSPL_FLAG_ANALOG, 
+  filter_freq_resp(b, a, ORD, w, N, DSPL_FLAG_LOGMAG|DSPL_FLAG_UNWRAP,  
                    mag, phi, tau);
   
+  for(k = 0; k < N; k++)
+    w[k] /= M_PI;
   // Сохранить характеристики для построения графиков
-  writetxt(w, mag, N, "dat/cheby1_ap_test_mag.txt");
-  writetxt(w, phi, N, "dat/cheby1_ap_test_phi.txt");
-  writetxt(w, tau, N, "dat/cheby1_ap_test_tau.txt");
+  writetxt(w, mag, N, "dat/iir_lpf_mag.txt");
+  writetxt(w, phi, N, "dat/iir_lpf_phi.txt");
+  writetxt(w, tau, N, "dat/iir_lpf_tau.txt");
   
   dspl_free(handle);      // free dspl handle
   
   // выполнить скрипт GNUPLOT для построения графиков 
   // по рассчитанным данным
-  return system("gnuplot -p gnuplot/cheby1_ap_test.plt");;
+  return system("gnuplot -p gnuplot/iir_lpf.plt");;
 }
 
 

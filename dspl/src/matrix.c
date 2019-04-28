@@ -118,7 +118,7 @@ matrix LU decomposition
 int DSPL_API matrix_lu(matrix_t* a, matrix_t* L, matrix_t* U, matrix_t* P)
 {
   int err, k, n, m, N, ind;
-  double *ra, *rl, *ru, mu, ukk, gmax;
+  double *rl, *ru, mu, ukk, gmax;
    
   if(!a || !L || !U || !P)
     return ERROR_PTR;
