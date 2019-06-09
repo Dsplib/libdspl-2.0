@@ -357,13 +357,13 @@ DECLARE_FUNC(int,        cos_cmplx,                   complex_t*
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,        decimate,                    double*           x
                                                 COMMA int               n
-                                                COMMA int               dec
+                                                COMMA int               d
                                                 COMMA double*           y
                                                 COMMA int*              cnt);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,        decimate_cmplx,              complex_t*        x
                                                 COMMA int               n
-                                                COMMA int               dec
+                                                COMMA int               d
                                                 COMMA complex_t*        y
                                                 COMMA int*              cnt);
 //------------------------------------------------------------------------------

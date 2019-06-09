@@ -90,23 +90,67 @@ int DSPL_API concat(void* a, size_t na, void* b, size_t nb, void* c)
 
 
 /******************************************************************************
-decimate real vector
+\ingroup SPEC_MATH_COMMON_GROUP
+\fn int decimate(double* x, int n, int d, double* y, int* cnt) 
+\brief Real vector decimation
+
+Function `d` times decimates real vector `x`.<BR>
+Output vector `y` keeps values corresponds to:
+`y(k) = x(k*d), k = 0...n/d-1`<BR>
+
+\param[in]  x   Pointer to the input real vector `x`.<BR>
+                Vector `x` size is `[n x 1]`.<BR><BR>
+
+\param[in]  n   Size of input vector `x`.<BR><BR>
+
+\param[in]  d   Decimation coefficient.<BR>
+                Each d-th vector will be copy from vector `x` to the 
+                output vector `y`.<BR><BR>
+
+\param[out] y   Pointer to the output decimated vector `y`.<BR>
+                Output vector size is `[n/d x 1]` will be copy 
+                to the address `cnt`.<BR>
+
+\param[out] cnt Address which will keep decimated vector `y` size.<BR>
+                Pointer can be `NULL`, vector `y` will not return 
+                in this case.<BR><BR>
+
+\return
+`RES_OK` if function calculated successfully.<BR>
+Else \ref ERROR_CODE_GROUP "code error".
+
+Two-times decimation example:
+\code
+double x[10] = {0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0};
+double y[5];
+int d = 2;
+int cnt;
+
+decimate(x, 10, d, y, &cnt);
+\endcode 
+As result variable `cnt` will be written value 5 and
+vector `y` will keep  array:
+\code
+c = [0.0, 2.0, 4.0, 6.0, 8.0]
+\endcode 
+
+\author Sergey Bakhurin www.dsplib.org
 *******************************************************************************/
-int DSPL_API decimate(double* x, int n, int dec, double* y, int* cnt)
+int DSPL_API decimate(double* x, int n, int d, double* y, int* cnt)
 {
   int k = 0, i = 0;
   if(!x || !y)
     return ERROR_PTR;
   if(n < 1)
     return ERROR_SIZE;
-  if(dec < 1)
+  if(d < 1)
     return ERROR_NEGATIVE;
 
   k = i = 0;
-  while(k + dec < n)
+  while(k + d <= n)
   {
     y[i] = x[k];
-    k+=dec;
+    k+=d;
     i++;
   }
   if(cnt)
@@ -119,25 +163,70 @@ int DSPL_API decimate(double* x, int n, int dec, double* y, int* cnt)
 
 
 /******************************************************************************
-decimate complex vector
+\ingroup SPEC_MATH_COMMON_GROUP
+\fn int decimate_cmplx(complex_t* x, int n, int d, complex_t* y, int* cnt)
+\brief Complex vector decimation
+
+Function `d` times decimates a complex vector `x`.<BR>
+Output vector `y` keeps values corresponds to:
+`y(k) = x(k*d), k = 0...n/d-1`<BR>
+
+\param[in]  x   Pointer to the input complex vector `x`.<BR>
+                Vector `x` size is `[n x 1]`.<BR><BR>
+
+\param[in]  n   Size of input vector `x`.<BR><BR>
+
+\param[in]  d   Decimation coefficient.<BR>
+                Each d-th vector will be copy from vector `x` to the 
+                output vector `y`.<BR><BR>
+
+\param[out] y   Pointer to the output decimated vector `y`.<BR>
+                Output vector size is `[n/d x 1]` will be copy 
+                to the address `cnt`.<BR>
+                Memory must be allocated.<BR><BR>
+
+\param[out] cnt Address which will keep decimated vector `y` size.<BR>
+                Pointer can be `NULL`, vector `y` will not return 
+                in this case.<BR><BR>
+
+\return
+`RES_OK` if function calculated successfully.<BR>
+Else \ref ERROR_CODE_GROUP "code error".
+
+Two-times complex vector decimation example:
+\code
+compex_t x[10] = {{0.0, 0.0}, {1.0, 1.0}, {2.0, 2.0}, {3.0, 3.0}, {4.0, 4.0},
+                  {5.0, 5.0}, {6.0, 6.0}, {7.0, 7.0}, {8.0, 8.0}, {9.0, 9.0}};
+compex_t y[5];
+int d = 2;
+int cnt;
+
+decimate_cmplx(x, 10, d, y, &cnt);
+\endcode 
+As result variable `cnt` will be written value 5 and
+vector `y` will keep  array:
+\code
+c = [0.0+0.0j, 2.0+2.0j, 4.0+4.0j, 6.0+6.0j, 8.0+8.0j]
+\endcode 
+
+\author Sergey Bakhurin www.dsplib.org
 *******************************************************************************/
-int DSPL_API decimate_cmplx(complex_t* x, int n, int dec,
-                            complex_t* y, int* cnt)
+int DSPL_API decimate_cmplx(complex_t* x, int n, int d, complex_t* y, int* cnt)
 {
   int k = 0, i = 0;
   if(!x || !y)
     return ERROR_PTR;
   if(n < 1)
     return ERROR_SIZE;
-  if(dec < 1)
+  if(d < 1)
     return ERROR_NEGATIVE;
 
   k = i = 0;
-  while(k + dec < n)
+  while(k + d < n)
   {
     RE(y[i]) = RE(x[k]);
     IM(y[i]) = IM(x[k]);
-    k+=dec;
+    k+=d;
     i++;
   }
   if(cnt)
