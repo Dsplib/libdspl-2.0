@@ -59,12 +59,12 @@
   \defgroup SPEC_MATH_GROUP  Специальные математические функции
   \ingroup MAIN_GROUP
 
-  \defgroup SPEC_MATH_COMMON_GROUP  Базовые математические функции
+  \defgroup SPEC_MATH_COMMON_GROUP  Базовые математические функции и работа с массивами данных
   \ingroup SPEC_MATH_GROUP
 
   
   \defgroup SPEC_MATH_TRIG_GROUP Тригонометрические и гиперболические функции
-  вещественного и комплексного аргумента.
+  вещественного и комплексного аргумента
   \ingroup SPEC_MATH_GROUP
   
   \defgroup SPEC_MATH_TRANSCEND Высшие трансцендентные функции

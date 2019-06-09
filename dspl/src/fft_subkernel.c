@@ -392,7 +392,7 @@ void dft16 (complex_t *x,  complex_t* y)
 }
 
 /*******************************************************************************
-16 x 16 matrix transpose
+4 x 4 matrix transpose
 *******************************************************************************/
 void transpose4x4(complex_t *x,  complex_t* y)
 {

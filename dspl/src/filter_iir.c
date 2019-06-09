@@ -26,8 +26,56 @@
 
 
 
-/******************************************************************************
-Bilinear transform H(s) -> H(z)
+
+/*******************************************************************************
+\ingroup IIR_FILTER_DESIGN_GROUP
+\fn int bilinear(double* bs, double* as, int ord, double* bz, double* az)
+\brief Analog filter transfer function H(s) bilinear transform to the
+       digital filter transfer function H(z).
+       
+Function calculates digital filter coefficients by rational substitution
+
+\f[
+s \leftarrow \frac{1 - z^{-1}}{1 - z^{-1}}.
+\f]
+
+Digital filter order still the same as analog prototype order. 
+Analog prototype frequency \f$\Omega\f$ related with the  digital filter 
+normalized frequency \f$\omega\f$ as:
+
+\f[
+\Omega = \tan(\omega / 2).
+\f]
+
+\param[in]  bs   Pointer to the numerator coefficients of an 
+                 analog prototype transfer function \f$H(s)\f$. <BR>
+                 Array size is `[ord+1 x 1]`.<BR>
+                 Memory must be allocated.<BR><BR>
+
+\param[in]  as   Pointer to the denominator coefficients of an 
+                 analog prototype transfer function \f$H(s)\f$. <BR>
+                 Array size is `[ord+1 x 1]`.<BR>
+                 Memory must be allocated.<BR><BR>
+                 
+\param[in]  ord  Filter order.<BR>
+                 Number of  coefficients \f$H(s)\f$ and \f$H(z)\f$
+                 numerator and denominator equals `ord+1`.<BR><BR>
+                 
+\param[out]  bz  Pointer to the numerator coefficients of a
+                 digital filter transfer function \f$H(z)\f$. <BR>
+                 Array size is `[ord+1 x 1]`.<BR>
+                 Memory must be allocated.<BR><BR>
+
+\param[out]  az  Pointer to the numerator coefficients of a
+                 digital filter transfer function \f$H(z)\f$. <BR>
+                 Array size is `[ord+1 x 1]`.<BR>
+                 Memory must be allocated.<BR><BR>
+
+\return
+  `RES_OK`      if filter is calculated successfully.<BR><BR>
+                Else \ref ERROR_CODE_GROUP "code error".<BR>
+
+\author  Sergey Bakhurin www.dsplib.org          
 *******************************************************************************/
 int DSPL_API bilinear(double* bs, double* as, int ord, double* bz, double* az)
 {

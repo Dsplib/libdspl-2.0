@@ -26,9 +26,52 @@
 
 
 /******************************************************************************
-Concntenate arrays
+\fn int concat(void* a, size_t na, void* b, size_t nb, void* c) 
+\brief Concatenate arrays `a` and `b`
+
+Let's arrays `a` and `b` are vectors:<BR>
+`a = [a(0), a(1), ... a(na-1)]`, <BR>
+`b = [b(0), b(1), ... b(nb-1)]`, <BR>
+concatenation of these arrays will be array `c` size `na+nb`:<BR>
+`c = [a(0), a(1), ... a(na-1), b(0), b(1), ... b(nb-1)]`.
+
+
+\param[in]  a   Pointer to the first array `a`.<BR>
+                Array `a` size is `na` bytes.<BR><BR>
+
+\param[in]  na  Array `a` size (bytes).<BR><BR>
+
+\param[in]  b   Pointer to the second array `b`.<BR>
+                Array `b` size is `nb` bytes.<BR><BR>
+
+\param[in]  nb  Array `a` size (bytes).<BR><BR>
+
+\param[out] c   Pointer to the concatenation result array `c`.<BR>
+                Array `c` size is `na + nb` bytes.<BR>
+                Memory must be allocated.<BR><BR>
+
+\return
+`RES_OK` if function returns successfully.<BR>
+ Else \ref ERROR_CODE_GROUP "code error".
+ 
+Function uses pointer type `void*` and can be useful for an arrays 
+concatenation with different types.<BR>
+For example two `double` arrays concatenation:
+\code
+double a[3] = {1.0, 2.0, 3.0};
+double b[2] = {4.0, 5.0};
+double c[5];
+
+concat((void*)a, 3*sizeof(double), (void*)b, 2*sizeof(double), (void*)c);
+\endcode 
+Vector `c` keeps follow data:
+\code
+c = [1.0, 2.0, 3.0, 4.0, 5.0]
+\endcode 
+
+\author Sergey Bakhurin www.dsplib.org
 *******************************************************************************/
-int DSPL_API concat(void* a, size_t na, void *b, size_t nb, void* c)
+int DSPL_API concat(void* a, size_t na, void* b, size_t nb, void* c)
 {
   if(!a || !b || !c || c == b)
     return ERROR_PTR;
@@ -79,7 +122,7 @@ int DSPL_API decimate(double* x, int n, int dec, double* y, int* cnt)
 decimate complex vector
 *******************************************************************************/
 int DSPL_API decimate_cmplx(complex_t* x, int n, int dec,
-              complex_t* y, int* cnt)
+                            complex_t* y, int* cnt)
 {
   int k = 0, i = 0;
   if(!x || !y)
@@ -231,8 +274,8 @@ int DSPL_API verif_cmplx(complex_t* x,  complex_t* y, size_t n,
 {
   
   complex_t d;
-  double mx, md, maxd; 
-  size_t k; 
+  double mx, md, maxd;
+  size_t k;
   int res;
   if(!x || !y)
     return ERROR_PTR;
@@ -256,7 +299,7 @@ int DSPL_API verif_cmplx(complex_t* x,  complex_t* y, size_t n,
         maxd = md;
     }
   }
-  if(err) 
+  if(err)
     *err = maxd;
     
   if(maxd > eps)

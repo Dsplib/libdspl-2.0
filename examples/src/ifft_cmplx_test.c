@@ -14,13 +14,14 @@ int main()
   complex_t y[N];         // массив результата БПФ
   complex_t z[N];         // массив результата ОБПФ
   fft_t pfft;             // FFT объект
+  int k;
   
   memset(&pfft, 0, sizeof(fft_t)); // Заполняем FFT структуру нулями
   
   fft_create(&pfft, N);            // Создаем FFT структуру для длины N
   
   // заполняем массив входного сигнала
-  for(int k = 0; k < N; k++)
+  for(k = 0; k < N; k++)
   {
     RE(x[k]) = (double)cos((double)k);
     IM(x[k]) = (double)sin((double)k);
@@ -30,7 +31,7 @@ int main()
 
   ifft_cmplx(y, N, &pfft, z);       // IFFT
   // Печать результата
-  for(int k = 0; k < N; k++)
+  for(k = 0; k < N; k++)
   {  
     printf("| x[%2d] = %9.3f%9.3f ",    k, RE(x[k]), IM(x[k]));
     printf("| y[%2d] = %9.3f%9.3f ",    k, RE(y[k]), IM(y[k]));
