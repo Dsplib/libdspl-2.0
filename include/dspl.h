@@ -308,6 +308,12 @@ DECLARE_FUNC(int,        cheby2_ap,                   double           rs
                                                 COMMA double*          b
                                                 COMMA double*          a);
 //------------------------------------------------------------------------------
+DECLARE_FUNC(int,        cheby2_ap_wp1,               double           rp
+                                                COMMA double           rs
+                                                COMMA int              ord
+                                                COMMA double*          b
+                                                COMMA double*          a);
+//------------------------------------------------------------------------------
 DECLARE_FUNC(int,        cheby2_ap_zp,                int
                                                 COMMA double
                                                 COMMA complex_t*

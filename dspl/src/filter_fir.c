@@ -58,7 +58,7 @@ int fir_linphase_lpf(int ord, double wp, int wintype,
 error_proc:
   if(w)
     free(w);
-  return err;  
+  return err;
 }
 
 
@@ -94,7 +94,7 @@ int DSPL_API  fir_linphase(int ord, double w0, double w1, int filter_type,
       {
         // LPF filter frequency inversion
         for(n = 0; n < ord+1; n+=2)
-          h[n] = -h[n];          
+          h[n] = -h[n];
       }
       break;
     
@@ -147,7 +147,7 @@ int DSPL_API  fir_linphase(int ord, double w0, double w1, int filter_type,
       err = fir_linphase(ord, w1, 0.0, DSPL_FILTER_HPF, wintype, winparam, h);
       if(err==RES_OK)
       {
-        // Bandstop filter is sum of lowpass nad highpass filters
+        // Bandstop filter is sum of lowpass and highpass filters
         for(n = 0; n < ord+1; n++)
           h[n] += h0[n];          
       }

@@ -196,7 +196,7 @@ int iir_ap(double rp, double rs, int ord, int type, double* b, double* a)
       err = cheby1_ap(rp, ord, b, a);
       break;
     case DSPL_FILTER_CHEBY2:
-      err = cheby2_ap(rs, ord, b, a);
+      err = cheby2_ap_wp1(rp, rs, ord, b, a);
       break;
     case DSPL_FILTER_ELLIP:
       err = ellip_ap(rp, rs, ord, b, a);

@@ -281,6 +281,38 @@ exit_label:
 
 
 /******************************************************************************
+ * Analog Normalized Chebyshev type 2 filter with wp = 1 rad/s
+ ******************************************************************************/
+int DSPL_API cheby2_ap_wp1(double rp, double rs, int ord, double* b, double* a)
+{
+  int err;
+  double es, gp, alpha, beta, y, wp;
+  
+  if(rp <= 0)
+    return  ERROR_FILTER_RP;
+  
+  
+  err = cheby2_ap(rs, ord, b, a);
+  if(err!=RES_OK)
+    goto exit_label;
+  
+  es = sqrt(pow(10.0, rs*0.1) - 1.0);
+  gp = pow(10.0, -rp*0.05);
+  alpha = gp * es / sqrt(1.0 - gp*gp);
+  beta = alpha + sqrt(alpha * alpha - 1.0);
+  y = log(beta)/ (double)ord;
+  wp = 2.0 / (exp(y) + exp(-y));
+  
+  err = low2low(b, a, ord, wp, 1.0, b, a);
+    
+exit_label:
+  return err;
+}
+
+
+
+
+/******************************************************************************
 Analog Normalized Chebyshev type 2 filter zeros and poles
 *******************************************************************************/
 int DSPL_API cheby2_ap_zp(int ord, double rs, complex_t *z, int* nz,
