@@ -6,7 +6,7 @@
 // Порядок фильтра
 #define ORD 5
 
-// размер векторов частотной характериситки фильтра
+// размер векторов частотной характеристики фильтра
 #define N   1000
 
 
@@ -15,7 +15,7 @@ int main()
   void* handle;           // DSPL handle
   handle = dspl_load();   // Load DSPL function
   
-  double a[ORD+1], b[ORD+1];  // коэффицинеты H(s)
+  double a[ORD+1], b[ORD+1];  // коэффициенты H(s)
   double rs = 60.0;  // неравномерность в полосе пропускания 3дБ
   double rp = 1.0;
   // Частота (w), АЧХ (mag), ФЧХ (phi) и ГВЗ (tau)
@@ -24,7 +24,7 @@ int main()
 
   // рассчитываем цифровой ФНЧ Чебышева 2 рода 
   int res = iir(rp, rs, ORD, 0.3, 0.0, 
-                DSPL_FILTER_CHEBY1 | DSPL_FILTER_LPF, b, a);
+                DSPL_FILTER_CHEBY2 | DSPL_FILTER_LPF, b, a);
   if(res != RES_OK)
     printf("error code = 0x%8x\n", res);
   
