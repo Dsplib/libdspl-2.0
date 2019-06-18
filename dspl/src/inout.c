@@ -31,8 +31,8 @@ Print DSPL info
 void DSPL_API dspl_info()
 {
   printf("\n\n        D S P L - 2.0\n");
-  printf("        version 2.18.10.05\n");
-  printf("\n        Copyright (C) 2015-2018\n");
+  printf("        version 2.19.06.18\n");
+  printf("\n        Copyright (C) 2015-2019\n");
   printf("        Sergey Bakhurin        www.dsplib.org\n\n");
 }
 

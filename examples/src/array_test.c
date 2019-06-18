@@ -26,6 +26,35 @@ int main()
   for (k = 0; k < n; k++)
     printf("%6.1f", d[k]);
   
+  // find max abs value
+  double am[5] = {0.0, 2.0, -5.0, 4.0, 2.0};
+  double m;
+  int ind;
+  err = find_max_abs(am, 5, &m, &ind);
+  printf("\n\nmax absolute value:    %8.1f  (index %d)", m, ind);
+  
+  
+  printf("\n\nFlipip function test:\n\n");
+  double x[5] = {0.0, 1.0, 2.0, 3.0, 4.0};
+  int i;  
+  for(i = 0; i < 5; i++)
+    printf("%6.1f  ", x[i]);
+  flipip(x, 5);
+  printf("\n");
+  for(i = 0; i < 5; i++)
+    printf("%6.1f  ", x[i]);
+  
+  
+  printf("\n\nflipip_cmplx function test:\n\n");
+  complex_t y[5] = {{0.0, 0.0}, {1.0, 1.0}, {2.0, 2.0}, {3.0, 3.0}, {4.0, 4.0}};  
+  for(i = 0; i < 5; i++)
+    printf("%6.1f%+.1fj  ", RE(y[i]), IM(y[i]));
+  flipip_cmplx(y, 5);
+  printf("\n");
+  for(i = 0; i < 5; i++)
+    printf("%6.1f%+.1fj  ", RE(y[i]), IM(y[i]));
+  
+  
   dspl_free(handle);      // free dspl handle
   
   return err;

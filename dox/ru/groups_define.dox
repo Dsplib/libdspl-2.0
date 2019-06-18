@@ -63,8 +63,7 @@
   \ingroup SPEC_MATH_GROUP
 
   
-  \defgroup SPEC_MATH_TRIG_GROUP Тригонометрические и гиперболические функции
-  вещественного и комплексного аргумента
+  \defgroup SPEC_MATH_TRIG_GROUP Тригонометрические и гиперболические функции вещественного и комплексного аргумента
   \ingroup SPEC_MATH_GROUP
   
   \defgroup SPEC_MATH_TRANSCEND Высшие трансцендентные функции

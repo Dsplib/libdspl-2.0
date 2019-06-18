@@ -26,7 +26,56 @@
 
 
 /******************************************************************************
-Acos complex
+\ingroup SPEC_MATH_TRIG_GROUP
+\fn int acos_cmplx(complex_t* x, int n, complex_t *y)
+\brief  The inverse of the cosine function the complex vector argument `x`
+
+Function calculates the inverse of the cosine function as:<BR>
+
+\f[
+\textrm{Arccos}(x) = \frac{\pi}{2} - \textrm{Arcsin}(x) = 
+\frac{\pi}{2} -j \textrm{Ln}\left( j x + \sqrt{1 - x^2} \right)
+\f]  
+
+
+\param[in]  x   Pointer to the argument vector `x`.<BR>
+                Vector size is `[n x 1]`. <BR><BR>
+
+\param[in]  n   Input vector `x` and the inverse cosine vector `y` size.<BR><BR>
+    
+
+\param[out] y   Pointer to the output complex vector `y`,
+                corresponds to the input vector `x`.<BR>
+                Vector size is `[n x 1]`. <BR>
+                Memory must be allocated. <BR><BR>
+
+\return
+`RES_OK` if function calculated successfully. <BR>
+Else \ref ERROR_CODE_GROUP "code error".<BR>
+
+Example:<BR>
+\code{.cpp}
+  complex_t x[3] = {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}};
+  complex_t y[3];
+  int k;
+  
+  acos_cmplx(x, 3, y);
+  
+  for(k = 0; k < 3; k++)
+    printf("acos_cmplx(%.1f%+.1fj) = %.3f%+.3fj\n", 
+             RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
+\endcode 
+<BR>
+
+Output is:<BR>
+\verbatim
+acos_cmplx(1.0+2.0j) = 1.144-1.529j
+acos_cmplx(3.0+4.0j) = 0.937-2.306j
+acos_cmplx(5.0+6.0j) = 0.880-2.749j
+\endverbatim
+
+\author
+Sergey Bakhurin www.dsplib.org
 *******************************************************************************/
 int DSPL_API acos_cmplx(complex_t* x, int n, complex_t *y)
 {
@@ -49,7 +98,55 @@ int DSPL_API acos_cmplx(complex_t* x, int n, complex_t *y)
 
 
 /******************************************************************************
-Asin complex
+\ingroup SPEC_MATH_TRIG_GROUP
+\fn int asin_cmplx(complex_t* x, int n, complex_t *y)
+\brief  The inverse of the sine function the complex vector argument `x`
+
+Function calculates the inverse of the sine function as:<BR>
+
+\f[
+ \textrm{Arcsin}(x) = j \textrm{Ln}\left( j x + \sqrt{1 - x^2} \right)
+\f]  
+
+
+\param[in]  x   Pointer to the argument vector `x`.<BR>
+                Vector size is `[n x 1]`. <BR><BR>
+
+\param[in]  n   Input vector `x` and the inverse sine vector `y` size.<BR><BR>
+    
+
+\param[out] y   Pointer to the output complex vector `y`,
+                corresponds to the input vector `x`.<BR>
+                Vector size is `[n x 1]`. <BR>
+                Memory must be allocated. <BR><BR>
+
+\return
+`RES_OK` if function calculated successfully. <BR>
+Else \ref ERROR_CODE_GROUP "code error".<BR>
+
+Example:<BR>
+\code{.cpp}
+  complex_t x[3] = {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}};
+  complex_t y[3];
+  int k;
+  
+  asin_cmplx(x, 3, y);  
+  for(k = 0; k < 3; k++)
+    printf("asin_cmplx(%.1f%+.1fj) = %.3f%+.3fj\n", 
+            RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
+
+\endcode 
+<BR>
+
+Output is:<BR>
+\verbatim
+asin_cmplx(1.0+2.0j) = 0.427+1.529j
+asin_cmplx(3.0+4.0j) = 0.634+2.306j
+asin_cmplx(5.0+6.0j) = 0.691+2.749j
+\endverbatim
+
+\author
+Sergey Bakhurin www.dsplib.org
 *******************************************************************************/
 int DSPL_API asin_cmplx(complex_t* x, int n, complex_t *y)
 {
@@ -63,11 +160,11 @@ int DSPL_API asin_cmplx(complex_t* x, int n, complex_t *y)
   for(k = 0; k < n; k++)
   {
     RE(tmp) = 1.0 - CMRE(x[k], x[k]); // 1-x[k]^2
-    IM(tmp) =   - CMIM(x[k], x[k]); // 1-x[k]^2
-    sqrt_cmplx(&tmp, 1, y+k);     // sqrt(1 - x[k]^2)
+    IM(tmp) =     - CMIM(x[k], x[k]); // 1-x[k]^2
+    sqrt_cmplx(&tmp, 1, y+k);   // sqrt(1 - x[k]^2)
     RE(y[k]) -= IM(x[k]);       // j * x[k] + sqrt(1 - x[k]^2)
     IM(y[k]) += RE(x[k]);       // j * x[k] + sqrt(1 - x[k]^2)
-    log_cmplx(y+k, 1, &tmp);      // log( j * x[k] + sqrt(1 - x[k]^2) )
+    log_cmplx(y+k, 1, &tmp);    // log( j * x[k] + sqrt(1 - x[k]^2) )
     RE(y[k]) =  IM(tmp);        // -j * log( j * x[k] + sqrt(1 - x[k]^2) )
     IM(y[k]) = -RE(tmp);        // -j * log( j * x[k] + sqrt(1 - x[k]^2) )
   }
@@ -76,33 +173,53 @@ int DSPL_API asin_cmplx(complex_t* x, int n, complex_t *y)
 
 
 
-/******************************************************************************
-convert double array to a complex array
-*******************************************************************************/
-int DSPL_API re2cmplx(double* x, int n, complex_t *y)
-{
-  int k;
-  if(!x || !y)
-    return ERROR_PTR;
-  if(n < 1)
-    return ERROR_SIZE;
-
-  for(k = 0; k < n; k++)
-  {
-    RE(y[k]) = x[k];
-    IM(y[k]) = 0.0;
-  }
-  return RES_OK;
-}
-
-
-
-
 
 /******************************************************************************
-convert complex array to a re and im arrays
+\ingroup TYPES_GROUP
+\fn int cmplx2re(complex_t* x, int n, double* re, double* im)
+\brief  Separate complex vector to the real and image vectors
+
+Function fills `re` and `im` vectors corresponds to real and image
+parts of the input complex array `x`. <BR>  
+
+
+\param[in]  x   Pointer to the real complex vector.<BR>
+                Vector size is `[n x 1]`. <BR><BR>
+
+\param[in]  n   Size of the input complex vector `x` and real and image 
+                vectors `re` and `im`.<BR><BR>
+
+\param[out] re  Pointer to the real part  vector.<BR>
+                Vector size is `[n x 1]`. <BR>
+                Memory must be allocated. <BR><BR>     
+
+\param[out] im  Pointer to the image part vector.<BR>
+                Vector size is `[n x 1]`. <BR>
+                Memory must be allocated. <BR><BR>
+
+\return
+`RES_OK` if function converts complex vector successfully. <BR>
+Else \ref ERROR_CODE_GROUP "code error".<BR>
+
+Example:<BR>
+\code{.cpp}
+    complex_t x[3] = {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}};
+    double  re[3], im[3];
+
+    cmplx2re(x, 3, re, im);
+\endcode 
+
+Vectors `re` and `im` will contains:
+
+\verbatim
+re[0] = 1.0; im[0] = 2.0;
+re[1] = 3.0; im[1] = 4.0;
+re[2] = 5.0; im[2] = 6.0;
+\endverbatim
+
+\author Sergey Bakhurin. www.dsplib.org 
 *******************************************************************************/
-int DSPL_API cmplx2re(complex_t* x, int n, double *re, double *im)
+int DSPL_API cmplx2re(complex_t* x, int n, double* re, double* im)
 {
   int k;
   if(!x)
@@ -127,9 +244,57 @@ int DSPL_API cmplx2re(complex_t* x, int n, double *re, double *im)
 
 
 
-
 /******************************************************************************
-Complex cosine
+\ingroup SPEC_MATH_TRIG_GROUP
+\fn int cos_cmplx(complex_t* x, int n, complex_t *y)
+\brief  The cosine function the complex vector argument `x`
+
+Function calculates the cosine function as:<BR>
+
+\f[
+\textrm{cos}(x) = \frac{\exp(jx) + \exp(-jx)}{2} 
+\f]  
+
+
+\param[in]  x   Pointer to the argument vector `x`.<BR>
+                Vector size is `[n x 1]`. <BR><BR>
+
+\param[in]  n   Input vector `x` and the cosine vector `y` size.<BR><BR>
+    
+
+\param[out] y   Pointer to the output complex vector `y`,
+                corresponds to the input vector `x`.<BR>
+                Vector size is `[n x 1]`. <BR>
+                Memory must be allocated. <BR><BR>
+
+\return
+`RES_OK` if function calculated successfully. <BR>
+Else \ref ERROR_CODE_GROUP "code error".<BR>
+
+Example:<BR>
+\code{.cpp}
+  complex_t x[3] = {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}};
+  complex_t y[3];
+  int k;
+  
+  cos_cmplx(x, 3, y);
+  
+  for(k = 0; k < 3; k++)
+    printf("cos_cmplx(%.1f%+.1fj) = %9.3f%+9.3fj\n", 
+            RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
+  
+\endcode 
+<BR>
+
+Output is:<BR>
+\verbatim
+cos_cmplx(1.0+2.0j) =     2.033   -3.052j
+cos_cmplx(3.0+4.0j) =   -27.035   -3.851j
+cos_cmplx(5.0+6.0j) =    57.219 +193.428j
+\endverbatim
+
+\author
+Sergey Bakhurin www.dsplib.org
 *******************************************************************************/
 int DSPL_API cos_cmplx(complex_t* x, int n, complex_t *y)
 {
@@ -151,6 +316,54 @@ int DSPL_API cos_cmplx(complex_t* x, int n, complex_t *y)
   }
   return RES_OK;
 }
+
+
+
+
+/******************************************************************************
+Logarithm complex
+*******************************************************************************/
+int DSPL_API log_cmplx(complex_t* x, int n, complex_t *y)
+{
+  int k;
+  if(!x || !y)
+    return ERROR_PTR;
+  if(n < 1)
+    return ERROR_SIZE;
+
+  for(k = 0; k < n; k++)
+  {
+    RE(y[k]) = 0.5 * log(ABSSQR(x[k]));
+    IM(y[k]) = atan2(IM(x[k]), RE(x[k]));
+  }
+  return RES_OK;
+}
+
+
+
+
+
+
+
+/******************************************************************************
+convert double array to a complex array
+*******************************************************************************/
+int DSPL_API re2cmplx(double* x, int n, complex_t* y)
+{
+  int k;
+  if(!x || !y)
+    return ERROR_PTR;
+  if(n < 1)
+    return ERROR_SIZE;
+
+  for(k = 0; k < n; k++)
+  {
+    RE(y[k]) = x[k];
+    IM(y[k]) = 0.0;
+  }
+  return RES_OK;
+}
+
 
 
 
@@ -180,26 +393,6 @@ int DSPL_API sin_cmplx(complex_t* x, int n, complex_t *y)
 }
 
 
-
-
-/******************************************************************************
-Logarithm complex
-*******************************************************************************/
-int DSPL_API log_cmplx(complex_t* x, int n, complex_t *y)
-{
-  int k;
-  if(!x || !y)
-    return ERROR_PTR;
-  if(n < 1)
-    return ERROR_SIZE;
-
-  for(k = 0; k < n; k++)
-  {
-    RE(y[k]) = 0.5 * log(ABSSQR(x[k]));
-    IM(y[k]) = atan2(IM(x[k]), RE(x[k]));
-  }
-  return RES_OK;
-}
 
 
 

@@ -57,7 +57,7 @@ concatenation of these arrays will be array `c` size `na+nb`:<BR>
 Function uses pointer type `void*` and can be useful for an arrays 
 concatenation with different types.<BR>
 For example two `double` arrays concatenation:
-\code
+\code{.cpp}
 double a[3] = {1.0, 2.0, 3.0};
 double b[2] = {4.0, 5.0};
 double c[5];
@@ -65,9 +65,9 @@ double c[5];
 concat((void*)a, 3*sizeof(double), (void*)b, 2*sizeof(double), (void*)c);
 \endcode 
 Vector `c` keeps follow data:
-\code
+\verbatim
 c = [1.0, 2.0, 3.0, 4.0, 5.0]
-\endcode 
+\endverbatim 
 
 \author Sergey Bakhurin www.dsplib.org
 *******************************************************************************/
@@ -120,7 +120,7 @@ Output vector `y` keeps values corresponds to:
 Else \ref ERROR_CODE_GROUP "code error".
 
 Two-times decimation example:
-\code
+\code{.cpp}
 double x[10] = {0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0};
 double y[5];
 int d = 2;
@@ -130,9 +130,9 @@ decimate(x, 10, d, y, &cnt);
 \endcode 
 As result variable `cnt` will be written value 5 and
 vector `y` will keep  array:
-\code
+\verbatim
 c = [0.0, 2.0, 4.0, 6.0, 8.0]
-\endcode 
+\endverbatim 
 
 \author Sergey Bakhurin www.dsplib.org
 *******************************************************************************/
@@ -194,7 +194,7 @@ Output vector `y` keeps values corresponds to:
 Else \ref ERROR_CODE_GROUP "code error".
 
 Two-times complex vector decimation example:
-\code
+\code{.cpp}
 compex_t x[10] = {{0.0, 0.0}, {1.0, 1.0}, {2.0, 2.0}, {3.0, 3.0}, {4.0, 4.0},
                   {5.0, 5.0}, {6.0, 6.0}, {7.0, 7.0}, {8.0, 8.0}, {9.0, 9.0}};
 compex_t y[5];
@@ -205,9 +205,9 @@ decimate_cmplx(x, 10, d, y, &cnt);
 \endcode 
 As result variable `cnt` will be written value 5 and
 vector `y` will keep  array:
-\code
+\verbatim
 c = [0.0+0.0j, 2.0+2.0j, 4.0+4.0j, 6.0+6.0j, 8.0+8.0j]
-\endcode 
+\endverbatim
 
 \author Sergey Bakhurin www.dsplib.org
 *******************************************************************************/
@@ -238,7 +238,44 @@ int DSPL_API decimate_cmplx(complex_t* x, int n, int d, complex_t* y, int* cnt)
 
 
 /******************************************************************************
-Find max(|a|)
+\ingroup SPEC_MATH_STAT_GROUP
+\fn int find_max_abs(double* a, int n, double* m, int* ind)
+\brief Find maximum absolute value from the real vector `a`
+
+Function searches maximum absolute value in the real vector `a`.
+This value writes to the address `m` and index keeps to te address `ind`.
+
+\param[in]  a   Pointer to the real vector `a`.<BR>
+                Vector size is `[n x 1]`.<BR><BR>
+
+\param[in]  n   Size of the input vector `a`.<BR><BR>
+
+
+\param[out] m   Pointer to the variable which keeps vector `a`
+                maximum absolute value.<BR>
+                Pointer can be `NULL`, maximum value will not return
+                in this case.<BR><BR>
+
+\param[out] ind Pointer to the variable which keeps index of a 
+                maximum absolute value inside vector `a`.<BR>
+                Pointer can be `NULL`, index will not return
+                in this case.<BR><BR>
+\return
+`RES_OK` if function calculates successfully,
+ else \ref ERROR_CODE_GROUP "code error".
+
+Example:
+\code{.cpp}
+  double a[5] = {0.0, 2.0, -5.0, 4.0, 2.0};
+  double m;
+  int ind;
+  find_max_abs(a, 5, &m, &ind);
+  printf("\n\nmax absolute value:    %8.1f  (index %d)", m, ind);
+\endcode 
+As result the variable `m` will keep value `5`, 
+and variable `ind` will keep `2`.
+
+\author Sergey Bakhurin www.dsplib.org
 *******************************************************************************/
 int DSPL_API find_max_abs(double* a, int n, double* m, int* ind)
 {
@@ -254,7 +291,7 @@ int DSPL_API find_max_abs(double* a, int n, double* m, int* ind)
   {
     if(fabs(a[k]) > t)
     {
-      t = a[k];
+      t = fabs(a[k]);
       i = k;
     }
   }
@@ -268,7 +305,50 @@ int DSPL_API find_max_abs(double* a, int n, double* m, int* ind)
 
 
 /******************************************************************************
-Flip real array in place
+\ingroup SPEC_MATH_COMMON_GROUP
+\fn int flipip(double* x, int n)
+\brief Flip real vector `x` in place
+
+Function flips real vector `x` length `n` in the memory
+<BR>
+For example real vector `x`  length 6:<BR>
+\verbatim
+x = [0, 1, 2, 3, 4, 5]
+\endverbatim
+After flipping it will be as follow:
+\verbatim
+x = [5, 4, 3, 2, 1, 0]
+\endverbatim
+
+\param[in, out] x   Pointer to the real vector `x`.<BR>
+                    Vector size is `[n x 1]`.<BR>
+                    Flipped vector will be on the same address.<BR>
+
+\param[in]      n   Length of the vector `x`.<BR><BR>
+
+\return
+`RES_OK` if function returns successfully.<BR>
+ Else \ref ERROR_CODE_GROUP "error code".
+
+Example:
+\code{.cpp}
+double x[5] = {0.0, 1.0, 2.0, 3.0, 4.0};
+int i;  
+for(i = 0; i < 5; i++)
+  printf("%6.1f  ", x[i]);
+flipip(x, 5);
+printf("\n");
+for(i = 0; i < 5; i++)
+  printf("%6.1f  ", x[i]);
+\endcode 
+<BR>
+Program result:
+\verbatim
+   0.0     1.0     2.0     3.0     4.0
+   4.0     3.0     2.0     1.0     0.0
+\endverbatim
+
+\author Sergey Bakhurin www.dsplib.org
 *******************************************************************************/
 int DSPL_API flipip(double* x, int n)
 {
@@ -291,7 +371,49 @@ int DSPL_API flipip(double* x, int n)
 
 
 /******************************************************************************
-Flip complex array in place
+\ingroup SPEC_MATH_COMMON_GROUP
+\fn int flipip_cmplx(complex_t* x, int n)
+\brief Flip complex vector `x` in place
+
+Function flips complex vector `x` length `n` in the memory
+<BR>
+For example complex vector `x`  length 6:<BR>
+\verbatim
+x = [0+0j, 1+1j, 2+2j, 3+3j, 4+4j, 5+5j]
+\endverbatim
+After flipping it will be as follow:
+\verbatim
+x = [5+5j, 4+4j, 3+3j, 2+2j, 1+1j, 0+0j]
+\endverbatim
+
+\param[in, out] x   Pointer to the complex vector `x`.<BR>
+                    Vector size is `[n x 1]`.<BR>
+                    Flipped vector will be on the same address.<BR>
+
+\param[in]      n   Length of the vector `x`.<BR><BR>
+
+\return
+`RES_OK` if function returns successfully.<BR>
+ Else \ref ERROR_CODE_GROUP "error code".
+
+Example:
+\code{.cpp}
+complex_t y[5] = {{0.0, 0.0}, {1.0, 1.0}, {2.0, 2.0}, {3.0, 3.0}, {4.0, 4.0}};
+for(i = 0; i < 5; i++)
+  printf("%6.1f%+.1fj  ", RE(y[i]), IM(y[i]));
+flipip_cmplx(y, 5);
+printf("\n");
+for(i = 0; i < 5; i++)
+  printf("%6.1f%+.1fj  ", RE(y[i]), IM(y[i]));
+\endcode 
+<BR>
+Program result:
+\verbatim
+   0.0+0.0j     1.0+1.0j     2.0+2.0j     3.0+3.0j     4.0+4.0j
+   4.0+4.0j     3.0+3.0j     2.0+2.0j     1.0+1.0j     0.0+0.0j
+\endverbatim
+
+\author Sergey Bakhurin www.dsplib.org
 *******************************************************************************/
 int DSPL_API flipip_cmplx(complex_t* x, int n)
 {
@@ -319,7 +441,48 @@ int DSPL_API flipip_cmplx(complex_t* x, int n)
 
 
 /******************************************************************************
-Verif double
+\ingroup SPEC_MATH_COMMON_GROUP
+\fn int verif(double* x,  double* y, size_t n, double eps, double* err)
+\brief Real arrays verification
+
+Function calculates a maximum relative error between two real arrays `x` 
+and `y` (both length equals `n`):
+
+\f[
+e = \max \left( \frac{|x(k) - y(k)| }{ |x(k)|} \right), \quad if \quad |x(k)| > 0,
+\f]
+or 
+\f[
+e = \max(|x(k) - y(k)| ), ~\qquad if \quad~|x(k)| = 0,
+\f]
+Return `DSPL_VERIF_SUCCESS` if maximum relative error \f$ e\f$ less than `eps`. 
+Else returns `DSPL_VERIF_FAILED`.<BR>
+
+This function can be used for algorithms verification if vector `x` is user 
+algorithm result and vector `y` -- reference vector.
+
+\param[in] x        Pointer to the first vector `x`.<BR>
+                    Vector size is `[n x 1]`.<BR><BR>
+
+\param[in] y        Pointer to the second vector `y`.<BR>
+                    Vector size is `[n x 1]`.<BR><BR>
+
+\param[in] n        Size of vectors `x` and `y`.<BR><BR>
+
+\param[in] eps      Relative error threshold.<BR>
+                    If error less than `eps`, then function returns 
+                    `DSPL_VERIF_SUCCESS`, else `DSPL_VERIF_FAILED`. <BR><BR>
+
+\param[in, out] err Pointer to the variable which keep 
+                    maximum relative error.<BR>
+                    Pointer can be `NULL`, maximum error will not be returned 
+                    in this case.<BR><BR>
+
+\return
+`DSPL_VERIF_SUCCESS` if maximum relative error less than `eps`.<BR>
+Otherwise `DSPL_VERIF_FAILED`.
+
+\author Sergey Bakhurin www.dsplib.org
 *******************************************************************************/
 int DSPL_API verif(double* x,  double* y, size_t n, double eps, double* err)
 {
@@ -359,7 +522,49 @@ int DSPL_API verif(double* x,  double* y, size_t n, double eps, double* err)
 
 
 /******************************************************************************
-Verif double
+\ingroup SPEC_MATH_COMMON_GROUP
+\fn int verif_cmplx(complex_t* x,  complex_t* y, size_t n, 
+                    double eps, double* err)
+\brief Complex arrays verification
+
+Function calculates a maximum relative error between two complex arrays `x` 
+and `y` (both length equals `n`):
+
+\f[
+e = \max \left( \frac{|x(k) - y(k)| }{ |x(k)|} \right), \quad if \quad |x(k)| > 0,
+\f]
+or 
+\f[
+e = \max(|x(k) - y(k)| ), ~\qquad if \quad~|x(k)| = 0,
+\f]
+Return `DSPL_VERIF_SUCCESS` if maximum relative error \f$ e\f$ less than `eps`. 
+Else returns `DSPL_VERIF_FAILED`.<BR>
+
+This function can be used for algorithms verification if vector `x` is user 
+algorithm result and vector `y` -- reference vector.
+
+\param[in] x        Pointer to the first vector `x`.<BR>
+                    Vector size is `[n x 1]`.<BR><BR>
+
+\param[in] y        Pointer to the second vector `y`.<BR>
+                    Vector size is `[n x 1]`.<BR><BR>
+
+\param[in] n        Size of vectors `x` and `y`.<BR><BR>
+
+\param[in] eps      Relative error threshold.<BR>
+                    If error less than `eps`, then function returns 
+                    `DSPL_VERIF_SUCCESS`, else `DSPL_VERIF_FAILED`. <BR><BR>
+
+\param[in, out] err Pointer to the variable which keep 
+                    maximum relative error.<BR>
+                    Pointer can be `NULL`, maximum error will not be returned 
+                    in this case.<BR><BR>
+
+\return
+`DSPL_VERIF_SUCCESS` if maximum relative error less than `eps`.<BR>
+Otherwise `DSPL_VERIF_FAILED`.
+
+\author Sergey Bakhurin www.dsplib.org
 *******************************************************************************/
 int DSPL_API verif_cmplx(complex_t* x,  complex_t* y, size_t n, 
                          double eps, double* err)
