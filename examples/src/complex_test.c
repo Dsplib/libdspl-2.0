@@ -30,7 +30,26 @@ int main()
     printf("cos_cmplx(%.1f%+.1fj) = %9.3f%+9.3fj\n", 
             RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
   
+  printf("\n\nlog_cmplx\n---------------------------------\n");
+  log_cmplx(x, 3, y);  
+  for(k = 0; k < 3; k++)
+    printf("log_cmplx(%.1f%+.1fj) = %.3f%+.3fj\n", 
+            RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
   
+  printf("\n\nsin_cmplx\n---------------------------------\n");
+  sin_cmplx(x, 3, y);  
+  for(k = 0; k < 3; k++)
+    printf("sin_cmplx(%.1f%+.1fj) = %9.3f%+9.3fj\n", 
+            RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
+
+  printf("\n\nsqrt_cmplx\n---------------------------------\n");
+  sqrt_cmplx(x, 3, y);  
+  for(k = 0; k < 3; k++)
+    printf("sqrt_cmplx(%.1f%+.1fj) = %.3f%+.3fj\n", 
+            RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
+ 
+
+
   dspl_free(handle);      // free dspl handle
   
   return 0;

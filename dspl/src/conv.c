@@ -27,7 +27,61 @@
 
 
 /*******************************************************************************
-Real vectors linear convolution
+\ingroup FILTER_CONV_GROUP
+\fn int conv(double* a, int na, double* b, int nb, double* c) 
+\brief Real vectors linear convolution.
+
+Function convolves two real vectors \f$ c = a * b\f$ length `na` and `nb`.
+The output convolution is a vector `c` with length equal to  `na + nb - 1`. 
+
+\param[in]  a   Pointer to the first vector `a`.<BR>
+                Vector size is `[na x 1]`.<BR><BR>
+
+\param[in]  na  Size of the first vector `a`.<BR><BR>
+
+\param[in]  b   Pointer to the second vector `b`.<BR>
+                Vector size is `[nb x 1]`.<BR><BR>
+
+\param[in]  nb  Size of the second vector `b`.<BR><BR>
+
+\param[out] c   Pointer to the convolution output vector  \f$ c = a * b\f$.<BR>
+                Vector size is `[na + nb - 1  x  1]`.<BR>
+                Memory must be allocated.<BR><BR>
+
+\return `RES_OK` if convolution is calculated successfully.<BR>
+Else \ref ERROR_CODE_GROUP "code error".
+
+\note If vectors `a` and `b` are coefficients of two polynomials,
+then convolution of the vectors `a` and `b` returns polynomial product 
+coefficients.
+
+Example:
+\code{.cpp}
+  double ar[3] = {1.0, 2.0, 3.0};
+  double br[4] = {3.0, -1.0, 2.0, 4.0};
+  double cr[6];
+  
+  int n;
+  
+  conv(ar, 3, br, 4, cr);
+  
+  for(n = 0; n < 6; n++)
+    printf("cr[%d] = %5.1f\n", n, cr[n]);
+
+\endcode
+<BR>
+
+Output:
+\verbatim
+cr[0] =   3.0
+cr[1] =   5.0
+cr[2] =   9.0
+cr[3] =   5.0
+cr[4] =  14.0
+cr[5] =  12.0
+\endverbatim
+
+\author Sergey Bakhurin www.dsplib.org
 *******************************************************************************/
 int DSPL_API conv(double* a, int na, double* b, int nb, double* c)
 {
@@ -70,7 +124,61 @@ int DSPL_API conv(double* a, int na, double* b, int nb, double* c)
 
 
 /******************************************************************************
-Complex vectors linear convolution
+\ingroup FILTER_CONV_GROUP
+\fn int conv_cmplx(complex_t* a, int na, complex_t* b, int nb, complex_t* c) 
+\brief Complex vectors linear convolution.
+
+Function convolves two complex vectors \f$ c = a * b\f$ length `na` and `nb`.
+The output convolution is a vector `c` with length equal to  `na + nb - 1`. 
+
+\param[in]  a   Pointer to the first vector `a`.<BR>
+                Vector size is `[na x 1]`.<BR><BR>
+
+\param[in]  na  Size of the first vector `a`.<BR><BR>
+
+\param[in]  b   Pointer to the second vector `b`.<BR>
+                Vector size is `[nb x 1]`.<BR><BR>
+
+\param[in]  nb  Size of the second vector `b`.<BR><BR>
+
+\param[out] c   Pointer to the convolution output vector  \f$ c = a * b\f$.<BR>
+                Vector size is `[na + nb - 1  x  1]`.<BR>
+                Memory must be allocated.<BR><BR>
+
+\return `RES_OK` if convolution is calculated successfully.<BR>
+Else \ref ERROR_CODE_GROUP "code error".
+
+\note If vectors `a` and `b` are coefficients of two polynomials,
+then convolution of the vectors `a` and `b` returns polynomial product 
+coefficients.
+
+Example:
+\code{.cpp}
+  complex_t ac[3] = {{0.0, 1.0}, {1.0, 1.0}, {2.0, 2.0}};
+  complex_t bc[4] = {{3.0, 3.0}, {4.0, 4.0}, {5.0, 5.0}, {6.0, 6.0}};
+  complex_t cc[6];
+  
+  int n;
+  
+  conv_cmplx(ac, 3, bc, 4, cc);
+  
+  for(n = 0; n < 6; n++)
+    printf("cc[%d] = %5.1f%+5.1fj\n", n, RE(cc[n]),IM(cc[n]));
+  
+\endcode
+<BR>
+
+Output:
+\verbatim
+cc[0] =  -3.0 +3.0j
+cc[1] =  -4.0+10.0j
+cc[2] =  -5.0+25.0j
+cc[3] =  -6.0+32.0j
+cc[4] =   0.0+32.0j
+cc[5] =   0.0+24.0j
+\endverbatim
+
+\author Sergey Bakhurin www.dsplib.org
 *******************************************************************************/
 int DSPL_API conv_cmplx(complex_t* a, int na, complex_t* b,
                         int nb, complex_t* c)
@@ -296,7 +404,7 @@ int DSPL_API filter_iir(double* b, double* a, int ord,
   double* an  = NULL;
   double  u;
   int   k;
-  int    m;
+  int   m;
   int   count;
 
   if(!b || !x || !y)

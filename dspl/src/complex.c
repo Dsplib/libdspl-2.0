@@ -321,7 +321,55 @@ int DSPL_API cos_cmplx(complex_t* x, int n, complex_t *y)
 
 
 /******************************************************************************
-Logarithm complex
+\ingroup SPEC_MATH_COMMON_GROUP
+\fn int log_cmplx(complex_t* x, int n, complex_t *y)
+\brief  The logarithm function the complex vector argument `x`
+
+Function calculates the logarithm function as:<BR>
+
+\f[
+\textrm{Ln}(x) = j \varphi + \ln(|x|), 
+\f]  
+here \f$\varphi\f$ - the complex number phase.
+
+\param[in]  x   Pointer to the argument vector `x`.<BR>
+                Vector size is `[n x 1]`. <BR><BR>
+
+\param[in]  n   Input vector `x` and the logarithm vector `y` size.<BR><BR>
+    
+
+\param[out] y   Pointer to the output complex vector `y`,
+                corresponds to the input vector `x`.<BR>
+                Vector size is `[n x 1]`. <BR>
+                Memory must be allocated. <BR><BR>
+
+\return
+`RES_OK` if function calculated successfully. <BR>
+Else \ref ERROR_CODE_GROUP "code error".<BR>
+
+Example:<BR>
+\code{.cpp}
+  complex_t x[3] = {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}};
+  complex_t y[3];
+  int k;
+  
+  log_cmplx(x, 3, y);  
+
+  for(k = 0; k < 3; k++)
+    printf("log_cmplx(%.1f%+.1fj) = %.3f%+.3fj\n", 
+            RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
+\endcode 
+<BR>
+
+Output is:<BR>
+\verbatim
+log_cmplx(1.0+2.0j) = 0.805+1.107j
+log_cmplx(3.0+4.0j) = 1.609+0.927j
+log_cmplx(5.0+6.0j) = 2.055+0.876j
+\endverbatim
+
+\author
+Sergey Bakhurin www.dsplib.org
 *******************************************************************************/
 int DSPL_API log_cmplx(complex_t* x, int n, complex_t *y)
 {
@@ -346,7 +394,49 @@ int DSPL_API log_cmplx(complex_t* x, int n, complex_t *y)
 
 
 /******************************************************************************
-convert double array to a complex array
+\ingroup TYPES_GROUP
+\fn int re2cmplx(double* x, int n, complex_t *y)
+\brief  Convert real array to the complex array.
+
+Function copies the vector `x` to the real part of vector `y`. 
+Image part of the vector `y` sets as zero.<BR>  
+So complex vector contains data:<BR>
+`y[i] = x[i] + j0, here i = 0,1,2 ... n-1`
+
+
+\param[in]  x   Pointer to the real vector `x`.<BR>
+                Vector size is `[n x 1]`. <BR><BR>
+
+\param[in]  n   Size of the real vector `x` and complex vector `y`.<BR><BR>
+
+\param[out] y   Pointer to the complex vector `y`.<BR>
+                Vector size is `[n x 1]`. <BR>
+                Memory must be allocated. <BR><BR>
+
+
+\return
+`RES_OK` if function returns successfully. <BR>
+Else \ref ERROR_CODE_GROUP "code error":<BR>
+
+
+
+Например при выполнении следующего кода 
+\code{.cpp}
+    double x[3] = {1.0, 2.0, 3.0};
+    complex_t y[3];
+
+    re2cmplx(x, 3, y);
+\endcode 
+
+Vector `y` will keep:
+
+\verbatim	     
+    y[0] = 1+0j;
+    y[1] = 2+0j;
+    y[2] = 3+0j.
+\endverbatim
+
+\author Sergey Bakhurin. www.dsplib.org 
 *******************************************************************************/
 int DSPL_API re2cmplx(double* x, int n, complex_t* y)
 {
@@ -369,7 +459,56 @@ int DSPL_API re2cmplx(double* x, int n, complex_t* y)
 
 
 /******************************************************************************
-Complex cosine
+\ingroup SPEC_MATH_TRIG_GROUP
+\fn int sin_cmplx(complex_t* x, int n, complex_t *y)
+\brief  The sine function the complex vector argument `x`
+
+Function calculates the sine function as:<BR>
+
+\f[
+\textrm{cos}(x) = \frac{\exp(jx) - \exp(-jx)}{2j} 
+\f]  
+
+
+\param[in]  x   Pointer to the argument vector `x`.<BR>
+                Vector size is `[n x 1]`. <BR><BR>
+
+\param[in]  n   Input vector `x` and the sine vector `y` size.<BR><BR>
+    
+
+\param[out] y   Pointer to the output complex vector `y`,
+                corresponds to the input vector `x`.<BR>
+                Vector size is `[n x 1]`. <BR>
+                Memory must be allocated. <BR><BR>
+
+\return
+`RES_OK` if function calculated successfully. <BR>
+Else \ref ERROR_CODE_GROUP "code error".<BR>
+
+Example:<BR>
+\code{.cpp}
+  complex_t x[3] = {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}};
+  complex_t y[3];
+  int k;
+  
+  sin_cmplx(x, 3, y);
+  
+  for(k = 0; k < 3; k++)
+    printf("sin_cmplx(%.1f%+.1fj) = %9.3f%+9.3fj\n", 
+            RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
+   
+\endcode 
+<BR>
+
+Output is:<BR>
+\verbatim
+sin_cmplx(1.0+2.0j) =     3.166   +1.960j
+sin_cmplx(3.0+4.0j) =     3.854  -27.017j
+sin_cmplx(5.0+6.0j) =  -193.430  +57.218j
+\endverbatim
+
+\author
+Sergey Bakhurin www.dsplib.org
 *******************************************************************************/
 int DSPL_API sin_cmplx(complex_t* x, int n, complex_t *y)
 {
@@ -398,7 +537,53 @@ int DSPL_API sin_cmplx(complex_t* x, int n, complex_t *y)
 
 
 /******************************************************************************
-SQRT complex
+\ingroup SPEC_MATH_COMMON_GROUP
+\fn int sqrt_cmplx(complex_t* x, int n, complex_t *y)
+\brief Square root of the complex vector argguument `x`.
+
+Function calculates square root value of vector `x` length `n`: <BR>
+\f[
+y(k) = \sqrt{x(k)}, \qquad k = 0 \ldots n-1. 
+\f]  
+
+
+\param[in]  x   Pointer to the input complex vector `x`.<BR>
+                Vector size is `[n x 1]`. <BR><BR>
+
+\param[in]  n   Size of input and output vectors `x` and `y`.<BR><BR>
+    
+
+\param[out] y   Pointer to the square root vector `y`.<BR>
+                Vector size is `[n x 1]`. <BR>
+                Memory must be allocated. <BR><BR>
+
+\return `RES_OK` if function is calculated successfully. <BR>
+Else \ref ERROR_CODE_GROUP "code error".<BR>
+
+Example
+\code{.cpp}
+  complex_t x[3] = {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}};
+  complex_t y[3]
+  int k;
+  
+  sqrt_cmplx(x, 3, y);
+  
+  for(k = 0; k < 3; k++)
+    printf("sqrt_cmplx(%.1f%+.1fj) = %.3f%+.3fj\n", 
+            RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
+ 
+ \endcode 
+<BR>
+
+Результатом работы будет
+
+\verbatim
+sqrt_cmplx(1.0+2.0j) = 1.272+0.786j
+sqrt_cmplx(3.0+4.0j) = 2.000+1.000j
+sqrt_cmplx(5.0+6.0j) = 2.531+1.185j
+\endverbatim
+
+\author Sergey Bakhurin www.dsplib.org 
 *******************************************************************************/
 int DSPL_API sqrt_cmplx(complex_t* x, int n, complex_t *y)
 {
