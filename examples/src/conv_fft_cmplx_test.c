@@ -20,12 +20,14 @@ int main()
   conv_fft_cmplx(a, N, b, M, &pfft, c);
   conv_cmplx(a, N, b, M, d);
   
+  // print result
   for(n = 0; n < N+M-1; n++)
   {
     printf("c[%3d] = %9.2f%+9.2fj    ", n, RE(c[n]), IM(c[n]));
     printf("d[%3d] = %9.2f%+9.2fj  \n", n, RE(d[n]), IM(d[n]));
   }
-  fft_free(&pfft);
+  
+  fft_free(&pfft);        // free fft structure memory
   dspl_free(handle);      // free dspl handle
   return 0;
 }
