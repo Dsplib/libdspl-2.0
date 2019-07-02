@@ -251,6 +251,13 @@ The output convolution is a vector `c` with length equal to  `na + nb - 1`.
 \param[in]  pfft  Pointer to the structure `fft_t`.<BR>
                   Function changes `fft_t` structure fields so `fft_t` must
                   be clear before program returns.<BR><BR>
+                  
+\param[in] nfft   FFT size. <BR>
+                  This parameter set which FFT size will be used 
+                  for overlapped frequency domain convolution.<BR>
+                  FFT size must be more of minimal `na` and `nb` value.
+                  For example if `na = 10`, `nb = 4` then `nfft` parameter must 
+                  be more than 4. <BR>
 
 \param[out] c   Pointer to the convolution output vector  \f$ c = a * b\f$.<BR>
                 Vector size is `[na + nb - 1  x  1]`.<BR>
@@ -288,7 +295,122 @@ c[ 18] =    -37.00  +484.00j    d[ 18] =    -37.00  +484.00j
 
 \author Sergey Bakhurin www.dsplib.org
 *******************************************************************************/
-int DSPL_API conv_fft_cmplx(complex_t* a, int na, complex_t* b, int nb,
+int DSPL_API conv_fft_cmplx(complex_t* a, int na,   complex_t* b, int nb,
+                            fft_t* pfft,  int nfft, complex_t* c)
+{
+  
+  int La, Lb, Lc, Nz, n, shift, ind, err;
+  complex_t *pa, *pb;
+  complex_t *pt, *pA, *pB, *pC;
+  
+  if(!a || !b || !c)
+    return ERROR_PTR;
+  if(na < 1 || nb < 1)
+    return ERROR_SIZE;
+  
+  if(na >= nb)
+  {
+    La = na;
+    Lb = nb;
+    pa = a;
+    pb = b;
+  }
+  else
+  {
+    La = nb;
+    pa = b;
+    Lb = na;
+    pb = a;
+  }
+    
+  Lc = La + Lb - 1;
+  Nz = nfft - Lb;
+
+  if(Nz <= 0)
+    return ERROR_FFT_SIZE;
+  
+  
+  pt = (complex_t*)malloc(nfft*sizeof(complex_t));
+  pB = (complex_t*)malloc(nfft*sizeof(complex_t));  
+  pA = (complex_t*)malloc(nfft*sizeof(complex_t));  
+  pC = (complex_t*)malloc(nfft*sizeof(complex_t));
+    
+  memset(pt,    0,  nfft*sizeof(complex_t));
+  memcpy(pt+Nz, pb, Lb*sizeof(complex_t));
+    
+  err = fft_cmplx(pt, nfft, pfft, pB);
+  if(err != RES_OK)
+    goto exit_label;
+
+  shift = -Lb;
+  ind = 0;
+  while(shift + nfft < La)
+  {
+    if(shift < 0)
+    {
+      memset(pt,       0,  nfft*sizeof(complex_t));
+      memcpy(pt-shift, pa, (nfft+shift)*sizeof(complex_t));
+      
+      err = fft_cmplx(pt, nfft, pfft, pA);
+      if(err != RES_OK)
+        goto exit_label;
+    }
+    else
+    {
+      err = fft_cmplx(pa+shift, nfft, pfft, pA);
+      if(err != RES_OK)
+        goto exit_label;
+    }
+
+    for(n = 0; n < nfft; n++)
+    {
+      RE(pC[n]) = CMRE(pA[n], pB[n]);
+      IM(pC[n]) = CMIM(pA[n], pB[n]);
+    }
+    
+    err = ifft_cmplx(pC, nfft, pfft, c+ind);
+    if(err != RES_OK)
+      goto exit_label;
+    
+    shift += Nz;
+    ind   += Nz;
+  }
+  
+  while(ind <= Lc)
+  {
+    memset(pt, 0,  nfft*sizeof(complex_t));
+    
+    if(shift>=0)
+      memcpy(pt, pa + shift, (La-shift)*sizeof(complex_t));
+    else
+      memcpy(pt+Lb, pa, La*sizeof(complex_t));
+    
+    err = fft_cmplx(pt, nfft, pfft, pA);
+    if(err != RES_OK)
+      goto exit_label;
+    
+    for(n = 0; n < nfft; n++)
+    {
+      RE(pC[n]) = CMRE(pA[n], pB[n]);
+      IM(pC[n]) = CMIM(pA[n], pB[n]);
+    }
+      
+    err = ifft_cmplx(pC, nfft, pfft, pt);
+    memcpy(c+ind, pt, (Lc-ind)*sizeof(complex_t));
+    shift += Nz;
+    ind   += Nz; 
+  }
+ 
+exit_label: 
+  if(pt) free(pt);
+  if(pB) free(pB);
+  if(pA) free(pA);
+  if(pC) free(pC);
+  
+  return err;
+}
+
+/*int DSPL_API conv_fft_cmplx(complex_t* a, int na, complex_t* b, int nb,
                             fft_t* pfft, complex_t* c)
 {
   complex_t *pa = NULL;
@@ -448,7 +570,7 @@ exit_label:
 
   return err;
 }
-
+*/
 
 
 

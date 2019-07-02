@@ -349,6 +349,7 @@ DECLARE_FUNC(int,        conv_fft_cmplx,              complex_t*        a
                                                 COMMA complex_t*        b
                                                 COMMA int               nb
                                                 COMMA fft_t*            pfft
+                                                COMMA int               nfft
                                                 COMMA complex_t*        c);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,        cos_cmplx,                   complex_t*

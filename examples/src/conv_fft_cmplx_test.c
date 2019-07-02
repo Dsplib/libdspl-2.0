@@ -17,7 +17,7 @@ int main()
   linspace(0, 2*M, 2*M, DSPL_PERIODIC, (double*)b);
   memset(&pfft, 0, sizeof(fft_t));
   
-  conv_fft_cmplx(a, N, b, M, &pfft, c);
+  conv_fft_cmplx(a, N, b, M, &pfft, 8, c);
   conv_cmplx(a, N, b, M, d);
   
   // print result
