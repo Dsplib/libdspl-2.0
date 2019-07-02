@@ -226,9 +226,68 @@ int DSPL_API conv_cmplx(complex_t* a, int na, complex_t* b,
 
 
 
-/*******************************************************************************
- Complex vectors FFT linear convolution
- ******************************************************************************/
+/******************************************************************************
+\ingroup FILTER_CONV_GROUP
+\fn int conv_fft_cmplx(complex_t* a, int na, complex_t* b, int nb,
+                       fft_t* pfft, complex_t* c) 
+\brief Complex vectors fast linear convolution by using fast Fourier
+transform algorithms
+
+Function convolves two complex vectors \f$ c = a * b\f$ length `na` and `nb`
+in the frequency domain by using FFT algorithms. This approach provide 
+high-performance convolution which increases with `na` and `nb` increasing.
+The output convolution is a vector `c` with length equal to  `na + nb - 1`. 
+
+\param[in]  a   Pointer to the first vector `a`.<BR>
+                Vector size is `[na x 1]`.<BR><BR>
+
+\param[in]  na  Size of the first vector `a`.<BR><BR>
+
+\param[in]  b   Pointer to the second vector `b`.<BR>
+                Vector size is `[nb x 1]`.<BR><BR>
+
+\param[in]  nb  Size of the second vector `b`.<BR><BR>
+
+\param[in]  pfft  Pointer to the structure `fft_t`.<BR>
+                  Function changes `fft_t` structure fields so `fft_t` must
+                  be clear before program returns.<BR><BR>
+
+\param[out] c   Pointer to the convolution output vector  \f$ c = a * b\f$.<BR>
+                Vector size is `[na + nb - 1  x  1]`.<BR>
+                Memory must be allocated.<BR><BR>
+
+\return `RES_OK` if convolution is calculated successfully.<BR>
+Else \ref ERROR_CODE_GROUP "code error". <BR><BR>
+
+Example:
+\include conv_fft_cmplx_test.c
+
+Program output:
+
+\verbatim
+c[  0] =     -1.00    -0.00j    d[  0] =     -1.00    +0.00j
+c[  1] =     -6.00    +4.00j    d[  1] =     -6.00    +4.00j
+c[  2] =    -15.00   +20.00j    d[  2] =    -15.00   +20.00j
+c[  3] =    -28.00   +56.00j    d[  3] =    -28.00   +56.00j
+c[  4] =    -45.00  +120.00j    d[  4] =    -45.00  +120.00j
+c[  5] =    -55.00  +210.00j    d[  5] =    -55.00  +210.00j
+c[  6] =    -65.00  +300.00j    d[  6] =    -65.00  +300.00j
+c[  7] =    -75.00  +390.00j    d[  7] =    -75.00  +390.00j
+c[  8] =    -85.00  +480.00j    d[  8] =    -85.00  +480.00j
+c[  9] =    -95.00  +570.00j    d[  9] =    -95.00  +570.00j
+c[ 10] =   -105.00  +660.00j    d[ 10] =   -105.00  +660.00j
+c[ 11] =   -115.00  +750.00j    d[ 11] =   -115.00  +750.00j
+c[ 12] =   -125.00  +840.00j    d[ 12] =   -125.00  +840.00j
+c[ 13] =   -135.00  +930.00j    d[ 13] =   -135.00  +930.00j
+c[ 14] =   -145.00 +1020.00j    d[ 14] =   -145.00 +1020.00j
+c[ 15] =   -124.00 +1080.00j    d[ 15] =   -124.00 +1080.00j
+c[ 16] =    -99.00 +1016.00j    d[ 16] =    -99.00 +1016.00j
+c[ 17] =    -70.00  +820.00j    d[ 17] =    -70.00  +820.00j
+c[ 18] =    -37.00  +484.00j    d[ 18] =    -37.00  +484.00j
+\endverbatim
+
+\author Sergey Bakhurin www.dsplib.org
+*******************************************************************************/
 int DSPL_API conv_fft_cmplx(complex_t* a, int na, complex_t* b, int nb,
                             fft_t* pfft, complex_t* c)
 {
@@ -393,9 +452,47 @@ exit_label:
 
 
 
-
 /*******************************************************************************
-IIR FILTER for real vector
+\ingroup FILTER_CONV_GROUP
+\fn int filter_iir(double* b, double* a, int ord, double* x, int n, double* y)
+\brief Real IIR filtration
+
+Function calculates real IIR filter output for real signal. The real filter
+contains real coefficients of the transfer function \f$H(z)\f$
+ numerator and denominator:
+\f[
+  H(z) = \frac{\sum_{n = 0}^{N} b_n  z^{-n}}
+  {1+{\frac{1}{a_0}}\sum_{m = 1}^{M} a_m  z^{-n}},
+\f]
+here \f$a_0\f$ cannot be equals zeros, \f$N=M=\f$`ord`.
+
+
+\param[in]  b     Pointer to the vector \f$b\f$ of IIR filter 
+                  transfer function numerator coefficients.<BR> 
+                  Vector size is `[ord + 1 x 1]`.<BR><BR> 
+
+\param[in]  a     Pointer to the vector \f$a\f$ of IIR filter 
+                  transfer function denominator coefficients.<BR> 
+                  Vector size is `[ord + 1 x 1]`.<BR> 
+                  This pointer can be `NULL` if filter is FIR.<BR><BR> 
+
+\param[in]  ord   Filter order. Number of the transfer function 
+                  numerator and denominator coefficients 
+                  (length of vectors `b` and `a`) is `ord + 1`.<BR><BR> 
+
+\param[in]  x     Pointer to the input signal vector.<BR> 
+                  Vector size is `[n x 1]`.<BR><BR> 
+
+\param[in]  n     Size of the input signal vector `x`.<BR><BR> 
+
+\param[out] y     Pointer to the IIR filter output vector.<BR> 
+                  Vector size is `[n x  1]`.<BR> 
+                  Memory must be allocated.<BR><BR> 
+\return
+`RES_OK` if filter output is calculted successfully.<BR>
+Else \ref ERROR_CODE_GROUP "code error":<BR>
+
+\author Sergey Bakhurin www.dsplib.org
 *******************************************************************************/
 int DSPL_API filter_iir(double* b, double* a, int ord,
                         double* x, int n, double* y)

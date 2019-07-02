@@ -58,7 +58,7 @@ void dft5 (complex_t *x,  complex_t* y);
 #define DFT7_W5      -0.440958551844098378680314
 #define DFT7_W6      -0.340872930623931369442658
 #define DFT7_W7       0.533969360337725240661655
-#define DFT7_W8      -0.874842290961656665615465    
+#define DFT7_W8      -0.874842290961656665615465
 void dft7 (complex_t *x,  complex_t* y);
 
 #define DFT16_W1       0.923879532511287
@@ -85,6 +85,8 @@ int win_kaiser          (double* w, int n, int win_type, double param);
 int win_lanczos	        (double *w, int n, int win_type);
 int win_nuttall	        (double *w, int n, int win_type);
 int win_rect            (double *w, int n);
+
+
 
 int fir_linphase_lpf(int ord, double wp, int wintype, 
                      double winparam, double* h);
