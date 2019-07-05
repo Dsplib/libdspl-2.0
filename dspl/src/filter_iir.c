@@ -147,8 +147,10 @@ int DSPL_API iir(double rp, double rs, int ord,  double  w0, double  w1,
       err = low2bp(bs, as, ord_ap, 1.0, wa0, wa1, bt, at);
       break;
       
-   // case DSPL_FILTER_BSTOP:
-   //   break;
+    case DSPL_FILTER_BSTOP:
+      // need frequency transform ws ->  1  rad/s  
+      err = low2bs(bs, as, ord_ap, 1.0, wa0, wa1, bt, at);
+      break;
    
     default:
       err = ERROR_FILTER_TYPE;

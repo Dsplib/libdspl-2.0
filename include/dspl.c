@@ -107,6 +107,7 @@ p_linspace                             linspace                      ;
 p_log_cmplx                            log_cmplx                     ;
 p_logspace                             logspace                      ;
 p_low2bp                               low2bp                        ;
+p_low2bs                               low2bs                        ;
 p_low2high                             low2high                      ;
 p_low2low                              low2low                       ;
 p_matrix_create                        matrix_create                 ;
@@ -269,6 +270,7 @@ void* dspl_load()
   LOAD_FUNC(log_cmplx);
   LOAD_FUNC(logspace);
   LOAD_FUNC(low2bp);
+  LOAD_FUNC(low2bs);
   LOAD_FUNC(low2high);
   LOAD_FUNC(low2low);
   LOAD_FUNC(matrix_create);

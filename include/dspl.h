@@ -660,6 +660,15 @@ DECLARE_FUNC(int,        low2bp,                      double*          b
                                                 COMMA double*          beta
                                                 COMMA double*          alpha);
 //------------------------------------------------------------------------------
+DECLARE_FUNC(int,        low2bs,                      double*          b
+                                                COMMA double*          a
+                                                COMMA int              ord
+                                                COMMA double           w0
+                                                COMMA double           wsl
+                                                COMMA double           wsh
+                                                COMMA double*          beta
+                                                COMMA double*          alpha);
+//------------------------------------------------------------------------------
 DECLARE_FUNC(int,        low2high,                    double*          b
                                                 COMMA double*          a
                                                 COMMA int              ord
