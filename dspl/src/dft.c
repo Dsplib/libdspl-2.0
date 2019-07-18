@@ -214,7 +214,65 @@ int DSPL_API dft_cmplx(complex_t* x, int n, complex_t* y)
 
 
 /******************************************************************************
-Complex vector inverse DFT
+\ingroup DFT_GROUP
+\fn int idft_cmplx(complex_t* x, int n, complex_t* y)
+\brief `n`-points inverse discrete Fourier transform of the complex vector `x`.
+
+Function calculates \f$ n \f$-points inverse discrete Fourier transform of 
+the complex vector \f$ x(m) \f$, \f$ m = 0 \ldots n-1 \f$.<BR>
+\f[
+  y(k) = \sum_{m = 0}^{n-1} x(m)   
+  \exp \left( j   \frac{2\pi}{n}    m    k \right),
+\f]
+here \f$ k = 0 \ldots n-1 \f$.
+
+\param[in]  x    Pointer to the complex input  
+                 vector \f$x(m)\f$, 
+                 \f$ m = 0 \ldots n-1 \f$. <BR>
+                 Vector size is `[n x 1]`. <BR><BR>
+
+\param[in]  n    IDFT size \f$n\f$ (size of input and output vectors).<BR><BR>
+
+\param[out]  y   Pointer to the complex IDFT output vector \f$y(k)\f$, 
+                 \f$ k = 0 \ldots n-1 \f$. <BR>
+                 Vector size is `[n x 1]`. <BR>
+                 Memory must be allocated.<BR><BR>
+
+
+\return `RES_OK` if IDFT is calculated successfully. <BR>
+Else \ref ERROR_CODE_GROUP "code error".
+
+Example:
+
+\include idft_cmplx_test.c
+
+Program output:
+
+\verbatim
+x[ 0] =     0.000   +0.000j,    z[ 0] =     0.000   -0.000
+x[ 1] =     1.000   +0.000j,    z[ 1] =     1.000   -0.000
+x[ 2] =     2.000   +0.000j,    z[ 2] =     2.000   -0.000
+x[ 3] =     3.000   +0.000j,    z[ 3] =     3.000   -0.000
+x[ 4] =     4.000   +0.000j,    z[ 4] =     4.000   -0.000
+x[ 5] =     5.000   +0.000j,    z[ 5] =     5.000   -0.000
+x[ 6] =     6.000   +0.000j,    z[ 6] =     6.000   -0.000
+x[ 7] =     7.000   +0.000j,    z[ 7] =     7.000   -0.000
+x[ 8] =     8.000   +0.000j,    z[ 8] =     8.000   -0.000
+x[ 9] =     9.000   +0.000j,    z[ 9] =     9.000   -0.000
+x[10] =    10.000   +0.000j,    z[10] =    10.000   -0.000
+x[11] =    11.000   +0.000j,    z[11] =    11.000   +0.000
+x[12] =    12.000   +0.000j,    z[12] =    12.000   +0.000
+x[13] =    13.000   +0.000j,    z[13] =    13.000   +0.000
+x[14] =    14.000   +0.000j,    z[14] =    14.000   +0.000
+x[15] =    15.000   +0.000j,    z[15] =    15.000   -0.000
+\endverbatim
+
+\note
+This function uses naive IDFT algorithm and requires \f$ n^2 \f$ 
+operations. You can use fast Fourier transform algorithms 
+for DFT performance improvement.
+
+\author Sergey Bakhurin www.dsplib.org 
 *******************************************************************************/
 int DSPL_API idft_cmplx(complex_t* x, int n, complex_t* y)
 {
