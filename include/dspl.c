@@ -52,6 +52,7 @@ p_cmplx2re                             cmplx2re                      ;
 p_concat                               concat                        ;
 p_conv                                 conv                          ;
 p_conv_cmplx                           conv_cmplx                    ;
+p_conv_fft                             conv_fft                      ;
 p_conv_fft_cmplx                       conv_fft_cmplx                ;
 p_cos_cmplx                            cos_cmplx                     ;
 p_decimate                             decimate                      ;
@@ -215,6 +216,7 @@ void* dspl_load()
   LOAD_FUNC(concat);
   LOAD_FUNC(conv);
   LOAD_FUNC(conv_cmplx);
+  LOAD_FUNC(conv_fft);
   LOAD_FUNC(conv_fft_cmplx);
   LOAD_FUNC(cos_cmplx);
   LOAD_FUNC(decimate);

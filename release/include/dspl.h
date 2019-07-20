@@ -344,6 +344,14 @@ DECLARE_FUNC(int,        conv_cmplx,                  complex_t*
                                                 COMMA int
                                                 COMMA complex_t*);
 //------------------------------------------------------------------------------
+DECLARE_FUNC(int,        conv_fft,                    double*           a
+                                                COMMA int               na
+                                                COMMA double*           b
+                                                COMMA int               nb
+                                                COMMA fft_t*            pfft
+                                                COMMA int               nfft
+                                                COMMA double*           c);
+//------------------------------------------------------------------------------
 DECLARE_FUNC(int,        conv_fft_cmplx,              complex_t*        a
                                                 COMMA int               na
                                                 COMMA complex_t*        b
