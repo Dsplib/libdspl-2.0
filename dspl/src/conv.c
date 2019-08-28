@@ -18,11 +18,9 @@
 * along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 #include <stdlib.h>
 #include <string.h>
 #include "dspl.h"
-
 
 
 
@@ -34,21 +32,21 @@
 Function convolves two real vectors \f$ c = a * b\f$ length `na` and `nb`.
 The output convolution is a vector `c` with length equal to  `na + nb - 1`. 
 
-\param[in]  a   Pointer to the first vector `a`.<BR>
-                Vector size is `[na x 1]`.<BR><BR>
+\param[in]  a   Pointer to the first vector `a`. /n
+                Vector size is `[na x 1]`. /n /n
 
-\param[in]  na  Size of the first vector `a`.<BR><BR>
+\param[in]  na  Size of the first vector `a`. /n /n
 
-\param[in]  b   Pointer to the second vector `b`.<BR>
-                Vector size is `[nb x 1]`.<BR><BR>
+\param[in]  b   Pointer to the second vector `b`. /n
+                Vector size is `[nb x 1]`. /n /n
 
-\param[in]  nb  Size of the second vector `b`.<BR><BR>
+\param[in]  nb  Size of the second vector `b`. /n /n
 
-\param[out] c   Pointer to the convolution output vector  \f$ c = a * b\f$.<BR>
-                Vector size is `[na + nb - 1  x  1]`.<BR>
-                Memory must be allocated.<BR><BR>
+\param[out] c   Pointer to the convolution output vector  \f$ c = a * b\f$. /n
+                Vector size is `[na + nb - 1  x  1]`. /n
+                Memory must be allocated. /n /n
 
-\return `RES_OK` if convolution is calculated successfully.<BR>
+\return `RES_OK` if convolution is calculated successfully. /n
 Else \ref ERROR_CODE_GROUP "code error".
 
 \note If vectors `a` and `b` are coefficients of two polynomials,
@@ -69,7 +67,7 @@ Example:
     printf("cr[%d] = %5.1f\n", n, cr[n]);
 
 \endcode
-<BR>
+ /n
 
 Output:
 \verbatim
@@ -131,21 +129,21 @@ int DSPL_API conv(double* a, int na, double* b, int nb, double* c)
 Function convolves two complex vectors \f$ c = a * b\f$ length `na` and `nb`.
 The output convolution is a vector `c` with length equal to  `na + nb - 1`. 
 
-\param[in]  a   Pointer to the first vector `a`.<BR>
-                Vector size is `[na x 1]`.<BR><BR>
+\param[in]  a   Pointer to the first vector `a`. /n
+                Vector size is `[na x 1]`. /n /n
 
-\param[in]  na  Size of the first vector `a`.<BR><BR>
+\param[in]  na  Size of the first vector `a`. /n /n
 
-\param[in]  b   Pointer to the second vector `b`.<BR>
-                Vector size is `[nb x 1]`.<BR><BR>
+\param[in]  b   Pointer to the second vector `b`. /n
+                Vector size is `[nb x 1]`. /n /n
 
-\param[in]  nb  Size of the second vector `b`.<BR><BR>
+\param[in]  nb  Size of the second vector `b`. /n /n
 
-\param[out] c   Pointer to the convolution output vector  \f$ c = a * b\f$.<BR>
-                Vector size is `[na + nb - 1  x  1]`.<BR>
-                Memory must be allocated.<BR><BR>
+\param[out] c   Pointer to the convolution output vector  \f$ c = a * b\f$. /n
+                Vector size is `[na + nb - 1  x  1]`. /n
+                Memory must be allocated. /n /n
 
-\return `RES_OK` if convolution is calculated successfully.<BR>
+\return `RES_OK` if convolution is calculated successfully. /n
 Else \ref ERROR_CODE_GROUP "code error".
 
 \note If vectors `a` and `b` are coefficients of two polynomials,
@@ -166,7 +164,7 @@ Example:
     printf("cc[%d] = %5.1f%+5.1fj\n", n, RE(cc[n]),IM(cc[n]));
   
 \endcode
-<BR>
+ /n
 
 Output:
 \verbatim
@@ -237,33 +235,33 @@ in the frequency domain by using FFT algorithms. This approach provide
 high-performance convolution which increases with `na` and `nb` increasing.
 The output convolution is a vector `c` with length equal to  `na + nb - 1`. 
 
-\param[in]  a     Pointer to the first vector `a`.<BR>
-                  Vector size is `[na x 1]`.<BR><BR>
+\param[in]  a     Pointer to the first vector `a`. /n
+                  Vector size is `[na x 1]`. /n /n
 
-\param[in]  na    Size of the first vector `a`.<BR><BR>
+\param[in]  na    Size of the first vector `a`. /n /n
 
-\param[in]  b     Pointer to the second vector `b`.<BR>
-                  Vector size is `[nb x 1]`.<BR><BR>
+\param[in]  b     Pointer to the second vector `b`. /n
+                  Vector size is `[nb x 1]`. /n /n
 
-\param[in]  nb    Size of the second vector `b`.<BR><BR>
+\param[in]  nb    Size of the second vector `b`. /n /n
 
-\param[in]  pfft  Pointer to the structure `fft_t`.<BR>
+\param[in]  pfft  Pointer to the structure `fft_t`. /n
                   Function changes `fft_t` structure fields so `fft_t` must
-                  be clear before program returns.<BR><BR>
+                  be clear before program returns. /n /n
                   
-\param[in] nfft   FFT size. <BR>
+\param[in] nfft   FFT size.  /n
                   This parameter set which FFT size will be used 
-                  for overlapped frequency domain convolution.<BR>
+                  for overlapped frequency domain convolution. /n
                   FFT size must be more of minimal `na` and `nb` value.
                   For example if `na = 10`, `nb = 4` then `nfft` parameter must 
-                  be more than 4. <BR>
+                  be more than 4.  /n
 
-\param[out] c     Pointer to the convolution output vector  \f$ c = a * b\f$.<BR>
-                  Vector size is `[na + nb - 1  x  1]`.<BR>
-                  Memory must be allocated.<BR><BR>
+\param[out] c     Pointer to the convolution output vector  \f$ c = a * b\f$. /n
+                  Vector size is `[na + nb - 1  x  1]`. /n
+                  Memory must be allocated. /n /n
 
-\return `RES_OK` if convolution is calculated successfully.<BR>
-Else \ref ERROR_CODE_GROUP "code error". <BR><BR>
+\return `RES_OK` if convolution is calculated successfully. /n
+Else \ref ERROR_CODE_GROUP "code error".  /n /n
 
 Example:
 \include conv_fft_test.c
@@ -345,33 +343,33 @@ in the frequency domain by using FFT algorithms. This approach provide
 high-performance convolution which increases with `na` and `nb` increasing.
 The output convolution is a vector `c` with length equal to  `na + nb - 1`. 
 
-\param[in]  a   Pointer to the first vector `a`.<BR>
-                Vector size is `[na x 1]`.<BR><BR>
+\param[in]  a   Pointer to the first vector `a`. /n
+                Vector size is `[na x 1]`. /n /n
 
-\param[in]  na  Size of the first vector `a`.<BR><BR>
+\param[in]  na  Size of the first vector `a`. /n /n
 
-\param[in]  b   Pointer to the second vector `b`.<BR>
-                Vector size is `[nb x 1]`.<BR><BR>
+\param[in]  b   Pointer to the second vector `b`. /n
+                Vector size is `[nb x 1]`. /n /n
 
-\param[in]  nb  Size of the second vector `b`.<BR><BR>
+\param[in]  nb  Size of the second vector `b`. /n /n
 
-\param[in]  pfft  Pointer to the structure `fft_t`.<BR>
+\param[in]  pfft  Pointer to the structure `fft_t`. /n
                   Function changes `fft_t` structure fields so `fft_t` must
-                  be clear before program returns.<BR><BR>
+                  be clear before program returns. /n /n
                   
-\param[in] nfft   FFT size. <BR>
+\param[in] nfft   FFT size.  /n
                   This parameter set which FFT size will be used 
-                  for overlapped frequency domain convolution.<BR>
+                  for overlapped frequency domain convolution. /n
                   FFT size must be more of minimal `na` and `nb` value.
                   For example if `na = 10`, `nb = 4` then `nfft` parameter must 
-                  be more than 4. <BR>
+                  be more than 4.  /n
 
-\param[out] c   Pointer to the convolution output vector  \f$ c = a * b\f$.<BR>
-                Vector size is `[na + nb - 1  x  1]`.<BR>
-                Memory must be allocated.<BR><BR>
+\param[out] c   Pointer to the convolution output vector  \f$ c = a * b\f$. /n
+                Vector size is `[na + nb - 1  x  1]`. /n
+                Memory must be allocated. /n /n
 
-\return `RES_OK` if convolution is calculated successfully.<BR>
-Else \ref ERROR_CODE_GROUP "code error". <BR><BR>
+\return `RES_OK` if convolution is calculated successfully. /n
+Else \ref ERROR_CODE_GROUP "code error".  /n /n
 
 Example:
 \include conv_fft_cmplx_test.c
@@ -527,29 +525,29 @@ here \f$a_0\f$ cannot be equals zeros, \f$N=M=\f$`ord`.
 
 
 \param[in]  b     Pointer to the vector \f$b\f$ of IIR filter 
-                  transfer function numerator coefficients.<BR> 
-                  Vector size is `[ord + 1 x 1]`.<BR><BR> 
+                  transfer function numerator coefficients. /n 
+                  Vector size is `[ord + 1 x 1]`. /n /n 
 
 \param[in]  a     Pointer to the vector \f$a\f$ of IIR filter 
-                  transfer function denominator coefficients.<BR> 
-                  Vector size is `[ord + 1 x 1]`.<BR> 
-                  This pointer can be `NULL` if filter is FIR.<BR><BR> 
+                  transfer function denominator coefficients. /n 
+                  Vector size is `[ord + 1 x 1]`. /n 
+                  This pointer can be `NULL` if filter is FIR. /n /n 
 
 \param[in]  ord   Filter order. Number of the transfer function 
                   numerator and denominator coefficients 
-                  (length of vectors `b` and `a`) is `ord + 1`.<BR><BR> 
+                  (length of vectors `b` and `a`) is `ord + 1`. /n /n 
 
-\param[in]  x     Pointer to the input signal vector.<BR> 
-                  Vector size is `[n x 1]`.<BR><BR> 
+\param[in]  x     Pointer to the input signal vector. /n 
+                  Vector size is `[n x 1]`. /n /n 
 
-\param[in]  n     Size of the input signal vector `x`.<BR><BR> 
+\param[in]  n     Size of the input signal vector `x`. /n /n 
 
-\param[out] y     Pointer to the IIR filter output vector.<BR> 
-                  Vector size is `[n x  1]`.<BR> 
-                  Memory must be allocated.<BR><BR> 
+\param[out] y     Pointer to the IIR filter output vector. /n 
+                  Vector size is `[n x  1]`. /n 
+                  Memory must be allocated. /n /n 
 \return
-`RES_OK` if filter output is calculted successfully.<BR>
-Else \ref ERROR_CODE_GROUP "code error":<BR>
+`RES_OK` if filter output is calculted successfully. /n
+Else \ref ERROR_CODE_GROUP "code error": /n
 
 \author Sergey Bakhurin www.dsplib.org
 *******************************************************************************/

@@ -31,7 +31,7 @@
 \brief `n`-points discrete Fourier transform of the real vector `x`.
 
 Function calculates \f$ n \f$-points  discrete Fourier transform of 
-the real vector \f$ x(m) \f$, \f$ m = 0 \ldots n-1 \f$.<BR>
+the real vector \f$ x(m) \f$, \f$ m = 0 \ldots n-1 \f$. \n
 \f[
   Y(k) = \sum_{m = 0}^{n-1} x(m)   
   \exp \left( -j   \frac{2\pi}{n}    m    k \right),
@@ -40,18 +40,18 @@ here \f$ k = 0 \ldots n-1 \f$.
 
 \param[in]  x    Pointer to the real input  
                  signal vector \f$x(m)\f$, 
-                 \f$ m = 0 \ldots n-1 \f$. <BR>
-                 Vector size is `[n x 1]`. <BR><BR>
+                 \f$ m = 0 \ldots n-1 \f$.  \n
+                 Vector size is `[n x 1]`.  \n \n
 
-\param[in]  n    DFT size \f$n\f$ (size of input and output vectors).<BR><BR>
+\param[in]  n    DFT size \f$n\f$ (size of input and output vectors). \n \n
 
 \param[out]  y   Pointer to the complex DFT output vector \f$Y(k)\f$, 
-                 \f$ k = 0 \ldots n-1 \f$. <BR>
-                 Vector size is `[n x 1]`. <BR>
-                 Memory must be allocated.<BR><BR>
+                 \f$ k = 0 \ldots n-1 \f$.  \n
+                 Vector size is `[n x 1]`.  \n
+                 Memory must be allocated. \n \n
 
 
-\return `RES_OK` if DFT is calculated successfully. <BR>
+\return `RES_OK` if DFT is calculated successfully.  \n
 Else \ref ERROR_CODE_GROUP "code error".
 
 Example:
@@ -123,7 +123,7 @@ int DSPL_API dft(double* x, int n, complex_t* y)
 \brief `n`-points discrete Fourier transform of the complex vector `x`.
 
 Function calculates \f$ n \f$-points  discrete Fourier transform of 
-the complex vector \f$ x(m) \f$, \f$ m = 0 \ldots n-1 \f$.<BR>
+the complex vector \f$ x(m) \f$, \f$ m = 0 \ldots n-1 \f$. \n
 \f[
   Y(k) = \sum_{m = 0}^{n-1} x(m)   
   \exp \left( -j   \frac{2\pi}{n}    m    k \right),
@@ -132,18 +132,18 @@ here \f$ k = 0 \ldots n-1 \f$.
 
 \param[in]  x    Pointer to the complex input  
                  signal vector \f$x(m)\f$, 
-                 \f$ m = 0 \ldots n-1 \f$. <BR>
-                 Vector size is `[n x 1]`. <BR><BR>
+                 \f$ m = 0 \ldots n-1 \f$.  \n
+                 Vector size is `[n x 1]`.  \n \n
 
-\param[in]  n    DFT size \f$n\f$ (size of input and output vectors).<BR><BR>
+\param[in]  n    DFT size \f$n\f$ (size of input and output vectors). \n \n
 
 \param[out]  y   Pointer to the complex DFT output vector \f$Y(k)\f$, 
-                 \f$ k = 0 \ldots n-1 \f$. <BR>
-                 Vector size is `[n x 1]`. <BR>
-                 Memory must be allocated.<BR><BR>
+                 \f$ k = 0 \ldots n-1 \f$.  \n
+                 Vector size is `[n x 1]`.  \n
+                 Memory must be allocated. \n \n
 
 
-\return `RES_OK` if DFT is calculated successfully. <BR>
+\return `RES_OK` if DFT is calculated successfully.  \n
 Else \ref ERROR_CODE_GROUP "code error".
 
 Example:
@@ -219,7 +219,7 @@ int DSPL_API dft_cmplx(complex_t* x, int n, complex_t* y)
 \brief `n`-points inverse discrete Fourier transform of the complex vector `x`.
 
 Function calculates \f$ n \f$-points inverse discrete Fourier transform of 
-the complex vector \f$ x(m) \f$, \f$ m = 0 \ldots n-1 \f$.<BR>
+the complex vector \f$ x(m) \f$, \f$ m = 0 \ldots n-1 \f$. \n
 \f[
   y(k) = \sum_{m = 0}^{n-1} x(m)   
   \exp \left( j   \frac{2\pi}{n}    m    k \right),
@@ -228,18 +228,18 @@ here \f$ k = 0 \ldots n-1 \f$.
 
 \param[in]  x    Pointer to the complex input  
                  vector \f$x(m)\f$, 
-                 \f$ m = 0 \ldots n-1 \f$. <BR>
-                 Vector size is `[n x 1]`. <BR><BR>
+                 \f$ m = 0 \ldots n-1 \f$.  \n
+                 Vector size is `[n x 1]`.  \n \n
 
-\param[in]  n    IDFT size \f$n\f$ (size of input and output vectors).<BR><BR>
+\param[in]  n    IDFT size \f$n\f$ (size of input and output vectors). \n \n
 
 \param[out]  y   Pointer to the complex IDFT output vector \f$y(k)\f$, 
-                 \f$ k = 0 \ldots n-1 \f$. <BR>
-                 Vector size is `[n x 1]`. <BR>
-                 Memory must be allocated.<BR><BR>
+                 \f$ k = 0 \ldots n-1 \f$.  \n
+                 Vector size is `[n x 1]`.  \n
+                 Memory must be allocated. \n \n
 
 
-\return `RES_OK` if IDFT is calculated successfully. <BR>
+\return `RES_OK` if IDFT is calculated successfully.  \n
 Else \ref ERROR_CODE_GROUP "code error".
 
 Example:

@@ -12,7 +12,7 @@ code{
 }
 
 p.reference, p.definition {
-	font: 400 14px/22px Roboto,sans-serif;
+  //font: 400 14px/22px Roboto,sans-serif;
 }
 
 /* @group Heading Levels */

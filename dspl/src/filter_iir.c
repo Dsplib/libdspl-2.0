@@ -48,32 +48,32 @@ normalized frequency \f$\omega\f$ as:
 \f]
 
 \param[in]  bs   Pointer to the numerator coefficients of an 
-                 analog prototype transfer function \f$H(s)\f$. <BR>
-                 Array size is `[ord+1 x 1]`.<BR>
-                 Memory must be allocated.<BR><BR>
+                 analog prototype transfer function \f$H(s)\f$.  \n
+                 Array size is `[ord+1 x 1]`. \n
+                 Memory must be allocated. \n \n
 
 \param[in]  as   Pointer to the denominator coefficients of an 
-                 analog prototype transfer function \f$H(s)\f$. <BR>
-                 Array size is `[ord+1 x 1]`.<BR>
-                 Memory must be allocated.<BR><BR>
+                 analog prototype transfer function \f$H(s)\f$.  \n
+                 Array size is `[ord+1 x 1]`. \n
+                 Memory must be allocated. \n \n
                  
-\param[in]  ord  Filter order.<BR>
+\param[in]  ord  Filter order. \n
                  Number of  coefficients \f$H(s)\f$ and \f$H(z)\f$
-                 numerator and denominator equals `ord+1`.<BR><BR>
+                 numerator and denominator equals `ord+1`. \n \n
                  
 \param[out]  bz  Pointer to the numerator coefficients of a
-                 digital filter transfer function \f$H(z)\f$. <BR>
-                 Array size is `[ord+1 x 1]`.<BR>
-                 Memory must be allocated.<BR><BR>
+                 digital filter transfer function \f$H(z)\f$.  \n
+                 Array size is `[ord+1 x 1]`. \n
+                 Memory must be allocated. \n \n
 
 \param[out]  az  Pointer to the numerator coefficients of a
-                 digital filter transfer function \f$H(z)\f$. <BR>
-                 Array size is `[ord+1 x 1]`.<BR>
-                 Memory must be allocated.<BR><BR>
+                 digital filter transfer function \f$H(z)\f$.  \n
+                 Array size is `[ord+1 x 1]`. \n
+                 Memory must be allocated. \n \n
 
 \return
-  `RES_OK`      if filter is calculated successfully.<BR><BR>
-                Else \ref ERROR_CODE_GROUP "code error".<BR>
+  `RES_OK`      if filter is calculated successfully. \n \n
+                Else \ref ERROR_CODE_GROUP "code error". \n
 
 \author  Sergey Bakhurin www.dsplib.org          
 *******************************************************************************/

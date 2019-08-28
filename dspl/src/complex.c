@@ -30,7 +30,7 @@
 \fn int acos_cmplx(complex_t* x, int n, complex_t *y)
 \brief  The inverse of the cosine function the complex vector argument `x`
 
-Function calculates the inverse of the cosine function as:<BR>
+Function calculates the inverse of the cosine function as: \n
 
 \f[
 \textrm{Arccos}(x) = \frac{\pi}{2} - \textrm{Arcsin}(x) = 
@@ -38,22 +38,22 @@ Function calculates the inverse of the cosine function as:<BR>
 \f]  
 
 
-\param[in]  x   Pointer to the argument vector `x`.<BR>
-                Vector size is `[n x 1]`. <BR><BR>
+\param[in]  x   Pointer to the argument vector `x`. \n
+                Vector size is `[n x 1]`.  \n \n
 
-\param[in]  n   Input vector `x` and the inverse cosine vector `y` size.<BR><BR>
+\param[in]  n   Input vector `x` and the inverse cosine vector `y` size. \n \n
     
 
 \param[out] y   Pointer to the output complex vector `y`,
-                corresponds to the input vector `x`.<BR>
-                Vector size is `[n x 1]`. <BR>
-                Memory must be allocated. <BR><BR>
+                corresponds to the input vector `x`. \n
+                Vector size is `[n x 1]`.  \n
+                Memory must be allocated.  \n \n
 
 \return
-`RES_OK` if function calculated successfully. <BR>
-Else \ref ERROR_CODE_GROUP "code error".<BR>
+`RES_OK` if function calculated successfully.  \n
+Else \ref ERROR_CODE_GROUP "code error". \n
 
-Example:<BR>
+Example: \n
 \code{.cpp}
   complex_t x[3] = {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}};
   complex_t y[3];
@@ -65,9 +65,9 @@ Example:<BR>
     printf("acos_cmplx(%.1f%+.1fj) = %.3f%+.3fj\n", 
              RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
 \endcode 
-<BR>
+ \n
 
-Output is:<BR>
+Output is: \n
 \verbatim
 acos_cmplx(1.0+2.0j) = 1.144-1.529j
 acos_cmplx(3.0+4.0j) = 0.937-2.306j
@@ -102,29 +102,29 @@ int DSPL_API acos_cmplx(complex_t* x, int n, complex_t *y)
 \fn int asin_cmplx(complex_t* x, int n, complex_t *y)
 \brief  The inverse of the sine function the complex vector argument `x`
 
-Function calculates the inverse of the sine function as:<BR>
+Function calculates the inverse of the sine function as: \n
 
 \f[
  \textrm{Arcsin}(x) = j \textrm{Ln}\left( j x + \sqrt{1 - x^2} \right)
 \f]  
 
 
-\param[in]  x   Pointer to the argument vector `x`.<BR>
-                Vector size is `[n x 1]`. <BR><BR>
+\param[in]  x   Pointer to the argument vector `x`. \n
+                Vector size is `[n x 1]`.  \n \n
 
-\param[in]  n   Input vector `x` and the inverse sine vector `y` size.<BR><BR>
+\param[in]  n   Input vector `x` and the inverse sine vector `y` size. \n \n
     
 
 \param[out] y   Pointer to the output complex vector `y`,
-                corresponds to the input vector `x`.<BR>
-                Vector size is `[n x 1]`. <BR>
-                Memory must be allocated. <BR><BR>
+                corresponds to the input vector `x`. \n
+                Vector size is `[n x 1]`.  \n
+                Memory must be allocated.  \n \n
 
 \return
-`RES_OK` if function calculated successfully. <BR>
-Else \ref ERROR_CODE_GROUP "code error".<BR>
+`RES_OK` if function calculated successfully.  \n
+Else \ref ERROR_CODE_GROUP "code error". \n
 
-Example:<BR>
+Example: \n
 \code{.cpp}
   complex_t x[3] = {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}};
   complex_t y[3];
@@ -136,9 +136,9 @@ Example:<BR>
             RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
 
 \endcode 
-<BR>
+ \n
 
-Output is:<BR>
+Output is: \n
 \verbatim
 asin_cmplx(1.0+2.0j) = 0.427+1.529j
 asin_cmplx(3.0+4.0j) = 0.634+2.306j
@@ -180,28 +180,28 @@ int DSPL_API asin_cmplx(complex_t* x, int n, complex_t *y)
 \brief  Separate complex vector to the real and image vectors
 
 Function fills `re` and `im` vectors corresponds to real and image
-parts of the input complex array `x`. <BR>  
+parts of the input complex array `x`.  \n  
 
 
-\param[in]  x   Pointer to the real complex vector.<BR>
-                Vector size is `[n x 1]`. <BR><BR>
+\param[in]  x   Pointer to the real complex vector. \n
+                Vector size is `[n x 1]`.  \n \n
 
 \param[in]  n   Size of the input complex vector `x` and real and image 
-                vectors `re` and `im`.<BR><BR>
+                vectors `re` and `im`. \n \n
 
-\param[out] re  Pointer to the real part  vector.<BR>
-                Vector size is `[n x 1]`. <BR>
-                Memory must be allocated. <BR><BR>     
+\param[out] re  Pointer to the real part  vector. \n
+                Vector size is `[n x 1]`.  \n
+                Memory must be allocated.  \n \n     
 
-\param[out] im  Pointer to the image part vector.<BR>
-                Vector size is `[n x 1]`. <BR>
-                Memory must be allocated. <BR><BR>
+\param[out] im  Pointer to the image part vector. \n
+                Vector size is `[n x 1]`.  \n
+                Memory must be allocated.  \n \n
 
 \return
-`RES_OK` if function converts complex vector successfully. <BR>
-Else \ref ERROR_CODE_GROUP "code error".<BR>
+`RES_OK` if function converts complex vector successfully.  \n
+Else \ref ERROR_CODE_GROUP "code error". \n
 
-Example:<BR>
+Example: \n
 \code{.cpp}
     complex_t x[3] = {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}};
     double  re[3], im[3];
@@ -249,29 +249,29 @@ int DSPL_API cmplx2re(complex_t* x, int n, double* re, double* im)
 \fn int cos_cmplx(complex_t* x, int n, complex_t *y)
 \brief  The cosine function the complex vector argument `x`
 
-Function calculates the cosine function as:<BR>
+Function calculates the cosine function as: \n
 
 \f[
 \textrm{cos}(x) = \frac{\exp(jx) + \exp(-jx)}{2} 
 \f]  
 
 
-\param[in]  x   Pointer to the argument vector `x`.<BR>
-                Vector size is `[n x 1]`. <BR><BR>
+\param[in]  x   Pointer to the argument vector `x`. \n
+                Vector size is `[n x 1]`.  \n \n
 
-\param[in]  n   Input vector `x` and the cosine vector `y` size.<BR><BR>
+\param[in]  n   Input vector `x` and the cosine vector `y` size. \n \n
     
 
 \param[out] y   Pointer to the output complex vector `y`,
-                corresponds to the input vector `x`.<BR>
-                Vector size is `[n x 1]`. <BR>
-                Memory must be allocated. <BR><BR>
+                corresponds to the input vector `x`. \n
+                Vector size is `[n x 1]`.  \n
+                Memory must be allocated.  \n \n
 
 \return
-`RES_OK` if function calculated successfully. <BR>
-Else \ref ERROR_CODE_GROUP "code error".<BR>
+`RES_OK` if function calculated successfully.  \n
+Else \ref ERROR_CODE_GROUP "code error". \n
 
-Example:<BR>
+Example: \n
 \code{.cpp}
   complex_t x[3] = {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}};
   complex_t y[3];
@@ -284,9 +284,9 @@ Example:<BR>
             RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
   
 \endcode 
-<BR>
+ \n
 
-Output is:<BR>
+Output is: \n
 \verbatim
 cos_cmplx(1.0+2.0j) =     2.033   -3.052j
 cos_cmplx(3.0+4.0j) =   -27.035   -3.851j
@@ -325,29 +325,29 @@ int DSPL_API cos_cmplx(complex_t* x, int n, complex_t *y)
 \fn int log_cmplx(complex_t* x, int n, complex_t *y)
 \brief  The logarithm function the complex vector argument `x`
 
-Function calculates the logarithm function as:<BR>
+Function calculates the logarithm function as: \n
 
 \f[
 \textrm{Ln}(x) = j \varphi + \ln(|x|), 
 \f]  
 here \f$\varphi\f$ - the complex number phase.
 
-\param[in]  x   Pointer to the argument vector `x`.<BR>
-                Vector size is `[n x 1]`. <BR><BR>
+\param[in]  x   Pointer to the argument vector `x`. \n
+                Vector size is `[n x 1]`.  \n \n
 
-\param[in]  n   Input vector `x` and the logarithm vector `y` size.<BR><BR>
+\param[in]  n   Input vector `x` and the logarithm vector `y` size. \n \n
     
 
 \param[out] y   Pointer to the output complex vector `y`,
-                corresponds to the input vector `x`.<BR>
-                Vector size is `[n x 1]`. <BR>
-                Memory must be allocated. <BR><BR>
+                corresponds to the input vector `x`. \n
+                Vector size is `[n x 1]`.  \n
+                Memory must be allocated.  \n \n
 
 \return
-`RES_OK` if function calculated successfully. <BR>
-Else \ref ERROR_CODE_GROUP "code error".<BR>
+`RES_OK` if function calculated successfully.  \n
+Else \ref ERROR_CODE_GROUP "code error". \n
 
-Example:<BR>
+Example: \n
 \code{.cpp}
   complex_t x[3] = {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}};
   complex_t y[3];
@@ -359,9 +359,9 @@ Example:<BR>
     printf("log_cmplx(%.1f%+.1fj) = %.3f%+.3fj\n", 
             RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
 \endcode 
-<BR>
+ \n
 
-Output is:<BR>
+Output is: \n
 \verbatim
 log_cmplx(1.0+2.0j) = 0.805+1.107j
 log_cmplx(3.0+4.0j) = 1.609+0.927j
@@ -399,24 +399,24 @@ int DSPL_API log_cmplx(complex_t* x, int n, complex_t *y)
 \brief  Convert real array to the complex array.
 
 Function copies the vector `x` to the real part of vector `y`. 
-Image part of the vector `y` sets as zero.<BR>  
-So complex vector contains data:<BR>
+Image part of the vector `y` sets as zero. \n  
+So complex vector contains data: \n
 `y[i] = x[i] + j0, here i = 0,1,2 ... n-1`
 
 
-\param[in]  x   Pointer to the real vector `x`.<BR>
-                Vector size is `[n x 1]`. <BR><BR>
+\param[in]  x   Pointer to the real vector `x`. \n
+                Vector size is `[n x 1]`.  \n \n
 
-\param[in]  n   Size of the real vector `x` and complex vector `y`.<BR><BR>
+\param[in]  n   Size of the real vector `x` and complex vector `y`. \n \n
 
-\param[out] y   Pointer to the complex vector `y`.<BR>
-                Vector size is `[n x 1]`. <BR>
-                Memory must be allocated. <BR><BR>
+\param[out] y   Pointer to the complex vector `y`. \n
+                Vector size is `[n x 1]`.  \n
+                Memory must be allocated.  \n \n
 
 
 \return
-`RES_OK` if function returns successfully. <BR>
-Else \ref ERROR_CODE_GROUP "code error":<BR>
+`RES_OK` if function returns successfully.  \n
+Else \ref ERROR_CODE_GROUP "code error": \n
 
 
 
@@ -463,29 +463,29 @@ int DSPL_API re2cmplx(double* x, int n, complex_t* y)
 \fn int sin_cmplx(complex_t* x, int n, complex_t *y)
 \brief  The sine function the complex vector argument `x`
 
-Function calculates the sine function as:<BR>
+Function calculates the sine function as: \n
 
 \f[
 \textrm{cos}(x) = \frac{\exp(jx) - \exp(-jx)}{2j} 
 \f]  
 
 
-\param[in]  x   Pointer to the argument vector `x`.<BR>
-                Vector size is `[n x 1]`. <BR><BR>
+\param[in]  x   Pointer to the argument vector `x`. \n
+                Vector size is `[n x 1]`.  \n \n
 
-\param[in]  n   Input vector `x` and the sine vector `y` size.<BR><BR>
+\param[in]  n   Input vector `x` and the sine vector `y` size. \n \n
     
 
 \param[out] y   Pointer to the output complex vector `y`,
-                corresponds to the input vector `x`.<BR>
-                Vector size is `[n x 1]`. <BR>
-                Memory must be allocated. <BR><BR>
+                corresponds to the input vector `x`. \n
+                Vector size is `[n x 1]`.  \n
+                Memory must be allocated.  \n \n
 
 \return
-`RES_OK` if function calculated successfully. <BR>
-Else \ref ERROR_CODE_GROUP "code error".<BR>
+`RES_OK` if function calculated successfully.  \n
+Else \ref ERROR_CODE_GROUP "code error". \n
 
-Example:<BR>
+Example: \n
 \code{.cpp}
   complex_t x[3] = {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}};
   complex_t y[3];
@@ -498,9 +498,9 @@ Example:<BR>
             RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
    
 \endcode 
-<BR>
+ \n
 
-Output is:<BR>
+Output is: \n
 \verbatim
 sin_cmplx(1.0+2.0j) =     3.166   +1.960j
 sin_cmplx(3.0+4.0j) =     3.854  -27.017j
@@ -541,24 +541,24 @@ int DSPL_API sin_cmplx(complex_t* x, int n, complex_t *y)
 \fn int sqrt_cmplx(complex_t* x, int n, complex_t *y)
 \brief Square root of the complex vector argguument `x`.
 
-Function calculates square root value of vector `x` length `n`: <BR>
+Function calculates square root value of vector `x` length `n`:  \n
 \f[
 y(k) = \sqrt{x(k)}, \qquad k = 0 \ldots n-1. 
 \f]  
 
 
-\param[in]  x   Pointer to the input complex vector `x`.<BR>
-                Vector size is `[n x 1]`. <BR><BR>
+\param[in]  x   Pointer to the input complex vector `x`. \n
+                Vector size is `[n x 1]`.  \n \n
 
-\param[in]  n   Size of input and output vectors `x` and `y`.<BR><BR>
+\param[in]  n   Size of input and output vectors `x` and `y`. \n \n
     
 
-\param[out] y   Pointer to the square root vector `y`.<BR>
-                Vector size is `[n x 1]`. <BR>
-                Memory must be allocated. <BR><BR>
+\param[out] y   Pointer to the square root vector `y`. \n
+                Vector size is `[n x 1]`.  \n
+                Memory must be allocated.  \n \n
 
-\return `RES_OK` if function is calculated successfully. <BR>
-Else \ref ERROR_CODE_GROUP "code error".<BR>
+\return `RES_OK` if function is calculated successfully.  \n
+Else \ref ERROR_CODE_GROUP "code error". \n
 
 Example
 \code{.cpp}
@@ -573,7 +573,7 @@ Example
             RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
  
  \endcode 
-<BR>
+ \n
 
 Результатом работы будет
 

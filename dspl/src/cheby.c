@@ -36,28 +36,28 @@ C_ord(x) = 2 x C_{ord-1}(x) - C_{ord-2}(x),
 \f]
 where \f$ C_0(x) = 1 \f$, \f$ C_1(x) = x\f$
 
-\param[in] x        Pointer to the real argument vector `x`.<BR>
-                    Vector size is `[n x 1]`.<BR><BR>
+\param[in] x        Pointer to the real argument vector `x`. \n
+                    Vector size is `[n x 1]`. \n \n
 
-\param[in] n        Size of vectors `x` and `y`.<BR><BR>
+\param[in] n        Size of vectors `x` and `y`. \n \n
 
-\param[in] ord      Chebyshev polynomial order.<BR><BR>
+\param[in] ord      Chebyshev polynomial order. \n \n
 
 \param[out] y       Pointer to the Chebyshev polynomial values, 
-                    corresponds to the argument `x`.<BR>
-                    Vector size is `[n x 1]`.<BR>
-                    Memory must be allocated.<BR><BR>
+                    corresponds to the argument `x`. \n
+                    Vector size is `[n x 1]`. \n
+                    Memory must be allocated. \n \n
 
 \return 
-`RES_OK` if Chebyshev polynomial is calculated successfully.<BR>
-Else \ref ERROR_CODE_GROUP "code error".<BR>
+`RES_OK` if Chebyshev polynomial is calculated successfully. \n
+Else \ref ERROR_CODE_GROUP "code error". \n
 
 Example:
 
 \include cheby_poly1_test.c
 
-<BR><BR>
-Text files will be created in `dat` directory:<BR>
+ \n \n
+Text files will be created in `dat` directory: \n
 
 <pre>
 cheby_poly1_ord1.txt
@@ -132,28 +132,28 @@ U_ord(x) = 2 x U_{ord-1}(x) - U_{ord-2}(x),
 \f]
 where \f$ U_0(x) = 1 \f$, \f$ U_1(x) = 2x\f$
 
-\param[in] x        Pointer to the real argument vector `x`.<BR>
-                    Vector size is `[n x 1]`.<BR><BR>
+\param[in] x        Pointer to the real argument vector `x`. \n
+                    Vector size is `[n x 1]`. \n \n
 
-\param[in] n        Size of vectors `x` and `y`.<BR><BR>
+\param[in] n        Size of vectors `x` and `y`. \n \n
 
-\param[in] ord      Chebyshev polynomial order.<BR><BR>
+\param[in] ord      Chebyshev polynomial order. \n \n
 
 \param[out] y       Pointer to the Chebyshev polynomial values, 
-                    corresponds to the argument `x`.<BR>
-                    Vector size is `[n x 1]`.<BR>
-                    Memory must be allocated.<BR><BR>
+                    corresponds to the argument `x`. \n
+                    Vector size is `[n x 1]`. \n
+                    Memory must be allocated. \n \n
 
 \return 
-`RES_OK` if Chebyshev polynomial is calculated successfully.<BR>
-Else \ref ERROR_CODE_GROUP "code error".<BR>
+`RES_OK` if Chebyshev polynomial is calculated successfully. \n
+Else \ref ERROR_CODE_GROUP "code error". \n
 
 Example:
 
 \include cheby_poly2_test.c
 
-<BR><BR>
-Text files will be created in `dat` directory:<BR>
+ \n \n
+Text files will be created in `dat` directory: \n
 
 <pre>
 cheby_poly2_ord1.txt

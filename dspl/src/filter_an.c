@@ -44,7 +44,7 @@ int DSPL_API filter_freq_resp(double* b, double* a, int ord,
   double *w0   = NULL;
   double *w1   = NULL;
 
-  if(!b || !a || !w)
+  if(!b || !w)
     return ERROR_PTR;
   if(ord < 1)
     return ERROR_FILTER_ORD;
