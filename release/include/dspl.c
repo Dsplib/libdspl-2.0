@@ -84,6 +84,7 @@ p_fft_shift                            fft_shift                     ;
 p_fft_shift_cmplx                      fft_shift_cmplx               ;
 p_filter_freq_resp                     filter_freq_resp              ;
 p_filter_iir                           filter_iir                    ;
+p_filter_ws1                           filter_ws1                    ;
 p_filter_zp2ab                         filter_zp2ab                  ;
 p_find_max_abs                         find_max_abs                  ;
 p_fir_linphase                         fir_linphase                  ;
@@ -248,6 +249,7 @@ void* dspl_load()
   LOAD_FUNC(fft_shift_cmplx);
   LOAD_FUNC(filter_freq_resp);
   LOAD_FUNC(filter_iir);
+  LOAD_FUNC(filter_ws1);
   LOAD_FUNC(filter_zp2ab);
   LOAD_FUNC(find_max_abs);
   LOAD_FUNC(fir_linphase);

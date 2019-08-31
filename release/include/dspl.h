@@ -514,6 +514,11 @@ DECLARE_FUNC(int,        filter_iir,                  double*
                                                 COMMA int
                                                 COMMA double*);
 //------------------------------------------------------------------------------
+DECLARE_FUNC(double,     filter_ws1,                  int              ord
+                                                COMMA double           rp
+                                                COMMA double           rs
+                                                COMMA int              type);
+//------------------------------------------------------------------------------
 DECLARE_FUNC(int,        filter_zp2ab,                complex_t*
                                                 COMMA int
                                                 COMMA complex_t*
