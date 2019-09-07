@@ -598,13 +598,20 @@ int DSPL_API sqrt_cmplx(complex_t* x, int n, complex_t *y)
   for(k = 0; k < n; k++)
   {
     r = ABS(x[k]);
-    RE(t) = RE(x[k]) + r;
-    IM(t) = IM(x[k]);
-    zr = 1.0 / ABS(t);
-    r = sqrt(r);
-    RE(y[k]) = RE(t) * zr * r;
-    IM(y[k]) = IM(t) * zr * r;
-
+    if(r == 0.0)
+    {
+      RE(y[k]) = 0.0;
+      IM(y[k]) = 0.0;
+    }
+    else
+    {
+      RE(t) = RE(x[k]) + r;
+      IM(t) = IM(x[k]);
+      zr = 1.0 / ABS(t);
+      r = sqrt(r);
+      RE(y[k]) = RE(t) * zr * r;
+      IM(y[k]) = IM(t) * zr * r;
+    }
   }
   return RES_OK;
 }

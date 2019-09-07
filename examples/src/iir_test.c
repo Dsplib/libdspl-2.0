@@ -13,7 +13,7 @@
 #define RP 1.0
 
 // размер векторов частотной характеристики фильтра
-#define N   2048
+#define N  1024
 
 void freq_resp_write2txt(double* b, double* a, int ord, int n, char* fn)
 {
@@ -116,13 +116,11 @@ int main()
   freq_resp_write2txt(b, a, BSF_ORD, N, "dat/iir_ellip_bsf.txt");
   
   
-  
-  
   dspl_free(handle);      // free dspl handle
   
   // выполнить скрипт GNUPLOT для построения графиков 
   // по рассчитанным данным
-  return system("gnuplot -p gnuplot/iir_test.plt");;
+  return system("gnuplot -p gnuplot/iir_test.plt");
 }
 
 

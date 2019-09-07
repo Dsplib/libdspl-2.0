@@ -546,8 +546,31 @@ here \f$a_0\f$ cannot be equals zeros, \f$N=M=\f$`ord`.
                   Vector size is `[n x  1]`. /n 
                   Memory must be allocated. /n /n 
 \return
-`RES_OK` if filter output is calculted successfully. /n
+`RES_OK` if filter output is calculated successfully. /n
 Else \ref ERROR_CODE_GROUP "code error": /n
+
+Example:
+
+\include filter_iir_test.c
+
+Input signal is
+\f$s(t) = \sin(2\pi \cdot 0.05 t) + n(t)\f$, here \f$n(t)\f$ white Gaussian
+noise with zero mean value and unit standard deviation. \n
+
+Input signal is filtered by elliptic LPF order 6 and output signal and data 
+saves in the txt-files  
+
+\verbatim
+dat/s.txt  - input signal + noise
+dat/sf.txt - filter output.
+\endverbatim
+
+Plots:
+
+\image html filter_iir_test.png
+
+GNUPLOT script for make plots is:
+\include filter_iir.plt
 
 \author Sergey Bakhurin www.dsplib.org
 *******************************************************************************/

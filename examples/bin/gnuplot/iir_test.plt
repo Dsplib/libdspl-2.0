@@ -14,18 +14,15 @@ plot 'dat/iir_butter_hpf.txt' with lines
 plot 'dat/iir_butter_bpf.txt' with lines
 plot 'dat/iir_butter_bsf.txt' with lines
 
-
 plot 'dat/iir_cheby1_lpf.txt' with lines
 plot 'dat/iir_cheby1_hpf.txt' with lines
 plot 'dat/iir_cheby1_bpf.txt' with lines
 plot 'dat/iir_cheby1_bsf.txt' with lines
 
-
 plot 'dat/iir_cheby2_lpf.txt' with lines
 plot 'dat/iir_cheby2_hpf.txt' with lines
 plot 'dat/iir_cheby2_bpf.txt' with lines
 plot 'dat/iir_cheby2_bsf.txt' with lines
-
 
 plot 'dat/iir_ellip_lpf.txt' with lines
 plot 'dat/iir_ellip_hpf.txt' with lines
