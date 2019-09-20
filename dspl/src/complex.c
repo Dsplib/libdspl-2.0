@@ -588,7 +588,7 @@ sqrt_cmplx(5.0+6.0j) = 2.531+1.185j
 int DSPL_API sqrt_cmplx(complex_t* x, int n, complex_t *y)
 {
   int k;
-  double r, zr;
+  double r, zr, at;
   complex_t t;
   if(!x || !y)
     return ERROR_PTR;
@@ -607,10 +607,19 @@ int DSPL_API sqrt_cmplx(complex_t* x, int n, complex_t *y)
     {
       RE(t) = RE(x[k]) + r;
       IM(t) = IM(x[k]);
-      zr = 1.0 / ABS(t);
-      r = sqrt(r);
-      RE(y[k]) = RE(t) * zr * r;
-      IM(y[k]) = IM(t) * zr * r;
+      at = ABS(t);
+      if(at == 0.0)
+      {
+        RE(y[k]) = 0.0;
+        IM(y[k]) = sqrt(r);
+      }
+      else
+      {
+        zr = 1.0 / ABS(t);
+        r = sqrt(r);
+        RE(y[k]) = RE(t) * zr * r;
+        IM(y[k]) = IM(t) * zr * r;
+      }
     }
   }
   return RES_OK;
