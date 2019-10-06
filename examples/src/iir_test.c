@@ -3,124 +3,164 @@
 #include <string.h>
 #include "dspl.h"
 
-// Порядок фильтра
+/* Low-pass filter order */
 #define LPF_ORD 6
-#define HPF_ORD 6
-#define BPF_ORD 12
-#define BSF_ORD 12
-#define MAX_ORD BPF_ORD
-#define RS 60.0
-#define RP 1.0
 
-// размер векторов частотной характеристики фильтра
+/* High-pass filter order */
+#define HPF_ORD 6
+
+/* band-pass filter order */
+#define BPF_ORD 12
+
+/* Band-stop filter order */
+#define BSF_ORD 12
+
+/* Maximum filter order */
+#define MAX_ORD BPF_ORD
+
+/* Stopband suppression (dB) */
+#define RS 60.0
+
+/* Pass-band maximum distortion (dB) */
+#define RP 2.0
+
+/* Frequency response vector size */
 #define N  1024
 
+
+/******************************************************************************* 
+ * function calculates filter frequency response and save magnitude to
+ * the text file.
+ * params: b - pointer to the transfer fuction H(z) numerator vector
+ *         a - pointer to the transfer fuction H(z) denominator vector
+ *         ord - filter order
+ *         n - number of magnitude vector size
+ *         fn - file name
+ ******************************************************************************/
 void freq_resp_write2txt(double* b, double* a, int ord, int n, char* fn)
 {
-  double w[N], mag[N];
+  double *w = NULL, *mag = NULL;
   int k;
   
-  // вектор нормированной частоты от 0 до pi
-  linspace(0, M_PI, N , DSPL_PERIODIC, w);
+  w   = (double*)malloc(n*sizeof(double));
+  mag = (double*)malloc(n*sizeof(double));
   
-  //частотные характеристика фильтра
+  /* Normalized frequency from 0 to pi */
+  linspace(0, M_PI, n , DSPL_PERIODIC, w);
+  
+  /* Magnitude (dB) calculation */
   filter_freq_resp(b, a, ord, w, n, DSPL_FLAG_LOGMAG, mag, NULL, NULL);
   
+  /* Frequency normaliztion from 0 to 1 */
   for(k = 0; k < N; k++)
     w[k] /= M_PI;
   
-  // Сохранить характеристики для построения графиков
+  /* Save magnitude to the txt file */
   writetxt(w, mag, n, fn);
+  
+  free(w);
+  free(mag);
 }
 
 
-int main()
+/*******************************************************************************
+ * Main program
+ ******************************************************************************/
+int main(int argc, char* argv[])
 {
-  void* handle;           // DSPL handle
-  handle = dspl_load();   // Load DSPL function
+  void* handle;           /* DSPL handle        */
+  handle = dspl_load();   /* Load DSPL function */
   
-  double a[MAX_ORD+1], b[MAX_ORD+1];  // коэффициенты H(s)
-  int err;
+  /* Transfer function H(z) coeff. vectors */
+  double a[MAX_ORD+1], b[MAX_ORD+1];  
+
+  /*--------------------------------------------------------------------------*/
   
-  // рассчитываем цифровой ФНЧ  Баттерворта
+  /* LPF Batterworth */
   iir(RP, RS, LPF_ORD, 0.3, 0.0, DSPL_FILTER_BUTTER | DSPL_FILTER_LPF, b, a);
   freq_resp_write2txt(b, a, LPF_ORD, N, "dat/iir_butter_lpf.txt");
   
-  // рассчитываем цифровой ФВЧ  Баттерворта
+  /* HPF Batterworth */
   iir(RP, RS, HPF_ORD, 0.3, 0.0, DSPL_FILTER_BUTTER | DSPL_FILTER_HPF, b, a);
   freq_resp_write2txt(b, a, HPF_ORD, N, "dat/iir_butter_hpf.txt");
   
-  // рассчитываем цифровой полосовой фильтр Баттерворта
+  /* Band-pass Batterworth */
   iir(RP, RS, BPF_ORD, 0.3, 0.7, DSPL_FILTER_BUTTER | DSPL_FILTER_BPASS, b, a);
   freq_resp_write2txt(b, a, BPF_ORD, N, "dat/iir_butter_bpf.txt");
   
-  // рассчитываем цифровой режекторный фильтр Баттерворта
+  /* Band-stop Batterworth */
   iir(RP, RS, BSF_ORD, 0.3, 0.7, DSPL_FILTER_BUTTER | DSPL_FILTER_BSTOP, b, a);
   freq_resp_write2txt(b, a, BSF_ORD, N, "dat/iir_butter_bsf.txt");
+   
+  /*--------------------------------------------------------------------------*/
   
-  
-  
-  
-  // рассчитываем цифровой ФНЧ  Чебышева 1 рода
+  /* LPF Chebyshev type 1 */
   iir(RP, RS, LPF_ORD, 0.3, 0.0, DSPL_FILTER_CHEBY1 | DSPL_FILTER_LPF, b, a);
   freq_resp_write2txt(b, a, LPF_ORD, N, "dat/iir_cheby1_lpf.txt");
   
-  // рассчитываем цифровой ФВЧ  Чебышева 1 рода
+  /* HPF Chebyshev type 1 */
   iir(RP, RS, HPF_ORD, 0.3, 0.0, DSPL_FILTER_CHEBY1 | DSPL_FILTER_HPF, b, a);
   freq_resp_write2txt(b, a, HPF_ORD, N, "dat/iir_cheby1_hpf.txt");
   
-  // рассчитываем цифровой полосовой фильтр Чебышева 1 рода
+  /* Bnad-pass Chebyshev type 1 */
   iir(RP, RS, BPF_ORD, 0.3, 0.7, DSPL_FILTER_CHEBY1 | DSPL_FILTER_BPASS, b, a);
   freq_resp_write2txt(b, a, BPF_ORD, N, "dat/iir_cheby1_bpf.txt");
   
-  // рассчитываем цифровой режекторный фильтр Чебышева 1 рода
+  /* Bnad-stop Chebyshev type 1 */
   iir(RP, RS, BSF_ORD, 0.3, 0.7, DSPL_FILTER_CHEBY1 | DSPL_FILTER_BSTOP, b, a);
   freq_resp_write2txt(b, a, BSF_ORD, N, "dat/iir_cheby1_bsf.txt");
   
+  /*--------------------------------------------------------------------------*/
   
-  
-  
-  // рассчитываем цифровой ФНЧ  Чебышева 2 рода
+  /* LPF Chebyshev type 2 */
   iir(RP, RS, LPF_ORD, 0.3, 0.0, DSPL_FILTER_CHEBY2 | DSPL_FILTER_LPF, b, a);
   freq_resp_write2txt(b, a, LPF_ORD, N, "dat/iir_cheby2_lpf.txt");
   
-  // рассчитываем цифровой ФВЧ  Чебышева 2 рода
+  /* HPF Chebyshev type 2 */
   iir(RP, RS, HPF_ORD, 0.3, 0.0, DSPL_FILTER_CHEBY2 | DSPL_FILTER_HPF, b, a);
   freq_resp_write2txt(b, a, HPF_ORD, N, "dat/iir_cheby2_hpf.txt");
   
-  // рассчитываем цифровой полосовой фильтр Чебышева 2 рода
+  /* Band-pass Chebyshev type 2 */
   iir(RP, RS, BPF_ORD, 0.3, 0.7, DSPL_FILTER_CHEBY2 | DSPL_FILTER_BPASS, b, a);
   freq_resp_write2txt(b, a, BPF_ORD, N, "dat/iir_cheby2_bpf.txt");
   
-  // рассчитываем цифровой режекторный фильтр Чебышева 2 рода
+  /* Band-stop Chebyshev type 2 */
   iir(RP, RS, BSF_ORD, 0.3, 0.7, DSPL_FILTER_CHEBY2 | DSPL_FILTER_BSTOP, b, a);
   freq_resp_write2txt(b, a, BSF_ORD, N, "dat/iir_cheby2_bsf.txt");
   
+  /*--------------------------------------------------------------------------*/  
   
-  
-  
-  // рассчитываем цифровой эллиптический ФНЧ
+  /* LPF Elliptic */
   iir(RP, RS, LPF_ORD, 0.3, 0.0, DSPL_FILTER_ELLIP | DSPL_FILTER_LPF, b, a);
   freq_resp_write2txt(b, a, LPF_ORD, N, "dat/iir_ellip_lpf.txt");
   
-  // рассчитываем цифровой эллиптический ФВЧ 
+  /* HPF Elliptic */
   iir(RP, RS, HPF_ORD, 0.3, 0.0, DSPL_FILTER_ELLIP | DSPL_FILTER_HPF, b, a);
   freq_resp_write2txt(b, a, HPF_ORD, N, "dat/iir_ellip_hpf.txt");
   
-  // рассчитываем цифровой полосовой эллиптический фильтр
+  /* Band-pass Elliptic */
   iir(RP, RS, BPF_ORD, 0.3, 0.7, DSPL_FILTER_ELLIP | DSPL_FILTER_BPASS, b, a);
   freq_resp_write2txt(b, a, BPF_ORD, N, "dat/iir_ellip_bpf.txt");
   
-  // рассчитываем цифровой режекторный эллиптический фильтр
+  /* Band-stop Elliptic */
   iir(RP, RS, BSF_ORD, 0.3, 0.7, DSPL_FILTER_ELLIP | DSPL_FILTER_BSTOP, b, a);
   freq_resp_write2txt(b, a, BSF_ORD, N, "dat/iir_ellip_bsf.txt");
   
+  /*--------------------------------------------------------------------------*/
   
-  dspl_free(handle);      // free dspl handle
+  /* free dspl handle */
+  dspl_free(handle);
   
-  // выполнить скрипт GNUPLOT для построения графиков 
-  // по рассчитанным данным
+  
+  if(argc>1)
+  {
+    if(!strcmp(argv[1], "--noplot"))
+      return 0;
+  }
+  
+  /* Run GNUPLOT for magnitudes plotting */
   return system("gnuplot -p gnuplot/iir_test.plt");
 }
+
 
 

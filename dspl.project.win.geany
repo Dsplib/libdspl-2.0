@@ -28,9 +28,15 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=1
-FILE_NAME_0=15567;C;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Clibdspl-2.0%5Cdspl%5Csrc%5Ccomplex.c;0;2
-FILE_NAME_1=251;C;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Clibdspl-2.0%5Cexamples%5Csrc%5Ciir_test.c;0;2
+current_page=7
+FILE_NAME_0=0;C;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Clibdspl-2.0%5Cdspl%5Csrc%5Cfilter_ap.c;0;2
+FILE_NAME_1=360;C;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Clibdspl-2.0%5Cexamples%5Csrc%5Ccheby_poly1_test.c;0;2
+FILE_NAME_2=3040;C;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Clibdspl-2.0%5Cdspl%5Csrc%5Ccheby.c;0;2
+FILE_NAME_3=507;C;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Clibdspl-2.0%5Cexamples%5Csrc%5Ciir_test.c;0;2
+FILE_NAME_4=890;None;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Clibdspl-2.0%5Cexamples%5Cbin%5Cgnuplot%5Ciir_test.plt;0;2
+FILE_NAME_5=1097;C;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Cru%5Ccontent%5Cfourier_series%5Cc%5Cfourier_series_dirichlet_ex.c;0;2
+FILE_NAME_6=2672;C;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Cru%5Ccontent%5Cfourier_series%5Cc%5Cfourier_series_pimp_spectrum.c;0;2
+FILE_NAME_7=0;C;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Cru%5Ccontent%5Cfourier_series%5Cc%5Cfourier_series_rec.c;0;2
 
 [build-menu]
 NF_00_LB=_Собрать
@@ -45,3 +51,11 @@ NF_02_WD=%p
 EX_00_LB=_Execute
 EX_00_CM=%e.exe
 EX_00_WD=%p/examples/bin
+
+[prjorg]
+source_patterns=*.c;*.C;*.cpp;*.cxx;*.c++;*.cc;*.m;
+header_patterns=*.h;*.H;*.hpp;*.hxx;*.h++;*.hh;
+ignored_dirs_patterns=.*;CVS;
+ignored_file_patterns=*.o;*.obj;*.a;*.lib;*.so;*.dll;*.lo;*.la;*.class;*.jar;*.pyc;*.mo;*.gmo;
+generate_tag_prefs=0
+external_dirs=

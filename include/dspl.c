@@ -80,6 +80,8 @@ p_fft                                  fft                           ;
 p_fft_cmplx                            fft_cmplx                     ;
 p_fft_create                           fft_create                    ;
 p_fft_free                             fft_free                      ;
+p_fft_mag                              fft_mag                       ;
+p_fft_mag_cmplx                        fft_mag_cmplx                 ;
 p_fft_shift                            fft_shift                     ;
 p_fft_shift_cmplx                      fft_shift_cmplx               ;
 p_filter_freq_resp                     filter_freq_resp              ;
@@ -245,6 +247,8 @@ void* dspl_load()
   LOAD_FUNC(fft_cmplx);
   LOAD_FUNC(fft_create);
   LOAD_FUNC(fft_free);
+  LOAD_FUNC(fft_mag);
+  LOAD_FUNC(fft_mag_cmplx);
   LOAD_FUNC(fft_shift);
   LOAD_FUNC(fft_shift_cmplx);
   LOAD_FUNC(filter_freq_resp);

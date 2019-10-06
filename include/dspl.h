@@ -170,6 +170,7 @@ typedef struct
 #define DSPL_FLAG_ANALOG                      0x00000001
 #define DSPL_FLAG_LOGMAG                      0x00000002
 #define DSPL_FLAG_UNWRAP                      0x00000004
+#define DSPL_FLAG_FFT_SHIFT                   0x00000008
 
 
 
@@ -488,6 +489,22 @@ DECLARE_FUNC(int,        fft_create,                  fft_t*
                                                 COMMA int);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(void,       fft_free,                    fft_t*);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,        fft_mag,                     double*          x
+                                                COMMA int              n
+                                                COMMA fft_t*           pfft 
+                                                COMMA double           fs
+                                                COMMA int              flag
+                                                COMMA double*          mag
+                                                COMMA double*          freq);
+//------------------------------------------------------------------------------
+DECLARE_FUNC(int,        fft_mag_cmplx,               complex_t*       x
+                                                COMMA int              n
+                                                COMMA fft_t*           pfft 
+                                                COMMA double           fs
+                                                COMMA int              flag
+                                                COMMA double*          mag
+                                                COMMA double*          freq);
 //------------------------------------------------------------------------------
 DECLARE_FUNC(int,        fft_shift,                   double*
                                                 COMMA int n
