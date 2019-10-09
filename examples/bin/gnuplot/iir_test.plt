@@ -2,7 +2,7 @@ unset key
 set grid
 set xlabel " normalized frequency"
 
-set terminal wxt size 920, 840 enhanced font 'Verdana,8'
+set terminal pngcairo size 920, 840 enhanced font 'Verdana,8'
 set output 'img/iir_test.png'
 set ylabel "Magnitude, dB"
 set yrange [-100:5]

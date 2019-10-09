@@ -11,7 +11,7 @@ mingw32-make
 cd examples/bin
 for file in *.exe
 do
-    "./$file"
+    "./$file" --noplot
 done
 cd ../../dox
 

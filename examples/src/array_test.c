@@ -10,8 +10,12 @@ int main()
   
   double a[5] = {0.0, 1.0, 2.0, 3.0, 4.0};
   double b[5] = {5.0, 6.0, 7.0, 8.0, 9.0};
-  double c[10], d[5];
+  double c[10], d[5], r;
   int err, k, n;
+  
+  
+  err = vector_dot(a, b, 5, &r);
+  printf("\n\ndot product result: %d a^T * b =  %f ", err, r);
   
   // Concatenate arrays a and b. Result keeps to the array c
   err = concat((void*)a, 5*sizeof(double), 

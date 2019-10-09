@@ -1,4 +1,8 @@
 CC       = gcc
+FORTRAN  = gfortran
+AR       = ar
+
+
 INC_DIR = include
 RELEASE_DIR = release/lib
 
