@@ -22,6 +22,7 @@
 #include <string.h>
 #include "dspl.h"
 #include "dspl_internal.h"
+#include "blas.h"
 
 
 

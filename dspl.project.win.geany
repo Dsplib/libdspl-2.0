@@ -28,17 +28,21 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=4
-FILE_NAME_0=0;C;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Clibdspl-2.0%5Cdspl%5Csrc%5Cfilter_ap.c;0;2
-FILE_NAME_1=360;C;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Clibdspl-2.0%5Cexamples%5Csrc%5Ccheby_poly1_test.c;0;2
-FILE_NAME_2=3040;C;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Clibdspl-2.0%5Cdspl%5Csrc%5Ccheby.c;0;2
-FILE_NAME_3=507;C;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Clibdspl-2.0%5Cexamples%5Csrc%5Ciir_test.c;0;2
-FILE_NAME_4=80;None;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Clibdspl-2.0%5Cexamples%5Cbin%5Cgnuplot%5Ciir_test.plt;0;2
-FILE_NAME_5=1097;C;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Cru%5Ccontent%5Cfourier_series%5Cc%5Cfourier_series_dirichlet_ex.c;0;2
-FILE_NAME_6=2672;C;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Cru%5Ccontent%5Cfourier_series%5Cc%5Cfourier_series_pimp_spectrum.c;0;2
-FILE_NAME_7=0;C;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Cru%5Ccontent%5Cfourier_series%5Cc%5Cfourier_series_rec.c;0;2
-FILE_NAME_8=4814;C;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Clibdspl-2.0%5Cdspl%5Csrc%5Cfourier_series.c;0;2
-FILE_NAME_9=5801;None;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Clibdspl-2.0%5Cdspl%5Cdox%5Cru%5Cfourier_series.dox;0;2
+current_page=7
+FILE_NAME_0=360;C;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Clibdspl-2.0%5Cexamples%5Csrc%5Ccheby_poly1_test.c;0;2
+FILE_NAME_1=507;C;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Clibdspl-2.0%5Cexamples%5Csrc%5Ciir_test.c;0;2
+FILE_NAME_2=80;None;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Clibdspl-2.0%5Cexamples%5Cbin%5Cgnuplot%5Ciir_test.plt;0;2
+FILE_NAME_3=1097;C;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Cru%5Ccontent%5Cfourier_series%5Cc%5Cfourier_series_dirichlet_ex.c;0;2
+FILE_NAME_4=2672;C;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Cru%5Ccontent%5Cfourier_series%5Cc%5Cfourier_series_pimp_spectrum.c;0;2
+FILE_NAME_5=0;C;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Cru%5Ccontent%5Cfourier_series%5Cc%5Cfourier_series_rec.c;0;2
+FILE_NAME_6=12388;C;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Clibdspl-2.0%5Cdspl%5Cdspl_src%5Carray.c;0;2
+FILE_NAME_7=424;C++;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Clibdspl-2.0%5Cdspl%5Cdspl_src%5Cblas.h;0;2
+FILE_NAME_8=1737;F77;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Clibdspl-2.0%5Cdspl%5Cblas_src%5Cddot.f;0;2
+FILE_NAME_9=51351;C++;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Clibdspl-2.0%5Cinclude%5Cdspl.h;0;2
+FILE_NAME_10=13061;C;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Clibdspl-2.0%5Cinclude%5Cdspl.c;0;2
+FILE_NAME_11=323;C;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Clibdspl-2.0%5Cexamples%5Csrc%5Carray_test.c;0;2
+FILE_NAME_12=1454;F77;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Clibdspl-2.0%5Cdspl%5Cblas_src%5Cdasum.f;0;2
+FILE_NAME_13=419;F77;0;EUTF-8;0;1;0;F%3A%5Cdsplib.org%5Clibdspl-2.0%5Cdspl%5Cblas_src%5Cdaxpy.f;0;2
 
 [build-menu]
 NF_00_LB=_Собрать

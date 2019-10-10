@@ -1,22 +1,5 @@
 
-
-
-
-ifeq ($(OS),Windows_NT)
-    MAKE = mingw32-make  
-else
-    UNAME_S := $(shell uname -s)
-    ifeq ($(UNAME_S),Linux)
-        MAKE = make
-    else ifeq ($(UNAME_S),Darwin)
-    	MAKE = make
-    endif
-endif
-
-include Makefile.dirs
-
-
-
+include make.inc
 
 all:
 	$(MAKE) -f Makefile.dspl 
@@ -34,5 +17,12 @@ clean:
 	$(MAKE) -f Makefile.dspl  clean
 	$(MAKE) -f Makefile.verif  clean
 	$(MAKE) -f Makefile.examples  clean
+	rm -f $(BLAS_SRC_DIR)/*.o
+	rm -f $(LAPACK_SRC_DIR)/*.o
 
+
+clean_all:
+	$(MAKE) clean
+	rm -f $(BLAS_LIB_DIR)/*.a
+	rm -f $(LAPACK_LIB_DIR)/*.a
 

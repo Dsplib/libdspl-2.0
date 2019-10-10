@@ -3,7 +3,7 @@ SRC_DIR = $(PRJ_DIR)/src
 BIN_DIR = $(PRJ_DIR)/bin
 
 
-include Makefile.dirs
+include make.inc
 
 DSPL_C_FILE = $(INC_DIR)/dspl.c
 DSPL_O_FILE = $(PRJ_DIR)/obj/dspl.o

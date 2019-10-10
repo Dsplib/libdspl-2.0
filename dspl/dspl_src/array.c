@@ -451,10 +451,9 @@ int DSPL_API vector_dot(double* x, double* y, int n, double* p)
     return ERROR_PTR;
   if(n<1)
     return ERROR_SIZE;
-  
-  /* double ddot_(int* n, double* dx, int* incx, double* dy, int* incy); */
+    
   *p = ddot_(&n, x, &inc, y, &inc); 
-  //*p = 0;
+  
   return RES_OK;
 }
  

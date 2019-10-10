@@ -1,56 +1,30 @@
-LIB_DIR    = dspl
 
-include Makefile.dirs
+include make.inc
 
-# DSPL source and obj file path
-DSPL_SRC_DIR = $(LIB_DIR)/dspl_src
-DSPL_OBJ_DIR = $(LIB_DIR)/dspl_obj
-
-# BLAS source and obj file path
-BLAS_SRC_DIR = $(LIB_DIR)/blas_src
-BLAS_OBJ_DIR = $(LIB_DIR)/blas_obj
-
-#common source for DSPL and examples
-COMMON_SRC_DIR = $(COMMON_DIR)/src
-
-LIB_NAME = $(DSPL_LIBNAME)
 
 # C-compiler flags
 CFLAGS  = -c -fPIC -Wall -O3 -I$(INC_DIR) -DBUILD_LIB -D$(DEF_OS)
-
-#fortran compiler flags
-FFLAGS  = -O3 
 
 # DSPL src and obj files list
 DSPL_SRC_FILES	= $(wildcard $(DSPL_SRC_DIR)/*.c)
 DSPL_OBJ_FILES	= $(addprefix $(DSPL_OBJ_DIR)/,$(notdir $(DSPL_SRC_FILES:.c=.o)))
 
-# BLAS src and obj files list
-BLAS_SRC_FILES	= $(wildcard $(BLAS_SRC_DIR)/*.f)
-BLAS_OBJ_FILES	= $(addprefix $(BLAS_OBJ_DIR)/,$(notdir $(BLAS_SRC_FILES:.f=.o)))
-
-BLAS_LIB = $(BLAS_OBJ_DIR)/libblas.a
-
-
 all: $(RELEASE_DIR)/$(LIB_NAME)
 
 
 
-$(RELEASE_DIR)/$(LIB_NAME): $(DSPL_OBJ_FILES)  $(BLAS_LIB)
-	$(CC) -shared -o $(RELEASE_DIR)/$(LIB_NAME)  $(DSPL_OBJ_FILES) -lm -L$(BLAS_OBJ_DIR) -lblas
+$(RELEASE_DIR)/$(LIB_NAME): $(DSPL_OBJ_FILES)  $(BLAS_LIB_NAME) $(LAPACK_LIB_NAME)
+	$(CC) -shared -o $(RELEASE_DIR)/$(LIB_NAME)  $(DSPL_OBJ_FILES) -lm -L$(BLAS_LIB_DIR) -lblas -L$(LAPACK_LIB_DIR) -llapack
 
 
 $(DSPL_OBJ_DIR)/%.o:$(DSPL_SRC_DIR)/%.c
 	$(CC) $(CFLAGS)  $< -o $@ -lm
 
+$(BLAS_LIB_NAME):
+	$(MAKE) -C $(BLAS_SRC_DIR)
 
-
-$(BLAS_OBJ_DIR)/libblas.a: $(BLAS_OBJ_FILES)
-	$(AR) rcs $(BLAS_LIB) $(BLAS_OBJ_FILES)
-
-
-$(BLAS_OBJ_DIR)/%.o:$(BLAS_SRC_DIR)/%.f
-	$(FORTRAN) $(FFLAGS) -c  $< -o $@
+$(LAPACK_LIB_NAME):
+	$(MAKE) -C $(LAPACK_SRC_DIR)
 
 
 clean:
