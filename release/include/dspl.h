@@ -52,17 +52,6 @@ typedef struct
 } fft_t;
 
 
-
-typedef struct
-{
-  void* dat;
-  int n;
-  int m;
-  int type;
-} matrix_t;
-
-
-
 typedef struct
 {
   double mrg32k3a_seed;
