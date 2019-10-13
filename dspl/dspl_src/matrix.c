@@ -27,94 +27,93 @@
 
 
 
-/*******************************************************************************
-matrix_create
-*******************************************************************************/
-int DSPL_API matrix_create(matrix_t* a, int n, int m, int type)
-{
-  if(!a)
-    return ERROR_PTR;
-  if(n < 1 || m < 1)
-    return ERROR_MATRIX_SIZE;
 
-  if(a->dat)
+int DSPL_API matrix_eig_cmplx(complex_t* a, int n, complex_t* v, int* info)
+{
+  int err;
+  int sdim = 0;
+  int ldvs = 1;
+  int lwork = 2*n;
+  if(!a || !v)
+    return ERROR_PTR;
+  
+  if(n<1)
+    return ERROR_MATRIX_SIZE;
+  
+  complex_t *work=(complex_t*)malloc(lwork*sizeof(complex_t)); 
+  double *rwork = (double*)malloc(n*sizeof(double)); 
+
+  zgees_("N", "N", NULL, &n, a, &n, &sdim, v, NULL, &ldvs, work, &lwork, 
+         rwork, NULL, &err);
+  
+  if(err!=0)
   {
-    a->dat = (type & DAT_MASK) ?
-      (void*) realloc(a->dat, n*m*sizeof(complex_t)):
-      (void*) realloc(a->dat, n*m*sizeof(double));
+    if(info)
+      *info = err;
+    err = ERROR_LAPACK;
   }
   else
-  {
-    a->dat = (type & DAT_MASK) ?
-      (void*) malloc(n*m*sizeof(complex_t)):
-      (void*) malloc(n*m*sizeof(double));
-  }
-
-  a->n = n;
-  a->m = m;
-  a->type = type;
-
-  return RES_OK;
+    err = RES_OK;
+  
+  free(work);
+  free(rwork);
+  return err;
 }
 
 
 
-/*******************************************************************************
-matrix_create eye
-*******************************************************************************/
-int DSPL_API matrix_create_eye(matrix_t* a, int n, int type)
-{
-  double    *pr;
-  complex_t *pc;
-  int err, m, k;
-  
-  err = matrix_create(a, n, n, type);
-  if(err != RES_OK)
-    return RES_OK;
-  
-  k = 0;
-  if((a->type & DAT_MASK) == DAT_DOUBLE)
-  {
-    pr = (double*) a->dat;
-    memset(pr, 0, n*n*sizeof(double));
-    for(m = 0; m < n; m++)
-    {
-      pr[k] = 1.0;
-      k += n+1;
-    }
-  }
-  
-  if((a->type & DAT_MASK) == DAT_COMPLEX)
-  {
-    pc = (complex_t*) a->dat;
-    memset(pc, 0, n*n*sizeof(complex_t));
-    for(m = 0; m < n; m++)
-    {
-      RE(pc[k]) = 1.0;
-      k += n+1;      
-    }
-  }
-  return RES_OK;
-}
-
-
 
 /*******************************************************************************
-matrix_free
+Real matrix eye
 *******************************************************************************/
-void DSPL_API matrix_free(matrix_t* a)
+int DSPL_API matrix_eye(double* a, int n, int m)
 {
+  int  p, k;
   if(!a)
-    return;
-  if(a->dat)
-    free(a->dat);
-  a->n = a->m = a->type = 0;
+    return ERROR_PTR;
+  if (n < 1 || m < 1)
+    return ERROR_MATRIX_SIZE;
+    
+  k = 0;
+  memset(a, 0, n*m*sizeof(double));
+  for(p = 0; p < m; p++)
+  {
+    a[k] = 1.0;
+    k += n+1;
+  }
+
+  return RES_OK;
 }
+
+
+/*******************************************************************************
+Complex matrix eye 
+*******************************************************************************/
+int DSPL_API matrix_eye_cmplx(complex_t* a, int n, int m)
+{
+  int p, k;
+  if(!a)
+    return ERROR_PTR;
+  if (n < 1 || m < 1)
+    return ERROR_MATRIX_SIZE;
+    
+  k = 0;
+  memset(a, 0, n*m*sizeof(complex_t));
+  for(p = 0; p < m; p++)
+  {
+    RE(a[k]) = 1.0;
+    k += n+1;
+  }
+
+  return RES_OK;
+}
+
+
 
 
 /*******************************************************************************
 matrix LU decomposition
-*******************************************************************************/
+******************************************************************************
 int DSPL_API matrix_lu(matrix_t* a, matrix_t* L, matrix_t* U, matrix_t* P)
 {
   int err, k, n, m, N, ind;
@@ -174,159 +173,99 @@ int DSPL_API matrix_lu(matrix_t* a, matrix_t* L, matrix_t* U, matrix_t* P)
   
   return RES_OK;
 }
+*/
+
+
+/*******************************************************************************
+real matrix multiplication
+*******************************************************************************/
+int DSPL_API matrix_mul(double* a, int na, int ma, 
+                        double* b, int nb, int mb,
+                        double* c)
+{
+  
+  double alpha = 1;
+  double beta = 0.0;
+  
+  if(!a || !b || !c)
+    return ERROR_PTR;
+  if(na < 1 || ma < 1 || nb < 1 || mb < 1 || ma != nb)
+    return ERROR_MATRIX_SIZE;
+
+  /* BLAS DGEMM */
+  dgemm_("N", "N", &na, &mb, &ma, &alpha, a, &na, b, &nb, &beta, c, &na);
+
+  return RES_OK;
+}
 
 
 
 /*******************************************************************************
-matrix transposition
+real matrix print
 *******************************************************************************/
-int DSPL_API matrix_print(matrix_t* a, const char* name, const char* format)
+int DSPL_API matrix_print(double* a, int n, int m, 
+                          const char* name, const char* format)
 {
-  int n,m;
+  int p,q;
+  
   if(!a)
     return ERROR_PTR;
-  if(!a->dat)
-    return ERROR_PTR;
-
-  if((a->type & DAT_MASK) == DAT_DOUBLE)
+  if(n < 1 || m < 1)
+    return ERROR_SIZE;
+    
+  printf("\n%s = [ %% size [%d x %d] type: real", name, n, m);
+  
+  for(p = 0; p < n; p++)
   {
-    printf("\nMatrix %s size [%d x %d] type: real\n",
-              name, a->n, a->m);
-    double* p = (double*)(a->dat);
-    for(n = 0; n < a->n; n++)
+    printf("\n");
+    for(q = 0; q < m; q++)
     {
-      for(m = 0; m < a->m; m++)
-      {
-        printf(format, p[m*a->n + n]);
-      }
-      printf("\n");
+      printf(format, a[q*n + p]);
+      if(q == m-1)
+        printf(";");
+      else
+        printf(", ");
     }
   }
+  printf("];\n");
+  
+  return RES_OK;
+}
 
 
-  if((a->type & DAT_MASK) == DAT_COMPLEX)
+/*******************************************************************************
+complex matrix print
+*******************************************************************************/
+int DSPL_API matrix_print_cmplx(complex_t* a, int n, int m, 
+                                const char* name, const char* format)
+{
+  int p,q;
+
+  if(!a)
+    return ERROR_PTR;
+  if(n < 1 || m < 1)
+    return ERROR_MATRIX_SIZE;
+
+  if(!a)
+    return ERROR_PTR;
+  if(n < 1 || m < 1)
+    return ERROR_SIZE;
+    
+  printf("\n%s = [ %% size [%d x %d] type: complex", name, n, m);
+  
+  for(p = 0; p < n; p++)
   {
-    printf("\nMatrix %s size [%d x %d] type: complex\n",
-              name, a->n, a->m);
-    complex_t* p = (complex_t*)(a->dat);
-    for(n = 0; n < a->n; n++)
+    printf("\n");
+    for(q = 0; q < m; q++)
     {
-      for(m = 0; m < a->m; m++)
-      {
-        printf(format, RE(p[m*a->n + n]), IM(p[m*a->n + n]));
-      }
-      printf("\n");
+      printf(format, RE(a[q*n + p]), IM(a[q*n + p]));
+      if(q == m-1)
+        printf(";");
+      else
+        printf(", ");
     }
   }
-  return RES_OK;
-}
-
-
-/*******************************************************************************
-matrix swap 2 elements
-*******************************************************************************/
-int  DSPL_API matrix_swap(matrix_t* a, int r0, int c0, int r1, int c1)
-{
-  double    tr;
-  complex_t tc;
-  double *pr;
-  complex_t *pc;
-
-  if(!a)
-    return ERROR_PTR;
-  if(r0 >= a->n || r1 >= a->n || c0 >= a->m || c1 >= a->m)
-    return ERROR_MATRIX_INDEX;
-  
-  if((a->type & DAT_MASK) == DAT_DOUBLE)
-  { 
-    pr = (double*)(a->dat);
-    tr = pr[r0 + c0 * a->n];
-    pr[r0 + c0 * a->n] = pr[r1 + c1 * a->n];
-    pr[r1 + c1 * a->n] = tr;
-  }
-  
-  if((a->type & DAT_MASK) == DAT_COMPLEX)
-  {
-    pc = (complex_t*)(a->dat);
-    RE(tc) = RE(pc[r0 + c0 * a->n]);
-    IM(tc) = IM(pc[r0 + c0 * a->n]);
-    
-    RE(pc[r0 + c0 * a->n]) = RE(pc[r1 + c1 * a->n]);
-    IM(pc[r0 + c0 * a->n]) = IM(pc[r1 + c1 * a->n]);
-    
-    RE(pc[r1 + c1 * a->n]) = RE(tc);
-    IM(pc[r1 + c1 * a->n]) = IM(tc);
-  }
-  return RES_OK;
-}
-
-
-
-/*******************************************************************************
-matrix swap 2 rows
-*******************************************************************************/
-int  DSPL_API matrix_swap_rows(matrix_t* a, int r0, int r1)
-{
-  int c, err;
-  if(!a)
-    return ERROR_PTR;
-  if(r0 >= a->n || r1 >= a->n)
-    return ERROR_MATRIX_INDEX;
-  
-  for(c = 0; c < a->m; c++)
-  {
-    err = matrix_swap(a, r0, c, r1, c);
-    if(err != RES_OK)
-      break;
-  }
-  return err;
-}
-
-
-
-
-/*******************************************************************************
-matrix transposition
-*******************************************************************************/
-int DSPL_API matrix_transpose(matrix_t* a, matrix_t* b)
-{
-  int err;
-  if(!a || !b)
-    return ERROR_PTR;
-
-  err = matrix_create(b, a->m, a->n, a->type);
-  if(err != RES_OK)
-    return err;
-
-  if((a->type & DAT_MASK) == DAT_DOUBLE)
-    transpose((double*)(a->dat), a->n, a->m, (double*)(b->dat));
-  if((a->type & DAT_MASK) == DAT_COMPLEX)
-    transpose_cmplx((complex_t*)(a->dat), a->n, a->m, (complex_t*)(b->dat));
-
-  return RES_OK;
-}
-
-
-
-
-
-/*******************************************************************************
-matrix Hermite transposition
-*******************************************************************************/
-int DSPL_API matrix_transpose_hermite(matrix_t* a, matrix_t* b)
-{
-  int err;
-  if(!a || !b)
-    return ERROR_PTR;
-
-  err = matrix_create(b, a->m, a->n, a->type);
-  if(err != RES_OK)
-    return err;
-
-  if((a->type & DAT_MASK) == DAT_DOUBLE)
-    transpose((double*)(a->dat), a->n, a->m, (double*)(b->dat));
-  if((a->type & DAT_MASK) == DAT_COMPLEX)
-    transpose_hermite((complex_t*)(a->dat), a->n, a->m, (complex_t*)(b->dat));
+  printf("];\n");
 
   return RES_OK;
 }
@@ -336,14 +275,18 @@ int DSPL_API matrix_transpose_hermite(matrix_t* a, matrix_t* b)
 
 
 
-
 /*******************************************************************************
-Real matrx transpose
+Real matrix transpose
 *******************************************************************************/
-void transpose(double* a, int n, int m, double* b)
+int DSPL_API matrix_transpose(double* a, int n, int m, double* b)
 {
   int p, q, i, j, aind, bind;
-
+  if(!a || !b)
+    return ERROR_PTR;
+  if(n < 1 || m < 1)
+    return ERROR_MATRIX_SIZE;
+    
+    
   for(p = 0; p < n - DSPL_MATRIX_BLOCK; p+=DSPL_MATRIX_BLOCK)
   {
     for(q = 0; q < m - DSPL_MATRIX_BLOCK; q+=DSPL_MATRIX_BLOCK)
@@ -366,7 +309,8 @@ void transpose(double* a, int n, int m, double* b)
   for(i = 0; i < p; i++)
     for(j = q; j < m; j++)
       b[i*m + j] = a[j*n+i];
-
+      
+  return RES_OK;
 }
 
 
@@ -374,12 +318,17 @@ void transpose(double* a, int n, int m, double* b)
 
 
 /*******************************************************************************
-Complex matrx transpose
+Complex matrix transpose
 *******************************************************************************/
-void transpose_cmplx(complex_t* a, int n, int m, complex_t* b)
+int DSPL_API matrix_transpose_cmplx(complex_t* a, int n, int m, complex_t* b)
 {
   int p, q, i, j, aind, bind;
-
+  
+  if(!a || !b)
+    return ERROR_PTR;
+  if(n < 1 || m < 1)
+    return ERROR_MATRIX_SIZE;
+    
   for(p = 0; p < n - DSPL_MATRIX_BLOCK; p+=DSPL_MATRIX_BLOCK)
   {
     for(q = 0; q < m - DSPL_MATRIX_BLOCK; q+=DSPL_MATRIX_BLOCK)
@@ -413,6 +362,7 @@ void transpose_cmplx(complex_t* a, int n, int m, complex_t* b)
       IM(b[i*m + j]) = IM(a[j*n+i]);
     }
   }
+  return RES_OK;
 }
 
 
@@ -420,12 +370,17 @@ void transpose_cmplx(complex_t* a, int n, int m, complex_t* b)
 
 
 /*******************************************************************************
-Hermite matrx transpose
+Hermite matrix transpose
 *******************************************************************************/
-void transpose_hermite(complex_t* a, int n, int m, complex_t* b)
+int DSPL_API matrix_transpose_hermite(complex_t* a, int n, int m, complex_t* b)
 {
   int p, q, i, j, aind, bind;
-
+  
+  if(!a || !b)
+    return ERROR_PTR;
+  if(n < 1 || m < 1)
+    return ERROR_MATRIX_SIZE;
+  
   for(p = 0; p < n - DSPL_MATRIX_BLOCK; p+=DSPL_MATRIX_BLOCK)
   {
     for(q = 0; q < m - DSPL_MATRIX_BLOCK; q+=DSPL_MATRIX_BLOCK)
@@ -459,5 +414,7 @@ void transpose_hermite(complex_t* a, int n, int m, complex_t* b)
       IM(b[i*m + j]) = -IM(a[j*n+i]);
     }
   }
+  
+  return RES_OK;
 }
 

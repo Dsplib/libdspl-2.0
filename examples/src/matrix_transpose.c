@@ -3,48 +3,37 @@
 #include <string.h>
 #include "dspl.h"
 
+#define N 4
+#define M 3
+
 int main()
 {
-  void* handle;           // DSPL handle
-  handle = dspl_load();   // Load DSPL function
+  
+  void* handle;           /* DSPL handle         */
+  handle = dspl_load();   /* Load DSPL function  */
+  
+  double    r[N*M], p[N*M];
+  complex_t c[N*M], d[N*M];
+  
+  linspace(0, N*M, N*M, DSPL_PERIODIC, r);
+  matrix_print(r, N, M, "R", "%8.2f");
 
-  matrix_t a, b, c;
-
-  memset(&a, 0, sizeof(matrix_t));
-  memset(&b, 0, sizeof(matrix_t));
-  memset(&c, 0, sizeof(matrix_t));
-
-  matrix_create(&a, 4, 3, DAT_DOUBLE);
-  linspace(0, 12, 12, DSPL_PERIODIC, (double*)a.dat);
-  matrix_print(&a, "A", "%8.2f");
-
-  matrix_transpose(&a, &b);
-  matrix_print(&b, "B=A^T", "%8.2f");
-
-  matrix_transpose_hermite(&a, &b);
-  matrix_print(&b, "B=A^H", "%8.2f");
-
-
-
-  matrix_create(&c, 2, 3, DAT_COMPLEX);
-  linspace(0, 12, 12, DSPL_PERIODIC, (double*)c.dat);
-  matrix_print(&c, "C", "%8.2f%+8.2fj     ");
-
-  matrix_transpose(&c, &b);
-  matrix_print(&b, "B=C^T", "%8.2f%+8.2fj     ");
-
-
-  matrix_transpose_hermite(&c, &b);
-  matrix_print(&b, "B=C^H", "%8.2f%+8.2fj     ");
-
-
-  matrix_free(&a);
-  matrix_free(&b);
-  matrix_free(&c);
-  dspl_free(handle);      // free dspl handle
-
-  // выполнить скрипт GNUPLOT для построения графиков
-  // по рассчитанным данным
-  return system("gnuplot gnuplot/sinc_test.plt");;
+  matrix_transpose(r, N, M, p);
+  matrix_print(p, M, N, "P", "%8.2f");
+  
+  linspace(0, N*M*2, N*M*2, DSPL_PERIODIC, (double*)c);
+  matrix_print_cmplx(c, N, M, "C", "%8.2f%+8.2fi");
+  
+  matrix_transpose_cmplx(c, N, M, d);
+  matrix_print_cmplx(d, M, N, "D", "%8.2f%+8.2fi");
+  
+  matrix_transpose_hermite(c, N, M, d);
+  matrix_print_cmplx(d, M, N, "D", "%8.2f%+8.2fi");
+  
+  
+  dspl_free(handle);      /* free dspl handle  */
+  
+  return 0; 
+  
 }
 

@@ -126,6 +126,7 @@ typedef struct
 /* J                                          0x10xxxxxx*/
 /* K                                          0x11xxxxxx*/
 /* L                                          0x12xxxxxx*/
+#define ERROR_LAPACK                          0x12011601
 /* M                                          0x13xxxxxx*/
 #define ERROR_MATRIX_INDEX                    0x13010914
 #define ERROR_MATRIX_SINGULAR                 0x13011914
@@ -715,41 +716,53 @@ DECLARE_FUNC(int,        low2low,                     double*          b
                                                 COMMA double*          beta
                                                 COMMA double*          alpha);
 /*----------------------------------------------------------------------------*/
-DECLARE_FUNC(int,        matrix_create,               matrix_t*        a
+DECLARE_FUNC(int,        matrix_eig_cmplx,            complex_t*       a 
                                                 COMMA int              n
-                                                COMMA int              m
-                                                COMMA int              type);
+                                                COMMA complex_t*       v
+                                                COMMA int*             info);
 /*----------------------------------------------------------------------------*/
-DECLARE_FUNC(int,        matrix_create_eye,           matrix_t*        a
+DECLARE_FUNC(int,        matrix_eye,                  double*          a
                                                 COMMA int              n
-                                                COMMA int              type);
+                                                COMMA int              m);
 /*----------------------------------------------------------------------------*/
-DECLARE_FUNC(void,       matrix_free,                 matrix_t*        a);
+DECLARE_FUNC(int,        matrix_eye_cmplx,            complex_t*       a
+                                                COMMA int              n
+                                                COMMA int              m);
 /*----------------------------------------------------------------------------*/
-DECLARE_FUNC(int,        matrix_lu,                   matrix_t*        a
-                                                COMMA matrix_t*        L
-                                                COMMA matrix_t*        U
-                                                COMMA matrix_t*        P);
+DECLARE_FUNC(int,        matrix_mul,                  double*          a
+                                                COMMA int              na
+                                                COMMA int              ma
+                                                COMMA double*          b
+                                                COMMA int              nb
+                                                COMMA int              mb
+                                                COMMA double*          c);
 /*----------------------------------------------------------------------------*/
-DECLARE_FUNC(int,        matrix_print,                matrix_t*        a
+DECLARE_FUNC(int,        matrix_print,                double*          a
+                                                COMMA int              n
+                                                COMMA int              m 
                                                 COMMA const char*      name
                                                 COMMA const char*      format);
 /*----------------------------------------------------------------------------*/
-DECLARE_FUNC(int,        matrix_swap,                 matrix_t*        a
-                                                COMMA int              r0
-                                                COMMA int              c0
-                                                COMMA int              r1
-                                                COMMA int              c1);
+DECLARE_FUNC(int,        matrix_print_cmplx,          complex_t*       a
+                                                COMMA int              n 
+                                                COMMA int              m 
+                                                COMMA const char*      name
+                                                COMMA const char*      format);
 /*----------------------------------------------------------------------------*/
-DECLARE_FUNC(int,        matrix_swap_rows,            matrix_t*        a 
-                                                COMMA int              r0
-                                                COMMA int              r1);
+DECLARE_FUNC(int,        matrix_transpose,            double*          a
+                                                COMMA int              n
+                                                COMMA int              m
+                                                COMMA double*          b);
 /*----------------------------------------------------------------------------*/
-DECLARE_FUNC(int,        matrix_transpose,            matrix_t*        a
-                                                COMMA matrix_t*        b);
+DECLARE_FUNC(int,        matrix_transpose_cmplx,      complex_t*       a
+                                                COMMA int              n
+                                                COMMA int              m
+                                                COMMA complex_t*       b);
 /*----------------------------------------------------------------------------*/
-DECLARE_FUNC(int,        matrix_transpose_hermite,    matrix_t*        a
-                                                COMMA matrix_t*        b);
+DECLARE_FUNC(int,        matrix_transpose_hermite,    complex_t*       a
+                                                COMMA int              n
+                                                COMMA int              m
+                                                COMMA complex_t*       b);
 /*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        minmax,                      double*          x
                                                 COMMA int              n

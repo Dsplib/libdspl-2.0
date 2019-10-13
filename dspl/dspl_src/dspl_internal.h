@@ -30,10 +30,6 @@
 // sqrt(2^31)
 #define FFT_COMPOSITE_MAX           46340
 
-void transpose(double* a, int n, int m, double* b);
-void transpose_cmplx(complex_t* a, int n, int m, complex_t* b);
-void transpose_hermite(complex_t* a, int n, int m, complex_t* b);
-
 int fft_krn(complex_t* t0, complex_t* t1, fft_t* p, int n, int addr);
 
 

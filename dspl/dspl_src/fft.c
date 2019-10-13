@@ -150,7 +150,7 @@ label_size:
     if(n2>1)
     {
       memcpy(t1, t0, n*sizeof(complex_t));
-      transpose_cmplx(t1, n2, n1, t0);
+      matrix_transpose_cmplx(t1, n2, n1, t0);
     }
    
     if(n1 == 16)
@@ -186,13 +186,13 @@ label_size:
         IM(t0[k]) = CMIM(t1[k], pw[k]);
       }
 
-      transpose_cmplx(t0, n1, n2, t1);
+      matrix_transpose_cmplx(t0, n1, n2, t1);
       
       for(k = 0; k < n1; k++)
       {
         fft_krn(t1+k*n2, t0+k*n2, p, n2, addr+n);
       }
-      transpose_cmplx(t0, n2, n1, t1);
+      matrix_transpose_cmplx(t0, n2, n1, t1);
     }
   }
   return RES_OK;

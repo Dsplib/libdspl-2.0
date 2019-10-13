@@ -3,7 +3,6 @@
 #ifndef BLAS_H
 #define BLAS_H
 
-
 #define FORTRAN_FUNC(FUNC) FUNC##_
 
 int    FORTRAN_FUNC(xerbla)(const char*, int*info, int);
@@ -361,7 +360,7 @@ int FORTRAN_FUNC(zher2m)(const char*, const char*, const char*, const int*, cons
 int FORTRAN_FUNC(xher2m)(const char*, const char*, const char*, const int*, const int*, const double*, const double*, const int*, const double*, const int*, const double*, double*, const int*);
 
 
-
+void FORTRAN_FUNC(zgees)(const char*, const char*, void*, int*, complex_t*, int*, int*, complex_t*, complex_t*, int*, complex_t*, int*, double*, int*, int*);
 
 #endif
 

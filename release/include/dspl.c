@@ -114,14 +114,18 @@ p_low2bp                                low2bp                        ;
 p_low2bs                                low2bs                        ;
 p_low2high                              low2high                      ;
 p_low2low                               low2low                       ;
-p_matrix_create                         matrix_create                 ;
-p_matrix_create_eye                     matrix_create_eye             ;
-p_matrix_free                           matrix_free                   ;
+
+p_matrix_eig_cmplx                      matrix_eig_cmplx              ;
+p_matrix_eye                            matrix_eye                    ;
+p_matrix_eye_cmplx                      matrix_eye_cmplx              ;
+p_matrix_mul                            matrix_mul                    ;
 p_matrix_print                          matrix_print                  ;
-p_matrix_swap                           matrix_swap                   ;
-p_matrix_swap_rows                      matrix_swap_rows              ;
+p_matrix_print_cmplx                    matrix_print_cmplx            ;
 p_matrix_transpose                      matrix_transpose              ;
+p_matrix_transpose_cmplx                matrix_transpose_cmplx        ;
 p_matrix_transpose_hermite              matrix_transpose_hermite      ;
+
+
 p_minmax                                minmax                        ;
 p_poly_z2a_cmplx                        poly_z2a_cmplx                ;
 p_polyval                               polyval                       ;
@@ -282,13 +286,14 @@ void* dspl_load()
   LOAD_FUNC(low2bs);
   LOAD_FUNC(low2high);
   LOAD_FUNC(low2low);
-  LOAD_FUNC(matrix_create);
-  LOAD_FUNC(matrix_create_eye);
-  LOAD_FUNC(matrix_free);
+  LOAD_FUNC(matrix_eig_cmplx);
+  LOAD_FUNC(matrix_eye);
+  LOAD_FUNC(matrix_eye_cmplx);
+  LOAD_FUNC(matrix_mul);
   LOAD_FUNC(matrix_print);
-  LOAD_FUNC(matrix_swap);
-  LOAD_FUNC(matrix_swap_rows);
+  LOAD_FUNC(matrix_print_cmplx);
   LOAD_FUNC(matrix_transpose);
+  LOAD_FUNC(matrix_transpose_cmplx);
   LOAD_FUNC(matrix_transpose_hermite);
   LOAD_FUNC(minmax);
   LOAD_FUNC(poly_z2a_cmplx);
