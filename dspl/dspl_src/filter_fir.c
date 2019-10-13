@@ -82,72 +82,72 @@ int DSPL_API  fir_linphase(int ord, double w0, double w1, int filter_type,
   
   switch(filter_type & DSPL_FILTER_TYPE_MASK)
   {
-    // Lowpass FIR coefficients calculation 
+    /* Lowpass FIR coefficients calculation */
     case DSPL_FILTER_LPF:
       err = fir_linphase_lpf(ord, w0, wintype, winparam, h);
       break;
     
-    // Highpass FIR coefficients calculation
+    /* Highpass FIR coefficients calculation */
     case DSPL_FILTER_HPF:   
       err = fir_linphase_lpf(ord, 1.0-w0, wintype, winparam, h);
       if(err == RES_OK)
       {
-        // LPF filter frequency inversion
+        /* LPF filter frequency inversion */
         for(n = 0; n < ord+1; n+=2)
           h[n] = -h[n];
       }
       break;
     
-    // Bandpass FIR coefficients calculation
+    /* Bandpass FIR coefficients calculation */
     case DSPL_FILTER_BPASS:
       if(w1 < w0)
       {
         err = ERROR_FILTER_WS;
         break;
       }           
-      wc = (w0 + w1) * 0.5; // central frequency
-      b  =  w1 - w0;        // bandwidth
+      wc = (w0 + w1) * 0.5; /* central frequency  */
+      b  =  w1 - w0;        /* bandwidth          */
       err = fir_linphase_lpf(ord, b*0.5, wintype, winparam, h);
       if(err == RES_OK)
       {
-        // LPF frequency shifting to the central frequency
+        /* LPF frequency shifting to the central frequency */
         del = 0.5 * (double)ord; 
         for(n = 0; n < ord+1; n++)
           h[n] *= 2.0 * cos(M_PI * ((double)n - del) * wc);
       }
       break;
       
-    // BandStop FIR coefficients calculation 
-    // ATTENTION! Bandstop filter must be even order only!
+    /* BandStop FIR coefficients calculation               */
+    /* ATTENTION! Bandstop filter must be even order only! */
     case DSPL_FILTER_BSTOP:
     {  
       double *h0 = NULL;
       
-      // check filter order. Return error if order is odd.
+      /* check filter order. Return error if order is odd. */
       if(ord%2)
         return ERROR_FILTER_ORD;
       
-      // check frequency (w1 must be higher than w0)
+      /* check frequency (w1 must be higher than w0) */
       if(w1 < w0)
       {
         err = ERROR_FILTER_WS;
         break;
       }
-        // temp coeff vector
+      /* temp coeff vector */
       h0 = (double*)malloc((ord+1) * sizeof(double));
       
-      // calculate LPF
+      /* calculate LPF */
       err = fir_linphase(ord, w0, 0.0, DSPL_FILTER_LPF, wintype, winparam, h0);
       if(err!=RES_OK)
       {
         free(h0);
         return err;        
       }      
-      // calculate HPF      
+      /* calculate HPF */      
       err = fir_linphase(ord, w1, 0.0, DSPL_FILTER_HPF, wintype, winparam, h);
       if(err==RES_OK)
       {
-        // Bandstop filter is sum of lowpass and highpass filters
+        /* Bandstop filter is sum of lowpass and highpass filters */
         for(n = 0; n < ord+1; n++)
           h[n] += h0[n];          
       }

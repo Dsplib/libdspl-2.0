@@ -468,7 +468,7 @@ int DSPL_API freqz(double* b, double* a, int ord, double* w,
 
   if(a)
   {
-    // IIR filter if a != NULL
+    /* IIR filter if a != NULL */
     ac = (complex_t*) malloc((ord+1) * sizeof(complex_t));
     res = re2cmplx(a, ord+1, ac);
     if( res!=RES_OK )
@@ -496,7 +496,7 @@ int DSPL_API freqz(double* b, double* a, int ord, double* w,
   }
   else
   {
-    // FIR filter if a == NULL
+    /* FIR filter if a == NULL */
     for(k = 0; k < n; k++)
     {
       RE(jw) =  cos(w[k]);

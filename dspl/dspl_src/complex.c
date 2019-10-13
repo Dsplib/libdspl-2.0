@@ -159,14 +159,14 @@ int DSPL_API asin_cmplx(complex_t* x, int n, complex_t *y)
 
   for(k = 0; k < n; k++)
   {
-    RE(tmp) = 1.0 - CMRE(x[k], x[k]); // 1-x[k]^2
-    IM(tmp) =     - CMIM(x[k], x[k]); // 1-x[k]^2
-    sqrt_cmplx(&tmp, 1, y+k);   // sqrt(1 - x[k]^2)
-    RE(y[k]) -= IM(x[k]);       // j * x[k] + sqrt(1 - x[k]^2)
-    IM(y[k]) += RE(x[k]);       // j * x[k] + sqrt(1 - x[k]^2)
-    log_cmplx(y+k, 1, &tmp);    // log( j * x[k] + sqrt(1 - x[k]^2) )
-    RE(y[k]) =  IM(tmp);        // -j * log( j * x[k] + sqrt(1 - x[k]^2) )
-    IM(y[k]) = -RE(tmp);        // -j * log( j * x[k] + sqrt(1 - x[k]^2) )
+    RE(tmp) = 1.0 - CMRE(x[k], x[k]); /* 1-x[k]^2  */
+    IM(tmp) =     - CMIM(x[k], x[k]); /* 1-x[k]^2  */
+    sqrt_cmplx(&tmp, 1, y+k);   /* sqrt(1 - x[k]^2)                        */
+    RE(y[k]) -= IM(x[k]);       /* j * x[k] + sqrt(1 - x[k]^2)             */
+    IM(y[k]) += RE(x[k]);       /* j * x[k] + sqrt(1 - x[k]^2)             */
+    log_cmplx(y+k, 1, &tmp);    /* log( j * x[k] + sqrt(1 - x[k]^2) )      */
+    RE(y[k]) =  IM(tmp);        /* -j * log( j * x[k] + sqrt(1 - x[k]^2) ) */
+    IM(y[k]) = -RE(tmp);        /* -j * log( j * x[k] + sqrt(1 - x[k]^2) ) */
   }
   return RES_OK;
 }

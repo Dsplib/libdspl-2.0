@@ -33,7 +33,7 @@
 void DSPL_API random_init(random_t* prnd)
 {
   srand(time(NULL));
-  // MRG32k3a init  
+  /* MRG32k3a init */  
   prnd->mrg32k3a_x[0] = prnd->mrg32k3a_x[1] = 1.0;
   prnd->mrg32k3a_y[0] = prnd->mrg32k3a_y[1] = prnd->mrg32k3a_y[2] = 1.0;
   prnd->mrg32k3a_x[2] = rand();
@@ -93,36 +93,19 @@ Uniform random numbers generator
 *******************************************************************************/
 int DSPL_API randu(double* x, int n, random_t* prnd)
 {
-   
-   /*int k,m;
-   unsigned int x1[4], x2[4], y;
-
-   if(!x)
-    return  ERROR_PTR;
-   if(n<1)
-    return ERROR_SIZE;
-
-   x1[1] = rand();
-   x2[1] = rand();
-   x1[2] = rand();
-   x2[2] = rand();
-   x1[3] = rand();
-   x2[3] = rand();
-   for(k = 0; k<n; k++)
-   {
-     x1[0] = (63308 * x1[2] - 183326*x1[3]) % DSPL_RAND_MOD_X1;
-     x2[0] = (86098 * x2[1] - 539608*x2[3]) % DSPL_RAND_MOD_X2;
-     y = (x1[0] - x2[0]) %  DSPL_RAND_MOD_X1;
-     for(m = 3; m > 0; m--)
-     {
-       x1[m] = x1[m-1];
-       x2[m] = x2[m-1];
-     }
-
-     x[k] = (double)y/DSPL_RAND_MOD_X1;
-   }
-  */
-  return randu_mrg32k3a(x, n, prnd);
+  if(prnd)
+    return randu_mrg32k3a(x, n, prnd);
+  else
+  {
+    if(!x)
+      return ERROR_PTR;
+    if(n<1)
+      return ERROR_SIZE;
+    int i;
+    for(i = 0; i < n; i++)
+      x[n] = (double)rand()/RAND_MAX;    
+  }
+  return RES_OK;
 }
 
 

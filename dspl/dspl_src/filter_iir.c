@@ -128,7 +128,7 @@ int DSPL_API iir(double rp, double rs, int ord,  double  w0, double  w1,
   if(err != RES_OK)
     goto error_proc;
   
-  //frequency transformation 
+  /* frequency transformation  */
   wa0 = tan(w0 * M_PI * 0.5);
   wa1 = tan(w1 * M_PI * 0.5);
   
@@ -150,7 +150,7 @@ int DSPL_API iir(double rp, double rs, int ord,  double  w0, double  w1,
       break;
       
     case DSPL_FILTER_BSTOP:
-      // need frequency transform ws ->  1  rad/s  
+      /* need frequency transform ws ->  1  rad/s   */
       
       ws  = filter_ws1(ord_ap, rp, rs, type);
       err = low2low( bs, as, ord_ap, 1.0, 1.0 / ws,  bs, as);

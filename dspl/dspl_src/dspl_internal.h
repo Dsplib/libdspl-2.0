@@ -27,7 +27,7 @@
 #define DSPL_RAND_MOD_X1            2147483647
 #define DSPL_RAND_MOD_X2            2145483479
 
-// sqrt(2^31)
+/* sqrt(2^31) */
 #define FFT_COMPOSITE_MAX           46340
 
 int fft_krn(complex_t* t0, complex_t* t1, fft_t* p, int n, int addr);

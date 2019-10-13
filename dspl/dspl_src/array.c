@@ -440,30 +440,6 @@ int DSPL_API flipip_cmplx(complex_t* x, int n)
 
 
 
-/*******************************************************************************
- * Vector dot product
- ******************************************************************************/
-int DSPL_API vector_dot(double* x, double* y, int n, double* p)
-{
-  int inc = 1;
-  
-  if(!x || !y || !p)
-    return ERROR_PTR;
-  if(n<1)
-    return ERROR_SIZE;
-    
-  *p = ddot_(&n, x, &inc, y, &inc); 
-  
-  return RES_OK;
-}
- 
- 
-
-
-
-
-
-
 /******************************************************************************
 \ingroup SPEC_MATH_COMMON_GROUP
 \fn int verif(double* x,  double* y, size_t n, double eps, double* err)

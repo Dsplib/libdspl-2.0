@@ -270,7 +270,7 @@ int win_cheby(double *w, int n, double param)
   r1 = pow(10, param/20);   
   x0 = cosh((1.0/(double)(n-1)) * acosh(r1));  
   
-  // check window length even or odd
+  /* check window length even or odd */
   if(n%2==0)
   {
     dz = 0.5;  
@@ -298,12 +298,12 @@ int win_cheby(double *w, int n, double param)
     w[k] = r1 + 2.0 * sum;
     w[n-1-k] = w[k];
     
-    // max value calculation
+    /* max value calculation */
     if(w[k]>wmax)
       wmax=w[k];
   }
 
-  // normalization
+  /* normalization */
   for(k=0; k < n; k++) 
     w[k] /= wmax;
 
@@ -388,7 +388,7 @@ int win_flat_top(double *w, int n, int win_type)
 
 
 /******************************************************************************
-Gaussian   window function
+Gaussian window function
 ******************************************************************************/
 int win_gaussian(double *w, int n, int win_type, double alpha)
 {

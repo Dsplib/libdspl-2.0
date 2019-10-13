@@ -215,15 +215,15 @@ typedef struct
 
 
 #ifdef BUILD_LIB
-  // Declare DSPL_API for Windows OS
+  /* Declare DSPL_API for Windows OS */
   #ifdef WIN_OS
     #define DSPL_API __declspec(dllexport)
-  #endif // WIN_OS
-  // Declare DSPL_API for LINUX OS
+  #endif /* WIN_OS */
+  /* Declare DSPL_API for LINUX OS */
   #ifdef LINUX_OS
     #define DSPL_API
-  #endif //LINUX_OS
-#endif //BUILD_DLL
+  #endif /* LINUX_OS */
+#endif /* BUILD_DLL */
 
 #define COMMA ,
 
@@ -918,5 +918,5 @@ void  dspl_free(void* handle);
 
 
 
-#endif //DSPL_H
+#endif /* DSPL_H */
 
