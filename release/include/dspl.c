@@ -22,11 +22,11 @@
 
 #ifdef WIN_OS
 #include <windows.h>
-#endif  //WIN_OS
+#endif  /* WIN_OS */
 
 #ifdef LINUX_OS
 #include <dlfcn.h>
-#endif //LINUX_OS
+#endif /* LINUX_OS */
 
 
 #include <stdio.h>
@@ -157,7 +157,7 @@ p_writetxt_cmplx_im                     writetxt_cmplx_im             ;
 p_writetxt_cmplx_re                     writetxt_cmplx_re             ;
 
 
-#endif //BUILD_LIB
+#endif /* BUILD_LIB */
 
 
 
@@ -192,20 +192,20 @@ void* dspl_load()
       printf("libdspl.dll loading ERROR!\n");
       return NULL;
     }
-    #endif //WIN_OS
+    #endif /* WIN_OS */
 
 
   #ifdef LINUX_OS
     char* error;
     void *handle;
-    // open the *.so
+    /* open the *.so */
     handle = dlopen ("./libdspl.so", RTLD_LAZY);
     if (!handle)
     {
       printf("libdspl.so loading ERROR!\n");
       return NULL;
     }
-  #endif  //LINUX_OS
+  #endif  /* LINUX_OS */
 
   LOAD_FUNC(acos_cmplx);
   LOAD_FUNC(asin_cmplx);
@@ -332,7 +332,7 @@ void* dspl_load()
     if(handle)
       FreeLibrary(handle);
     return NULL;
-  #endif //WIN_OS
+  #endif /* WIN_OS */
 
 
   #ifdef LINUX_OS
@@ -342,7 +342,7 @@ void* dspl_load()
     if(handle)
       dlclose(handle);
     return NULL;
-  #endif //LINUX_OS
+  #endif /* LINUX_OS */
 }
 
 
@@ -355,11 +355,11 @@ void dspl_free(void* handle)
 {
   #ifdef WIN_OS
     FreeLibrary((HINSTANCE)handle);
-  #endif //WIN_OS
+  #endif /* WIN_OS */
 
   #ifdef LINUX_OS
     dlclose(handle);
-  #endif //LINUX_OS
+  #endif /* LINUX_OS */
 
 }
 

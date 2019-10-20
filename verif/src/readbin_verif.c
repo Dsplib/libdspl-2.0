@@ -18,9 +18,9 @@ int main()
   xc = (complex_t*) malloc(N * sizeof(complex_t));
   
   random_t rnd;
-  random_init(&rnd);
+  random_init(&rnd, RAND_TYPE_MT19937);
   
-  randn(xr,   N, 0, 1.0,&rnd);
+  randn(xr, N, 0, 1.0, &rnd);
   randn((double*)xc, 2*N, 0, 1.0,&rnd);
   
   

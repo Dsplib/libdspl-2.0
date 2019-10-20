@@ -52,11 +52,22 @@ typedef struct
 } fft_t;
 
 
+#define RAND_TYPE_MRG32K3A 0x00000001
+#define RAND_TYPE_MT19937  0x00000002
+
+#define RAND_MT19937_NN    312
 typedef struct
 {
+  
   double mrg32k3a_seed;
   double mrg32k3a_x[3];
   double mrg32k3a_y[3];
+  
+  /* The array for the MT19937 state vector */
+  unsigned long long mt19937_mt[RAND_MT19937_NN];   
+  int                mt19937_mti;
+  
+  int type;
   
 }random_t;
 
@@ -129,6 +140,7 @@ typedef struct
 /* Q                                          0x17xxxxxx*/
 /* R                                          0x18xxxxxx*/
 #define ERROR_RAND_SIGMA                      0x18011909
+#define ERROR_RAND_TYPE                       0x18012009
 #define ERROR_RESAMPLE_RATIO                  0x18051801
 #define ERROR_RESAMPLE_FRAC_DELAY             0x18050604
 /* S                                          0x19xxxxxx*/
@@ -781,7 +793,8 @@ DECLARE_FUNC(int,        randn,                       double*
                                                 COMMA double
                                                 COMMA random_t*        prnd);
 /*----------------------------------------------------------------------------*/
-DECLARE_FUNC(void,       random_init,                 random_t*        prnd);
+DECLARE_FUNC(int,        random_init,                 random_t*        prnd
+                                                COMMA int              type);
 /*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        randu,                       double*
                                                 COMMA int

@@ -14,7 +14,7 @@ int main()
   random_t rnd;  
   int k;
 
-  random_init(&rnd);                    // random generator init 
+  random_init(&rnd, RAND_TYPE_MT19937);                    // random generator init 
   linspace(0, N, N, DSPL_PERIODIC, t);  // fill t vector
   randn(n, N, 0, 1.0, &rnd);            // generate noise
 
