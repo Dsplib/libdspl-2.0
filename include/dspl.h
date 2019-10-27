@@ -58,17 +58,17 @@ typedef struct
 #define RAND_MT19937_NN    312
 typedef struct
 {
-  
+
   double mrg32k3a_seed;
   double mrg32k3a_x[3];
   double mrg32k3a_y[3];
-  
+
   /* The array for the MT19937 state vector */
-  unsigned long long mt19937_mt[RAND_MT19937_NN];   
+  unsigned long long mt19937_mt[RAND_MT19937_NN];
   int                mt19937_mti;
-  
+
   int type;
-  
+
 }random_t;
 
 
@@ -495,7 +495,7 @@ DECLARE_FUNC(void,       fft_free,                    fft_t*);
 /*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        fft_mag,                     double*          x
                                                 COMMA int              n
-                                                COMMA fft_t*           pfft 
+                                                COMMA fft_t*           pfft
                                                 COMMA double           fs
                                                 COMMA int              flag
                                                 COMMA double*          mag
@@ -503,7 +503,7 @@ DECLARE_FUNC(int,        fft_mag,                     double*          x
 /*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        fft_mag_cmplx,               complex_t*       x
                                                 COMMA int              n
-                                                COMMA fft_t*           pfft 
+                                                COMMA fft_t*           pfft
                                                 COMMA double           fs
                                                 COMMA int              flag
                                                 COMMA double*          mag
@@ -722,7 +722,7 @@ DECLARE_FUNC(int,        low2low,                     double*          b
                                                 COMMA double*          beta
                                                 COMMA double*          alpha);
 /*----------------------------------------------------------------------------*/
-DECLARE_FUNC(int,        matrix_eig_cmplx,            complex_t*       a 
+DECLARE_FUNC(int,        matrix_eig_cmplx,            complex_t*       a
                                                 COMMA int              n
                                                 COMMA complex_t*       v
                                                 COMMA int*             info);
@@ -745,13 +745,13 @@ DECLARE_FUNC(int,        matrix_mul,                  double*          a
 /*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        matrix_print,                double*          a
                                                 COMMA int              n
-                                                COMMA int              m 
+                                                COMMA int              m
                                                 COMMA const char*      name
                                                 COMMA const char*      format);
 /*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        matrix_print_cmplx,          complex_t*       a
-                                                COMMA int              n 
-                                                COMMA int              m 
+                                                COMMA int              n
+                                                COMMA int              m
                                                 COMMA const char*      name
                                                 COMMA const char*      format);
 /*----------------------------------------------------------------------------*/
@@ -799,7 +799,8 @@ DECLARE_FUNC(int,        randn,                       double*
                                                 COMMA random_t*        prnd);
 /*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        random_init,                 random_t*        prnd
-                                                COMMA int              type);
+                                                COMMA int              type
+                                                COMMA void*            seed);
 /*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        randu,                       double*
                                                 COMMA int
@@ -879,7 +880,7 @@ DECLARE_FUNC(int,        verif,                       double*          x
                                                 COMMA double*          y
                                                 COMMA size_t           n
                                                 COMMA double           eps
-                                                COMMA double*          err);    
+                                                COMMA double*          err);
 /*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        verif_cmplx,                 complex_t*       x
                                                 COMMA complex_t*       y

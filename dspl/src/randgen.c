@@ -32,24 +32,35 @@
 /******************************************************************************
 random generator initialization
 *******************************************************************************/
-int DSPL_API random_init(random_t* prnd, int type)
+int DSPL_API random_init(random_t* prnd, int type, void* seed)
 {
   srand(time(NULL));
+
+  if(!prnd)
+    return RES_OK;
+
   switch(type)
   {
     case RAND_TYPE_MRG32K3A:
       /* MRG32k3a init */
       prnd->mrg32k3a_x[0] = prnd->mrg32k3a_x[1] = 1.0;
       prnd->mrg32k3a_y[0] = prnd->mrg32k3a_y[1] = prnd->mrg32k3a_y[2] = 1.0;
-      prnd->mrg32k3a_x[2] = rand();
+      if(seed)
+        prnd->mrg32k3a_x[2] = *((double*)seed);
+      else
+        prnd->mrg32k3a_x[2] = (double) rand() * rand();
       break;
     case RAND_TYPE_MT19937:
-      mt19937_init_genrand64((unsigned long long)rand()*rand(), prnd);
+      if(seed)
+        mt19937_init_genrand64(*((unsigned long long*)seed), prnd);
+      else
+        mt19937_init_genrand64((unsigned long long)rand()*rand(), prnd);
       break;
     default:
       return ERROR_RAND_TYPE;
   }
   prnd->type = type;
+
   return RES_OK;
 }
 
@@ -118,7 +129,7 @@ int DSPL_API randu(double* x, int n, random_t* prnd)
 {
   int i;
 
-  if(!x || !prnd)
+  if(!x)
     return ERROR_PTR;
   if(n < 0)
     return ERROR_SIZE;
@@ -144,7 +155,7 @@ int DSPL_API randu(double* x, int n, random_t* prnd)
     if(n<1)
       return ERROR_SIZE;
     for(i = 0; i < n; i++)
-      x[n] = (double)rand()/RAND_MAX;
+      x[i] = (double)rand()/RAND_MAX;
   }
 
   return RES_OK;

@@ -20,3 +20,18 @@
 	<string.h>
 	"dspl.h"
 
+1572196728 source:f:\dsplib.org\libdspl-2.0\include\dspl.c
+	<windows.h>
+	<dlfcn.h>
+	<stdio.h>
+	"dspl.h"
+
+1572200729 f:\dsplib.org\libdspl-2.0\include\dspl.h
+	<math.h>
+
+1572200804 source:f:\dsplib.org\libdspl-2.0\examples\src\filter_iir_test.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
