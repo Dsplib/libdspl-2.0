@@ -37,10 +37,12 @@
 
 p_acos_cmplx                            acos_cmplx                    ;
 p_asin_cmplx                            asin_cmplx                    ;
+
 p_butter_ap                             butter_ap                     ;
 p_bessel_i0                             bessel_i0                     ;
 p_bilinear                              bilinear                      ;
 p_butter_ap_zp                          butter_ap_zp                  ;
+
 p_cheby_poly1                           cheby_poly1                   ;
 p_cheby_poly2                           cheby_poly2                   ;
 p_cheby1_ap                             cheby1_ap                     ;
@@ -55,12 +57,14 @@ p_conv_cmplx                            conv_cmplx                    ;
 p_conv_fft                              conv_fft                      ;
 p_conv_fft_cmplx                        conv_fft_cmplx                ;
 p_cos_cmplx                             cos_cmplx                     ;
+
 p_decimate                              decimate                      ;
 p_decimate_cmplx                        decimate_cmplx                ;
 p_dft                                   dft                           ;
 p_dft_cmplx                             dft_cmplx                     ;
 p_dmod                                  dmod                          ;
 p_dspl_info                             dspl_info                     ;
+
 p_ellip_acd                             ellip_acd                     ;
 p_ellip_acd_cmplx                       ellip_acd_cmplx               ;
 p_ellip_ap                              ellip_ap                      ;
@@ -74,6 +78,7 @@ p_ellip_modulareq                       ellip_modulareq               ;
 p_ellip_rat                             ellip_rat                     ;
 p_ellip_sn                              ellip_sn                      ;
 p_ellip_sn_cmplx                        ellip_sn_cmplx                ;
+
 p_farrow_lagrange                       farrow_lagrange               ;
 p_farrow_spline                         farrow_spline                 ;
 p_fft                                   fft                           ;
@@ -100,13 +105,18 @@ p_freqs                                 freqs                         ;
 p_freqs_cmplx                           freqs_cmplx                   ;
 p_freqs2time                            freqs2time                    ;
 p_freqz                                 freqz                         ;
+
+p_gnuplot_script                        gnuplot_script                ;
 p_goertzel                              goertzel                      ;
 p_goertzel_cmplx                        goertzel_cmplx                ;
+
 p_histogram                             histogram                     ;
 p_histogram_norm                        histogram_norm                ;
+
 p_idft_cmplx                            idft_cmplx                    ;
 p_ifft_cmplx                            ifft_cmplx                    ;
 p_iir                                   iir                           ;
+
 p_linspace                              linspace                      ;
 p_log_cmplx                             log_cmplx                     ;
 p_logspace                              logspace                      ;
@@ -124,30 +134,35 @@ p_matrix_print_cmplx                    matrix_print_cmplx            ;
 p_matrix_transpose                      matrix_transpose              ;
 p_matrix_transpose_cmplx                matrix_transpose_cmplx        ;
 p_matrix_transpose_hermite              matrix_transpose_hermite      ;
-
-
 p_minmax                                minmax                        ;
+
 p_poly_z2a_cmplx                        poly_z2a_cmplx                ;
 p_polyval                               polyval                       ;
 p_polyval_cmplx                         polyval_cmplx                 ;
+
 p_randn                                 randn                         ;
 p_random_init                           random_init                   ;
 p_randu                                 randu                         ;
 p_ratcompos                             ratcompos                     ;
 p_re2cmplx                              re2cmplx                      ;
 p_readbin                               readbin                       ;
+
 p_signal_pimp                           signal_pimp                   ;
 p_signal_saw                            signal_saw                    ;
 p_sin_cmplx                             sin_cmplx                     ;
 p_sinc                                  sinc                          ;
 p_sine_int                              sine_int                      ;
 p_sqrt_cmplx                            sqrt_cmplx                    ;
+
 p_trapint                               trapint                       ;
 p_trapint_cmplx                         trapint_cmplx                 ;
+
 p_unwrap                                unwrap                        ;
+
 p_vector_dot                            vector_dot                    ;
 p_verif                                 verif                         ;
 p_verif_cmplx                           verif_cmplx                   ;
+
 p_window                                window                        ;
 p_writebin                              writebin                      ;
 p_writetxt                              writetxt                      ;
@@ -157,7 +172,6 @@ p_writetxt_cmplx_im                     writetxt_cmplx_im             ;
 p_writetxt_cmplx_re                     writetxt_cmplx_re             ;
 
 
-#endif /* BUILD_LIB */
 
 
 
@@ -183,6 +197,8 @@ p_writetxt_cmplx_re                     writetxt_cmplx_re             ;
 
 void* dspl_load()
 {
+
+
   char* fname;
   #ifdef WIN_OS
     HINSTANCE handle;
@@ -207,12 +223,18 @@ void* dspl_load()
     }
   #endif  /* LINUX_OS */
 
+
+
+
+
   LOAD_FUNC(acos_cmplx);
   LOAD_FUNC(asin_cmplx);
+
   LOAD_FUNC(bessel_i0);
   LOAD_FUNC(bilinear);
   LOAD_FUNC(butter_ap);
   LOAD_FUNC(butter_ap_zp);
+
   LOAD_FUNC(cheby_poly1);
   LOAD_FUNC(cheby_poly2);
   LOAD_FUNC(cheby1_ap);
@@ -227,12 +249,14 @@ void* dspl_load()
   LOAD_FUNC(conv_fft);
   LOAD_FUNC(conv_fft_cmplx);
   LOAD_FUNC(cos_cmplx);
+
   LOAD_FUNC(decimate);
   LOAD_FUNC(decimate_cmplx);
   LOAD_FUNC(dft);
   LOAD_FUNC(dft_cmplx);
   LOAD_FUNC(dmod);
   LOAD_FUNC(dspl_info);
+
   LOAD_FUNC(ellip_acd);
   LOAD_FUNC(ellip_acd_cmplx);
   LOAD_FUNC(ellip_ap);
@@ -246,6 +270,7 @@ void* dspl_load()
   LOAD_FUNC(ellip_rat);
   LOAD_FUNC(ellip_sn);
   LOAD_FUNC(ellip_sn_cmplx);
+
   LOAD_FUNC(farrow_lagrange);
   LOAD_FUNC(farrow_spline);
   LOAD_FUNC(fft);
@@ -272,13 +297,18 @@ void* dspl_load()
   LOAD_FUNC(freqs);
   LOAD_FUNC(freqs_cmplx);
   LOAD_FUNC(freqs2time);
+
+  LOAD_FUNC(gnuplot_script);
   LOAD_FUNC(goertzel);
   LOAD_FUNC(goertzel_cmplx);
+
   LOAD_FUNC(histogram);
   LOAD_FUNC(histogram_norm);
+
   LOAD_FUNC(idft_cmplx);
   LOAD_FUNC(ifft_cmplx);
   LOAD_FUNC(iir);
+
   LOAD_FUNC(linspace);
   LOAD_FUNC(log_cmplx);
   LOAD_FUNC(logspace);
@@ -286,6 +316,7 @@ void* dspl_load()
   LOAD_FUNC(low2bs);
   LOAD_FUNC(low2high);
   LOAD_FUNC(low2low);
+
   LOAD_FUNC(matrix_eig_cmplx);
   LOAD_FUNC(matrix_eye);
   LOAD_FUNC(matrix_eye_cmplx);
@@ -296,27 +327,34 @@ void* dspl_load()
   LOAD_FUNC(matrix_transpose_cmplx);
   LOAD_FUNC(matrix_transpose_hermite);
   LOAD_FUNC(minmax);
+
   LOAD_FUNC(poly_z2a_cmplx);
   LOAD_FUNC(polyval);
   LOAD_FUNC(polyval_cmplx);
+
   LOAD_FUNC(randn);
   LOAD_FUNC(random_init);
   LOAD_FUNC(randu);
   LOAD_FUNC(ratcompos);
   LOAD_FUNC(re2cmplx);
   LOAD_FUNC(readbin);
+
   LOAD_FUNC(signal_pimp);
   LOAD_FUNC(signal_saw);
   LOAD_FUNC(sin_cmplx);
   LOAD_FUNC(sinc);
   LOAD_FUNC(sine_int);
   LOAD_FUNC(sqrt_cmplx);
+
   LOAD_FUNC(trapint);
   LOAD_FUNC(trapint_cmplx);
+
   LOAD_FUNC(unwrap);
+
   LOAD_FUNC(vector_dot);
   LOAD_FUNC(verif);
   LOAD_FUNC(verif_cmplx);
+
   LOAD_FUNC(window);
   LOAD_FUNC(writebin);
   LOAD_FUNC(writetxt);
@@ -324,6 +362,7 @@ void* dspl_load()
   LOAD_FUNC(writetxt_3dline);
   LOAD_FUNC(writetxt_cmplx_im);
   LOAD_FUNC(writetxt_cmplx_re);
+
 
   #ifdef WIN_OS
   return (void*)handle;
@@ -343,6 +382,8 @@ void* dspl_load()
       dlclose(handle);
     return NULL;
   #endif /* LINUX_OS */
+
+
 }
 
 
@@ -363,3 +404,4 @@ void dspl_free(void* handle)
 
 }
 
+#endif /* BUILD_LIB */

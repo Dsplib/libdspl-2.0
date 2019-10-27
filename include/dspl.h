@@ -120,6 +120,7 @@ typedef struct
 #define ERROR_FREAD_SIZE                      0x06180501
 #define ERROR_FWRITE_SIZE                     0x06231820
 /* G                                          0x07xxxxxx*/
+#define ERROR_GNUPLOT_TERM                    0x07161220
 /* H                                          0x08xxxxxx*/
 /* I                                          0x09xxxxxx*/
 #define ERROR_INC_SIZE                        0x09140319
@@ -624,6 +625,10 @@ DECLARE_FUNC(int,        freqz,                       double*
                                                 COMMA double*
                                                 COMMA int
                                                 COMMA complex_t*);
+/*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        gnuplot_script,              int               argc
+                                                COMMA char*             argv[]
+                                                COMMA char*             fn);
 /*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        goertzel,                    double*
                                                 COMMA int

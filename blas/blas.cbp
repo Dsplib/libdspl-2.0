@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="blas" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/blas" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj/Debug/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/blas" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj/Release/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Unit filename="src/Makefile" />
+		<Unit filename="src/caxpy.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/ccopy.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/cdotc.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/cdotu.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/cgbmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/cgemm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/cgemv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/cgerc.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/cgeru.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/chbmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/chemm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/chemv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/cher.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/cher2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/cher2k.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/cherk.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/chpmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/chpr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/chpr2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/crotg.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/cscal.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/csrot.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/csscal.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/cswap.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/csymm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/csyr2k.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/csyrk.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/ctbmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/ctbsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/ctpmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/ctpsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/ctrmm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/ctrmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/ctrsm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/ctrsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dasum.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/daxpy.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dcabs1.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dcopy.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/ddot.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dgbmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dgemm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dgemv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dger.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dnrm2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/drot.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/drotg.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/drotm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/drotmg.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dsbmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dscal.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dsdot.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dspmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dspr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dspr2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dswap.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dsymm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dsymv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dsyr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dsyr2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dsyr2k.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dsyrk.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dtbmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dtbsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dtpmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dtpsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dtrmm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dtrmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dtrsm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dtrsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dzasum.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/dznrm2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/icamax.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/idamax.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/isamax.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/izamax.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/lsame.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/make.inc" />
+		<Unit filename="src/sasum.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/saxpy.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/scabs1.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/scasum.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/scnrm2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/scopy.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/sdot.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/sdsdot.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/sgbmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/sgemm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/sgemv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/sger.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/snrm2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/srot.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/srotg.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/srotm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/srotmg.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/ssbmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/sscal.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/sspmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/sspr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/sspr2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/sswap.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/ssymm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/ssymv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/ssyr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/ssyr2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/ssyr2k.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/ssyrk.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/stbmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/stbsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/stpmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/stpsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/strmm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/strmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/strsm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/strsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/xerbla.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/xerbla_array.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/zaxpy.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/zcopy.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/zdotc.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/zdotu.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/zdrot.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/zdscal.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/zgbmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/zgemm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/zgemv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/zgerc.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/zgeru.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/zhbmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/zhemm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/zhemv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/zher.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/zher2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/zher2k.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/zherk.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/zhpmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/zhpr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/zhpr2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/zrotg.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/zscal.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/zswap.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/zsymm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/zsyr2k.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/zsyrk.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/ztbmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/ztbsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/ztpmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/ztpsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/ztrmm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/ztrmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/ztrsm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src/ztrsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

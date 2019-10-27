@@ -1,30 +1,40 @@
 CC       = gcc
-FORTRAN  = gfortran
+FORTRAN  = g++
 AR       = ar
 
 
-LIB_DIR    = dspl
+
 
 # DSPL source and obj file path
-DSPL_SRC_DIR = $(LIB_DIR)/dspl_src
-DSPL_OBJ_DIR = $(LIB_DIR)/dspl_obj
+DSPL_SRC_DIR = src
+DSPL_OBJ_DIR = obj
+
 
 # BLAS source path
-BLAS_LIB_DIR = $(LIB_DIR)/libblas/
-BLAS_SRC_DIR = $(BLAS_LIB_DIR)/SRC
-BLAS_LIB_NAME = $(BLAS_LIB_DIR)/libblas.a
+BLAS_LIB_DIR = ../blas
+BLAS_SRC_DIR = $(BLAS_LIB_DIR)/src
+BLAS_RELEASE_DIR = $(BLAS_LIB_DIR)/bin/Release
+
+BLAS_LIB_NAME = $(BLAS_RELEASE_DIR)/libblas.a
 
 
 # LAPACK source path
-LAPACK_LIB_DIR = $(LIB_DIR)/liblapack/
-LAPACK_SRC_DIR = $(LAPACK_LIB_DIR)/SRC
-LAPACK_LIB_NAME = $(LAPACK_LIB_DIR)/liblapack.a
+LAPACK_LIB_DIR  = ../lapack
+LAPACK_RELEASE_DIR = $(LAPACK_LIB_DIR)/bin/Release
+
+
+LAPACK_DOUBLE_SRC_DIR  = $(LAPACK_LIB_DIR)/src
+LAPACK_DOUBLE_LIB_NAME = $(LAPACK_RELEASE_DIR)/liblapack_double.a
+
+LAPACK_COMPLEX_SRC_DIR  = $(LAPACK_LIB_DIR)/src
+LAPACK_COMPLEX_LIB_NAME = $(LAPACK_RELEASE_DIR)/liblapack_complex.a
+
 
 #common source for DSPL and examples
-COMMON_SRC_DIR = $(COMMON_DIR)/src
+#COMMON_SRC_DIR = $(COMMON_DIR)/src
 
-INC_DIR = include
-RELEASE_DIR = release/lib
+INC_DIR = ../include
+RELEASE_DIR = ../bin
 
 ifeq ($(OS),Windows_NT)
 	DSPL_LIBNAME = libdspl.dll
