@@ -68,5 +68,41 @@ PATH, а на рабочем столе будут созданы иконки F
 
 
 
+\subsection compile_gcc Компиляция libdspl-2.0 утилитой make
+<a name = "compile_gcc"></a>
+<h2>Компиляция libdspl-2.0 утилитой make</h2>
+
+
+Скачиваем с сайта Github.com
+<a href="https://github.com/Dsplib/libdspl-2.0">
+сайта Github.com
+</a>
+исходные коды DSPL:
+
+\image html dspl_github.png
+
+Разархивируем в рабочий каталог.
+
+Вы можете разархивировать в любой каталог, `libdspl-2.0` будет
+обозначать каталог, в который разархивированы исходные коды.
+
+В качестве примера, исходные коды были разархивированы в 
+каталог `J:\libdspl-2.0`. \n
+
+Переходим в указанный каталог: \n
+
+\image html libdspl_dir.png
+
+Выделяем в строку адреса и вводим туда `cmd`: \n
+
+\image html libdspl_cmd.png
+
+В результате откроется консоль Windows в которую можно вводить команды. \n
+
+Вводим команду `ming32-make`:\n
+
+\image html winconsole_1.png
+
+
 
 */
