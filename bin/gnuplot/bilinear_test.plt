@@ -1,9 +1,13 @@
+
+if(!exists("plotterm")) plotterm = 'wxt'
+if(plotterm eq "pngcairo") set output 'img/bilinear.png'
+
 unset key
 set grid
 set xlabel "normalized frequency"
 
-set terminal pngcairo size 520, 380 enhanced font 'Verdana,8'
-set output 'img/bilinear.png'
+set terminal plotterm size 520, 380 enhanced font 'Verdana,8'
+
 
 set ylabel "Magnitude, dB"
 set yrange [-80:5]

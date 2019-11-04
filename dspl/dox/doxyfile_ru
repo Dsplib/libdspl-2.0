@@ -51,14 +51,14 @@ PROJECT_BRIEF          = "Библиотека алгоритмов цифров
 # pixels and the maximum width should not exceed 200 pixels. Doxygen will copy
 # the logo to the output directory.
 
-PROJECT_LOGO           = ../../www/pictures/dspl20.png
+PROJECT_LOGO           =
 
 # The OUTPUT_DIRECTORY tag is used to specify the (relative or absolute) path
 # into which the generated documentation will be written. If a relative path is
 # entered, it will be relative to the location where doxygen was started. If
 # left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = ../release/doc/ru
+OUTPUT_DIRECTORY       = ../doc
 
 # If the CREATE_SUBDIRS tag is set to YES then doxygen will create 4096 sub-
 # directories (in 2 levels) under the output directory of each output format and
@@ -814,13 +814,11 @@ WARN_LOGFILE           =
 # Note: If this tag is empty the current directory is searched.
 
 INPUT                  = ru \
-                         ../dspl/dspl_src \
-                         ../include \
-                         ../examples/src \
-                         ../examples/bin/gnuplot \
-                         ../examples/bin/img \
-                         ../dspl/dspl_dox/ru \
-                         ../dspl/blas_src
+                         ../src \
+                         ../../include \
+                         ../../examples/src \
+                         ../../bin/gnuplot \
+                         ../../bin/img
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
@@ -936,9 +934,9 @@ EXCLUDE_SYMBOLS        =
 # that contain example code fragments that are included (see the \include
 # command).
 
-EXAMPLE_PATH           = ../examples/src \
-                         ../examples/bin/gnuplot \
-                         ../examples/bin/img
+EXAMPLE_PATH           = ../../examples/src \
+                         ../../bin/gnuplot \
+                         ../../bin/img
 
 # If the value of the EXAMPLE_PATH tag contains directories, you can use the
 # EXAMPLE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp and
@@ -960,7 +958,7 @@ EXAMPLE_RECURSIVE      = YES
 # \image command).
 
 IMAGE_PATH             = ru/img \
-                         ../examples/bin/img
+                         ../../bin/img
 
 # The INPUT_FILTER tag can be used to specify a program that doxygen should
 # invoke to filter for each input file. Doxygen will invoke the filter program

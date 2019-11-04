@@ -1,0 +1,219 @@
+<!-- HTML header for doxygen 1.8.13
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.15"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>libdspl-2.0: Структура random_t</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="doxy_stylesheet.css" rel="stylesheet" type="text/css" />
+<link href="http://dsplib.org/dsplib-stylesheet.css".css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter32971694 = new Ya.Metrika({
+                    id:32971694,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/32971694" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<div class = "header-bar">
+<div class = "menu-bar">
+<nav>
+  <ul>
+    <div class = "dsplib-logo"><img src="http://dsplib.org/logo.png" /> </div>
+    <li><a href="http://ru.dsplib.org">Содержание</a></li>
+    <li><a href="http://ru.dsplib.org/dspl">DSPL</a></li>
+    <li><a href="http://ru.dsplib.org/forum">Форум</a></li>
+    <li>
+      <div class="search-bar">
+      <div class="ya-site-form ya-site-form_inited_no" onclick="return {'action':'http://ru.dsplib.org/search_results.html','arrow':false,'bg':'transparent','fontsize':12,'fg':'#000000','language':'ru','logo':'rb','publicname':'ru.dsplib.org поиск','suggest':true,'target':'_self','tld':'ru','type':2,'usebigdictionary':true,'searchid':2332185,'input_fg':'#000000','input_bg':'#ffffff','input_fontStyle':'normal','input_fontWeight':'normal','input_placeholder':'поиск','input_placeholderColor':'#000000','input_borderColor':'#7f9db9'}"><form action="https://yandex.ru/search/site/" method="get" target="_self" accept-charset="utf-8"><input type="hidden" name="searchid" value="2332185"/><input type="hidden" name="l10n" value="ru"/><input type="hidden" name="reqenc" value=""/><input type="search" name="text" value="" style = "height: 24px; font-family: verdana,arial; font-size: 12px"/><input type="submit" value="Найти" style = "display: none;"/></form></div><style type="text/css">.ya-page_js_yes .ya-site-form_inited_no { display: none; }</style><script type="text/javascript">(function(w,d,c){var s=d.createElement('script'),h=d.getElementsByTagName('script')[0],e=d.documentElement;if((' '+e.className+' ').indexOf(' ya-page_js_yes ')===-1){e.className+=' ya-page_js_yes';}s.type='text/javascript';s.async=true;s.charset='utf-8';s.src=(d.location.protocol==='https:'?'https:':'http:')+'//site.yandex.net/v2.0/js/all.js';h.parentNode.insertBefore(s,h);(w[c]||(w[c]=[])).push(function(){Ya.Site.Form.init()})})(window,document,'yandex_site_callbacks');</script>
+      </div>
+    </li> 
+  </ul>
+</nav>
+</div>
+</div>
+<div class="main-dsplib">
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">libdspl-2.0
+   </div>
+   <div id="projectbrief">Библиотека алгоритмов цифровой обработки сигналов</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.15 -->
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Поля данных</a>  </div>
+  <div class="headertitle">
+<div class="title">Структура random_t</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="dspl_8h_source.html">dspl.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Поля данных</h2></td></tr>
+<tr class="memitem:a25d300f0abb6781fed99c39192dca29a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrandom__t.html#a25d300f0abb6781fed99c39192dca29a">mrg32k3a_seed</a></td></tr>
+<tr class="separator:a25d300f0abb6781fed99c39192dca29a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adba1649dd17f01b6f91909a834fdaef4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrandom__t.html#adba1649dd17f01b6f91909a834fdaef4">mrg32k3a_x</a> [3]</td></tr>
+<tr class="separator:adba1649dd17f01b6f91909a834fdaef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb9bdf34098387850d9250b10aae04c2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrandom__t.html#aeb9bdf34098387850d9250b10aae04c2">mrg32k3a_y</a> [3]</td></tr>
+<tr class="separator:aeb9bdf34098387850d9250b10aae04c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb74c052cc214850d04d5047697c0847"><td class="memItemLeft" align="right" valign="top">unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrandom__t.html#acb74c052cc214850d04d5047697c0847">mt19937_mt</a> [RAND_MT19937_NN]</td></tr>
+<tr class="separator:acb74c052cc214850d04d5047697c0847"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a027b4a84bcadddbddec7206f60d83be3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrandom__t.html#a027b4a84bcadddbddec7206f60d83be3">mt19937_mti</a></td></tr>
+<tr class="separator:a027b4a84bcadddbddec7206f60d83be3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e0f46977266db15ff78acdc8dcd3df4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrandom__t.html#a6e0f46977266db15ff78acdc8dcd3df4">type</a></td></tr>
+<tr class="separator:a6e0f46977266db15ff78acdc8dcd3df4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock">
+<p class="definition">См. определение в файле <a class="el" href="dspl_8h_source.html">dspl.h</a> строка <a class="el" href="dspl_8h_source.html#l00059">59</a></p>
+</div><h2 class="groupheader">Поля</h2>
+<a id="a25d300f0abb6781fed99c39192dca29a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25d300f0abb6781fed99c39192dca29a">&#9670;&nbsp;</a></span>mrg32k3a_seed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double random_t::mrg32k3a_seed</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="dspl_8h_source.html">dspl.h</a> строка <a class="el" href="dspl_8h_source.html#l00062">62</a></p>
+
+</div>
+</div>
+<a id="adba1649dd17f01b6f91909a834fdaef4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adba1649dd17f01b6f91909a834fdaef4">&#9670;&nbsp;</a></span>mrg32k3a_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double random_t::mrg32k3a_x[3]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="dspl_8h_source.html">dspl.h</a> строка <a class="el" href="dspl_8h_source.html#l00063">63</a></p>
+
+</div>
+</div>
+<a id="aeb9bdf34098387850d9250b10aae04c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb9bdf34098387850d9250b10aae04c2">&#9670;&nbsp;</a></span>mrg32k3a_y</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double random_t::mrg32k3a_y[3]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="dspl_8h_source.html">dspl.h</a> строка <a class="el" href="dspl_8h_source.html#l00064">64</a></p>
+
+</div>
+</div>
+<a id="acb74c052cc214850d04d5047697c0847"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb74c052cc214850d04d5047697c0847">&#9670;&nbsp;</a></span>mt19937_mt</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long long random_t::mt19937_mt[RAND_MT19937_NN]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="dspl_8h_source.html">dspl.h</a> строка <a class="el" href="dspl_8h_source.html#l00067">67</a></p>
+
+</div>
+</div>
+<a id="a027b4a84bcadddbddec7206f60d83be3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a027b4a84bcadddbddec7206f60d83be3">&#9670;&nbsp;</a></span>mt19937_mti</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int random_t::mt19937_mti</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="dspl_8h_source.html">dspl.h</a> строка <a class="el" href="dspl_8h_source.html#l00068">68</a></p>
+
+</div>
+</div>
+<a id="a6e0f46977266db15ff78acdc8dcd3df4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e0f46977266db15ff78acdc8dcd3df4">&#9670;&nbsp;</a></span>type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int random_t::type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="dspl_8h_source.html">dspl.h</a> строка <a class="el" href="dspl_8h_source.html#l00070">70</a></p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по libdspl-2.0. Последние изменения: Пн 4 Ноя 2019 16:56:52. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.15
+</small></address>
+</div> 
+</body>
+</html>

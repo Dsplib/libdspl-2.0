@@ -1,0 +1,129 @@
+<!-- HTML header for doxygen 1.8.13
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.15"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>libdspl-2.0: Быстрый старт использования библиотеки в системе Windows</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="doxy_stylesheet.css" rel="stylesheet" type="text/css" />
+<link href="http://dsplib.org/dsplib-stylesheet.css".css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter32971694 = new Ya.Metrika({
+                    id:32971694,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/32971694" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<div class = "header-bar">
+<div class = "menu-bar">
+<nav>
+  <ul>
+    <div class = "dsplib-logo"><img src="http://dsplib.org/logo.png" /> </div>
+    <li><a href="http://ru.dsplib.org">Содержание</a></li>
+    <li><a href="http://ru.dsplib.org/dspl">DSPL</a></li>
+    <li><a href="http://ru.dsplib.org/forum">Форум</a></li>
+    <li>
+      <div class="search-bar">
+      <div class="ya-site-form ya-site-form_inited_no" onclick="return {'action':'http://ru.dsplib.org/search_results.html','arrow':false,'bg':'transparent','fontsize':12,'fg':'#000000','language':'ru','logo':'rb','publicname':'ru.dsplib.org поиск','suggest':true,'target':'_self','tld':'ru','type':2,'usebigdictionary':true,'searchid':2332185,'input_fg':'#000000','input_bg':'#ffffff','input_fontStyle':'normal','input_fontWeight':'normal','input_placeholder':'поиск','input_placeholderColor':'#000000','input_borderColor':'#7f9db9'}"><form action="https://yandex.ru/search/site/" method="get" target="_self" accept-charset="utf-8"><input type="hidden" name="searchid" value="2332185"/><input type="hidden" name="l10n" value="ru"/><input type="hidden" name="reqenc" value=""/><input type="search" name="text" value="" style = "height: 24px; font-family: verdana,arial; font-size: 12px"/><input type="submit" value="Найти" style = "display: none;"/></form></div><style type="text/css">.ya-page_js_yes .ya-site-form_inited_no { display: none; }</style><script type="text/javascript">(function(w,d,c){var s=d.createElement('script'),h=d.getElementsByTagName('script')[0],e=d.documentElement;if((' '+e.className+' ').indexOf(' ya-page_js_yes ')===-1){e.className+=' ya-page_js_yes';}s.type='text/javascript';s.async=true;s.charset='utf-8';s.src=(d.location.protocol==='https:'?'https:':'http:')+'//site.yandex.net/v2.0/js/all.js';h.parentNode.insertBefore(s,h);(w[c]||(w[c]=[])).push(function(){Ya.Site.Form.init()})})(window,document,'yandex_site_callbacks');</script>
+      </div>
+    </li> 
+  </ul>
+</nav>
+</div>
+</div>
+<div class="main-dsplib">
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">libdspl-2.0
+   </div>
+   <div id="projectbrief">Библиотека алгоритмов цифровой обработки сигналов</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.15 -->
+</div><!-- top -->
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Быстрый старт использования библиотеки в системе Windows </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>Запуск DSPL в системе Windows требует установки компилятора, Unix-утилит, и пакета построения графиков GNUPlot. Также желательно установить консольный файловый менеджер Far и IDE для разработки и отладки программ.</p>
+<p>Для установки всего необходимого софта предлагается скачать и установить DSPLIB toolchain - полный набор утилит необходимых для работы с библиотекой.</p>
+<p><a href="http://ru.dsplib.org/dsplib_toolchain_19_10_win_x64.exe">Скачать установщик dsplib_toolchain_19_10_win_x64.exe </a> (~217 МБ).</p>
+<p><a class="anchor" id="install_toolchain"></a> </p><h2>DSPLIB toolchain в системе Windows </h2>
+<p>Запускаем установщик и выбираем директорию в которую будет произведена установка всех компонент.</p>
+<div class="image">
+<img src="toolchain_1.png" alt="toolchain_1.png"/>
+</div>
+<p>По умолчанию установка производится по адресу <code>C:\dsplib</code>.</p>
+<dl class="section note"><dt>Заметки</dt><dd>Настоятельно рекомендуется устанавливать все компоненты в каталог <code>C:\dsplib</code>, потому что IDE CodeBlocks и другие программы настроены на работу именно из этого каталога.</dd></dl>
+<p>После нажатия кнопки <code>[Установить]</code> начнется процесс копирования пакетов в указанный каталог.</p>
+<div class="image">
+<img src="toolchain_2.png" alt="toolchain_2.png"/>
+</div>
+<p>По завершению копирования файлов указанные пути будут прописаны в переменной PATH, а на рабочем столе будут созданы иконки FarManager и IDE CodeBlocks. <br />
+Для завершения установки необходимо нажать <code>[Завершить]</code>.</p>
+<div class="image">
+<img src="toolchain_3.png" alt="toolchain_3.png"/>
+</div>
+<p>Перейдя в каталог <code>C:\dsplib</code> можно увидеть следующие установленные пакеты:</p>
+<div class="image">
+<img src="toolchain_4.png" alt="toolchain_4.png"/>
+</div>
+<p><code>codeblocks</code> &ndash; IDE CodeBlocks <br />
+<code>farmanager</code> &ndash; Консольный файловый менеджер. Очень удобен для запуска консольных приложений <br />
+<code>gnuplot</code> &ndash; Многофункциональный пакет построения графиков. <br />
+<code>mingw64</code> &ndash; Набор компиляторов gcc для языков C, C++ и FORTRAN. <br />
+ <code>UnxUtils</code> &ndash; Windows интерфейс для Unix утилит. Необходимо для поддержки кроссплатформенной компиляции проекта. <br />
+ <code>Uninstall.exe</code> &ndash; Деинсталлятор, способный удалить все компоненты и переменные <code>PATH</code>. </p>
+</div></div><!-- PageDoc -->
+</div><!-- contents -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по libdspl-2.0. Последние изменения: Пн 4 Ноя 2019 16:56:52. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.15
+</small></address>
+</div> 
+</body>
+</html>

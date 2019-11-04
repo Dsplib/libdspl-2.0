@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="Workspace">
+		<Project filename="examples.cbp" />
+		<Project filename="dspl.cbp">
+			<Depends filename="blas.cbp" />
+			<Depends filename="lapack_complex.cbp" />
+			<Depends filename="lapack_double.cbp" />
+		</Project>
+		<Project filename="blas.cbp" />
+		<Project filename="lapack_complex.cbp">
+			<Depends filename="blas.cbp" />
+		</Project>
+		<Project filename="lapack_double.cbp">
+			<Depends filename="blas.cbp" />
+		</Project>
+	</Workspace>
+</CodeBlocks_workspace_file>

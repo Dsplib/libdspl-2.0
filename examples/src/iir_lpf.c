@@ -10,7 +10,7 @@
 #define N   1000
 
 
-int main()
+int main(int argc, char* argv[])
 {
   void* handle;           // DSPL handle
   handle = dspl_load();   // Load DSPL function
@@ -46,11 +46,13 @@ int main()
   writetxt(w, phi, N, "dat/iir_lpf_phi.txt");
   writetxt(w, tau, N, "dat/iir_lpf_tau.txt");
   
+  gnuplot_script(argc, argv, "gnuplot/iir_lpf.plt");
+  
   dspl_free(handle);      // free dspl handle
   
   // выполнить скрипт GNUPLOT для построения графиков 
   // по рассчитанным данным
-  return system("gnuplot -p gnuplot/iir_lpf.plt");;
+  return 0;
 }
 
 

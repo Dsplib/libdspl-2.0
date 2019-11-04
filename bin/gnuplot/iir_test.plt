@@ -1,9 +1,13 @@
+if(!exists("plotterm")) plotterm = 'wxt'
+if(plotterm eq "pngcairo") set output 'img/iir_test.png'
+
+
 unset key
 set grid
 set xlabel " normalized frequency"
 
-set terminal pngcairo size 920, 840 enhanced font 'Verdana,8'
-set output 'img/iir_test.png'
+set terminal plotterm size 920, 840 enhanced font 'Verdana,8'
+
 set ylabel "Magnitude, dB"
 set yrange [-100:5]
 

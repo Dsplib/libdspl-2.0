@@ -6,7 +6,7 @@
 #define N    1000
 #define ORD  4
 
-int main()
+int main(int argc, char* argv[])
 {
   void* handle;           // DSPL handle
   handle = dspl_load();   // Load DSPL function
@@ -49,12 +49,10 @@ int main()
   
   writetxt(w,h,N,"dat/bilinear.txt");
   
-  dspl_free(handle);      // free dspl handle
+  /* run GNUPLOT script */
+  err = gnuplot_script(argc, argv, "gnuplot/bilinear_test.plt");
   
-  // выполнить скрипт GNUPLOT для построения графиков
-  // по рассчитанным данным
-  err =  system("gnuplot -p  gnuplot/bilinear_test.plt");
-  printf("err = %d\n", err);
+  dspl_free(handle);      // free dspl handle
   
   return err;
 }

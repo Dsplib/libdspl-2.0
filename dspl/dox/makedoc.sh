@@ -5,21 +5,22 @@
 #find ../../ru -name "*.dox" -exec cp -rf  {} ../test/dox/ru \;
 #find ../../ru -name "*.plt" -exec cp -rf  {} ../test/bin/gnuplot \;
 
-cd ../
+cd ../../
+mingw32-make clean
 mingw32-make
 
-cd examples/bin
+cd bin
 for file in *.exe
 do
-    "./$file" --noplot
+    "./$file" --plotpng
 done
-cd ../../dox
+cd ../dspl/dox
 
 doxygen doxyfile_ru
 
-cd ../
-mingw32-make clean
-cd dox
+#cd ../
+#mingw32-make clean
+#cd dox
 
 #pkill -x gnuplot
 

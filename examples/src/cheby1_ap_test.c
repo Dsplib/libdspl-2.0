@@ -10,7 +10,7 @@
 #define N   1000
 
 
-int main()
+int main(int argc, char* argv[])
 {
   void* handle;           // DSPL handle
   handle = dspl_load();   // Load DSPL function
@@ -42,12 +42,14 @@ int main()
   writetxt(w, mag, N, "dat/cheby1_ap_test_mag.txt");
   writetxt(w, phi, N, "dat/cheby1_ap_test_phi.txt");
   writetxt(w, tau, N, "dat/cheby1_ap_test_tau.txt");
+
+
+  /* run GNUPLOT script */
+  res = gnuplot_script(argc, argv, "gnuplot/cheby1_ap_test.plt");
   
   dspl_free(handle);      // free dspl handle
-  
-  // выполнить скрипт GNUPLOT для построения графиков 
-  // по рассчитанным данным
-  return system("gnuplot -p gnuplot/cheby1_ap_test.plt");;
+
+  return res;
 }
 
 

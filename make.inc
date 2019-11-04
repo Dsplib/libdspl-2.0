@@ -10,17 +10,21 @@ DSPL_SRC_DIR = src
 DSPL_OBJ_DIR = obj
 
 
+
+
+
+
 # BLAS source path
 BLAS_LIB_DIR = ../blas
 BLAS_SRC_DIR = $(BLAS_LIB_DIR)/src
-BLAS_RELEASE_DIR = $(BLAS_LIB_DIR)/bin/Release
+BLAS_RELEASE_DIR = $(BLAS_LIB_DIR)/bin
 
 BLAS_LIB_NAME = $(BLAS_RELEASE_DIR)/libblas.a
 
 
 # LAPACK source path
 LAPACK_LIB_DIR  = ../lapack
-LAPACK_RELEASE_DIR = $(LAPACK_LIB_DIR)/bin/Release
+LAPACK_RELEASE_DIR = $(LAPACK_LIB_DIR)/bin
 
 
 LAPACK_DOUBLE_SRC_DIR  = $(LAPACK_LIB_DIR)/src

@@ -49,10 +49,11 @@ int DSPL_API gnuplot_script(int argc, char* argv[], char* fn)
 {
   char cmd[1024] = {0};
 
-  if(!fn || !argv)
+  if(!fn)
     return ERROR_PTR;
 
-  if(argc > 1)
+
+  if(argc > 1 && argv)
   {
     if(!strcmp(argv[1], "--noplot"))
     {
@@ -63,13 +64,15 @@ int DSPL_API gnuplot_script(int argc, char* argv[], char* fn)
       sprintf(cmd, "gnuplot -e \"plotterm = 'wxt'\" -p %s", fn);
       goto script_label;
     }
+
     if(!strcmp(argv[1], "--plotpng"))
     {
-      sprintf("gnuplot -e \"plotterm = 'pngcairo'\" -p %s", fn);
+      sprintf(cmd, "gnuplot -e \"plotterm = 'pngcairo'\" -p %s", fn);
       goto script_label;
     }
     return ERROR_GNUPLOT_TERM;
   }
+
   {
     sprintf(cmd, "gnuplot -e \"plotterm = 'wxt'\" -p %s", fn);
     goto script_label;
@@ -230,7 +233,7 @@ exit_label:
 /******************************************************************************
 Write a real arrays to the text file "fn"
 *******************************************************************************/
-int DSPL_API writetxt(double* x, double *y, int n, char* fn)
+int DSPL_API writetxt(double* x, double* y, int n, char* fn)
 {
   int k;
   FILE* pFile = NULL;

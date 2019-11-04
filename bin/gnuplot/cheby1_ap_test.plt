@@ -1,10 +1,12 @@
+if(!exists("plotterm")) plotterm = 'wxt'
+if(plotterm eq "pngcairo") set output 'img/cheby1_ap_test.png'
+
 set logscale x
 unset key
 set grid
 set xlabel "frequency, rad/s"
 
-set terminal pngcairo size 920, 260 enhanced font 'Verdana,8'
-set output 'img/cheby1_ap_test.png'
+set terminal plotterm size 920, 260 enhanced font 'Verdana,8'
 
 set multiplot layout 1,3 rowsfirst
 set ylabel "Magnitude, dB"

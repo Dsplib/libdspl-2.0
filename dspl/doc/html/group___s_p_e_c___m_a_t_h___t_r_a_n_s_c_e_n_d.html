@@ -1,0 +1,428 @@
+<!-- HTML header for doxygen 1.8.13
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.15"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>libdspl-2.0: Высшие трансцендентные функции</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="doxy_stylesheet.css" rel="stylesheet" type="text/css" />
+<link href="http://dsplib.org/dsplib-stylesheet.css".css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter32971694 = new Ya.Metrika({
+                    id:32971694,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/32971694" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<div class = "header-bar">
+<div class = "menu-bar">
+<nav>
+  <ul>
+    <div class = "dsplib-logo"><img src="http://dsplib.org/logo.png" /> </div>
+    <li><a href="http://ru.dsplib.org">Содержание</a></li>
+    <li><a href="http://ru.dsplib.org/dspl">DSPL</a></li>
+    <li><a href="http://ru.dsplib.org/forum">Форум</a></li>
+    <li>
+      <div class="search-bar">
+      <div class="ya-site-form ya-site-form_inited_no" onclick="return {'action':'http://ru.dsplib.org/search_results.html','arrow':false,'bg':'transparent','fontsize':12,'fg':'#000000','language':'ru','logo':'rb','publicname':'ru.dsplib.org поиск','suggest':true,'target':'_self','tld':'ru','type':2,'usebigdictionary':true,'searchid':2332185,'input_fg':'#000000','input_bg':'#ffffff','input_fontStyle':'normal','input_fontWeight':'normal','input_placeholder':'поиск','input_placeholderColor':'#000000','input_borderColor':'#7f9db9'}"><form action="https://yandex.ru/search/site/" method="get" target="_self" accept-charset="utf-8"><input type="hidden" name="searchid" value="2332185"/><input type="hidden" name="l10n" value="ru"/><input type="hidden" name="reqenc" value=""/><input type="search" name="text" value="" style = "height: 24px; font-family: verdana,arial; font-size: 12px"/><input type="submit" value="Найти" style = "display: none;"/></form></div><style type="text/css">.ya-page_js_yes .ya-site-form_inited_no { display: none; }</style><script type="text/javascript">(function(w,d,c){var s=d.createElement('script'),h=d.getElementsByTagName('script')[0],e=d.documentElement;if((' '+e.className+' ').indexOf(' ya-page_js_yes ')===-1){e.className+=' ya-page_js_yes';}s.type='text/javascript';s.async=true;s.charset='utf-8';s.src=(d.location.protocol==='https:'?'https:':'http:')+'//site.yandex.net/v2.0/js/all.js';h.parentNode.insertBefore(s,h);(w[c]||(w[c]=[])).push(function(){Ya.Site.Form.init()})})(window,document,'yandex_site_callbacks');</script>
+      </div>
+    </li> 
+  </ul>
+</nav>
+</div>
+</div>
+<div class="main-dsplib">
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">libdspl-2.0
+   </div>
+   <div id="projectbrief">Библиотека алгоритмов цифровой обработки сигналов</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.15 -->
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle">
+<div class="title">Высшие трансцендентные функции</div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga8dc2d1788bd2971fe4c4411767cb1504"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_e_c___m_a_t_h___t_r_a_n_s_c_e_n_d.html#ga8dc2d1788bd2971fe4c4411767cb1504">cheby_poly1</a> (double *x, int n, int ord, double *y)</td></tr>
+<tr class="memdesc:ga8dc2d1788bd2971fe4c4411767cb1504"><td class="mdescLeft">&#160;</td><td class="mdescRight">Многочлен Чебышева первого рода порядка <code>ord</code>  <a href="#ga8dc2d1788bd2971fe4c4411767cb1504">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga8dc2d1788bd2971fe4c4411767cb1504"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaa6f2b8453ff5a64a5c8fa40bab395f7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_e_c___m_a_t_h___t_r_a_n_s_c_e_n_d.html#gaaa6f2b8453ff5a64a5c8fa40bab395f7">cheby_poly2</a> (double *x, int n, int ord, double *y)</td></tr>
+<tr class="memdesc:gaaa6f2b8453ff5a64a5c8fa40bab395f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Многочлен Чебышева второго рода порядка <code>ord</code>  <a href="#gaaa6f2b8453ff5a64a5c8fa40bab395f7">Подробнее...</a><br /></td></tr>
+<tr class="separator:gaaa6f2b8453ff5a64a5c8fa40bab395f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga554f681cc0d2e3e998b16faeb5cdffd7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_e_c___m_a_t_h___t_r_a_n_s_c_e_n_d.html#ga554f681cc0d2e3e998b16faeb5cdffd7">bessel_i0</a> (double *x, int n, double *y)</td></tr>
+<tr class="memdesc:ga554f681cc0d2e3e998b16faeb5cdffd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Модифицированная функция Бесселя первого рода <img class="formulaInl" alt="$ I_0(x)$" src="form_114.png"/>.  <a href="#ga554f681cc0d2e3e998b16faeb5cdffd7">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga554f681cc0d2e3e998b16faeb5cdffd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga644d0a32928f1189bc1e312e76c43e7c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_e_c___m_a_t_h___t_r_a_n_s_c_e_n_d.html#ga644d0a32928f1189bc1e312e76c43e7c">sine_int</a> (double *x, int n, double *si)</td></tr>
+<tr class="memdesc:ga644d0a32928f1189bc1e312e76c43e7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция интегрального синуса  <a href="#ga644d0a32928f1189bc1e312e76c43e7c">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga644d0a32928f1189bc1e312e76c43e7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<h2 class="groupheader">Функции</h2>
+<a id="ga554f681cc0d2e3e998b16faeb5cdffd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga554f681cc0d2e3e998b16faeb5cdffd7">&#9670;&nbsp;</a></span>bessel_i0()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int bessel_i0 </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Модифицированная функция Бесселя первого рода <img class="formulaInl" alt="$ I_0(x)$" src="form_114.png"/>. </p>
+<hr/>
+<p>Функция рассчитывает значения функции для вещественного вектора <code>x</code>, который должен принимать неотрицательные значения. <br />
+ </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>Указатель на вектор переменной <img class="formulaInl" alt="$ x $" src="form_115.png"/>. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ Память должна быть выделена. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Размер входного вектора <code>x</code>. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">y</td><td>Указатель на вектор значений функции <img class="formulaInl" alt="$ I_0(x)$" src="form_114.png"/>. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ Память должна быть выделена. <br />
+ <br />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><code>RES_OK</code> Расчет произведен успешно. <br />
+В противном случае <a class="el" href="group___e_r_r_o_r___c_o_d_e___g_r_o_u_p.html">код ошибки</a>. <br />
+ </dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Для расчета используется аппроксимация приведенная в статье: <br />
+ <a href="https://www.advanpix.com/2015/11/11/rational-approximations-for-the-modified-bessel-function-of-the-first-kind-i0-computations-double-precision/">Rational Approximations for the Modified Bessel Function of the First Kind – I0(x) for Computations with Double Precision by PAVEL HOLOBORODKO on NOVEMBER 11, 2015 </a></dd></dl>
+<p>Пример использования функции <code>bessel_i0</code>:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;stdio.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;string.h&gt;</span></div><div class="line"><span class="preprocessor">#include &quot;dspl.h&quot;</span></div><div class="line"></div><div class="line"><span class="preprocessor">#define N 50</span></div><div class="line"></div><div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[])</div><div class="line">{</div><div class="line">  <span class="keywordtype">void</span>* handle;           <span class="comment">// DSPL handle</span></div><div class="line">  handle = dspl_load();   <span class="comment">// Load DSPL function</span></div><div class="line"></div><div class="line">  <span class="keywordtype">double</span> x[N], y[N];</div><div class="line"></div><div class="line">  <a class="code" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#ga1ba7e0e9f5194114592abaa49a146def">linspace</a>(0.0, 3.0, N, DSPL_SYMMETRIC, x);</div><div class="line"></div><div class="line">  <a class="code" href="group___s_p_e_c___m_a_t_h___t_r_a_n_s_c_e_n_d.html#ga554f681cc0d2e3e998b16faeb5cdffd7">bessel_i0</a>(x, N, y);</div><div class="line"></div><div class="line">  <a class="code" href="group___i_n___o_u_t___g_r_o_u_p.html#gae30c87757d5bf57584904e543fb1efd2">writetxt</a>(x, y, N, <span class="stringliteral">&quot;dat/dat0.txt&quot;</span>);</div><div class="line"></div><div class="line">  <span class="comment">/* run GNUPLOT script */</span></div><div class="line">  <a class="code" href="group___i_n___o_u_t___g_r_o_u_p.html#ga8dbaffeb9039ba3eee17c9371d5d7a4c">gnuplot_script</a>(argc, argv, <span class="stringliteral">&quot;gnuplot/bessel_i0.plt&quot;</span>);</div><div class="line"></div><div class="line">  dspl_free(handle);      <span class="comment">// free dspl handle</span></div><div class="line"></div><div class="line">  <span class="keywordflow">return</span> 0;</div><div class="line">}</div></div><!-- fragment --><p>Данная программа рассчитывает значения функции <img class="formulaInl" alt="$ I_0(x)$" src="form_114.png"/> переменной <code>x</code> в интервале <img class="formulaInl" alt="$[0 \ 3]$" src="form_116.png"/>. Рассчитанные данные сохраняются в текстовый файл <code>dat/dat0.txt</code> и выводятся на график <code>img/bessel_i0.png</code></p>
+<div class="image">
+<img src="bessel_i0.png" alt="bessel_i0.png"/>
+</div>
+<p>Скрипт GNUPLOT для построения графиков из текстовых файлов: </p><div class="fragment"><div class="line"></div><div class="line">if(!exists(&quot;plotterm&quot;)) plotterm = &#39;wxt&#39;</div><div class="line">if(plotterm eq &quot;pngcairo&quot;) set output &#39;img/bessel_i0.png&#39;</div><div class="line"></div><div class="line">set grid</div><div class="line">set xlabel &quot;x&quot;</div><div class="line"></div><div class="line">set lmargin at screen 0.10</div><div class="line">set key left top</div><div class="line">set terminal plotterm size 560,380 enhanced font &#39;Verdana,8&#39;</div><div class="line"></div><div class="line">set ylabel &quot;I_0(x)&quot;</div><div class="line">set yrange [0:5]</div><div class="line">plot &#39;dat/dat0.txt&#39; with lines</div><div class="line"></div></div><!-- fragment --><dl class="section author"><dt>Автор</dt><dd>Бахурин Сергей www.dsplib.org </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="math_8c_source.html">math.c</a> строка <a class="el" href="math_8c_source.html#l00036">36</a></p>
+
+</div>
+</div>
+<a id="ga8dc2d1788bd2971fe4c4411767cb1504"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8dc2d1788bd2971fe4c4411767cb1504">&#9670;&nbsp;</a></span>cheby_poly1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cheby_poly1 </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ord</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Многочлен Чебышева первого рода порядка <code>ord</code> </p>
+<hr/>
+<p>Функция производит расчет многочлена Чебышева первого рода <img class="formulaInl" alt="$ C_ord(x)$" src="form_3.png"/> для вещественного вектора <code>x</code> длины <code>n</code>на основе рекуррентной формулы </p><p class="formulaDsp">
+<img class="formulaDsp" alt="\[ C_ord(x) = 2 x C_{ord-1}(x) - C_{ord-2}(x), \]" src="form_4.png"/>
+</p>
+<p> где <img class="formulaInl" alt="$ C_0(x) = 1 $" src="form_5.png"/>, <img class="formulaInl" alt="$ C_1(x) = x$" src="form_6.png"/></p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>Указатель на вектор <code>x</code> аргумента полинома Чебышева первого рода. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Размер векторов <code>x</code> и <code>y</code>. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ord</td><td>Порядок полинома Чебышева первого рода. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">y</td><td>Указатель на вектор значений полинома Чебышева, соответствующих аргументу <code>x</code>. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ Память должна быть выделена. <br />
+ <br />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><code>RES_OK</code> Расчет произведен успешно. <br />
+В противном случае <a class="el" href="group___e_r_r_o_r___c_o_d_e___g_r_o_u_p.html">код ошибки</a>. <br />
+ Пример использования функции:</dd></dl>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;stdio.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;string.h&gt;</span></div><div class="line"><span class="preprocessor">#include &quot;dspl.h&quot;</span></div><div class="line"></div><div class="line"><span class="preprocessor">#define N 250</span></div><div class="line"></div><div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[])</div><div class="line">{</div><div class="line">  <span class="keywordtype">void</span>* handle;           <span class="comment">// DSPL handle</span></div><div class="line">  handle = dspl_load();   <span class="comment">// Load DSPL function</span></div><div class="line"></div><div class="line">  <span class="keywordtype">double</span> x[N], y[N];</div><div class="line">  <span class="keywordtype">int</span> ord;</div><div class="line">  <span class="keywordtype">char</span> fn[64];</div><div class="line">  </div><div class="line">  <a class="code" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#ga1ba7e0e9f5194114592abaa49a146def">linspace</a>(-1.0, 1.0, N, DSPL_SYMMETRIC, x);</div><div class="line">  <span class="keywordflow">for</span>(ord = 1; ord &lt; 5; ord++)</div><div class="line">  {</div><div class="line">    <a class="code" href="group___s_p_e_c___m_a_t_h___t_r_a_n_s_c_e_n_d.html#ga8dc2d1788bd2971fe4c4411767cb1504">cheby_poly1</a>(x, N, ord, y);</div><div class="line">    sprintf(fn, <span class="stringliteral">&quot;dat/cheby_poly1_ord%d.txt&quot;</span>, ord);</div><div class="line">    <a class="code" href="group___i_n___o_u_t___g_r_o_u_p.html#gae30c87757d5bf57584904e543fb1efd2">writetxt</a>(x,y,N,fn);</div><div class="line">  }</div><div class="line">  </div><div class="line">  </div><div class="line">  <span class="comment">/* run GNUPLOT script */</span></div><div class="line">  <a class="code" href="group___i_n___o_u_t___g_r_o_u_p.html#ga8dbaffeb9039ba3eee17c9371d5d7a4c">gnuplot_script</a>(argc, argv, <span class="stringliteral">&quot;gnuplot/cheby_poly1.plt&quot;</span>);</div><div class="line">  </div><div class="line">  dspl_free(handle);      <span class="comment">// free dspl handle</span></div><div class="line"></div><div class="line">  <span class="keywordflow">return</span> 0;</div><div class="line">}</div></div><!-- fragment --><p><br />
+ <br />
+В каталоге <code>dat</code> будут созданы текстовые файлы значений полиномов порядка 1-4: <br />
+ </p><pre>
+cheby_poly1_ord1.txt
+cheby_poly1_ord2.txt
+cheby_poly1_ord3.txt
+cheby_poly1_ord4.txt
+</pre><p>Кроме того программа GNUPLOT произведет построение следующих графиков по сохраненным в файлах данным:</p>
+<div class="image">
+<img src="cheby_poly1.png" alt="cheby_poly1.png"/>
+</div>
+<p>Скрипт GNUPLOT для построения графиков из текстовых файлов: </p><div class="fragment"><div class="line">if(!exists(&quot;plotterm&quot;)) plotterm = &#39;wxt&#39;</div><div class="line">if(plotterm eq &quot;pngcairo&quot;) set output &#39;img/cheby_poly1.png&#39;</div><div class="line"></div><div class="line">set terminal plotterm size 560,380 enhanced font &#39;Verdana,8&#39;</div><div class="line">set grid</div><div class="line">set xlabel &quot;x&quot;</div><div class="line"></div><div class="line">set lmargin at screen 0.10</div><div class="line">set key left top</div><div class="line"></div><div class="line"></div><div class="line">set ylabel &quot;C_N(x)&quot;</div><div class="line">set yrange [-1.5:1.5]</div><div class="line">plot &#39;dat/cheby_poly1_ord1.txt&#39; with lines, \</div><div class="line">     &#39;dat/cheby_poly1_ord2.txt&#39; with lines, \</div><div class="line">     &#39;dat/cheby_poly1_ord3.txt&#39; with lines, \</div><div class="line">     &#39;dat/cheby_poly1_ord4.txt&#39; with lines</div><div class="line"></div><div class="line"></div></div><!-- fragment --><dl class="section author"><dt>Автор</dt><dd>Бахурин Сергей www.dsplib.org </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="cheby_8c_source.html">cheby.c</a> строка <a class="el" href="cheby_8c_source.html#l00078">78</a></p>
+
+</div>
+</div>
+<a id="gaaa6f2b8453ff5a64a5c8fa40bab395f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaaa6f2b8453ff5a64a5c8fa40bab395f7">&#9670;&nbsp;</a></span>cheby_poly2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cheby_poly2 </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ord</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Многочлен Чебышева второго рода порядка <code>ord</code> </p>
+<hr/>
+<p>Функция производит расчет многочлена Чебышева второго рода <img class="formulaInl" alt="$ U_{ord}(x)$" src="form_7.png"/> для вещественного вектора <code>x</code> длины <code>n</code>на основе рекуррентной формулы </p><p class="formulaDsp">
+<img class="formulaDsp" alt="\[ U_{ord}(x) = 2 x U_{ord-1}(x) - U_{ord-2}(x), \]" src="form_8.png"/>
+</p>
+<p> где <img class="formulaInl" alt="$ U_0(x) = 1 $" src="form_9.png"/>, <img class="formulaInl" alt="$ U_1(x) = 2x$" src="form_10.png"/></p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>Указатель на вектор <code>x</code> аргумента полинома Чебышева второго рода. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Размер векторов <code>x</code> и <code>y</code>. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ord</td><td>Порядок полинома Чебышева второго рода. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">y</td><td>Указатель на вектор значений полинома Чебышева, соответствующих аргументу <code>x</code>. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ Память должна быть выделена. <br />
+ <br />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><code>RES_OK</code> Расчет произведен успешно. <br />
+В противном случае <a class="el" href="group___e_r_r_o_r___c_o_d_e___g_r_o_u_p.html">код ошибки</a>. <br />
+ Пример использования функции:</dd></dl>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;stdio.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;string.h&gt;</span></div><div class="line"><span class="preprocessor">#include &quot;dspl.h&quot;</span></div><div class="line"></div><div class="line"><span class="preprocessor">#define N 250</span></div><div class="line"></div><div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[])</div><div class="line">{</div><div class="line">  <span class="keywordtype">void</span>* handle;           <span class="comment">// DSPL handle</span></div><div class="line">  handle = dspl_load();   <span class="comment">// Load DSPL function</span></div><div class="line"></div><div class="line">  <span class="keywordtype">double</span> x[N], y[N];</div><div class="line">  <span class="keywordtype">int</span> ord;</div><div class="line">  <span class="keywordtype">char</span> fn[64];</div><div class="line">  </div><div class="line">  <a class="code" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#ga1ba7e0e9f5194114592abaa49a146def">linspace</a>(-1.0, 1.0, N, DSPL_SYMMETRIC, x);</div><div class="line">  <span class="keywordflow">for</span>(ord = 1; ord &lt; 5; ord++)</div><div class="line">  {</div><div class="line">    <a class="code" href="group___s_p_e_c___m_a_t_h___t_r_a_n_s_c_e_n_d.html#gaaa6f2b8453ff5a64a5c8fa40bab395f7">cheby_poly2</a>(x, N, ord, y);</div><div class="line">    sprintf(fn, <span class="stringliteral">&quot;dat/cheby_poly2_ord%d.txt&quot;</span>, ord);</div><div class="line">    <a class="code" href="group___i_n___o_u_t___g_r_o_u_p.html#gae30c87757d5bf57584904e543fb1efd2">writetxt</a>(x,y,N,fn);</div><div class="line">  }</div><div class="line">  </div><div class="line">  <span class="comment">/* run GNUPLOT script */</span></div><div class="line">  <a class="code" href="group___i_n___o_u_t___g_r_o_u_p.html#ga8dbaffeb9039ba3eee17c9371d5d7a4c">gnuplot_script</a>(argc, argv, <span class="stringliteral">&quot;gnuplot/cheby_poly2.plt&quot;</span>);</div><div class="line">  </div><div class="line">  dspl_free(handle);      <span class="comment">// free dspl handle</span></div><div class="line"></div><div class="line">  <span class="keywordflow">return</span> 0;</div><div class="line">}</div></div><!-- fragment --><p><br />
+ <br />
+В каталоге <code>dat</code> будут созданы текстовые файлы значений полиномов порядка 1-4: <br />
+ </p><pre>
+cheby_poly2_ord1.txt
+cheby_poly2_ord2.txt
+cheby_poly2_ord3.txt
+cheby_poly2_ord4.txt
+</pre><p>Кроме того программа GNUPLOT произведет построение следующих графиков по сохраненным в файлах данным:</p>
+<div class="image">
+<img src="cheby_poly2.png" alt="cheby_poly2.png"/>
+</div>
+<p>Скрипт GNUPLOT для построения графиков из текстовых файлов: </p><div class="fragment"><div class="line">if(!exists(&quot;plotterm&quot;)) plotterm = &#39;wxt&#39;</div><div class="line">if(plotterm eq &quot;pngcairo&quot;) set output &#39;img/cheby_poly2.png&#39;</div><div class="line"></div><div class="line">set grid</div><div class="line">set xlabel &quot;x&quot;</div><div class="line"></div><div class="line">set lmargin at screen 0.10</div><div class="line">set key left top</div><div class="line">set terminal plotterm size 560,380 enhanced font &#39;Verdana,8&#39;</div><div class="line"></div><div class="line">set ylabel &quot;C_N(x)&quot;</div><div class="line">set yrange [-3.5:3.5]</div><div class="line">plot &#39;dat/cheby_poly2_ord1.txt&#39; with lines, \</div><div class="line">     &#39;dat/cheby_poly2_ord2.txt&#39; with lines, \</div><div class="line">     &#39;dat/cheby_poly2_ord3.txt&#39; with lines, \</div><div class="line">     &#39;dat/cheby_poly2_ord4.txt&#39; with lines</div><div class="line"></div><div class="line"></div></div><!-- fragment --><dl class="section author"><dt>Автор</dt><dd>Бахурин Сергей www.dsplib.org </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="cheby_8c_source.html">cheby.c</a> строка <a class="el" href="cheby_8c_source.html#l00174">174</a></p>
+
+</div>
+</div>
+<a id="ga644d0a32928f1189bc1e312e76c43e7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga644d0a32928f1189bc1e312e76c43e7c">&#9670;&nbsp;</a></span>sine_int()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sine_int </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>si</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Функция интегрального синуса </p>
+<hr/>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ \textrm{Si}(x) = \int_{0}^{x} \frac{\sin(x)}{x} \, dx\]" src="form_118.png"/>
+</p>
+<p>Функция рассчитывает значения функции для интегрального синуса для произвольного вещественного вектора <code>x</code>. <br />
+ </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>Указатель на вектор переменной <img class="formulaInl" alt="$ x $" src="form_115.png"/>. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ Память должна быть выделена. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Размер входного вектора <code>x</code>. <br />
+ <br />
+</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">si</td><td>Указатель на вектор значений функции интегрального синуса. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ Память должна быть выделена. <br />
+ <br />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><code>RES_OK</code> Расчет произведен успешно. <br />
+ В противном случае <a class="el" href="group___e_r_r_o_r___c_o_d_e___g_r_o_u_p.html">код ошибки</a>. <br />
+ Пример использования функции <code>sine_int</code>:</dd></dl>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;stdio.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;string.h&gt;</span></div><div class="line"><span class="preprocessor">#include &quot;dspl.h&quot;</span></div><div class="line"></div><div class="line"><span class="preprocessor">#define N 400</span></div><div class="line"></div><div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[])</div><div class="line">{</div><div class="line">  <span class="keywordtype">void</span>* handle;           <span class="comment">// DSPL handle</span></div><div class="line">  handle = dspl_load();   <span class="comment">// Load DSPL function</span></div><div class="line"></div><div class="line">  <span class="keywordtype">double</span> x[N], y[N];</div><div class="line"></div><div class="line">  <a class="code" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#ga1ba7e0e9f5194114592abaa49a146def">linspace</a>(-6*M_PI, 6*M_PI, N, DSPL_PERIODIC, x);</div><div class="line"></div><div class="line">  <a class="code" href="group___s_p_e_c___m_a_t_h___t_r_a_n_s_c_e_n_d.html#ga644d0a32928f1189bc1e312e76c43e7c">sine_int</a>(x, N, y);</div><div class="line">  <a class="code" href="group___i_n___o_u_t___g_r_o_u_p.html#gae30c87757d5bf57584904e543fb1efd2">writetxt</a>(x, y, N, <span class="stringliteral">&quot;dat/dat0.txt&quot;</span>);</div><div class="line">  </div><div class="line">  <a class="code" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#ga588e1bcc9c8022795b3a2a6993f0c2eb">sinc</a>(x, N, 1.0, y);  </div><div class="line">  <a class="code" href="group___i_n___o_u_t___g_r_o_u_p.html#gae30c87757d5bf57584904e543fb1efd2">writetxt</a>(x, y, N, <span class="stringliteral">&quot;dat/dat1.txt&quot;</span>);</div><div class="line">  </div><div class="line">  <a class="code" href="group___i_n___o_u_t___g_r_o_u_p.html#ga8dbaffeb9039ba3eee17c9371d5d7a4c">gnuplot_script</a>(argc, argv, <span class="stringliteral">&quot;gnuplot/sine_int.plt&quot;</span>);</div><div class="line">  </div><div class="line">  dspl_free(handle);      <span class="comment">// free dspl handle</span></div><div class="line">  </div><div class="line">  <span class="keywordflow">return</span> 0;</div><div class="line">}</div></div><!-- fragment --><p>Данная программа рассчитывает значения функции интегрального синуса и функции <a class="el" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#ga588e1bcc9c8022795b3a2a6993f0c2eb">sinc</a> для вектора переменной <code>x</code> в интервале <img class="formulaInl" alt="$[-6\pi \ 6\pi]$" src="form_119.png"/>. Рассчитанные данные сохраняются в текстовые файлы <code>dat/dat0.txt</code> и <code>dat/dat1.txt</code></p>
+<p>и выводятся на график <code>img/sine_int.png</code></p>
+<div class="image">
+<img src="sine_int.png" alt="sine_int.png"/>
+</div>
+<p>Скрипт GNUPLOT для построения графиков из текстовых файлов: </p><div class="fragment"><div class="line">if(!exists(&quot;plotterm&quot;)) plotterm = &#39;wxt&#39;</div><div class="line">if(plotterm eq &quot;pngcairo&quot;) set output &#39;img/sine_int.png&#39;</div><div class="line"></div><div class="line"></div><div class="line">set grid</div><div class="line">set xlabel &quot;x&quot;</div><div class="line"></div><div class="line">set lmargin at screen 0.10</div><div class="line">set key left top</div><div class="line">set terminal plotterm size 560,280 enhanced font &#39;Verdana,8&#39;</div><div class="line"></div><div class="line">set ylabel &quot;Si(x), sinc(x)&quot;</div><div class="line">set yrange [-2:2]</div><div class="line">plot &#39;dat/dat0.txt&#39; with lines  title &quot;Si(x)&quot;, \</div><div class="line">&#39;dat/dat1.txt&#39; with lines title &quot;sinc(x)&quot;</div><div class="line"></div></div><!-- fragment --><dl class="section author"><dt>Автор</dt><dd>Бахурин Сергей www.dsplib.org </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="math_8c_source.html">math.c</a> строка <a class="el" href="math_8c_source.html#l00156">156</a></p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по libdspl-2.0. Последние изменения: Пн 4 Ноя 2019 16:56:52. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.15
+</small></address>
+</div> 
+</body>
+</html>

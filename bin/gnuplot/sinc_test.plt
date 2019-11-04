@@ -1,10 +1,14 @@
+if(!exists("plotterm")) plotterm = 'wxt'
+if(plotterm eq "pngcairo") set output 'img/sinc_test.png'
+
+
 set grid
 set xlabel "x"
 
 set lmargin at screen 0.10
 
-set terminal pngcairo size 560,280 enhanced font 'Verdana,8'
-set output 'img/sinc_test.png'
+set terminal plotterm size 560,280 enhanced font 'Verdana,8'
+
 set ylabel "sinc(x,a)"
 set yrange [-0.25:1.1]
 plot 'dat/sinc_test_1.0.txt' with lines title "a = 1.0", \

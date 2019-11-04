@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="blas" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="../../blas/bin/blas" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="../../blas/obj" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="../../blas/bin/blas" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="../../blas/obj" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Unit filename="../../blas/src/Makefile" />
+		<Unit filename="../../blas/src/caxpy.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/ccopy.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/cdotc.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/cdotu.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/cgbmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/cgemm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/cgemv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/cgerc.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/cgeru.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/chbmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/chemm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/chemv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/cher.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/cher2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/cher2k.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/cherk.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/chpmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/chpr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/chpr2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/crotg.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/cscal.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/csrot.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/csscal.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/cswap.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/csymm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/csyr2k.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/csyrk.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/ctbmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/ctbsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/ctpmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/ctpsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/ctrmm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/ctrmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/ctrsm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/ctrsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dasum.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/daxpy.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dcabs1.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dcopy.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/ddot.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dgbmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dgemm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dgemv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dger.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dnrm2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/drot.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/drotg.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/drotm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/drotmg.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dsbmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dscal.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dsdot.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dspmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dspr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dspr2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dswap.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dsymm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dsymv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dsyr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dsyr2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dsyr2k.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dsyrk.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dtbmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dtbsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dtpmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dtpsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dtrmm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dtrmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dtrsm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dtrsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dzasum.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/dznrm2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/icamax.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/idamax.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/isamax.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/izamax.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/lsame.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/make.inc" />
+		<Unit filename="../../blas/src/sasum.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/saxpy.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/scabs1.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/scasum.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/scnrm2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/scopy.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/sdot.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/sdsdot.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/sgbmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/sgemm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/sgemv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/sger.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/snrm2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/srot.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/srotg.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/srotm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/srotmg.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/ssbmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/sscal.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/sspmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/sspr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/sspr2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/sswap.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/ssymm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/ssymv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/ssyr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/ssyr2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/ssyr2k.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/ssyrk.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/stbmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/stbsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/stpmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/stpsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/strmm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/strmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/strsm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/strsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/xerbla.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/xerbla_array.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/zaxpy.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/zcopy.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/zdotc.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/zdotu.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/zdrot.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/zdscal.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/zgbmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/zgemm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/zgemv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/zgerc.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/zgeru.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/zhbmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/zhemm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/zhemv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/zher.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/zher2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/zher2k.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/zherk.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/zhpmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/zhpr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/zhpr2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/zrotg.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/zscal.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/zswap.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/zsymm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/zsyr2k.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/zsyrk.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/ztbmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/ztbsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/ztpmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/ztpsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/ztrmm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/ztrmv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/ztrsm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../blas/src/ztrsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

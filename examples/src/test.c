@@ -3,30 +3,52 @@
 #include <string.h>
 #include "dspl.h"
 
-#define N  3
+#define ORD 6
+#define N   2000
 
-int main()
+
+int main(int argc, char* argv[])
 {
-  void* handle;           /* DSPL handle         */
-  handle = dspl_load();   /* Load DSPL function  */
+  void* handle;   /* DSPL handle         */
 
-  complex_t a[N*N] = {{1.0, 0.0}, {1.0, 0.0}, {0.0, 0.0},
-                      {2.0, 0.0}, {0.0, 0.0}, {1.0, 0.0},
-                      {3.0, 0.0}, {0.0, 0.0}, {0.0, 0.0}};
+  double b[ORD+1], a[ORD+1];
+  double t[N], s[N], n[N], sf[N];
+  random_t rnd;
+  int k;
+  int err;
 
-  complex_t v[N];
-  int err, info;
-  matrix_print_cmplx(a, N, N, "A", "%8.2f%+8.2fi");
+  /* Load DSPL function  */
+  handle = dspl_load();
 
-  err = matrix_eig_cmplx(a, N, v, &info);
-  if(err!=RES_OK)
-  {
-    printf("ERROR CODE: 0x%.8x, info = %d\n", err, info);
-  }
+  /* random generator init */
+  random_init(&rnd, RAND_TYPE_MT19937, NULL);
 
-  matrix_print_cmplx(v, N, 1, "v", "%10.6f%+10.6fi");
+  /* fill time vector         */
+  linspace(0, N, N, DSPL_PERIODIC, t);
 
-  dspl_free(handle);      /* free dspl handle  */
-  return 0;
+  /* generate noise        */
+  randn(n, N, 0, 1.0, &rnd);
+
+  /* input signal s = sin(2*pi*t) + n(t) */
+  for(k = 0; k < N; k++)
+    s[k] = sin(M_2PI*0.02*t[k]) + n[k];
+
+  /* IIR filter coefficients calculation */
+  iir(1.0, 70.0, ORD, 0.06, 0.0, DSPL_FILTER_ELLIP | DSPL_FILTER_LPF, b, a);
+
+  /* input signal filtration */
+  filter_iir(b, a, ORD, s, N, sf);
+
+  /* save input signal and filter output to the txt-files */
+  writetxt(t,s, N, "dat/s.txt");
+  writetxt(t,sf,N, "dat/sf.txt");
+
+  /* run GNUPLOT script */
+  err = gnuplot_script(argc, argv, "gnuplot/filter_iir.plt");
+
+  /* free DSPL handle */
+  dspl_free(handle);
+
+
+  return err;
 }
-

@@ -1,0 +1,1561 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="lapack_double" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="../../lapack/bin/lapack_double" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="../../lapack/obj" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="../../lapack/bin/lapack_double" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="../../lapack/obj" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Unit filename="../../lapack/src/dbbcsd.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dbdsdc.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dbdsqr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dbdsvdx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/ddisna.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgbbrd.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgbcon.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgbequ.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgbequb.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgbrfs.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgbrfsx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgbsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgbsvx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgbsvxx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgbtf2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgbtrf.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgbtrs.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgebak.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgebal.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgebd2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgebrd.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgecon.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgeequ.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgeequb.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgees.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgeesx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgeev.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgeevx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgehd2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgehrd.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgejsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgelq.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgelq2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgelqf.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgelqt.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgelqt3.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgels.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgelsd.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgelss.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgelsy.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgemlq.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgemlqt.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgemqr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgemqrt.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgeql2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgeqlf.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgeqp3.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgeqr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgeqr2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgeqr2p.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgeqrf.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgeqrfp.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgeqrt.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgeqrt2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgeqrt3.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgerfs.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgerfsx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgerq2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgerqf.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgesc2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgesdd.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgesv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgesvd.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgesvdx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgesvj.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgesvx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgesvxx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgetc2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgetf2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgetrf.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgetrf2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgetri.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgetrs.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgetsls.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dggbak.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dggbal.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgges.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgges3.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dggesx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dggev.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dggev3.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dggevx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dggglm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgghd3.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgghrd.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgglse.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dggqrf.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dggrqf.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dggsvd3.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dggsvp3.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgsvj0.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgsvj1.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgtcon.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgtrfs.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgtsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgtsvx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgttrf.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgttrs.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgtts2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dhgeqz.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dhsein.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dhseqr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/disnan.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dla_gbamv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dla_gbrcond.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dla_gbrfsx_extended.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dla_gbrpvgrw.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dla_geamv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dla_gercond.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dla_gerfsx_extended.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dla_gerpvgrw.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dla_lin_berr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dla_porcond.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dla_porfsx_extended.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dla_porpvgrw.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dla_syamv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dla_syrcond.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dla_syrfsx_extended.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dla_syrpvgrw.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dla_wwaddw.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlabad.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlabrd.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlacn2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlacon.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlacpy.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dladiv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlae2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaebz.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaed0.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaed1.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaed2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaed3.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaed4.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaed5.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaed6.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaed7.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaed8.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaed9.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaeda.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaein.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaev2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaexc.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlag2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlag2s.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlags2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlagtf.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlagtm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlagts.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlagv2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlahqr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlahr2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaic1.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaisnan.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaln2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlals0.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlalsa.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlalsd.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlamch.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlamrg.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlamswlq.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlamtsqr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaneg.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlangb.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlange.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlangt.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlanhs.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlansb.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlansf.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlansp.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlanst.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlansy.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlantb.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlantp.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlantr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlanv2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlapll.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlapmr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlapmt.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlapy2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlapy3.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaqgb.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaqge.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaqp2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaqps.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaqr0.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaqr1.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaqr2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaqr3.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaqr4.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaqr5.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaqsb.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaqsp.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaqsy.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaqtr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlar1v.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlar2v.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlarf.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlarfb.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlarfg.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlarfgp.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlarft.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlarfx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlarfy.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlargv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlarnv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlarra.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlarrb.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlarrc.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlarrd.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlarre.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlarrf.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlarrj.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlarrk.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlarrr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlarrv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlarscl2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlartg.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlartgp.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlartgs.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlartv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaruv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlarz.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlarzb.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlarzt.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlas2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlascl.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlascl2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlasd0.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlasd1.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlasd2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlasd3.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlasd4.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlasd5.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlasd6.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlasd7.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlasd8.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlasda.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlasdq.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlasdt.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaset.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlasq1.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlasq2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlasq3.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlasq4.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlasq5.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlasq6.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlasr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlasrt.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlassq.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlasv2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaswlq.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaswp.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlasy2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlasyf.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlasyf_aa.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlasyf_rk.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlasyf_rook.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlat2s.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlatbs.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlatdf.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlatps.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlatrd.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlatrs.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlatrz.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlatsqr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlauu2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlauum.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dopgtr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dopmtr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dorbdb.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dorbdb1.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dorbdb2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dorbdb3.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dorbdb4.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dorbdb5.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dorbdb6.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dorcsd.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dorcsd2by1.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dorg2l.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dorg2r.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dorgbr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dorghr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dorgl2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dorglq.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dorgql.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dorgqr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dorgr2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dorgrq.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dorgtr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dorm22.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dorm2l.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dorm2r.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dormbr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dormhr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dorml2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dormlq.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dormql.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dormqr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dormr2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dormr3.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dormrq.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dormrz.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dormtr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dpbcon.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dpbequ.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dpbrfs.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dpbstf.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dpbsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dpbsvx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dpbtf2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dpbtrf.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dpbtrs.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dpftrf.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dpftri.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dpftrs.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dpocon.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dpoequ.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dpoequb.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dporfs.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dporfsx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dposv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dposvx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dposvxx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dpotf2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dpotrf.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dpotrf2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dpotri.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dpotrs.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dppcon.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dppequ.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dpprfs.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dppsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dppsvx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dpptrf.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dpptri.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dpptrs.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dpstf2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dpstrf.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dptcon.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dpteqr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dptrfs.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dptsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dptsvx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dpttrf.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dpttrs.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dptts2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/drscl.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsb2st_kernels.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsbev.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsbev_2stage.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsbevd.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsbevd_2stage.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsbevx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsbevx_2stage.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsbgst.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsbgv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsbgvd.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsbgvx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsbtrd.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsfrk.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsgesv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dspcon.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dspev.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dspevd.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dspevx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dspgst.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dspgv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dspgvd.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dspgvx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsposv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsprfs.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dspsv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dspsvx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsptrd.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsptrf.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsptri.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsptrs.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dstebz.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dstedc.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dstegr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dstein.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dstemr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsteqr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsterf.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dstev.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dstevd.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dstevr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dstevx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsycon.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsycon_3.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsycon_rook.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsyconv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsyconvf.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsyconvf_rook.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsyequb.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsyev.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsyev_2stage.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsyevd.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsyevd_2stage.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsyevr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsyevr_2stage.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsyevx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsyevx_2stage.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsygs2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsygst.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsygv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsygv_2stage.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsygvd.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsygvx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsyrfs.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsyrfsx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsysv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsysv_aa.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsysv_aa_2stage.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsysv_rk.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsysv_rook.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsysvx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsysvxx.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsyswapr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsytd2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsytf2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsytf2_rk.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsytf2_rook.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsytrd.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsytrd_2stage.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsytrd_sb2st.F">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsytrd_sy2sb.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsytrf.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsytrf_aa.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsytrf_aa_2stage.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsytrf_rk.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsytrf_rook.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsytri.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsytri2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsytri2x.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsytri_3.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsytri_3x.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsytri_rook.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsytrs.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsytrs2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsytrs_3.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsytrs_aa.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsytrs_aa_2stage.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsytrs_rook.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtbcon.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtbrfs.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtbtrs.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtfsm.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtftri.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtfttp.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtfttr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtgevc.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtgex2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtgexc.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtgsen.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtgsja.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtgsna.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtgsy2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtgsyl.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtpcon.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtplqt.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtplqt2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtpmlqt.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtpmqrt.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtpqrt.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtpqrt2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtprfb.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtprfs.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtptri.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtptrs.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtpttf.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtpttr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtrcon.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtrevc.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtrevc3.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtrexc.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtrrfs.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtrsen.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtrsna.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtrsyl.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtrti2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtrtri.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtrtrs.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtrttf.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtrttp.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dtzrzf.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dzsum1.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/icmax1.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/ieeeck.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/ilaclc.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/ilaclr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/iladiag.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/iladlc.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/iladlr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/ilaenv.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/ilaenv2stage.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/ilaprec.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/ilaslc.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/ilaslr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/ilatrans.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/ilauplo.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/ilazlc.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/ilazlr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/iparam2stage.F">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/iparmq.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/izmax1.f">
+			<Option weight="0" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

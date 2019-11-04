@@ -15,10 +15,10 @@ RANLIB   = ranlib
 #
 #  The location and name of the Reference BLAS library.
 #
-LAPACK_DOUBLE_LIB      = bin/Release/liblapack_double.a
-LAPACK_COMPLEX_LIB      = bin/Release/liblapack_complex.a
+LAPACK_DOUBLE_LIB      = bin/liblapack_double.a
+LAPACK_COMPLEX_LIB      = bin/liblapack_complex.a
 
-LAPACK_OBJ_DIR = obj/Release/src
+LAPACK_OBJ_DIR = obj
 
 # DSPL src and obj files list
 include lapack_double.inc

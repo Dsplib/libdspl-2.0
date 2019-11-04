@@ -1,12 +1,13 @@
 
 
+if(!exists("plotterm")) plotterm = 'wxt'
+if(plotterm eq "pngcairo") set output 'img/filter_iir_test.png'
+
 unset key
 set grid
 set xlabel "n"
 
 set terminal plotterm size 820, 340 enhanced font 'Verdana,8'
-
-#set output 'img/filter_iir_test.png'
 
 set ylabel "s(n)"
 set yrange [-3:3]

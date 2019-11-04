@@ -1,0 +1,181 @@
+<!-- HTML header for doxygen 1.8.13
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.15"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>libdspl-2.0: Функции математической статистики</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="doxy_stylesheet.css" rel="stylesheet" type="text/css" />
+<link href="http://dsplib.org/dsplib-stylesheet.css".css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter32971694 = new Ya.Metrika({
+                    id:32971694,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/32971694" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<div class = "header-bar">
+<div class = "menu-bar">
+<nav>
+  <ul>
+    <div class = "dsplib-logo"><img src="http://dsplib.org/logo.png" /> </div>
+    <li><a href="http://ru.dsplib.org">Содержание</a></li>
+    <li><a href="http://ru.dsplib.org/dspl">DSPL</a></li>
+    <li><a href="http://ru.dsplib.org/forum">Форум</a></li>
+    <li>
+      <div class="search-bar">
+      <div class="ya-site-form ya-site-form_inited_no" onclick="return {'action':'http://ru.dsplib.org/search_results.html','arrow':false,'bg':'transparent','fontsize':12,'fg':'#000000','language':'ru','logo':'rb','publicname':'ru.dsplib.org поиск','suggest':true,'target':'_self','tld':'ru','type':2,'usebigdictionary':true,'searchid':2332185,'input_fg':'#000000','input_bg':'#ffffff','input_fontStyle':'normal','input_fontWeight':'normal','input_placeholder':'поиск','input_placeholderColor':'#000000','input_borderColor':'#7f9db9'}"><form action="https://yandex.ru/search/site/" method="get" target="_self" accept-charset="utf-8"><input type="hidden" name="searchid" value="2332185"/><input type="hidden" name="l10n" value="ru"/><input type="hidden" name="reqenc" value=""/><input type="search" name="text" value="" style = "height: 24px; font-family: verdana,arial; font-size: 12px"/><input type="submit" value="Найти" style = "display: none;"/></form></div><style type="text/css">.ya-page_js_yes .ya-site-form_inited_no { display: none; }</style><script type="text/javascript">(function(w,d,c){var s=d.createElement('script'),h=d.getElementsByTagName('script')[0],e=d.documentElement;if((' '+e.className+' ').indexOf(' ya-page_js_yes ')===-1){e.className+=' ya-page_js_yes';}s.type='text/javascript';s.async=true;s.charset='utf-8';s.src=(d.location.protocol==='https:'?'https:':'http:')+'//site.yandex.net/v2.0/js/all.js';h.parentNode.insertBefore(s,h);(w[c]||(w[c]=[])).push(function(){Ya.Site.Form.init()})})(window,document,'yandex_site_callbacks');</script>
+      </div>
+    </li> 
+  </ul>
+</nav>
+</div>
+</div>
+<div class="main-dsplib">
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">libdspl-2.0
+   </div>
+   <div id="projectbrief">Библиотека алгоритмов цифровой обработки сигналов</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.15 -->
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle">
+<div class="title">Функции математической статистики</div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga7eae8a5b78abebdeae36e4045d9094ed"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_e_c___m_a_t_h___s_t_a_t___g_r_o_u_p.html#ga7eae8a5b78abebdeae36e4045d9094ed">find_max_abs</a> (double *a, int n, double *m, int *ind)</td></tr>
+<tr class="memdesc:ga7eae8a5b78abebdeae36e4045d9094ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Поиск максимального по модулю элемента вещественного вектора <code>a</code>  <a href="#ga7eae8a5b78abebdeae36e4045d9094ed">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga7eae8a5b78abebdeae36e4045d9094ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<h2 class="groupheader">Функции</h2>
+<a id="ga7eae8a5b78abebdeae36e4045d9094ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7eae8a5b78abebdeae36e4045d9094ed">&#9670;&nbsp;</a></span>find_max_abs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int find_max_abs </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>ind</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Поиск максимального по модулю элемента вещественного вектора <code>a</code> </p>
+<hr/>
+<p>Функция производит поиск максимального по модулю значения вектора <code>a</code>. <br />
+Максимальное по модулю значение <code>max|a[k]|</code> сохраняется по адресу <code>m</code>, а индекс данного значения в векторе <code>a</code> сохраняется по адресу <code>ind</code>. <br />
+ </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>Указатель на вещественный вектор <code>a</code>. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Размер входного вектора <code>a</code>. <br />
+ <br />
+</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">m</td><td>Указатель на адрес памяти, в который сохранить максимальное по модулю значение вектора <code>a</code>. <br />
+ Указатель может быть <code>NULL</code>, в этом случае максимальное по модулю значение не сохраняется. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ind</td><td>Указатель на переменную, в которую будет сохранен индекс максимального по модулю значению вектора <code>a</code>. <br />
+ Указатель может быть <code>NULL</code>, в этом случае индекс не возвращается. <br />
+ <br />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><code>RES_OK</code> если функция выполнена успешно. <br />
+ В противном случае <a class="el" href="group___e_r_r_o_r___c_o_d_e___g_r_o_u_p.html">код ошибки</a>.</dd></dl>
+<p>Пример: </p><div class="fragment"><div class="line"><span class="keywordtype">double</span> a[5] = {0.0, 2.0, -5.0, 4.0, 2.0};</div><div class="line"><span class="keywordtype">double</span> m;</div><div class="line"><span class="keywordtype">int</span> ind;</div><div class="line"><a class="code" href="group___s_p_e_c___m_a_t_h___s_t_a_t___g_r_o_u_p.html#ga7eae8a5b78abebdeae36e4045d9094ed">find_max_abs</a>(a, 5, &amp;m, &amp;ind);</div><div class="line">printf(<span class="stringliteral">&quot;\n\nmax absolute value:    %8.1f  (index %d)&quot;</span>, m, ind);</div></div><!-- fragment --><p> в результате в переменную <code>m</code> будет записано значение <code>5</code>, а в переменную <code>ind</code> значение <code>2</code>.</p>
+<dl class="section author"><dt>Автор</dt><dd>Бахурин Сергей www.dsplib.org </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="array_8c_source.html">array.c</a> строка <a class="el" href="array_8c_source.html#l00280">280</a></p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по libdspl-2.0. Последние изменения: Пн 4 Ноя 2019 16:56:52. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.15
+</small></address>
+</div> 
+</body>
+</html>

@@ -6,7 +6,7 @@
 #define N   1000
 
 
-int main()
+int main(int argc, char* argv[])
 {
   void* handle;           // DSPL handle
   handle = dspl_load();   // Load DSPL function
@@ -23,14 +23,10 @@ int main()
   sinc(x, N, 2.0*M_PI, y);
   writetxt(x, y, N, "dat/sinc_test_2pi.txt");
   
+  gnuplot_script(argc, argv, "gnuplot/sinc_test.plt");
+  
   dspl_free(handle);      // free dspl handle
-  
-  // выполнить скрипт GNUPLOT для построения графиков
-  // по рассчитанным данным
-  int err =  system("gnuplot -p  gnuplot/sinc_test.plt");
-  printf("err = %d\n", err);
-  
-  
-  return err;
+
+  return 0;
 }
 

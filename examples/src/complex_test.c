@@ -3,7 +3,7 @@
 #include <string.h>
 #include "dspl.h"
 
-int main()
+int main(int argc, char* argv[])
 {
   void* handle;           // DSPL handle
   handle = dspl_load();   // Load DSPL function

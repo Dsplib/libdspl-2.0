@@ -10,7 +10,7 @@
 #define N   1001
 
 
-int main()
+int main(int argc, char* argv[])
 {
   void* handle;               // DSPL handle
   handle = dspl_load();       // Load DSPL function
@@ -52,10 +52,12 @@ int main()
   writetxt(w, phi, N, "dat/iir_bstop_phi.txt");
   writetxt(w, tau, N, "dat/iir_bstop_tau.txt");
   
+  gnuplot_script(argc, argv, "gnuplot/iir_bstop.plt");
+  
   dspl_free(handle);      // free dspl handle
   
   // run GNUPLOT script
-  return system("gnuplot -p gnuplot/iir_bstop.plt");;
+  return 0;
 }
 
 

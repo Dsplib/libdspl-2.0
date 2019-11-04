@@ -1,0 +1,1251 @@
+<!-- HTML header for doxygen 1.8.13
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.15"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>libdspl-2.0: Базовые математические функции и работа с массивами данных</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="doxy_stylesheet.css" rel="stylesheet" type="text/css" />
+<link href="http://dsplib.org/dsplib-stylesheet.css".css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter32971694 = new Ya.Metrika({
+                    id:32971694,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/32971694" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<div class = "header-bar">
+<div class = "menu-bar">
+<nav>
+  <ul>
+    <div class = "dsplib-logo"><img src="http://dsplib.org/logo.png" /> </div>
+    <li><a href="http://ru.dsplib.org">Содержание</a></li>
+    <li><a href="http://ru.dsplib.org/dspl">DSPL</a></li>
+    <li><a href="http://ru.dsplib.org/forum">Форум</a></li>
+    <li>
+      <div class="search-bar">
+      <div class="ya-site-form ya-site-form_inited_no" onclick="return {'action':'http://ru.dsplib.org/search_results.html','arrow':false,'bg':'transparent','fontsize':12,'fg':'#000000','language':'ru','logo':'rb','publicname':'ru.dsplib.org поиск','suggest':true,'target':'_self','tld':'ru','type':2,'usebigdictionary':true,'searchid':2332185,'input_fg':'#000000','input_bg':'#ffffff','input_fontStyle':'normal','input_fontWeight':'normal','input_placeholder':'поиск','input_placeholderColor':'#000000','input_borderColor':'#7f9db9'}"><form action="https://yandex.ru/search/site/" method="get" target="_self" accept-charset="utf-8"><input type="hidden" name="searchid" value="2332185"/><input type="hidden" name="l10n" value="ru"/><input type="hidden" name="reqenc" value=""/><input type="search" name="text" value="" style = "height: 24px; font-family: verdana,arial; font-size: 12px"/><input type="submit" value="Найти" style = "display: none;"/></form></div><style type="text/css">.ya-page_js_yes .ya-site-form_inited_no { display: none; }</style><script type="text/javascript">(function(w,d,c){var s=d.createElement('script'),h=d.getElementsByTagName('script')[0],e=d.documentElement;if((' '+e.className+' ').indexOf(' ya-page_js_yes ')===-1){e.className+=' ya-page_js_yes';}s.type='text/javascript';s.async=true;s.charset='utf-8';s.src=(d.location.protocol==='https:'?'https:':'http:')+'//site.yandex.net/v2.0/js/all.js';h.parentNode.insertBefore(s,h);(w[c]||(w[c]=[])).push(function(){Ya.Site.Form.init()})})(window,document,'yandex_site_callbacks');</script>
+      </div>
+    </li> 
+  </ul>
+</nav>
+</div>
+</div>
+<div class="main-dsplib">
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">libdspl-2.0
+   </div>
+   <div id="projectbrief">Библиотека алгоритмов цифровой обработки сигналов</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.15 -->
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle">
+<div class="title">Базовые математические функции и работа с массивами данных</div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga1f9d8d8dcff4f2bc6fb591e9662ff64b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#ga1f9d8d8dcff4f2bc6fb591e9662ff64b">concat</a> (void *a, size_t na, void *b, size_t nb, void *c)</td></tr>
+<tr class="memdesc:ga1f9d8d8dcff4f2bc6fb591e9662ff64b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конкатенация двух массивов данных  <a href="#ga1f9d8d8dcff4f2bc6fb591e9662ff64b">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga1f9d8d8dcff4f2bc6fb591e9662ff64b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa8d244adfef4f0585ff77e94230686ea"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#gaa8d244adfef4f0585ff77e94230686ea">decimate</a> (double *x, int n, int d, double *y, int *cnt)</td></tr>
+<tr class="memdesc:gaa8d244adfef4f0585ff77e94230686ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Децимация вещественного вектора данных  <a href="#gaa8d244adfef4f0585ff77e94230686ea">Подробнее...</a><br /></td></tr>
+<tr class="separator:gaa8d244adfef4f0585ff77e94230686ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1633ac3610a9945a18d9bdb6bc3c7e6b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#ga1633ac3610a9945a18d9bdb6bc3c7e6b">decimate_cmplx</a> (<a class="el" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> *x, int n, int d, <a class="el" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> *y, int *cnt)</td></tr>
+<tr class="memdesc:ga1633ac3610a9945a18d9bdb6bc3c7e6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Децимация комплексного вектора данных  <a href="#ga1633ac3610a9945a18d9bdb6bc3c7e6b">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga1633ac3610a9945a18d9bdb6bc3c7e6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaff343477b9e0b05d24f9d5344f80796e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#gaff343477b9e0b05d24f9d5344f80796e">flipip</a> (double *x, int n)</td></tr>
+<tr class="memdesc:gaff343477b9e0b05d24f9d5344f80796e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция отражения вещественного вектора <code>x</code>  <a href="#gaff343477b9e0b05d24f9d5344f80796e">Подробнее...</a><br /></td></tr>
+<tr class="separator:gaff343477b9e0b05d24f9d5344f80796e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac8af6c777bbcbf9f4830a6077abf66f4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#gac8af6c777bbcbf9f4830a6077abf66f4">flipip_cmplx</a> (<a class="el" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> *x, int n)</td></tr>
+<tr class="memdesc:gac8af6c777bbcbf9f4830a6077abf66f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция отражения комплексного вектора <code>x</code>  <a href="#gac8af6c777bbcbf9f4830a6077abf66f4">Подробнее...</a><br /></td></tr>
+<tr class="separator:gac8af6c777bbcbf9f4830a6077abf66f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3847fc8cf6ceda6068400aed2643b2e4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#ga3847fc8cf6ceda6068400aed2643b2e4">verif</a> (double *x, double *y, size_t n, double eps, double *err)</td></tr>
+<tr class="memdesc:ga3847fc8cf6ceda6068400aed2643b2e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Верификация вещественных массивов  <a href="#ga3847fc8cf6ceda6068400aed2643b2e4">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga3847fc8cf6ceda6068400aed2643b2e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa7aa689ca039388f5cc1989c86d7a430"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#gaa7aa689ca039388f5cc1989c86d7a430">verif_cmplx</a> (<a class="el" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> *x, <a class="el" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> *y, size_t n, double eps, double *err)</td></tr>
+<tr class="memdesc:gaa7aa689ca039388f5cc1989c86d7a430"><td class="mdescLeft">&#160;</td><td class="mdescRight">Верификация комплексных массивов  <a href="#gaa7aa689ca039388f5cc1989c86d7a430">Подробнее...</a><br /></td></tr>
+<tr class="separator:gaa7aa689ca039388f5cc1989c86d7a430"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaef97a041115289fd8d27a7e0a0c3cd42"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#gaef97a041115289fd8d27a7e0a0c3cd42">log_cmplx</a> (<a class="el" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> *x, int n, <a class="el" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> *y)</td></tr>
+<tr class="memdesc:gaef97a041115289fd8d27a7e0a0c3cd42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Натуральный логарифм комплексного аргумента <code>x</code>  <a href="#gaef97a041115289fd8d27a7e0a0c3cd42">Подробнее...</a><br /></td></tr>
+<tr class="separator:gaef97a041115289fd8d27a7e0a0c3cd42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga951b305891a92cad47f0b465a1df9fd5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#ga951b305891a92cad47f0b465a1df9fd5">sqrt_cmplx</a> (<a class="el" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> *x, int n, <a class="el" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> *y)</td></tr>
+<tr class="memdesc:ga951b305891a92cad47f0b465a1df9fd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Квадратный корень из комплексного вектора <code>x</code> (поэлементный).  <a href="#ga951b305891a92cad47f0b465a1df9fd5">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga951b305891a92cad47f0b465a1df9fd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1ba7e0e9f5194114592abaa49a146def"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#ga1ba7e0e9f5194114592abaa49a146def">linspace</a> (double x0, double x1, int n, int type, double *x)</td></tr>
+<tr class="memdesc:ga1ba7e0e9f5194114592abaa49a146def"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция заполняет массив линейно-нарастающими, равноотстоящими значениями от <code>x0</code> до <code>x1</code>  <a href="#ga1ba7e0e9f5194114592abaa49a146def">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga1ba7e0e9f5194114592abaa49a146def"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad18821174e4a11f75c5d381732249122"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#gad18821174e4a11f75c5d381732249122">logspace</a> (double x0, double x1, int n, int type, double *x)</td></tr>
+<tr class="memdesc:gad18821174e4a11f75c5d381732249122"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция заполняет массив значениями логарифмической шкале  <a href="#gad18821174e4a11f75c5d381732249122">Подробнее...</a><br /></td></tr>
+<tr class="separator:gad18821174e4a11f75c5d381732249122"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga588e1bcc9c8022795b3a2a6993f0c2eb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#ga588e1bcc9c8022795b3a2a6993f0c2eb">sinc</a> (double *x, int n, double a, double *y)</td></tr>
+<tr class="memdesc:ga588e1bcc9c8022795b3a2a6993f0c2eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция <img class="formulaInl" alt="$ \textrm{sinc}(x,a) = \frac{\sin(ax)}{ax}$" src="form_117.png"/>.  <a href="#ga588e1bcc9c8022795b3a2a6993f0c2eb">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga588e1bcc9c8022795b3a2a6993f0c2eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga506b4d24f0515cc405bae82f4fe4544e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#ga506b4d24f0515cc405bae82f4fe4544e">polyval</a> (double *a, int ord, double *x, int n, double *y)</td></tr>
+<tr class="memdesc:ga506b4d24f0515cc405bae82f4fe4544e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Расчет вещественного полинома  <a href="#ga506b4d24f0515cc405bae82f4fe4544e">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga506b4d24f0515cc405bae82f4fe4544e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8aaa05263879db4bd1ef14173f8ffbf7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#ga8aaa05263879db4bd1ef14173f8ffbf7">polyval_cmplx</a> (<a class="el" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> *a, int ord, <a class="el" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> *x, int n, <a class="el" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> *y)</td></tr>
+<tr class="memdesc:ga8aaa05263879db4bd1ef14173f8ffbf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Расчет комплексного полинома  <a href="#ga8aaa05263879db4bd1ef14173f8ffbf7">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga8aaa05263879db4bd1ef14173f8ffbf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<h2 class="groupheader">Функции</h2>
+<a id="ga1f9d8d8dcff4f2bc6fb591e9662ff64b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1f9d8d8dcff4f2bc6fb591e9662ff64b">&#9670;&nbsp;</a></span>concat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int concat </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>na</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>nb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Конкатенация двух массивов данных </p>
+<hr/>
+<p>Функция производит конкатенацию двух массивов. Пусть массивы <code>a</code> и <code>b</code> заданы как векторы: <br />
+<code>a = [a(0), a(1), ... a(na-1)]</code>, <br />
+<code>b = [b(0), b(1), ... b(nb-1)]</code>, <br />
+тогда результатом конкатенации будет вектор размера <code>na+nb</code> вида: <br />
+<code>c = [a(0), a(1), ... a(na-1), b(0), b(1), ... b(nb-1)]</code>.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>Указатель на первый вектор <code>a</code>. <br />
+ Размер вектора <code>na</code> байт. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">na</td><td>Размер первого вектора <code>a</code> в байт. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>Указатель на второй вектор <code>b</code>. <br />
+ Размер памяти вектора <code>nb</code> байт. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">nb</td><td>Размер второго вектора <code>b</code> в байт. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">c</td><td>Указатель на вектор конкатенации <code>c</code>. <br />
+ Размер памяти вектора <code>na + nb</code> байт. <br />
+ Память должна быть выделена. <br />
+ <br />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><code>RES_OK</code> если функция выполнена успешно. <br />
+ В противном случае <a class="el" href="group___e_r_r_o_r___c_o_d_e___g_r_o_u_p.html">код ошибки</a>.</dd></dl>
+<p>Функция использует указатели типа <code>void*</code> и может быть использована для конкатенации данных различного типа. <br />
+Например конкатенация массивов типа <code>double</code>: </p><div class="fragment"><div class="line"><span class="keywordtype">double</span> a[3] = {1.0, 2.0, 3.0};</div><div class="line"><span class="keywordtype">double</span> b[2] = {4.0, 5.0};</div><div class="line"><span class="keywordtype">double</span> c[5];</div><div class="line"></div><div class="line"><a class="code" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#ga1f9d8d8dcff4f2bc6fb591e9662ff64b">concat</a>((<span class="keywordtype">void</span>*)a, 3*<span class="keyword">sizeof</span>(<span class="keywordtype">double</span>), (<span class="keywordtype">void</span>*)b, 2*<span class="keyword">sizeof</span>(<span class="keywordtype">double</span>), (<span class="keywordtype">void</span>*)c);</div></div><!-- fragment --><p> в результате вектор <code>c</code> будет хранить массив данных: </p><pre class="fragment">c = [1.0, 2.0, 3.0, 4.0, 5.0]
+</pre><dl class="section author"><dt>Автор</dt><dd>Бахурин Сергей, www.dsplib.org </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="array_8c_source.html">array.c</a> строка <a class="el" href="array_8c_source.html#l00074">74</a></p>
+
+</div>
+</div>
+<a id="gaa8d244adfef4f0585ff77e94230686ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa8d244adfef4f0585ff77e94230686ea">&#9670;&nbsp;</a></span>decimate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int decimate </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Децимация вещественного вектора данных </p>
+<hr/>
+<p>Функция производит децимацию вещественного вектора <code>x</code> в <code>d</code> раз. <br />
+В результате выходной вектор <code>y</code> содержит значения: <code>y(k) = x(k*d), k = 0...n/d-1</code> <br />
+ </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>Указатель на вектор входных данных <code>x</code>. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Размер входного вектора <code>x</code>. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">d</td><td>Коэффициент децимации. <br />
+ В результате децимации из вектора <code>x</code> будет взять каждый d-й элемент. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">y</td><td>Указатель на децимированный вектор <code>y</code>. <br />
+ Размер выходного вектора равен <code>[n/d x 1]</code> будет сохранен по адресу <code>cnt</code>. <br />
+ Память должна быть выделена. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">cnt</td><td>Указатель переменную, в которую будет сохранен размер выходного вектора после децимации. <br />
+ Указатель может быть <code>NULL</code>, в этом случае размер вектора <code>y</code> не возвращается. <br />
+ <br />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><code>RES_OK</code> если функция выполнена успешно. <br />
+ В противном случае <a class="el" href="group___e_r_r_o_r___c_o_d_e___g_r_o_u_p.html">код ошибки</a>.</dd></dl>
+<p>Пример децимации вещественного массива данных в 2 раза: </p><div class="fragment"><div class="line"><span class="keywordtype">double</span> x[10] = {0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0};</div><div class="line"><span class="keywordtype">double</span> y[5];</div><div class="line"><span class="keywordtype">int</span> d = 2;</div><div class="line"><span class="keywordtype">int</span> cnt;</div><div class="line"></div><div class="line"><a class="code" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#gaa8d244adfef4f0585ff77e94230686ea">decimate</a>(x, 10, d, y, &amp;cnt);</div></div><!-- fragment --><p> в результате в переменную <code>cnt</code> будет записан размер 5, а вектор <code>y</code> будет хранить массив данных: </p><pre class="fragment">c = [0.0, 2.0, 4.0, 6.0, 8.0]
+</pre><dl class="section author"><dt>Автор</dt><dd>Бахурин Сергей www.dsplib.org </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="array_8c_source.html">array.c</a> строка <a class="el" href="array_8c_source.html#l00139">139</a></p>
+
+</div>
+</div>
+<a id="ga1633ac3610a9945a18d9bdb6bc3c7e6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1633ac3610a9945a18d9bdb6bc3c7e6b">&#9670;&nbsp;</a></span>decimate_cmplx()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int decimate_cmplx </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> *&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> *&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Децимация комплексного вектора данных </p>
+<hr/>
+<p>Функция производит децимацию комплексного вектора <code>x</code> в <code>d</code> раз. <br />
+В результате выходной вектор <code>y</code> содержит значения: <code>y(k) = x(k*d), k = 0...n/d-1</code> <br />
+ </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>Указатель на вектор входных данных <code>x</code>. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Размер входного вектора <code>x</code>. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">d</td><td>Коэффициент децимации. <br />
+ В результате децимации из вектора <code>x</code> будет взять каждый d-й элемент. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">y</td><td>Указатель на децимированный вектор <code>y</code>. <br />
+ Размер выходного вектора равен <code>[n/d x 1]</code> будет сохранен по адресу <code>cnt</code>. <br />
+ Память должна быть выделена. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">cnt</td><td>Указатель переменную, в которую будет сохранен размер выходного вектора после децимации. <br />
+ Указатель может быть <code>NULL</code>, в этом случае размер вектора <code>y</code> не возвращается. <br />
+ <br />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><code>RES_OK</code> если функция выполнена успешно. <br />
+ В противном случае <a class="el" href="group___e_r_r_o_r___c_o_d_e___g_r_o_u_p.html">код ошибки</a>.</dd></dl>
+<p>Пример децимации комплексного массива данных в 2 раза: </p><div class="fragment"><div class="line">compex_t x[10] = {{0.0, 0.0}, {1.0, 1.0}, {2.0, 2.0}, {3.0, 3.0}, {4.0, 4.0},</div><div class="line">                  {5.0, 5.0}, {6.0, 6.0}, {7.0, 7.0}, {8.0, 8.0}, {9.0, 9.0}};</div><div class="line">compex_t y[5];</div><div class="line"><span class="keywordtype">int</span> d = 2;</div><div class="line"><span class="keywordtype">int</span> cnt;</div><div class="line"></div><div class="line"><a class="code" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#ga1633ac3610a9945a18d9bdb6bc3c7e6b">decimate_cmplx</a>(x, 10, d, y, &amp;cnt);</div></div><!-- fragment --><p> в результате в переменную <code>cnt</code> будет записан размер 5, а вектор <code>y</code> будет хранить массив данных: </p><pre class="fragment">c = [0.0+0.0j, 2.0+2.0j, 4.0+4.0j, 6.0+6.0j, 8.0+8.0j]
+</pre><dl class="section author"><dt>Автор</dt><dd>Бахурин Сергей www.dsplib.org </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="array_8c_source.html">array.c</a> строка <a class="el" href="array_8c_source.html#l00214">214</a></p>
+
+</div>
+</div>
+<a id="gaff343477b9e0b05d24f9d5344f80796e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaff343477b9e0b05d24f9d5344f80796e">&#9670;&nbsp;</a></span>flipip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int flipip </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Функция отражения вещественного вектора <code>x</code> </p>
+<hr/>
+<p>Функция производит отражение вещественного вектора длины <code>n</code> в памяти данных. <br />
+Например исходный вектор <code>x</code> длины 6: <br />
+</p><pre class="fragment">x = [0, 1, 2, 3, 4, 5]
+</pre><p> После отражения вектор <code>x</code> будет иметь вид: </p><pre class="fragment">x = [5, 4, 3, 2, 1, 0]
+</pre><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">x</td><td>Указатель на вещественный вектор <code>x</code>. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ Результат отражения будет помещен по этому же адресу. <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Размер вектора <code>x</code>. <br />
+ <br />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><code>RES_OK</code> если функция выполнена успешно. <br />
+ В противном случае <a class="el" href="group___e_r_r_o_r___c_o_d_e___g_r_o_u_p.html">код ошибки</a>.</dd></dl>
+<p>Пример: </p><div class="fragment"><div class="line"><span class="keywordtype">double</span> x[5] = {0.0, 1.0, 2.0, 3.0, 4.0};</div><div class="line"><span class="keywordtype">int</span> i;  </div><div class="line"><span class="keywordflow">for</span>(i = 0; i &lt; 5; i++)</div><div class="line">  printf(<span class="stringliteral">&quot;%6.1f  &quot;</span>, x[i]);</div><div class="line"><a class="code" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#gaff343477b9e0b05d24f9d5344f80796e">flipip</a>(x, 5);</div><div class="line">printf(<span class="stringliteral">&quot;\n&quot;</span>);</div><div class="line"><span class="keywordflow">for</span>(i = 0; i &lt; 5; i++)</div><div class="line">  printf(<span class="stringliteral">&quot;%6.1f  &quot;</span>, x[i]);</div></div><!-- fragment --><p> <br />
+Результат выполнения: </p><pre class="fragment">   0.0     1.0     2.0     3.0     4.0
+   4.0     3.0     2.0     1.0     0.0
+</pre><dl class="section author"><dt>Автор</dt><dd>Бахурин Сергей www.dsplib.org </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="array_8c_source.html">array.c</a> строка <a class="el" href="array_8c_source.html#l00353">353</a></p>
+
+</div>
+</div>
+<a id="gac8af6c777bbcbf9f4830a6077abf66f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac8af6c777bbcbf9f4830a6077abf66f4">&#9670;&nbsp;</a></span>flipip_cmplx()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int flipip_cmplx </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> *&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Функция отражения комплексного вектора <code>x</code> </p>
+<hr/>
+<p>Функция производит отражение комплексного вектора длины <code>n</code> в памяти данных. <br />
+Например исходный вектор <code>x</code> длины 6: <br />
+</p><pre class="fragment">x = [0+0j, 1+1j, 2+2j, 3+3j, 4+4j, 5+5j]
+</pre><p> После отражения вектор <code>x</code> будет иметь вид: </p><pre class="fragment">x = [5+5j, 4+4j, 3+3j, 2+2j, 1+1j, 0+0j]
+</pre><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">x</td><td>Указатель на комплексный вектор <code>x</code>. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ Результат отражения будет помещен по этому же адресу. <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Размер вектора <code>x</code>. <br />
+ <br />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><code>RES_OK</code> если функция выполнена успешно. <br />
+ В противном случае <a class="el" href="group___e_r_r_o_r___c_o_d_e___g_r_o_u_p.html">код ошибки</a>.</dd></dl>
+<p>Пример: </p><div class="fragment"><div class="line"><a class="code" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> y[5] = {{0.0, 0.0}, {1.0, 1.0}, {2.0, 2.0}, {3.0, 3.0}, {4.0, 4.0}};</div><div class="line"><span class="keywordflow">for</span>(i = 0; i &lt; 5; i++)</div><div class="line">  printf(<span class="stringliteral">&quot;%6.1f%+.1fj  &quot;</span>, <a class="code" href="group___t_y_p_e_s___g_r_o_u_p.html#ga4ad411d49d4ec45752869ddaeac54653">RE</a>(y[i]), <a class="code" href="group___t_y_p_e_s___g_r_o_u_p.html#gab52656a2ffb9da83eb2b959b3c955235">IM</a>(y[i]));</div><div class="line"><a class="code" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#gac8af6c777bbcbf9f4830a6077abf66f4">flipip_cmplx</a>(y, 5);</div><div class="line">printf(<span class="stringliteral">&quot;\n&quot;</span>);</div><div class="line"><span class="keywordflow">for</span>(i = 0; i &lt; 5; i++)</div><div class="line">  printf(<span class="stringliteral">&quot;%6.1f%+.1fj  &quot;</span>, <a class="code" href="group___t_y_p_e_s___g_r_o_u_p.html#ga4ad411d49d4ec45752869ddaeac54653">RE</a>(y[i]), <a class="code" href="group___t_y_p_e_s___g_r_o_u_p.html#gab52656a2ffb9da83eb2b959b3c955235">IM</a>(y[i]));</div></div><!-- fragment --><p> <br />
+Результат выполнения: </p><pre class="fragment">   0.0+0.0j     1.0+1.0j     2.0+2.0j     3.0+3.0j     4.0+4.0j
+   4.0+4.0j     3.0+3.0j     2.0+2.0j     1.0+1.0j     0.0+0.0j
+</pre><dl class="section author"><dt>Автор</dt><dd>Бахурин Сергей www.dsplib.org </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="array_8c_source.html">array.c</a> строка <a class="el" href="array_8c_source.html#l00419">419</a></p>
+
+</div>
+</div>
+<a id="ga1ba7e0e9f5194114592abaa49a146def"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1ba7e0e9f5194114592abaa49a146def">&#9670;&nbsp;</a></span>linspace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int linspace </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Функция заполняет массив линейно-нарастающими, равноотстоящими значениями от <code>x0</code> до <code>x1</code> </p>
+<hr/>
+<p>Заполняет массив <code>x</code> длиной <code>n</code> значениями в диапазоне от <img class="formulaInl" alt="$x_0$" src="form_61.png"/> до <img class="formulaInl" alt="$x_1$" src="form_62.png"/>. Функция поддерживает два типа заполнения в соответствии с параметром <code>type</code>: <br />
+ Симметричное заполнение согласно выражению (параметр <code>type=DSPL_SYMMETRIC</code>): <br />
+ <img class="formulaInl" alt="$x(k) = x_0 + k \cdot dx$" src="form_63.png"/>, <img class="formulaInl" alt="$dx = \frac{x_1 - x_0}{n-1}$" src="form_64.png"/>, <img class="formulaInl" alt="$k = 0 \ldots n-1.$" src="form_65.png"/></p>
+<p>Периодическое заполнение (параметр <code>type=DSPL_PERIODIC</code>) согласно выражению: <br />
+ <img class="formulaInl" alt="$x(k) = x_0 + k \cdot dx$" src="form_63.png"/>, <img class="formulaInl" alt="$dx = \frac{x_1 - x_0}{n}$" src="form_66.png"/>, <img class="formulaInl" alt="$k = 0 \ldots n-1.$" src="form_65.png"/></p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x0</td><td>Начальное показателя <img class="formulaInl" alt="$x_0$" src="form_61.png"/>. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x1</td><td>Конечное значение <img class="formulaInl" alt="$x_1$" src="form_62.png"/>. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Количество точек массива <code>x</code>. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>Тип заполнения: <br />
+ <code>DSPL_SYMMETRIC</code> - симметричное заполнение, <br />
+ <code>DSPL_PERIODIC</code> - периодическое заполнение. <br />
+ <br />
+</td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">x</td><td>Указатель на вектор равноотстоящих значений . <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ Память должна быть выделена. <br />
+ <br />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><code>RES_OK</code> - функция выполнена успешно. <br />
+ В противном случае <a class="el" href="group___e_r_r_o_r___c_o_d_e___g_r_o_u_p.html">код ошибки</a>.</dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Отличие периодического и симметричного заполнения можно понять из следующих примеров. <br />
+Пример 1. Периодическое заполнение. <div class="fragment"><div class="line"><span class="keywordtype">double</span> x[5];</div><div class="line"><a class="code" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#ga1ba7e0e9f5194114592abaa49a146def">linspace</a>(0, 5, 5, DSPL_PERIODIC, x);</div></div><!-- fragment --> В массиве <code>x</code> будут лежать значения: <div class="fragment"><div class="line">0,    1,    2,    3,    4</div></div><!-- fragment --> <br />
+ <br />
+Пример 2. Симметричное заполнение. <div class="fragment"><div class="line"><span class="keywordtype">double</span> x[5];</div><div class="line"><a class="code" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#ga1ba7e0e9f5194114592abaa49a146def">linspace</a>(0, 5, 5, DSPL_SYMMETRIC, x);</div></div><!-- fragment --> В массиве <code>x</code> будут лежать значения: <div class="fragment"><div class="line">0,  1.25,  2.5,  3.75,  5</div></div><!-- fragment --></dd></dl>
+<dl class="section author"><dt>Автор</dt><dd>Бахурин Сергей. www.dsplib.org </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="fillarray_8c_source.html">fillarray.c</a> строка <a class="el" href="fillarray_8c_source.html#l00031">31</a></p>
+
+</div>
+</div>
+<a id="gaef97a041115289fd8d27a7e0a0c3cd42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaef97a041115289fd8d27a7e0a0c3cd42">&#9670;&nbsp;</a></span>log_cmplx()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int log_cmplx </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> *&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> *&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Натуральный логарифм комплексного аргумента <code>x</code> </p>
+<hr/>
+<p>Функция рассчитывает значения натурального логарифма комплексного аргумента, заданного вектором <code>x</code> длины <code>n</code>: <br />
+ </p><p class="formulaDsp">
+<img class="formulaDsp" alt="\[ \textrm{Ln}(x) = j \varphi + \ln(|x|), \]" src="form_16.png"/>
+</p>
+<p> где <img class="formulaInl" alt="$\varphi$" src="form_17.png"/> - фаза комплексного числа.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>Указатель на комплексный вектор аргумента логарифма. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Размер входного и выходного векторов <code>x</code> и <code>y</code>. <br />
+ <br />
+</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">y</td><td>Указатель на вектор значений комплексного логарифма, соответствующего входному вектору <code>x</code>. <br />
+ Размер массива <code>[n x 1]</code>. <br />
+ Память должна быть выделена. <br />
+ <br />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><code>RES_OK</code> если значение функции рассчитано успешно. <br />
+В противном случае <a class="el" href="group___e_r_r_o_r___c_o_d_e___g_r_o_u_p.html">код ошибки</a>: <br />
+ Например при выполнении следующего кода <div class="fragment"><div class="line"><a class="code" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> x[3] = {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}};</div><div class="line"><a class="code" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> y[3];</div><div class="line"><span class="keywordtype">int</span> k;</div><div class="line"></div><div class="line"><a class="code" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#gaef97a041115289fd8d27a7e0a0c3cd42">log_cmplx</a>(x, 3, y);  </div><div class="line"></div><div class="line"><span class="keywordflow">for</span>(k = 0; k &lt; 3; k++)</div><div class="line">  printf(<span class="stringliteral">&quot;log_cmplx(%.1f%+.1fj) = %.3f%+.3fj\n&quot;</span>, </div><div class="line">          <a class="code" href="group___t_y_p_e_s___g_r_o_u_p.html#ga4ad411d49d4ec45752869ddaeac54653">RE</a>(x[k]), <a class="code" href="group___t_y_p_e_s___g_r_o_u_p.html#gab52656a2ffb9da83eb2b959b3c955235">IM</a>(x[k]), <a class="code" href="group___t_y_p_e_s___g_r_o_u_p.html#ga4ad411d49d4ec45752869ddaeac54653">RE</a>(y[k]), <a class="code" href="group___t_y_p_e_s___g_r_o_u_p.html#gab52656a2ffb9da83eb2b959b3c955235">IM</a>(y[k]));</div></div><!-- fragment --> <br />
+ Результатом работы будет</dd></dl>
+<pre class="fragment">log_cmplx(1.0+2.0j) = 0.805+1.107j
+log_cmplx(3.0+4.0j) = 1.609+0.927j
+log_cmplx(5.0+6.0j) = 2.055+0.876j
+</pre><dl class="section author"><dt>Автор</dt><dd>Бахурин Сергей www.dsplib.org </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="complex_8c_source.html">complex.c</a> строка <a class="el" href="complex_8c_source.html#l00374">374</a></p>
+
+<p class="reference">Используется в <a class="el" href="complex_8c_source.html#l00151">asin_cmplx()</a>.</p>
+
+</div>
+</div>
+<a id="gad18821174e4a11f75c5d381732249122"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad18821174e4a11f75c5d381732249122">&#9670;&nbsp;</a></span>logspace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int logspace </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Функция заполняет массив значениями логарифмической шкале </p>
+<hr/>
+<p>Заполняет массив <code>x</code> длиной <code>n</code> значениями в диапазоне от <img class="formulaInl" alt="$10^{x_0}$" src="form_67.png"/> до <img class="formulaInl" alt="$10^{x_1}$" src="form_68.png"/>. <br />
+Функция поддерживает два типа заполнения в соответствии с параметром <code>type</code>: <br />
+ Симметричное заполнение согласно выражению: <br />
+ <img class="formulaInl" alt="$x(k) = 10^{x_0} \cdot dx^k$" src="form_69.png"/>, где <img class="formulaInl" alt="$dx = \sqrt[n-1]{10^{x_1 - x_0}}$" src="form_70.png"/>, <img class="formulaInl" alt="$k = 0 \ldots n-1.$" src="form_65.png"/></p>
+<p>Периодическое заполнение согласно выражению:</p>
+<p><img class="formulaInl" alt="$x(k) = 10^{x_0} \cdot dx^k$" src="form_69.png"/>, где <img class="formulaInl" alt="$dx = \sqrt[n]{10^{x_1 - x_0}}$" src="form_71.png"/>, <img class="formulaInl" alt="$k = 0 \ldots n-1.$" src="form_65.png"/> <br />
+ </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x0</td><td>Начальное значение показателя <img class="formulaInl" alt="$x_0$" src="form_61.png"/>. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x1</td><td>Конечное значение показателя <img class="formulaInl" alt="$x_1$" src="form_62.png"/>. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Количество точек массива <code>x</code>. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>Тип заполнения: <br />
+ <code>DSPL_SYMMETRIC</code> - симметричное заполнение, <br />
+ <code>DSPL_PERIODIC</code> - периодическое заполнение. <br />
+ <br />
+</td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">x</td><td>Указатель на вектор значений в логарифмической шкале. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ Память должна быть выделена. <br />
+ <br />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><code>RES_OK</code> - функция выполнена успешно. <br />
+ В противном случае <a class="el" href="group___e_r_r_o_r___c_o_d_e___g_r_o_u_p.html">код ошибки</a>.</dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Отличие периодического и симметричного заполнения можно понять из следующих примеров. <br />
+Пример 1. Периодическое заполнение. <div class="fragment"><div class="line"><span class="keywordtype">double</span> x[5];</div><div class="line"><a class="code" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#gad18821174e4a11f75c5d381732249122">logspace</a>(-2, 3, 5, DSPL_PERIODIC, x);</div></div><!-- fragment --> В массиве <code>x</code> будут лежать значения: <div class="fragment"><div class="line">0.01,    0.1,    1,    10,    100</div></div><!-- fragment --> <br />
+ <br />
+Пример 2. Симметричное заполнение. <div class="fragment"><div class="line"><span class="keywordtype">double</span> x[5];</div><div class="line"><a class="code" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#gad18821174e4a11f75c5d381732249122">logspace</a>(-2, 3, 5, DSPL_SYMMETRIC, x);</div></div><!-- fragment --> В массиве <code>x</code> будут лежать значения: <div class="fragment"><div class="line">0.01    0.178    3.162    56.234    1000</div></div><!-- fragment --></dd></dl>
+<dl class="section author"><dt>Автор</dt><dd>Бахурин Сергей. www.dsplib.org </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="fillarray_8c_source.html">fillarray.c</a> строка <a class="el" href="fillarray_8c_source.html#l00068">68</a></p>
+
+</div>
+</div>
+<a id="ga506b4d24f0515cc405bae82f4fe4544e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga506b4d24f0515cc405bae82f4fe4544e">&#9670;&nbsp;</a></span>polyval()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int polyval </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ord</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Расчет вещественного полинома </p>
+<hr/>
+<p>Функция рассчитывает полином <img class="formulaInl" alt="$P_N(x)$" src="form_121.png"/> <img class="formulaInl" alt="$N-$" src="form_122.png"/>ого порядка для вещественного аргумента, заданного вектором <code>x</code>. <br />
+ </p><p class="formulaDsp">
+<img class="formulaDsp" alt="\[ P_N(x) = a_0 + a_1 \cdot x + a_2 \cdot x^2 + a_3 \cdot x^3 + ... a_N \cdot x^N. \]" src="form_123.png"/>
+</p>
+<p> Для расчета используется формула Горнера: <br />
+ </p><p class="formulaDsp">
+<img class="formulaDsp" alt="\[ P_N(x) = a_0 + x \cdot (a_1 + x \cdot (a_2 + \cdot ( \ldots x \cdot (a_{N-1} + x\cdot a_N) \ldots ))) \]" src="form_124.png"/>
+</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>Указатель на вектор вещественных коэффициентов полинома. <br />
+ Размер вектора <code>[ord+1 x 1]</code>. <br />
+ Коэффициент <code>a[0]</code> соответствует коэффициенту полинома <img class="formulaInl" alt="$a_0$" src="form_27.png"/>. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ord</td><td>Порядок полинома <img class="formulaInl" alt="$N$" src="form_87.png"/>. <br />
+ <br />
+</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>Указатель на вектор аргумента полинома. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ Значения полинома будут расчитаны для всех значений аргумента вектора <code>x</code>. <br />
+ <br />
+</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Размер вектора агрумента полинома. <br />
+ <br />
+</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">y</td><td>Указатель на значения полинома для аргумента <code>x</code>. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ Память должна быть выделена. <br />
+ <br />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><code>RES_OK</code> Полином расчитан успешно. <br />
+</dd></dl>
+<p>В противном случае <a class="el" href="group___e_r_r_o_r___c_o_d_e___g_r_o_u_p.html">код ошибки</a>.</p>
+<dl class="section author"><dt>Автор</dt><dd>Бахурин Сергей. www.dsplib.org </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="polyval_8c_source.html">polyval.c</a> строка <a class="el" href="polyval_8c_source.html#l00069">69</a></p>
+
+<p class="reference">Используется в <a class="el" href="math_8c_source.html#l00036">bessel_i0()</a>, <a class="el" href="resampling_8c_source.html#l00035">farrow_lagrange()</a> и <a class="el" href="resampling_8c_source.html#l00115">farrow_spline()</a>.</p>
+
+</div>
+</div>
+<a id="ga8aaa05263879db4bd1ef14173f8ffbf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8aaa05263879db4bd1ef14173f8ffbf7">&#9670;&nbsp;</a></span>polyval_cmplx()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int polyval_cmplx </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> *&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ord</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> *&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> *&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Расчет комплексного полинома </p>
+<hr/>
+<p>Функция рассчитывает полином <img class="formulaInl" alt="$P_N(x)$" src="form_121.png"/> <img class="formulaInl" alt="$N-$" src="form_122.png"/>ого порядка комплексного аргумента аргумента, заданного вектором <code>x</code>. <br />
+ </p><p class="formulaDsp">
+<img class="formulaDsp" alt="\[ P_N(x) = a_0 + a_1 \cdot x + a_2 \cdot x^2 + a_3 \cdot x^3 + ... a_N \cdot x^N. \]" src="form_123.png"/>
+</p>
+<p> Для расчета используется формула Горнера: <br />
+ </p><p class="formulaDsp">
+<img class="formulaDsp" alt="\[ P_N(x) = a_0 + x \cdot (a_1 + x \cdot (a_2 + \cdot ( \ldots x \cdot (a_{N-1} + x\cdot a_N) \ldots ))) \]" src="form_124.png"/>
+</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>Указатель на вектор комплексных коэффициентов полинома. <br />
+ Размер вектора <code>[ord+1 x 1]</code>. <br />
+ Коэффициент <code>a[0]</code> соответствует коэффициенту полинома <img class="formulaInl" alt="$a_0$" src="form_27.png"/>. <br />
+ <br />
+</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ord</td><td>Порядок полинома <img class="formulaInl" alt="$N$" src="form_87.png"/>. <br />
+ <br />
+</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>Указатель на вектор аргумента полинома. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ Значения полинома будут расчитаны для всех значений аргумента вектора <code>x</code>. <br />
+ <br />
+</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Размер вектора агрумента полинома. <br />
+ <br />
+</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">y</td><td>Указатель вектор значения полинома для аргумента <code>x</code>. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ Память должна быть выделена. <br />
+ <br />
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><code>RES_OK</code> Полином расчитан успешно. <br />
+</dd></dl>
+<p>В противном случае <a class="el" href="group___e_r_r_o_r___c_o_d_e___g_r_o_u_p.html">код ошибки</a>.</p>
+<dl class="section author"><dt>Автор</dt><dd>Бахурин Сергей. www.dsplib.org </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="polyval_8c_source.html">polyval.c</a> строка <a class="el" href="polyval_8c_source.html#l00096">96</a></p>
+
+<p class="reference">Используется в <a class="el" href="filter__an_8c_source.html#l00140">freqs()</a> и <a class="el" href="filter__an_8c_source.html#l00445">freqz()</a>.</p>
+
+</div>
+</div>
+<a id="ga588e1bcc9c8022795b3a2a6993f0c2eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga588e1bcc9c8022795b3a2a6993f0c2eb">&#9670;&nbsp;</a></span>sinc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sinc </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Функция <img class="formulaInl" alt="$ \textrm{sinc}(x,a) = \frac{\sin(ax)}{ax}$" src="form_117.png"/>. </p>
+<hr/>
+<p>Функция рассчитывает значения функции для вещественного вектора <code>x</code>. <br />
+ </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>Указатель на вектор переменной <img class="formulaInl" alt="$ x $" src="form_115.png"/>. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ Память должна быть выделена. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Размер входного вектора <code>x</code>. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>Параметр функции <img class="formulaInl" alt="$ \textrm{sinc}(x,a) = \frac{\sin(ax)}{ax}$" src="form_117.png"/></td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">y</td><td>Указатель на вектор значений функции. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ Память должна быть выделена. <br />
+ <br />
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><code>RES_OK</code> Расчет произведен успешно. <br />
+В противном случае <a class="el" href="group___e_r_r_o_r___c_o_d_e___g_r_o_u_p.html">код ошибки</a>. <br />
+ </dd></dl>
+<dl class="section author"><dt>Автор</dt><dd>Бахурин Сергей www.dsplib.org </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="math_8c_source.html">math.c</a> строка <a class="el" href="math_8c_source.html#l00127">127</a></p>
+
+</div>
+</div>
+<a id="ga951b305891a92cad47f0b465a1df9fd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga951b305891a92cad47f0b465a1df9fd5">&#9670;&nbsp;</a></span>sqrt_cmplx()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sqrt_cmplx </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> *&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> *&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Квадратный корень из комплексного вектора <code>x</code> (поэлементный). </p>
+<hr/>
+<p>Функция рассчитывает значения квадратного корня комплексного аргумента, заданного вектором <code>x</code> длины <code>n</code>: <br />
+ </p><p class="formulaDsp">
+<img class="formulaDsp" alt="\[ y(k) = \sqrt{x(k)}, \qquad k = 0 \ldots n-1. \]" src="form_19.png"/>
+</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>Указатель на вектор аргумента квадратного корня. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Размер входного и выходного векторов <code>x</code> и <code>y</code>. <br />
+ <br />
+</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">y</td><td>Указатель на вектор значений комплексного корня, соответствующего входному вектору <code>x</code>. <br />
+ Размер массива <code>[n x 1]</code>. <br />
+ Память должна быть выделена. <br />
+ <br />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><code>RES_OK</code> если значение функции рассчитано успешно . <br />
+В противном случае <a class="el" href="group___e_r_r_o_r___c_o_d_e___g_r_o_u_p.html">код ошибки</a>: <br />
+ Например при выполнении следующего кода <div class="fragment"><div class="line"><a class="code" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> x[3] = {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}};</div><div class="line"><a class="code" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> y[3];</div><div class="line"><span class="keywordtype">int</span> k;</div><div class="line"></div><div class="line"><a class="code" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#ga951b305891a92cad47f0b465a1df9fd5">sqrt_cmplx</a>(x, 3, y);</div><div class="line"></div><div class="line"><span class="keywordflow">for</span>(k = 0; k &lt; 3; k++)</div><div class="line">  printf(<span class="stringliteral">&quot;sqrt_cmplx(%.1f%+.1fj) = %.3f%+.3fj\n&quot;</span>, </div><div class="line">          <a class="code" href="group___t_y_p_e_s___g_r_o_u_p.html#ga4ad411d49d4ec45752869ddaeac54653">RE</a>(x[k]), <a class="code" href="group___t_y_p_e_s___g_r_o_u_p.html#gab52656a2ffb9da83eb2b959b3c955235">IM</a>(x[k]), <a class="code" href="group___t_y_p_e_s___g_r_o_u_p.html#ga4ad411d49d4ec45752869ddaeac54653">RE</a>(y[k]), <a class="code" href="group___t_y_p_e_s___g_r_o_u_p.html#gab52656a2ffb9da83eb2b959b3c955235">IM</a>(y[k]));</div></div><!-- fragment --> <br />
+ Результатом работы будет</dd></dl>
+<pre class="fragment">sqrt_cmplx(1.0+2.0j) = 1.272+0.786j
+sqrt_cmplx(3.0+4.0j) = 2.000+1.000j
+sqrt_cmplx(5.0+6.0j) = 2.531+1.185j
+</pre><dl class="section author"><dt>Автор</dt><dd>Бахурин Сергей www.dsplib.org </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="complex_8c_source.html">complex.c</a> строка <a class="el" href="complex_8c_source.html#l00588">588</a></p>
+
+<p class="reference">Используется в <a class="el" href="complex_8c_source.html#l00151">asin_cmplx()</a>, <a class="el" href="ellipj_8c_source.html#l00125">ellip_acd_cmplx()</a> и <a class="el" href="ellipj_8c_source.html#l00275">ellip_asn_cmplx()</a>.</p>
+
+</div>
+</div>
+<a id="ga3847fc8cf6ceda6068400aed2643b2e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3847fc8cf6ceda6068400aed2643b2e4">&#9670;&nbsp;</a></span>verif()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int verif </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>eps</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>err</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Верификация вещественных массивов </p>
+<hr/>
+<p>Функция производит расчет максимальной относительной ошибки между вещественными векторами <code>x</code> и <code>y</code> равной длины <code>n</code>:</p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ e = \max \left( \frac{|x(k) - y(k)| }{ |x(k)|} \right), \quad \quad |x(k)| &gt; 0, \]" src="form_0.png"/>
+</p>
+<p> или </p><p class="formulaDsp">
+<img class="formulaDsp" alt="\[ e = \max(|x(k) - y(k)| ), ~\qquad \quad~|x(k)| = 0, \]" src="form_1.png"/>
+</p>
+<p> и возвращает <code>DSPL_VERIF_SUCCESS</code> если разница <img class="formulaInl" alt="$ e$" src="form_2.png"/> меньше <code>eps</code>. В противном случае возвращает <code>DSPL_VERIF_FAILED</code>. <br />
+Данная функция используется для верификации работы алгоритмов если вектор <code>x</code> результат работы алгоритма пользователя, а <code>y</code> &ndash; результат работы этого же алгоритма сторонней функцией.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>Указатель на первый вектор <code>x</code>. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>Указатель на второй вектор <code>y</code>. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Размер векторов <code>x</code> и <code>y</code>. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">eps</td><td>Допустимая относительная ошибка. <br />
+ Если максимальная относительная ошибка меньше <code>eps</code>, то функция возвращает <code>DSPL_VERIF_SUCCESS</code>, в противном случае <code>DSPL_VERIF_FAILED</code>. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">err</td><td>Указатель на переменную максимальной относительной ошибки. <br />
+ По данному адресу будет записано значение максимальной относительной ошибки. <br />
+ Указатель может быть <code>NULL</code>, значение ошибки в этом случае не возвращается. <br />
+ <br />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><code>DSPL_VERIF_SUCCESS</code> если относительная ошибка меньше <code>eps</code>. <br />
+ В противном случае <code>DSPL_VERIF_FAILED</code>.</dd></dl>
+<dl class="section author"><dt>Автор</dt><dd>Бахурин Сергей www.dsplib.org </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="array_8c_source.html">array.c</a> строка <a class="el" href="array_8c_source.html#l00487">487</a></p>
+
+</div>
+</div>
+<a id="gaa7aa689ca039388f5cc1989c86d7a430"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa7aa689ca039388f5cc1989c86d7a430">&#9670;&nbsp;</a></span>verif_cmplx()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int verif_cmplx </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> *&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> *&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>eps</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>err</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Верификация комплексных массивов </p>
+<hr/>
+<p>Функция производит расчет максимальной относительной ошибки между комплексными векторами <code>x</code> и <code>y</code> равной длины <code>n</code>:</p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ e = \max \left( \frac{|x(k) - y(k)| }{ |x(k)|} \right), \quad \quad |x(k)| &gt; 0, \]" src="form_0.png"/>
+</p>
+<p> или </p><p class="formulaDsp">
+<img class="formulaDsp" alt="\[ e = \max(|x(k) - y(k)| ), ~\qquad \quad~|x(k)| = 0, \]" src="form_1.png"/>
+</p>
+<p> и возвращает <code>DSPL_VERIF_SUCCESS</code> если разница <img class="formulaInl" alt="$ e$" src="form_2.png"/> меньше <code>eps</code>. В противном случае возвращает <code>DSPL_VERIF_FAILED</code>. <br />
+Данная функция используется для верификации работы алгоритмов если вектор <code>x</code> результат работы алгоритма пользователя, а <code>y</code> &ndash; результат работы этого же алгоритма сторонней функцией.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>Указатель на первый вектор <code>x</code>. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>Указатель на второй вектор <code>y</code>. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Размер векторов <code>x</code> и <code>y</code>. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">eps</td><td>Допустимая относительная ошибка. <br />
+ Если максимальная относительная ошибка меньше <code>eps</code>, то функция возвращает <code>DSPL_VERIF_SUCCESS</code>, в противном случае <code>DSPL_VERIF_FAILED</code>. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">err</td><td>Указатель на переменную максимальной относительной ошибки. <br />
+ По данному адресу будет записано значение максимальной относительной ошибки. <br />
+ Указатель может быть <code>NULL</code>, значение ошибки в этом случае не возвращается. <br />
+ <br />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><code>DSPL_VERIF_SUCCESS</code> если функция выполнена успешно. <br />
+ В противном случае <code>DSPL_VERIF_FAILED</code>.</dd></dl>
+<dl class="section author"><dt>Автор</dt><dd>Бахурин Сергей www.dsplib.org </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="array_8c_source.html">array.c</a> строка <a class="el" href="array_8c_source.html#l00569">569</a></p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по libdspl-2.0. Последние изменения: Пн 4 Ноя 2019 16:56:52. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.15
+</small></address>
+</div> 
+</body>
+</html>

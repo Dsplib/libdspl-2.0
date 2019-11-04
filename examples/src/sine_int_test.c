@@ -5,7 +5,7 @@
 
 #define N 400
 
-int main()
+int main(int argc, char* argv[])
 {
   void* handle;           // DSPL handle
   handle = dspl_load();   // Load DSPL function
@@ -20,7 +20,9 @@ int main()
   sinc(x, N, 1.0, y);  
   writetxt(x, y, N, "dat/dat1.txt");
   
+  gnuplot_script(argc, argv, "gnuplot/sine_int.plt");
+  
   dspl_free(handle);      // free dspl handle
   
-  return system("gnuplot  gnuplot/sine_int.plt");
+  return 0;
 }

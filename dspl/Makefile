@@ -22,5 +22,6 @@ $(DSPL_OBJ_DIR)/%.o:$(DSPL_SRC_DIR)/%.c
 
 clean:
 	rm -f   $(DSPL_OBJ_DIR)/*.o
-	rm -f   $(RELEASE_DIR)/$(LIB_NAME)
+	rm -f   $(RELEASE_DIR)/*.a
+	rm -f   $(RELEASE_DIR)/*.def
 

@@ -148,18 +148,12 @@ int main(int argc, char* argv[])
   
   /*--------------------------------------------------------------------------*/
   
+  gnuplot_script(argc, argv, "gnuplot/iir_test.plt");
+  
   /* free dspl handle */
   dspl_free(handle);
   
-  
-  if(argc>1)
-  {
-    if(!strcmp(argv[1], "--noplot"))
-      return 0;
-  }
-  
-  /* Run GNUPLOT for magnitudes plotting */
-  return system("gnuplot -p gnuplot/iir_test.plt");
+  return 0;
 }
 
 

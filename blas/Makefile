@@ -15,10 +15,10 @@ RANLIB   = ranlib
 #
 #  The location and name of the Reference BLAS library.
 #
-BLASLIB      = bin/Release/libblas.a
+BLASLIB      = bin/libblas.a
 
 
-BLAS_OBJ_DIR = obj/Release/src
+BLAS_OBJ_DIR = obj
 
 # DSPL src and obj files list
 BLAS_SRC_FILES	= $(wildcard src/*.f)

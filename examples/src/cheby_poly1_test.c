@@ -5,7 +5,7 @@
 
 #define N 250
 
-int main()
+int main(int argc, char* argv[])
 {
   void* handle;           // DSPL handle
   handle = dspl_load();   // Load DSPL function
@@ -22,7 +22,11 @@ int main()
     writetxt(x,y,N,fn);
   }
   
+  
+  /* run GNUPLOT script */
+  gnuplot_script(argc, argv, "gnuplot/cheby_poly1.plt");
+  
   dspl_free(handle);      // free dspl handle
 
-  return system("gnuplot  gnuplot/cheby_poly1.plt");
+  return 0;
 }

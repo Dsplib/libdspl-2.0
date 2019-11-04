@@ -1,0 +1,461 @@
+<!-- HTML header for doxygen 1.8.13
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.15"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>libdspl-2.0: Функции анализа аналоговых и цифровых фильтров</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="doxy_stylesheet.css" rel="stylesheet" type="text/css" />
+<link href="http://dsplib.org/dsplib-stylesheet.css".css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter32971694 = new Ya.Metrika({
+                    id:32971694,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/32971694" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<div class = "header-bar">
+<div class = "menu-bar">
+<nav>
+  <ul>
+    <div class = "dsplib-logo"><img src="http://dsplib.org/logo.png" /> </div>
+    <li><a href="http://ru.dsplib.org">Содержание</a></li>
+    <li><a href="http://ru.dsplib.org/dspl">DSPL</a></li>
+    <li><a href="http://ru.dsplib.org/forum">Форум</a></li>
+    <li>
+      <div class="search-bar">
+      <div class="ya-site-form ya-site-form_inited_no" onclick="return {'action':'http://ru.dsplib.org/search_results.html','arrow':false,'bg':'transparent','fontsize':12,'fg':'#000000','language':'ru','logo':'rb','publicname':'ru.dsplib.org поиск','suggest':true,'target':'_self','tld':'ru','type':2,'usebigdictionary':true,'searchid':2332185,'input_fg':'#000000','input_bg':'#ffffff','input_fontStyle':'normal','input_fontWeight':'normal','input_placeholder':'поиск','input_placeholderColor':'#000000','input_borderColor':'#7f9db9'}"><form action="https://yandex.ru/search/site/" method="get" target="_self" accept-charset="utf-8"><input type="hidden" name="searchid" value="2332185"/><input type="hidden" name="l10n" value="ru"/><input type="hidden" name="reqenc" value=""/><input type="search" name="text" value="" style = "height: 24px; font-family: verdana,arial; font-size: 12px"/><input type="submit" value="Найти" style = "display: none;"/></form></div><style type="text/css">.ya-page_js_yes .ya-site-form_inited_no { display: none; }</style><script type="text/javascript">(function(w,d,c){var s=d.createElement('script'),h=d.getElementsByTagName('script')[0],e=d.documentElement;if((' '+e.className+' ').indexOf(' ya-page_js_yes ')===-1){e.className+=' ya-page_js_yes';}s.type='text/javascript';s.async=true;s.charset='utf-8';s.src=(d.location.protocol==='https:'?'https:':'http:')+'//site.yandex.net/v2.0/js/all.js';h.parentNode.insertBefore(s,h);(w[c]||(w[c]=[])).push(function(){Ya.Site.Form.init()})})(window,document,'yandex_site_callbacks');</script>
+      </div>
+    </li> 
+  </ul>
+</nav>
+</div>
+</div>
+<div class="main-dsplib">
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">libdspl-2.0
+   </div>
+   <div id="projectbrief">Библиотека алгоритмов цифровой обработки сигналов</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.15 -->
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle">
+<div class="title">Функции анализа аналоговых и цифровых фильтров</div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga9e1518f2bdb74c8c7e18e6e4c8d256fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___f_i_l_t_e_r___a_n_a_l_y_s_i_s___g_r_o_u_p.html#ga9e1518f2bdb74c8c7e18e6e4c8d256fe">freqs</a> (double *b, double *a, int ord, double *w, int n, <a class="el" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> *h)</td></tr>
+<tr class="memdesc:ga9e1518f2bdb74c8c7e18e6e4c8d256fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Расчет комплексного коэффициента передачи <img class="formulaInl" alt="$ H(j \omega) $" src="form_72.png"/> аналогового фильтра.  <a href="#ga9e1518f2bdb74c8c7e18e6e4c8d256fe">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga9e1518f2bdb74c8c7e18e6e4c8d256fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf560a289e243876971cd4a9af6ce855b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___f_i_l_t_e_r___a_n_a_l_y_s_i_s___g_r_o_u_p.html#gaf560a289e243876971cd4a9af6ce855b">filter_freq_resp</a> (double *b, double *a, int ord, double *w, int n, int flag, double *mag, double *phi, double *tau)</td></tr>
+<tr class="memdesc:gaf560a289e243876971cd4a9af6ce855b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Расчет амплитудно-частотной (АЧХ), фазочастотной характеристик (ФЧХ), а также группового времени запаздывания (ГВЗ) цифрового или аналогового или фильтра.  <a href="#gaf560a289e243876971cd4a9af6ce855b">Подробнее...</a><br /></td></tr>
+<tr class="separator:gaf560a289e243876971cd4a9af6ce855b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac6c0f5c9537f90105abc35a50a7f6172"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___f_i_l_t_e_r___a_n_a_l_y_s_i_s___g_r_o_u_p.html#gac6c0f5c9537f90105abc35a50a7f6172">freqz</a> (double *b, double *a, int ord, double *w, int n, <a class="el" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> *h)</td></tr>
+<tr class="memdesc:gac6c0f5c9537f90105abc35a50a7f6172"><td class="mdescLeft">&#160;</td><td class="mdescRight">Расчет комплексного коэффициента передачи <img class="formulaInl" alt="$ H \left(e^{j \omega} \right)$" src="form_85.png"/> цифрового фильтра.  <a href="#gac6c0f5c9537f90105abc35a50a7f6172">Подробнее...</a><br /></td></tr>
+<tr class="separator:gac6c0f5c9537f90105abc35a50a7f6172"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<p>Функции анализа аналоговых и цифровых фильтров </p>
+<h2 class="groupheader">Функции</h2>
+<a id="gaf560a289e243876971cd4a9af6ce855b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf560a289e243876971cd4a9af6ce855b">&#9670;&nbsp;</a></span>filter_freq_resp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int filter_freq_resp </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ord</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>flag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>mag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>phi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>tau</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Расчет амплитудно-частотной (АЧХ), фазочастотной характеристик (ФЧХ), а также группового времени запаздывания (ГВЗ) цифрового или аналогового или фильтра. </p>
+<hr/>
+<p>Функция рассчитывает АЧХ, ФЧХ и ГВЗ аналогового или цифрового фильтра, заданного передаточной характеристикой <img class="formulaInl" alt="$H(s)$" src="form_79.png"/>, или <img class="formulaInl" alt="$H(z)$" src="form_80.png"/> соответственно</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>Указатель на вектор коэффициентов числителя передаточной функции <img class="formulaInl" alt="$ H(s) $" src="form_74.png"/>. <br />
+ Размер вектора <code>[ord+1 x 1]</code>. <br />
+ <br />
+</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>Указатель на вектор коэффициентов знаменателя передаточной функции <img class="formulaInl" alt="$ H(s) $" src="form_74.png"/>. <br />
+ Размер вектора <code>[ord+1 x 1]</code>. <br />
+ <br />
+</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ord</td><td>Порядок фильтра. Количество коэффициентов числителя и знаменателя передаточной функции <img class="formulaInl" alt="$ H(s) $" src="form_74.png"/> равно <code>ord+1</code>. <br />
+ <br />
+</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">w</td><td>Указатель на вектор значений циклической частоты <img class="formulaInl" alt="$ \omega $" src="form_78.png"/> (рад/с), для которого будет рассчитаны АЧХ, ФЧХ и ГВЗ аналогового фильтра, если установлен флаг <code>DSPL_FLAG_ANALOG</code>. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ В случае если флаг <code>DSPL_FLAG_ANALOG</code> не установлен, то вектор частоты <code>w</code> используется как нормированная частота комплексного коэффициента передачи <img class="formulaInl" alt="$ H \left(\mathrm{e}^{j\omega} \right) $" src="form_81.png"/> цифрового фильтра. <br />
+ В этом случае характеристика цифрового фильтра является <img class="formulaInl" alt="$ 2\pi $" src="form_82.png"/>-периодической, и вектор частоты может содержать произвольные значения, однако целесообразно задавать его от 0 до <img class="formulaInl" alt="$ \pi $" src="form_83.png"/>, а такжет от 0 до <img class="formulaInl" alt="$ 2\pi $" src="form_82.png"/>, или от <img class="formulaInl" alt="$ -\pi $" src="form_84.png"/> до <img class="formulaInl" alt="$ \pi $" src="form_83.png"/>. <br />
+ <br />
+</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Размер вектора циклической частоты <code>w</code>. <br />
+ <br />
+</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">flag</td><td>Комбинация флагов, которые задают расчет параметров: <br />
+ <pre>
+DSPL_FLAG_ABALOG  Коэффициенты относятся к аналоговому фильтру
+DSPL_FLAG_LOGMAG  АЧХ рассчитывать в логарифмическом масштабе
+DSPL_FLAG_UNWRAP  раскрывать периодичность ФЧХ
+</pre></td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">mag</td><td>Указатель на вектор АЧХ. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ Память должна быть выделена. <br />
+ Если указатель <code>NULL</code>, то расчет АЧХ не производится. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">phi</td><td>Указатель на вектор ФЧХ. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ Память должна быть выделена. <br />
+ Если указатель <code>NULL</code>, то расчет ФЧХ не производится. <br />
+ <br />
+ </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">tau</td><td>Указатель на вектор ГВЗ. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ Память должна быть выделена. <br />
+ Если указатель <code>NULL</code>, то расчет ГВЗ не производится. <br />
+ <br />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><code>RES_OK</code> Параметры фильтра рассчитаны успешно. <br />
+ В противном случае <a class="el" href="group___e_r_r_o_r___c_o_d_e___g_r_o_u_p.html">код ошибки</a>. <br />
+</dd></dl>
+<p>Пример использования функции <code>filter_freq_resp</code>:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;stdio.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div><div class="line"><span class="preprocessor">#include &lt;string.h&gt;</span></div><div class="line"><span class="preprocessor">#include &quot;dspl.h&quot;</span></div><div class="line"></div><div class="line"><span class="preprocessor">#define ORD 3</span></div><div class="line"><span class="preprocessor">#define N   1000</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[])</div><div class="line">{</div><div class="line">  <span class="keywordtype">void</span>* handle;           <span class="comment">// DSPL handle</span></div><div class="line">  handle = dspl_load();   <span class="comment">// Load DSPL function</span></div><div class="line"></div><div class="line">  <span class="keywordtype">double</span> a[ORD+1], b[ORD+1];</div><div class="line">  <span class="keywordtype">double</span> Rp = 1.0;</div><div class="line">  <span class="keywordtype">double</span> w[N], mag[N], phi[N], tau[N];</div><div class="line"></div><div class="line"></div><div class="line">  <span class="keywordtype">int</span> k;</div><div class="line">  <span class="keywordtype">int</span> res = <a class="code" href="group___i_i_r___f_i_l_t_e_r___d_e_s_i_g_n___g_r_o_u_p.html#ga65df99359f211937e4dc1141f57ef571">butter_ap</a>(Rp, ORD, b, a);</div><div class="line">  <span class="keywordflow">if</span>(res != <a class="code" href="group___e_r_r_o_r___c_o_d_e___g_r_o_u_p.html#ga312c04ce416e0afdbd653394e36a117d">RES_OK</a>)</div><div class="line">    printf(<span class="stringliteral">&quot;error code = 0x%8x\n&quot;</span>, res);</div><div class="line"></div><div class="line">  <span class="keywordflow">for</span>(k = 0; k &lt; ORD+1; k++)</div><div class="line">    printf(<span class="stringliteral">&quot;b[%2d] = %9.3f     a[%2d] = %9.3f\n&quot;</span>, k, b[k], k, a[k]);</div><div class="line"></div><div class="line"></div><div class="line">  <a class="code" href="group___s_p_e_c___m_a_t_h___c_o_m_m_o_n___g_r_o_u_p.html#gad18821174e4a11f75c5d381732249122">logspace</a>(-2.0, 2.0, N , DSPL_SYMMETRIC, w);</div><div class="line">  <a class="code" href="group___f_i_l_t_e_r___a_n_a_l_y_s_i_s___g_r_o_u_p.html#gaf560a289e243876971cd4a9af6ce855b">filter_freq_resp</a>(b, a, ORD, w, N, </div><div class="line">                   DSPL_FLAG_LOGMAG|DSPL_FLAG_UNWRAP|DSPL_FLAG_ANALOG, </div><div class="line">                   mag, phi, tau);</div><div class="line"></div><div class="line">  <a class="code" href="group___i_n___o_u_t___g_r_o_u_p.html#gae30c87757d5bf57584904e543fb1efd2">writetxt</a>(w, mag, N, <span class="stringliteral">&quot;dat/butter_ap_test_mag.txt&quot;</span>);</div><div class="line">  <a class="code" href="group___i_n___o_u_t___g_r_o_u_p.html#gae30c87757d5bf57584904e543fb1efd2">writetxt</a>(w, phi, N, <span class="stringliteral">&quot;dat/butter_ap_test_phi.txt&quot;</span>);</div><div class="line">  <a class="code" href="group___i_n___o_u_t___g_r_o_u_p.html#gae30c87757d5bf57584904e543fb1efd2">writetxt</a>(w, tau, N, <span class="stringliteral">&quot;dat/butter_ap_test_tau.txt&quot;</span>);</div><div class="line"></div><div class="line">  <span class="comment">/* run GNUPLOT script */</span></div><div class="line">  res = <a class="code" href="group___i_n___o_u_t___g_r_o_u_p.html#ga8dbaffeb9039ba3eee17c9371d5d7a4c">gnuplot_script</a>(argc, argv, <span class="stringliteral">&quot;gnuplot/butter_ap_test.plt&quot;</span>);</div><div class="line"></div><div class="line">  dspl_free(handle);      <span class="comment">// free dspl handle</span></div><div class="line"></div><div class="line">  <span class="keywordflow">return</span> res;</div><div class="line">}</div><div class="line"></div></div><!-- fragment --><p>Результат работы программы:</p>
+<pre class="fragment">  b[ 0] =   1.002   a[ 0] =   1.002
+  b[ 1] =   0.000   a[ 1] =   2.618
+  b[ 2] =   0.000   a[ 2] =   3.418
+  b[ 3] =   0.000   a[ 3] =   2.615
+  b[ 4] =   0.000   a[ 4] =   1.000
+</pre><p><br />
+ <br />
+В каталоге <code>dat</code> будут созданы три файла: <br />
+ </p><pre>
+butter_ap_test_mag.txt    АЧХ фильтра   
+butter_ap_test_phi.txt    ФЧХ фильтра
+butter_ap_test_tau.txt    ГВЗ фильтра
+</pre><p>Кроме того программа GNUPLOT произведет построение следующих графиков по сохраненным в файлах данным:</p>
+<div class="image">
+<img src="butter_ap_test.png" alt="butter_ap_test.png"/>
+</div>
+<dl class="section author"><dt>Автор</dt><dd>Бахурин Сергей www.dsplib.org </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="filter__an_8c_source.html">filter_an.c</a> строка <a class="el" href="filter__an_8c_source.html#l00035">35</a></p>
+
+</div>
+</div>
+<a id="ga9e1518f2bdb74c8c7e18e6e4c8d256fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9e1518f2bdb74c8c7e18e6e4c8d256fe">&#9670;&nbsp;</a></span>freqs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int freqs </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ord</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> *&#160;</td>
+          <td class="paramname"><em>h</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Расчет комплексного коэффициента передачи <img class="formulaInl" alt="$ H(j \omega) $" src="form_72.png"/> аналогового фильтра. </p>
+<hr/>
+<p>Функция рассчитывает значения комплексного коэффициента передачи <img class="formulaInl" alt="$ H(j \omega)$" src="form_73.png"/> аналогового фильтра, заданного коэффициентами передаточной функции <img class="formulaInl" alt="$ H(s) $" src="form_74.png"/>:</p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ H(s) = \frac {\sum_{k = 0}^{N} b_k s^k} {\sum_{m = 0}^{N} a_m s^m}, \]" src="form_75.png"/>
+</p>
+<p> где <img class="formulaInl" alt="$ N $" src="form_76.png"/> - порядок фильтра (параметр <code>ord</code>).</p>
+<p>Комплексный коэффициент передачи рассчитывается путем подстановки <img class="formulaInl" alt="$ s = j \omega $" src="form_77.png"/>.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>Указатель на вектор коэффициентов числителя передаточной функции <img class="formulaInl" alt="$ H(s) $" src="form_74.png"/>. <br />
+ Размер вектора <code>[ord+1 x 1]</code>. <br />
+ <br />
+</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>Указатель на вектор коэффициентов знаменателя передаточной функции <img class="formulaInl" alt="$ H(s) $" src="form_74.png"/>. <br />
+ Размер вектора <code>[ord+1 x 1]</code>. <br />
+ <br />
+</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ord</td><td>Порядок фильтра. Количество коэффициентов числителя и знаменателя передаточной функции <img class="formulaInl" alt="$ H(s) $" src="form_74.png"/> равно <code>ord+1</code>. <br />
+ <br />
+</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">w</td><td>Указатель на вектор значений циклической частоты <img class="formulaInl" alt="$ \omega $" src="form_78.png"/> (рад/с), для которого будет рассчитан комплексный коэффициент передачи <img class="formulaInl" alt="$ H(j \omega) $" src="form_72.png"/>. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ <br />
+</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Размер вектора циклической частоты <code>w</code>. <br />
+ <br />
+</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">h</td><td>Указатель на вектор комплексного коэффициента передачи <img class="formulaInl" alt="$ H(j \omega) $" src="form_72.png"/>, рассчитанного для циклической частоты <code>w</code>. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ Память должна быть выделена. <br />
+ <br />
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><code>RES_OK</code> Комплексноый коэффициент передачи рассчитан успешно. <br />
+ В противном случае <a class="el" href="group___e_r_r_o_r___c_o_d_e___g_r_o_u_p.html">код ошибки</a>. <br />
+ </dd></dl>
+<dl class="section author"><dt>Автор</dt><dd>Бахурин Сергей www.dsplib.org </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="filter__an_8c_source.html">filter_an.c</a> строка <a class="el" href="filter__an_8c_source.html#l00140">140</a></p>
+
+<p class="reference">Используется в <a class="el" href="filter__an_8c_source.html#l00035">filter_freq_resp()</a>.</p>
+
+</div>
+</div>
+<a id="gac6c0f5c9537f90105abc35a50a7f6172"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac6c0f5c9537f90105abc35a50a7f6172">&#9670;&nbsp;</a></span>freqz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int freqz </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ord</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group___t_y_p_e_s___g_r_o_u_p.html#gaacff82c46e2eef9207670a2e52ed4b89">complex_t</a> *&#160;</td>
+          <td class="paramname"><em>h</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Расчет комплексного коэффициента передачи <img class="formulaInl" alt="$ H \left(e^{j \omega} \right)$" src="form_85.png"/> цифрового фильтра. </p>
+<hr/>
+<p>Функция рассчитывает значения комплексного коэффициента передачи <img class="formulaInl" alt="$ H \left(e^{j \omega} \right)$" src="form_85.png"/> цифрового фильтра, заданного коэффициентами передаточной функции <img class="formulaInl" alt="$H(z)$" src="form_80.png"/>:</p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ H(z) = \frac {\sum_{k = 0}^{N} b_k z^{-k}} {\sum_{m = 0}^{N} a_m z^{-m}}, \]" src="form_86.png"/>
+</p>
+<p>где <img class="formulaInl" alt="$N$" src="form_87.png"/> - порядок фильтра (параметр <code>ord</code>). <br />
+ Комплексный коэффициент передачи рассчитывается путем подстановки <img class="formulaInl" alt="$z = e^{j \omega} $" src="form_88.png"/>. <br />
+</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>Указатель на вектор коэффициентов числителя передаточной функции <img class="formulaInl" alt="$H(z)$" src="form_80.png"/>. <br />
+ Размер вектора <code>[ord+1 x 1]</code>. <br />
+ <br />
+</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>Указатель на вектор коэффициентов знаменателя передаточной функции <img class="formulaInl" alt="$H(z)$" src="form_80.png"/>. <br />
+ Размер вектора <code>[ord+1 x 1]</code>. <br />
+ <br />
+</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ord</td><td>Порядок фильтра. Количество коэффициентов числителя и знаменателя передаточной функции <img class="formulaInl" alt="$H(z)$" src="form_80.png"/> равно <code>ord+1</code>. <br />
+ <br />
+</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">w</td><td>Указатель на вектор значений нормированной циклической частоты <img class="formulaInl" alt="$\omega$" src="form_89.png"/>, для которого будет рассчитан комплексный коэффициент передачи <img class="formulaInl" alt="$ H \left(e^{j \omega} \right)$" src="form_85.png"/>. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ <br />
+</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Размер вектора нормированной циклической частоты <code>w</code>. <br />
+ <br />
+</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">h</td><td>Указатель на вектор комплексного коэффициента передачи <img class="formulaInl" alt="$ H \left(e^{j \omega} \right)$" src="form_85.png"/>, рассчитанного для циклической частоты <code>w</code>. <br />
+ Размер вектора <code>[n x 1]</code>. <br />
+ Память должна быть выделена. <br />
+ <br />
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd><code>RES_OK</code> Комплексный коэффициент передачи расcчитан успешно. <br />
+ В противном случае <a class="el" href="group___e_r_r_o_r___c_o_d_e___g_r_o_u_p.html">код ошибки</a>. <br />
+ </dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Комплексный коэффициент передачи <img class="formulaInl" alt="$ H \left(e^{j \omega} \right)$" src="form_85.png"/> цифрового фильтра представляет собой <img class="formulaInl" alt="$ 2 \pi-$" src="form_90.png"/>периодическую функцию нормированной циклической частоты <img class="formulaInl" alt="$\omega$" src="form_89.png"/>. Поэтому анализ цифровых фильтров целесообразно вести на одном периоде повторения <img class="formulaInl" alt="$ H \left(e^{j \omega} \right)$" src="form_85.png"/>, т.е. в интервале <img class="formulaInl" alt="$\omega$" src="form_89.png"/> от 0 до <img class="formulaInl" alt="$2 \pi$" src="form_91.png"/>, или от <img class="formulaInl" alt="$-\pi$" src="form_92.png"/> до <img class="formulaInl" alt="$ \pi$" src="form_93.png"/>. <br />
+Кроме того известно, что для фильтра с вещественными коэффициентами <img class="formulaInl" alt="$ H \left(e^{j \omega} \right) = H^* \left(e^{-j \omega} \right)$" src="form_94.png"/>, а значит, анализ цифрового фильтра с вещественными коэффициентами достаточно вести для нормированной частоты <img class="formulaInl" alt="$\omega$" src="form_89.png"/> от 0 до <img class="formulaInl" alt="$\pi$" src="form_95.png"/>.</dd></dl>
+<dl class="section author"><dt>Автор</dt><dd>Бахурин Сергей www.dsplib.org </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="filter__an_8c_source.html">filter_an.c</a> строка <a class="el" href="filter__an_8c_source.html#l00445">445</a></p>
+
+<p class="reference">Используется в <a class="el" href="filter__an_8c_source.html#l00035">filter_freq_resp()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- HTML footer for doxygen 1.8.13-->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по libdspl-2.0. Последние изменения: Пн 4 Ноя 2019 16:56:52. Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.15
+</small></address>
+</div> 
+</body>
+</html>
