@@ -19,6 +19,7 @@ int main(int argc, char* argv[])
   writetxt(x, y, N, "dat/dat0.txt");
 
   /* run GNUPLOT script */
+  
   gnuplot_script(argc, argv, "gnuplot/bessel_i0.plt");
 
   dspl_free(handle);      // free dspl handle
