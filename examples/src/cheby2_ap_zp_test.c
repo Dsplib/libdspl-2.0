@@ -6,8 +6,8 @@
 
 int main()
 {
-    void* handle;           // DSPL handle
-    handle = dspl_load();   // Load DSPL function
+    void* handle;           /* DSPL handle        */
+    handle = dspl_load();   /* Load DSPL functions */
 
     complex_t z[ORD], p[ORD];    
     int nz, np, k;
@@ -25,7 +25,7 @@ int main()
     for(k = 0; k < np; k++)
         printf("p[%2d] = %9.3f  %9.3f j\n", k, RE(p[k]), IM(p[k]));
 
-    dspl_free(handle);      // free dspl handle
+    dspl_free(handle);      /* free dspl handle */
     return 0;
 }
 

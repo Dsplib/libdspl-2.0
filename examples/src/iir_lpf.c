@@ -12,9 +12,10 @@
 
 int main(int argc, char* argv[])
 {
-  void* handle;           // DSPL handle
-  handle = dspl_load();   // Load DSPL function
-  
+  void* hdspl;  /* DSPL handle        */
+  void* hplot;  /* GNUPLOT handle     */ 
+  hdspl = dspl_load();       // Load DSPL function
+    
   double a[ORD+1], b[ORD+1];  // коэффициенты H(s)
   double rs = 60.0;  // неравномерность в полосе пропускания 3дБ
   double rp = 1.0;
@@ -46,12 +47,27 @@ int main(int argc, char* argv[])
   writetxt(w, phi, N, "dat/iir_lpf_phi.txt");
   writetxt(w, tau, N, "dat/iir_lpf_tau.txt");
   
-  gnuplot_script(argc, argv, "gnuplot/iir_lpf.plt");
+  /* plotting by GNUPLOT */
+  gnuplot_create(argc, argv, 920, 260, "img/iir_lpf.png", &hplot);    
+  gnuplot_cmd(hplot, "unset key");
+  gnuplot_cmd(hplot, "set grid");
+  gnuplot_cmd(hplot, "set xlabel 'normalized frequency'");
+  gnuplot_cmd(hplot, "set multiplot layout 1,3 rowsfirst");
+  gnuplot_cmd(hplot, "set ylabel 'Magnitude, dB'");
+  gnuplot_cmd(hplot, "set yrange [-100:5]");
+  gnuplot_cmd(hplot, "plot 'dat/iir_lpf_mag.txt' with lines");
+  gnuplot_cmd(hplot, "set ylabel 'Phase response, rad'");
+  gnuplot_cmd(hplot, "unset yrange");
+  gnuplot_cmd(hplot, "plot 'dat/iir_lpf_phi.txt' with lines");
+  gnuplot_cmd(hplot, "set ylabel 'Groupdelay, samples'");
+  gnuplot_cmd(hplot, "unset yrange");
+  gnuplot_cmd(hplot, "plot 'dat/iir_lpf_tau.txt' with lines");
+  gnuplot_cmd(hplot, "unset multiplot");
+  gnuplot_close(hplot);  
   
-  dspl_free(handle);      // free dspl handle
-  
-  // выполнить скрипт GNUPLOT для построения графиков 
-  // по рассчитанным данным
+  dspl_free(hdspl);      // free dspl handle
+
+
   return 0;
 }
 

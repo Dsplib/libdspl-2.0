@@ -11,7 +11,8 @@
 
 int main(int argc, char* argv[])
 {
-  void* handle;   /* DSPL handle         */
+  void* hdspl;  /* DSPL handle        */
+  void* hplot;  /* GNUPLOT handle     */ 
 
   double b[ORD+1], a[ORD+1];
   double t[N], s[N], n[N], sf[N];
@@ -20,7 +21,7 @@ int main(int argc, char* argv[])
   int err;
 
   /* Load DSPL function  */
-  handle = dspl_load();
+  hdspl = dspl_load();
 
   /* random generator init */
   random_init(&rnd, RAND_TYPE_MT19937, NULL);
@@ -44,12 +45,23 @@ int main(int argc, char* argv[])
   /* save input signal and filter output to the txt-files */
   writetxt(t,s, N, "dat/s.txt");
   writetxt(t,sf,N, "dat/sf.txt");
-
-  /* run GNUPLOT script */
-  err = gnuplot_script(argc, argv, "gnuplot/filter_iir.plt");
+  
+  /* plotting by GNUPLOT */
+  gnuplot_create(argc, argv, 820, 340, "img/filter_iir_test.png", &hplot); 
+  gnuplot_cmd(hplot, "unset key");
+  gnuplot_cmd(hplot, "set grid");
+  gnuplot_cmd(hplot, "set xlabel 'n'");
+  gnuplot_cmd(hplot, "set ylabel 's(n)'");
+  gnuplot_cmd(hplot, "set yrange [-3:3]");
+  gnuplot_cmd(hplot, "set multiplot layout 2,1 rowsfirst");
+  gnuplot_cmd(hplot, "plot 'dat/s.txt'  with lines");
+  gnuplot_cmd(hplot, "set ylabel 's_f(n)'");
+  gnuplot_cmd(hplot, "plot 'dat/sf.txt' with lines");
+  gnuplot_cmd(hplot, "unset multiplot");
+  gnuplot_close(hplot);  
 
   /* free DSPL handle */
-  dspl_free(handle);
+  dspl_free(hdspl);
 
 
   return err;

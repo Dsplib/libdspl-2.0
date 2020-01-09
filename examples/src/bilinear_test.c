@@ -8,8 +8,9 @@
 
 int main(int argc, char* argv[])
 {
-  void* handle;           // DSPL handle
-  handle = dspl_load();   // Load DSPL function
+  void* hdspl;  /* DSPL handle        */
+  void* hplot;  /* GNUPLOT handle     */
+  hdspl = dspl_load();   // Load DSPL function
   
   double w[N], h[N];
   complex_t hz[N];
@@ -49,10 +50,17 @@ int main(int argc, char* argv[])
   
   writetxt(w,h,N,"dat/bilinear.txt");
   
-  /* run GNUPLOT script */
-  err = gnuplot_script(argc, argv, "gnuplot/bilinear_test.plt");
+  /* plotting by GNUPLOT */
+  gnuplot_create(argc, argv, 560, 380, "img/bilinear.png", &hplot);
+  gnuplot_cmd(hplot, "set grid");
+  gnuplot_cmd(hplot, "unset key");
+  gnuplot_cmd(hplot, "set xlabel 'normalized frequency'");
+  gnuplot_cmd(hplot, "set ylabel 'Magnitude, dB'");
+  gnuplot_cmd(hplot, "set yrange [-80:5]");
+  gnuplot_cmd(hplot, "plot 'dat/bilinear.txt' with lines");
+  gnuplot_close(hplot);
   
-  dspl_free(handle);      // free dspl handle
+  dspl_free(hdspl);      // free dspl handle
   
   return err;
 }
