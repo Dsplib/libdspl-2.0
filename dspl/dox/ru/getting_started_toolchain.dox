@@ -1,18 +1,16 @@
-/*! \page getting_started_toolchain Быстрый старт использования библиотеки в системе Windows
+/*! \page getting_started_toolchain Установка DSPLIB toolchain в системе Windows
 
-
-\tableofcontents
 
 Запуск DSPL в системе Windows требует установки компилятора, Unix-утилит, и
 пакета построения графиков GNUPlot. Также желательно установить консольный
-файловый менеджер Far и IDE для разработки и отладки программ. 
-
+файловый менеджер Far и IDE для разработки и отладки программ. \n
 Для установки всего необходимого софта предлагается скачать и установить 
-DSPLIB toolchain - полный набор утилит необходимых для работы с библиотекой.
-
+DSPLIB toolchain - полный набор утилит необходимых для работы с библиотекой. \n
 <a href = "http://ru.dsplib.org/dsplib_toolchain_19_10_win_x64.exe">
 Скачать установщик dsplib_toolchain_19_10_win_x64.exe
 </a> (~217 МБ).
+
+
 
 
 \subsection install_gcc Установка DSPLIB toolchain в системе Windows
@@ -67,42 +65,14 @@ PATH, а на рабочем столе будут созданы иконки F
 сборке библиотеки DSPL. 
 
 
+Теперь вы можете производить сборку библиотеки и работать с ней. \n \n
 
-\subsection compile_gcc Компиляция libdspl-2.0 утилитой make
-<a name = "compile_gcc"></a>
-<h2>Компиляция libdspl-2.0 утилитой make</h2>
-
-
-Скачиваем с сайта Github.com
-<a href="https://github.com/Dsplib/libdspl-2.0">
-сайта Github.com
-</a>
-исходные коды DSPL:
-
-\image html dspl_github.png
-
-Разархивируем в рабочий каталог.
-
-Вы можете разархивировать в любой каталог, `libdspl-2.0` будет
-обозначать каталог, в который разархивированы исходные коды.
-
-В качестве примера, исходные коды были разархивированы в 
-каталог `J:\libdspl-2.0`. \n
-
-Переходим в указанный каталог: \n
-
-\image html libdspl_dir.png
-
-Выделяем в строку адреса и вводим туда `cmd`: \n
-
-\image html libdspl_cmd.png
-
-В результате откроется консоль Windows в которую можно вводить команды. \n
-
-Вводим команду `ming32-make`:\n
-
-\image html winconsole_1.png
+Смотри также: \n
 
 
+\ref getting_started_make
 
+\n \n
 */
+
+
