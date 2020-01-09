@@ -9,8 +9,11 @@
 
 int main(int argc, char* argv[])
 {
-  void* handle;           // DSPL handle
-  handle = dspl_load();   // Load DSPL function
+  void* hdspl;  /* DSPL handle        */
+  void* hplot;  /* GNUPLOT handle     */
+  
+  /* Load DSPL functions */
+  hdspl = dspl_load();   
 
   double a[ORD+1], b[ORD+1];
   double Rp = 1.0;
@@ -35,10 +38,28 @@ int main(int argc, char* argv[])
   writetxt(w, phi, N, "dat/butter_ap_test_phi.txt");
   writetxt(w, tau, N, "dat/butter_ap_test_tau.txt");
 
-  /* run GNUPLOT script */
-  res = gnuplot_script(argc, argv, "gnuplot/butter_ap_test.plt");
 
-  dspl_free(handle);      // free dspl handle
+
+  /* plotting by GNUPLOT */
+  gnuplot_create(argc, argv, 920, 260, "img/butter_ap_test.png", &hplot);
+  gnuplot_cmd(hplot, "set logscale x");
+  gnuplot_cmd(hplot, "unset key");
+  gnuplot_cmd(hplot, "set grid");
+  gnuplot_cmd(hplot, "set xlabel 'frequency, rad/s'");
+  gnuplot_cmd(hplot, "set multiplot layout 1,3 rowsfirst");
+  gnuplot_cmd(hplot, "set ylabel 'Magnitude, dB'");
+  gnuplot_cmd(hplot, "set yrange [-100:5]");
+  gnuplot_cmd(hplot, "plot 'dat/butter_ap_test_mag.txt' with lines");
+  gnuplot_cmd(hplot, "set ylabel 'Phase response, rad'");
+  gnuplot_cmd(hplot, "unset yrange");
+  gnuplot_cmd(hplot, "plot 'dat/butter_ap_test_phi.txt' with lines");
+  gnuplot_cmd(hplot, "set ylabel 'Groupdelay, sec'");
+  gnuplot_cmd(hplot, "unset yrange");
+  gnuplot_cmd(hplot, "plot 'dat/butter_ap_test_tau.txt' with lines");
+  gnuplot_cmd(hplot, "unset multiplot");
+  gnuplot_close(hplot); 
+    
+  dspl_free(hdspl);      // free dspl handle
 
   return res;
 }

@@ -68,8 +68,9 @@ void freq_resp_write2txt(double* b, double* a, int ord, int n, char* fn)
  ******************************************************************************/
 int main(int argc, char* argv[])
 {
-  void* handle;           /* DSPL handle        */
-  handle = dspl_load();   /* Load DSPL function */
+  void* hdspl;           /* DSPL handle         */
+  void* hplot;           /* GNUPLOT handle      */         
+  hdspl = dspl_load();   /* Load DSPL functions */
   
   /* Transfer function H(z) coeff. vectors */
   double a[MAX_ORD+1], b[MAX_ORD+1];  
@@ -147,11 +148,40 @@ int main(int argc, char* argv[])
   freq_resp_write2txt(b, a, BSF_ORD, N, "dat/iir_ellip_bsf.txt");
   
   /*--------------------------------------------------------------------------*/
-  
-  gnuplot_script(argc, argv, "gnuplot/iir_test.plt");
+
+  /* plotting by GNUPLOT */
+  gnuplot_create(argc, argv, 920, 840, "img/iir_test.png", &hplot);  
+  gnuplot_cmd(hplot, "unset key");
+  gnuplot_cmd(hplot, "set grid");
+  gnuplot_cmd(hplot, "set xlabel 'normalized frequency'");
+  gnuplot_cmd(hplot, "set ylabel 'Magnitude, dB'");
+  gnuplot_cmd(hplot, "set yrange [-100:5]");
+  gnuplot_cmd(hplot, "set xtics 0,1");
+  gnuplot_cmd(hplot, "set xtics add ('0.3' 0.3)");
+  gnuplot_cmd(hplot, "set xtics add ('0.7' 0.7)");
+  gnuplot_cmd(hplot, "set xtics add ('1' 1)");
+  gnuplot_cmd(hplot, "set multiplot layout 4,4 rowsfirst");
+  gnuplot_cmd(hplot, "plot 'dat/iir_butter_lpf.txt' with lines");
+  gnuplot_cmd(hplot, "plot 'dat/iir_butter_hpf.txt' with lines");
+  gnuplot_cmd(hplot, "plot 'dat/iir_butter_bpf.txt' with lines");
+  gnuplot_cmd(hplot, "plot 'dat/iir_butter_bsf.txt' with lines");
+  gnuplot_cmd(hplot, "plot 'dat/iir_cheby1_lpf.txt' with lines");
+  gnuplot_cmd(hplot, "plot 'dat/iir_cheby1_hpf.txt' with lines");
+  gnuplot_cmd(hplot, "plot 'dat/iir_cheby1_bpf.txt' with lines");
+  gnuplot_cmd(hplot, "plot 'dat/iir_cheby1_bsf.txt' with lines");
+  gnuplot_cmd(hplot, "plot 'dat/iir_cheby2_lpf.txt' with lines");
+  gnuplot_cmd(hplot, "plot 'dat/iir_cheby2_hpf.txt' with lines");
+  gnuplot_cmd(hplot, "plot 'dat/iir_cheby2_bpf.txt' with lines");
+  gnuplot_cmd(hplot, "plot 'dat/iir_cheby2_bsf.txt' with lines");
+  gnuplot_cmd(hplot, "plot 'dat/iir_ellip_lpf.txt' with lines");
+  gnuplot_cmd(hplot, "plot 'dat/iir_ellip_hpf.txt' with lines");
+  gnuplot_cmd(hplot, "plot 'dat/iir_ellip_bpf.txt' with lines");
+  gnuplot_cmd(hplot, "plot 'dat/iir_ellip_bsf.txt' with lines");
+  gnuplot_cmd(hplot, "unset multiplot");
+  gnuplot_close(hplot);  
   
   /* free dspl handle */
-  dspl_free(handle);
+  dspl_free(hdspl);
   
   return 0;
 }

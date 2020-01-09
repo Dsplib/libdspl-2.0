@@ -3,17 +3,18 @@
 #include <string.h>
 #include "dspl.h"
 
-// Порядок фильтра
+/* Порядок фильтра */
 #define ORD 4
 
-// размер векторов частотной характериситки фильтра
+/* размер векторов частотной характериситки фильтра */
 #define N   1000
 
 
 int main(int argc, char* argv[])
 {
-  void* handle;           // DSPL handle
-  handle = dspl_load();   // Load DSPL function
+  void* hdspl;           /* DSPL handle        */
+  void* hplot;           /* GNUPLOT handle     */
+  hdspl = dspl_load();   /* Load DSPL function */
   
   double a[ORD+1], b[ORD+1];  // коэффицинеты H(s)
   double Rp = 3.0;  // неравномерность в полосе пропускания 3дБ
@@ -43,11 +44,27 @@ int main(int argc, char* argv[])
   writetxt(w, phi, N, "dat/cheby1_ap_test_phi.txt");
   writetxt(w, tau, N, "dat/cheby1_ap_test_tau.txt");
 
-
-  /* run GNUPLOT script */
-  res = gnuplot_script(argc, argv, "gnuplot/cheby1_ap_test.plt");
+  /* plotting by GNUPLOT */
+  gnuplot_create(argc, argv, 920, 260, "img/cheby1_ap_test.png", &hplot);
+  gnuplot_cmd(hplot, "set logscale x");
+  gnuplot_cmd(hplot, "unset key");
+  gnuplot_cmd(hplot, "set grid");
+  gnuplot_cmd(hplot, "set xlabel 'frequency, rad/s'");
+  gnuplot_cmd(hplot, "set multiplot layout 1,3 rowsfirst");
+  gnuplot_cmd(hplot, "set ylabel 'Magnitude, dB'");
+  gnuplot_cmd(hplot, "set yrange [-100:5]");
+  gnuplot_cmd(hplot, "plot 'dat/cheby1_ap_test_mag.txt' with lines");
+  gnuplot_cmd(hplot, "set ylabel 'Phase response, rad'");
+  gnuplot_cmd(hplot, "unset yrange");
+  gnuplot_cmd(hplot, "plot 'dat/cheby1_ap_test_phi.txt' with lines");
+  gnuplot_cmd(hplot, "set ylabel 'Groupdelay, sec'");
+  gnuplot_cmd(hplot, "unset yrange");
+  gnuplot_cmd(hplot, "plot 'dat/cheby1_ap_test_tau.txt' with lines");
+  gnuplot_cmd(hplot, "unset multiplot");
+  gnuplot_close(hplot); 
   
-  dspl_free(handle);      // free dspl handle
+  
+  dspl_free(hdspl);      // free dspl handle
 
   return res;
 }

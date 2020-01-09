@@ -7,8 +7,9 @@
 
 int main(int argc, char* argv[])
 {
-  void* handle;           // DSPL handle
-  handle = dspl_load();   // Load DSPL function
+  void* hdspl;  /* DSPL handle        */
+  void* hplot;  /* GNUPLOT handle     */ 
+  hdspl = dspl_load();   // Load DSPL function
 
   double x[N], y[N];
   int ord;
@@ -22,10 +23,20 @@ int main(int argc, char* argv[])
     writetxt(x,y,N,fn);
   }
   
-  /* run GNUPLOT script */
-  gnuplot_script(argc, argv, "gnuplot/cheby_poly2.plt");
+  /* plotting by GNUPLOT */
+  gnuplot_create(argc, argv, 560, 380, "img/cheby_poly2.png", &hplot);  
+  gnuplot_cmd(hplot, "set grid");
+  gnuplot_cmd(hplot, "set key left top");
+  gnuplot_cmd(hplot, "set xlabel 'x'");
+  gnuplot_cmd(hplot, "set ylabel 'U_N (x)'");
+  gnuplot_cmd(hplot, "set yrange [-3.5:3.5]");
+  gnuplot_cmd(hplot, "plot 'dat/cheby_poly2_ord1.txt' with lines, \\");
+  gnuplot_cmd(hplot, "     'dat/cheby_poly2_ord2.txt' with lines, \\");
+  gnuplot_cmd(hplot, "     'dat/cheby_poly2_ord3.txt' with lines, \\");
+  gnuplot_cmd(hplot, "     'dat/cheby_poly2_ord4.txt' with lines");  
+  gnuplot_close(hplot);  
   
-  dspl_free(handle);      // free dspl handle
+  dspl_free(hdspl);      // free dspl handle
 
   return 0;
 }

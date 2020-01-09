@@ -95,6 +95,7 @@ typedef struct
 
 /* Error codes                                          */
 /* A                                          0x01xxxxxx*/
+#define ERROR_ARG_PARAM                       0x01180716
 /* B                                          0x02xxxxxx*/
 /* C                                          0x03xxxxxx*/
 /* D                                          0x04xxxxxx*/
@@ -120,6 +121,8 @@ typedef struct
 #define ERROR_FREAD_SIZE                      0x06180501
 #define ERROR_FWRITE_SIZE                     0x06231820
 /* G                                          0x07xxxxxx*/
+#define ERROR_GNUPLOT_CREATE                  0x07161203
+#define ERROR_GNUPLOT_FNPNG                   0x07161206
 #define ERROR_GNUPLOT_TERM                    0x07161220
 /* H                                          0x08xxxxxx*/
 /* I                                          0x09xxxxxx*/
@@ -220,6 +223,9 @@ typedef struct
 
 #define  DSPL_VERIF_FAILED                    1
 #define  DSPL_VERIF_SUCCESS                   0
+
+#define PLOT_HOLD                             0x00000001
+
 
 #ifdef __cplusplus
   extern "C" {
@@ -625,6 +631,18 @@ DECLARE_FUNC(int,        freqz,                       double*
                                                 COMMA double*
                                                 COMMA int
                                                 COMMA complex_t*);
+/*----------------------------------------------------------------------------*/
+DECLARE_FUNC(void,       gnuplot_close,               void*             h);
+/*----------------------------------------------------------------------------*/
+DECLARE_FUNC(void,       gnuplot_cmd,                 void*             h
+                                                COMMA char*             cmd);
+/*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        gnuplot_create,              int               argc
+                                                COMMA char*             argv[] 
+                                                COMMA int               w
+                                                COMMA int               h
+                                                COMMA char*             fn_png
+                                                COMMA void**            hplot);
 /*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        gnuplot_script,              int               argc
                                                 COMMA char*             argv[]
