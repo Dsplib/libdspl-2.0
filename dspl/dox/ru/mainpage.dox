@@ -22,8 +22,6 @@ DSPL-2.0 - свободная библиотека алгоритмов цифр
 
 \ref getting_started_toolchain \n
 
-\ref getting_started_toolchain \n
-
 \ref getting_started_make \n
 
 <H3>
@@ -54,7 +52,7 @@ DSPL-2.0 - свободная библиотека алгоритмов цифр
 
 <B>Прочие алгоритмы:</B>\n
 \ref RESAMPLING_GROUP \n
-\ref IN_OUT_GROUP \n \n
+\ref IN_OUT_GROUP \n
 
 \ref PLOT_GROUP \n
 

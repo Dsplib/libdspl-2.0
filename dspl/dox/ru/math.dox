@@ -40,8 +40,6 @@
 
 \image html bessel_i0.png
 
-Скрипт GNUPLOT для построения графиков из текстовых файлов:
-\include bessel_i0.plt
 
 \author
 Бахурин Сергей
@@ -123,9 +121,6 @@ www.dsplib.org
 и выводятся на график `img/sine_int.png`
 
 \image html sine_int.png
-
-Скрипт GNUPLOT для построения графиков из текстовых файлов:
-\include sine_int.plt
 
 \author
 Бахурин Сергей

@@ -49,9 +49,6 @@ cheby_poly1_ord4.txt
 
 \image html cheby_poly1.png
 
-Скрипт GNUPLOT для построения графиков из текстовых файлов:
-\include cheby_poly1.plt
-
 \author Бахурин Сергей www.dsplib.org
 **************************************************************************** */
 
@@ -107,9 +104,6 @@ cheby_poly2_ord4.txt
 по сохраненным в файлах данным:
 
 \image html cheby_poly2.png
-
-Скрипт GNUPLOT для построения графиков из текстовых файлов:
-\include cheby_poly2.plt
 
 \author Бахурин Сергей www.dsplib.org
 **************************************************************************** */

@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2019 Sergey Bakhurin
+* Copyright (c) 2015-2020 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -109,7 +109,6 @@ p_freqz                                 freqz                         ;
 p_gnuplot_close                         gnuplot_close                 ;
 p_gnuplot_cmd                           gnuplot_cmd                   ;
 p_gnuplot_create                        gnuplot_create                ;
-p_gnuplot_script                        gnuplot_script                ;
 p_goertzel                              goertzel                      ;
 p_goertzel_cmplx                        goertzel_cmplx                ;
 
@@ -304,7 +303,6 @@ void* dspl_load()
   LOAD_FUNC(gnuplot_close);   
   LOAD_FUNC(gnuplot_cmd);     
   LOAD_FUNC(gnuplot_create);  
-  LOAD_FUNC(gnuplot_script);
   LOAD_FUNC(goertzel);
   LOAD_FUNC(goertzel_cmplx);
 

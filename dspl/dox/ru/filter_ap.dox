@@ -179,9 +179,6 @@ cheby1_ap_test_tau.txt    ГВЗ фильтра
 
 \image html cheby1_ap_test.png
 
-Скрипт GNUPLOT для построения графиков из текстовых файлов:
-\include cheby1_ap_test.plt
-
 \author
     Бахурин Сергей
       www.dsplib.org

@@ -82,9 +82,6 @@ err = 0
 
 \image html bilinear.png
 
-Скрипт GNUPLOT для построения графиков из текстовых файлов:
-\include bilinear_test.plt
-
 \author
       Бахурин Сергей
       www.dsplib.org          
