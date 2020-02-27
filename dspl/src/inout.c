@@ -33,54 +33,14 @@ Print DSPL info
 void DSPL_API dspl_info()
 {
   printf("\n\n        D S P L - 2.0\n");
-  printf("        version 2.19.10.20\n");
-  printf("\n        Copyright (C) 2015-2019\n");
+  printf("        version 2.20.01.09\n");
+  printf("\n        Copyright (C) 2015-2020\n");
   printf("        Sergey Bakhurin                www.dsplib.org\n");
   printf("        ---------------------------------------------\n");
   printf("        BLAS and LAPACK ver.: 3.8.0    www.netlib.org\n");
 
 }
 
-
-/*******************************************************************************
-run gnuplot script
-*******************************************************************************/
-int DSPL_API gnuplot_script(int argc, char* argv[], char* fn)
-{
-  char cmd[1024] = {0};
-
-  if(!fn)
-    return ERROR_PTR;
-
-
-  if(argc > 1 && argv)
-  {
-    if(!strcmp(argv[1], "--noplot"))
-    {
-      return RES_OK;
-    }
-    if(!strcmp(argv[1], "--plotwin"))
-    {
-      sprintf(cmd, "gnuplot -e \"plotterm = 'wxt'\" -p %s", fn);
-      goto script_label;
-    }
-
-    if(!strcmp(argv[1], "--plotpng"))
-    {
-      sprintf(cmd, "gnuplot -e \"plotterm = 'pngcairo'\" -p %s", fn);
-      goto script_label;
-    }
-    return ERROR_GNUPLOT_TERM;
-  }
-
-  {
-    sprintf(cmd, "gnuplot -e \"plotterm = 'wxt'\" -p %s", fn);
-    goto script_label;
-  }
-
-script_label:
-  return system(cmd);
-}
 
 
 /******************************************************************************

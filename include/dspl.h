@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2019 Sergey Bakhurin
+* Copyright (c) 2015-2020 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -643,10 +643,6 @@ DECLARE_FUNC(int,        gnuplot_create,              int               argc
                                                 COMMA int               h
                                                 COMMA char*             fn_png
                                                 COMMA void**            hplot);
-/*----------------------------------------------------------------------------*/
-DECLARE_FUNC(int,        gnuplot_script,              int               argc
-                                                COMMA char*             argv[]
-                                                COMMA char*             fn);
 /*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        goertzel,                    double*
                                                 COMMA int
