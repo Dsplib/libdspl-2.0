@@ -87,9 +87,78 @@ int DSPL_API bilinear(double* bs, double* as, int ord, double* bz, double* az)
 
 
 
-/******************************************************************************
-Digital IIR filter coefficients calculation
-*******************************************************************************/
+
+
+/*! ****************************************************************************
+\ingroup IIR_FILTER_DESIGN_GROUP
+\fn int iir(double rp, double rs, int ord,  double  w0, double  w1, int type, double* b,  double* a)
+\brief  IIR digital filter transfer function \f$H(z)\f$ 
+        coefficients calculation which can be used in \ref filter_iir
+
+
+\param[in]  rp   Filter passband ripple level (dB). \n \n
+
+\param[in]  rs   Filter stopband supression level (dB).\n \n
+
+\param[in]  ord  Filter order. \n
+                 Number of \f$H(z)\f$  coefficients is `ord+1`. \n
+                 This parameter must be evan for bandpass 
+                 and bandstop filter type.\n \n
+
+\param[in]  w0  Normlized cutoff frequency for LPF and HPF. \n 
+                Left cutoff frequency for bandpass and bandstop filter. \n
+                Valid value from 0 to 1. \n
+                Here 0 corresponds to 0 Hz frequency, 1 corresponds to 
+                Fs/2 Hz frequency. \n \n
+                 
+
+\param[in]  w1  Right cutoff frequency for bandpass and bandstop filter.\n
+                Valid value from 0 to 1. \n
+                Here 0 corresponds to 0 Hz frequency, 1 corresponds to 
+                Fs/2 Hz frequency. \n 
+                This parameter is ignored for LPF and HPF. \n \n
+                 
+\param[in]  type Filter type. \n
+                 This paramenter is combination of filter type flags:\n
+                 \verbatim
+                 DSPL_FILTER_LPF   - lowpass  filter;
+                 DSPL_FILTER_HPF   - highpass filter;
+                 DSPL_FILTER_BPASS - bandpass filter;
+                 DSPL_FILTER_BSTOP - bandstop filter,
+                 \endverbatim
+                and filter approximation flags:
+                 \verbatim
+                 DSPL_FILTER_BUTTER - Buttetworth filter;
+                 DSPL_FILTER_CHEBY1 - Chebyshev type 1 filter;
+                 DSPL_FILTER_CHEBY2 - Chebyshev type 2 filter;
+                 DSPL_FILTER_ELLIP  - elliptic filter.
+                 \endverbatim
+                 \n \n     
+
+\param[out]  b   Pointer to the vector of \f$H(z)\f$ numerator. \n 
+                 Vector size is   `[ord+1 x 1]`.\n
+                 Memory must be allocated. \n \n   
+
+\param[out]  a   Pointer to the vector of \f$H(z)\f$ denominator. \n 
+                 Vector size is   `[ord+1 x 1]`.\n
+                 Memory must be allocated. \n \n                 
+
+\return
+  `RES_OK`      if filter is calculated successfully. \n \n
+                Else \ref ERROR_CODE_GROUP "code error". \n
+   
+Example:
+
+\include iir_test.c
+
+Program calculates filter coefficients for different 
+`type` parameter combination. Also program calculates filters magnitude and
+draws plot:
+
+\image html iir_test.png
+
+\author  Sergey Bakhurin www.dsplib.org            
+***************************************************************************** */
 int DSPL_API iir(double rp, double rs, int ord,  double  w0, double  w1,
                                        int type, double* b,  double* a)
 {
@@ -166,7 +235,6 @@ int DSPL_API iir(double rp, double rs, int ord,  double  w0, double  w1,
   
   
   err = bilinear(bt, at, ord, b, a);
-
 
 error_proc:
 
