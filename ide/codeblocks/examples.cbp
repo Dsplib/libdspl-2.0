@@ -35,7 +35,7 @@
 			<Add option="-DWIN_OS" />
 			<Add directory="../../include" />
 		</Compiler>
-		<Unit filename="../../examples/src/test.c">
+		<Unit filename="../../examples/src/dspl_info_test.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../include/dspl.c">

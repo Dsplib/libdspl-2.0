@@ -92,9 +92,6 @@
 		<Unit filename="../../dspl/src/fft_subkernel.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../dspl/src/fillarray.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="../../dspl/src/filter_an.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -111,6 +108,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../dspl/src/fourier_series.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../dspl/src/gnuplot.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../dspl/src/goertzel.c">
