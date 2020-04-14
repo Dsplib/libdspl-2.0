@@ -508,7 +508,6 @@ exit_label:
 
 
 
-
 /*******************************************************************************
 \ingroup FILTER_CONV_GROUP
 \fn int filter_iir(double* b, double* a, int ord, double* x, int n, double* y)

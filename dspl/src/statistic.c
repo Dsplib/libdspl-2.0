@@ -25,6 +25,74 @@
 #include "dspl.h"
 
 
+
+
+/******************************************************************************
+\ingroup SPEC_MATH_STAT_GROUP
+\fn int find_max_abs(double* a, int n, double* m, int* ind)
+\brief Find maximum absolute value from the real vector `a`
+
+Function searches maximum absolute value in the real vector `a`.
+This value writes to the address `m` and index keeps to te address `ind`.
+
+\param[in]  a   Pointer to the real vector `a`. \n
+                Vector size is `[n x 1]`. \n \n
+
+\param[in]  n   Size of the input vector `a`. \n \n
+
+
+\param[out] m   Pointer to the variable which keeps vector `a`
+                maximum absolute value. \n
+                Pointer can be `NULL`, maximum value will not return
+                in this case. \n \n
+
+\param[out] ind Pointer to the variable which keeps index of a 
+                maximum absolute value inside vector `a`. \n
+                Pointer can be `NULL`, index will not return
+                in this case. \n \n
+\return
+`RES_OK` if function calculates successfully,
+ else \ref ERROR_CODE_GROUP "code error".
+
+Example:
+\code{.cpp}
+  double a[5] = {0.0, 2.0, -5.0, 4.0, 2.0};
+  double m;
+  int ind;
+  find_max_abs(a, 5, &m, &ind);
+  printf("\n\nmax absolute value:    %8.1f  (index %d)", m, ind);
+\endcode 
+As result the variable `m` will keep value `5`, 
+and variable `ind` will keep `2`.
+
+\author Sergey Bakhurin www.dsplib.org
+*******************************************************************************/
+int DSPL_API find_max_abs(double* a, int n, double* m, int* ind)
+{
+  int k, i;
+  double t;
+  if(!a)
+    return ERROR_PTR;
+  if(n < 1)
+    return ERROR_SIZE;
+  t = fabs(a[0]);
+  i = 0;
+  for(k = 1; k < n; k++)
+  {
+    if(fabs(a[k]) > t)
+    {
+      t = fabs(a[k]);
+      i = k;
+    }
+  }
+  if(m)
+    *m = t;
+  if(ind)
+    *ind = i;
+  return RES_OK;
+}
+
+
 /*******************************************************************************
 Histogram calculation
 *******************************************************************************/

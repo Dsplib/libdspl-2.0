@@ -1,1 +1,15 @@
 # depslib dependency file v1.0
+1577612574 source:f:\dsplib.org\libdspl-2.0\examples\src\dspl_info_test.c
+	<stdio.h>
+	<stdlib.h>
+	"dspl.h"
+
+1586187310 f:\dsplib.org\libdspl-2.0\include\dspl.h
+	<math.h>
+
+1586187094 source:f:\dsplib.org\libdspl-2.0\include\dspl.c
+	<windows.h>
+	<dlfcn.h>
+	<stdio.h>
+	"dspl.h"
+

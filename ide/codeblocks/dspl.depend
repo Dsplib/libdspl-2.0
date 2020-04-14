@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1570970898 source:f:\dsplib.org\libdspl-2.0\dspl\src\array.c
+1586882689 source:f:\dsplib.org\libdspl-2.0\dspl\src\array.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"dspl.h"
 	"blas.h"
 
-1572200729 f:\dsplib.org\libdspl-2.0\include\dspl.h
+1586187310 f:\dsplib.org\libdspl-2.0\include\dspl.h
 	<math.h>
 
 1570911978 f:\dsplib.org\libdspl-2.0\dspl\src\blas.h
@@ -19,12 +19,12 @@
 	<math.h>
 	"dspl.h"
 
-1570975391 source:f:\dsplib.org\libdspl-2.0\dspl\src\complex.c
+1586882996 source:f:\dsplib.org\libdspl-2.0\dspl\src\complex.c
 	<stdio.h>
 	<stdlib.h>
 	"dspl.h"
 
-1569004225 source:f:\dsplib.org\libdspl-2.0\dspl\src\conv.c
+1586882688 source:f:\dsplib.org\libdspl-2.0\dspl\src\conv.c
 	<stdlib.h>
 	<string.h>
 	"dspl.h"
@@ -41,7 +41,7 @@
 	<math.h>
 	"dspl.h"
 
-1570887444 source:f:\dsplib.org\libdspl-2.0\dspl\src\fft.c
+1586882686 source:f:\dsplib.org\libdspl-2.0\dspl\src\fft.c
 	<stdlib.h>
 	<stdio.h>
 	<string.h>
@@ -105,13 +105,13 @@
 	<string.h>
 	"dspl.h"
 
-1572186006 source:f:\dsplib.org\libdspl-2.0\dspl\src\inout.c
+1586883124 source:f:\dsplib.org\libdspl-2.0\dspl\src\inout.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"dspl.h"
 
-1569004225 source:f:\dsplib.org\libdspl-2.0\dspl\src\math.c
+1579030984 source:f:\dsplib.org\libdspl-2.0\dspl\src\math.c
 	<stdio.h>
 	<stdlib.h>
 	"dspl.h"
@@ -158,7 +158,7 @@
 	<math.h>
 	"dspl.h"
 
-1569004225 source:f:\dsplib.org\libdspl-2.0\dspl\src\statistic.c
+1579031016 source:f:\dsplib.org\libdspl-2.0\dspl\src\statistic.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -174,4 +174,9 @@
 	<math.h>
 	"dspl.h"
 	"dspl_internal.h"
+
+1578598539 source:f:\dsplib.org\libdspl-2.0\dspl\src\gnuplot.c
+	<stdio.h>
+	<unistd.h>
+	"dspl.h"
 

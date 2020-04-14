@@ -135,6 +135,7 @@ typedef struct
 #define ERROR_MATRIX_INDEX                    0x13010914
 #define ERROR_MATRIX_SINGULAR                 0x13011914
 #define ERROR_MATRIX_SIZE                     0x13011926
+#define ERROR_MIN_MAX                         0x13091413
 /* N                                          0x14xxxxxx*/
 #define ERROR_NEGATIVE                        0x14050701
 /* O                                          0x15xxxxxx*/
@@ -264,6 +265,13 @@ typedef struct
 DECLARE_FUNC(int,        acos_cmplx,                  complex_t*
                                                 COMMA int
                                                 COMMA complex_t*);
+/*----------------------------------------------------------------------------*/DECLARE_FUNC(int,        array_scale_lin,             double*       x
+                                                COMMA int           n
+												COMMA double        xmin
+												COMMA double        xmax 
+												COMMA double        dx
+                                                COMMA double        h
+												COMMA double*       y);
 /*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        asin_cmplx,                  complex_t*
                                                 COMMA int

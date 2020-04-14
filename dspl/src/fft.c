@@ -372,7 +372,7 @@ error_proc:
 
 
 /*******************************************************************************
-FFT magnitude for the real signal
+FFT magnitude for the complex signal
 *******************************************************************************/
 int DSPL_API fft_mag_cmplx(complex_t* x, int n, fft_t* pfft, 
                            double fs, int flag,

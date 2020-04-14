@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2019 Sergey Bakhurin
+* Copyright (c) 2015-2020 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -24,6 +24,7 @@
 #include <string.h>
 #include "dspl.h"
 #include "blas.h"
+
 
 /******************************************************************************
 \fn int concat(void* a, size_t na, void* b, size_t nb, void* c) 
@@ -237,71 +238,6 @@ int DSPL_API decimate_cmplx(complex_t* x, int n, int d, complex_t* y, int* cnt)
 
 
 
-/******************************************************************************
-\ingroup SPEC_MATH_STAT_GROUP
-\fn int find_max_abs(double* a, int n, double* m, int* ind)
-\brief Find maximum absolute value from the real vector `a`
-
-Function searches maximum absolute value in the real vector `a`.
-This value writes to the address `m` and index keeps to te address `ind`.
-
-\param[in]  a   Pointer to the real vector `a`. \n
-                Vector size is `[n x 1]`. \n \n
-
-\param[in]  n   Size of the input vector `a`. \n \n
-
-
-\param[out] m   Pointer to the variable which keeps vector `a`
-                maximum absolute value. \n
-                Pointer can be `NULL`, maximum value will not return
-                in this case. \n \n
-
-\param[out] ind Pointer to the variable which keeps index of a 
-                maximum absolute value inside vector `a`. \n
-                Pointer can be `NULL`, index will not return
-                in this case. \n \n
-\return
-`RES_OK` if function calculates successfully,
- else \ref ERROR_CODE_GROUP "code error".
-
-Example:
-\code{.cpp}
-  double a[5] = {0.0, 2.0, -5.0, 4.0, 2.0};
-  double m;
-  int ind;
-  find_max_abs(a, 5, &m, &ind);
-  printf("\n\nmax absolute value:    %8.1f  (index %d)", m, ind);
-\endcode 
-As result the variable `m` will keep value `5`, 
-and variable `ind` will keep `2`.
-
-\author Sergey Bakhurin www.dsplib.org
-*******************************************************************************/
-int DSPL_API find_max_abs(double* a, int n, double* m, int* ind)
-{
-  int k, i;
-  double t;
-  if(!a)
-    return ERROR_PTR;
-  if(n < 1)
-    return ERROR_SIZE;
-  t = fabs(a[0]);
-  i = 0;
-  for(k = 1; k < n; k++)
-  {
-    if(fabs(a[k]) > t)
-    {
-      t = fabs(a[k]);
-      i = k;
-    }
-  }
-  if(m)
-    *m = t;
-  if(ind)
-    *ind = i;
-  return RES_OK;
-}
-
 
 
 /******************************************************************************
@@ -438,6 +374,112 @@ int DSPL_API flipip_cmplx(complex_t* x, int n)
   return RES_OK;
 }
 
+
+
+
+
+
+/*******************************************************************************
+Linspace array filling
+*******************************************************************************/
+int DSPL_API linspace(double x0, double x1, int n, int type, double* x)
+{
+  double dx;
+  int k;
+
+  if(n < 2)
+    return ERROR_SIZE;
+  if(!x)
+  return ERROR_PTR;
+
+  switch (type)
+  {
+    case DSPL_SYMMETRIC:
+      dx = (x1 - x0)/(double)(n-1);
+      x[0] = x0;
+      for(k = 1; k < n; k++)
+        x[k] = x[k-1] + dx;
+      break;
+    case DSPL_PERIODIC:
+      dx = (x1 - x0)/(double)n;
+      x[0] = x0;
+      for(k = 1; k < n; k++)
+        x[k] = x[k-1] + dx;
+      break;
+    default:
+      return ERROR_SYM_TYPE;
+  }
+  return RES_OK;
+}
+
+
+
+
+
+/*******************************************************************************
+Logspace array filling
+*******************************************************************************/
+int DSPL_API logspace(double x0, double x1, int n, int type, double* x)
+{
+  double mx, a, b;
+  int k;
+
+  if(n < 2)
+    return ERROR_SIZE;
+  if(!x)
+    return ERROR_PTR;
+
+  a = pow(10.0, x0);
+  b = pow(10.0, x1);
+
+  switch (type)
+  {
+    case DSPL_SYMMETRIC:
+      mx = pow(b/a, 1.0/(double)(n-1));
+      x[0] = a;
+      for(k = 1; k < n; k++)
+        x[k] = x[k-1] * mx;
+      break;
+    case DSPL_PERIODIC:
+      mx = pow(b/a, 1.0/(double)n);
+      x[0] = a;
+      for(k = 1; k < n; k++)
+        x[k] = x[k-1] * mx;
+      break;
+    default:
+      return ERROR_SYM_TYPE;
+  }
+  return RES_OK;
+}
+
+
+
+/******************************************************************************
+\author Sergey Bakhurin www.dsplib.org
+*******************************************************************************/
+int array_scale_lin(double* x,   int n, 
+                    double xmin, double xmax, double dx,
+                    double h,    double* y)
+{
+  double kx;
+  int k;  
+  if(!x)
+    return ERROR_PTR;
+  if(n<1)
+    return ERROR_SIZE;
+  if(h<0.0)
+    return ERROR_NEGATIVE;
+
+  if(xmin >= xmax)
+    return ERROR_MIN_MAX;
+
+  kx = h / (xmax - xmin);
+
+  for(k = 0; k < n; k++)
+    y[k] = (x[k] - xmin) * kx + dx;
+
+  return RES_OK;
+}
 
 
 /******************************************************************************

@@ -36,6 +36,7 @@
 #ifndef BUILD_LIB
 
 p_acos_cmplx                            acos_cmplx                    ;
+p_array_scale_lin                       array_scale_lin               ;
 p_asin_cmplx                            asin_cmplx                    ;
 
 p_butter_ap                             butter_ap                     ;
@@ -230,6 +231,7 @@ void* dspl_load()
 
 
   LOAD_FUNC(acos_cmplx);
+  LOAD_FUNC(array_scale_lin);
   LOAD_FUNC(asin_cmplx);
 
   LOAD_FUNC(bessel_i0);

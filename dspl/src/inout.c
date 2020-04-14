@@ -197,7 +197,6 @@ int DSPL_API writetxt(double* x, double* y, int n, char* fn)
 {
   int k;
   FILE* pFile = NULL;
-  int res;
   if(!x)
     return ERROR_PTR;
   if(n < 1)
@@ -212,12 +211,12 @@ int DSPL_API writetxt(double* x, double* y, int n, char* fn)
   if(y)
     for(k = 0; k < n; k++)
       fprintf(pFile, "%+.12E\t%+.12E\n", x[k], y[k]);
- 
+
   else
-    for(k = 0; k < n; k++) 
+    for(k = 0; k < n; k++)
       fprintf(pFile, "%+.12E\n", x[k]);
-    
- 
+
+
   fclose(pFile);
   return RES_OK;
 }
