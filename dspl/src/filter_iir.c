@@ -26,41 +26,40 @@
 
 
 
-
 /*******************************************************************************
 \ingroup IIR_FILTER_DESIGN_GROUP
 \fn int bilinear(double* bs, double* as, int ord, double* bz, double* az)
 \brief Analog filter transfer function H(s) bilinear transform to the
        digital filter transfer function H(z).
-       
+
 Function calculates digital filter coefficients by rational substitution
 
 \f[
 s \leftarrow \frac{1 - z^{-1}}{1 - z^{-1}}.
 \f]
 
-Digital filter order still the same as analog prototype order. 
-Analog prototype frequency \f$\Omega\f$ related with the  digital filter 
+Digital filter order still the same as analog prototype order.
+Analog prototype frequency \f$\Omega\f$ related with the  digital filter
 normalized frequency \f$\omega\f$ as:
 
 \f[
 \Omega = \tan(\omega / 2).
 \f]
 
-\param[in]  bs   Pointer to the numerator coefficients of an 
+\param[in]  bs   Pointer to the numerator coefficients of an
                  analog prototype transfer function \f$H(s)\f$.  \n
                  Array size is `[ord+1 x 1]`. \n
                  Memory must be allocated. \n \n
 
-\param[in]  as   Pointer to the denominator coefficients of an 
+\param[in]  as   Pointer to the denominator coefficients of an
                  analog prototype transfer function \f$H(s)\f$.  \n
                  Array size is `[ord+1 x 1]`. \n
                  Memory must be allocated. \n \n
-                 
+
 \param[in]  ord  Filter order. \n
                  Number of  coefficients \f$H(s)\f$ and \f$H(z)\f$
                  numerator and denominator equals `ord+1`. \n \n
-                 
+
 \param[out]  bz  Pointer to the numerator coefficients of a
                  digital filter transfer function \f$H(z)\f$.  \n
                  Array size is `[ord+1 x 1]`. \n
@@ -75,7 +74,7 @@ normalized frequency \f$\omega\f$ as:
   `RES_OK`      if filter is calculated successfully. \n \n
                 Else \ref ERROR_CODE_GROUP "code error". \n
 
-\author  Sergey Bakhurin www.dsplib.org          
+\author  Sergey Bakhurin www.dsplib.org
 *******************************************************************************/
 int DSPL_API bilinear(double* bs, double* as, int ord, double* bz, double* az)
 {
@@ -89,10 +88,10 @@ int DSPL_API bilinear(double* bs, double* as, int ord, double* bz, double* az)
 
 
 
-/*! ****************************************************************************
+/*****************************************************************************
 \ingroup IIR_FILTER_DESIGN_GROUP
 \fn int iir(double rp, double rs, int ord,  double  w0, double  w1, int type, double* b,  double* a)
-\brief  IIR digital filter transfer function \f$H(z)\f$ 
+\brief  IIR digital filter transfer function \f$H(z)\f$
         coefficients calculation which can be used in \ref filter_iir
 
 
@@ -102,22 +101,22 @@ int DSPL_API bilinear(double* bs, double* as, int ord, double* bz, double* az)
 
 \param[in]  ord  Filter order. \n
                  Number of \f$H(z)\f$  coefficients is `ord+1`. \n
-                 This parameter must be evan for bandpass 
+                 This parameter must be evan for bandpass
                  and bandstop filter type.\n \n
 
-\param[in]  w0  Normlized cutoff frequency for LPF and HPF. \n 
+\param[in]  w0  Normlized cutoff frequency for LPF and HPF. \n
                 Left cutoff frequency for bandpass and bandstop filter. \n
                 Valid value from 0 to 1. \n
-                Here 0 corresponds to 0 Hz frequency, 1 corresponds to 
+                Here 0 corresponds to 0 Hz frequency, 1 corresponds to
                 Fs/2 Hz frequency. \n \n
-                 
+
 
 \param[in]  w1  Right cutoff frequency for bandpass and bandstop filter.\n
                 Valid value from 0 to 1. \n
-                Here 0 corresponds to 0 Hz frequency, 1 corresponds to 
-                Fs/2 Hz frequency. \n 
+                Here 0 corresponds to 0 Hz frequency, 1 corresponds to
+                Fs/2 Hz frequency. \n
                 This parameter is ignored for LPF and HPF. \n \n
-                 
+
 \param[in]  type Filter type. \n
                  This paramenter is combination of filter type flags:\n
                  \verbatim
@@ -133,32 +132,32 @@ int DSPL_API bilinear(double* bs, double* as, int ord, double* bz, double* az)
                  DSPL_FILTER_CHEBY2 - Chebyshev type 2 filter;
                  DSPL_FILTER_ELLIP  - elliptic filter.
                  \endverbatim
-                 \n \n     
+                 \n \n
 
-\param[out]  b   Pointer to the vector of \f$H(z)\f$ numerator. \n 
+\param[out]  b   Pointer to the vector of \f$H(z)\f$ numerator. \n
                  Vector size is   `[ord+1 x 1]`.\n
-                 Memory must be allocated. \n \n   
+                 Memory must be allocated. \n \n
 
-\param[out]  a   Pointer to the vector of \f$H(z)\f$ denominator. \n 
+\param[out]  a   Pointer to the vector of \f$H(z)\f$ denominator. \n
                  Vector size is   `[ord+1 x 1]`.\n
-                 Memory must be allocated. \n \n                 
+                 Memory must be allocated. \n \n
 
 \return
   `RES_OK`      if filter is calculated successfully. \n \n
                 Else \ref ERROR_CODE_GROUP "code error". \n
-   
+
 Example:
 
 \include iir_test.c
 
-Program calculates filter coefficients for different 
+Program calculates filter coefficients for different
 `type` parameter combination. Also program calculates filters magnitude and
 draws plot:
 
 \image html iir_test.png
 
-\author  Sergey Bakhurin www.dsplib.org            
-***************************************************************************** */
+\author  Sergey Bakhurin www.dsplib.org
+******************************************************************************/
 int DSPL_API iir(double rp, double rs, int ord,  double  w0, double  w1,
                                        int type, double* b,  double* a)
 {
@@ -168,7 +167,7 @@ int DSPL_API iir(double rp, double rs, int ord,  double  w0, double  w1,
   double *at = NULL;
   double wa0, wa1, ws;
   int err, ord_ap = ord;
-  
+
   if(((type & DSPL_FILTER_TYPE_MASK) == DSPL_FILTER_LPF) ||
      ((type & DSPL_FILTER_TYPE_MASK) == DSPL_FILTER_HPF))
   {
@@ -177,8 +176,8 @@ int DSPL_API iir(double rp, double rs, int ord,  double  w0, double  w1,
     bt = (double*)malloc((ord_ap+1)*sizeof(double));
     at = (double*)malloc((ord_ap+1)*sizeof(double));
   }
-  
-  
+
+
   if(((type & DSPL_FILTER_TYPE_MASK) == DSPL_FILTER_BPASS) ||
      ((type & DSPL_FILTER_TYPE_MASK) == DSPL_FILTER_BSTOP))
   {
@@ -196,44 +195,44 @@ int DSPL_API iir(double rp, double rs, int ord,  double  w0, double  w1,
   err = iir_ap(rp, rs, ord_ap, type, bs, as);
   if(err != RES_OK)
     goto error_proc;
-  
+
   /* frequency transformation  */
   wa0 = tan(w0 * M_PI * 0.5);
   wa1 = tan(w1 * M_PI * 0.5);
-  
+
   switch(type & DSPL_FILTER_TYPE_MASK)
   {
-    
+
     case DSPL_FILTER_LPF:
       err = low2low(bs, as, ord_ap, 1.0, wa0, bt, at);
       break;
-    
+
     case DSPL_FILTER_HPF:
       ws  = filter_ws1(ord_ap, rp, rs, type);
       err = low2low( bs, as, ord_ap, 1.0, 1.0 / ws,  bs, as);
       err = low2high(bs, as, ord_ap, 1.0, wa0, bt, at);
       break;
-      
+
     case DSPL_FILTER_BPASS:
       err = low2bp(bs, as, ord_ap, 1.0, wa0, wa1, bt, at);
       break;
-      
+
     case DSPL_FILTER_BSTOP:
       /* need frequency transform ws ->  1  rad/s   */
-      
+
       ws  = filter_ws1(ord_ap, rp, rs, type);
       err = low2low( bs, as, ord_ap, 1.0, 1.0 / ws,  bs, as);
       err = low2bs(bs, as, ord_ap, 1.0, wa0, wa1, bt, at);
       break;
-   
+
     default:
       err = ERROR_FILTER_TYPE;
       break;
   }
   if(err != RES_OK)
     goto error_proc;
-  
-  
+
+
   err = bilinear(bt, at, ord, b, a);
 
 error_proc:
@@ -246,9 +245,9 @@ error_proc:
     free(bt);
   if(at)
     free(at);
-  
+
   return err;
-  
+
 }
 
 
@@ -257,7 +256,7 @@ error_proc:
 
 
 /******************************************************************************
-Analog prototype for IIR 
+Analog prototype for IIR
 *******************************************************************************/
 int iir_ap(double rp, double rs, int ord, int type, double* b, double* a)
 {
@@ -277,10 +276,10 @@ int iir_ap(double rp, double rs, int ord, int type, double* b, double* a)
       err = ellip_ap(rp, rs, ord, b, a);
       break;
     default:
-      err = ERROR_FILTER_APPROX; 
+      err = ERROR_FILTER_APPROX;
   }
-  
-  
+
+
   return err;
 }
 

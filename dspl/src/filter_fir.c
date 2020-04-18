@@ -28,8 +28,8 @@
 /******************************************************************************
  * Linear phase lowpass filter
  ******************************************************************************/
-int fir_linphase_lpf(int ord, double wp, int wintype, 
-                     double winparam, double* h)
+int fir_linphase_lpf(int ord, double wp, int win_type, 
+                     double win_param, double* h)
 {
   int n, err = RES_OK;
   double *w = NULL;
@@ -37,7 +37,7 @@ int fir_linphase_lpf(int ord, double wp, int wintype,
   
   w = (double*)malloc((ord+1)*sizeof(double));
   
-  err = linspace(-(double)ord*0.5, (double)ord*0.5, ord+1, DSPL_SYMMETRIC, w);    
+  err = linspace(-(double)ord*0.5, (double)ord*0.5, ord+1, DSPL_SYMMETRIC, w);
   
   if(err!=RES_OK)
     goto error_proc;
@@ -47,7 +47,7 @@ int fir_linphase_lpf(int ord, double wp, int wintype,
   if(err!=RES_OK)
     goto error_proc;
 
-  err = window(w, ord+1, wintype | DSPL_SYMMETRIC, winparam);
+  err = window(w, ord+1, win_type | DSPL_SYMMETRIC, win_param);
   
   if(err!=RES_OK)
     goto error_proc;
@@ -68,7 +68,7 @@ error_proc:
  * Linear phase FIR filter
  ******************************************************************************/
 int DSPL_API  fir_linphase(int ord, double w0, double w1, int filter_type, 
-                           int wintype, double winparam, double* h)
+                           int win_type, double win_param, double* h)
 {
   int n, err;
   double wc, b, del;
@@ -84,12 +84,12 @@ int DSPL_API  fir_linphase(int ord, double w0, double w1, int filter_type,
   {
     /* Lowpass FIR coefficients calculation */
     case DSPL_FILTER_LPF:
-      err = fir_linphase_lpf(ord, w0, wintype, winparam, h);
+      err = fir_linphase_lpf(ord, w0, win_type, win_param, h);
       break;
     
     /* Highpass FIR coefficients calculation */
-    case DSPL_FILTER_HPF:   
-      err = fir_linphase_lpf(ord, 1.0-w0, wintype, winparam, h);
+    case DSPL_FILTER_HPF:
+      err = fir_linphase_lpf(ord, 1.0-w0, win_type, win_param, h);
       if(err == RES_OK)
       {
         /* LPF filter frequency inversion */
@@ -107,7 +107,7 @@ int DSPL_API  fir_linphase(int ord, double w0, double w1, int filter_type,
       }           
       wc = (w0 + w1) * 0.5; /* central frequency  */
       b  =  w1 - w0;        /* bandwidth          */
-      err = fir_linphase_lpf(ord, b*0.5, wintype, winparam, h);
+      err = fir_linphase_lpf(ord, b*0.5, win_type, win_param, h);
       if(err == RES_OK)
       {
         /* LPF frequency shifting to the central frequency */
@@ -137,19 +137,19 @@ int DSPL_API  fir_linphase(int ord, double w0, double w1, int filter_type,
       h0 = (double*)malloc((ord+1) * sizeof(double));
       
       /* calculate LPF */
-      err = fir_linphase(ord, w0, 0.0, DSPL_FILTER_LPF, wintype, winparam, h0);
+      err = fir_linphase(ord, w0, 0.0, DSPL_FILTER_LPF, win_type, win_param, h0);
       if(err!=RES_OK)
       {
         free(h0);
         return err;        
       }      
       /* calculate HPF */      
-      err = fir_linphase(ord, w1, 0.0, DSPL_FILTER_HPF, wintype, winparam, h);
+      err = fir_linphase(ord, w1, 0.0, DSPL_FILTER_HPF, win_type, win_param, h);
       if(err==RES_OK)
       {
         /* Bandstop filter is sum of lowpass and highpass filters */
         for(n = 0; n < ord+1; n++)
-          h[n] += h0[n];          
+          h[n] += h0[n];
       }
       free(h0);
       break;

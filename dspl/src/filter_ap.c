@@ -77,7 +77,7 @@ exit_label:
 /******************************************************************************
 Analog Normalized Butterworth filter zeros and poles
 *******************************************************************************/
-int DSPL_API butter_ap_zp(int ord, double rp, complex_t *z, int* nz,
+int DSPL_API butter_ap_zp(int ord, double rp, complex_t* z, int* nz,
                           complex_t *p, int* np)
 {
   double alpha;
@@ -183,7 +183,7 @@ exit_label:
 /******************************************************************************
 Analog Normalized Chebyshev type 1 filter zeros and poles
 *******************************************************************************/
-int DSPL_API cheby1_ap_zp(int ord, double rp, complex_t *z, int* nz,
+int DSPL_API cheby1_ap_zp(int ord, double rp, complex_t* z, int* nz,
                           complex_t *p, int* np)
 {
   double theta;
@@ -314,7 +314,7 @@ exit_label:
 /******************************************************************************
 Analog Normalized Chebyshev type 2 filter zeros and poles
 *******************************************************************************/
-int DSPL_API cheby2_ap_zp(int ord, double rs, complex_t *z, int* nz,
+int DSPL_API cheby2_ap_zp(int ord, double rs, complex_t* z, int* nz,
                           complex_t *p, int* np)
 {
   double es;
@@ -447,7 +447,7 @@ int DSPL_API ellip_ap(double rp, double rs, int ord, double* b, double* a)
  A *nalog Normalized Chebyshev type 2 filter zeros and poles
  *******************************************************************************/
 int DSPL_API ellip_ap_zp(int ord, double rp, double rs,
-                         complex_t *z, int* nz, complex_t *p, int* np)
+                         complex_t* z, int* nz, complex_t* p, int* np)
 {
   double es, ep;
   int L, r, n, res;
@@ -543,7 +543,7 @@ int DSPL_API ellip_ap_zp(int ord, double rp, double rs,
 /******************************************************************************
 Zeros and poles to filter coefficients recalc
 *******************************************************************************/
-int DSPL_API filter_zp2ab(complex_t *z, int nz, complex_t *p, int np,
+int DSPL_API filter_zp2ab(complex_t* z, int nz, complex_t* p, int np,
                           int ord, double* b, double* a)
 {
   complex_t *acc = NULL;
