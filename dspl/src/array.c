@@ -28,7 +28,8 @@
 
 /******************************************************************************
 \fn int concat(void* a, size_t na, void* b, size_t nb, void* c) 
-\brief Concatenate arrays `a` and `b`
+\brief
+Concatenate arrays `a` and `b`
 
 Let's arrays `a` and `b` are vectors: \n
 `a = [a(0), a(1), ... a(na-1)]`,  \n
@@ -37,23 +38,33 @@ concatenation of these arrays will be array `c` size `na+nb`: \n
 `c = [a(0), a(1), ... a(na-1), b(0), b(1), ... b(nb-1)]`.
 
 
-\param[in]  a   Pointer to the first array `a`. \n
-                Array `a` size is `na` bytes. \n \n
+\param[in]  a
+Pointer to the first array `a`. \n
+Array `a` size is `na` bytes. \n 
+\n
 
-\param[in]  na  Array `a` size (bytes). \n \n
+\param[in]  na
+Array `a` size (bytes). \n 
+\n
 
-\param[in]  b   Pointer to the second array `b`. \n
-                Array `b` size is `nb` bytes. \n \n
+\param[in]  b
+Pointer to the second array `b`. \n
+Array `b` size is `nb` bytes. \n 
+\n
 
-\param[in]  nb  Array `a` size (bytes). \n \n
+\param[in]  nb
+Array `a` size (bytes). \n 
+\n
 
-\param[out] c   Pointer to the concatenation result array `c`. \n
-                Array `c` size is `na + nb` bytes. \n
-                Memory must be allocated. \n \n
+\param[out] c
+Pointer to the concatenation result array `c`. \n
+Array `c` size is `na + nb` bytes. \n
+Memory must be allocated. \n 
+\n
 
 \return
 `RES_OK` if function returns successfully. \n
- Else \ref ERROR_CODE_GROUP "code error".
+Else \ref ERROR_CODE_GROUP "code error".
  
 Function uses pointer type `void*` and can be useful for an arrays 
 concatenation with different types. \n
@@ -70,7 +81,9 @@ Vector `c` keeps follow data:
 c = [1.0, 2.0, 3.0, 4.0, 5.0]
 \endverbatim 
 
-\author Sergey Bakhurin www.dsplib.org
+\author
+Sergey Bakhurin
+www.dsplib.org
 *******************************************************************************/
 int DSPL_API concat(void* a, size_t na, void* b, size_t nb, void* c)
 {
@@ -93,28 +106,34 @@ int DSPL_API concat(void* a, size_t na, void* b, size_t nb, void* c)
 /******************************************************************************
 \ingroup SPEC_MATH_COMMON_GROUP
 \fn int decimate(double* x, int n, int d, double* y, int* cnt) 
-\brief Real vector decimation
+\brief
+Real vector decimation
 
 Function `d` times decimates real vector `x`. \n
 Output vector `y` keeps values corresponds to:
 `y(k) = x(k*d), k = 0...n/d-1` \n
 
-\param[in]  x   Pointer to the input real vector `x`. \n
-                Vector `x` size is `[n x 1]`. \n \n
+\param[in]  x
+Pointer to the input real vector `x`. \n
+Vector `x` size is `[n x 1]`. \n \n
 
-\param[in]  n   Size of input vector `x`. \n \n
+\param[in]  n
+Size of input vector `x`. \n \n
 
-\param[in]  d   Decimation coefficient. \n
-                Each d-th vector will be copy from vector `x` to the 
-                output vector `y`. \n \n
+\param[in]  d
+Decimation coefficient. \n
+Each d-th vector will be copy from vector `x` to the 
+output vector `y`. \n \n
 
-\param[out] y   Pointer to the output decimated vector `y`. \n
-                Output vector size is `[n/d x 1]` will be copy 
-                to the address `cnt`. \n
+\param[out] y
+Pointer to the output decimated vector `y`. \n
+Output vector size is `[n/d x 1]` will be copy 
+to the address `cnt`. \n
 
-\param[out] cnt Address which will keep decimated vector `y` size. \n
-                Pointer can be `NULL`, vector `y` will not return 
-                in this case. \n \n
+\param[out] cnt
+Address which will keep decimated vector `y` size. \n
+Pointer can be `NULL`, vector `y` will not return 
+in this case. \n \n
 
 \return
 `RES_OK` if function calculated successfully. \n
@@ -135,7 +154,9 @@ vector `y` will keep  array:
 c = [0.0, 2.0, 4.0, 6.0, 8.0]
 \endverbatim 
 
-\author Sergey Bakhurin www.dsplib.org
+\author
+Sergey Bakhurin
+www.dsplib.org
 *******************************************************************************/
 int DSPL_API decimate(double* x, int n, int d, double* y, int* cnt)
 {
@@ -166,46 +187,55 @@ int DSPL_API decimate(double* x, int n, int d, double* y, int* cnt)
 /******************************************************************************
 \ingroup SPEC_MATH_COMMON_GROUP
 \fn int decimate_cmplx(complex_t* x, int n, int d, complex_t* y, int* cnt)
-\brief Complex vector decimation
+\brief
+Complex vector decimation
 
 Function `d` times decimates a complex vector `x`. \n
 Output vector `y` keeps values corresponds to:
 `y(k) = x(k*d), k = 0...n/d-1` \n
 
-\param[in]  x   Pointer to the input complex vector `x`. \n
-                Vector `x` size is `[n x 1]`. \n \n
+\param[in]  x
+Pointer to the input complex vector `x`. \n
+Vector `x` size is `[n x 1]`. \n \n
 
-\param[in]  n   Size of input vector `x`. \n \n
+\param[in]  n
+Size of input vector `x`. \n \n
 
-\param[in]  d   Decimation coefficient. \n
-                Each d-th vector will be copy from vector `x` to the 
-                output vector `y`. \n \n
+\param[in]  d
+Decimation coefficient. \n
+Each d-th vector will be copy from vector `x` to the 
+output vector `y`. \n \n
 
-\param[out] y   Pointer to the output decimated vector `y`. \n
-                Output vector size is `[n/d x 1]` will be copy 
-                to the address `cnt`. \n
-                Memory must be allocated. \n \n
+\param[out] y
+Pointer to the output decimated vector `y`. \n
+Output vector size is `[n/d x 1]` will be copy 
+to the address `cnt`. \n
+Memory must be allocated. \n \n
 
-\param[out] cnt Address which will keep decimated vector `y` size. \n
-                Pointer can be `NULL`, vector `y` will not return 
-                in this case. \n \n
+\param[out] cnt
+Address which will keep decimated vector `y` size. \n
+Pointer can be `NULL`, vector `y` will not return 
+in this case. \n \n
 
 \return
 `RES_OK` if function calculated successfully. \n
 Else \ref ERROR_CODE_GROUP "code error".
 
 Two-times complex vector decimation example:
+
 \code{.cpp}
 compex_t x[10] = {{0.0, 0.0}, {1.0, 1.0}, {2.0, 2.0}, {3.0, 3.0}, {4.0, 4.0},
-                  {5.0, 5.0}, {6.0, 6.0}, {7.0, 7.0}, {8.0, 8.0}, {9.0, 9.0}};
+{5.0, 5.0}, {6.0, 6.0}, {7.0, 7.0}, {8.0, 8.0}, {9.0, 9.0}};
 compex_t y[5];
 int d = 2;
 int cnt;
 
 decimate_cmplx(x, 10, d, y, &cnt);
 \endcode 
+
 As result variable `cnt` will be written value 5 and
 vector `y` will keep  array:
+
 \verbatim
 c = [0.0+0.0j, 2.0+2.0j, 4.0+4.0j, 6.0+6.0j, 8.0+8.0j]
 \endverbatim
@@ -243,11 +273,11 @@ int DSPL_API decimate_cmplx(complex_t* x, int n, int d, complex_t* y, int* cnt)
 /******************************************************************************
 \ingroup SPEC_MATH_COMMON_GROUP
 \fn int flipip(double* x, int n)
-\brief Flip real vector `x` in place
+\brief
+Flip real vector `x` in place
 
-Function flips real vector `x` length `n` in the memory
- \n
-For example real vector `x`  length 6: \n
+Function flips real vector `x` length `n` in the memory. \n
+For example real vector `x`  length 6:\n
 \verbatim
 x = [0, 1, 2, 3, 4, 5]
 \endverbatim
@@ -256,11 +286,15 @@ After flipping it will be as follow:
 x = [5, 4, 3, 2, 1, 0]
 \endverbatim
 
-\param[in, out] x   Pointer to the real vector `x`. \n
-                    Vector size is `[n x 1]`. \n
-                    Flipped vector will be on the same address. \n
+\param[in, out] x
+Pointer to the real vector `x`. \n
+Vector size is `[n x 1]`. \n
+Flipped vector will be on the same address. \n
+\n
 
-\param[in]      n   Length of the vector `x`. \n \n
+\param[in] n
+Length of the vector `x`. \n
+\n
 
 \return
 `RES_OK` if function returns successfully. \n
@@ -277,7 +311,7 @@ printf("\n");
 for(i = 0; i < 5; i++)
   printf("%6.1f  ", x[i]);
 \endcode 
- \n
+\n
 Program result:
 \verbatim
    0.0     1.0     2.0     3.0     4.0
@@ -323,15 +357,17 @@ After flipping it will be as follow:
 x = [5+5j, 4+4j, 3+3j, 2+2j, 1+1j, 0+0j]
 \endverbatim
 
-\param[in, out] x   Pointer to the complex vector `x`. \n
-                    Vector size is `[n x 1]`. \n
-                    Flipped vector will be on the same address. \n
+\param[in, out] x
+Pointer to the complex vector `x`. \n
+Vector size is `[n x 1]`. \n
+Flipped vector will be on the same address. \n
 
-\param[in]      n   Length of the vector `x`. \n \n
+\param[in] n
+Length of the vector `x`. \n \n
 
 \return
 `RES_OK` if function returns successfully. \n
- Else \ref ERROR_CODE_GROUP "error code".
+Else \ref ERROR_CODE_GROUP "error code".
 
 Example:
 \code{.cpp}
@@ -455,11 +491,11 @@ int DSPL_API logspace(double x0, double x1, int n, int type, double* x)
 
 
 /******************************************************************************
-\author Sergey Bakhurin www.dsplib.org
+Vector linear transformation 
 *******************************************************************************/
 int array_scale_lin(double* x,   int n, 
-                    double xmin, double xmax, double dx,
-                    double h,    double* y)
+    double xmin, double xmax, double dx,
+    double h,    double* y)
 {
   double kx;
   int k;  
@@ -503,22 +539,27 @@ Else returns `DSPL_VERIF_FAILED`. \n
 This function can be used for algorithms verification if vector `x` is user 
 algorithm result and vector `y` -- reference vector.
 
-\param[in] x        Pointer to the first vector `x`. \n
-                    Vector size is `[n x 1]`. \n \n
+\param[in] x
+Pointer to the first vector `x`. \n
+Vector size is `[n x 1]`. \n \n
 
-\param[in] y        Pointer to the second vector `y`. \n
-                    Vector size is `[n x 1]`. \n \n
+\param[in] y
+Pointer to the second vector `y`. \n
+Vector size is `[n x 1]`. \n \n
 
-\param[in] n        Size of vectors `x` and `y`. \n \n
+\param[in] n
+Size of vectors `x` and `y`. \n \n
 
-\param[in] eps      Relative error threshold. \n
-                    If error less than `eps`, then function returns 
-                    `DSPL_VERIF_SUCCESS`, else `DSPL_VERIF_FAILED`.  \n \n
+\param[in] eps
+Relative error threshold. \n
+If error less than `eps`, then function returns 
+`DSPL_VERIF_SUCCESS`, else `DSPL_VERIF_FAILED`.  \n \n
 
-\param[in, out] err Pointer to the variable which keep 
-                    maximum relative error. \n
-                    Pointer can be `NULL`, maximum error will not be returned 
-                    in this case. \n \n
+\param[in, out] err
+Pointer to the variable which keep 
+maximum relative error. \n
+Pointer can be `NULL`, maximum error will not be returned 
+in this case. \n \n
 
 \return
 `DSPL_VERIF_SUCCESS` if maximum relative error less than `eps`. \n
@@ -567,7 +608,8 @@ int DSPL_API verif(double* x,  double* y, size_t n, double eps, double* err)
 \ingroup SPEC_MATH_COMMON_GROUP
 \fn int verif_cmplx(complex_t* x,  complex_t* y, size_t n, 
                     double eps, double* err)
-\brief Complex arrays verification
+\brief
+Complex arrays verification
 
 Function calculates a maximum relative error between two complex arrays `x` 
 and `y` (both length equals `n`):
@@ -585,31 +627,38 @@ Else returns `DSPL_VERIF_FAILED`. \n
 This function can be used for algorithms verification if vector `x` is user 
 algorithm result and vector `y` -- reference vector.
 
-\param[in] x        Pointer to the first vector `x`. \n
-                    Vector size is `[n x 1]`. \n \n
+\param[in] x
+Pointer to the first vector `x`. \n
+Vector size is `[n x 1]`. \n \n
 
-\param[in] y        Pointer to the second vector `y`. \n
-                    Vector size is `[n x 1]`. \n \n
+\param[in] y
+Pointer to the second vector `y`. \n
+Vector size is `[n x 1]`. \n \n
 
-\param[in] n        Size of vectors `x` and `y`. \n \n
+\param[in] n
+Size of vectors `x` and `y`. \n \n
 
-\param[in] eps      Relative error threshold. \n
-                    If error less than `eps`, then function returns 
-                    `DSPL_VERIF_SUCCESS`, else `DSPL_VERIF_FAILED`.  \n \n
+\param[in] eps
+Relative error threshold. \n
+If error less than `eps`, then function returns 
+`DSPL_VERIF_SUCCESS`, else `DSPL_VERIF_FAILED`.  \n \n
 
-\param[in, out] err Pointer to the variable which keep 
-                    maximum relative error. \n
-                    Pointer can be `NULL`, maximum error will not be returned 
-                    in this case. \n \n
+\param[in, out] err
+Pointer to the variable which keep 
+maximum relative error. \n
+Pointer can be `NULL`, maximum error will not be returned 
+in this case. \n \n
 
 \return
 `DSPL_VERIF_SUCCESS` if maximum relative error less than `eps`. \n
 Otherwise `DSPL_VERIF_FAILED`.
 
-\author Sergey Bakhurin www.dsplib.org
+\author
+Sergey Bakhurin
+www.dsplib.org
 *******************************************************************************/
 int DSPL_API verif_cmplx(complex_t* x,  complex_t* y, size_t n, 
-                         double eps, double* err)
+         double eps, double* err)
 {
   
   complex_t d;
