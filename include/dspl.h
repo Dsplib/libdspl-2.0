@@ -54,8 +54,8 @@ typedef struct
 
 #define RAND_TYPE_MRG32K3A 0x00000001
 #define RAND_TYPE_MT19937  0x00000002
-
 #define RAND_MT19937_NN    312
+
 typedef struct
 {
 
