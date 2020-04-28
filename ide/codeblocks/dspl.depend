@@ -180,3 +180,179 @@
 	<unistd.h>
 	"dspl.h"
 
+1587816430 source:d:\dsplib.org\libdspl-2.0\dspl\src\array.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+	"blas.h"
+
+1587817856 d:\dsplib.org\libdspl-2.0\include\dspl.h
+	<math.h>
+
+1587816430 d:\dsplib.org\libdspl-2.0\dspl\src\blas.h
+	<stdio.h>
+	<stdlib.h>
+
+1587816430 source:d:\dsplib.org\libdspl-2.0\dspl\src\cheby.c
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1587816430 source:d:\dsplib.org\libdspl-2.0\dspl\src\complex.c
+	<stdio.h>
+	<stdlib.h>
+	"dspl.h"
+
+1587816430 source:d:\dsplib.org\libdspl-2.0\dspl\src\conv.c
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1587816430 source:d:\dsplib.org\libdspl-2.0\dspl\src\dft.c
+	<stdlib.h>
+	<math.h>
+	"dspl.h"
+
+1587816430 source:d:\dsplib.org\libdspl-2.0\dspl\src\ellipj.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1587816430 source:d:\dsplib.org\libdspl-2.0\dspl\src\fft.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"dspl.h"
+	"dspl_internal.h"
+
+1587816430 d:\dsplib.org\libdspl-2.0\dspl\src\dspl_internal.h
+
+1587816430 source:d:\dsplib.org\libdspl-2.0\dspl\src\fft_subkernel.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"dspl.h"
+	"dspl_internal.h"
+
+1587816430 source:d:\dsplib.org\libdspl-2.0\dspl\src\filter_an.c
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1587816430 source:d:\dsplib.org\libdspl-2.0\dspl\src\filter_ap.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1587816430 source:d:\dsplib.org\libdspl-2.0\dspl\src\filter_fir.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"dspl.h"
+	"dspl_internal.h"
+
+1587816430 source:d:\dsplib.org\libdspl-2.0\dspl\src\filter_ft.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1587816430 source:d:\dsplib.org\libdspl-2.0\dspl\src\filter_iir.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"dspl.h"
+	"dspl_internal.h"
+
+1587816430 source:d:\dsplib.org\libdspl-2.0\dspl\src\fourier_series.c
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1587816430 source:d:\dsplib.org\libdspl-2.0\dspl\src\gnuplot.c
+	<stdio.h>
+	<unistd.h>
+	"dspl.h"
+
+1587816430 source:d:\dsplib.org\libdspl-2.0\dspl\src\goertzel.c
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1587816430 source:d:\dsplib.org\libdspl-2.0\dspl\src\inout.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1587816430 source:d:\dsplib.org\libdspl-2.0\dspl\src\math.c
+	<stdio.h>
+	<stdlib.h>
+	"dspl.h"
+
+1587816430 source:d:\dsplib.org\libdspl-2.0\dspl\src\matrix.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+	"dspl_internal.h"
+	"blas.h"
+
+1587816430 source:d:\dsplib.org\libdspl-2.0\dspl\src\mt19937.c
+	<stdio.h>
+	"dspl.h"
+	"mt19937.h"
+
+1587816430 d:\dsplib.org\libdspl-2.0\dspl\src\mt19937.h
+	"dspl.h"
+
+1587816430 source:d:\dsplib.org\libdspl-2.0\dspl\src\polyval.c
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1587816430 source:d:\dsplib.org\libdspl-2.0\dspl\src\randgen.c
+	<stdlib.h>
+	<math.h>
+	<time.h>
+	"dspl.h"
+	"dspl_internal.h"
+	"mt19937.h"
+
+1587816430 source:d:\dsplib.org\libdspl-2.0\dspl\src\resampling.c
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+	"dspl_internal.h"
+
+1587816430 source:d:\dsplib.org\libdspl-2.0\dspl\src\signals.c
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1587816430 source:d:\dsplib.org\libdspl-2.0\dspl\src\statistic.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1587816430 source:d:\dsplib.org\libdspl-2.0\dspl\src\trapint.c
+	<stdio.h>
+	<stdlib.h>
+	"dspl.h"
+
+1587816430 source:d:\dsplib.org\libdspl-2.0\dspl\src\win.c
+	<stdio.h>
+	<math.h>
+	"dspl.h"
+	"dspl_internal.h"
+

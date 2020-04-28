@@ -13,3 +13,18 @@
 	<stdio.h>
 	"dspl.h"
 
+1587906336 source:d:\dsplib.org\libdspl-2.0\examples\src\dspl_info_test.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1587817856 d:\dsplib.org\libdspl-2.0\include\dspl.h
+	<math.h>
+
+1587816431 source:d:\dsplib.org\libdspl-2.0\include\dspl.c
+	<windows.h>
+	<dlfcn.h>
+	<stdio.h>
+	"dspl.h"
+
