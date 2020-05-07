@@ -65,7 +65,59 @@ int DSPL_API random_init(random_t* prnd, int type, void* seed)
 }
 
 
+/*******************************************************************************
+random generator of binary [0,1] signal
+*******************************************************************************/
+int DSPL_API randb(double* x, int n, random_t* prnd)
+{
+  double z[RAND_BUFSIZE];
+  int i, cnt, err;
+  if(!x)
+    return ERROR_PTR;
+  if(n < 1)
+    return ERROR_SIZE;
+  cnt = 0;
+  while(cnt < n)
+  {
+    i = cnt % RAND_BUFSIZE;
+    if(!i)
+    {
+      err = randu(z, RAND_BUFSIZE, prnd);
+      if(err != RES_OK)
+        return err;
+    }
+    x[cnt] = z[i] > 0.5 ?  1.0 : 0.0;
+    cnt++;
+  }
+  return RES_OK;
+}
 
+/*******************************************************************************
+random generator of binary [-1, 1] signal
+*******************************************************************************/
+int DSPL_API randb2(double* x, int n, random_t* prnd)
+{
+  double z[RAND_BUFSIZE];
+  int i, cnt, err;
+  if(!x)
+    return ERROR_PTR;
+  if(n < 1)
+    return ERROR_SIZE;
+  cnt = 0;
+  while(cnt < n)
+  {
+    i = cnt % RAND_BUFSIZE;
+    if(!i)
+    {
+      err = randu(z, RAND_BUFSIZE, prnd);
+      if(err != RES_OK)
+        return err;
+    }
+    x[cnt] = z[i] > 0.5 ?  1.0 : -1.0;
+    cnt++;
+  }
+  return RES_OK;
+}
 
 /******************************************************************************
 Uniform random  generator mrg32k3a
@@ -122,6 +174,88 @@ int randu_mrg32k3a (double* u, int n, random_t* prnd)
 
 
 
+
+/*******************************************************************************
+random numbers generator of integers
+*******************************************************************************/
+int DSPL_API randi(int* x, int n, int start, int stop, random_t* prnd)
+{
+  double z[RAND_BUFSIZE];
+  double dx;
+  int i, cnt, err;
+  if(!x)
+    return ERROR_PTR;
+  if(n < 1)
+    return ERROR_SIZE;
+  
+  dx = (double)stop - (double)start;
+  cnt = 0;
+  while(cnt < n)
+  {
+    i = cnt % RAND_BUFSIZE;
+    if(!i)
+    {
+      err = randu(z, RAND_BUFSIZE, prnd);
+      if(err != RES_OK)
+        return err;
+    }
+    x[cnt] = start + (int)round(z[i] * dx);
+    cnt++;
+  }
+  return RES_OK;
+}
+
+
+
+
+
+
+
+/*******************************************************************************
+Gaussian random numbers generator
+*******************************************************************************/
+int DSPL_API randn(double* x, int n, double mu, double sigma, random_t* prnd)
+{
+  int k, m;
+  double x1[RAND_BUFSIZE], x2[RAND_BUFSIZE];
+  int res;
+  if(!x)
+    return ERROR_PTR;
+
+   if(n<1)
+    return ERROR_SIZE;
+
+  if(sigma < 0.0)
+    return ERROR_RAND_SIGMA;
+
+  k=0;
+  while(k < n)
+  {
+    if((res = randu(x1, RAND_BUFSIZE, prnd)) != RES_OK)
+      goto exit_label;
+    if((res = randu(x2, RAND_BUFSIZE, prnd)) != RES_OK)
+      goto exit_label;
+    m = 0;
+    while(k < n && m < RAND_BUFSIZE)
+    {
+      if(x1[m] != 0.0)
+      {
+        x[k] = sqrt(-2.0*log(x1[m]))*cos(M_2PI*x2[m])*sigma + mu;
+        k++;
+        m++;
+      }
+    }
+  }
+
+  res = RES_OK;
+exit_label:
+  return res;
+}
+
+
+
+
+
 /******************************************************************************
 Uniform random numbers generator
 *******************************************************************************/
@@ -159,49 +293,5 @@ int DSPL_API randu(double* x, int n, random_t* prnd)
   }
 
   return RES_OK;
-}
-
-
-
-
-/*******************************************************************************
-Gaussian random numbers generator
-*******************************************************************************/
-int DSPL_API randn(double* x, int n, double mu, double sigma, random_t* prnd)
-{
-  int k, m;
-  double x1[512], x2[512];
-  int res;
-  if(!x)
-    return ERROR_PTR;
-
-   if(n<1)
-    return ERROR_SIZE;
-
-  if(sigma < 0.0)
-    return ERROR_RAND_SIGMA;
-
-  k=0;
-  while(k < n)
-  {
-    if((res = randu(x1, 512, prnd)) != RES_OK)
-      goto exit_label;
-    if((res = randu(x2, 512, prnd)) != RES_OK)
-      goto exit_label;
-    m = 0;
-    while(k < n && m < 512)
-    {
-      if(x1[m] != 0.0)
-      {
-        x[k] = sqrt(-2.0*log(x1[m]))*cos(M_2PI*x2[m])*sigma + mu;
-        k++;
-        m++;
-      }
-    }
-  }
-
-  res = RES_OK;
-exit_label:
-  return res;
 }
 

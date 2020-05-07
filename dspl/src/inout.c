@@ -222,7 +222,35 @@ int DSPL_API writetxt(double* x, double* y, int n, char* fn)
 }
 
 
+/******************************************************************************
+Write a int arrays to the text file "fn"
+*******************************************************************************/
+int DSPL_API writetxt_int(int* x, int* y, int n, char* fn)
+{
+  int k;
+  FILE* pFile = NULL;
+  if(!x)
+    return ERROR_PTR;
+  if(n < 1)
+    return ERROR_SIZE;
+  if(!fn)
+    return ERROR_FNAME;
 
+  pFile = fopen(fn, "w+");
+  if(pFile == NULL)
+    return ERROR_FOPEN;
+
+  if(y)
+    for(k = 0; k < n; k++)
+      fprintf(pFile, "% -14d\t% -14d\n", x[k], y[k]);
+
+  else
+    for(k = 0; k < n; k++)
+      fprintf(pFile, "% -.14d\n", x[k]);
+
+  fclose(pFile);
+  return RES_OK;
+}
 
 
 

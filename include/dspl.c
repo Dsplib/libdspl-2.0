@@ -143,6 +143,9 @@ p_poly_z2a_cmplx                        poly_z2a_cmplx                ;
 p_polyval                               polyval                       ;
 p_polyval_cmplx                         polyval_cmplx                 ;
 
+p_randb                                 randb                         ;
+p_randb2                                randb2                        ;
+p_randi                                 randi                         ;
 p_randn                                 randn                         ;
 p_random_init                           random_init                   ;
 p_randu                                 randu                         ;
@@ -173,6 +176,7 @@ p_writetxt_3d                           writetxt_3d                   ;
 p_writetxt_3dline                       writetxt_3dline               ;
 p_writetxt_cmplx_im                     writetxt_cmplx_im             ;
 p_writetxt_cmplx_re                     writetxt_cmplx_re             ;
+p_writetxt_int                          writetxt_int                  ;
 
 
 
@@ -338,6 +342,9 @@ void* dspl_load()
   LOAD_FUNC(polyval);
   LOAD_FUNC(polyval_cmplx);
 
+  LOAD_FUNC(randi);
+  LOAD_FUNC(randb);
+  LOAD_FUNC(randb2);
   LOAD_FUNC(randn);
   LOAD_FUNC(random_init);
   LOAD_FUNC(randu);
@@ -368,7 +375,7 @@ void* dspl_load()
   LOAD_FUNC(writetxt_3dline);
   LOAD_FUNC(writetxt_cmplx_im);
   LOAD_FUNC(writetxt_cmplx_re);
-
+  LOAD_FUNC(writetxt_int);
 
   #ifdef WIN_OS
   return (void*)handle;

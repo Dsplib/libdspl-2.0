@@ -222,7 +222,7 @@ int DSPL_API ratcompos(double* b, double* a, int n,
   }
 
   k2   = (n*p)+1;
-  k2s  = k2*sizeof(double);  /* alpha and beta size    */
+  k2s  = k2*sizeof(double);       /* alpha and beta size    */
   nk2s = (n+1)*k2*sizeof(double); /* num, den, ndn and ndd size  */
 
   num = (double*)malloc(nk2s);
@@ -291,6 +291,7 @@ int DSPL_API ratcompos(double* b, double* a, int n,
   }
 
   res = RES_OK;
+  
 exit_label:
   if(num)
     free(num);

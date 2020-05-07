@@ -97,6 +97,8 @@ int fir_linphase_lpf(int ord, double wp, int wintype,
 #define MRG32K3A_A13            810728.0
 #define MRG32K3A_A21            527612.0
 #define MRG32K3A_A23           1370589.0
+#define RAND_BUFSIZE        512
+
 
 int iir_ap(double rp, double rs, int ord, int type, double* b, double* a);
 

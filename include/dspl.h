@@ -261,17 +261,19 @@ typedef struct
 #endif
 
 
+
 /*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        acos_cmplx,                  complex_t*
                                                 COMMA int
                                                 COMMA complex_t*);
-/*----------------------------------------------------------------------------*/DECLARE_FUNC(int,        array_scale_lin,             double*       x
+/*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        array_scale_lin,             double*       x
                                                 COMMA int           n
-												COMMA double        xmin
-												COMMA double        xmax 
-												COMMA double        dx
+                                                COMMA double        xmin
+                                                COMMA double        xmax 
+                                                COMMA double        dx
                                                 COMMA double        h
-												COMMA double*       y);
+                                                COMMA double*       y);
 /*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        asin_cmplx,                  complex_t*
                                                 COMMA int
@@ -814,6 +816,20 @@ DECLARE_FUNC(int,        polyval_cmplx,               complex_t*
                                                 COMMA int
                                                 COMMA complex_t*);
 /*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        randb,                       double*          x
+                                                COMMA int              n
+                                                COMMA random_t*        prnd);
+/*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        randb2,                      double*          x
+                                                COMMA int              n
+                                                COMMA random_t*        prnd);
+/*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        randi,                       int*             x
+                                                COMMA int              n
+                                                COMMA int              start
+                                                COMMA int              stop
+                                                COMMA random_t*        prnd);
+/*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        randn,                       double*
                                                 COMMA int
                                                 COMMA double
@@ -948,6 +964,12 @@ DECLARE_FUNC(int,        writetxt_cmplx_re,           double*
                                                 COMMA int
                                                 COMMA char*);
 /*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        writetxt_int,                int*
+                                                COMMA int*
+                                                COMMA int
+                                                COMMA char*);
+/*----------------------------------------------------------------------------*/
+
 
 #ifdef __cplusplus
   }
