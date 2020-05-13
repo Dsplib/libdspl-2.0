@@ -102,7 +102,7 @@ int DSPL_API gnuplot_create(int argc, char* argv[],
 
 
 /*******************************************************************************
-Write Guplot Command
+Write Gnuplot Command
 *******************************************************************************/
 void DSPL_API gnuplot_cmd(void* h, char* cmd)
 {

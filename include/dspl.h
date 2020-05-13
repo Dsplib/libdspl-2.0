@@ -104,7 +104,6 @@ typedef struct
 /* E                                          0x05xxxxxx*/
 #define ERROR_ELLIP_MODULE                    0x05121315
 /* F                                          0x06xxxxxx*/
-#define ERROR_FFT_CREATE                      0x06060318
 #define ERROR_FFT_SIZE                        0x06062021
 #define ERROR_FILTER_A0                       0x06090100
 #define ERROR_FILTER_APPROX                   0x06090116
