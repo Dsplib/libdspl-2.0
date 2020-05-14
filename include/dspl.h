@@ -125,14 +125,11 @@ typedef struct
 #define ERROR_GNUPLOT_TERM                    0x07161220
 /* H                                          0x08xxxxxx*/
 /* I                                          0x09xxxxxx*/
-#define ERROR_INC_SIZE                        0x09140319
 /* J                                          0x10xxxxxx*/
 /* K                                          0x11xxxxxx*/
 /* L                                          0x12xxxxxx*/
 #define ERROR_LAPACK                          0x12011601
 /* M                                          0x13xxxxxx*/
-#define ERROR_MATRIX_INDEX                    0x13010914
-#define ERROR_MATRIX_SINGULAR                 0x13011914
 #define ERROR_MATRIX_SIZE                     0x13011926
 #define ERROR_MIN_MAX                         0x13091413
 /* N                                          0x14xxxxxx*/
