@@ -31,7 +31,7 @@ DSPL-2.0 --- свободная библиотека алгоритмов циф
 \ref getting_started_toolchain \n
 \ref getting_started_make \n
 \ref getting_started_codeblocks \n
-
+\ref SYS_LOADING_GROUP \n
 
 \subsection sec_doc_content Разделы документации
 <b>Математические функции:</b> \n

@@ -215,7 +215,7 @@ void* dspl_load()
       printf("libdspl.dll loading ERROR!\n");
       return NULL;
     }
-    #endif /* WIN_OS */
+  #endif /* WIN_OS */
 
 
   #ifdef LINUX_OS
