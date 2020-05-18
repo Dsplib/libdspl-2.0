@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
 
   /* roots calculation */
   err = polyroots(a, N, r, &info);
-  printf("Error code: %.8x\n");
+  printf("Error code: 0x%.8x\n", err);
   
   /* print roots */
   for(n = 0; n < N; n++)

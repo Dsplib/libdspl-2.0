@@ -520,7 +520,7 @@ int DSPL_API logspace(double x0, double x1, int n, int type, double* x)
 
 
 /*******************************************************************************
-Oned double array
+Ones double array
 *******************************************************************************/
 int DSPL_API ones(double* x, int n)
 {
