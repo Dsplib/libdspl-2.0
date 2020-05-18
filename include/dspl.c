@@ -139,7 +139,10 @@ p_matrix_transpose_cmplx                matrix_transpose_cmplx        ;
 p_matrix_transpose_hermite              matrix_transpose_hermite      ;
 p_minmax                                minmax                        ;
 
+p_ones                                  ones                          ;
+
 p_poly_z2a_cmplx                        poly_z2a_cmplx                ;
+p_polyroots                             polyroots                     ;
 p_polyval                               polyval                       ;
 p_polyval_cmplx                         polyval_cmplx                 ;
 
@@ -337,8 +340,11 @@ void* dspl_load()
   LOAD_FUNC(matrix_transpose_cmplx);
   LOAD_FUNC(matrix_transpose_hermite);
   LOAD_FUNC(minmax);
+  
+  LOAD_FUNC(ones);
 
   LOAD_FUNC(poly_z2a_cmplx);
+  LOAD_FUNC(polyroots);
   LOAD_FUNC(polyval);
   LOAD_FUNC(polyval_cmplx);
 

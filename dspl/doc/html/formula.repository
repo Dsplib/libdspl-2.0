@@ -63,83 +63,83 @@
 \form#62:\[ k_i = \left( \frac{k_{i-1}} { 1+\sqrt{1-k_{i-1}^2} } \right)^2 \]
 \form#63:$ k<1 $
 \form#64:$ y = \textrm{sn}(u K(k), k)$
-\form#65:\[ Y(k) = \frac{1}{N} \sum_{m = 0}^{n-1} x(m) \exp \left( j \frac{2\pi}{n} m k \right), \]
-\form#66:$n = n_0 \times n_1 \times n_2 \times n_3 \times \ldots \times n_p \times m$
-\form#67:$n = n_0 \times n_1 \times n_2 \ldots \times n_p \times m$
-\form#68:$ n = 725760 $
-\form#69:$725760 = 2 \cdot 3 \cdot 4 \cdot 5 \cdot 6 \cdot 7 \cdot 9 \cdot 16 $
-\form#70:$ n = 172804 = 43201 \cdot 4 $
-\form#71:$ n = 13 \cdot 17 \cdot 23 \cdot 13 = 66079 $
-\form#72:$\sqrt{2^{31}} = 46340.95$
-\form#73:$x_0$
-\form#74:$x_1$
-\form#75:$x(k) = x_0 + k \cdot dx$
-\form#76:$dx = \frac{x_1 - x_0}{n-1}$
-\form#77:$k = 0 \ldots n-1.$
-\form#78:$dx = \frac{x_1 - x_0}{n}$
-\form#79:$10^{x_0}$
-\form#80:$10^{x_1}$
-\form#81:$x(k) = 10^{x_0} \cdot dx^k$
-\form#82:$dx = \sqrt[n-1]{10^{x_1 - x_0}}$
-\form#83:$dx = \sqrt[n]{10^{x_1 - x_0}}$
-\form#84:$ H(j \omega) $
-\form#85:$ H(j \omega)$
-\form#86:$ H(s) $
-\form#87:\[ H(s) = \frac {\sum_{k = 0}^{N} b_k s^k} {\sum_{m = 0}^{N} a_m s^m}, \]
-\form#88:$ N $
-\form#89:$ s = j \omega $
-\form#90:$ \omega $
-\form#91:$H(s)$
-\form#92:$ H \left(\mathrm{e}^{j\omega} \right) $
-\form#93:$ 2\pi $
-\form#94:$ \pi $
-\form#95:$ -\pi $
-\form#96:$ H \left(e^{j \omega} \right)$
-\form#97:\[ H(z) = \frac {\sum_{k = 0}^{N} b_k z^{-k}} {\sum_{m = 0}^{N} a_m z^{-m}}, \]
-\form#98:$N$
-\form#99:$z = e^{j \omega} $
-\form#100:$\omega$
-\form#101:$ 2 \pi-$
-\form#102:$2 \pi$
-\form#103:$-\pi$
-\form#104:$ \pi$
-\form#105:$ H \left(e^{j \omega} \right) = H^* \left(e^{-j \omega} \right)$
-\form#106:$\pi$
-\form#107:$ -R_p $
-\form#108:$ H(s)$
-\form#109:$-R_p$
-\form#110:$ R_p $
-\form#111:$-R_s$
-\form#112:$H(j\cdot 1) = -R_s$
-\form#113:\[ H(s) = \frac{\sum_{n = 0}^{N_z} b_n \cdot s^n}{\sum_{m = 0}^{N_p} a_m \cdot s^m} = \frac{\prod_{n = 0}^{N_z}(s-z_n)}{\prod_{m = 0}^{N_p} (s-p_m)} \]
-\form#114:\[ H(z) = \sum_{n = 0}^{ord} h_n z^{-n} \]
-\form#115:$ F(s) $
-\form#116:$F(s)$
-\form#117:$Y(s) = (H \circ F)(s) = H(F(s))$
-\form#118:\[ H(s) = \frac{\sum\limits_{m = 0}^{n} b_m s^m} {\sum\limits_{k = 0}^{n} a_k s^k}, \quad F(s) = \frac{\sum\limits_{m = 0}^{p} d_m s^m} {\sum\limits_{k = 0}^{p} c_k s^k}, \quad Y(s) = \frac{\sum\limits_{m = 0}^{n p} \beta_m s^m} {\sum\limits_{k = 0}^{n p} \alpha_k s^k} \]
-\form#119:$Y(s) = (H \circ F)(s)$
-\form#120:\[ s \leftarrow \frac{1 - z^{-1}}{1 - z^{-1}}. \]
-\form#121:$\Omega$
-\form#122:\[ \Omega = \tan(\omega / 2). \]
-\form#123:\[ s(t) = \sum\limits_{n = 0}^{n_{\omega}-1} S(\omega_n) \exp(j\omega_n t) \]
-\form#124:$\omega_n$
-\form#125:$S(\omega_n)$
-\form#126:$ I_0(x)$
-\form#127:$ x $
-\form#128:$[0 \ 3]$
-\form#129:$ \textrm{sinc}(x,a) = \frac{\sin(ax)}{ax}$
-\form#130:\[ \textrm{Si}(x) = \int_{0}^{x} \frac{\sin(x)}{x} \, dx\]
-\form#131:$[-6\pi \ 6\pi]$
-\form#132:$P_N(x)$
-\form#133:$N-$
-\form#134:\[ P_N(x) = a_0 + a_1 \cdot x + a_2 \cdot x^2 + a_3 \cdot x^3 + ... a_N \cdot x^N. \]
-\form#135:\[ P_N(x) = a_0 + x \cdot (a_1 + x \cdot (a_2 + \cdot ( \ldots x \cdot (a_{N-1} + x\cdot a_N) \ldots ))) \]
-\form#136:$\mu$
-\form#137:$\sigma$
-\form#138:$\sigma^2$
-\form#139:$\mu = 0$
-\form#140:$\sigma=1$
-\form#141:$\frac{P}{Q}$
-\form#142:$P$
-\form#143:$Q$
-\form#144:$1/F_{\textrm{s}}$
+\form#65:$n = n_0 \times n_1 \times n_2 \ldots \times n_p \times m$
+\form#66:$\frac{P}{Q}$
+\form#67:$P$
+\form#68:$Q$
+\form#69:$1/F_{\textrm{s}}$
+\form#70:\[ Y(k) = \frac{1}{N} \sum_{m = 0}^{n-1} x(m) \exp \left( j \frac{2\pi}{n} m k \right), \]
+\form#71:$n = n_0 \times n_1 \times n_2 \times n_3 \times \ldots \times n_p \times m$
+\form#72:$ n = 725760 $
+\form#73:$725760 = 2 \cdot 3 \cdot 4 \cdot 5 \cdot 6 \cdot 7 \cdot 9 \cdot 16 $
+\form#74:$ n = 172804 = 43201 \cdot 4 $
+\form#75:$ n = 13 \cdot 17 \cdot 23 \cdot 13 = 66079 $
+\form#76:$\sqrt{2^{31}} = 46340.95$
+\form#77:$x_0$
+\form#78:$x_1$
+\form#79:$x(k) = x_0 + k \cdot dx$
+\form#80:$dx = \frac{x_1 - x_0}{n-1}$
+\form#81:$k = 0 \ldots n-1.$
+\form#82:$dx = \frac{x_1 - x_0}{n}$
+\form#83:$10^{x_0}$
+\form#84:$10^{x_1}$
+\form#85:$x(k) = 10^{x_0} \cdot dx^k$
+\form#86:$dx = \sqrt[n-1]{10^{x_1 - x_0}}$
+\form#87:$dx = \sqrt[n]{10^{x_1 - x_0}}$
+\form#88:$ H(j \omega) $
+\form#89:$ H(j \omega)$
+\form#90:$ H(s) $
+\form#91:\[ H(s) = \frac {\sum_{k = 0}^{N} b_k s^k} {\sum_{m = 0}^{N} a_m s^m}, \]
+\form#92:$ N $
+\form#93:$ s = j \omega $
+\form#94:$ \omega $
+\form#95:$H(s)$
+\form#96:$ H \left(\mathrm{e}^{j\omega} \right) $
+\form#97:$ 2\pi $
+\form#98:$ \pi $
+\form#99:$ -\pi $
+\form#100:$ H \left(e^{j \omega} \right)$
+\form#101:\[ H(z) = \frac {\sum_{k = 0}^{N} b_k z^{-k}} {\sum_{m = 0}^{N} a_m z^{-m}}, \]
+\form#102:$N$
+\form#103:$z = e^{j \omega} $
+\form#104:$\omega$
+\form#105:$ 2 \pi-$
+\form#106:$2 \pi$
+\form#107:$-\pi$
+\form#108:$ \pi$
+\form#109:$ H \left(e^{j \omega} \right) = H^* \left(e^{-j \omega} \right)$
+\form#110:$\pi$
+\form#111:$ -R_p $
+\form#112:$ H(s)$
+\form#113:$-R_p$
+\form#114:$ R_p $
+\form#115:$-R_s$
+\form#116:$H(j\cdot 1) = -R_s$
+\form#117:\[ H(s) = \frac{\sum_{n = 0}^{N_z} b_n \cdot s^n}{\sum_{m = 0}^{N_p} a_m \cdot s^m} = \frac{\prod_{n = 0}^{N_z}(s-z_n)}{\prod_{m = 0}^{N_p} (s-p_m)} \]
+\form#118:\[ H(z) = \sum_{n = 0}^{ord} h_n z^{-n} \]
+\form#119:$ F(s) $
+\form#120:$F(s)$
+\form#121:$Y(s) = (H \circ F)(s) = H(F(s))$
+\form#122:\[ H(s) = \frac{\sum\limits_{m = 0}^{n} b_m s^m} {\sum\limits_{k = 0}^{n} a_k s^k}, \quad F(s) = \frac{\sum\limits_{m = 0}^{p} d_m s^m} {\sum\limits_{k = 0}^{p} c_k s^k}, \quad Y(s) = \frac{\sum\limits_{m = 0}^{n p} \beta_m s^m} {\sum\limits_{k = 0}^{n p} \alpha_k s^k} \]
+\form#123:$Y(s) = (H \circ F)(s)$
+\form#124:\[ s \leftarrow \frac{1 - z^{-1}}{1 - z^{-1}}. \]
+\form#125:$\Omega$
+\form#126:\[ \Omega = \tan(\omega / 2). \]
+\form#127:\[ s(t) = \sum\limits_{n = 0}^{n_{\omega}-1} S(\omega_n) \exp(j\omega_n t) \]
+\form#128:$\omega_n$
+\form#129:$S(\omega_n)$
+\form#130:$ I_0(x)$
+\form#131:$ x $
+\form#132:$[0 \ 3]$
+\form#133:$ \textrm{sinc}(x,a) = \frac{\sin(ax)}{ax}$
+\form#134:\[ \textrm{Si}(x) = \int_{0}^{x} \frac{\sin(x)}{x} \, dx\]
+\form#135:$[-6\pi \ 6\pi]$
+\form#136:$P_N(x)$
+\form#137:$N-$
+\form#138:\[ P_N(x) = a_0 + a_1 \cdot x + a_2 \cdot x^2 + a_3 \cdot x^3 + ... a_N \cdot x^N. \]
+\form#139:\[ P_N(x) = a_0 + x \cdot (a_1 + x \cdot (a_2 + \cdot ( \ldots x \cdot (a_{N-1} + x\cdot a_N) \ldots ))) \]
+\form#140:$\mu$
+\form#141:$\sigma$
+\form#142:$\sigma^2$
+\form#143:$\mu = 0$
+\form#144:$\sigma=1$

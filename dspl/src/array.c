@@ -27,6 +27,36 @@
 
 
 /******************************************************************************
+Vector linear transformation 
+*******************************************************************************/
+int array_scale_lin(double* x,   int n, 
+    double xmin, double xmax, double dx,
+    double h,    double* y)
+{
+  double kx;
+  int k;  
+  if(!x)
+    return ERROR_PTR;
+  if(n<1)
+    return ERROR_SIZE;
+  if(h<0.0)
+    return ERROR_NEGATIVE;
+
+  if(xmin >= xmax)
+    return ERROR_MIN_MAX;
+
+  kx = h / (xmax - xmin);
+
+  for(k = 0; k < n; k++)
+    y[k] = (x[k] - xmin) * kx + dx;
+
+  return RES_OK;
+}
+
+
+
+
+/******************************************************************************
 \fn int concat(void* a, size_t na, void* b, size_t nb, void* c) 
 \brief
 Concatenate arrays `a` and `b`
@@ -489,32 +519,19 @@ int DSPL_API logspace(double x0, double x1, int n, int type, double* x)
 }
 
 
-
-/******************************************************************************
-Vector linear transformation 
+/*******************************************************************************
+Oned double array
 *******************************************************************************/
-int array_scale_lin(double* x,   int n, 
-    double xmin, double xmax, double dx,
-    double h,    double* y)
+int DSPL_API ones(double* x, int n)
 {
-  double kx;
-  int k;  
+  int i;
   if(!x)
     return ERROR_PTR;
   if(n<1)
     return ERROR_SIZE;
-  if(h<0.0)
-    return ERROR_NEGATIVE;
-
-  if(xmin >= xmax)
-    return ERROR_MIN_MAX;
-
-  kx = h / (xmax - xmin);
-
-  for(k = 0; k < n; k++)
-    y[k] = (x[k] - xmin) * kx + dx;
-
-  return RES_OK;
+  for(i = 0; i < n; i++)
+    x[i] = 1.0;
+ return RES_OK;
 }
 
 

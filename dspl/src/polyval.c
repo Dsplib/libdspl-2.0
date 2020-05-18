@@ -63,6 +63,42 @@ int DSPL_API poly_z2a_cmplx(complex_t* z, int nz, int ord, complex_t* a)
 
 
 
+
+/******************************************************************************
+Real polynomial roots calculation
+*******************************************************************************/
+int DSPL_API polyroots(double* a, int ord, complex_t* r, int* info)
+{
+  complex_t *t = NULL;
+  int m;
+  int err;
+  
+  if(!a || !r)
+    return ERROR_PTR;
+  if(ord<0)
+    return ERROR_POLY_ORD;
+  if(a[ord] == 0.0)
+    return ERROR_POLY_AN;
+  
+  t = (complex_t*)malloc(ord * ord * sizeof(complex_t));
+  if(!t)
+    return ERROR_MALLOC;
+  
+  for(m = 0; m < ord-1; m++)
+  {
+    RE(t[m * (ord+1) + 1]) = 1.0;
+    RE(t[m + ord * (ord - 1)]) = -a[m] / a[ord];
+  }
+  RE(t[ord * ord - 1]) = -a[ord-1] / a[ord];
+
+  err = matrix_eig_cmplx(t, ord, r, info);
+  
+  return err;
+}
+
+
+
+
 /******************************************************************************
 Real polynomial evaluation
 *******************************************************************************/

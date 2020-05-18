@@ -130,12 +130,14 @@ typedef struct
 /* L                                          0x12xxxxxx*/
 #define ERROR_LAPACK                          0x12011601
 /* M                                          0x13xxxxxx*/
+#define ERROR_MALLOC                          0x13011212
 #define ERROR_MATRIX_SIZE                     0x13011926
 #define ERROR_MIN_MAX                         0x13091413
 /* N                                          0x14xxxxxx*/
 #define ERROR_NEGATIVE                        0x14050701
 /* O                                          0x15xxxxxx*/
 /* P                                          0x16xxxxxx*/
+#define ERROR_POLY_AN                         0x16150114
 #define ERROR_POLY_ORD                        0x16151518
 #define ERROR_PTR                             0x16201800
 /* Q                                          0x17xxxxxx*/
@@ -795,10 +797,18 @@ DECLARE_FUNC(int,        minmax,                      double*          x
                                                 COMMA double*          xmin
                                                 COMMA double*          xmax);
 /*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,       ones,                         double*          x
+                                                COMMA int              n);
+/*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        poly_z2a_cmplx,              complex_t*
                                                 COMMA int
                                                 COMMA int
                                                 COMMA complex_t*);
+/*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        polyroots,                   double*          a
+                                                COMMA int              ord
+                                                COMMA complex_t*       r
+                                                COMMA int*             info);
 /*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        polyval,                     double*
                                                 COMMA int
