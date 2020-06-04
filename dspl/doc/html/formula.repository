@@ -64,86 +64,88 @@
 \form#63:$ k<1 $
 \form#64:$ y = \textrm{sn}(u K(k), k)$
 \form#65:$n = n_0 \times n_1 \times n_2 \ldots \times n_p \times m$
-\form#66:$\frac{P}{Q}$
-\form#67:$P$
-\form#68:$Q$
-\form#69:$1/F_{\textrm{s}}$
-\form#70:\[ Y(k) = \frac{1}{N} \sum_{m = 0}^{n-1} x(m) \exp \left( j \frac{2\pi}{n} m k \right), \]
-\form#71:$n = n_0 \times n_1 \times n_2 \times n_3 \times \ldots \times n_p \times m$
-\form#72:$ n = 725760 $
-\form#73:$725760 = 2 \cdot 3 \cdot 4 \cdot 5 \cdot 6 \cdot 7 \cdot 9 \cdot 16 $
-\form#74:$ n = 172804 = 43201 \cdot 4 $
-\form#75:$ n = 13 \cdot 17 \cdot 23 \cdot 13 = 66079 $
-\form#76:$\sqrt{2^{31}} = 46340.95$
-\form#77:$x_0$
-\form#78:$x_1$
-\form#79:$x(k) = x_0 + k \cdot dx$
-\form#80:$dx = \frac{x_1 - x_0}{n-1}$
-\form#81:$k = 0 \ldots n-1.$
-\form#82:$dx = \frac{x_1 - x_0}{n}$
-\form#83:$10^{x_0}$
-\form#84:$10^{x_1}$
-\form#85:$x(k) = 10^{x_0} \cdot dx^k$
-\form#86:$dx = \sqrt[n-1]{10^{x_1 - x_0}}$
-\form#87:$dx = \sqrt[n]{10^{x_1 - x_0}}$
-\form#88:$ H(j \omega) $
-\form#89:$ H(j \omega)$
-\form#90:$ H(s) $
-\form#91:\[ H(s) = \frac {\sum_{k = 0}^{N} b_k s^k} {\sum_{m = 0}^{N} a_m s^m}, \]
-\form#92:$ N $
-\form#93:$ s = j \omega $
-\form#94:$ \omega $
-\form#95:$H(s)$
-\form#96:$ H \left(\mathrm{e}^{j\omega} \right) $
-\form#97:$ 2\pi $
-\form#98:$ \pi $
-\form#99:$ -\pi $
-\form#100:$ H \left(e^{j \omega} \right)$
-\form#101:\[ H(z) = \frac {\sum_{k = 0}^{N} b_k z^{-k}} {\sum_{m = 0}^{N} a_m z^{-m}}, \]
-\form#102:$N$
-\form#103:$z = e^{j \omega} $
-\form#104:$\omega$
-\form#105:$ 2 \pi-$
-\form#106:$2 \pi$
-\form#107:$-\pi$
-\form#108:$ \pi$
-\form#109:$ H \left(e^{j \omega} \right) = H^* \left(e^{-j \omega} \right)$
-\form#110:$\pi$
-\form#111:$ -R_p $
-\form#112:$ H(s)$
-\form#113:$-R_p$
-\form#114:$ R_p $
-\form#115:$-R_s$
-\form#116:$H(j\cdot 1) = -R_s$
-\form#117:\[ H(s) = \frac{\sum_{n = 0}^{N_z} b_n \cdot s^n}{\sum_{m = 0}^{N_p} a_m \cdot s^m} = \frac{\prod_{n = 0}^{N_z}(s-z_n)}{\prod_{m = 0}^{N_p} (s-p_m)} \]
-\form#118:\[ H(z) = \sum_{n = 0}^{ord} h_n z^{-n} \]
-\form#119:$ F(s) $
-\form#120:$F(s)$
-\form#121:$Y(s) = (H \circ F)(s) = H(F(s))$
-\form#122:\[ H(s) = \frac{\sum\limits_{m = 0}^{n} b_m s^m} {\sum\limits_{k = 0}^{n} a_k s^k}, \quad F(s) = \frac{\sum\limits_{m = 0}^{p} d_m s^m} {\sum\limits_{k = 0}^{p} c_k s^k}, \quad Y(s) = \frac{\sum\limits_{m = 0}^{n p} \beta_m s^m} {\sum\limits_{k = 0}^{n p} \alpha_k s^k} \]
-\form#123:$Y(s) = (H \circ F)(s)$
-\form#124:\[ s \leftarrow \frac{1 - z^{-1}}{1 - z^{-1}}. \]
-\form#125:$\Omega$
-\form#126:\[ \Omega = \tan(\omega / 2). \]
-\form#127:\[ s(t) = \sum\limits_{n = 0}^{n_{\omega}-1} S(\omega_n) \exp(j\omega_n t) \]
-\form#128:$\omega_n$
-\form#129:$S(\omega_n)$
-\form#130:$ I_0(x)$
-\form#131:$ x $
-\form#132:$[0 \ 3]$
-\form#133:$ \textrm{sinc}(x,a) = \frac{\sin(ax)}{ax}$
-\form#134:\[ \textrm{Si}(x) = \int_{0}^{x} \frac{\sin(x)}{x} \, dx\]
-\form#135:$[-6\pi \ 6\pi]$
-\form#136:$P_N(x)$
-\form#137:$N-$
-\form#138:\[ P_N(x) = a_0 + a_1 \cdot x + a_2 \cdot x^2 + a_3 \cdot x^3 + ... a_N \cdot x^N. \]
-\form#139:\[ P_N(x) = a_0 + x \cdot (a_1 + x \cdot (a_2 + \cdot ( \ldots x \cdot (a_{N-1} + x\cdot a_N) \ldots ))) \]
-\form#140:$\mu$
-\form#141:$\sigma$
-\form#142:$\sigma^2$
-\form#143:$\mu = 0$
-\form#144:$\sigma=1$
-\form#145:\[ P_N(x) = a_0 + a_1 x + a_2 x^2 + \ldots a_N x^N \]
-\form#146:$a_N$
-\form#147:\[ P_N(x) = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + ... a_N x^N. \]
-\form#148:\[ P(x) = 2 + 2x + x^2 \]
+\form#66:$N$
+\form#67:\[ P_N(x) = a_0 + a_1 x + a_2 x^2 + \ldots a_N x^N \]
+\form#68:$a_N$
+\form#69:$\frac{P}{Q}$
+\form#70:$P$
+\form#71:$Q$
+\form#72:$1/F_{\textrm{s}}$
+\form#73:\[ Y(k) = \frac{1}{N} \sum_{m = 0}^{n-1} x(m) \exp \left( j \frac{2\pi}{n} m k \right), \]
+\form#74:$n = n_0 \times n_1 \times n_2 \times n_3 \times \ldots \times n_p \times m$
+\form#75:$ n = 725760 $
+\form#76:$725760 = 2 \cdot 3 \cdot 4 \cdot 5 \cdot 6 \cdot 7 \cdot 9 \cdot 16 $
+\form#77:$ n = 172804 = 43201 \cdot 4 $
+\form#78:$ n = 13 \cdot 17 \cdot 23 \cdot 13 = 66079 $
+\form#79:$\sqrt{2^{31}} = 46340.95$
+\form#80:$x_0$
+\form#81:$x_1$
+\form#82:$x(k) = x_0 + k \cdot dx$
+\form#83:$dx = \frac{x_1 - x_0}{n-1}$
+\form#84:$k = 0 \ldots n-1.$
+\form#85:$dx = \frac{x_1 - x_0}{n}$
+\form#86:$10^{x_0}$
+\form#87:$10^{x_1}$
+\form#88:$x(k) = 10^{x_0} \cdot dx^k$
+\form#89:$dx = \sqrt[n-1]{10^{x_1 - x_0}}$
+\form#90:$dx = \sqrt[n]{10^{x_1 - x_0}}$
+\form#91:$ H(j \omega) $
+\form#92:$ H(j \omega)$
+\form#93:$ H(s) $
+\form#94:\[ H(s) = \frac {\sum_{k = 0}^{N} b_k s^k} {\sum_{m = 0}^{N} a_m s^m}, \]
+\form#95:$ N $
+\form#96:$ s = j \omega $
+\form#97:$ \omega $
+\form#98:$H(s)$
+\form#99:$ H \left(\mathrm{e}^{j\omega} \right) $
+\form#100:$ 2\pi $
+\form#101:$ \pi $
+\form#102:$ -\pi $
+\form#103:$ H \left(e^{j \omega} \right)$
+\form#104:\[ H(z) = \frac {\sum_{k = 0}^{N} b_k z^{-k}} {\sum_{m = 0}^{N} a_m z^{-m}}, \]
+\form#105:$z = e^{j \omega} $
+\form#106:$\omega$
+\form#107:$ 2 \pi-$
+\form#108:$2 \pi$
+\form#109:$-\pi$
+\form#110:$ \pi$
+\form#111:$ H \left(e^{j \omega} \right) = H^* \left(e^{-j \omega} \right)$
+\form#112:$\pi$
+\form#113:$ -R_p $
+\form#114:$ H(s)$
+\form#115:$-R_p$
+\form#116:$ R_p $
+\form#117:$-R_s$
+\form#118:$H(j\cdot 1) = -R_s$
+\form#119:\[ H(s) = \frac{\sum_{n = 0}^{N_z} b_n \cdot s^n}{\sum_{m = 0}^{N_p} a_m \cdot s^m} = \frac{\prod_{n = 0}^{N_z}(s-z_n)}{\prod_{m = 0}^{N_p} (s-p_m)} \]
+\form#120:\[ H(z) = \sum_{n = 0}^{ord} h_n z^{-n} \]
+\form#121:$ F(s) $
+\form#122:$F(s)$
+\form#123:$Y(s) = (H \circ F)(s) = H(F(s))$
+\form#124:\[ H(s) = \frac{\sum\limits_{m = 0}^{n} b_m s^m} {\sum\limits_{k = 0}^{n} a_k s^k}, \quad F(s) = \frac{\sum\limits_{m = 0}^{p} d_m s^m} {\sum\limits_{k = 0}^{p} c_k s^k}, \quad Y(s) = \frac{\sum\limits_{m = 0}^{n p} \beta_m s^m} {\sum\limits_{k = 0}^{n p} \alpha_k s^k} \]
+\form#125:$Y(s) = (H \circ F)(s)$
+\form#126:\[ s \leftarrow \frac{1 - z^{-1}}{1 - z^{-1}}. \]
+\form#127:$\Omega$
+\form#128:\[ \Omega = \tan(\omega / 2). \]
+\form#129:\[ s(t) = \sum\limits_{n = 0}^{n_{\omega}-1} S(\omega_n) \exp(j\omega_n t) \]
+\form#130:$\omega_n$
+\form#131:$S(\omega_n)$
+\form#132:$ z(x,y)$
+\form#133:\[ z(x,y) = x \exp(-x^2 -y^2) \]
+\form#134:$ I_0(x)$
+\form#135:$ x $
+\form#136:$[0 \ 3]$
+\form#137:$ \textrm{sinc}(x,a) = \frac{\sin(ax)}{ax}$
+\form#138:\[ \textrm{Si}(x) = \int_{0}^{x} \frac{\sin(x)}{x} \, dx\]
+\form#139:$[-6\pi \ 6\pi]$
+\form#140:$P_N(x)$
+\form#141:$N-$
+\form#142:\[ P_N(x) = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + ... a_N x^N. \]
+\form#143:\[ P(x) = 2 + 2x + x^2 \]
+\form#144:\[ P_N(x) = a_0 + a_1 \cdot x + a_2 \cdot x^2 + a_3 \cdot x^3 + ... a_N \cdot x^N. \]
+\form#145:\[ P_N(x) = a_0 + x \cdot (a_1 + x \cdot (a_2 + \cdot ( \ldots x \cdot (a_{N-1} + x\cdot a_N) \ldots ))) \]
+\form#146:$\mu$
+\form#147:$\sigma$
+\form#148:$\sigma^2$
+\form#149:$\mu = 0$
+\form#150:$\sigma=1$

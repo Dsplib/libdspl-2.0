@@ -257,7 +257,7 @@ int DSPL_API writetxt_int(int* x, int* y, int n, char* fn)
 /******************************************************************************
  * Write a 3d plot data to file "fn" (pgfplots3d acceptable)
  ******************************************************************************/
-int DSPL_API writetxt_3d(double* x, int nx, double *y, int ny,
+int DSPL_API writetxt_3d(double* x, int nx, double* y, int ny,
                double* z, char* fn)
 {
   int k, n;
