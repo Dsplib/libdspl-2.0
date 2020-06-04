@@ -255,7 +255,7 @@ int DSPL_API writetxt_int(int* x, int* y, int n, char* fn)
 
 
 /******************************************************************************
- * Write a 3d plot data to file "fn" (pgfplots3d accepteble)
+ * Write a 3d plot data to file "fn" (pgfplots3d acceptable)
  ******************************************************************************/
 int DSPL_API writetxt_3d(double* x, int nx, double *y, int ny,
                double* z, char* fn)
@@ -276,7 +276,7 @@ int DSPL_API writetxt_3d(double* x, int nx, double *y, int ny,
 
   for(k = 0; k < ny; k++)
   {
-          for(n = 0; n < nx; n++)
+    for(n = 0; n < nx; n++)
       fprintf(pFile, "%+.12E\t%+.12E\t%+.12E\n",
               x[n], y[k], z[n+k*nx]);
     fprintf(pFile, "\n");
@@ -293,7 +293,7 @@ int DSPL_API writetxt_3d(double* x, int nx, double *y, int ny,
 
 
 /******************************************************************************
- * Write a 3d line data to file "fn" (pgfplots3d accepteble)
+ * Write a 3d line data to file "fn" (pgfplots3d acceptable)
  ******************************************************************************/
 int DSPL_API writetxt_3dline(double* x, double *y, double* z, int n, char* fn)
 {
@@ -322,7 +322,7 @@ int DSPL_API writetxt_3dline(double* x, double *y, double* z, int n, char* fn)
 
 
 /******************************************************************************
-Write a real part of coplex array to the text file "fn"
+Write a real part of complex array to the text file "fn"
 *******************************************************************************/
 int DSPL_API writetxt_cmplx_re(double* x, complex_t *y, int n, char* fn)
 {
@@ -354,7 +354,7 @@ int DSPL_API writetxt_cmplx_re(double* x, complex_t *y, int n, char* fn)
 
 
 /******************************************************************************
-Write a image part of coplex array to the text file "fn"
+Write a image part of complex array to the text file "fn"
 *******************************************************************************/
 int DSPL_API writetxt_cmplx_im(double* x, complex_t *y, int n, char* fn)
 {
