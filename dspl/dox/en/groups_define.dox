@@ -1,0 +1,58 @@
+/*! ****************************************************************************
+\defgroup SYS_LOADING_GROUP DSPL-2.0 Dynamic linking functions.
+This group describes the functions for DSPL-2.0 library using in 
+an user applications. DSPL-2.0  is cross-platform library  an uses 
+common dynamic linking interface in Linux and Windows OS.
+
+
+\defgroup TYPES_GROUP DSPL-2.0 data types.
+This group describes DSPL-2.0 data types and functions and macros for
+data types conversion.
+
+\defgroup DFT_GROUP Discrete Fourier transform and fast Fourier transform algorithms
+
+\defgroup WIN_GROUP Windows function for filter design and spectrum analysis.
+
+\defgroup HILBERT_GROUP Hilbert transform algorithms.
+
+\defgroup FILTER_CONV_GROUP Convolution and digital filtration.
+This group describes functions for linear and circular convolutions, 
+FIR filtration and IIR filtration.
+
+\defgroup IIR_FILTER_DESIGN_GROUP  IIR filters design.
+
+\defgroup FIR_FILTER_DESIGN_GROUP  FIR filter design.
+
+\defgroup FILTER_ANALYSIS_GROUP Analog and digital filter analysis.
+This group describes the algorithm for calculation 
+parameters for analog and digital filters: Magnitude, phase response,
+groupdelay, impulse response and other.  
+
+\defgroup RESAMPLING_GROUP Digital samplerate conversion (resampling)
+
+\defgroup SPEC_MATH_COMMON_GROUP Basic math functions of the real and complex arguments.
+
+\defgroup SPEC_MATH_TRIG_GROUP Trigonometric and hyperbolic of functions the real and complex arguments.
+
+\defgroup SPEC_MATH_TRANSCEND Transcendent math functions
+
+\defgroup SPEC_MATH_ELLIP_GROUP Elliptic Jacoby functions of the real and complex arguments.
+
+\defgroup SPEC_MATH_RAND_GEN_GROUP Pseudo-random numbers generation
+This group describes the functions of the pseudo-random numbers generation
+by different algorithms.
+
+\defgroup SPEC_MATH_STAT_GROUP Math statistic functions.
+
+\defgroup SPEC_MATH_LINALG_GROUP Linear algebra and matrix operations.
+This group describes the linear algebra algorithms and matrix operations.
+DSPL-2.0 using internal interface for BLAS and LAPACK packages. 
+
+\defgroup IN_OUT_GROUP Input and output data from external files.
+
+\defgroup PLOT_GROUP Plotting data by Gnuplot interface.
+
+\defgroup ERROR_CODE_GROUP Error codes.
+This group describes error codes, which can be returned from
+DSPL-2.0 functions.
+**************************************************************************** */

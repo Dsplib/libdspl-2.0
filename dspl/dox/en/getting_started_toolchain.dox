@@ -1,0 +1,108 @@
+/*! ****************************************************************************
+
+\page getting_started_toolchain Установка DSPLIB toolchain в Windows
+
+\section dec_getting_started_toolchain Установка DSPLIB toolchain в Windows
+
+
+\subsection download_toolchain_windows Загрузка установщика
+Запуск DSPL в системе Windows требует установки компилятора, Unix-утилит, и
+пакета построения графиков GNUPlot. Также желательно установить консольный
+файловый менеджер Far и IDE для разработки и отладки программ. \n
+Для установки всего необходимого софта предлагается скачать и установить 
+DSPLIB toolchain - полный набор утилит необходимых для работы с библиотекой. 
+\n
+\n
+<a href = "http://ru.dsplib.org/dsplib_toolchain_20_04_win_x64.exe">
+<b>Скачать установщик dsplib_toolchain_20_04_win_x64.exe</b>
+</a>(~219 МБ).
+\n
+\n
+<b>Cостав dsplib toolchain 20.04:</b> \n
+<a href = "https://sourceforge.net/projects/mingw-w64/files/mingw-w64/">
+MinGW-W64-builds-4.3.5 (версия GCC компилятора 8.1.0)
+</a>
+\n
+<a href = "http://www.codeblocks.org">
+IDE CodeBlocks 20.03-r11983
+</a>
+\n
+<a href = "http://www.gnuplot.info/">
+gnuplot 5.2 patchlevel 8 
+</a>
+\n
+<a href = "https://www.farmanager.com/">
+Far manager v.3.0.5577 x86
+</a>
+\n
+<a href = "https://sourceforge.net/projects/unxutils/files/">
+Native Win32 ports of some GNU utilities
+</a>
+\n
+\n
+
+
+
+
+
+\subsection install_gcc Установка DSPLIB toolchain в системе Windows
+Запускаем установщик и выбираем директорию в которую будет произведена установка
+всех компонент.
+\n
+\n
+\image html toolchain_1.png
+\n
+\n
+По умолчанию установка производится по адресу `C:\dsplib`.
+
+\note
+Настоятельно рекомендуется устанавливать все компоненты в каталог 
+`C:\dsplib`, потому что IDE CodeBlocks и другие программы настроены на 
+работу именно из этого каталога.
+
+После нажатия кнопки `[Установить]` начнется процесс копирования пакетов в 
+указанный каталог.
+\n
+\n
+\image html toolchain_2.png
+\n
+\n
+По завершению копирования файлов указанные пути будут прописаны в переменной 
+PATH, а на рабочем столе будут созданы иконки FarManager и IDE CodeBlocks. \n
+Для завершения установки необходимо нажать `[Завершить]`.
+\n
+\n
+\image html toolchain_3.png
+\n
+\n
+Перейдя в каталог `C:\dsplib` можно увидеть следующие установленные пакеты:
+\n
+\n
+\image html toolchain_4.png
+\n
+\n
+`codeblocks`    --- IDE CodeBlocks \n
+
+`farmanager`    --- Консольный файловый менеджер. Очень удобен для запуска 
+                    консольных приложений \n
+
+`gnuplot`       --- Многофункциональный пакет построения графиков. \n
+
+`mingw64`       --- Набор компиляторов gcc для языков C, C++ и FORTRAN 
+                    (для BLAS и LAPACK). \n 
+                
+`UnxUtils`      --- Windows интерфейс для Unix утилит. 
+                    Необходимо для поддержки кроссплатформенной 
+                    компиляции проекта. \n 
+
+`Uninstall.exe` --- Деинсталлятор, способный удалить все 
+                    компоненты и переменные `PATH`.
+
+После того как полный набор утилит и программ установлен можно переходить к 
+сборке библиотеки DSPL: \n
+
+\ref getting_started_make \n
+\ref getting_started_codeblocks \n
+***************************************************************************** */
+
+
