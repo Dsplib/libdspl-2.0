@@ -1,41 +1,39 @@
 
-/*! ****************************************************************************
+/*! ******************************************************************************
 \ingroup FILTER_CONV_GROUP
 \fn int conv(double* a, int na, double* b, int nb, double* c) 
-\brief Линейная свертка двух вещественных векторов
+\brief Real vectors linear convolution.
 
-Функция рассчитывает линейную свертку двух векторов \f$ c = a * b\f$.
+Function convolves two real vectors \f$ c = a * b\f$ length `na` and `nb`.
+The output convolution is a vector `c` with length equal to  `na + nb - 1`. 
 
 \param[in]  a
-Указатель на первый вектор  \f$a\f$.  \n
-Размер вектора `[na x 1]`.  \n \n 
+Pointer to the first vector `a`. \n
+Vector size is `[na x 1]`. \n \n
 
 \param[in]  na
-Размер первого вектора. \n \n
+Size of the first vector `a`. \n \n
 
 \param[in]  b
-Указатель на второй вектор \f$b\f$.  \n
-Размер вектора `[nb x 1]`. \n  \n
+Pointer to the second vector `b`. \n
+Vector size is `[nb x 1]`. \n \n
 
 \param[in]  nb
-Размер второго вектора. \n \n
+Size of the second vector `b`. \n \n
 
 \param[out] c
-Указатель на вектор свертки \f$ c = a * b\f$. \n
-Размер вектора `[na + nb - 1  x  1]`. \n
-Память должна быть выделена. \n \n
+Pointer to the convolution output vector  \f$ c = a * b\f$. \n
+Vector size is `[na + nb - 1  x  1]`. \n
+Memory must be allocated. \n \n
 
-\return
-`RES_OK` если свертка расчитана успешно. \n 
- В противном случае \ref ERROR_CODE_GROUP "код ошибки".
+\return `RES_OK` if convolution is calculated successfully. \n
+Else \ref ERROR_CODE_GROUP "code error".
 
-\note
-Если вектора `a` и `b` представляют собой коэффициенты двух полиномов,
-то результат линейной свертки представляет собой коэффициенты произведения
-исходных полиномов.
+\note If vectors `a` and `b` are coefficients of two polynomials,
+then convolution of the vectors `a` and `b` returns polynomial product 
+coefficients.
 
-Пример использования функции:
-
+Example:
 \code{.cpp}
   double ar[3] = {1.0, 2.0, 3.0};
   double br[4] = {3.0, -1.0, 2.0, 4.0};
@@ -46,12 +44,12 @@
   conv(ar, 3, br, 4, cr);
   
   for(n = 0; n < 6; n++)
-    printf("cr[%d] = %5.1f \n ", n, cr[n]);
+    printf("cr[%d] = %5.1f\n", n, cr[n]);
 
 \endcode
-\n 
+ \n
 
-Результат работы:
+Output:
 \verbatim
 cr[0] =   3.0
 cr[1] =   5.0
@@ -61,57 +59,47 @@ cr[4] =  14.0
 cr[5] =  12.0
 \endverbatim
 
-\author
-Бахурин Сергей
-www.dsplib.org
-**************************************************************************** */
+\author Sergey Bakhurin www.dsplib.org
+****************************************************************************** */
 
 
 
 
-
-
-
-/*! ****************************************************************************
+/*! *****************************************************************************
 \ingroup FILTER_CONV_GROUP
 \fn int conv_cmplx(complex_t* a, int na, complex_t* b, int nb, complex_t* c) 
-\brief Линейная свертка двух комплексных векторов
+\brief Complex vectors linear convolution.
 
-Функция рассчитывает линейную свертку двух векторов \f$ c = a * b\f$.
-
-
+Function convolves two complex vectors \f$ c = a * b\f$ length `na` and `nb`.
+The output convolution is a vector `c` with length equal to  `na + nb - 1`. 
 
 \param[in]  a
-Указатель на первый вектор  \f$a\f$. \n 
-Размер вектора `[na x 1]`. \n  \n 
+Pointer to the first vector `a`. \n
+Vector size is `[na x 1]`. \n \n
 
 \param[in]  na
-Размер первого вектора. \n  \n 
+Size of the first vector `a`. \n \n
 
 \param[in]  b
-Указатель на второй вектор \f$b\f$. \n 
-Размер вектора `[nb x 1]`. \n  \n 
+Pointer to the second vector `b`. \n
+Vector size is `[nb x 1]`. \n \n
 
 \param[in]  nb
-Размер второго вектора. \n  \n 
+Size of the second vector `b`. \n \n
 
 \param[out] c
-Указатель на вектор свертки \f$ c = a * b\f$. \n 
-Размер вектора `[na + nb - 1  x  1]`. \n 
-Память должна быть выделена. \n  \n 
+Pointer to the convolution output vector  \f$ c = a * b\f$. \n
+Vector size is `[na + nb - 1  x  1]`. \n
+Memory must be allocated. \n \n
 
-\return
-`RES_OK` если свертка рассчитана успешно. \n 
-В противном случае \ref ERROR_CODE_GROUP "код ошибки".
+\return `RES_OK` if convolution is calculated successfully. \n
+Else \ref ERROR_CODE_GROUP "code error".
 
+\note If vectors `a` and `b` are coefficients of two polynomials,
+then convolution of the vectors `a` and `b` returns polynomial product 
+coefficients.
 
-\note 
-Если векторы `a` и `b` представляют собой коэффициенты двух полиномов,
-то результат линейной свертки представляет собой коэффициенты произведения
-исходных полиномов.
-
-Пример использования функции:
-
+Example:
 \code{.cpp}
   complex_t ac[3] = {{0.0, 1.0}, {1.0, 1.0}, {2.0, 2.0}};
   complex_t bc[4] = {{3.0, 3.0}, {4.0, 4.0}, {5.0, 5.0}, {6.0, 6.0}};
@@ -122,12 +110,12 @@ www.dsplib.org
   conv_cmplx(ac, 3, bc, 4, cc);
   
   for(n = 0; n < 6; n++)
-    printf("cc[%d] = %5.1f%+5.1fj \n ", n, RE(cc[n]),IM(cc[n]));
+    printf("cc[%d] = %5.1f%+5.1fj\n", n, RE(cc[n]),IM(cc[n]));
   
 \endcode
-\n 
+ \n
 
-Результат работы:
+Output:
 \verbatim
 cc[0] =  -3.0 +3.0j
 cc[1] =  -4.0+10.0j
@@ -137,84 +125,65 @@ cc[4] =   0.0+32.0j
 cc[5] =   0.0+24.0j
 \endverbatim
 
-\author Бахурин Сергей www.dsplib.org
-***************************************************************************** */
+\author Sergey Bakhurin www.dsplib.org
+****************************************************************************** */
 
 
 
 
-
-
-
-
-
-/*! ****************************************************************************
+/*! *****************************************************************************
 \ingroup FILTER_CONV_GROUP
 \fn int conv_fft(double* a, int na, double* b, int nb,
-                 fft_t* pfft, double* c) 
-\brief Линейная свертка двух вещественных векторов с использованием алгоритмов
-быстрого преобразования Фурье
+                 fft_t* pfft, int nfft, double* c) 
+\brief Real vectors fast linear convolution by using fast Fourier
+transform algorithms
 
-Функция рассчитывает линейную свертку двух векторов \f$ c = a * b\f$ используя
-секционную обработку с перекрытием в частотной области. Это позволяет сократить 
-вычислительные операции при расчете длинных сверток.
-
-
+Function convolves two real vectors \f$ c = a * b\f$ length `na` and `nb`
+in the frequency domain by using FFT algorithms. This approach provide 
+high-performance convolution which increases with `na` and `nb` increasing.
+The output convolution is a vector `c` with length equal to  `na + nb - 1`. 
 
 \param[in]  a
-Указатель на первый вектор  \f$a\f$. \n 
-Размер вектора `[na x 1]`. \n  \n 
+Pointer to the first vector `a`. \n
+Vector size is `[na x 1]`. \n \n
 
 \param[in]  na
-Размер первого вектора. \n  \n 
+Size of the first vector `a`. \n \n
 
 \param[in]  b
-Указатель на второй вектор \f$b\f$. \n 
-Размер вектора `[nb x 1]`. \n  \n 
+Pointer to the second vector `b`. \n
+Vector size is `[nb x 1]`. \n \n
 
 \param[in]  nb
-Размер второго вектора. \n  \n 
+Size of the second vector `b`. \n \n
 
 \param[in]  pfft
-Указатель на структуру `fft_t` алгоритма 
-быстрого преобразования Фурье. \n 
-Функция изменит состояние полей структуры `fft_t`,
-поэтому структура должна быть очищена перед выходом из 
-программы для исключения утечек памяти. \n 
+Pointer to the structure `fft_t`. \n
+Function changes `fft_t` structure fields so `fft_t` must
+be clear before program returns. \n \n
 
-\param[in]  nfft
-Размер алгоритма БПФ который будет использован для расчета
-секционной свертки с перекрытием. \n 
-Данный параметр должен быть больше чем минимальное значение
-размеров сворачиваемых векторов. \n 
-Например если `na=10`, а `nb=4`, то параметр `nfft` должен быть больше 4. \n 
-Библиотека поддерживает алгоритмы БПФ составной длины
-\f$n = n_0 \times n_1 \times n_2 \times \ldots \times n_p \times m\f$,
-где \f$n_i = 2,3,5,7\f$, а \f$m \f$ --- произвольный простой множитель 
-не превосходящий 46340 (см. описание функции \ref fft_create).
-Однако, максимальное быстродействие достигается при использовании длин равных 
-степени двойки.
+\param[in] nfft
+FFT size.  \n
+This parameter set which FFT size will be used 
+for overlapped frequency domain convolution. \n
+FFT size must be more of minimal `na` and `nb` value.
+For example if `na = 10`, `nb = 4` then `nfft` parameter must 
+be more than 4.  \n
 
 \param[out] c
-Указатель на вектор свертки \f$ c = a * b\f$. \n 
-Размер вектора `[na + nb - 1  x  1]`. \n 
-Память должна быть выделена. \n  \n 
+Pointer to the convolution output vector  \f$ c = a * b\f$. \n
+Vector size is `[na + nb - 1  x  1]`. \n
+Memory must be allocated. \n \n
 
-\return
-`RES_OK` если свертка рассчитана успешно. \n 
- В противном случае \ref ERROR_CODE_GROUP "код ошибки".
+\return `RES_OK` if convolution is calculated successfully. \n
+Else \ref ERROR_CODE_GROUP "code error".  \n \n
 
-
-\note
-Данная функция наиболее эффективна при вычислении длинных сверток.
-
-Пример использования функции:
-
+Example:
 \include conv_fft_test.c
 
-Результат работы:
-\verbatim
+Program output:
 
+\verbatim
 conv_fft error: 0x00000000
 conv error:     0x00000000
 c[  0] =     -0.00    d[  0] =      0.00
@@ -238,81 +207,65 @@ c[ 17] =    126.00    d[ 17] =    126.00
 c[ 18] =     72.00    d[ 18] =     72.00
 \endverbatim
 
-\author
-Бахурин Сергей
-www.dsplib.org
-***************************************************************************** */
+\author Sergey Bakhurin www.dsplib.org
+****************************************************************************** */
 
 
 
 
 
-
-
-
-/*! ****************************************************************************
+/*! *****************************************************************************
 \ingroup FILTER_CONV_GROUP
 \fn int conv_fft_cmplx(complex_t* a, int na, complex_t* b, int nb,
-                       fft_t* pfft, complex_t* c) 
-\brief Линейная свертка двух комплексных векторов с использованием алгоритмов
-быстрого преобразования Фурье
+                       fft_t* pfft, int nfft, complex_t* c) 
+\brief Complex vectors fast linear convolution by using fast Fourier
+transform algorithms
 
-Функция рассчитывает линейную свертку двух векторов \f$ c = a * b\f$ используя
-секционную обработку с перекрытием в частотной области. Это позволяет сократить 
-вычислительные операции при расчете длинных сверток.
+Function convolves two complex vectors \f$ c = a * b\f$ length `na` and `nb`
+in the frequency domain by using FFT algorithms. This approach provide 
+high-performance convolution which increases with `na` and `nb` increasing.
+The output convolution is a vector `c` with length equal to  `na + nb - 1`. 
 
 \param[in]  a
-Указатель на первый вектор  \f$a\f$. \n 
-Размер вектора `[na x 1]`. \n  \n 
+Pointer to the first vector `a`. \n
+Vector size is `[na x 1]`. \n \n
 
 \param[in]  na
-Размер первого вектора. \n  \n 
+Size of the first vector `a`. \n \n
 
 \param[in]  b
-Указатель на второй вектор \f$b\f$. \n 
-Размер вектора `[nb x 1]`. \n  \n 
-  
+Pointer to the second vector `b`. \n
+Vector size is `[nb x 1]`. \n \n
+
 \param[in]  nb
-Размер второго вектора. \n  \n 
+Size of the second vector `b`. \n \n
 
 \param[in]  pfft
-Указатель на структуру `fft_t` алгоритма 
-быстрого преобразования Фурье. \n 
-Функция изменит состояние полей структуры `fft_t`,
-поэтому структура должна быть очищена перед выходом из 
-программы для исключения утечек памяти. \n 
+Pointer to the structure `fft_t`. \n
+Function changes `fft_t` structure fields so `fft_t` must
+be clear before program returns. \n \n
 
-\param[in]  nfft
-Размер алгоритма БПФ который будет использован для расчета
-секционной свертки с перекрытием. \n 
-Данный параметр должен быть больше чем минимальное значение
-размеров сворачиваемых векторов. \n 
-Например если `na=10`, а `nb=4`, то параметр `nfft` должен быть больше 4. \n 
-Библиотека поддерживает алгоритмы БПФ составной длины
-\f$n = n_0 \times n_1 \times n_2 \times \ldots \times n_p \times m\f$,
-где \f$n_i = 2,3,5,7\f$, а \f$m \f$ --- произвольный простой множитель 
-не превосходящий 46340 (см. описание функции \ref fft_create).
-Однако, максимальное быстродействие достигается при использовании длин равных 
-степени двойки.
+\param[in] nfft
+FFT size.  \n
+This parameter set which FFT size will be used 
+for overlapped frequency domain convolution. \n
+FFT size must be more of minimal `na` and `nb` value.
+For example if `na = 10`, `nb = 4` then `nfft` parameter must 
+be more than 4.  \n
 
 \param[out] c
-Указатель на вектор свертки \f$ c = a * b\f$. \n 
-Размер вектора `[na + nb - 1  x  1]`. \n 
-Память должна быть выделена. \n  \n 
+Pointer to the convolution output vector  \f$ c = a * b\f$. \n
+Vector size is `[na + nb - 1  x  1]`. \n
+Memory must be allocated. \n \n
 
-\return
-`RES_OK` если свертка рассчитана успешно. \n 
-В противном случае \ref ERROR_CODE_GROUP "код ошибки".
+\return `RES_OK` if convolution is calculated successfully. \n
+Else \ref ERROR_CODE_GROUP "code error".  \n \n
 
-
-\note
-Данная функция наиболее эффективна при вычислении длинных сверток.
-
-Пример использования функции:
-
+Example:
 \include conv_fft_cmplx_test.c
 
-Результат работы:
+Program output:
+
 \verbatim
 c[  0] =     -1.00    -0.00j    d[  0] =     -1.00    +0.00j
 c[  1] =     -6.00    +4.00j    d[  1] =     -6.00    +4.00j
@@ -335,85 +288,82 @@ c[ 17] =    -70.00  +820.00j    d[ 17] =    -70.00  +820.00j
 c[ 18] =    -37.00  +484.00j    d[ 18] =    -37.00  +484.00j
 \endverbatim
 
-\author
-Бахурин Сергей
-www.dsplib.org
-***************************************************************************** */
+\author Sergey Bakhurin www.dsplib.org
+****************************************************************************** */
 
 
 
 
 
-
-/*! ****************************************************************************
+/*! ******************************************************************************
 \ingroup FILTER_CONV_GROUP
 \fn int filter_iir(double* b, double* a, int ord, double* x, int n, double* y)
-\brief Фильтрация вещественного сигнала вещественным БИХ-фильтром
+\brief Real IIR filtration
 
-Функция рассчитывает выход фильтра заданного выражением
+Function calculates real IIR filter output for real signal. The real filter
+contains real coefficients of the transfer function \f$H(z)\f$
+ numerator and denominator:
 \f[
   H(z) = \frac{\sum_{n = 0}^{N} b_n  z^{-n}}
-  {1+{\frac{1}{a_0}}\sum_{m = 1}^{M} a_m  z^{-m}},
+  {1+{\frac{1}{a_0}}\sum_{m = 1}^{M} a_m  z^{-n}},
 \f]
-где \f$a_0\f$ не может быть 0, \f$N=M=\f$`ord`.
+here \f$a_0\f$ cannot be equals zeros, \f$N=M=\f$`ord`.
+
 
 \param[in]  b
-Указатель на вектор коэффициентов числителя 
-передаточной функции \f$H(z)\f$ БИХ-фильтра. \n  
-Размер вектора `[ord + 1 x 1]`. \n  \n  
+Pointer to the vector \f$b\f$ of IIR filter 
+transfer function numerator coefficients. \n 
+Vector size is `[ord + 1 x 1]`. \n \n 
 
 \param[in]  a
-Указатель на вектор коэффициентов знаменателя
-передаточной функции \f$H(z)\f$ БИХ-фильтра. \n  
-Размер вектора `[ord + 1 x 1]`. \n  
-Этот указатель может быть `NULL`, тогда фильтрация производится 
-без использования рекурсивной части 
-(вектор коэффициентов `b` задает КИХ-фильтр). \n \n
+Pointer to the vector \f$a\f$ of IIR filter 
+transfer function denominator coefficients. \n 
+Vector size is `[ord + 1 x 1]`. \n 
+This pointer can be `NULL` if filter is FIR. \n \n 
 
 \param[in]  ord
-Порядок фильтра. Количество коэффициентов числителя  и знаменателя 
-передаточной функции \f$H(z)\f$ БИХ-фильтра равно `ord + 1`. \n \n
+Filter order. Number of the transfer function 
+numerator and denominator coefficients 
+(length of vectors `b` and `a`) is `ord + 1`. \n \n 
 
 \param[in]  x
-Указатель на вектор отсчетов входного сигнала. \n
-Размер вектора `[n x 1]`. \n \n
+Pointer to the input signal vector. \n 
+Vector size is `[n x 1]`. \n \n 
 
 \param[in]  n
-Длина входного сигнала. \n \n 
+Size of the input signal vector `x`. \n \n 
 
 \param[out] y
-Указатель на вектор выходных отсчетов фильтра. \n  
-Размер вектора `[n x  1]`. \n  
-Память должна быть выделена заранее. \n \n
+Pointer to the IIR filter output vector. \n 
+Vector size is `[n x  1]`. \n 
+Memory must be allocated. \n \n 
 
 \return
-`RES_OK` Если фильтрация произведена успешно. \n 
-В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n 
+`RES_OK` if filter output is calculated successfully. \n
+Else \ref ERROR_CODE_GROUP "code error": \n
 
-Пример использования функции `filter_iir`:
+Example:
 
 \include filter_iir_test.c
 
-На входе цифрового фильтра задан сигнал 
-\f$s(t) = \sin(2\pi \cdot 0.05 t) + n(t)\f$, где \f$n(t)\f$ белый гауссовский 
-шум, с нулевым средним и единичной дисперсией. \n
-Фильтр представляет собой эллиптический ФНЧ 6 порядка. 
-Входной сигнал фильтруется данным фильтром, и результат сохраняется в файлы:
+Input signal is
+\f$s(t) = \sin(2\pi \cdot 0.05 t) + n(t)\f$, here \f$n(t)\f$ white Gaussian
+noise with zero mean value and unit standard deviation. \n
+
+Input signal is filtered by elliptic LPF order 6 and output signal and data 
+saves in the txt-files  
 
 \verbatim
-dat/s.txt  - исходный зашумленный сигнал
-dat/sf.txt - сигнал на выходе фильтра.
+dat/s.txt  - input signal + noise
+dat/sf.txt - filter output.
 \endverbatim
 
-По полученным данным производится построение графиков:
+Plots:
 
 \image html filter_iir_test.png
 
-\author Бахурин Сергей www.dsplib.org
-***************************************************************************** */
+GNUPLOT script for make plots is:
+\include filter_iir.plt
 
-
-
-
-
-
+\author Sergey Bakhurin www.dsplib.org
+****************************************************************************** */

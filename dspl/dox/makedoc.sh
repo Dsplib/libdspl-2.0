@@ -17,6 +17,7 @@ done
 cd ../dspl/dox
 
 doxygen doxyfile_ru
+doxygen doxyfile_en
 
 #cd ../
 #mingw32-make clean
