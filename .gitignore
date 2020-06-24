@@ -11,3 +11,7 @@
 *.png
 *.def
 
+!header_ru.html
+!footer_ru.html
+!header_en.html
+!footer_en.html
