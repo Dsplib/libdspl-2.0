@@ -1,14 +1,13 @@
 /*! ****************************************************************************
 \ingroup TYPES_GROUP
 \typedef complex_t
-\brief Описание комплексного типа данных.
+\brief Complex data type.
 
-Комплексный тип данных в библиотеке DSPL-2.0 определен как 
-массив из двух элементов типа `double`.
-При этом первый элемент массива определяет реальную часть 
-комплексного числа, а второй - мнимую.
+DSPL-2.0 decribes complex numbers data type as an array 
+of two `double` elements.
+First element sets real part, second --- imaginary part. 
 
-Например:
+For example:
 
 \code{.cpp}
     complex_t z;
@@ -16,10 +15,10 @@
     z[1] = -2.0;
 \endcode 
 
-Переменная `z = 1-2j`, где `j` - мнимая единица.
+Variable `z = 1-2j`, here `j` - imaginary unit.
 
-Для удобства работы с комплексными числами реализованы 
-специальные макросы: \ref RE, \ref IM, \ref ABSSQR
+For the convenience of working with complex numbers implemented
+special macros: \ref RE, \ref IM, \ref ABSSQR
 ***************************************************************************** */
 
 
@@ -33,15 +32,16 @@
 /*! ****************************************************************************
 \ingroup TYPES_GROUP
 \def ABSSQR(x)
-\brief Макрос возвращает квадрат модуля комплексного числа `x`.
+\brief 
+The macro returns the square of the modulus of a complex number `x`.
 
-Квадрат модуля комплексного числа \f$ x = a + j  b \f$ равен:
+Square of the modulus of a complex number \f$ x = a + j  b \f$ equals:
 
 \f[
     |x|^2 = x x^* = a^2 + b^2. 
 \f]
 
-Например:
+Example:
 \code{.cpp}
     complex_t z;
     double y;
@@ -50,7 +50,7 @@
     y = ABSSQR(z);
 \endcode 
 
-Переменная `z = 1-2j`, где `j` - мнимая единица, а переменная `y = 5`. 
+Variable `z = 1-2j`, here `j` - imaginary unit, but variable `y = 5`. 
 ***************************************************************************** */
 
 
@@ -63,26 +63,26 @@
 /*! ****************************************************************************
 \ingroup TYPES_GROUP
 \def IM(x)
-\brief Макрос определяющий мнимую часть комплексного числа.
+\brief Macro sets imaginary part of the complex number.
 
-Например:
+Example:
 \code{.cpp}
     complex_t z;
     RE(z) =  1.0;
     IM(z) = -2.0;        
 \endcode 
 
-Переменная `z = 1-2j`, где `j` - мнимая единица.
+Variable `z = 1-2j`, here `j` - imaginary unit.
 
-Аналогично, макрос можно использовать для получения 
-мнимой части комплексного числа:
+This macro can be used to return 
+imaginary part of the complex number:
 \code{.cpp}
     complex_t z = {3.0, -4.0};
     double    r;
     r = IM(z);
 \endcode    
-В данном примере переменная `z = 3-4i`, 
-а в переменой `r` будет храниться число -4.
+In this example `z = 3-4i`, 
+but variable `r` will keep -4.
 ***************************************************************************** */
 
 
@@ -97,27 +97,27 @@
 /*! ****************************************************************************
 \ingroup TYPES_GROUP
 \def RE(x)
-\brief Макрос определяющий реальную часть комплексного числа.
+\brief Macro sets real part of the complex number.
 
-Например:
+Example:
 \code{.cpp}
   complex_t z;
   RE(z) =  1.0;
   IM(z) = -2.0;
 \endcode 
 
-Переменная `z = 1-2j`, где `j` - мнимая единица.
+Variable `z = 1-2j`, here `j` - imaginary unit.
 
-Аналогично, макрос можно использовать для получения 
-реальной части комплексного числа:
+This macro can be used to return 
+real part of the complex number:
 
 \code{.cpp}
   complex_t z = {3.0, -4.0};
   double    r;
   r = RE(z);
 \endcode    
-В данном примере переменная `z = 3-4i`, а в переменой `r`
-будет храниться число 3.
+In this example `z = 3-4i`, 
+but variable `r` will keep 3.
 ***************************************************************************** */
 
 
@@ -133,19 +133,23 @@ Function fills `re` and `im` vectors corresponds to real and image
 parts of the input complex array `x`.  \n
 
 
-\param[in]  x   Pointer to the real complex vector. \n
-                Vector size is `[n x 1]`.  \n \n
+\param[in]  x  
+Pointer to the real complex vector. \n
+Vector size is `[n x 1]`.  \n \n
 
-\param[in]  n   Size of the input complex vector `x` and real and image
-                vectors `re` and `im`. \n \n
+\param[in]  n   
+Size of the input complex vector `x` and real and image
+vectors `re` and `im`. \n \n
 
-\param[out] re  Pointer to the real part  vector. \n
-                Vector size is `[n x 1]`.  \n
-                Memory must be allocated.  \n \n
+\param[out] re  
+Pointer to the real part  vector. \n
+Vector size is `[n x 1]`.  \n
+Memory must be allocated.  \n \n
 
-\param[out] im  Pointer to the image part vector. \n
-                Vector size is `[n x 1]`.  \n
-                Memory must be allocated.  \n \n
+\param[out] im  
+Pointer to the image part vector. \n
+Vector size is `[n x 1]`.  \n
+Memory must be allocated.  \n \n
 
 \return
 `RES_OK` if function converts complex vector successfully.  \n
@@ -188,14 +192,17 @@ So complex vector contains data: \n
 `y[i] = x[i] + j0, here i = 0,1,2 ... n-1`
 
 
-\param[in]  x   Pointer to the real vector `x`. \n
-                Vector size is `[n x 1]`.  \n \n
+\param[in]  x
+Pointer to the real vector `x`. \n
+Vector size is `[n x 1]`.  \n \n
 
-\param[in]  n   Size of the real vector `x` and complex vector `y`. \n \n
+\param[in]  n
+Size of the real vector `x` and complex vector `y`. \n \n
 
-\param[out] y   Pointer to the complex vector `y`. \n
-                Vector size is `[n x 1]`.  \n
-                Memory must be allocated.  \n \n
+\param[out] y
+Pointer to the complex vector `y`. \n
+Vector size is `[n x 1]`.  \n
+Memory must be allocated.  \n \n
 
 
 \return
@@ -204,7 +211,7 @@ Else \ref ERROR_CODE_GROUP "code error": \n
 
 
 
-Например при выполнении следующего кода
+Example:
 \code{.cpp}
     double x[3] = {1.0, 2.0, 3.0};
     complex_t y[3];

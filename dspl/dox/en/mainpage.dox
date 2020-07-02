@@ -1,69 +1,82 @@
 /*! ****************************************************************************
-\mainpage DSPL-2.0 - библиотека алгоритмов цифровой обработки сигналов.
+\mainpage DSPL-2.0 - Digital Signal Processing Algorithm Library
+.
 
-\section sec_main_page DSPL-2.0 --- свободная библиотека алгоритмов ЦОС
-
-DSPL-2.0 --- свободная библиотека алгоритмов цифровой обработки сигналов,
-с открытым исходным кодом, написанная на языке Си. \n
+\section sec_main_page DSPL-2.0 --- free DSP algorithm library
 
 
-Распространяется под лицензией
-<a href = "http://www.gnu.org/licenses/lgpl.html">LGPL v3.</a>
-Это позволяет использовать данную библиотеку в закрытых приложения при
-условии динамической линковки.
+DSPL-2.0 --- opensource cross-platform digital 
+signal processing algorithm library, written in C language. \n
+
+Distributed under 
+<a href = "http://www.gnu.org/licenses/lgpl.html"> LGPL v3 </a> license.
+This allows to use this library in all applications with dynamic linking.
 
 
-Исходные коды библиотеки доступны на
+Source codes are available on
 <a href = "https://github.com/Dsplib/libdspl-2.0">GitHub</a>. \n
 
-Вы также можете внести свой вклад в развитие данной библиотеки.
-\b Присоединяйтесь!
+DSPL-2.0 includes follow algorithms sets: \n
+  - Digital spectral analysis, discrete and fast Fourier transform algorithms. \n
+  - Analog and digital IIR filters design and analysis. \n
+  - Digital FIR filters design and analysis. \n
+  - Windows function collection includes 15 different parametric 
+    and nonparametric window functions. \n
+  - Digital Hilbert transform algorithms. \n
+  - Mathematical sections includes trigonometric, hyperbolic, elliptic functions of real and complex variables. \n
+  - Pseudorandom numbers generation algorithms. \n
+  - Statistic functions. \n
+  - Linar algebra algorithms (BLAS and LAPACK packages are used under the hood of the DSPL-2.0 library). \n
+  - Digital resampling algorithms. \n
 
 
-\subsection sec_doc_start Компиляция и запуск программ DSPL-2.0
 
-Для сборки библиотеки DSPL-2.0 в системе Windows подготовлен специальный 
-набор программ \ref getting_started_toolchain "dsplib toolchain",
-в состав которого входит компилятор GCC, пакет построения графиков GNUPLOT, 
-среда разработки и отладки CodeBlocks, а также файловый менеджер Far и 
-коллекция портированных Unix утилит.
+\subsection sec_doc_start Build and run DSPL-2.0
+
+To build the DSPL-2.0 library on Windows, a special
+set of programs \ref getting_started_toolchain "dsplib toolchain" is provided.
+Dsplib toolchain includes GCC, GNUPLOT, CodeBlocks IDE, Far file manager and also Unix utilities for Windows OS.
 
 \ref getting_started_toolchain \n
 \ref getting_started_make \n
 \ref getting_started_codeblocks \n
 \ref SYS_LOADING_GROUP \n
 
-\subsection sec_doc_content Разделы документации
-<b>Математические функции:</b> \n
-\ref SPEC_MATH_COMMON_GROUP \n
-\ref SPEC_MATH_TRIG_GROUP \n
-\ref SPEC_MATH_TRANSCEND \n
-\ref SPEC_MATH_ELLIP_GROUP  \n
-\ref SPEC_MATH_RAND_GEN_GROUP \n
-\ref SPEC_MATH_STAT_GROUP \n
-\ref SPEC_MATH_LINALG_GROUP \n
+\subsection sec_doc_content Documentation content
+<b>Mathematical sections:</b> \n
+  - \ref SPEC_MATH_COMMON_GROUP \n
+  - \ref SPEC_MATH_TRIG_GROUP \n
+  - \ref SPEC_MATH_TRANSCEND \n
+  - \ref SPEC_MATH_ELLIP_GROUP  \n
+  - \ref SPEC_MATH_RAND_GEN_GROUP \n
+  - \ref SPEC_MATH_STAT_GROUP \n
+  - \ref SPEC_MATH_LINALG_GROUP \n
 \n
 
-<b>Алгоритмы спектрального анализа: </b> \n
-\ref DFT_GROUP \n
-\ref WIN_GROUP \n
-\ref HILBERT_GROUP \n
+
+<b>Digital spectral analysis: </b> \n
+  - \ref DFT_GROUP \n
+  - \ref WIN_GROUP \n
+  - \ref HILBERT_GROUP \n
 \n
 
-<b>Расчет и анализ аналоговых и цифровых фильтров:</b>\n
-\ref FILTER_CONV_GROUP \n
-\ref IIR_FILTER_DESIGN_GROUP \n
-\ref FIR_FILTER_DESIGN_GROUP \n
-\ref FILTER_ANALYSIS_GROUP \n
+
+<b>Analog and digital filters design and analysis:</b>\n
+  - \ref FILTER_CONV_GROUP \n
+  - \ref IIR_FILTER_DESIGN_GROUP \n
+  - \ref FIR_FILTER_DESIGN_GROUP \n
+  - \ref FILTER_ANALYSIS_GROUP \n
 \n
 
-<b>Прочие алгоритмы:</b> \n
-\ref RESAMPLING_GROUP \n
-\ref IN_OUT_GROUP \n
-\ref PLOT_GROUP \n
+
+<b>Other algortithms:</b> \n
+  - \ref RESAMPLING_GROUP \n
+  - \ref IN_OUT_GROUP \n
+  - \ref PLOT_GROUP \n
 \n
 
-<b>Приложения</b>\n
-\ref TYPES_GROUP \n
-\ref ERROR_CODE_GROUP \n
+
+<b>Appendix</b>\n
+  - \ref TYPES_GROUP \n
+  - \ref ERROR_CODE_GROUP \n
 ***************************************************************************** */

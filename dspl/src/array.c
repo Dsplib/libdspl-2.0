@@ -29,7 +29,7 @@
 /******************************************************************************
 Vector linear transformation 
 --------------------------------------------------------------------------------
-Documented: 
+Documented: RU, EN
 *******************************************************************************/
 int array_scale_lin(double* x,   int n, 
     double xmin, double xmax, double dx,
@@ -206,7 +206,7 @@ int DSPL_API flipip_cmplx(complex_t* x, int n)
 /*******************************************************************************
 Linspace array filling
 --------------------------------------------------------------------------------
-Documented: RU
+Documented: RU, EN
 *******************************************************************************/
 int DSPL_API linspace(double x0, double x1, int n, int type, double* x)
 {
@@ -245,7 +245,7 @@ int DSPL_API linspace(double x0, double x1, int n, int type, double* x)
 /*******************************************************************************
 Logspace array filling
 --------------------------------------------------------------------------------
-Documented: RU
+Documented: RU, EN
 *******************************************************************************/
 int DSPL_API logspace(double x0, double x1, int n, int type, double* x)
 {
@@ -284,7 +284,7 @@ int DSPL_API logspace(double x0, double x1, int n, int type, double* x)
 /*******************************************************************************
 Ones double array
 --------------------------------------------------------------------------------
-Documented: RU
+Documented: RU, EN
 *******************************************************************************/
 int DSPL_API ones(double* x, int n)
 {

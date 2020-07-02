@@ -27,49 +27,9 @@
 
 
 /******************************************************************************
-\ingroup TYPES_GROUP
-\fn int cmplx2re(complex_t* x, int n, double* re, double* im)
-\brief  Separate complex vector to the real and image vectors
-
-Function fills `re` and `im` vectors corresponds to real and image
-parts of the input complex array `x`.  \n
-
-
-\param[in]  x   Pointer to the real complex vector. \n
-                Vector size is `[n x 1]`.  \n \n
-
-\param[in]  n   Size of the input complex vector `x` and real and image
-                vectors `re` and `im`. \n \n
-
-\param[out] re  Pointer to the real part  vector. \n
-                Vector size is `[n x 1]`.  \n
-                Memory must be allocated.  \n \n
-
-\param[out] im  Pointer to the image part vector. \n
-                Vector size is `[n x 1]`.  \n
-                Memory must be allocated.  \n \n
-
-\return
-`RES_OK` if function converts complex vector successfully.  \n
-Else \ref ERROR_CODE_GROUP "code error". \n
-
-Example: \n
-\code{.cpp}
-    complex_t x[3] = {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}};
-    double  re[3], im[3];
-
-    cmplx2re(x, 3, re, im);
-\endcode
-
-Vectors `re` and `im` will contains:
-
-\verbatim
-re[0] = 1.0; im[0] = 2.0;
-re[1] = 3.0; im[1] = 4.0;
-re[2] = 5.0; im[2] = 6.0;
-\endverbatim
-
-\author Sergey Bakhurin. www.dsplib.org
+Separate complex vector to the real and image vectors
+--------------------------------------------------------------------------------
+Documented: RU, EN
 *******************************************************************************/
 int DSPL_API cmplx2re(complex_t* x, int n, double* re, double* im)
 {
@@ -97,49 +57,9 @@ int DSPL_API cmplx2re(complex_t* x, int n, double* re, double* im)
 
 
 /******************************************************************************
-\ingroup TYPES_GROUP
-\fn int re2cmplx(double* x, int n, complex_t *y)
-\brief  Convert real array to the complex array.
-
-Function copies the vector `x` to the real part of vector `y`.
-Image part of the vector `y` sets as zero. \n
-So complex vector contains data: \n
-`y[i] = x[i] + j0, here i = 0,1,2 ... n-1`
-
-
-\param[in]  x   Pointer to the real vector `x`. \n
-                Vector size is `[n x 1]`.  \n \n
-
-\param[in]  n   Size of the real vector `x` and complex vector `y`. \n \n
-
-\param[out] y   Pointer to the complex vector `y`. \n
-                Vector size is `[n x 1]`.  \n
-                Memory must be allocated.  \n \n
-
-
-\return
-`RES_OK` if function returns successfully.  \n
-Else \ref ERROR_CODE_GROUP "code error": \n
-
-
-
-Например при выполнении следующего кода
-\code{.cpp}
-    double x[3] = {1.0, 2.0, 3.0};
-    complex_t y[3];
-
-    re2cmplx(x, 3, y);
-\endcode
-
-Vector `y` will keep:
-
-\verbatim
-    y[0] = 1+0j;
-    y[1] = 2+0j;
-    y[2] = 3+0j.
-\endverbatim
-
-\author Sergey Bakhurin. www.dsplib.org
+Convert real array to the complex array.
+--------------------------------------------------------------------------------
+Documented: RU, EN
 *******************************************************************************/
 int DSPL_API re2cmplx(double* x, int n, complex_t* y)
 {

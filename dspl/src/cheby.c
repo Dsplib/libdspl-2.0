@@ -25,55 +25,9 @@
 
 
 /******************************************************************************
-\ingroup SPEC_MATH_TRANSCEND
-\fn int cheby_poly1(double* x, int n, int ord, double* y)
-\brief Chebyshev polynomial of the first kind order `ord`
-
-Function calculates Chebyshev polynomial \f$ C_ord(x)\f$ of the first kind 
-order `ord` for the real vector `x` (length `n`) by recurrent equation:
-\f[
-C_ord(x) = 2 x C_{ord-1}(x) - C_{ord-2}(x), 
-\f]
-where \f$ C_0(x) = 1 \f$, \f$ C_1(x) = x\f$
-
-\param[in] x        Pointer to the real argument vector `x`. \n
-                    Vector size is `[n x 1]`. \n \n
-
-\param[in] n        Size of vectors `x` and `y`. \n \n
-
-\param[in] ord      Chebyshev polynomial order. \n \n
-
-\param[out] y       Pointer to the Chebyshev polynomial values, 
-                    corresponds to the argument `x`. \n
-                    Vector size is `[n x 1]`. \n
-                    Memory must be allocated. \n \n
-
-\return 
-`RES_OK` if Chebyshev polynomial is calculated successfully. \n
-Else \ref ERROR_CODE_GROUP "code error". \n
-
-Example:
-
-\include cheby_poly1_test.c
-
- \n \n
-Text files will be created in `dat` directory: \n
-
-<pre>
-cheby_poly1_ord1.txt
-cheby_poly1_ord2.txt
-cheby_poly1_ord3.txt
-cheby_poly1_ord4.txt
-</pre>
-
-GNUPLOT package will create Chebyshev polynomials plot from saved text-files:
-
-\image html cheby_poly1.png
-
-GNUPLOT script is follow:
-\include cheby_poly1.plt
-
-\author Sergey Bakhurin www.dsplib.org
+Chebyshev polynomial of the first kind order `ord`
+--------------------------------------------------------------------------------
+Documented: RU, EN
 *******************************************************************************/
 int DSPL_API cheby_poly1(double* x, int n, int ord, double* y)
 {
@@ -121,55 +75,9 @@ int DSPL_API cheby_poly1(double* x, int n, int ord, double* y)
 
 
 /******************************************************************************
-\ingroup SPEC_MATH_TRANSCEND
-\fn int cheby_poly2(double* x, int n, int ord, double* y)
-\brief Chebyshev polynomial of the second kind order `ord`
-
-Function calculates Chebyshev polynomial \f$ U_ord(x)\f$ of the first kind 
-order `ord` for the real vector `x` (length `n`) by recurrent equation:
-\f[
-U_ord(x) = 2 x U_{ord-1}(x) - U_{ord-2}(x), 
-\f]
-where \f$ U_0(x) = 1 \f$, \f$ U_1(x) = 2x\f$
-
-\param[in] x        Pointer to the real argument vector `x`. \n
-                    Vector size is `[n x 1]`. \n \n
-
-\param[in] n        Size of vectors `x` and `y`. \n \n
-
-\param[in] ord      Chebyshev polynomial order. \n \n
-
-\param[out] y       Pointer to the Chebyshev polynomial values, 
-                    corresponds to the argument `x`. \n
-                    Vector size is `[n x 1]`. \n
-                    Memory must be allocated. \n \n
-
-\return 
-`RES_OK` if Chebyshev polynomial is calculated successfully. \n
-Else \ref ERROR_CODE_GROUP "code error". \n
-
-Example:
-
-\include cheby_poly2_test.c
-
- \n \n
-Text files will be created in `dat` directory: \n
-
-<pre>
-cheby_poly2_ord1.txt
-cheby_poly2_ord2.txt
-cheby_poly2_ord3.txt
-cheby_poly2_ord4.txt
-</pre>
-
-GNUPLOT package will create Chebyshev polynomials plot from saved text-files:
-
-\image html cheby_poly2.png
-
-GNUPLOT script is follow:
-\include cheby_poly2.plt
-
-\author Sergey Bakhurin www.dsplib.org
+Chebyshev polynomial of the second kind order `ord`
+--------------------------------------------------------------------------------
+Documented: RU, EN
 *******************************************************************************/
 int DSPL_API cheby_poly2(double* x, int n, int ord, double* y)
 {
