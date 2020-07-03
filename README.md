@@ -1,5 +1,7 @@
 # libdspl-2.0 free digital signal processing algorithm library
 
+[![Build Status](https://travis-ci.org/Dsplib/libdspl-2.0.svg?branch=master)](https://travis-ci.org/Dsplib/libdspl-2.0)
+
 libdspl-2.0 — opensource cross-platform digital signal processing algorithm library, written in C language.
 Distributed under LGPL v3 license. This allows to use this library in all applications with dynamic linking.
 
