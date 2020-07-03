@@ -25,11 +25,11 @@ all: $(EXE_FILES)
 
 
 $(RELEASE_DIR)/%.exe:$(OBJ_DIR)/%.o $(DSPL_O)
-	$(CC)  $< $(DSPL_O) -o $@ -ldl
+	$(CC)  $< $(DSPL_O) -o $@ -ldl -lm
   
 
 $(OBJ_DIR)/%.o:$(SRC_DIR)/%.c
-	$(CC) $(CFLAGS) $< -o $@ -ldl
+	$(CC) $(CFLAGS) $< -o $@ -ldl -lm
 
 $(DSPL_O):$(DSPL_C)
 	$(CC) $(CFLAGS) $(DSPL_C) -o $(DSPL_O)
