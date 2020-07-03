@@ -1,7 +1,7 @@
 
 
 FORTRAN  = gfortran
-OPTS     = -O3
+OPTS     = -O3  -fPIC
 DRVOPTS  = $(OPTS)
 NOOPT    =
 LOADOPTS =
