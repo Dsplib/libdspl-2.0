@@ -1,3 +1,6 @@
+before_install:
+  - sudo apt-get -y install gfortran
+
 language: c
                 
 script: make
