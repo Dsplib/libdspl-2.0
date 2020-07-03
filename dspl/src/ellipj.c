@@ -26,37 +26,12 @@
 #include "dspl.h"
 
 
+
 /*****************************************************************************
-\ingroup SPEC_MATH_ELLIP_GROUP
-\fn int ellip_acd(double* w, int n, double k, double* u)  
-\brief  Inverse Jacobi elliptic function  
-\f$ u = \textrm{cd}^{-1}(w, k)\f$ of real vector argument
-
-Function calculates inverse Jacobi elliptic function  
-\f$ u = \textrm{cd}^{-1}(w, k)\f$  of real vector `w`. \n
-
-\param[in]  w   Pointer to the argument vector \f$ w \f$. \n
-                Vector size is `[n x 1]`. \n
-                Memory must be allocated. \n \n
-    
-\param[in]  n   Size of vector `w`. \n 
-  
-\param[in]  k   Elliptical modulus \f$ k \f$. \n
-                Elliptical modulus is real parameter,
-                which values can be from  0 to 1. \n \n 
-    
-
-\param[out]  u  Pointer to the vector of inverse Jacobi elliptic function
-                \f$ u = \textrm{cd}^{-1}(w, k)\f$. \n
-                Vector size is  `[n x 1]`. \n
-                Memory must be allocated. \n \n
-
-
-\return
-`RES_OK` successful exit, else \ref ERROR_CODE_GROUP "error code". \n
-
-\author  Sergey Bakhurin  www.dsplib.org  
- ******************************************************************************/
+Inverse Jacobi elliptic function cd^-1(w, k) for the real argument 
+--------------------------------------------------------------------------------
+Documented: RU, EN
+*******************************************************************************/
 int DSPL_API ellip_acd(double* w, int n, double k, double* u)
 {
   double lnd[ELLIP_ITER], t;
@@ -91,37 +66,12 @@ int DSPL_API ellip_acd(double* w, int n, double k, double* u)
 
 
 
+
 /*****************************************************************************
-\ingroup SPEC_MATH_ELLIP_GROUP
-\fn int ellip_acd_cmplx(complex_t* w, int n, double k, complex_t* u)
-\brief  Inverse Jacobi elliptic function  
-\f$ u = \textrm{cd}^{-1}(w, k)\f$ of complex vector argument
-
-Function calculates inverse Jacobi elliptic function  
-\f$ u = \textrm{cd}^{-1}(w, k)\f$  of complex vector `w`. \n
-
-\param[in]  w   Pointer to the argument vector \f$ w \f$. \n
-                Vector size is `[n x 1]`. \n
-                Memory must be allocated. \n \n
-    
-\param[in]  n   Size of vector `w`. \n 
-  
-\param[in]  k   Elliptical modulus \f$ k \f$. \n
-                Elliptical modulus is real parameter,
-                which values can be from  0 to 1. \n \n 
-    
-
-\param[out]  u  Pointer to the vector of inverse Jacobi elliptic function
-                \f$ u = \textrm{cd}^{-1}(w, k)\f$. \n
-                Vector size is  `[n x 1]`. \n
-                Memory must be allocated. \n \n
-
-
-\return
-`RES_OK` successful exit, else \ref ERROR_CODE_GROUP "error code". \n
-
-\author  Sergey Bakhurin  www.dsplib.org  
- ******************************************************************************/
+Inverse Jacobi elliptic function cd^-1(w, k) for the complex argument 
+--------------------------------------------------------------------------------
+Documented: RU, EN
+*******************************************************************************/
 int DSPL_API ellip_acd_cmplx(complex_t* w, int n, double k, complex_t* u)
 {
   double lnd[ELLIP_ITER], t;
@@ -177,36 +127,10 @@ int DSPL_API ellip_acd_cmplx(complex_t* w, int n, double k, complex_t* u)
 
 
 /*****************************************************************************
-\ingroup SPEC_MATH_ELLIP_GROUP
-\fn int ellip_asn(double* w, int n, double k, double* u)  
-\brief  Inverse Jacobi elliptic function  
-\f$ u = \textrm{sn}^{-1}(w, k)\f$ of real vector argument
-
-Function calculates inverse Jacobi elliptic function  
-\f$ u = \textrm{sn}^{-1}(w, k)\f$  of real vector `w`. \n
-
-\param[in]  w   Pointer to the argument vector \f$ w \f$. \n
-                Vector size is `[n x 1]`. \n
-                Memory must be allocated. \n \n
-    
-\param[in]  n   Size of vector `w`. \n 
-  
-\param[in]  k   Elliptical modulus \f$ k \f$. \n
-                Elliptical modulus is real parameter,
-                which values can be from  0 to 1. \n \n 
-    
-
-\param[out]  u  Pointer to the vector of inverse Jacobi elliptic function
-                \f$ u = \textrm{sn}^{-1}(w, k)\f$. \n
-                Vector size is  `[n x 1]`. \n
-                Memory must be allocated. \n \n
-
-
-\return
-`RES_OK` successful exit, else \ref ERROR_CODE_GROUP "error code". \n
-
-\author  Sergey Bakhurin  www.dsplib.org  
- ******************************************************************************/
+Inverse Jacobi elliptic function sn^-1(w, k) for the real argument 
+--------------------------------------------------------------------------------
+Documented: RU, EN
+*******************************************************************************/
 int DSPL_API ellip_asn(double* w, int n, double k, double* u)
 {
   double lnd[ELLIP_ITER], t;
@@ -242,36 +166,10 @@ int DSPL_API ellip_asn(double* w, int n, double k, double* u)
 
 
 /*****************************************************************************
-\ingroup SPEC_MATH_ELLIP_GROUP
-\fn int ellip_asn_cmplx(complex_t* w, int n, double k, complex_t* u)
-\brief  Inverse Jacobi elliptic function  
-\f$ u = \textrm{sn}^{-1}(w, k)\f$ of complex vector argument
-
-Function calculates inverse Jacobi elliptic function  
-\f$ u = \textrm{sn}^{-1}(w, k)\f$  of complex vector `w`. \n
-
-\param[in]  w   Pointer to the argument vector \f$ w \f$. \n
-                Vector size is `[n x 1]`. \n
-                Memory must be allocated. \n \n
-    
-\param[in]  n   Size of vector `w`. \n 
-  
-\param[in]  k   Elliptical modulus \f$ k \f$. \n
-                Elliptical modulus is real parameter,
-                which values can be from  0 to 1. \n \n 
-    
-
-\param[out]  u  Pointer to the vector of inverse Jacobi elliptic function
-                \f$ u = \textrm{sn}^{-1}(w, k)\f$. \n
-                Vector size is  `[n x 1]`. \n
-                Memory must be allocated. \n \n
-
-
-\return
-`RES_OK` successful exit, else \ref ERROR_CODE_GROUP "error code". \n
-
-\author  Sergey Bakhurin  www.dsplib.org  
- ******************************************************************************/
+Inverse Jacobi elliptic function sn^-1(w, k) for the complex argument
+--------------------------------------------------------------------------------
+Documented: RU, EN
+*******************************************************************************/
 int DSPL_API ellip_asn_cmplx(complex_t* w, int n, double k, complex_t* u)
 {
   double lnd[ELLIP_ITER], t;
@@ -326,37 +224,10 @@ int DSPL_API ellip_asn_cmplx(complex_t* w, int n, double k, complex_t* u)
 
 
 /*****************************************************************************
-\ingroup SPEC_MATH_ELLIP_GROUP
-int ellip_cd(double* u, int n, double k, double* y)
-\brief  Jacobi elliptic function  
-\f$ y = \textrm{cd}(u K(k), k)\f$ of real vector argument
-
-Function calculates Jacobi elliptic function  
-\f$ y = \textrm{cd}(u K(k), k)\f$  of real vector `u` and
-elliptical modulus `k`. \n
-
-\param[in]  u   Pointer to the argument vector \f$ u \f$. \n
-                Vector size is `[n x 1]`. \n
-                Memory must be allocated. \n \n
-    
-\param[in]  n   Size of vector `u`. \n 
-  
-\param[in]  k   Elliptical modulus \f$ k \f$. \n
-                Elliptical modulus is real parameter,
-                which values can be from  0 to 1. \n \n 
-    
-
-\param[out]  y  Pointer to the vector of Jacobi elliptic function
-                \f$ y = \textrm{cd}(u K(k), k)\f$. \n
-                Vector size is  `[n x 1]`. \n
-                Memory must be allocated. \n \n
-
-
-\return
-`RES_OK` successful exit, else \ref ERROR_CODE_GROUP "error code". \n
-
-\author  Sergey Bakhurin  www.dsplib.org  
- ******************************************************************************/
+Jacobi elliptic function cd(u*K(k), k) for the real argument
+--------------------------------------------------------------------------------
+Documented: RU, EN
+*******************************************************************************/
 int DSPL_API ellip_cd(double* u, int n, double k, double* y)
 {
   double lnd[ELLIP_ITER];
@@ -390,37 +261,10 @@ int DSPL_API ellip_cd(double* u, int n, double k, double* y)
 
 
 /*****************************************************************************
-\ingroup SPEC_MATH_ELLIP_GROUP
-int ellip_cd_cmplx(complex_t* u, int n, double k, complex_t* y)
-\brief  Jacobi elliptic function  
-\f$ y = \textrm{cd}(u K(k), k)\f$ of complex vector argument
-
-Function calculates Jacobi elliptic function  
-\f$ y = \textrm{cd}(u K(k), k)\f$  of complex vector `u` and
-elliptical modulus `k`. \n
-
-\param[in]  u   Pointer to the argument vector \f$ u \f$. \n
-                Vector size is `[n x 1]`. \n
-                Memory must be allocated. \n \n
-    
-\param[in]  n   Size of vector `u`. \n 
-  
-\param[in]  k   Elliptical modulus \f$ k \f$. \n
-                Elliptical modulus is real parameter,
-                which values can be from  0 to 1. \n \n 
-    
-
-\param[out]  y  Pointer to the vector of Jacobi elliptic function
-                \f$ y = \textrm{cd}(u K(k), k)\f$. \n
-                Vector size is  `[n x 1]`. \n
-                Memory must be allocated. \n \n
-
-
-\return
-`RES_OK` successful exit, else \ref ERROR_CODE_GROUP "error code". \n
-
-\author  Sergey Bakhurin  www.dsplib.org  
- ******************************************************************************/
+Jacobi elliptic function cd(u*K(k), k) for the complex argument
+--------------------------------------------------------------------------------
+Documented: RU, EN
+*******************************************************************************/
 int DSPL_API ellip_cd_cmplx(complex_t* u, int n, double k, complex_t* y)
 {
   double lnd[ELLIP_ITER], t;
@@ -467,81 +311,11 @@ int DSPL_API ellip_cd_cmplx(complex_t* u, int n, double k, complex_t* y)
 
 
 /*****************************************************************************
-\ingroup SPEC_MATH_ELLIP_GROUP
-\fn int  ellip_landen(double k, int n, double* y)
-\brief  Function calculates complete elliptical integral 
-coefficients  \f$ k_i \f$ 
-
-Complete elliptical integral \f$ K(k) \f$ can be described as:
-
-\f[
-K(k) = \frac{\pi}{2} \prod_{i = 1}^{\infty}(1+k_i),
-\f]
-
-here \f$ k_i \f$ -- coefficients which calculated 
-iterative from \f$ k_0 = k\f$: 
-
-\f[
-k_i = 
-\left( 
-\frac{k_{i-1}}
-{
-1+\sqrt{1-k_{i-1}^2}
-}
-\right)^2
-\f]
-
-This function calculates `n` fist coefficients \f$ k_i \f$, which can
-be used for Complete elliptical integral.
-  
-
-\param[in]  k   Elliptical modulus \f$ k \f$. \n
-                Elliptical modulus is real parameter,
-                which values can be from  0 to 1. \n \n
-
-    
-\param[in]  n   Number of \f$ k_i \f$ which need to calculate.\n 
-                Parameter `n` is size of output vector `y`.\n 
-
-\param[out]  y  pointer to the real vector which keep \f$ k_i \f$. \n
-                Vector size is `[n x 1]`. \n
-                Memory must be allocated. \n \n
-
-
-\return
-  `RES_OK` -- successful exit, else \ref ERROR_CODE_GROUP "error code". \n
-      
-Example:
-
-\include ellip_landen_test.c
-
-Result:
-
-\verbatim
- i        k[i]
-
- 1    4.625e-01
- 2    6.009e-02
- 3    9.042e-04
- 4    2.044e-07
- 5    1.044e-14
- 6    2.727e-29
- 7    1.859e-58
- 8   8.640e-117
- 9   1.866e-233
-10    0.000e+00
-11    0.000e+00
-12    0.000e+00
-13    0.000e+00
-\endverbatim
-
-\note  Complete elliptical integral converges enough fast
- if modulus \f$ k<1 \f$. There are 10 to 20 coefficients \f$ k_i \f$ ​​
- are sufficient for practical applications
- to ensure  complete elliptic integral precision within EPS.
-
-\author Sergey Bakhurin www.dsplib.org  
- ******************************************************************************/
+ Function calculates complete elliptical integral coefficients  \f$ k_i \f$ 
+ by Landen transform 
+--------------------------------------------------------------------------------
+Documented: RU, EN
+*******************************************************************************/
 int DSPL_API ellip_landen(double k, int n, double* y)
 {
   int i;
@@ -568,8 +342,10 @@ int DSPL_API ellip_landen(double k, int n, double* y)
 
 
 /*****************************************************************************
- * Elliptic modular equation
- ******************************************************************************/
+ Elliptic modular equation
+ --------------------------------------------------------------------------------
+Documented: NO, NO
+*******************************************************************************/
 int DSPL_API ellip_modulareq(double rp, double rs, int ord, double *k)
 {
   double ep, es, ke, kp, t, sn = 0.0;
@@ -614,8 +390,11 @@ int DSPL_API ellip_modulareq(double rp, double rs, int ord, double *k)
 
 
 /*****************************************************************************
- * Elliptic rational function
- ******************************************************************************/
+Elliptic rational function
+--------------------------------------------------------------------------------
+Documented: NO, NO
+*******************************************************************************/
+
 int DSPL_API ellip_rat(double* w, int n, int ord, double k, double* u)
 {
   double t, xi, w2, xi2, k2;
@@ -663,37 +442,10 @@ int DSPL_API ellip_rat(double* w, int n, int ord, double k, double* u)
 
 
 /*****************************************************************************
-\ingroup SPEC_MATH_ELLIP_GROUP
-int ellip_sn(double* u, int n, double k, double* y)
-\brief  Jacobi elliptic function  
-\f$ y = \textrm{sn}(u K(k), k)\f$ of real vector argument
-
-Function calculates Jacobi elliptic function  
-\f$ y = \textrm{sn}(u K(k), k)\f$  of real vector `u` and
-elliptical modulus `k`. \n
-
-\param[in]  u   Pointer to the argument vector \f$ u \f$. \n
-                Vector size is `[n x 1]`. \n
-                Memory must be allocated. \n \n
-    
-\param[in]  n   Size of vector `u`. \n 
-  
-\param[in]  k   Elliptical modulus \f$ k \f$. \n
-                Elliptical modulus is real parameter,
-                which values can be from  0 to 1. \n \n 
-    
-
-\param[out]  y  Pointer to the vector of Jacobi elliptic function
-                \f$ y = \textrm{sn}(u K(k), k)\f$. \n
-                Vector size is  `[n x 1]`. \n
-                Memory must be allocated. \n \n
-
-
-\return
-`RES_OK` successful exit, else \ref ERROR_CODE_GROUP "error code". \n
-
-\author  Sergey Bakhurin  www.dsplib.org  
- ******************************************************************************/
+Jacobi elliptic function sn(u*K(k), k) for the real vector argument
+--------------------------------------------------------------------------------
+Documented: RU, EN
+*******************************************************************************/
 int DSPL_API ellip_sn(double* u, int n, double k, double* y)
 {
   double lnd[ELLIP_ITER];
@@ -724,37 +476,10 @@ int DSPL_API ellip_sn(double* u, int n, double k, double* y)
 
 
 /*****************************************************************************
-\ingroup SPEC_MATH_ELLIP_GROUP
-int ellip_sn_cmplx(complex_t* u, int n, double k, complex_t* y)
-\brief  Jacobi elliptic function  
-\f$ y = \textrm{sn}(u K(k), k)\f$ of complex vector argument
-
-Function calculates Jacobi elliptic function  
-\f$ y = \textrm{sn}(u K(k), k)\f$  of complex vector `u` and
-elliptical modulus `k`. \n
-
-\param[in]  u   Pointer to the argument vector \f$ u \f$. \n
-                Vector size is `[n x 1]`. \n
-                Memory must be allocated. \n \n
-    
-\param[in]  n   Size of vector `u`. \n 
-  
-\param[in]  k   Elliptical modulus \f$ k \f$. \n
-                Elliptical modulus is real parameter,
-                which values can be from  0 to 1. \n \n 
-    
-
-\param[out]  y  Pointer to the vector of Jacobi elliptic function
-                \f$ y = \textrm{sn}(u K(k), k)\f$. \n
-                Vector size is  `[n x 1]`. \n
-                Memory must be allocated. \n \n
-
-
-\return
-`RES_OK` successful exit, else \ref ERROR_CODE_GROUP "error code". \n
-
-\author  Sergey Bakhurin  www.dsplib.org  
- ******************************************************************************/
+Jacobi elliptic function sn(u*K(k), k) for the complex vector argument
+--------------------------------------------------------------------------------
+Documented: RU, EN
+*******************************************************************************/
 int DSPL_API ellip_sn_cmplx(complex_t* u, int n, double k, complex_t* y)
 {
   double lnd[ELLIP_ITER], t;

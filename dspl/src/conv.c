@@ -25,61 +25,9 @@
 
 
 /*******************************************************************************
-\ingroup FILTER_CONV_GROUP
-\fn int conv(double* a, int na, double* b, int nb, double* c) 
-\brief Real vectors linear convolution.
-
-Function convolves two real vectors \f$ c = a * b\f$ length `na` and `nb`.
-The output convolution is a vector `c` with length equal to  `na + nb - 1`. 
-
-\param[in]  a   Pointer to the first vector `a`. /n
-                Vector size is `[na x 1]`. /n /n
-
-\param[in]  na  Size of the first vector `a`. /n /n
-
-\param[in]  b   Pointer to the second vector `b`. /n
-                Vector size is `[nb x 1]`. /n /n
-
-\param[in]  nb  Size of the second vector `b`. /n /n
-
-\param[out] c   Pointer to the convolution output vector  \f$ c = a * b\f$. /n
-                Vector size is `[na + nb - 1  x  1]`. /n
-                Memory must be allocated. /n /n
-
-\return `RES_OK` if convolution is calculated successfully. /n
-Else \ref ERROR_CODE_GROUP "code error".
-
-\note If vectors `a` and `b` are coefficients of two polynomials,
-then convolution of the vectors `a` and `b` returns polynomial product 
-coefficients.
-
-Example:
-\code{.cpp}
-  double ar[3] = {1.0, 2.0, 3.0};
-  double br[4] = {3.0, -1.0, 2.0, 4.0};
-  double cr[6];
-  
-  int n;
-  
-  conv(ar, 3, br, 4, cr);
-  
-  for(n = 0; n < 6; n++)
-    printf("cr[%d] = %5.1f\n", n, cr[n]);
-
-\endcode
- /n
-
-Output:
-\verbatim
-cr[0] =   3.0
-cr[1] =   5.0
-cr[2] =   9.0
-cr[3] =   5.0
-cr[4] =  14.0
-cr[5] =  12.0
-\endverbatim
-
-\author Sergey Bakhurin www.dsplib.org
+Real vectors linear convolution.
+--------------------------------------------------------------------------------
+Documented: RU, EN
 *******************************************************************************/
 int DSPL_API conv(double* a, int na, double* b, int nb, double* c)
 {
@@ -122,61 +70,9 @@ int DSPL_API conv(double* a, int na, double* b, int nb, double* c)
 
 
 /******************************************************************************
-\ingroup FILTER_CONV_GROUP
-\fn int conv_cmplx(complex_t* a, int na, complex_t* b, int nb, complex_t* c) 
-\brief Complex vectors linear convolution.
-
-Function convolves two complex vectors \f$ c = a * b\f$ length `na` and `nb`.
-The output convolution is a vector `c` with length equal to  `na + nb - 1`. 
-
-\param[in]  a   Pointer to the first vector `a`. /n
-                Vector size is `[na x 1]`. /n /n
-
-\param[in]  na  Size of the first vector `a`. /n /n
-
-\param[in]  b   Pointer to the second vector `b`. /n
-                Vector size is `[nb x 1]`. /n /n
-
-\param[in]  nb  Size of the second vector `b`. /n /n
-
-\param[out] c   Pointer to the convolution output vector  \f$ c = a * b\f$. /n
-                Vector size is `[na + nb - 1  x  1]`. /n
-                Memory must be allocated. /n /n
-
-\return `RES_OK` if convolution is calculated successfully. /n
-Else \ref ERROR_CODE_GROUP "code error".
-
-\note If vectors `a` and `b` are coefficients of two polynomials,
-then convolution of the vectors `a` and `b` returns polynomial product 
-coefficients.
-
-Example:
-\code{.cpp}
-  complex_t ac[3] = {{0.0, 1.0}, {1.0, 1.0}, {2.0, 2.0}};
-  complex_t bc[4] = {{3.0, 3.0}, {4.0, 4.0}, {5.0, 5.0}, {6.0, 6.0}};
-  complex_t cc[6];
-  
-  int n;
-  
-  conv_cmplx(ac, 3, bc, 4, cc);
-  
-  for(n = 0; n < 6; n++)
-    printf("cc[%d] = %5.1f%+5.1fj\n", n, RE(cc[n]),IM(cc[n]));
-  
-\endcode
- /n
-
-Output:
-\verbatim
-cc[0] =  -3.0 +3.0j
-cc[1] =  -4.0+10.0j
-cc[2] =  -5.0+25.0j
-cc[3] =  -6.0+32.0j
-cc[4] =   0.0+32.0j
-cc[5] =   0.0+24.0j
-\endverbatim
-
-\author Sergey Bakhurin www.dsplib.org
+ Complex vectors linear convolution.
+--------------------------------------------------------------------------------
+Documented: RU, EN
 *******************************************************************************/
 int DSPL_API conv_cmplx(complex_t* a, int na, complex_t* b,
                         int nb, complex_t* c)
@@ -224,75 +120,9 @@ int DSPL_API conv_cmplx(complex_t* a, int na, complex_t* b,
 
 
 /******************************************************************************
-\ingroup FILTER_CONV_GROUP
-\fn int conv_fft(double* a, int na, double* b, int nb,
-                 fft_t* pfft, int nfft, double* c) 
-\brief Real vectors fast linear convolution by using fast Fourier
-transform algorithms
-
-Function convolves two real vectors \f$ c = a * b\f$ length `na` and `nb`
-in the frequency domain by using FFT algorithms. This approach provide 
-high-performance convolution which increases with `na` and `nb` increasing.
-The output convolution is a vector `c` with length equal to  `na + nb - 1`. 
-
-\param[in]  a     Pointer to the first vector `a`. /n
-                  Vector size is `[na x 1]`. /n /n
-
-\param[in]  na    Size of the first vector `a`. /n /n
-
-\param[in]  b     Pointer to the second vector `b`. /n
-                  Vector size is `[nb x 1]`. /n /n
-
-\param[in]  nb    Size of the second vector `b`. /n /n
-
-\param[in]  pfft  Pointer to the structure `fft_t`. /n
-                  Function changes `fft_t` structure fields so `fft_t` must
-                  be clear before program returns. /n /n
-                  
-\param[in] nfft   FFT size.  /n
-                  This parameter set which FFT size will be used 
-                  for overlapped frequency domain convolution. /n
-                  FFT size must be more of minimal `na` and `nb` value.
-                  For example if `na = 10`, `nb = 4` then `nfft` parameter must 
-                  be more than 4.  /n
-
-\param[out] c     Pointer to the convolution output vector  \f$ c = a * b\f$. /n
-                  Vector size is `[na + nb - 1  x  1]`. /n
-                  Memory must be allocated. /n /n
-
-\return `RES_OK` if convolution is calculated successfully. /n
-Else \ref ERROR_CODE_GROUP "code error".  /n /n
-
-Example:
-\include conv_fft_test.c
-
-Program output:
-
-\verbatim
-conv_fft error: 0x00000000
-conv error:     0x00000000
-c[  0] =     -0.00    d[  0] =      0.00
-c[  1] =     -0.00    d[  1] =      0.00
-c[  2] =      1.00    d[  2] =      1.00
-c[  3] =      4.00    d[  3] =      4.00
-c[  4] =     10.00    d[  4] =     10.00
-c[  5] =     20.00    d[  5] =     20.00
-c[  6] =     35.00    d[  6] =     35.00
-c[  7] =     56.00    d[  7] =     56.00
-c[  8] =     77.00    d[  8] =     77.00
-c[  9] =     98.00    d[  9] =     98.00
-c[ 10] =    119.00    d[ 10] =    119.00
-c[ 11] =    140.00    d[ 11] =    140.00
-c[ 12] =    161.00    d[ 12] =    161.00
-c[ 13] =    182.00    d[ 13] =    182.00
-c[ 14] =    190.00    d[ 14] =    190.00
-c[ 15] =    184.00    d[ 15] =    184.00
-c[ 16] =    163.00    d[ 16] =    163.00
-c[ 17] =    126.00    d[ 17] =    126.00
-c[ 18] =     72.00    d[ 18] =     72.00
-\endverbatim
-
-\author Sergey Bakhurin www.dsplib.org
+Real vectors fast linear convolution by using fast Fourier transform
+--------------------------------------------------------------------------------
+Documented: RU, EN
 *******************************************************************************/
 int DSPL_API conv_fft(double* a, int na,   double* b, int nb,
                       fft_t* pfft,  int nfft, double* c)

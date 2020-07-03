@@ -2,45 +2,45 @@
 /*!
 \ingroup ERROR_CODE_GROUP
 \def RES_OK
-\brief Функция завершилась корректно. Ошибки отсутствуют.
+\brief The function completed correctly. No errors.
 */
 
 
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_ARG_PARAM
-\brief Неверный параметр вызова программы.
-Данная ошибка возникает, когда производится вызов программы с неверным 
-количеством параметров `argc` и указателем `argv` 
-на массив параметров вызова программы.
+\brief Invalid program call parameter.
+This error occurs when a program is called with an invalid
+the number of arguments `argc` and the pointer` argv`
+to an array of program call parameters.
 */
 
 
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_DAT_TYPE
-\brief Неверный тип данных.
-Данная ошибка возникает при сохранении данных в бинарный файл, когда параметр,
-задающий тип данных в памяти (вещественные или комплексные) задан неверно.
+\brief Invalid data type.
+This error occurs when saving data to a binary file, when the parameter
+the defining data type in memory (real or complex) is set incorrectly.
 */
 
 
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_DIV_ZERO
-\brief Ошибка деления на ноль.
-Функция возвращает данную ошибку, если в вычислительном алгоритме возникло 
-деление на ноль.
+\brief Division by zero error.
+The function returns this error if a computational algorithm occurs
+division by zero.
 */
 
 
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_ELLIP_MODULE
-\brief Модуль эллиптического интеграла Якоби должен быть от 0 до 1.
-Данная ошибка возникает при расчете эллиптических функций Якоби 
-при неверном задании параметра эллиптического модуля.
-Функция завершает работу и возвращает данный код ошибки.
+\brief The modulus of the Jacobi elliptic integral must be from 0 to 1.
+This error occurs when calculating Jacobi elliptic functions
+if the parameter of the elliptic module is incorrectly set.
+The function exits and returns the given error code.
 */
 
 
@@ -48,30 +48,30 @@
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_FFT_SIZE
-\brief Неверно задан размер БПФ.
-Размер БПФ может быть составным вида 
-\f$n = n_0 \times n_1 \times n_2 \ldots \times n_p \times m\f$,
-где \f$n_i = 2,3,5,7\f$, а \f$m \f$ -- 
-произвольный простой множитель не превосходящий 46340.
-Ошибка возникает, когда множитель \f$m \f$ превосходит 46340.
+\brief The FFT size is not set correctly.
+FFT size can be composite
+\f$ n = n_0 \times n_1 \times n_2 \ldots \times n_p \times m \f$,
+where \f$ n_i = 2,3,5,7 \f$, and \f$ m \f$ --
+an arbitrary prime factor not exceeding 46340.
+An error occurs when the factor \f$ m \f$ exceeds 46340 .
 */
 
 
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_FILTER_A0
-\brief Параметр \f$a_0\f$ передаточной характеристики \f$H(z)\f$ цифрового 
-БИХ-фильтра не может быть равен нулю.
+\brief Parameter \f$ a_0 \f$  cannot be zero digital for 
+IIR filter transfer characteristic \f$ H (z)\f$.
 */
 
 
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_FILTER_APPROX
-\brief Неизвестный тип аппроксимации цифрового или аналогового фильтра.
-Данная ошибка возникает при неверном задании масок типа цифрового БИХ-фильтра.
-Библиотека поддерживает следущие аппроксимации: Баттерворта, Чебышева первого 
-рода, Чебышева второго рода и эллиптические. 
+\brief Unknown approximation type of digital or analog filter.
+This error occurs when masks such as a digital IIR filter are incorrectly set.
+The library supports the following approximations: Butterworth, 
+Chebyshev of the first kind, Chebyshev of the second kind and elliptic. 
 */
 
 
@@ -79,26 +79,24 @@
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_FILTER_FT
-\brief Неверно заданы частоты преобразования ФНЧ-ПФ и ФНЧ-РФ.
-Частотные маски полосовых и режекторных фильтров имеют две частоты среза 
-или частоты заграждения. При реализации частотных преобразований фильтров 
-необходимо задавать правую частоту среза меньше левой.  
+\brief The conversion frequencies of the low-pass filter and low-pass filter are incorrect.
+Frequency masks for bandpass and bandstop filters have two cutoff frequencies or barrage frequencies. 
+When implementing frequency filter conversions, it is necessary to set the left cutoff frequency less than the right.
 */
 
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_FILTER_ORD
-\brief Порядок фильтра задан неверно. 
-Порядок фильтра должен быть задан положительным целым значением.
+\brief The filter order is incorrect.
+The order of the filter must be specified by a positive integer value.
 */
 
 
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_FILTER_ORD_BP
-\brief Порядок полосового или режекторного фильтра задан неверно. 
-Порядок полосового и режекторного фильтра должен быть задан
-чётным положительным значением.
+\brief The order of the bandpass or notch filter is not set correctly.
+The order of the bandpass and notch filter must be given an even positive value.
 */
 
 
@@ -106,8 +104,8 @@
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_FILTER_RP
-\brief Параметр неравномерности фильтра в полосе пропускания задан неверно.
-Данный параметр задается в дБ и должен быть положительным числом.
+\brief The filter non-uniformity parameter in the passband is set incorrectly.
+This parameter is specified in dB and must be a positive number.
 */
 
 
@@ -115,17 +113,16 @@
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_FILTER_RS
-\brief Параметр подавления фильтра в полосе заграждения задан неверно.
-Данный параметр задается в дБ и должен быть положительным числом. 
+\brief The filter suppression parameter in the boom bar is not set correctly.
+This parameter is specified in dB and must be a positive number.
 */
 
 
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_FILTER_TYPE
-\brief Неизвестный тип фильтра.
-Библиотека поддерживает следущие типы фильтров: ФНЧ, ФВЧ, полосовой и 
-режекторный.
+\brief Unknown filter type.
+The library supports the following filter types: lowpass, highpass, bandpass and bandstop.
 */
 
 
@@ -133,16 +130,15 @@
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_FILTER_WP
-\brief Параметр частоты среза фильтра задан неверно.
-Частота среза фильтра должна быть положительной от 0 до 1 для 
-цифрового КИХ-фильтра.
+\brief The filter cutoff frequency parameter is set incorrectly.
+The cutoff frequency of the filter must be positive from 0 to 1 for the digital FIR filter.
 */
 
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_FILTER_WS
-\brief Параметр частоты заграждения фильтра задан неверно.
-Частота заграждения должна быть положительным числом от 0 до 1.
+\brief The filter frequency parameter is set incorrectly.
+The frequency must be a positive from 0 to 1.
 */
 
 
@@ -151,7 +147,7 @@
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_FNAME
-\brief Ошибка в имени файла. Необходимо задать корректное имя файла.
+\brief Error in file name. You must specify the correct file name.
 */
 
 
@@ -160,26 +156,24 @@
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_FOPEN
-\brief Ошибка открытия файла. 
-Файл с заданным именем не может быть открыт для записи и (или) чтения.
+\brief Error opening file.
+A file with the specified name cannot be opened for writing or reading.
 */
 
 
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_FREAD_SIZE
-\brief Ошибка чтения блока данных из бинарного файла. 
-Ошибка возникает, если при чтении блока данных из файла размер считанного блока
-не соответствует требуемому значению. 
+\brief Error reading data block from binary file.
+An error occurs if size of the read block does not match the required value. 
 */
 
 
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_FWRITE_SIZE
-\brief Ошибка записи блока данных в бинарный файла. 
-Ошибка возникает, если при записи блока данных в файл, размер записанного блока
-не соответствует требуемому значению. 
+\brief Error writing data to binary file.
+An error occurs if, the size of the recorded block does not match the required value.
 */
 
 
@@ -192,19 +186,19 @@
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_GNUPLOT_CREATE
-\brief Невозможно подключиться к пакету GNUPLOT. 
-Пожалуйста проверьте, что пакет доступен.
+\brief Unable to connect to the GNUPLOT package.
+Please check that the package is available.
 */
 
 
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_GNUPLOT_TERM
-\brief Неизвестный параметра вызова программы, задающий терминал GNUPLOT.\n 
-Данный параметр может принимать одно из следюущих значений:\n
-`--noplot` построение графика не производиться;\n
-`--plotwin` построение графиков производиться в отельном окне (окнах);\n
-`--plotpng` построение графиков производиться в png - файл.\n
+\brief Unknown program call parameter specifying the GNUPLOT terminal. \n
+This parameter can be one of the following values: \n
+`--noplot` no plotting; \ n
+`--plotwin` plot in the new window; \n
+`--plotpng` plot in png file. \n
 */
 
 
@@ -212,42 +206,41 @@
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_LAPACK
-\brief Встроенная функция пакета LAPACK вернула код ошибки.
-Данная ошибка возвращается функцией, если она использует одну из встроенных
-функций LAPACK, которая завершилась с ошибкой.
+\brief The built-in LAPACK function returned an error code.
+This error is returned by the function if it uses one of the built-in LAPACK functions that failed.
 */
 
 
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_MALLOC
-\brief Ошибка динамического выделения памяти.
-Данная ошибка означает, что при динамическом выделении памяти произошла ошбика.
-В результате функция `malloc` в теле вызваемой функции вернула `NULL` указатель.
-Дальнейшая обработка функцией невозможна.
+\brief Dynamic memory allocation error.
+This error means that an error occurred while dynamically allocating memory.
+As a result, the `malloc` function in the body of the called function returned a` NULL` pointer.
+Further processing by the function is not possible.
 */
 
 
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_MATRIX_SIZE
-\brief Неверный размер матрицы.
+\brief Matrix size error.
 */
 
 
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_MIN_MAX
-\brief Минимальное значение (нижняя граница) больше максимального.
+\brief The minimum value (lower bound) is greater than the maximum.
 */
 
 
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_NEGATIVE
-\brief Отрицательный параметр.
-Функция возвращает данный код ошибки, когда принимает отрицательный параметр 
-в переменную, которая не может быть отрицательной. 
+\brief Negative parameter.
+The function returns the given error code when it takes a negative parameter.
+into a variable that cannot be negative.
 */
 
 
@@ -255,10 +248,10 @@
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_POLY_AN
-\brief Неверно задан старший коэффициент полинома.
-Например при вычислении кореней полинома степени \f$N\f$
-\f[ P_N(x) = a_0 + a_1 x + a_2 x^2 + \ldots a_N x^N \f]
-старший коэффициентом \f$a_N\f$ не может быть равным нулю.
+\brief The senior coefficient of the polynomial is incorrectly set.
+For example, when calculating the roots of a polynomial of degree \f$ N \f$
+\f[P_N (x) = a_0 + a_1 x + a_2 x ^ 2 + \ ldots a_N x ^ N \f]
+the leading coefficient \f$ a_N \f$ cannot be equal to zero.
 */
 
 
@@ -266,8 +259,8 @@
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_POLY_ORD
-\brief Неверно задан порядок полинома.
-Порядок полинома должен быть положительным целым числом. 
+\brief The polynomial order is incorrect.
+The order of the polynomial must be a positive integer.
 */
 
 
@@ -275,11 +268,11 @@
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_PTR
-\brief Ошибка указателя. 
-Данная ошибка означает, что один из обязательных указателей 
-(память под который должна быть выделена) передан как `NULL`.
-При возникновении данной ошибки, функция завершает работу 
-и возвращает данный код ошибки.
+\brief Pointer error.
+This error means that one of the required pointers
+(memory to be allocated for) is transferred as `NULL`.
+When this error occurs, the function exits
+and returns the given error code.
 */
 
 
@@ -287,10 +280,10 @@
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_RAND_SIGMA
-\brief Неверно задано среднеквадратическое отклонение 
-нормального распределения случайной величины. 
-Среднеквадратическое отклонение должно быть 
-неотрицательным вещественным числом.
+\brief The standard deviation is incorrect
+normal distribution of a random variable.
+The standard deviation should be
+non-negative real number.
 */
 
 
@@ -298,19 +291,19 @@
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_RAND_TYPE
-\brief Неизвестный датчик псевдослучайных чисел.
-В библиотеке используются следующие датчики: 
-\li MRG32K3A -- 32 битный датчик MRG32K3A разработан Пьером Лекуэром. 
-\li MT19937-64 -- 64-битный датчик Вихрь Мерсенна. 
+\brief Unknown pseudorandom number genration algorithm.
+The following algorithms are used in the library:
+\li MRG32K3A -- 32 bit algortithm MRG32K3A was developed by Pierre Lecuer.
+\li MT19937-64 -- 64-bit Mersenne Twister algorithm.
 */
 
 
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_RESAMPLE_RATIO
-\brief Коэффициент передискретизации задан неверно.
-Коэффициент передискретизации задается отношением \f$\frac{P}{Q}\f$, где
-\f$P\f$ и \f$Q\f$ вещественные положительные числа.
+\brief The resampling factor is set incorrectly.
+The resampling factor is given by the relation \f$ \frac{P}{Q} \f$, where
+\f$ P \f$ and \f$Q\f$ are real positive numbers.
 */
 
 
@@ -318,9 +311,9 @@
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_RESAMPLE_FRAC_DELAY
-\brief Неверное значение дробной задержки.
-Дробная задержка может принимать значения от -1 до 1, где 1 соответствует
-одному интервалу дискретизации \f$1/F_{\textrm{s}}\f$.
+\brief Invalid fractional delay value.
+The fractional delay can take values from -1 to 1, where 1 corresponds to
+one sampling interval \f$ 1 / F_{\textrm{s}} \f$.
 */
 
 
@@ -329,12 +322,12 @@
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_SIZE
-\brief Ошибка при передаче размера массива.
-Данная ошибка возникает когда помимо указателя
-на массив входных или выходных данных передается неверный 
-размер массива (меньше или равный нулю).
-При возникновении данной ошибки,
-функция завершает работу и возвращает данный код ошибки.
+\brief Error array size.
+This error occurs when in addition to the pointer
+the wrong input is passed to the input or output array
+ size (less than or equal to zero).
+If this error occurs,
+the function exits and returns the given error code.
 */
 
 
@@ -342,8 +335,8 @@
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_SYM_TYPE
-\brief Ошибка параметра типа заполнения массивов в линейном или логарифмическом
-масштабе. Допустимые типы заполнения: симметричный и периодический.
+\brief Parameter error of type of filling arrays in linear or logarithmic scale.
+Valid fill types are symmetric and periodic.
 */
 
 
@@ -351,29 +344,28 @@
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_UNWRAP
-\brief Ошибка параметров функции раскрытия периодичности. 
-Параметр периода и отступа должны быть положительными числами.
+\brief Error in unwrap function.
+The phase period and indent parameter must be positive numbers
 */
 
 
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_WIN_PARAM
-\brief Ошибка значения параметра оконной функции.
-Для каждой параметрической оконной функции существуют допустимые значения 
-параметра.
+\brief window function parameter error.
+Valid parameter values exist for each parametric window function.
 */
 
 
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_WIN_SYM
-\brief Симметричность или периодичность заданного окна не поддерживается.
+\brief Symmetry or periodicity of a given window is not supported.
 */
 
 
 /*!
 \ingroup ERROR_CODE_GROUP
 \def ERROR_WIN_TYPE
-\brief Неизвестный тип оконной функции.
+\brief Unknown window function type.
 */

@@ -1,9 +1,7 @@
 /*! ****************************************************************************
 \mainpage DSPL-2.0 - Digital Signal Processing Algorithm Library
-.
 
 \section sec_main_page DSPL-2.0 --- free DSP algorithm library
-
 
 DSPL-2.0 --- opensource cross-platform digital 
 signal processing algorithm library, written in C language. \n

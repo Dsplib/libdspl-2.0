@@ -6,80 +6,67 @@
 /*! ****************************************************************************
 \ingroup DFT_GROUP
 \struct fft_t
-\brief Структура данных объекта быстрого преобразования Фурье
+\brief Fast Fourier Transform Object Data Structure
 
-Структура хранит указатели на массивы поворотных коэффициентов 
-и массивы промежуточных данных алгоритма быстрого преобразования Фурье.
+The structure stores pointers to twiddle factors and arrays of intermediate data of the fast Fourier transform algorithm.
 
-Библиотека DSPL использует для БПФ алгоритм для составной длины
+The DSPL library uses an FFT algorithm for composite size.
 
 
 \param  n
-Размер вектора БПФ, для которого выделена память в массивах структуры.  \n
-Парметр `n` должен быть равен целой степени двойки. \n \n
+The size of the FFT vector for which memory is allocated in the structure arrays.  \n
+The parameter `n` must be equal to an integer power of two (radix 2). \n \n
 
 
 \param  w
-Указатель на вектор поворотных коэффициентов алгоритма БПФ. \n
-Размер вектора `[n x 1]`.  \n
-Память должна быть выделена и массив поворотных коэффициентов 
-должен быть заполнен функцией \ref fft_create.  \n \n
+Pointer to the vector of twiddle factors. \n
+The size of the vector is `[n x 1]`. \n
+The memory must be allocated and an array of twiddle factors
+must be filled with the \ref fft_create function. \n\n
 
 
 \param  t0
-Указатель на вектор промежуточных вычислений алгоритма БПФ. \n
-Размер вектора `[n x 1]`. \n
-Память должна быть выделена функцией \ref fft_create. \n \n
+Pointer to the vector of intermediate results of the FFT algorithm. \n
+The size of the vector is `[n x 1]`. \n
+Memory must be allocated by \ref fft_create function. \n\n 
 
 
 \param  t1
-Указатель на вектор промежуточных вычислений алгоритма БПФ. \n
-Размер вектора `[n x 1]`. \n
-Память должна быть выделена функцией \ref fft_create. \n \n
-Структура заполняется функцией \ref fft_create один раз 
-до использования алгоритма БПФ.  \n
-Указатель на объект данной структуры может быть 
-многократно использован при вызове функций БПФ. \n
-Перед выходом из программы выделенную память под поворотные 
-коэффициенты и массивы промежуточных данных
-необходимо очистить функцией \ref fft_free. Например:
+Pointer to the vector of intermediate results. \n
+The size of the vector is `[n x 1]`. \n
+The memory must be allocated with the \ref fft_create function. \n\n
+The structure is populated with the \ref fft_create function once
+before using the FFT algorithm. \n
+A pointer to an object of this structure may be
+reused when calling FFT functions. \n
+Before exiting the program, dedicated memory for twiddle factors and arrays of intermediate data
+must be cleared by the \ref fft_free function. For example:
 \code
-fft_t pfft;     /* объявляем объект fft_t */
-int n = 64;     /* Размер БПФ */
-
-/*
-обнуляем все поля и указатели. 
-Данные шаг рекомендуется ввиду того, что некоторые
-при создании переменной не инициализируют ее нулем.
-*/
-
-memset(&pfft, 0, sizeof(fft_t));
+fft_t pfft = {0};     /* Structure fft_t and clear all fields */
+int n = 64;           /* FFT size */
 
 int err;
 
-/* создаем объект для 64-точечного БПФ */
+/* Create and fill FFT structure for 64-points FFT */
 err = fft_create(&pfft, n);
 
-/* Вызов БПФ функции*/
-/* Еще раз вызов БПФ функции    */
+/* FFT calculation here            */
+/* FFT calculation here one more   */
 /* ...  */
 
-/* очистить память объекта БПФ  */
+/* Clear fft structure */
 fft_free(&pfft);
 \endcode
 
 \note
-Важно отметить, что если объект `fft_t` был создан для размера БПФ равного `n`, 
-то он может быть использован только для БПФ размера `n`.  \n\n
-Также необходимо заметить, что функции БПФ самостоятельно контролируют размер, 
-и самостоятельно выделяют память объекта БПФ при необходимости. 
-Так если вызвать любую функцию использующую структуру `fft_t` с заполненными 
-данными для длины БПФ `k` для расчета БПФ длины `n`, 
-то массивы структуры будут автоматически пересозданы для длины `n`.
+It is important to note that if the object `fft_t` was created for the FFT size equal to` n`,
+it can only be used for FFT of size `n`. \n \n
+It’s also worth noting that the FFT functions independently control the size, and independently allocate the memory of the FFT object, if necessary.
+So if you call any function using the `fft_t` structure with filled
+data for the FFT length `k` for calculating the FFT of length`n`,
+then the structure arrays will be automatically recreated for the length `n`.
 
-\author
-Бахурин Сергей.
-www.dsplib.org 
+\author  Sergey Bakhurin  www.dsplib.org  
 ***************************************************************************** */
 
 

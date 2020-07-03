@@ -36,7 +36,7 @@ groupdelay, impulse response and other.
 
 \defgroup SPEC_MATH_TRANSCEND Transcendent math functions
 
-\defgroup SPEC_MATH_ELLIP_GROUP Elliptic Jacoby functions of the real and complex arguments.
+\defgroup SPEC_MATH_ELLIP_GROUP Elliptic Jacobi functions of the real and complex arguments.
 
 \defgroup SPEC_MATH_RAND_GEN_GROUP Pseudo-random numbers generation
 This group describes the functions of the pseudo-random numbers generation

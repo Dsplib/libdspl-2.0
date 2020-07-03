@@ -12,7 +12,7 @@ libdspl-2.0 includes follow algorithms sets:
 * Mathematical sections includes trigonometric, hyperbolic, elliptic functions of real and complex variables.
 * Pseudorandom numbers generation algorithms.
 * Statistic functions.
-* Linear algebra BLAS and LAPACK packages are used under the hood.
+* Linear algebra [BLAS](http://www.netlib.org/blas/) and [LAPACK](http://www.netlib.org/lapack/) packages are used under the hood.
 * Digital resampling algorithms.
 
 
