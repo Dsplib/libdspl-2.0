@@ -4,64 +4,55 @@
        int nw, double* w, complex_t* y)
 
 \brief
-Расчет коэффициентов разложения в ряд Фурье
-
-Функция рассчитывает спектр периодического сигнала при усечении ряда Фурье \n
-
+Fourier series coefficient calculation for periodic signal
 
 \param[in]  t
-Указатель на массив моментов времени дискретизации исходного сигнала `s`. \n
-Размер вектора  вектора `[nt x 1]`. \n
-Память должна быть выделена. \n 
+Pointer to the time vector. \n
+Vector size is `[nt x 1]`. \n
 \n
 
 \param[in]  s
-Указатель на массив значений исходного сигнала`s`. \n
-Размер вектора `[nt x 1]`. \n
-Память должна быть выделена. \n 
+Pointer to the signal corresponds to time `t`. \n
+Vector size is `[nt x 1]`. \n
 \n
 
-
 \param[in]  nt
-Размер выборки исходного сигнала. \n
-Значение должно быть положительным. \n 
+Size of time and signal vectors. \n
+This value must be positive. \n 
 \n
 
 \param[in]  period
-Период повторения сигнала. \n 
+Signal time period. \n 
 \n
 
 \param[in]  nw
-Размер усеченного ряда Фурье. \n 
+Number of Fourie series coefficients. \n 
 \n
 
 \param[out]  w
-Указатель на массив частот спектра периодического сигнала. \n
-Размер вектора  `[nw x 1]`. \n
-Память должна быть выделена. \n
+Pointer to the frequency vector (rad/s). \n
+Vector size is `[nw x 1]`. \n
+Memory must be allocated. \n
 \n
 
 \param[out]  y
-Указатель массив комплексных значений спектра периодического сигнала. \n
-Размер вектора  `[nw x 1]`. \n
-Память должна быть выделена. \n 
+Pointer to the complex Fourier series coefficients vector. \n
+Vector size is `[nw x 1]`. \n
+Memory must be allocated. \n
 \n
 
 \return
-`RES_OK` --- коэффициенты ряда Фурье рассчитаны успешно. \n
-В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n
+`RES_OK` if function is calculated successfully. \n 
+Else \ref ERROR_CODE_GROUP "code error".
 
 \note
-Для расчета спектра сигнала используется численное интегрирование
-исходного сигнала методом трапеций. Данная функция не является
-эффективной. Для увеличения скорости расчета спектра сигнала
-целесообразнее использовать алгоритмы дискретного
-и быстрого преобразования Фурье.
+Numerical integration is used for Fourier series coefficients calculation.
+This function is not effective. 
+To increase the speed of calculation of the signal spectrum
+it is more expedient to use fast Fourier transform algorithms.
 \n
 
-\author
-Бахурин Сергей
-www.dsplib.org
+\author Sergey Bakhurin www.dsplib.org
 ***************************************************************************** */
 
 
@@ -73,61 +64,56 @@ www.dsplib.org
 \ingroup DFT_GROUP
 \fn int  fourier_series_rec(double* w, complex_t* s, int nw,
             double* t, int nt, complex_t* y)
-\brief Восстановление сигнала при усечении ряда Фурье
+\brief Time signal reconstruction from Fourier series coefficients.
 
-Функция рассчитывает восстановленный сигнал при усечении ряда Фурье:
+Function reconstructs the time signal:
 
 \f[
 s(t) = \sum\limits_{n = 0}^{n_{\omega}-1} S(\omega_n) \exp(j\omega_n t)
 \f]
 
 \param[in]  w
-Указатель на массив частот  \f$\omega_n\f$ усеченного ряда Фурье. \n
-Размер  вектора `[nw x 1]`. \n
-Память должна быть выделена и заполнена. \n 
+Pointer to the Fourier series spectrum frequency vector \f$\omega_n\f$. \n
+Vector size is  `[nw x 1]`. \n
 \n
 
 \param[in]  s
-Указатель на массив значений спектра \f$S(\omega_n)\f$. \n
-Размер   вектора `[nw x 1]`. \n
-Память должна быть выделена и заполнена. \n 
+Pointer to the Fourier series coefficients vector \f$S(\omega_n)\f$. \n
+Vector size is  `[nw x 1]`. \n
 \n
 
 
 \param[in]  nw
-Количество членов усеченного ряда Фурье. \n
-Значение должно быть положительным. \n 
+Number of  Fourier series coefficients. \n
+This value must be positive. \n 
 \n
 
-\param[in]  t   Указатель на массив временных отсчетов 
-восстановленного сигнала. \n
-Размер   вектора `[nt x 1]`. \n
-Память должна быть выделена и заполнена. \n 
+\param[in]  t   
+Pointer to the reconstructed signal time vector. \n
+Vector size is `[nt x 1]`. \n
 \n
 
 \param[in]  nt
-Размер вектора времени и восстановленного сигнала. \n 
+Size of time vector and reconstructed signal vector . \n 
 \n
 
 \param[out]  y
-Указатель на массив восстановленного сигнала. \n
-Размер вектора  `[nt x 1]`. \n
-Память должна быть выделена. \n 
+Pointer to the reconstructed signal vector. \n
+Vector size is `[nt x 1]`. \n
+Memory must be allocated. \n
 \n
 
 \return
-`RES_OK` --- восстановление сигнала прошло успешно. \n
-В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n
+`RES_OK` if function is calculated successfully. \n 
+Else \ref ERROR_CODE_GROUP "code error".
 
 \note
-Выходной восстановленный сигнал в общем случае является комплексным.
-Однако при соблюдении свойств симметрии векторов `w` и `s` относительно
-нулевой частоты получим мнимую часть элементов вектора `y` на уровне ошибок
-округления числа с двойной точностью. Ничтожно малую мнимую часть в этом случае
-можно игнорировать.
+The output reconstructed signal is generally complex.
+However, subject to the symmetry properties of the vectors `w` and` s` 
+with respect to zero frequency we get the imaginary part of the vector `y` 
+at the EPS level. The negligible imaginary part in this case
+can be ignored.
 \n
 
-\author
-Бахурин Сергей
-www.dsplib.org
+\author Sergey Bakhurin www.dsplib.org
 ***************************************************************************** */

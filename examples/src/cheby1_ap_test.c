@@ -3,10 +3,10 @@
 #include <string.h>
 #include "dspl.h"
 
-/* Порядок фильтра */
+/* Filter order */
 #define ORD 4
 
-/* размер векторов частотной характеристики фильтра */
+/* Frequency response vector size */
 #define N   1000
 
 
@@ -16,33 +16,33 @@ int main(int argc, char* argv[])
   void* hplot;           /* GNUPLOT handle     */
   hdspl = dspl_load();   /* Load DSPL function */
 
-  double a[ORD+1]; /* Коэффициенты числителя   H(s)                         */
-  double b[ORD+1]; /* Коэффициенты знаменателя H(s)                         */
-  double Rp = 1.0; /* Неравномерность АЧХ (к-т передачи на частоте 1 рад/c) */
-  double w[N];     /* Циклическая частота рад/c                             */
-  double mag[N];   /* АЧХ фильтра                                           */
-  double phi[N];   /* ФЧХ фильтра                                           */
-  double tau[N];   /* ГВЗ фильтра                                           */
+  double a[ORD+1]; /* H(s) numerator   coefficients vector */
+  double b[ORD+1]; /* H(s) denominator coefficients vector */
+  double Rp = 1.0; /* Magnitude ripple from 0 to 1 rad/s   */
+  double w[N];     /* Angular frequency (rad/s)            */
+  double mag[N];   /* Filter Magnitude (dB)                */
+  double phi[N];   /* Phase response                       */
+  double tau[N];   /* Group delay                          */
   int k;
 
-  /* рассчитываем нормированный ФНЧ Чебышева 1 рода                         */
+  /* H(s) coefficients calculation */
   int res = cheby1_ap(Rp, ORD, b, a);
   if(res != RES_OK)
     printf("error code = 0x%8x\n", res);
   
-  /* печать коэффициентов фильтра                                           */
+  /* Print H(s) coefficients */
   for(k = 0; k < ORD+1; k++)
     printf("b[%2d] = %9.3f     a[%2d] = %9.3f\n", k, b[k], k, a[k]);
   
-  /* вектор частоты в логарифмической шакале от 0.01 до 100 рад/c           */
+  /* Frequency in logarithmic scale from 0.01 to 100 rad/s */
   logspace(-2.0, 2.0, N , DSPL_SYMMETRIC, w);
   
-  /* частотные характеристика фильтра                                       */
+  /* Filter frequency parameter calculation */
   filter_freq_resp(b, a, ORD, w, N, 
                    DSPL_FLAG_LOGMAG|DSPL_FLAG_UNWRAP | DSPL_FLAG_ANALOG, 
                    mag, phi, tau);
   
-  /* Сохранить характеристики для построения графиков                       */
+  /* Write Magnitude, phase response and group delay to the files */
   writetxt(w, mag, N, "dat/cheby1_ap_test_mag.txt");
   writetxt(w, phi, N, "dat/cheby1_ap_test_phi.txt");
   writetxt(w, tau, N, "dat/cheby1_ap_test_tau.txt");

@@ -3,130 +3,121 @@
 /*! ****************************************************************************
 \ingroup FIR_FILTER_DESIGN_GROUP
 \fn int DSPL_API  fir_linphase(int ord, double w0, double w1, int filter_type, 
-                               int win_type, double win_param, double* h)
+int win_type, double win_param, double* h)
 \brief
-Расчет коэффициентов линейно-фазового КИХ-фильтра 
-методом оконного взвешивания.
+Function calculates linear-phase FIR filter coefficients by window method
 
-Функция рассчитывает коэффициенты передаточной характеристики 
+FIR filter transfer function is
 \f[
-H(z) = \sum_{n = 0}^{ord} h_n z^{-n}
+H(z) = \sum_{n = 0}^{ord} h_n z^{-n}.
 \f]
-цифрового линейно-фазового КИХ-фильтра фильтра. 
 
 \param[in]  ord
-Порядок фильтра (количество элементов задержки). \n
-Количество коэффициентов фильтра равно `ord+1`. \n 
+Filter order. \n
+Number of FIR filter coefficients is `ord+1`. \n 
 \n
 
 \param[in]  w0
-Нормированная частота среза ФНЧ или ФВЧ, 
-или левая частота среза для полосового и режекторного фильтра. \n 
+Normalized cutoff frequency for lowpass and highpass filter,
+or left cutoff frequency for bandpass or bandstop filter. \n 
 \n
 
 \param[in]  w1
-Правая частота среза полосового и режекторного фильтра. \n
-Данный параметр игнорируется для ФНЧ и ФВЧ. \n 
-Частота `w1` должна быть больше `w0`. \n 
+Right normalized cutoff frequency for bandpass or bandstop filter. \n
+This parameter is ignored for lowpass or highpass filters. \n 
+Frequecny `w1` must be higher than `w0`. \n 
 \n
 
 \param[in]  filter_type
-Тип фильтра. \n
-Данный параметр определяет тип фильтра 
-и может принимать одно из значений: \n
+Filter type. \n
+This parameter can be one of follow: \n
 \verbatim
-DSPL_FILTER_LPF   - фильтр нижних частот;
-DSPL_FILTER_HPF   - фильтр верхних частот;
-DSPL_FILTER_BPASS - полосовой фильтр;
-DSPL_FILTER_BSTOP - режекторный фильтр.
+DSPL_FILTER_LPF   - lowpass  filter;
+DSPL_FILTER_HPF   - highpass filter;
+DSPL_FILTER_BPASS - bandpass filter;
+DSPL_FILTER_BSTOP - bandstop filter.
 \endverbatim
 \n 
 \n
 
 \param [in]  win_type
-Тип оконной функции. \n
-Может принимать одно из следующих значений: \n
+Window function type. \n
+This parameter can be one of follow: \n
 \verbatim
 -------------------------------------------------------------------------
-Значение  win_type           |  Описание
+ win_type                    |  Description
 -----------------------------|-------------------------------------------
- DSPL_WIN_BARTLETT           | Непараметрическое окно Бартлетта
+ DSPL_WIN_BARTLETT           | Nonparametric Bartlett window
 -----------------------------|-------------------------------------------
- DSPL_WIN_BARTLETT_HANN      | Непараметрическое окно Бартлетта-Ханна
+ DSPL_WIN_BARTLETT_HANN      | Nonparametric Bartlett-Hann window
 -----------------------------|-------------------------------------------
- DSPL_WIN_BLACKMAN           | Непараметрическое окно Блэкмана 
+ DSPL_WIN_BLACKMAN           | Nonparametric  Blackman window 
 -----------------------------|-------------------------------------------
- DSPL_WIN_BLACKMAN_HARRIS    | Непараметрическое окно Блэкмана-Харриса
+ DSPL_WIN_BLACKMAN_HARRIS    | Nonparametric Blackman-Harris window
 -----------------------------|-------------------------------------------
- DSPL_WIN_BLACKMAN_NUTTALL   | Непараметрическое окно Блэкмана-Натталла
+ DSPL_WIN_BLACKMAN_NUTTALL   | Nonparametric Blackman-Nuttall
 -----------------------------|-------------------------------------------
- DSPL_WIN_CHEBY              | Параметрическое окно Дольф-Чебышева.
-                             | Параметр  win_param  задает уровень
-                             | боковых лепестков в дБ.
+ DSPL_WIN_CHEBY              | Parametric Dolph-Chebyshev window.
+                             | Parametr  `win_param` sets sidelobe attenuation 
+                             | level in dB.
 -----------------------------|-------------------------------------------
- DSPL_WIN_COS                | Непараметрическое косинус-окно
+ DSPL_WIN_COS                | Nonparametric Cosine window
 -----------------------------|-------------------------------------------
- DSPL_WIN_FLAT_TOP           | Непараметрическое окно с максимально 
-                             | плоской вершиной
+ DSPL_WIN_FLAT_TOP           | Nonparametric maxflat window
 -----------------------------|-------------------------------------------
- DSPL_WIN_GAUSSIAN           | Параметрическое окно Гаусса
+ DSPL_WIN_GAUSSIAN           | Nonparametric Gauss window
 -----------------------------|-------------------------------------------
- DSPL_WIN_HAMMING            | Непараметрическое окно Хемминга
+ DSPL_WIN_HAMMING            | Nonparametric Hamming window
 -----------------------------|-------------------------------------------
- DSPL_WIN_HANN               | Непараметрическое окно Ханна
+ DSPL_WIN_HANN               | Nonparametric Hann window
 -----------------------------|-------------------------------------------
- DSPL_WIN_KAISER             | Параметрическое окно Кайзера
+ DSPL_WIN_KAISER             | Parametric Kaiser window
 -----------------------------|-------------------------------------------
- DSPL_WIN_LANCZOS            | Непараметрическое окно Ланкзоса
+ DSPL_WIN_LANCZOS            | Nonparametric Lanczos window
 -----------------------------|-------------------------------------------
- DSPL_WIN_NUTTALL            | Непараметрическое окно Натталла
+ DSPL_WIN_NUTTALL            | Nonparametric Nuttall window
 -----------------------------|-------------------------------------------
- DSPL_WIN_RECT               | Непараметрическое прямоугольное окно
+ DSPL_WIN_RECT               | Nonparametric rectangular window
 -------------------------------------------------------------------------
 \endverbatim
 \n 
 \n
 
 \param [in]  win_param
-Параметр окна. \n
-Данный параметр применяется только для параметрических оконных функций. \n
-Для непараметрических окон игнорируется. \n 
+Parameter value for parametric windows. \n
+This parameter is used for parametric windows only and is ignored for
+nonparametric windows. \n 
 \n
 
 \param[out]  h
-Указатель на вектор коэффициентов линейно-фазового КИХ-фильтраю \f$H(z)\f$. \n
-Размер вектора `[ord+1 x 1]`. \n
-Память должна быть выделена. \n 
+Pointer to the linear-phase FIR filter coefficients vector. \n
+Vector size is `[ord+1 x 1]`. \n
+Memoru must be allocated. \n 
 \n
 
 \note
-Для соблюдения условия линейной ФЧХ используются 
-только симметричные окна. \n \n
-Расчет режекторного линейно-фазового КИХ-фильтра 
-(если `filter_type = DSPL_FILTER_BSTOP`) производится только 
-для фильтров чётного порядка `ord`. 
-В случае нечетного порядка `ord` функция вернет код ошибки `ERROR_FILTER_ORD`.
+Only symmetric windows can achieve linear-phase FIR filter. \n \n
+Bandstop filter type (`filter_type = DSPL_FILTER_BSTOP`) requires 
+only even filter order `ord`. 
+If `filter_type = DSPL_FILTER_BSTOP` and  `ord` is odd then function 
+returns `ERROR_FILTER_ORD` code.
 \n
 
 \return
-`RES_OK`
-Фильтр рассчитан успешно. \n
-В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n
+`RES_OK` if filter coefficients is calculated successfully. \n 
+Else \ref ERROR_CODE_GROUP "code error".
 
 
-Пример использования функции:
+Example:
 
 \include fir_linphase_test.c
 
-Программа расчитывает коэффициенты и АЧХ линейно-фазовых КИХ-фильтрова нижних, 
-верхних частот, полосовых и режекторных с применением различных весовых окон: 
-прямоугольное, Хемминга, Илэкмана и Блэкмана-Харриса. \n
-Полученные АЧХ выводятся на график 
+This function calculates coeffictiens of lowpass, highpass, bandpass 
+ and bandstop linear-phase FIR filters by using different kind of windows.
+ Also program calculates filter magnitudes and plots. \n 
 
 \image html fir_linphase_test.png
 
 
-\author
-Бахурин Сергей
-www.dsplib.org
+\author Sergey Bakhurin www.dsplib.org 
 ***************************************************************************** */

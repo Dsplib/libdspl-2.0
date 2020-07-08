@@ -8,13 +8,15 @@
 \struct fft_t
 \brief Fast Fourier Transform Object Data Structure
 
-The structure stores pointers to twiddle factors and arrays of intermediate data of the fast Fourier transform algorithm.
+The structure stores pointers to twiddle factors and arrays of intermediate 
+data of the fast Fourier transform algorithm.
 
 The DSPL library uses an FFT algorithm for composite size.
 
 
 \param  n
-The size of the FFT vector for which memory is allocated in the structure arrays.  \n
+The size of the FFT vector for which memory is allocated 
+in the structure arrays.  \n
 The parameter `n` must be equal to an integer power of two (radix 2). \n \n
 
 
@@ -39,8 +41,9 @@ The structure is populated with the \ref fft_create function once
 before using the FFT algorithm. \n
 A pointer to an object of this structure may be
 reused when calling FFT functions. \n
-Before exiting the program, dedicated memory for twiddle factors and arrays of intermediate data
-must be cleared by the \ref fft_free function. For example:
+Before exiting the program, dedicated memory for twiddle factors and arrays of 
+intermediate data must be cleared by the \ref fft_free function. 
+For example:
 \code
 fft_t pfft = {0};     /* Structure fft_t and clear all fields */
 int n = 64;           /* FFT size */
@@ -59,9 +62,10 @@ fft_free(&pfft);
 \endcode
 
 \note
-It is important to note that if the object `fft_t` was created for the FFT size equal to` n`,
-it can only be used for FFT of size `n`. \n \n
-It’s also worth noting that the FFT functions independently control the size, and independently allocate the memory of the FFT object, if necessary.
+It is important to note that if the object `fft_t` was created for the FFT size 
+equal to` n`, it can only be used for FFT of size `n`. \n \n
+It’s also worth noting that the FFT functions independently control the size, 
+and independently allocate the memory of the FFT object, if necessary.
 So if you call any function using the `fft_t` structure with filled
 data for the FFT length `k` for calculating the FFT of length`n`,
 then the structure arrays will be automatically recreated for the length `n`.
@@ -81,52 +85,53 @@ then the structure arrays will be automatically recreated for the length `n`.
 /*! ****************************************************************************
 \ingroup DFT_GROUP
 \fn int ifft_cmplx(complex_t* x, int n, fft_t* pfft, complex_t* y)
-\brief Обратное быстрое преобразование Фурье
+\brief Inverse fast Fourier transform
 
-Функция рассчитывает \f$ n \f$-точечное обратное быстрое преобразование Фурье 
-от \f$ x(m) \f$, \f$ m = 0 \ldots n-1 \f$. \n
+Function calculates \f$ n \f$-point IFFT of complex data 
+\f$ x(m) \f$, \f$ m = 0 \ldots n-1 \f$. \n
 \f[
   Y(k) = \frac{1}{N} \sum_{m = 0}^{n-1} x(m)   \exp 
    \left( j   \frac{2\pi}{n}    m    k \right),
 \f]
-где \f$ k = 0 \ldots n-1 \f$.
+here \f$ k = 0 \ldots n-1 \f$.
 
-Для расчета используется алгоритм БПФ составной длины.
 
 \param[in]  x
-Указатель на входной комплексный вектор \f$x(m)\f$, 
+Pointer to the input vector \f$x(m)\f$, 
 \f$ m = 0 \ldots n-1 \f$.  \n
-Размер вектора `[n x 1]`.  \n \n
+Vector size is `[n x 1]`.  \n \n
 
 \param[in]  n
-Размер ОБПФ \f$n\f$. \n
-Размер ОБПФ может быть составным вида 
+IFFT size \f$n\f$. \n
+IFFT size can be composite: 
 \f$n = n_0 \times n_1 \times n_2 \times \ldots \times n_p \times m\f$,
-где \f$n_i = 2,3,5,7\f$, а \f$m \f$ -- 
-произвольный простой множитель не превосходящий 46340
-(см. описание функции \ref fft_create). \n \n
+here \f$n_i = 2,3,5,7\f$, а \f$m \f$ -- 
+simple number less than 46340
+(see \ref fft_create function). \n \n
 
 \param[in]  pfft
-Указатель на структуру `fft_t`.  \n
-Указатель не должен быть `NULL`.  \n
-Структура \ref fft_t должна быть предварительно однократно
-заполнена функцией  \ref fft_create, и память должна быть 
-очищена перед выходом функцией \ref fft_free. \n \n
+Pointer to the `fft_t` object.  \n
+This pointer cannot be `NULL`.  \n
+Structure \ref fft_t should be previously once
+filled with the \ref fft_create function, and the memory should be
+cleared before exiting by the \ref fft_free function. \n \n
 
 \param[out] y
-Указатель на вектор результата ОБПФ \f$Y(k)\f$, 
-\f$ k = 0 \ldots n-1 \f$. Размер вектора `[n x 1]`.  \n
-Память должна быть выделена. \n \n
+Pointer to the IFFT result vector \f$Y(k)\f$, 
+\f$ k = 0 \ldots n-1 \f$. \n 
+Vector size is `[n x 1]`.  \n
+Memory must be allocated. \n \n
 
 \return
-`RES_OK` если расчет произведен успешно.  \n
-В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n \n
+`RES_OK` if IFFT is calculated successfully. \n
+Else \ref ERROR_CODE_GROUP "code error".
 
-Пример использования функции `fft`:
+
+IFFT example:
 
 \include ifft_cmplx_test.c
 
-Результат работы программы:
+Result:
 
 \verbatim
 | x[ 0] =  1.000   0.000 | y[ 0] = -0.517   0.686 | z[ 0] =   1.000   0.000 |
@@ -149,9 +154,7 @@ then the structure arrays will be automatically recreated for the length `n`.
 | x[17] = -0.275  -0.961 | y[17] = -0.300   0.588 | z[17] =  -0.275  -0.961 |
 \endverbatim
 
-\author
-Бахурин Сергей
-www.dsplib.org 
+\author Sergey Bakhurin www.dsplib.org
 ***************************************************************************** */
 
 
@@ -160,53 +163,53 @@ www.dsplib.org
 /*! ****************************************************************************
 \ingroup DFT_GROUP
 \fn int fft(double* x, int n, fft_t* pfft, complex_t* y)
-\brief Быстрое преобразование Фурье вещественного сигнала
+\brief Fast Fourier transform for the real vector.
 
-Функция рассчитывает \f$ n \f$-точечное  быстрое преобразование Фурье 
-вещественного сигнала \f$ x(m) \f$, \f$ m = 0 \ldots n-1 \f$. \n
+Function calculated \f$ n \f$-points FFT for the real vector 
+\f$ x(m) \f$, \f$ m = 0 \ldots n-1 \f$. \n
 \f[
   Y(k) = \sum_{m = 0}^{n-1} x(m)   \exp 
   \left( -j   \frac{2\pi}{n}    m    k \right),
 \f]
-где \f$ k = 0 \ldots n-1 \f$.
+here \f$ k = 0 \ldots n-1 \f$.
 
-Для расчета используется алгоритм БПФ составной длины.
 
 \param[in]  x
-Указатель на вектор вещественного входного сигнала \f$x(m)\f$, 
+Pointer to the input real vector \f$x(m)\f$, 
 \f$ m = 0 \ldots n-1 \f$.  \n
-Размер вектора `[n x 1]`.  \n \n
+Vector size is `[n x 1]`.  \n \n
 
 \param[in]  n
-Размер БПФ \f$n\f$. \n
-Размер БПФ может быть составным вида 
+FFT size \f$n\f$. \n
+FFT size can be composite: 
 \f$n = n_0 \times n_1 \times n_2 \times \ldots \times n_p \times m\f$,
-где \f$n_i = 2,3,5,7\f$, а \f$m \f$ -- 
-произвольный простой множитель не превосходящий 46340
-(см. описание функции \ref fft_create). \n \n
+here \f$n_i = 2,3,5,7\f$, а \f$m \f$ -- 
+simple number less than 46340
+(see \ref fft_create function). \n \n
 
 \param[in]  pfft
-Указатель на структуру `fft_t`. \n
-Указатель не должен быть `NULL`. \n
-Структура \ref fft_t должна быть предварительно однократно
-заполнена функцией  \ref fft_create, и память должна быть 
-очищена перед выходом функцией \ref fft_free. \n \n
+Pointer to the `fft_t` object.  \n
+This pointer cannot be `NULL`.  \n
+Structure \ref fft_t should be previously once
+filled with the \ref fft_create function, and the memory should be
+cleared before exiting by the \ref fft_free function. \n \n
 
 \param[out] y
-Указатель на комплексный вектор результата БПФ \f$Y(k)\f$, 
+Pointer to the FFT result complex vector \f$Y(k)\f$, 
 \f$ k = 0 \ldots n-1 \f$. \n
-Размер вектора `[n x 1]`. \n
-Память должна быть выделена. \n \n
+Vector size is `[n x 1]`. \n
+Memory must be allocated. \n \n
 
 \return
-`RES_OK` если расчет произведен успешно.  \n
- В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n \n
+`RES_OK` if FFT is calculated successfully. \n
+Else \ref ERROR_CODE_GROUP "code error".
 
-Пример использования функции `fft`:
+
+Example:
 
 \include fft_test.c
 
-Результат работы программы:
+Result:
 
 \verbatim
 y[ 0] =    91.000    0.000
@@ -225,9 +228,7 @@ y[12] =    -7.000  -14.536
 y[13] =    -7.000  -30.669
 \endverbatim
 
-\author
-Бахурин Сергей
-www.dsplib.org 
+\author Sergey Bakhurin www.dsplib.org 
 ***************************************************************************** */
 
 
@@ -238,54 +239,52 @@ www.dsplib.org
 /*! ****************************************************************************
 \ingroup DFT_GROUP
 \fn int fft_cmplx(complex_t* x, int n, fft_t* pfft, complex_t* y)
-\brief Быстрое преобразование Фурье комплексного сигнала
+\brief Fast Fourier transform for the complex vector.
 
-Функция рассчитывает \f$ n \f$-точечное  быстрое преобразование Фурье 
-комплексного сигнала \f$ x(m) \f$, \f$ m = 0 \ldots n-1 \f$. \n
+Function calculated \f$ n \f$-points FFT for the complex vector 
+\f$ x(m) \f$, \f$ m = 0 \ldots n-1 \f$. \n
 \f[
   Y(k) = \sum_{m = 0}^{n-1} x(m)   \exp 
-   \left( -j   \frac{2\pi}{n}    m    k \right),
+  \left( -j   \frac{2\pi}{n}    m    k \right),
 \f]
-где \f$ k = 0 \ldots n-1 \f$.
-
-Для расчета используется алгоритм БПФ составной длины.
+here \f$ k = 0 \ldots n-1 \f$.
 
 \param[in]  x
-Указатель на вектор комплексного 
-входного сигнала \f$x(m)\f$, \f$ m = 0 \ldots n-1 \f$.  \n
-Размер вектора `[n x 1]`. \n \n
+Pointer to the input complex vector \f$x(m)\f$, 
+\f$ m = 0 \ldots n-1 \f$.  \n
+Vector size is `[n x 1]`.  \n \n
 
 \param[in]  n
-Размер БПФ \f$n\f$. \n
-Размер БПФ может быть составным вида 
-\f$n = n_0 \times n_1 \times n_2 \times n_3 \times \ldots \times n_p \times m\f$,
-где \f$n_i = 2,3,5,7\f$, а \f$m \f$ -- 
-произвольный простой множитель не превосходящий 46340
-(см. описание функции \ref fft_create). \n \n
+FFT size \f$n\f$. \n
+FFT size can be composite: 
+\f$n = n_0 \times n_1 \times n_2 \times \ldots \times n_p \times m\f$,
+here \f$n_i = 2,3,5,7\f$, а \f$m \f$ -- 
+simple number less than 46340
+(see \ref fft_create function). \n \n
 
 \param[in]  pfft
-Указатель на структуру `fft_t`. \n
-Указатель не должен быть `NULL`.  \n
-Структура \ref fft_t должна быть предварительно однократно
-заполнена функцией  \ref fft_create, и память должна быть 
-очищена перед выходом функцией \ref fft_free. \n \n
+Pointer to the `fft_t` object.  \n
+This pointer cannot be `NULL`.  \n
+Structure \ref fft_t should be previously once
+filled with the \ref fft_create function, and the memory should be
+cleared before exiting by the \ref fft_free function. \n \n
 
 \param[out] y
-Указатель на комплексный вектор 
-результата БПФ \f$Y(k)\f$, 
-\f$ k = 0 \ldots n-1 \f$. 
-Размер вектора `[n x 1]`.  \n
-Память должна быть выделена. \n \n
+Pointer to the FFT result complex vector \f$Y(k)\f$, 
+\f$ k = 0 \ldots n-1 \f$. \n
+Vector size is `[n x 1]`. \n
+Memory must be allocated. \n \n
 
 \return
-`RES_OK` если расчет произведен успешно.  \n
- В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n \n
+`RES_OK` if FFT is calculated successfully. \n
+Else \ref ERROR_CODE_GROUP "code error".
 
-Пример использования функции `fft`:
+
+Example:
 
 \include fft_cmplx_test.c
 
-Результат работы программы:
+Result:
 
 \verbatim
 y[ 0] =    -0.517    0.686
@@ -308,9 +307,7 @@ y[16] =    -0.161    0.525
 y[17] =    -0.300    0.588
 \endverbatim
 
-\author
-Бахурин Сергей
-www.dsplib.org 
+\author Sergey Bakhurin www.dsplib.org 
 ***************************************************************************** */
 
 
@@ -319,74 +316,64 @@ www.dsplib.org
 /*! ****************************************************************************
 \ingroup DFT_GROUP
 \fn int fft_create(fft_t* pfft, int n)
-\brief Заполнение структуры `fft_t` для алгоритма БПФ
+\brief Function creates and fill `fft_t` structure.
 
-Функция производит выделение памяти и рассчет векторов 
-поворотных коэффициентов `n`-точечного БПФ для структуры `fft_t`.
+The function allocates memory and calculates twiddle factors 
+ of the `n`-point FFT for the structure` fft_t`.
 
 \param[in,out]  pfft
-Указатель на структуру `fft_t`.  \n
-Указатель не должен быть `NULL`.  \n \n
+Pointer to the `fft_t` object.  \n
+Pointer cannot be `NULL`.  \n \n
 
 \param[in]  n
-Размер БПФ \f$n\f$. \n
-Размер БПФ может быть составным вида 
+FFT size \f$n\f$. \n
+FFT size can be composite 
 \f$n = n_0 \times n_1 \times n_2 \ldots \times n_p \times m\f$,
-где \f$n_i = 2,3,5,7\f$, а \f$m \f$ -- 
-произвольный простой множитель не превосходящий 46340. \n
-Таким образом алгоритм БПФ поддерживает произвольные длины, равные целой 
-степени чисел 2,3,5,7, а также различные их комбинации.  \n
-Так например, при \f$ n = 725760 \f$ структура будет успешно заполнена, 
-потому что 
-\f$725760 = 2 \cdot 3 \cdot 4 \cdot 5 \cdot 6 \cdot 7 \cdot 9 \cdot 16 \f$, 
-т.е. получается как произведение множителей 2,3,5,7. \n
-При \f$ n = 172804 = 43201 \cdot 4 \f$ структура также будет успешно заполнена, 
-потому что простой множитель входящий в \f$n\f$ не превосходит 46340. \n
-Для размера \f$ n = 13 \cdot 17 \cdot 23 \cdot 13 = 66079 \f$ 
-функция вернет ошибку, поскольку 66079 больше 46340 и не является результатом 
-произведения чисел 2,3,5,7. \n \n
+here \f$n_i = 2,3,5,7\f$, and \f$m \f$ -- 
+ arbitrary prime factor not exceeding 46340. \n
+Thus, the FFT algorithm supports arbitrary integer lengths.
+degrees of numbers 2,3,5,7, as well as their various combinations.  \n
+For example, with \f$ n = 725760 \f$ the structure will be successfully filled, 
+because 
+\f$ 725760 = 2 \cdot 3 \cdot 4 \cdot 5 \cdot 6 \cdot 7 \cdot 9 \cdot 16 \f$. \n
+If \f$ n = 172804 = 43201 \cdot 4 \f$ then the structure will also be 
+successfully filled, because the simple factor in \f$ n \f$ does not 
+exceed 46340. \n
+For size \f$ n = 13 \cdot 17 \cdot 23 \cdot 13 = 66079 \f$
+the function will return an error since 66079 is greater than 46340 and is 
+not the result of the product of numbers 2,3,5,7. \n \n
 
 \return
-`RES_OK` если структура заполнена успешно. \n
-В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n \n
+`RES_OK` if FFT structure is created and filled successfully. \n
+Else \ref ERROR_CODE_GROUP "code error".
 
 \note
-Некоторые компиляторы при создании структуры не обнуляют ее содержимое. 
-Поэтому рекомендуется произвести обнуление структуры после ее объявления:
+Some compilers do not nullify its contents when creating a structure.
+Therefore, it is recommended to reset the structure after its declaration:
 \code{.cpp}
-fft_t pfft;     /* объявляем объект fft_t */
-int n = 64;     /* Размер БПФ             */
-
-/*
-бнуляем все поля и указатели. 
-Данные шаг рекомендуется ввиду того, что некоторые 
-компиляторы при создании переменной не инициализируют ее нулем.
-*/
-
-memset(&pfft, 0, sizeof(fft_t));
+fft_t pfft = {0};     /* fill and fields of fft_t as zeros*/
+int n = 64;           /* FFT size                         */
 
 int err;
 
-/* создаем объект для 64-точечного БПФ */
+/* Create fft_t object for 64-points FFT */
 
 err = fft_create(&pfft, n);
 
 /* ................................... */
 
-/* очистить память объекта БПФ         */
+/* Clear fft_t structure         */
 
 fft_free(&pfft);
 \endcode
 
-Перед выходом из программы выделенную в структуре память 
-необходимо очистить функцией \ref fft_free . \n \n
+Before exiting the program, the memory allocated in the structure
+need to clear by  \ref fft_free function. \n \n
 
 \note
-Магия числа 46340 заключается в том, что \f$\sqrt{2^{31}} = 46340.95\f$. \n
+The "magic number" 46340 because \f$\sqrt{2^{31}} = 46340.95\f$. \n
 
-\author
-Бахурин Сергей
-www.dsplib.org 
+\author Sergey Bakhurin www.dsplib.org 
 ***************************************************************************** */
 
 
@@ -400,17 +387,15 @@ www.dsplib.org
 /*! ****************************************************************************
 \ingroup DFT_GROUP
 \fn void fft_free(fft_t *pfft)
-\brief Очистить структуру `fft_t` алгоритма БПФ
+\brief Free `fft_t` structure.
 
-Функция производит очищение памяти промежуточных данных 
-и векторов поворотных коэффициентов структуры `fft_t`.
+The function clears the intermediate data memory
+and vectors of FFT twiddle factors of the structure `fft_t`.
 
 \param[in] pfft
-Указатель на структуру `fft_t`. \n
+Pointer to the `fft_t` object. \n
 
-\author
-Бахурин Сергей
-www.dsplib.org 
+\author Sergey Bakhurin www.dsplib.org 
 ***************************************************************************** */
 
 
@@ -423,34 +408,28 @@ www.dsplib.org
 /*! ****************************************************************************
 \ingroup DFT_GROUP
 \fn int fft_shift(double* x, int n, double* y)
-\brief Перестановка спектральных отсчетов дискретного преобразования Фурье
-
-Функция производит 
-<a href="http://ru.dsplib.org/content/dft_freq/dft_freq.html">
-перестановку спектральных отсчетов ДПФ
-</a> и переносит нулевую частоту в центр вектора ДПФ.  \n
-Данная функция обрабатывает вещественные входные и выходные вектора 
-и может применяться для перестановки 
-амплитудного или фазового спектра.
+\brief Perform a shift of the vector `x`, for use with the `fft` and `ifft` 
+functions, in order 
+ <a href="http://en.dsplib.org/content/dft_freq/dft_freq.html">
+ to move the frequency 0 to the center
+</a> of the vector `y`.
 
 \param[in]  x
-Указатель на исходный вектор ДПФ.  \n
-Размер вектора `[n x 1]`.  \n \n
+Pointer to the input vector (FFT or IFFT result).  \n
+Vector size is `[n x 1]`.  \n \n
 
 \param[in]  n
-Размер ДПФ \f$n\f$ (размер векторов до и после перестановки). \n \n
+Input and output vector size. \n \n
 
 \param[out] y
-Указатель на вектор результата перестановки. \n
-Размер вектора `[n x 1]`.  \n
-Память должна быть выделена. \n \n
+Pointer to the output vector with frequency 0 in the center. \n
+Vector size is `[n x 1]`.  \n
+Memory must be allocated. \n \n
 
 
 \return
-`RES_OK` если перестановка произведена успешно.  \n
-В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n
+`RES_OK` if function is calculated successfully. \n
+Else \ref ERROR_CODE_GROUP "code error".
 
-\author
-Бахурин Сергей 
-www.dsplib.org 
+\author Sergey Bakhurin www.dsplib.org 
 ***************************************************************************** */

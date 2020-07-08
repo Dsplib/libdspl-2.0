@@ -5,74 +5,71 @@
 \fn int bilinear(double* bs, double* as, int ord, double* bz, double* az)
 
 \brief
-Билинейное преобразование передаточной характеристики аналогового 
-фильтра \f$H(s)\f$, в передаточную характеристику цифрового фильтра \f$H(z)\f$.
+Transform a s-plane analog filter transfer function \f$H(s)\f$ to the
+digital filter transfer function \f$H(z)\f$.
 
-Функция рассчитывает коэффициенты передаточной характеристики \f$H(z)\f$
-цифрового фильтра путем дробно-рациональной подстановки вида 
+Bilinear transform is rational composition:
 
 \f[
 s \leftarrow \frac{1 - z^{-1}}{1 - z^{-1}}.
 \f]
 
-Порядок цифрового фильтра при этом остается равным порядку аналогового фильтра,
-а ось частот \f$\Omega\f$ аналогового фильтра связана c осью частот 
-\f$\omega\f$ цифрового фильтра соотношением:
+Digital filter order, passband magnitude ripple and stopband suppression 
+still the same after bilinear transform as analog filter. 
+
+Frequency \f$\Omega\f$ of analog filter and frequency  
+\f$\omega\f$ of digital filter relations:
 
 \f[
 \Omega = \tan(\omega / 2).
 \f]
 
 
-
 \param[in]  bs
-Указатель на вектор коэффициентов числителя передаточной функции \f$H(s)\f$ 
-исходного аналогового фильтра. \n
-Размер вектора `[ord+1 x 1]`. \n
-Память должна быть выделена. \n 
+Pointer to the vector of analog filter \f$H(s)\f$ 
+numerator coefficients.
+Vector size is `[ord+1 x 1]`. \n
 \n
 
 \param[in]  as
-Указатель на вектор коэффициентов знаменателя передаточной функции \f$H(s)\f$ 
-исходного аналогового фильтра. \n
-Размер вектора `[ord+1 x 1]`. \n
-Память должна быть выделена. \n 
+Pointer to the vector of analog filter \f$H(s)\f$ 
+denominator coefficients vector.
+Vector size is `[ord+1 x 1]`. \n
 \n
 
 \param[in]  ord
-Порядок фильтра. \n
-Количество коэффициентов числителя и знаменателя передаточных функций 
-\f$H(s)\f$ и \f$H(z)\f$ аналогового и цифрового фильтров равно `ord+1`. \n 
+Analog and digital filters order. \n 
 \n
 
 \param[out]  bz
-Указатель на вектор коэффициентов числителя передаточной функции \f$H(z)\f$ 
-полученного цифрового фильтра. \n
-Размер вектора `[ord+1 x 1]`. \n
-Память должна быть выделена. \n 
+Pointer to the vector of digital filter \f$H(z)\f$ 
+numerator coefficients after bilinear transform.
+Vector size is `[ord+1 x 1]`. \n
+Memory must be allocated. \n 
 \n
 
 \param[out]  az
-Указатель на вектор коэффициентов знаменателя передаточной функции \f$H(z)\f$ 
-полученного цифрового фильтра. \n
-Размер вектора `[ord+1 x 1]`. \n
-Память должна быть выделена. \n 
+Pointer to the vector of digital filter \f$H(z)\f$ 
+denominator coefficients after bilinear transform.
+Vector size is `[ord+1 x 1]`. \n
+Memory must be allocated. \n 
 \n
 
 \return
-`RES_OK` --- фильтр рассчитан успешно. \n 
-В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n
+`RES_OK` if bilinear transform is calculated successfully. \n 
+Else \ref ERROR_CODE_GROUP "code error".
 
 
-Пример использования функции `bilinear`:
+Example:
 
 \include bilinear_test.c
 
-Данная программа производит расчет передаточной характеристики аналогового 
-фильтра Чебышева первого рода, с частотой среза равной 1 рад/с, и производит 
-билинейное преобразование в цифровой, с частотой среза равной 0.5.
+This program calculates the transfer function \f$H(s)\f$ of analog 
+Chebyshev filter of the first kind, with a cutoff frequency of 1 rad/s, 
+and produces bilinear trandform to digital filter, 
+with a normilized cutoff frequency equals 0.5.
 
-Результат работы программы:
+Result:
 
 \verbatim
 bz[0] =   0.246    az[0] =   4.425
@@ -83,14 +80,12 @@ bz[4] =   0.246    az[4] =   1.034
 err = 0
 \endverbatim
 
-Кроме этого производится расчет АЧХ полученного цифрового фильтра и строится
-график АЧХ пакетом GNUPLOT
+In addition, the frequency response of the resulting digital filter 
+is calculated and plotted by GNUPLOT package.
 
 \image html bilinear.png
 
-\author
-Бахурин Сергей
-www.dsplib.org
+\author Sergey Bakhurin www.dsplib.org
 ***************************************************************************** */
 
 
@@ -104,91 +99,86 @@ www.dsplib.org
 \fn int iir(double rp, double rs, int ord,  double  w0, double  w1, 
             int type, double* b,  double* a)
 \brief
-Функция расчета коэффициентов передаточной характеристики \f$H(z)\f$
-цифрового фильтра БИХ.
+Digital IIR filter design.
 
-Функция рассчитывает коэффициенты передаточной характеристики \f$H(z)\f$
-цифрового фильтра, которые могут быть использованы в функции \ref filter_iir 
+The function calculates the coefficients of the digital IIR filter 
+transfer fucntion \f$ H(z) \f$. 
+Filter coeffitients can be used in \ref filter_iir function
 
 \param[in]  rp
-Уровень неравномерности квадрата АЧХ в полосе пропускания фильтра (дБ). \n
-Размер вектора `[ord+1 x 1]`. \n 
+Magnitude ripple in passband (dB). \n
 \n
 
 
 \param[in]  rs
-Уровень подавления в полосе заграждения фильтра (дБ).\n 
+Suppression level in stopband (dB). \n
 \n
 
 \param[in]  ord
-Порядок фильтра. \n
-Количество коэффициентов числителя и знаменателя передаточной 
-функции \f$H(z)\f$ цифрового фильтров равно `ord+1`. \n
-Для полосовых и режекторных фильтров параметр `ord` должен быть чётным. \n 
+Filter order. \n
+Number of \f$H(z)\f$ numerator and denominator coefficients is `ord+1`. \n
+For bandpass and bandstop filters `ord` must be even. \n 
 \n
 
 \param[in]  w0
-Нормированная частота среза ФНЧ или ФВЧ, или левая частота среза для 
-полосового и режекторного фильтра.\n 
+Normalized cutoff frequency (from 0 to 1) for lowpass or highpass filter. \n
+Or left normalized cutoff frequency (from 0 to 1) for 
+bandpass and bandstop filter. \n 
 \n
 
 
 \param[in]  w1
-Правая частота среза полосового и режекторного фильтра. \n
-Данный параметр игнорируется для ФНЧ и ФВЧ. \n 
+Right normalized cutoff frequency (from 0 to 1) for 
+bandpass and bandstop filter. \n 
+This parameter is ingnored for lowpass and highpass filters.
 \n
 
 \param[in]  type
-Тип фильтра. \n
-Данный параметр определяет тип фильтра и образуется 
-набором флагов типа фильтра: \n
+Filter type. \n
+This patameter sets combination of filter type (one of follow): \n
 \verbatim
-DSPL_FILTER_LPF   - фильтр нижних частот;
-DSPL_FILTER_HPF   - фильтр верхних частот;
-DSPL_FILTER_BPASS - полосовой фильтр;
-DSPL_FILTER_BSTOP - режекторный фильтр,
+DSPL_FILTER_LPF   - lowpass  filter;
+DSPL_FILTER_HPF   - highpass filter;
+DSPL_FILTER_BPASS - bandpass filter;
+DSPL_FILTER_BSTOP - bandstop filter,
 \endverbatim
-а также флагов типа аппроксимации АЧХ фильтра:
+and of filter approximation type (one of follow):
 \verbatim
-DSPL_FILTER_BUTTER - фильтр Баттерворта;
-DSPL_FILTER_CHEBY1 - фильтр Чебышева первого рода;
-DSPL_FILTER_CHEBY2 - фильтр Чебышева второго рода;
-DSPL_FILTER_ELLIP  - эллиптический фильтр.
+DSPL_FILTER_BUTTER - Butterworth filter;
+DSPL_FILTER_CHEBY1 - Chebyshev of the first kind filter;
+DSPL_FILTER_CHEBY2 - Chebyshev of the second kind filter;
+DSPL_FILTER_ELLIP  - Elliptic filter.
 \endverbatim
 \n 
 \n
 
 \param[out]  b
-Указатель на вектор коэффициентов 
-числителя передаточной функции \f$H(z)\f$. \n 
-Размер вектора  `ord+1`. \n
-Память должна быть выделена. \n 
+Pointer to the transfer function \f$H(z)\f$ 
+numerator coefficients vector. \n 
+Vector size is  `ord+1`. \n
+Memory must be allocated. \n 
 \n
 
 \param[out]  a
-Указатель на вектор коэффициентов знаменателя передаточной 
-функции \f$H(z)\f$. \n 
-Размер вектора  `ord+1`. \n
-Память должна быть выделена. \n 
+Pointer to the transfer function \f$H(z)\f$ 
+denominator coefficients vector. \n 
+Vector size is  `ord+1`. \n
 \n
 
 \return
-`RES_OK` --- Фильтр рассчитан успешно. \n
-В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n
+`RES_OK` if filter is calculated successfully. \n 
+Else \ref ERROR_CODE_GROUP "code error".
 
-Пример использования функции:
+Example:
 
 \include iir_test.c
 
-Данная программа производит расчет коэффициентов фильтров 
-при различном сочетании флагов параметра `type`.
+This program calcultes filter coefficients for different flags `type`.
 
-Кроме этого производится расчет АЧХ полученных цифровых фильтров и выводится на 
-график АЧХ пакетом GNUPLOT
+In addition, the filters magnitudes 
+is calculated and plotted by GNUPLOT package.
 
 \image html iir_test.png
 
-\author
-Бахурин Сергей
-www.dsplib.org
+\author Sergey Bakhurin www.dsplib.org
 ***************************************************************************** */

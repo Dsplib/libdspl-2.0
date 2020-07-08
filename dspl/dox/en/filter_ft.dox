@@ -2,62 +2,57 @@
 \ingroup IIR_FILTER_DESIGN_GROUP
 \fn int  low2high (double* b, double* a, int ord, double w0, double w1,
                    double* beta, double* alpha)
-\brief  Частотное преобразование ФНЧ-ФВЧ
+\brief Lowpass to highpass filter frequency transform
 
-Функция производит перобразование передаточной функции \f$ H(s) \f$ 
-аналогового ФНЧ с частотой среза `w0` рад/c 
-в передаточную функцию \f$ F(s) \f$ аналоговго ФВЧ с частотой среза `w1` рад/c.
+Function transforms lowpass filter transfer function \f$ H(s) \f$ 
+to the highpass filter transfer function \f$ F(s) \f$.
 
-Неравномерность АЧХ в полосе пропускания, уровень подавления в полосе 
-заграждения и порядок фильтра остаются неизменными.
+Filter order, magnitude ripple in passband and stopband 
+supression still the same.
 
 \param[in]  b
-Указатель на вектор коэффициентов числителя передаточной функции \f$H(s)\f$
-исходного аналогового ФНЧ. \n
-Размер вектора `[ord+1 x 1]`. \n
-Память должна быть выделена. \n 
+Pointer to the lowpass filter transfer function \f$H(s)\f$ numerator 
+coefficients vector. \n
+Vector size is `[ord+1 x 1]`. \n 
 \n
 
 \param[in]  a
-Указатель на вектор коэффициентов знаменателя передаточной функции \f$H(s)\f$
-исходного аналогового ФНЧ. \n
-Размер вектора `[ord+1 x 1]`. \n
-Память должна быть выделена. \n 
+Pointer to the lowpass filter transfer function \f$H(s)\f$ denominator 
+coefficients vector. \n
+Vector size is `[ord+1 x 1]`. \n 
 \n
 
 \param[in]  ord
-Порядок исходного фильтра и фильтра после переобразования. \n 
+Filter order. \n 
 \n
 
 \param[in]  w0
-Частота среза исходного ФНЧ. \n 
+Lowpass filter cutoff frequency. \n 
 \n
 
 \param[in]  w1
-Требуемая частота среза  ФВЧ после преобразования. \n 
+Highpass filter cutoff frequency after transformation. \n 
 \n
 
 \param[in,out]  beta
-Указатель на вектор коэффициентов числителя передаточной функции \f$F(s)\f$
-ФВЧ после преобразования. \n
-Размер вектора `[ord+1 x 1]`. \n
-Память должна быть выделена. \n 
+Pointer to the highwpass filter transfer function \f$F(s)\f$ numerator 
+coefficients vector after transformation. \n
+Vector size is `[ord+1 x 1]`. \n 
+Memory must be allocated. \n
 \n
 
 \param[in,out]  alpha
-Указатель на вектор коэффициентов знаменателя передаточной функции \f$F(s)\f$
-аналогового ФВЧ после преобразования. \n
-Размер вектора `[ord+1 x 1]`. \n
-Память должна быть выделена. \n 
+Pointer to the highwpass filter transfer function \f$F(s)\f$ denominator 
+coefficients vector after transformation. \n
+Vector size is `[ord+1 x 1]`. \n 
+Memory must be allocated. \n
 \n
 
 \return
-`RES_OK` --- преобразование рассчитано успешно. \n
-В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n
+`RES_OK` if filter coefficients is calculated successfully. \n 
+Else \ref ERROR_CODE_GROUP "code error".
 
-\author
-Бахурин Сергей
-www.dsplib.org          
+\author Sergey Bakhurin www.dsplib.org
 ***************************************************************************** */
 
 
@@ -70,61 +65,59 @@ www.dsplib.org
 \ingroup IIR_FILTER_DESIGN_GROUP
 \fn int  low2low(double* b, double* a, int ord, double w0, double w1,
                  double* beta, double* alpha)
-\brief  Частотное преобразование ФНЧ-ФНЧ
 
-Функция производит преобразование передаточной функции \f$ H(s) \f$ 
-аналогового ФНЧ с частотой среза `w0` рад/c 
-в передаточную функцию \f$ F(s) \f$ аналоговго ФНЧ с частотой среза `w1` рад/c.
+Lowpass to lowpass filter frequency transform
 
-Неравномерность АЧХ в полосе пропускания, уровень подавления в полосе 
-заграждения и порядок фильтра остаются неизменными.
+Function transforms lowpass filter transfer function \f$ H(s) \f$ 
+to the lowpass filter transfer function \f$ F(s) \f$ 
+with other cutoff frequency.
+
+Filter order, magnitude ripple in passband and stopband 
+supression still the same.
 
 \param[in]  b
-Указатель на вектор коэффициентов числителя передаточной функции \f$H(s)\f$
-исходного аналогового ФНЧ. \n
-Размер вектора `[ord+1 x 1]`. \n
-Память должна быть выделена. \n 
+Pointer to the input lowpass filter transfer function \f$H(s)\f$ numerator 
+coefficients vector. \n
+Vector size is `[ord+1 x 1]`. \n 
 \n
 
 \param[in]  a
-Указатель на вектор коэффициентов знаменателя передаточной функции \f$H(s)\f$
-исходного аналогового ФНЧ. \n
-Размер вектора `[ord+1 x 1]`. \n
-Память должна быть выделена. \n 
+Pointer to the input lowpass filter transfer function \f$H(s)\f$ denominator 
+coefficients vector. \n
+Vector size is `[ord+1 x 1]`. \n 
 \n
 
 \param[in]  ord
-Порядок исходного фильтра и фильтра после преобразования. \n 
+Filter order. \n 
 \n
 
 \param[in]  w0
-Частота среза исходного ФНЧ. \n 
+Input lowpass filter cutoff frequency. \n 
 \n
 
 \param[in]  w1
-Требуемая частота среза ФНЧ после преобразования. \n 
+Lowpass filter cutoff frequency after transformation. \n 
 \n
 
-\param[in,out]  beta   Указатель на вектор коэффициентов числителя 
-передаточной функции \f$F(s)\f$ ФНЧ после преобразования. \n
-Размер вектора `[ord+1 x 1]`. \n
-Память должна быть выделена. \n 
+\param[in,out]  beta
+Pointer to the lowpass filter transfer function \f$F(s)\f$ numerator 
+coefficients vector after transformation. \n
+Vector size is `[ord+1 x 1]`. \n 
+Memory must be allocated. \n
 \n
 
 \param[in,out]  alpha
-Указатель на вектор коэффициентов знаменателя передаточной функции \f$F(s)\f$
-аналогового ФНЧ после преобразования. \n
-Размер вектора `[ord+1 x 1]`. \n
-Память должна быть выделена. \n 
+Pointer to the lowpass filter transfer function \f$F(s)\f$ denominator 
+coefficients vector after transformation. \n
+Vector size is `[ord+1 x 1]`. \n 
+Memory must be allocated. \n
 \n
 
 \return
-`RES_OK` --- Преоборазование расчитано успешно. \n
-В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n
+`RES_OK` if filter coefficients is calculated successfully. \n 
+Else \ref ERROR_CODE_GROUP "code error".
 
-\author
-Бахурин Сергей
-www.dsplib.org
+\author Sergey Bakhurin www.dsplib.org
 ***************************************************************************** */
 
 
@@ -140,9 +133,9 @@ www.dsplib.org
 \fn int ratcompos(  double* b, double* a, int n, 
                     double* c, double* d, int p, 
                     double* beta, double* alpha)  
-\brief  Рациональная композиця 
+\brief  Rational composition
 
-Функция рассчитывает композицию вида \f$Y(s) = (H \circ F)(s) = H(F(s))\f$, где
+Function calcultes composition \f$Y(s) = (H \circ F)(s) = H(F(s))\f$, here
 
 \f[
 H(s) = \frac{\sum\limits_{m = 0}^{n} b_m s^m}
@@ -153,65 +146,59 @@ Y(s) = \frac{\sum\limits_{m = 0}^{n p} \beta_m s^m}
 {\sum\limits_{k = 0}^{n  p} \alpha_k s^k}
 \f]
 
-Функция рациональной композиции необходима для произведения частотных
-преобразований передаточных характеристик аналоговых и цифровых фильтров,
-а также для билинейного преобразования передаточных характеристик аналоговых 
-фильтров в соответствующие передаточные характеристики цифровых фильтров.
+This function is using for filter frequency transform.
 
 \param[in]  b
-Указатель на вектор коэффициентов числителя функции \f$H(s)\f$. \n
-Размер вектора `[n+1 x 1]`. \n
-Память должна быть выделена. \n 
+Pointer to the \f$H(s)\f$ polynomial function 
+numerator coefficients vector. \n
+Vector size is `[n+1 x 1]`. \n
 \n
 
 \param[in]  a
-Указатель на вектор коэффициентов знаменателя функции \f$H(s)\f$. \n
-Размер вектора `[n+1 x 1]`. \n
-Память должна быть выделена. \n 
+Pointer to the \f$H(s)\f$ polynomial function 
+denominator coefficients vector. \n
+Vector size is `[n+1 x 1]`. \n
 \n
 
 \param[in]  n
-Порядок полиномов рациональной функции \f$H(s)\f$. \n 
+Order of \f$H(s)\f$ numerator and denominator polynomials. \n 
 \n
 
 \param[in]  c
-Указатель на вектор коэффициентов числителя функции \f$F(s)\f$. \n
-Размер вектора `[p+1 x 1]`. \n
-Память должна быть выделена. \n 
+Pointer to the \f$F(s)\f$ polynomial function 
+numerator coefficients vector. \n
+Vector size is `[p+1 x 1]`. \n
 \n
 
 \param[in]  d
-Указатель на вектор коэффициентов знаменателя функции \f$F(s)\f$. \n
-Размер вектора `[p+1 x 1]`. \n
-Память должна быть выделена. \n 
+Pointer to the \f$F(s)\f$ polynomial function 
+denominator coefficients vector. \n
+Vector size is `[p+1 x 1]`. \n
 \n
 
 \param[in]  p
-Порядок полиномов рациональной 
-функции \f$F(s)\f$. \n 
+Order of \f$F(s)\f$ numerator and denominator polynomials. \n 
 \n
 
 \param[in,out]  beta
-Указатель на вектор коэффициентов 
-числителя функции \f$Y(s) = (H \circ F)(s)\f$. \n
-Размер вектора `[n*p+1 x 1]`. \n
-Память должна быть выделена. \n 
+Pointer to the numerator coefficients vector of 
+\f$Y(s) = (H \circ F)(s)\f$. \n
+Vector size is `[n*p+1 x 1]`. \n
+Memory must be allocated. \n 
 \n
 
 \param[in,out]  alpha
-Указатель на вектор коэффициентов знаменателя 
-функции \f$Y(s) = (H \circ F)(s)\f$. \n
-Размер вектора `[n*p+1 x 1]`. \n
-Память должна быть выделена. \n 
+Pointer to the denominator coefficients vector of 
+\f$Y(s) = (H \circ F)(s)\f$. \n
+Vector size is `[n*p+1 x 1]`. \n
+Memory must be allocated. \n 
 \n
-      
+
 
 \return
-`RES_OK` --- Рациональная композиция рассчитана успешно. \n
-В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n
+`RES_OK` if rational composition is calculated successfully. \n 
+Else \ref ERROR_CODE_GROUP "code error".
 
-\author
-Бахурин Сергей
-www.dsplib.org
+\author Sergey Bakhurin www.dsplib.org
 ***************************************************************************** */
 

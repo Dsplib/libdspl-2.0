@@ -42,7 +42,7 @@ int main(int argc, char* argv[])
   
   
   /* free dspl handle */
-  dspl_free(hdspl);      
+  dspl_free(hdspl);
 
   return 0;
 }

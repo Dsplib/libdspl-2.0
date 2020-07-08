@@ -122,6 +122,7 @@ int fft_krn(complex_t* t0, complex_t* t1, fft_t* p, int n, int addr)
   n1 = 1;
   if(n%16== 0) { n1 = 16;   goto label_size;  }
   if(n%7 == 0) { n1 =  7;   goto label_size;  }
+  if(n%8 == 0) { n1 =  8;   goto label_size;  }
   if(n%5 == 0) { n1 =  5;   goto label_size;  }
   if(n%4 == 0) { n1 =  4;   goto label_size;  }
   if(n%3 == 0) { n1 =  3;   goto label_size;  }
@@ -159,7 +160,11 @@ label_size:
         
     if(n1 == 7)
       for(k = 0; k < n2; k++)
-        dft7(t0+7*k, t1+7*k); 
+        dft7(t0+7*k, t1+7*k);
+      
+    if(n1 == 8)
+      for(k = 0; k < n2; k++)
+        dft8(t0+8*k, t1+8*k); 
         
     if(n1 == 5)
       for(k = 0; k < n2; k++)
@@ -221,6 +226,7 @@ int DSPL_API fft_create(fft_t* pfft, int n)
     n2 = 1;
     if(s%16== 0) { n2 = 16; goto label_size; }
     if(s%7 == 0) { n2 =  7; goto label_size; }
+    if(s%8 == 0) { n2 =  8; goto label_size; }
     if(s%5 == 0) { n2 =  5; goto label_size; }
     if(s%4 == 0) { n2 =  4; goto label_size; }
     if(s%3 == 0) { n2 =  3; goto label_size; }
