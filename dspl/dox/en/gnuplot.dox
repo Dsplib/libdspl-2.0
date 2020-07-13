@@ -5,79 +5,77 @@
                        void** hplot) 
 
 \brief 
-Создать график GNUPLOT. 
+Create GNUPLOT chart. 
 
-Данная функция открывает пакет GNUPLOT в зависимости от передаваемых в программу
-параметров `argv`. После вызова данной функции по адресу `hplot` будет записан
-handle графика и появляется возможность посылать GNUPLOT команды для отображения
-графиков. 
+This function opens the GNUPLOT package depending on the `argv` parameters 
+passed to the program. After calling this function, the handle of the graph 
+will be written to the address `hplot` and it becomes possible to send GNUPLOT 
+commands to display the graphs.
 
-\note С точки зрения системы, `hplot` является указателем на открытый файл, 
- в который можно записывать команды для исполнения пакетом GNUPLOT.
+\note From a system point of view, `hplot` is a pointer to an open file 
+in which you can write commands for execution by the GNUPLOT package.
  
  
 
 \param[in]  argc
-Количество аргументов вызова программы. \n
-(количество переменных `argv`). \n 
-Данное значение не должно быть меньше единицы, потому что `argv[0]` 
-хранит имя исполняемого файла программы. \n 
+The number of arguments to invoke the program. \n
+(number of `argv` variables). \n
+This value cannot be less than one, because `argv [0]`
+keeps the program executable file name. \n
 \n
 
 \param[in]  argv
-Указатель на массив строк параметров исполняемого файла. \n
-Размер массива `argc` строк. \n
-`argv[0]` хранит имя исполняемого файла программы. \n
-`argv[1]` задает формат отображения графика: \n
+Pointer to a strings array of the executable file parameters . \n
+The size of the array is `argc`. \n
+`argv [0]` keeps the executable file name. \n
+`argv [1]` sets the graph display format: \n
 \verbatim
 
---plotwin   отображать график в отдельном окне
-            (данный параметр используется по умолчанию);
+--plotwin   display the graph in a individual window
+            (this parameter is used by default);
 
---plotpng   сохранить график в png-файл, заданный именем fn_png; 
+--plotpng   save the plot to a `fn_png` png file;
 
---noplot    график не создавать, игнорировать все команды GNUPLOT.
+--noplot    plot not to create, ignore all GNUPLOT commands.
 \endverbatim
 \n
 
 \param[in]  w
-Ширина окна графика или png-файла в пикселях. \n 
+The width of the graph window or png file in pixels. \n 
 \n
 
 \param[in]  h
-Высота окна графика или png-файла в пикселях. \n 
+The height of the graph window or png file in pixels. \n 
 \n
 
 \param[in]  fn_png
-Имя png-файла, в который будет сохранен график. \n 
-Путь сохранения графика совпадает с путем исполняемого файла программы. \n 
+Plot png-file name. \n 
 
 \param[in, out] hplot
-Указатель на адрес хэндла пакета GNUPLOT. \n 
-По данному адресу будет записан указатель на текщий график. Данный указатель 
-необходим для посылки команд GNUPLOT для построения графика. \n 
+Pointer to the handle address of the GNUPLOT package. \n
+A pointer to the current graph will be recorded at this address. This pointer 
+is required to send GNUPLOT commands. \n 
 \n
 
 \return
-`RES_OK` --- функция выполнена успешно. \n
-В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n
-При возникновении ошибки по адресу  `hplot` будет записан `NULL`. \n
+`RES_OK` if function is calculated successfully. \n 
+Else \ref ERROR_CODE_GROUP "code error".
+The `hplot` pointer sets in `NULL` if function returns error. \n
 \note
-Если в `argv[1]` задан параметр `--noplot`, то функция вернет `RES_OK`,
-но по адресу  `hplot` также  будет записан `NULL`. \n
+If `argv[1]` parameter equals `--noplot`, then function returns `RES_OK`, but 
+`hplot` will be set as `NULL`. \n
 
-После построения графиков необходимо закрыть хэндл GNUPLOT функцией 
-\ref gnuplot_close. \n
+GNUPLOT handle must be closed by \ref gnuplot_close after plotting.\n
 
-Пример построения графиков синуса и косинуса привден в следующем листинге:
+An example of plotting sine and cosine is given in the following listing:
 
 \include gnuplot_script_test.c
 
-Данная программа рассчитвает значения функций синуса и косинуса, 
-а также сохрянет текстовые файлы `dat/cosine.txt` и `dat/sine.txt`. \n
+This program calculates the values of the sine and cosine functions,
+and also saves the text files `dat / cosine.txt` and` dat / sine.txt`. \n
 
-Сохраненные данные отображаются на трех графиках (с данными синуса, косинуса
-и обоими данными):
+The saved data is displayed on three graphs 
+(with sine, cosine data by both data):
 
 \image html gnuplot_script_sin.png
 
@@ -86,9 +84,7 @@ handle графика и появляется возможность посыл�
 \image html gnuplot_script_sincos.png
 
 
-\author
-Бахурин Сергей
-www.dsplib.org
+\author Sergey Bakhurin www.dsplib.org
 **************************************************************************** */
 
 
@@ -100,28 +96,27 @@ www.dsplib.org
 \fn void gnuplot_close(void* h) 
 
 \brief
-Закрыть хэндл GNUPLOT. 
+Close GNUPLOT handle. 
 
-Данная функция закрывает открытый ранее хэндл GNUPLOT после передачи всех 
-команд построения графиков.
+This function closes the previously opened GNUPLOT handle after transferring all
+commands.
 
 \note 
-С точки зрения системы, `h` является указателем на открытый файл, в который 
-можно записывать команды для исполнения пакетом GNUPLOT. 
-Данная функция закрывает этот файл. \n
-Важно отметить, что закрытие хэндла не означает закрытия окна графика. 
-После закрытия хэндла пакета, пользователь не может посылать команды построения
-графика, но окно графика остается открытым, так как обрабатывается пакетом 
-GNUPLOT независимо.
+From a system point of view, `h` is a pointer to an open file in which
+You can write commands for execution by the GNUPLOT package.
+This function closes this file. \n
+It is important to note that closing the handle does not mean closing the 
+plot window.
+After closing the package handle, the user cannot send build commands, 
+but the plot window remains open, as it is processed by the package
+GNUPLOT regardless.
  
 
 \param[in]  h
-Хэндл графика GNUPLOT, который будет закрыт. \n 
+GNUPLOT handle which will be closed. \n 
 \n
 
-
-\author Бахурин Сергей 
-www.dsplib.org
+\author Sergey Bakhurin www.dsplib.org
 **************************************************************************** */
 
 
@@ -137,34 +132,29 @@ www.dsplib.org
 \fn void gnuplot_cmd(void* h, char* cmd)
 
 \brief
-Функция посылает команду `cmd` пакету GNUPLOT, для построения 
-или оформления графика, соответсвующего хэндлу `h`. 
+Function sends `cmd` command to GNUPLOT corresponds to `h` handle.
 
-Данная функция закрывает открытый ранее хэндл GNUPLOT после передачи всех 
-команд построения графиков.
 
-\note С точки зрения системы, `h` является указателем на открытый файл, 
-в который можно записывать команды для исполнения пакетом GNUPLOT. Данная 
-функция записывает в данный файл строку  `cmd`. \n 
+\note From a system point of view, `h` is a pointer to an open file,
+into which you can write commands for execution by the GNUPLOT package. This
+ function writes the string `cmd` to the given file. \n 
 \n
-С точки зрения пользователя, вызов функции `gnuplot_cmd` равносильно выполнению
-одной строки скрипта GNUPLOT. \n 
+From the user's point of view, calling the `gnuplot_cmd` function is 
+GNUPLOT script one line executing. \n 
 \n
-Исчерпывающее описание возможностей построения графиков пакетом GNUPLOT, 
-с примерами команд можно найти на 
- <a href = "http://gnuplot.sourceforge.net/demo_5.2/">сайте проекта GNUPLOT</a>. 
+A comprehensive description of the graphing capabilities of the GNUPLOT package,
+with examples of commands can be found on
+  <a href = "http://gnuplot.sourceforge.net/demo_5.2/"> GNUPLOT project </a>.
 
 \param[in]  h
-Хэндл графика GNUPLOT. \n 
+GNUPLOT handle. \n 
 \n
 
 
 \param[in]  cmd
-Тектовая строка команды построения или оформления графика. \n 
+GNUPLOT command string. \n 
 \n
 
 
-\author
-Бахурин Сергей
-www.dsplib.org
+\author Sergey Bakhurin www.dsplib.org
 **************************************************************************** */

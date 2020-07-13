@@ -1,73 +1,75 @@
 /*! ****************************************************************************
-\page getting_started_make Компиляция libdspl-2.0 утилитой make
+\page getting_started_make Build libdspl-2.0 by make program
 
-\section sec_getting_started_make Компиляция libdspl-2.0 утилитой make
+\section sec_getting_started_make Build libdspl-2.0 by make program
 
-Предварительно необходимо установить все необходимые утилиты. 
-Если этот шаг не сделан, то смотри раздел: \n 
+You must first install all the necessary utilities.
+If this step is not done, see section: \n 
 \ref getting_started_toolchain
 \n
 
 
-\subsection sec_make_download Скачиваем исходные коды libdspl-2.0
-Скачиваем 
+\subsection sec_make_download Download libdspl-2.0 source code
+
+Download libdspl-2.0 source code from
 <a href="https://github.com/Dsplib/libdspl-2.0">
-с сайта Github.com
+Github.com:
 </a>
-исходные коды DSPL:
 \n
 \n
 \image html dspl_github.png
 \n
 \n
-Разархивируем в рабочий каталог.
+You can clone project by Git or just download zip-archive.
 
-Вы можете разархивировать в любой каталог, `libdspl-2.0` будет
-обозначать каталог, в который разархивированы исходные коды.
+Unzip or clone project to the folder.
 
-В качестве примера, исходные коды были разархивированы в 
-каталог `J:\libdspl-2.0`.
+You can unzip to any directory, here `libdspl-2.0` will be
+indicate the directory in which the source codes are unzipped.
+
+As an example, the source codes were unzipped to
+directory `J:\libdspl-2.0`.
 
 
 
 
 
-\subsection sec_make_compile Сборка проекта и выполнение тестовой программы
-Переходим в указанный каталог:
+\subsection sec_make_compile Build libdspl-2.0 and run test program
+Open the `libdspl-2.0` directory:
 \n
 \n
 \image html libdspl_dir.png
 \n
 \n
-Выделяем в строку адреса и вводим туда `cmd`: 
+Select address line and type `cmd`: 
 \n
 \n
 \image html libdspl_cmd.png
 \n
 \n
-В результате откроется консоль Windows в которую можно вводить команды. \n
-Вводим команду `ming32-make`:\n
+The Windows console opens and we can write command `ming32-make`:\n
 \n
 \n
 \image html winconsole_1.png
 \n
 \n
-После нажатия `[Enter]` начнется сборка всех компонент библиотеки. 
+Press`[Enter]` and library compilation will begin. 
 \note 
-Время первой сборки зависит от производительности компьютера и может 
-занимать несколько минут. Последующие сборки будут значительно 
-быстрее, потому что при первой сборке компилируются библиотеки BLAS и 
-LAPACK, которые линкуются в дальнейшем из готовых объектных файлов.
+First build time depends on computer performance and may
+take a few minutes. Subsequent builds will be significantly
+faster because the BLA and LAPACK libraries are compiled during the
+ first build and are later linked from ready-made object files. \n
 
-После сборки проекта можно перейти в каталог `bin` в котором сохранены 
-программы примеры. Также в данном каталоге можно найти готовую библиотеку 
+
+After building the project, you can go to the `bin` directory in which keeps
+program examples. Also in this directory you can find a ready-made library
 `libdspl.dll`:
 \n
 \n
 \image html libdspl_bin.png
 \n
 \n
-На этом установка всех компонент и сборка проекта окончена. \n
+`libdspl.dll` building completes  \n
 
-Смотри также: \ref getting_started_codeblocks \n
+See also: \ref getting_started_codeblocks \n
 ***************************************************************************** */

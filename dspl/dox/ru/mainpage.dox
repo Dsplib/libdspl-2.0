@@ -28,42 +28,42 @@ DSPL-2.0 --- свободная библиотека алгоритмов циф
 среда разработки и отладки CodeBlocks, а также файловый менеджер Far и 
 коллекция портированных Unix утилит.
 
-\ref getting_started_toolchain \n
-\ref getting_started_make \n
-\ref getting_started_codeblocks \n
-\ref SYS_LOADING_GROUP \n
+  - \ref getting_started_toolchain \n
+  - \ref getting_started_make \n
+  - \ref getting_started_codeblocks \n
+  - \ref SYS_LOADING_GROUP \n
 
 \subsection sec_doc_content Разделы документации
 <b>Математические функции:</b> \n
-\ref SPEC_MATH_COMMON_GROUP \n
-\ref SPEC_MATH_TRIG_GROUP \n
-\ref SPEC_MATH_TRANSCEND \n
-\ref SPEC_MATH_ELLIP_GROUP  \n
-\ref SPEC_MATH_RAND_GEN_GROUP \n
-\ref SPEC_MATH_STAT_GROUP \n
-\ref SPEC_MATH_LINALG_GROUP \n
+  - \ref SPEC_MATH_COMMON_GROUP \n
+  - \ref SPEC_MATH_TRIG_GROUP \n
+  - \ref SPEC_MATH_TRANSCEND \n
+  - \ref SPEC_MATH_ELLIP_GROUP  \n
+  - \ref SPEC_MATH_RAND_GEN_GROUP \n
+  - \ref SPEC_MATH_STAT_GROUP \n
+  - \ref SPEC_MATH_LINALG_GROUP \n
 \n
 
 <b>Алгоритмы спектрального анализа: </b> \n
-\ref DFT_GROUP \n
-\ref WIN_GROUP \n
-\ref HILBERT_GROUP \n
+  - \ref DFT_GROUP \n
+  - \ref WIN_GROUP \n
+  - \ref HILBERT_GROUP \n
 \n
 
 <b>Расчет и анализ аналоговых и цифровых фильтров:</b>\n
-\ref FILTER_CONV_GROUP \n
-\ref IIR_FILTER_DESIGN_GROUP \n
-\ref FIR_FILTER_DESIGN_GROUP \n
-\ref FILTER_ANALYSIS_GROUP \n
+  - \ref FILTER_CONV_GROUP \n
+  - \ref IIR_FILTER_DESIGN_GROUP \n
+  - \ref FIR_FILTER_DESIGN_GROUP \n
+  - \ref FILTER_ANALYSIS_GROUP \n
 \n
 
 <b>Прочие алгоритмы:</b> \n
-\ref RESAMPLING_GROUP \n
-\ref IN_OUT_GROUP \n
-\ref PLOT_GROUP \n
+  - \ref RESAMPLING_GROUP \n
+  - \ref IN_OUT_GROUP \n
+  - \ref PLOT_GROUP \n
 \n
 
 <b>Приложения</b>\n
-\ref TYPES_GROUP \n
-\ref ERROR_CODE_GROUP \n
+  - \ref TYPES_GROUP \n
+  - \ref ERROR_CODE_GROUP \n
 ***************************************************************************** */

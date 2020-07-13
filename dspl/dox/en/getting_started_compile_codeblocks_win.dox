@@ -1,10 +1,10 @@
 /*! ****************************************************************************
-\page getting_started_codeblocks Компиляция libdspl-2.0 в CodeBlocks
+\page getting_started_codeblocks Build libdspl-2.0 by CodeBlocks IDE
 
-\section sec_codeblocks Компиляция libdspl-2.0 в CodeBlocks
+\section sec_codeblocks Build libdspl-2.0 by CodeBlocks IDE
 
-Предварительно необходимо установить все необходимые утилиты. 
-Если этот шаг не сделан, то смотри раздел:
+You must first install all the necessary utilities.
+If this step is not done, see section:
 \n
 \ref getting_started_toolchain
 \n
@@ -13,126 +13,128 @@
 
 
 
-\subsection sec_codeblocks_download Скачиваем исходные коды libdspl-2.0
-Скачиваем 
+\subsection sec_codeblocks_download Download libdspl-2.0 source code
+Download libdspl-2.0 source code from
 <a href="https://github.com/Dsplib/libdspl-2.0">
-с сайта Github.com
+Github.com:
 </a>
-исходные коды DSPL:
-
+\n
+\n
 \image html dspl_github.png
+\n
+\n
+You can clone project by Git or just download zip-archive.
 
-Разархивируем в рабочий каталог.
+Unzip or clone project to the folder.
 
-Вы можете разархивировать в любой каталог, `libdspl-2.0` будет
-обозначать каталог, в который разархивированы исходные коды.
+You can unzip to any directory, here `libdspl-2.0` will be
+indicate the directory in which the source codes are unzipped.
 
-В качестве примера, исходные коды были разархивированы в 
-каталог `J:\libdspl-2.0`. \n
-
-
-
-
-
+As an example, the source codes were unzipped to
+directory `J:\libdspl-2.0`.
 
 
-\subsection sec_codeblocks_start Запуск и настройка CodeBlocks
-Запускаем IDE CodeBlocks и в меню `File` выбираем меню `Open`: 
+
+
+
+
+
+\subsection sec_codeblocks_start Run CodeBlocks IDE and settings
+Run CodeBlocks IDE and select menu`File -> Open`: 
 \n
 \n
 \image html codeblocks_1.png
 \n
 \n
-В открывшемся диалоговом окне переходим в каталог 
-`\libdspl-2.0\ide\codeblocks`,
-где `libdspl-2.0` - каталог, в который была разархивирован проект DSPL.
+Open `\libdspl-2.0\ide\codeblocks`,
+here `libdspl-2.0` - directory into which the project was unzipped or cloned.
 \n
 \n
 \image html codeblocks_2.png
 \n
 \n
-Открываем `dspl.workspace` и находим внутри проект 
+Open `dspl.workspace` and select 
 `examples -> src -> dspl_info_test.c`.
-В окне редактора увидим короткий исходный код программы, которая загружает 
-библиотеку, вызывает функцию `dspl_info` и выгружает библиотеку.
+Test program source code we can see in editor. 
+Test program links `libdspl.dll` and run `dspl_info` function.
 \n
 \n
 \image html codeblocks_3.png
 \n
 \n
-Теперь важный шаг перед первой сборкой проектов: необходимо настроить 
-среду CodeBlocks для работы с компилятором GCC и отладчиком. 
-Для этого открываем меню `Settings->Compiler`:
+Before the first build of projects: you need to configure
+CodeBlocks environment for working with the GCC compiler and debugger. \n 
+Open menu `Settings->Compiler`:
 \n
 \n
 \image html codeblocks_4.png
 \n
 \n
-В открывшемся окне настроек выбираем `Global compiler settings` и переходим 
-на вкладку`Toolchain executables`. Все поля данного окна должны быть 
-заполнены как на картинке:
+Select `Global compiler settings` and `Toolchain executables`.
+All fields of this window needs to fill as follow:
 \n
 \n
 \image html codeblocks_5.png
 \n
 \n
-Нажимает `OK` и окно закроется.
+Press `OK` window will be closed.
 
-Теперь настраиваем отладчик. Для этого открываем меню `Settings->Debugger`:
+Next step is debugger configuration. Open menu `Settings->Debugger`:
 \n
 \n
 \image html codeblocks_6.png
 \n
 \n
-В открывшемся окне выбираем `GDB/CDB debugger -> Default` и заполняем поля 
-формы и проставляем галочки как показано на картинке:
+Select `GDB/CDB debugger -> Default` and all fields of this window 
+needs to fill as follow:
 \n
 \n
 \image html codeblocks_7.png
 \n
 \n
-Нажимаем `OK` и теперь все готово для сборки проекта. 
+Press `OK` and CodeBlocks is ready to working. 
 
 
 
 
-\subsection sec_codeblocks_compile Сборка и выполнение тестовой программы
-Выбираем меню `Build -> Rebuild workspace`:
+\subsection sec_codeblocks_compile Build librray and run test program
+Run menu `Build -> Rebuild workspace`:
 \n
 \n
 \image html codeblocks_8.png
 \n
 \n
-Если окроектся диалог с вопросом, то соглашаемся:
+If the dialogue with the question is opened, then we press `Yes`:
 \n
 \n
 \image html codeblocks_9.png
 \n
 \n
-В результате начнется первая сборка проекта, которая может занять 
-несколько минут, потому что необходимо первый раз скомпилировать 
-библиотеки BLAS и LAPACK. Последующие сборки будут быстрее, 
-потому что перекомпилировать надо будет только измененные файлы.
+As a result, the first compilation of the project will begin, which may take
+few minutes because you need to compile for the first time
+BLAS and LAPACK libraries. Subsequent builds will be faster
+because only modified files will need to be recompiled.
 
-По завершению сборки в поле `Build log` появится сообщение как на картинке:
+Upon completion of the compilation, a message will appear 
+in the `Build log` field as in the picture:
 \n
 \n
 \image html codeblocks_10.png
 \n
 \n
-Проект собрался и нам осталось лишь выполнить приложение:
+The project is ready and we just have to run the application:
 \n
 \n
 \image html codeblocks_11.png
 \n
 \n
-В результате появится консольное окно в который функция `dspl_info` 
-выведет информацию о библиотеке DSPL 2.0:
+As a result, a console window will appear in which the function `dspl_info`
+will display information about the libdspl library:
 \n
 \n
 \image html codeblocks_12.png
 \n
 \n
-Таким образом, настройка CodeBlocks и компиляция проекта закончена успешно.
+CodeBlocks configuration and project compilation completed successfully.
 \n
 ***************************************************************************** */

@@ -1,26 +1,28 @@
 /*! ****************************************************************************
 
-\page getting_started_toolchain Установка DSPLIB toolchain в Windows
+\page getting_started_toolchain Install DSPLIB toolchain on Windows
 
-\section dec_getting_started_toolchain Установка DSPLIB toolchain в Windows
+\section dec_getting_started_toolchain Install DSPLIB toolchain on Windows
 
 
-\subsection download_toolchain_windows Загрузка установщика
-Запуск DSPL в системе Windows требует установки компилятора, Unix-утилит, и
-пакета построения графиков GNUPlot. Также желательно установить консольный
-файловый менеджер Far и IDE для разработки и отладки программ. \n
-Для установки всего необходимого софта предлагается скачать и установить 
-DSPLIB toolchain - полный набор утилит необходимых для работы с библиотекой. 
+\subsection download_toolchain_windows DSPLIB toolchain installer
+Building libdspl-2.0 on a Windows system requires installation 
+of a compiler, Unix utilities, and Gnuplot package. 
+It is also advisable to install the console file manager Far 
+and IDE for developing and debugging programs. \n
+
+DSPLIB toolchain is complete set of utilities necessary 
+for working with libdspl-2.0 on a Windows system. 
 \n
 \n
 <a href = "http://ru.dsplib.org/dsplib_toolchain_20_04_win_x64.exe">
-<b>Скачать установщик dsplib_toolchain_20_04_win_x64.exe</b>
-</a>(~219 МБ).
+<b>Download dsplib_toolchain_20_04_win_x64.exe</b>
+</a>(~219 MB).
 \n
 \n
-<b>Cостав dsplib toolchain 20.04:</b> \n
+<b>DSPLIB toolchain 20.04 contains:</b> \n
 <a href = "https://sourceforge.net/projects/mingw-w64/files/mingw-w64/">
-MinGW-W64-builds-4.3.5 (версия GCC компилятора 8.1.0)
+MinGW-W64-builds-4.3.5 (GCC compiler v. 8.1.0)
 </a>
 \n
 <a href = "http://www.codeblocks.org">
@@ -45,37 +47,37 @@ Native Win32 ports of some GNU utilities
 
 
 
-\subsection install_gcc Установка DSPLIB toolchain в системе Windows
-Запускаем установщик и выбираем директорию в которую будет произведена установка
-всех компонент.
+\subsection install_gcc Install DSPLIB toolchain on Windows
+Run the installer and select the path directory.
 \n
 \n
 \image html toolchain_1.png
 \n
 \n
-По умолчанию установка производится по адресу `C:\dsplib`.
+Default path is `C:\dsplib`.
 
 \note
-Настоятельно рекомендуется устанавливать все компоненты в каталог 
-`C:\dsplib`, потому что IDE CodeBlocks и другие программы настроены на 
-работу именно из этого каталога.
+It is highly recommended that all components be installed in a directory.
+`C:\dsplib` because IDE CodeBlocks and other programs are configured to
+work from this directory.
 
-После нажатия кнопки `[Установить]` начнется процесс копирования пакетов в 
-указанный каталог.
+Press `[Install]` button and the process will copy packages to
+specified directory.
 \n
 \n
 \image html toolchain_2.png
 \n
 \n
-По завершению копирования файлов указанные пути будут прописаны в переменной 
-PATH, а на рабочем столе будут созданы иконки FarManager и IDE CodeBlocks. \n
-Для завершения установки необходимо нажать `[Завершить]`.
+Upon completion of file copying, the specified paths will be written 
+in the `PATH` variable, and the FarManager and IDE CodeBlocks icons will 
+be created on the desktop. \n
+To complete the installation, click `[Close]`.
 \n
 \n
 \image html toolchain_3.png
 \n
 \n
-Перейдя в каталог `C:\dsplib` можно увидеть следующие установленные пакеты:
+In the `C:\dsplib` directory we can see follow packages:
 \n
 \n
 \image html toolchain_4.png
@@ -83,23 +85,21 @@ PATH, а на рабочем столе будут созданы иконки F
 \n
 `codeblocks`    --- IDE CodeBlocks \n
 
-`farmanager`    --- Консольный файловый менеджер. Очень удобен для запуска 
-                    консольных приложений \n
+`farmanager`    --- Console file manager. \n
 
-`gnuplot`       --- Многофункциональный пакет построения графиков. \n
+`gnuplot`       --- Portable command-line driven graphing utility. \n
 
-`mingw64`       --- Набор компиляторов gcc для языков C, C++ и FORTRAN 
-                    (для BLAS и LAPACK). \n 
+`mingw64`       --- GCC comliler for C, C++ and FORTRAN 
+                    (needs for BLAS and LAPACK). \n 
                 
-`UnxUtils`      --- Windows интерфейс для Unix утилит. 
-                    Необходимо для поддержки кроссплатформенной 
-                    компиляции проекта. \n 
+`UnxUtils`      --- Windows interface for Unix utilities. \n 
 
-`Uninstall.exe` --- Деинсталлятор, способный удалить все 
-                    компоненты и переменные `PATH`.
+`Uninstall.exe` --- Uninstaller that can remove everything
+                    components and `PATH` variables.
 
-После того как полный набор утилит и программ установлен можно переходить к 
-сборке библиотеки DSPL: \n
+
+After the full set of utilities and programs is installed, you can compile and
+run libdspl-2.0. \n
 
 \ref getting_started_make \n
 \ref getting_started_codeblocks \n
