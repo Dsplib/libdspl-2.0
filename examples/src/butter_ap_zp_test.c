@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "dspl.h"
+
+/* Filter order */
+#define ORD    7
+
+int main(int argc, char* argv[])
+{
+  void* hdspl;  /* DSPL handle        */
+  void* hplot;  /* GNUPLOT handle     */
+  
+  /* Load DSPL functions */
+  hdspl = dspl_load();
+
+  complex_t z[ORD+1]; /* H(s) zeros vector */
+  complex_t p[ORD+1]; /* H(s) poles vector */
+  double Rp = 1.0; /* Magnitude ripple from 0 to 1 rad/s   */
+
+  int res, k, nz, np;
+
+
+  /* Zeros and poles vectors calculation */
+  res = butter_ap_zp(ORD, Rp, z, &nz, p, &np);
+  if(res != RES_OK)
+    printf("error code = 0x%8x\n", res);
+
+  printf("Butterworth filter zeros: %d\n", nz);
+  printf("Butterworth filter poles: %d\n", np);
+  /* Print H(s) coefficients */
+  for(k = 0; k < np; k++)
+    printf("p[%2d] = %9.3f %+9.3f j\n", k, RE(p[k]), IM(p[k]));
+
+  /* Write complex poles to the file */
+  writetxt_cmplx(p, ORD, "dat/butter_ap_zp.txt");
+
+  /* plotting by GNUPLOT */
+  gnuplot_create(argc, argv, 440, 360, "img/butter_ap_zp_test.png", &hplot);
+  gnuplot_cmd(hplot, "unset key");
+  gnuplot_cmd(hplot, "set grid");
+  gnuplot_cmd(hplot, "set xlabel 'sigma'");
+  gnuplot_cmd(hplot, "set ylabel 'jw'");
+  gnuplot_cmd(hplot, "set size square");
+  gnuplot_cmd(hplot, "set xrange [-1.5:1.5]");
+  gnuplot_cmd(hplot, "set yrange [-1.5:1.5]");
+  gnuplot_cmd(hplot, "plot 'dat/butter_ap_zp.txt'  with points pt 2");
+  gnuplot_close(hplot); 
+
+  /* free dspl handle */
+  dspl_free(hdspl);
+
+  return res;
+}
+

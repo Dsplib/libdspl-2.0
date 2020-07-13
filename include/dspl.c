@@ -177,6 +177,7 @@ p_writebin                              writebin                      ;
 p_writetxt                              writetxt                      ;
 p_writetxt_3d                           writetxt_3d                   ;
 p_writetxt_3dline                       writetxt_3dline               ;
+p_writetxt_cmplx                        writetxt_cmplx                ;
 p_writetxt_cmplx_im                     writetxt_cmplx_im             ;
 p_writetxt_cmplx_re                     writetxt_cmplx_re             ;
 p_writetxt_int                          writetxt_int                  ;
@@ -379,6 +380,7 @@ void* dspl_load()
   LOAD_FUNC(writetxt);
   LOAD_FUNC(writetxt_3d);
   LOAD_FUNC(writetxt_3dline);
+  LOAD_FUNC(writetxt_cmplx);
   LOAD_FUNC(writetxt_cmplx_im);
   LOAD_FUNC(writetxt_cmplx_re);
   LOAD_FUNC(writetxt_int);

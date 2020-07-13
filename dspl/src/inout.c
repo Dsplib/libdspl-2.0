@@ -223,6 +223,34 @@ int DSPL_API writetxt(double* x, double* y, int n, char* fn)
 
 
 /******************************************************************************
+Write a real arrays to the text file "fn"
+*******************************************************************************/
+int DSPL_API writetxt_cmplx(complex_t* x, int n, char* fn)
+{
+  int k;
+  FILE* pFile = NULL;
+  if(!x)
+    return ERROR_PTR;
+  if(n < 1)
+    return ERROR_SIZE;
+  if(!fn)
+    return ERROR_FNAME;
+
+  pFile = fopen(fn, "w+");
+  if(pFile == NULL)
+    return ERROR_FOPEN;
+
+  for(k = 0; k < n; k++)
+    fprintf(pFile, "%+.12E   %+.12E\n", RE(x[k]), IM(x[k]));
+
+
+  fclose(pFile);
+  return RES_OK;
+}
+
+
+
+/******************************************************************************
 Write a int arrays to the text file "fn"
 *******************************************************************************/
 int DSPL_API writetxt_int(int* x, int* y, int n, char* fn)

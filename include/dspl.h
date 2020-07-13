@@ -960,6 +960,10 @@ DECLARE_FUNC(int,        writetxt_3dline,             double*          x
                                                 COMMA int              n
                                                 COMMA char*            fn);
 /*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        writetxt_cmplx,              complex_t*       x
+                                                COMMA int              n
+                                                COMMA char*            fn);
+/*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        writetxt_cmplx_im,           double*
                                                 COMMA complex_t*
                                                 COMMA int
