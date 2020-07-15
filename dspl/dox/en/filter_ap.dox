@@ -52,11 +52,10 @@ Example:
 Result:
 
 \verbatim
-b[ 0] =   1.002   a[ 0] =   1.002
-b[ 1] =   0.000   a[ 1] =   2.618
-b[ 2] =   0.000   a[ 2] =   3.418
-b[ 3] =   0.000   a[ 3] =   2.615
-b[ 4] =   0.000   a[ 4] =   1.000
+b[ 0] =     1.965     a[ 0] =     1.965
+b[ 1] =     0.000     a[ 1] =     3.138
+b[ 2] =     0.000     a[ 2] =     2.505
+b[ 3] =     0.000     a[ 3] =     1.000 
 \endverbatim
 \n
 
@@ -139,6 +138,31 @@ Else \ref ERROR_CODE_GROUP "code error".
 \note
 Normalized Butterworth lowpass filter has no finite zeros. 
 So `z` vector will not changed and in pointer `nz` will write 0 value. \n
+
+Example of normalized Butterworth lowpass filter zeros and poles calculation:
+\include butter_ap_zp_test.c
+
+Result:
+
+\verbatim
+Butterworth filter zeros: 0
+Butterworth filter poles: 7
+p[ 0] =    -1.101    +0.000 j
+p[ 1] =    -0.245    +1.074 j
+p[ 2] =    -0.245    -1.074 j
+p[ 3] =    -0.687    +0.861 j
+p[ 4] =    -0.687    -0.861 j
+p[ 5] =    -0.992    +0.478 j
+p[ 6] =    -0.992    -0.478 j  
+\endverbatim
+\n
+
+In `dat` folder will be created `butter_ap_zp.txt` file. \n
+
+In addition, GNUPLOT will build the following graphs 
+from data stored in `dat/butter_ap_zp.txt` file:
+
+\image html butter_ap_zp_test.png
 
 \author Sergey Bakhurin www.dsplib.org
 ***************************************************************************** */
