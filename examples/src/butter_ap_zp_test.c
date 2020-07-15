@@ -28,7 +28,7 @@ int main(int argc, char* argv[])
   /* print H(s) zeros values */
   printf("Butterworth filter zeros: %d\n", nz);
   for(k = 0; k < nz; k++)
-    printf("z[%2d] = %9.3f %+9.3f j\n", k, RE(z[k]), IM(p[k]));
+    printf("z[%2d] = %9.3f %+9.3f j\n", k, RE(z[k]), IM(z[k]));
   
   /* print H(s) poles values */
   printf("Butterworth filter poles: %d\n", np);
