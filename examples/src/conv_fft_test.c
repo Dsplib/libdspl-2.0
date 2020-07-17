@@ -7,8 +7,8 @@
 #define M 7
 int main()
 {
-  void* handle;           // DSPL handle
-  handle = dspl_load();   // Load DSPL function
+  void* handle;           /* DSPL handle        */
+  handle = dspl_load();   /* Load DSPL function */
   double a[N], b[M], c[N+M-1], d[N+M-1];
   fft_t pfft;
   int n, err;
@@ -23,12 +23,12 @@ int main()
   err = conv(a, N, b, M, d);
   printf("conv error:     0x%.8x\n", err);
   
-  // print result
+  /* print result */
   for(n = 0; n < N+M-1; n++)
     printf("c[%3d] = %9.2f    d[%3d] = %9.2f\n", n, c[n], n, d[n]);
 
-  fft_free(&pfft);        // free fft structure memory
-  dspl_free(handle);      // free dspl handle
+  fft_free(&pfft);        /* free fft structure memory */
+  dspl_free(handle);      /* free dspl handle          */
   return 0;
 }
 

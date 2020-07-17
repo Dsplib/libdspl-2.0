@@ -6,8 +6,8 @@
 
 int main()
 {
-  void* handle;           // DSPL handle
-  handle = dspl_load();   // Load DSPL function
+  void* handle;           /* DSPL handle        */
+  handle = dspl_load();   /* Load DSPL function */
   complex_t ac[3] = {{0.0, 1.0}, {1.0, 1.0}, {2.0, 2.0}};
   complex_t bc[4] = {{3.0, 3.0}, {4.0, 4.0}, {5.0, 5.0}, {6.0, 6.0}};
   complex_t cc[6];

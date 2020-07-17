@@ -9,12 +9,12 @@ int main(int argc, char* argv[])
 {
   void* hdspl;  /* DSPL handle        */
   void* hplot;  /* GNUPLOT handle     */ 
-  hdspl = dspl_load();   // Load DSPL function
+  
 
   double x[N], y[N];
   int ord;
   char fn[64];
-  
+  hdspl = dspl_load();   /* Load DSPL function */
   linspace(-1.0, 1.0, N, DSPL_SYMMETRIC, x);
   for(ord = 1; ord < 5; ord++)
   {
@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
   gnuplot_cmd(hplot, "     'dat/cheby_poly2_ord4.txt' with lines");  
   gnuplot_close(hplot);  
   
-  dspl_free(hdspl);      // free dspl handle
+  dspl_free(hdspl);      /* free dspl handle */
 
   return 0;
 }

@@ -30,7 +30,13 @@ groupdelay, impulse response and other.
 
 \defgroup RESAMPLING_GROUP Digital samplerate conversion (resampling)
 
+
+\defgroup ARRAY_GROUP Basic operations for real and complex arrays.
+
+
 \defgroup SPEC_MATH_COMMON_GROUP Basic math functions of the real and complex arguments.
+
+\defgroup SPEC_MATH_POLY_GROUP Polynomial functions and analysis.
 
 \defgroup SPEC_MATH_TRIG_GROUP Trigonometric and hyperbolic of functions the real and complex arguments.
 

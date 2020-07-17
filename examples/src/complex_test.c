@@ -5,12 +5,14 @@
 
 int main(int argc, char* argv[])
 {
-  void* handle;           // DSPL handle
-  handle = dspl_load();   // Load DSPL function
+  void* handle;           /*  DSPL handle        */
+  
   
   complex_t x[3] = {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}};
   complex_t y[3];
   int k;
+  
+  handle = dspl_load();   /*  Load DSPL function */
   
   printf("\n\nacos_cmplx\n---------------------------------\n");
   acos_cmplx(x, 3, y);  
@@ -50,7 +52,7 @@ int main(int argc, char* argv[])
  
 
 
-  dspl_free(handle);      // free dspl handle
+  dspl_free(handle);      /* free dspl handle */
   
   return 0;
 }

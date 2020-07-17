@@ -255,7 +255,7 @@ In addition, GNUPLOT will build the following graphs from data stored in files:
 
 /*! ****************************************************************************
 \ingroup IIR_FILTER_DESIGN_GROUP
-\fn int cheby1_ap_zp( int ord, double rp, complex_t *z, int* nz, 
+\fn int cheby1_ap_zp( int ord, double rp, complex_t* z, int* nz, 
                       complex_t* p, int* np)
 \brief
 Function calculates arrays of zeros and poles for analog normlized lowpass 
@@ -308,6 +308,33 @@ Else \ref ERROR_CODE_GROUP "code error".
 \note
 Normalized Chebyshev type 1 lowpass filter has no finite zeros. 
 So `z` vector will not changed and in pointer `nz` will write 0 value. \n
+
+Example of normalized Chebyshev type 1 lowpass filter
+ zeros and poles calculation:
+\include cheby1_ap_zp_test.c
+
+Result:
+
+\verbatim
+Chebyshev type 1 filter zeros: 0
+Chebyshev type 1 filter poles: 7
+p[ 0] =    -0.256    +0.000 j
+p[ 1] =    -0.057    +1.006 j
+p[ 2] =    -0.057    -1.006 j
+p[ 3] =    -0.160    +0.807 j
+p[ 4] =    -0.160    -0.807 j
+p[ 5] =    -0.231    +0.448 j
+p[ 6] =    -0.231    -0.448 j 
+\endverbatim
+\n
+
+In `dat` folder will be created `cheby1_ap_zp.txt` file. \n
+
+In addition, GNUPLOT will build the following graphs 
+from data stored in `dat/cheby1_ap_zp.txt` file:
+
+\image html cheby1_ap_zp_test.png
+
 
 \author Sergey Bakhurin www.dsplib.org
 ***************************************************************************** */
@@ -450,30 +477,39 @@ Pointer cannot be `NULL`. \n
 Else \ref ERROR_CODE_GROUP "code error".
 \n
 
-Example:
-
+Example of normalized Chebyshev type 2 lowpass filter
+ zeros and poles calculation:
 \include cheby2_ap_zp_test.c
 
 Result:
 
 \verbatim
-  Chebyshev type 2 zeros:
-  z[ 0] =   0.000    1.026 j
-  z[ 1] =   0.000   -1.026 j
-  z[ 2] =   0.000    1.279 j
-  z[ 3] =   0.000   -1.279 j
-  z[ 4] =   0.000    2.305 j
-  z[ 5] =   0.000   -2.305 j
-
-  Chebyshev type 2 poles:
-  p[ 0] =  -1.203    0.000 j
-  p[ 1] =  -0.113    0.772 j
-  p[ 2] =  -0.113   -0.772 j
-  p[ 3] =  -0.398    0.781 j
-  p[ 4] =  -0.398   -0.781 j
-  p[ 5] =  -0.852    0.642 j
-  p[ 6] =  -0.852   -0.642 j
+Chebyshev type 2 filter zeros: 6
+z[ 0] =     0.000    +1.026 j
+z[ 1] =     0.000    -1.026 j
+z[ 2] =     0.000    +1.279 j
+z[ 3] =     0.000    -1.279 j
+z[ 4] =     0.000    +2.305 j
+z[ 5] =     0.000    -2.305 j
+Chebyshev type 2 filter poles: 7
+p[ 0] =    -1.203    +0.000 j
+p[ 1] =    -0.113    +0.772 j
+p[ 2] =    -0.113    -0.772 j
+p[ 3] =    -0.398    +0.781 j
+p[ 4] =    -0.398    -0.781 j
+p[ 5] =    -0.852    +0.642 j
+p[ 6] =    -0.852    -0.642 j 
 \endverbatim
+\n
+
+In `dat` folder will be created `cheby2_ap_z.txt` and 
+`cheby2_ap_z.txt` files which keeps zeros and poles vectors. \n
+
+In addition, GNUPLOT will build the following graphs 
+from data stored in the files:
+
+\image html cheby2_ap_zp_test.png
+
 
 \author Sergey Bakhurin www.dsplib.org
 ***************************************************************************** */
@@ -562,6 +598,97 @@ In addition, GNUPLOT will build the following graphs from data stored in files:
 
 
 
+/*! ****************************************************************************
+\ingroup IIR_FILTER_DESIGN_GROUP
+\fn int ellip_ap_zp(int ord, double rp, double rs, complex_t* z, int* nz, 
+                     complex_t* p, int* np)
+
+\brief
+Function calculates arrays of zeros and poles for analog normlized lowpass 
+elliptic filter transfer function \f$ H(s) \f$ order `ord` .
+
+\param[in]  ord
+Filter order. \n
+Number of zeros and poles of filter can be less or equal `ord`. \n
+\n
+
+\param[in]  rp
+Magnitude ripple in passband (dB). \n
+This parameter sets maximum filter distortion from 0 to 1 rad/s frequency. \n
+Parameter must be positive. \n 
+\n
+
+\param[in]  rs
+Suppression level in stopband (dB). \n
+This parameter sets filter suppression
+for \f$\omega \geq 1\f$ rad/s frequency. \n
+Parameter must be positive. \n 
+\n
+
+\param[out]  z
+Pointer to the \f$ H(s) \f$ zeros array. \n
+Maximum vector size is `[ord x 1]`. \n
+Memory must be allocated for maximum vector size. \n 
+\n
+
+\param[out]  nz
+Pointer to the variable which keep number of finite zeros \f$ H(s) \f$. \n
+Number of finite zeros which was calculated and saved in vector `z`. \n
+Pointer cannot be `NULL`. \n
+\n
+
+\param[out]  p
+Pointer to the \f$ H(s) \f$ poles array. \n
+Maximum vector size is `[ord x 1]`. \n
+Memory must be allocated for maximum vector size. \n 
+\n
+
+\param[out]  np
+Pointer to the variable which keep number of 
+calculated poles of \f$ H(s) \f$. \n
+Pointer cannot be `NULL`. \n
+\n
+
+\return
+`RES_OK` if zeros and poles is calculated successfully. \n 
+Else \ref ERROR_CODE_GROUP "code error".
+\n
+
+Example of normalized elliptic lowpass filter zeros and poles calculation:
+\include ellip_ap_zp_test.c
+
+Result:
+
+\verbatim
+Elliptic filter zeros: 6
+z[ 0] =     0.000    +1.053 j
+z[ 1] =     0.000    -1.053 j
+z[ 2] =     0.000    +1.136 j
+z[ 3] =     0.000    -1.136 j
+z[ 4] =     0.000    +1.626 j
+z[ 5] =     0.000    -1.626 j
+Elliptic filter poles: 7
+p[ 0] =    -0.358    +0.000 j
+p[ 1] =    -0.011    +1.000 j
+p[ 2] =    -0.011    -1.000 j
+p[ 3] =    -0.060    +0.940 j
+p[ 4] =    -0.060    -0.940 j
+p[ 5] =    -0.206    +0.689 j
+p[ 6] =    -0.206    -0.689 j
+\endverbatim
+\n
+
+In `dat` folder will be created `ellip_ap_z.txt` and 
+`ellip_ap_z.txt` files which keeps zeros and poles vectors. \n
+
+In addition, GNUPLOT will build the following graphs 
+from data stored in the files:
+
+\image html ellip_ap_zp_test.png
+
+
+\author Sergey Bakhurin www.dsplib.org
+***************************************************************************** */
 
 
 

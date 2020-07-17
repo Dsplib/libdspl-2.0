@@ -29,20 +29,204 @@
 
 /* math const definition */
 #ifndef M_PI
-  #define M_PI        3.1415926535897932384626433832795
+    #define M_PI        3.1415926535897932384626433832795
 #endif
 
 #ifndef M_2PI
-  #define M_2PI        6.283185307179586476925286766559
+    #define M_2PI       6.283185307179586476925286766559
 #endif
 
 
 
+#ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup TYPES_GROUP
+\typedef complex_t
+\brief Complex data type.
+
+libdspl-2.0 describes complex numbers data type as an array 
+of two `double` elements.
+First element sets real part, second --- imaginary part. 
+
+For example:
+
+\code{.cpp}
+    complex_t z;
+    z[0] =  1.0;
+    z[1] = -2.0;
+\endcode 
+
+Variable `z = 1-2j`, here `j` - imaginary unit.
+
+For the convenience of working with complex numbers implemented
+special macros: \ref RE, \ref IM, \ref ABSSQR
+***************************************************************************** */
+#endif
+#ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup TYPES_GROUP
+\typedef complex_t
+\brief Описание комплексного типа данных.
+
+Комплексный тип данных в библиотеке libdspl-2.0 определен как 
+массив из двух элементов типа `double`.
+При этом первый элемент массива определяет реальную часть 
+комплексного числа, а второй - мнимую.
+
+Например:
+
+\code{.cpp}
+    complex_t z;
+    z[0] =  1.0;
+    z[1] = -2.0;
+\endcode 
+
+Переменная `z = 1-2j`, где `j` - мнимая единица.
+
+Для удобства работы с комплексными числами реализованы 
+специальные макросы: \ref RE, \ref IM, \ref ABSSQR
+***************************************************************************** */
+#endif
 typedef double complex_t[2];
 
 
 
+#ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup DFT_GROUP
+\struct fft_t
+\brief Fast Fourier Transform Object Data Structure
 
+The structure stores pointers to twiddle factors and arrays of intermediate 
+data of the fast Fourier transform algorithm.
+
+The libdspl-2.0 library uses an FFT algorithm for composite size.
+
+\param  n
+The size of the FFT vector for which memory is allocated 
+in the structure arrays.  \n
+The parameter `n` must be equal to an integer power of two (radix 2). \n \n
+
+\param  w
+Pointer to the vector of twiddle factors. \n
+The size of the vector is `[n x 1]`. \n
+The memory must be allocated and an array of twiddle factors
+must be filled with the \ref fft_create function. \n\n
+
+\param  t0
+Pointer to the vector of intermediate results of the FFT algorithm. \n
+The size of the vector is `[n x 1]`. \n
+Memory must be allocated by \ref fft_create function. \n\n 
+
+\param  t1
+Pointer to the vector of intermediate results. \n
+The size of the vector is `[n x 1]`. \n
+The memory must be allocated with the \ref fft_create function. \n\n
+The structure is populated with the \ref fft_create function once
+before using the FFT algorithm. \n
+A pointer to an object of this structure may be
+reused when calling FFT functions. \n
+Before exiting the program, dedicated memory for twiddle factors and arrays of 
+intermediate data must be cleared by the \ref fft_free function. 
+
+For example:
+
+\code
+fft_t pfft = {0};     // Structure fft_t and clear all fields 
+int n = 64;           // FFT size 
+
+int err;
+
+// Create and fill FFT structure for 64-points FFT 
+err = fft_create(&pfft, n);
+
+// FFT calculation here
+// FFT calculation here one more
+// ...  
+
+// Clear fft structure
+fft_free(&pfft);
+\endcode
+
+\note
+It is important to note that if the object `fft_t` was created for the FFT size 
+equal to` n`, it can only be used for FFT of size `n`. \n \n
+It’s also worth noting that the FFT functions independently control the size, 
+and independently allocate the memory of the FFT object, if necessary.
+So if you call any function using the `fft_t` structure with filled
+data for the FFT length `k` for calculating the FFT of length`n`,
+then the structure arrays will be automatically recreated for the length `n`.
+
+\author  Sergey Bakhurin  www.dsplib.org  
+***************************************************************************** */
+#endif
+#ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup DFT_GROUP
+\struct fft_t
+\brief Структура данных объекта быстрого преобразования Фурье
+
+Структура хранит указатели на массивы поворотных коэффициентов 
+и массивы промежуточных данных алгоритма быстрого преобразования Фурье.
+
+Библиотека libdspl-2.0 использует для БПФ алгоритм для составной длины
+
+\param  n
+Размер вектора БПФ, для которого выделена память в массивах структуры.  \n
+Парметр `n` должен быть равен целой степени двойки. \n \n
+
+\param  w
+Указатель на вектор поворотных коэффициентов алгоритма БПФ. \n
+Размер вектора `[n x 1]`.  \n
+Память должна быть выделена и массив поворотных коэффициентов 
+должен быть заполнен функцией \ref fft_create.  \n \n
+
+\param  t0
+Указатель на вектор промежуточных вычислений алгоритма БПФ. \n
+Размер вектора `[n x 1]`. \n
+Память должна быть выделена функцией \ref fft_create. \n \n
+
+\param  t1
+Указатель на вектор промежуточных вычислений алгоритма БПФ. \n
+Размер вектора `[n x 1]`. \n
+Память должна быть выделена функцией \ref fft_create. \n \n
+Структура заполняется функцией \ref fft_create один раз 
+до использования алгоритма БПФ.  \n
+Указатель на объект данной структуры может быть 
+многократно использован при вызове функций БПФ. \n
+Перед выходом из программы выделенную память под поворотные 
+коэффициенты и массивы промежуточных данных
+необходимо очистить функцией \ref fft_free. Например:
+\code
+fft_t pfft = {0};     // объявляем объект fft_t и обнуляем все поля
+int n = 64;           // Размер БПФ 
+int err;
+
+// создаем объект для 64-точечного БПФ 
+err = fft_create(&pfft, n);
+
+// Вызов БПФ функции
+// Еще раз вызов БПФ функции    
+// ...  
+
+// очистить память объекта БПФ  
+fft_free(&pfft);
+\endcode
+
+\note
+Важно отметить, что если объект `fft_t` был создан для размера БПФ равного `n`, 
+то он может быть использован только для БПФ размера `n`.  \n\n
+Также необходимо заметить, что функции БПФ самостоятельно контролируют размер, 
+и самостоятельно выделяют память объекта БПФ при необходимости. 
+Так если вызвать любую функцию использующую структуру `fft_t` с заполненными 
+данными для длины БПФ `k` для расчета БПФ длины `n`, 
+то массивы структуры будут автоматически пересозданы для длины `n`.
+
+\author
+Бахурин Сергей.
+www.dsplib.org 
+***************************************************************************** */
+#endif
 typedef struct
 {
    complex_t*  w;
@@ -50,6 +234,7 @@ typedef struct
    complex_t*  t1;
    int         n;
 } fft_t;
+
 
 
 #define RAND_TYPE_MRG32K3A 0x00000001
@@ -73,20 +258,194 @@ typedef struct
 
 
 
+#ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup TYPES_GROUP
+\def RE(x)
+\brief Macro sets real part of the complex number.
 
-#define RE(x)           (x[0])
-#define IM(x)           (x[1])
+Example:
+\code{.cpp}
+    complex_t z;
+    RE(z) =  1.0;
+    IM(z) = -2.0;
+\endcode 
+
+Variable `z = 1-2j`, here `j` - imaginary unit.
+
+This macro can be used to return 
+real part of the complex number:
+
+\code{.cpp}
+    complex_t z = {3.0, -4.0};
+    double    r;
+    r = RE(z);
+\endcode
+In this example `z = 3-4i`, 
+but variable `r` will keep 3.
+***************************************************************************** */
+#endif
+#ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup TYPES_GROUP
+\def RE(x)
+\brief Макрос определяющий реальную часть комплексного числа.
+
+Например:
+\code{.cpp}
+    complex_t z;
+    RE(z) =  1.0;
+    IM(z) = -2.0;
+\endcode 
+
+Переменная `z = 1-2j`, где `j` --- мнимая единица.
+
+Аналогично, макрос можно использовать для получения 
+реальной части комплексного числа:
+
+\code{.cpp}
+    complex_t z = {3.0, -4.0};
+    double    r;
+    r = RE(z);
+\endcode
+В данном примере переменная `z = 3-4i`, а в переменой `r`
+будет храниться число 3.
+***************************************************************************** */
+#endif
+#define RE(x) (x[0])
 
 
-#define SQR(x)          ((x) * (x))
-#define ABSSQR(x)       ((SQR(RE(x))) + (SQR(IM(x))))
+
+#ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup TYPES_GROUP
+\def IM(x)
+\brief Macro sets imaginary part of the complex number.
+
+Example:
+\code{.cpp}
+    complex_t z;
+    RE(z) =  1.0;
+    IM(z) = -2.0;
+\endcode 
+
+Variable `z = 1-2j`, here `j` - imaginary unit.
+
+This macro can be used to return 
+imaginary part of the complex number:
+\code{.cpp}
+    complex_t z = {3.0, -4.0};
+    double    r;
+    r = IM(z);
+\endcode    
+In this example `z = 3-4i`, 
+but variable `r` will keep -4.
+***************************************************************************** */
+
+
+#endif
+#ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup TYPES_GROUP
+\def IM(x)
+\brief Макрос определяющий мнимую часть комплексного числа.
+
+Например:
+\code{.cpp}
+    complex_t z;
+    RE(z) =  1.0;
+    IM(z) = -2.0;
+\endcode 
+
+Переменная `z = 1-2j`, где `j` - мнимая единица.
+
+Аналогично, макрос можно использовать для получения 
+мнимой части комплексного числа:
+\code{.cpp}
+    complex_t z = {3.0, -4.0};
+    double r;
+    r = IM(z);
+\endcode
+В данном примере переменная `z = 3-4i`, 
+а в переменой `r` будет храниться число -4.
+***************************************************************************** */
+#endif
+#define IM(x) (x[1])
+
+
+
+#define SQR(x) ((x) * (x))
+
+
+#ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup TYPES_GROUP
+\def ABSSQR(x)
+\brief 
+The macro returns the square of the modulus of a complex number `x`.
+
+Square of the modulus of a complex number \f$ x = a + j  b \f$ equals:
+
+\f[
+    |x|^2 = x x^* = a^2 + b^2. 
+\f]
+
+Example:
+\code{.cpp}
+    complex_t z;
+    double y;
+    RE(z) =  1.0;
+    IM(z) = -2.0;
+    y = ABSSQR(z);
+\endcode 
+
+Variable `z = 1-2j`, here `j` - imaginary unit, but variable `y = 5`. 
+***************************************************************************** */
+#endif
+#ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup TYPES_GROUP
+\def ABSSQR(x)
+\brief Макрос возвращает квадрат модуля комплексного числа `x`.
+
+Квадрат модуля комплексного числа \f$ x = a + j  b \f$ равен:
+
+\f[
+    |x|^2 = x x^* = a^2 + b^2. 
+\f]
+
+Например:
+\code{.cpp}
+    complex_t z;
+    double y;
+    RE(z) =  1.0;
+    IM(z) = -2.0;
+    y = ABSSQR(z);
+\endcode 
+
+Переменная `z = 1-2j`, где `j` - мнимая единица, а переменная `y = 5`. 
+***************************************************************************** */
+#endif
+#define ABSSQR(x) ((SQR(RE(x))) + (SQR(IM(x))))
+
+
+
+
 #define ABS(x)          sqrt((ABSSQR(x)))
+
+
 #define ARG(x)          atan2(IM(x), RE(x))
 
+
 #define CMRE(a,b)       ((RE(a)) * (RE(b)) - (IM(a)) * (IM(b)))
+
+
 #define CMIM(a,b)       ((RE(a)) * (IM(b)) + (IM(a)) * (RE(b)))
 
+
 #define CMCONJRE(a, b)  ((RE(a)) * (RE(b)) + (IM(a)) * (IM(b)))
+
+
 #define CMCONJIM(a, b)  ((IM(a)) * (RE(b)) - (RE(a)) * (IM(b)))
 
 
@@ -247,14 +606,14 @@ typedef struct
 
 
 #ifdef BUILD_LIB
-  #define DECLARE_FUNC(type, fn, param)\
-                       type DSPL_API fn(param);
+    #define DECLARE_FUNC(type, fn, param)\
+                         type DSPL_API fn(param);
 #endif
 
 #ifndef BUILD_LIB
-  #define DECLARE_FUNC( type, fn, param)\
-                        typedef type (*p_##fn)(param);\
-                        extern p_##fn   fn;
+    #define DECLARE_FUNC( type, fn, param)\
+                          typedef type (*p_##fn)(param);\
+                          extern p_##fn   fn;
 
 #endif
 

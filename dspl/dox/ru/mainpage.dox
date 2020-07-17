@@ -35,7 +35,9 @@ DSPL-2.0 --- свободная библиотека алгоритмов циф
 
 \subsection sec_doc_content Разделы документации
 <b>Математические функции:</b> \n
+  - \ref ARRAY_GROUP \n
   - \ref SPEC_MATH_COMMON_GROUP \n
+  - \ref SPEC_MATH_POLY_GROUP \n
   - \ref SPEC_MATH_TRIG_GROUP \n
   - \ref SPEC_MATH_TRANSCEND \n
   - \ref SPEC_MATH_ELLIP_GROUP  \n

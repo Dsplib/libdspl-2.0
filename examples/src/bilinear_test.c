@@ -10,7 +10,7 @@ int main(int argc, char* argv[])
 {
   void* hdspl;  /* DSPL handle        */
   void* hplot;  /* GNUPLOT handle     */
-  hdspl = dspl_load();   // Load DSPL function
+  
   
   double w[N], h[N];
   complex_t hz[N];
@@ -18,7 +18,10 @@ int main(int argc, char* argv[])
   double bz[ORD+1], az[ORD+1];
   int err, k;
   
-  // расчет аналогового фильтра Чебышева первого рода
+  
+  hdspl = dspl_load();   /* Load DSPL function */
+  
+  /* normalized analog lowpass filter Chebyshev type 1 */
   err = cheby1_ap(1.0, ORD, bs, as);
   if(err != RES_OK)
   {
@@ -26,7 +29,7 @@ int main(int argc, char* argv[])
     return err;
   }
   
-  // Билинейное преобразование
+  /* Bilinear transform */
   err = bilinear(bs, as, ORD, bz, az);
   if(err != RES_OK)
   {
@@ -34,18 +37,18 @@ int main(int argc, char* argv[])
     return err;
   }
   
-  // Печать коэффициентов
+  /* Print coefficients */
   for(k = 0; k < ORD+1; k++)
     printf("bz[%d] = %7.3f    az[%d] = %7.3f\n", k, bz[k], k, az[k]);
   
   
-  // Расчет АЧХ полученного цифрового фильтра
+  /* Digital filter magnitude  */
   linspace(0, M_PI, N, DSPL_PERIODIC, w);
   freqz(bz, az, ORD, w, N, hz);
   for(k = 0; k < N; k++)
   {
-    h[k] = 10.0 * log10 (ABSSQR(hz[k])); // АЧХ в дБ
-    w[k] /= M_PI;                        // нормировка частоты от 0 до 1
+    h[k] = 10.0 * log10 (ABSSQR(hz[k])); /* Logarithmic scale     */
+    w[k] /= M_PI;                        /* frequency from 0 to 1 */
   }
   
   writetxt(w,h,N,"dat/bilinear.txt");
@@ -60,7 +63,7 @@ int main(int argc, char* argv[])
   gnuplot_cmd(hplot, "plot 'dat/bilinear.txt' with lines");
   gnuplot_close(hplot);
   
-  dspl_free(hdspl);      // free dspl handle
+  dspl_free(hdspl);      /* free dspl handle */
   
   return err;
 }
