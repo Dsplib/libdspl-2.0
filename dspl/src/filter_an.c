@@ -706,7 +706,7 @@ corresponds to normalized frequency `w`. \n
 Vector size is `[n x 1]`. \n 
 Memory must be allocated. \n  \n
 
-\return `RES_OK` if frequaency response vector is calculated successfully. \n
+\return `RES_OK` if frequency response vector is calculated successfully. \n
 Else \ref ERROR_CODE_GROUP "code error".
 
 \author Sergey Bakhurin www.dsplib.org
