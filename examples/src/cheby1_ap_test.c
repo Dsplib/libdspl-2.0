@@ -7,69 +7,69 @@
 #define ORD 4
 
 /* Frequency response vector size */
-#define N   1000
+#define N     1000
 
 
 int main(int argc, char* argv[])
 {
-  void* hdspl;           /* DSPL handle        */
-  void* hplot;           /* GNUPLOT handle     */
-  hdspl = dspl_load();   /* Load DSPL function */
+    void* hdspl;              /* DSPL handle */
+    void* hplot;              /* GNUPLOT handle */
+    hdspl = dspl_load();      /* Load DSPL function */
 
-  double a[ORD+1]; /* H(s) numerator   coefficients vector */
-  double b[ORD+1]; /* H(s) denominator coefficients vector */
-  double Rp = 1.0; /* Magnitude ripple from 0 to 1 rad/s   */
-  double w[N];     /* Angular frequency (rad/s)            */
-  double mag[N];   /* Filter Magnitude (dB)                */
-  double phi[N];   /* Phase response                       */
-  double tau[N];   /* Group delay                          */
-  int k;
+    double a[ORD+1]; /* H(s) numerator     coefficients vector  */
+    double b[ORD+1]; /* H(s) denominator coefficients vector    */
+    double Rp = 1.0; /* Magnitude ripple from 0 to 1 rad/s      */
+    double w[N];     /* Angular frequency (rad/s)               */
+    double mag[N];   /* Filter Magnitude (dB)                   */
+    double phi[N];   /* Phase response                          */
+    double tau[N];   /* Group delay                             */
+    int k;
 
-  /* H(s) coefficients calculation */
-  int res = cheby1_ap(Rp, ORD, b, a);
-  if(res != RES_OK)
-    printf("error code = 0x%8x\n", res);
-  
-  /* Print H(s) coefficients */
-  for(k = 0; k < ORD+1; k++)
-    printf("b[%2d] = %9.3f     a[%2d] = %9.3f\n", k, b[k], k, a[k]);
-  
-  /* Frequency in logarithmic scale from 0.01 to 100 rad/s */
-  logspace(-2.0, 2.0, N , DSPL_SYMMETRIC, w);
-  
-  /* Filter frequency parameter calculation */
-  filter_freq_resp(b, a, ORD, w, N, 
-                   DSPL_FLAG_LOGMAG|DSPL_FLAG_UNWRAP | DSPL_FLAG_ANALOG, 
-                   mag, phi, tau);
-  
-  /* Write Magnitude, phase response and group delay to the files */
-  writetxt(w, mag, N, "dat/cheby1_ap_test_mag.txt");
-  writetxt(w, phi, N, "dat/cheby1_ap_test_phi.txt");
-  writetxt(w, tau, N, "dat/cheby1_ap_test_tau.txt");
+    /* H(s) coefficients calculation */
+    int res = cheby1_ap(Rp, ORD, b, a);
+    if(res != RES_OK)
+        printf("error code = 0x%8x\n", res);
 
-  /* plotting by GNUPLOT                                                    */
-  gnuplot_create(argc, argv, 920, 260, "img/cheby1_ap_test.png", &hplot);
-  gnuplot_cmd(hplot, "set logscale x");
-  gnuplot_cmd(hplot, "unset key");
-  gnuplot_cmd(hplot, "set grid");
-  gnuplot_cmd(hplot, "set xlabel 'frequency, rad/s'");
-  gnuplot_cmd(hplot, "set multiplot layout 1,3 rowsfirst");
-  gnuplot_cmd(hplot, "set ylabel 'Magnitude, dB'");
-  gnuplot_cmd(hplot, "set yrange [-100:5]");
-  gnuplot_cmd(hplot, "plot 'dat/cheby1_ap_test_mag.txt' with lines");
-  gnuplot_cmd(hplot, "set ylabel 'Phase response, rad'");
-  gnuplot_cmd(hplot, "unset yrange");
-  gnuplot_cmd(hplot, "plot 'dat/cheby1_ap_test_phi.txt' with lines");
-  gnuplot_cmd(hplot, "set ylabel 'Groupdelay, sec'");
-  gnuplot_cmd(hplot, "unset yrange");
-  gnuplot_cmd(hplot, "plot 'dat/cheby1_ap_test_tau.txt' with lines");
-  gnuplot_cmd(hplot, "unset multiplot");
-  gnuplot_close(hplot); 
-  
-  /* free dspl handle */
-  dspl_free(hdspl);
+    /* Print H(s) coefficients */
+    for(k = 0; k < ORD+1; k++)
+        printf("b[%2d] = %9.3f    a[%2d] = %9.3f\n", k, b[k], k, a[k]);
 
-  return res;
+    /* Frequency in logarithmic scale from 0.01 to 100 rad/s */
+    logspace(-2.0, 2.0, N , DSPL_SYMMETRIC, w);
+
+    /* Filter frequency parameter calculation */
+    filter_freq_resp(b, a, ORD, w, N,
+                     DSPL_FLAG_LOGMAG|DSPL_FLAG_UNWRAP | DSPL_FLAG_ANALOG,
+                     mag, phi, tau);
+
+    /* Write Magnitude, phase response and group delay to the files */
+    writetxt(w, mag, N, "dat/cheby1_ap_test_mag.txt");
+    writetxt(w, phi, N, "dat/cheby1_ap_test_phi.txt");
+    writetxt(w, tau, N, "dat/cheby1_ap_test_tau.txt");
+
+    /* plotting by GNUPLOT */
+    gnuplot_create(argc, argv, 920, 260, "img/cheby1_ap_test.png", &hplot);
+    gnuplot_cmd(hplot, "set logscale x");
+    gnuplot_cmd(hplot, "unset key");
+    gnuplot_cmd(hplot, "set grid");
+    gnuplot_cmd(hplot, "set xlabel 'frequency, rad/s'");
+    gnuplot_cmd(hplot, "set multiplot layout 1,3 rowsfirst");
+    gnuplot_cmd(hplot, "set ylabel 'Magnitude, dB'");
+    gnuplot_cmd(hplot, "set yrange [-100:5]");
+    gnuplot_cmd(hplot, "plot 'dat/cheby1_ap_test_mag.txt' with lines");
+    gnuplot_cmd(hplot, "set ylabel 'Phase response, rad'");
+    gnuplot_cmd(hplot, "unset yrange");
+    gnuplot_cmd(hplot, "plot 'dat/cheby1_ap_test_phi.txt' with lines");
+    gnuplot_cmd(hplot, "set ylabel 'Groupdelay, sec'");
+    gnuplot_cmd(hplot, "unset yrange");
+    gnuplot_cmd(hplot, "plot 'dat/cheby1_ap_test_tau.txt' with lines");
+    gnuplot_cmd(hplot, "unset multiplot");
+    gnuplot_close(hplot);
+
+    /* free dspl handle */
+    dspl_free(hdspl);
+
+    return res;
 }
 
 
