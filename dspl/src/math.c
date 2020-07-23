@@ -25,37 +25,31 @@
 
 
 
-
 #if DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SPEC_MATH_TRIG_GROUP
 \fn int acos_cmplx(complex_t* x, int n, complex_t *y)
-\brief    The inverse of the cosine function the complex vector argument `x`
+\brief The inverse of the cosine function the complex vector argument `x`.
 
 Function calculates the inverse of the cosine function as: \n
-
 \f[
 \textrm{Arccos}(x) = \frac{\pi}{2} - \textrm{Arcsin}(x) = 
 \frac{\pi}{2} -j \textrm{Ln}\left( j x + \sqrt{1 - x^2} \right)
 \f]
 
 
-\param[in]    x
+\param[in] x
 Pointer to the argument vector `x`. \n
-Vector size is `[n x 1]`. \n
-\n
+Vector size is `[n x 1]`. \n\n
 
-\param[in]    n
-Input vector `x` and the inverse cosine vector `y` size. \n
-\n
-
+\param[in] n
+Input vector `x` and the inverse cosine vector `y` size. \n\n
 
 \param[out] y
 Pointer to the output complex vector `y`, 
 corresponds to the input vector `x`. \n 
 Vector size is `[n x 1]`. \n
-Memory must be allocated. \n
-\n
+Memory must be allocated. \n\n
 
 \return
 `RES_OK` if function calculated successfully. \n
@@ -73,7 +67,6 @@ Example: \n
         printf("acos_cmplx(%.1f%+.1fj) = %.3f%+.3fj\n", 
                 RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
 \endcode 
-\n
 
 Output is: \n
 \verbatim
@@ -82,16 +75,14 @@ acos_cmplx(3.0+4.0j) = 0.937-2.306j
 acos_cmplx(5.0+6.0j) = 0.880-2.749j
 \endverbatim
 
-\author
-Sergey Bakhurin www.dsplib.org
+\author Sergey Bakhurin www.dsplib.org
 ***************************************************************************** */
 #endif
-
 #if DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_TRIG_GROUP
 \fn int acos_cmplx(complex_t* x, int n, complex_t *y)
-\brief  Арккосинус комплексного аргумента `x`
+\brief  Арккосинус комплексного аргумента `x`.
 
 Функция рассчитывает значения арккосинуса комплексного аргумента, 
 заданного вектором `x` длины `n`:  \n
@@ -100,14 +91,12 @@ Sergey Bakhurin www.dsplib.org
 \frac{\pi}{2} -j \textrm{Ln}\left( j x + \sqrt{1 - x^2} \right)
 \f]  
 
-
 \param[in]  x
 Указатель на вектор аргумента комплексного арккосинуса. \n
 Размер вектора `[n x 1]`.  \n \n
 
 \param[in]  n
 Размер входного и выходного векторов `x` и `y`. \n \n
-
 
 \param[out] y
 Указатель на вектор значений комплексного арккосинуса,
@@ -128,12 +117,12 @@ Sergey Bakhurin www.dsplib.org
     complex_t x[3] = {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}};
     complex_t y[3];
     int k;
-  
+    
     acos_cmplx(x, 3, y);
-  
+    
     for(k = 0; k < 3; k++)
         printf("acos_cmplx(%.1f%+.1fj) = %.3f%+.3fj\n", 
-               RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
+                 RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
 \endcode 
 \n
 
@@ -145,9 +134,9 @@ acos_cmplx(3.0+4.0j) = 0.937-2.306j
 acos_cmplx(5.0+6.0j) = 0.880-2.749j
 \endverbatim
 
-\author
-Бахурин Сергей www.dsplib.org 
+\author Бахурин Сергей www.dsplib.org 
 ***************************************************************************** */
+
 #endif
 int DSPL_API acos_cmplx(complex_t* x, int n, complex_t *y)
 {
@@ -169,9 +158,116 @@ int DSPL_API acos_cmplx(complex_t* x, int n, complex_t *y)
 
 
 
-/******************************************************************************
-The inverse of the sine function the complex vector argument `x`
-*******************************************************************************/
+#ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup SPEC_MATH_TRIG_GROUP
+\fn int asin_cmplx(complex_t* x, int n, complex_t *y)
+\brief The inverse of the sine function the complex vector argument `x`.
+
+Function calculates the inverse of the sine function as: \n
+\f[
+\textrm{Arcsin}(x) = j \textrm{Ln}\left( j x + \sqrt{1 - x^2} \right)
+\f]    
+
+
+\param[in]    x
+Pointer to the argument vector `x`. \n
+Vector size is `[n x 1]`. \n\n
+
+\param[in]    n
+Input vector `x` and the inverse sine vector `y` size. \n\n
+
+\param[out] y
+Pointer to the output complex vector `y`,
+corresponds to the input vector `x`.\n
+Vector size is `[n x 1]`. \n
+Memory must be allocated. \n\n
+
+\return
+`RES_OK` if function calculated successfully.\n
+Else \ref ERROR_CODE_GROUP "code error". \n
+
+Example: \n
+\code{.cpp}
+    complex_t x[3] = {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}};
+    complex_t y[3];
+    int k;
+    
+    asin_cmplx(x, 3, y);    
+    for(k = 0; k < 3; k++)
+        printf("asin_cmplx(%.1f%+.1fj) = %.3f%+.3fj\n", 
+                RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
+
+\endcode 
+\n
+
+Output is: \n
+\verbatim
+asin_cmplx(1.0+2.0j) = 0.427+1.529j
+asin_cmplx(3.0+4.0j) = 0.634+2.306j
+asin_cmplx(5.0+6.0j) = 0.691+2.749j
+\endverbatim
+
+\author Sergey Bakhurin www.dsplib.org
+***************************************************************************** */
+#endif
+#ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup SPEC_MATH_TRIG_GROUP
+\fn int asin_cmplx(complex_t* x, int n, complex_t *y)
+\brief  Арксинус комплексного аргумента `x`.
+
+Функция рассчитывает значения арксинуса комплексного аргумента, 
+заданного вектором `x` длины `n`:  \n
+\f[
+ \textrm{Arcsin}(x) = j \textrm{Ln}\left( j x + \sqrt{1 - x^2} \right)
+\f]  
+
+\param[in]  x
+Указатель на вектор аргумента комплексного арксинуса. \n
+Размер вектора `[n x 1]`.  \n \n
+
+\param[in]  n
+Размер входного и выходного векторов `x` и `y`. \n \n
+
+\param[out] y
+Указатель на вектор значений комплексного арксинуса,
+соответствующего входному вектору `x`. \n
+Размер массива `[n x 1]`.  \n
+Память должна быть выделена.  \n \n
+
+\return
+`RES_OK` если значение функции рассчитано успешно   .  \n
+В противном случае \ref ERROR_CODE_GROUP "код ошибки": \n
+
+\note 
+Функция может использоваться для расчета арксинуса аргумента 
+большего единицы, когда вещественная функция `acos` не определена.
+
+Например при выполнении следующего кода 
+\code{.cpp}
+    complex_t x[3] = {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}};
+    complex_t y[3];
+    int k;
+    
+    asin_cmplx(x, 3, y);  
+    for(k = 0; k < 3; k++)
+        printf("asin_cmplx(%.1f%+.1fj) = %.3f%+.3fj\n", 
+                RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
+\endcode 
+\n
+
+Результатом работы будет
+
+\verbatim
+asin_cmplx(1.0+2.0j) = 0.427+1.529j
+asin_cmplx(3.0+4.0j) = 0.634+2.306j
+asin_cmplx(5.0+6.0j) = 0.691+2.749j
+\endverbatim
+
+\author Бахурин Сергей www.dsplib.org 
+***************************************************************************** */
+#endif
 int DSPL_API asin_cmplx(complex_t* x, int n, complex_t *y)
 {
     int k;
@@ -198,15 +294,95 @@ int DSPL_API asin_cmplx(complex_t* x, int n, complex_t *y)
 
 
 
-/*******************************************************************************
-Modified Bessel Function of the First Kind – I0(x) [1]
 
-[1] Rational Approximations for the Modified Bessel Function
-        of the First Kind – I0(x) for Computations with Double Precision
-        by PAVEL HOLOBORODKO on NOVEMBER 11, 2015
+#ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup SPEC_MATH_TRANSCEND
+\fn int bessel_i0(double* x, int n, double* y)
+\brief Modified Bessel Function of the First Kind – \f$ I_0(x)\f$ [1].
 
-        https://www.advanpix.com/2015/11/11/
-*******************************************************************************/
+\param[in] x
+Pointer to the function argument vector \f$ x \f$. \n
+Vector size is `[n x 1]`. \n
+Input vector must contain nonnegative values. \n \n
+
+\param[in] n
+Input vector size `x`. \n \n
+
+\param[out] y
+Pointer to \f$ I_0(x)\f$ function vector. \n
+Vector size is `[n x 1]`. \n
+Memory must be allocated. \n \n
+
+\return
+`RES_OK` if function calculated successfully. \n
+Else \ref ERROR_CODE_GROUP "code error". \n
+
+\note
+[1] Rational Approximations for the Modified Bessel Function 
+    of the First Kind – I0(x) for Computations with Double Precision
+    by PAVEL HOLOBORODKO on NOVEMBER 11, 2015
+
+Example:
+
+\include bessel_i0.c
+
+Program calcultes \f$ I_0(x)\f$ function for `x` 
+in    \f$[0 \ 3]\f$ interval. 
+Data saved if `dat/dat0.txt` file and shows on the plot
+
+\image html bessel_i0.png
+
+\author Sergey Bakhurin www.dsplib.org
+***************************************************************************** */
+#endif
+#ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup SPEC_MATH_TRANSCEND
+\fn int bessel_i0(double* x, int n, double* y)
+\brief
+Модифицированная функция Бесселя первого рода \f$ I_0(x)\f$.
+
+Функция рассчитывает значения функции для вещественного вектора `x`, 
+который должен принимать неотрицательные значения. \n
+
+\param[in]  x
+Указатель на вектор переменной \f$ x \f$. \n
+Размер вектора `[n x 1]`. \n
+Память должна быть выделена. \n \n
+
+\param[in]  n
+Размер входного вектора `x`. \n \n
+
+\param[out] y
+Указатель на вектор значений функции \f$ I_0(x)\f$. \n
+Размер вектора `[n x 1]`. \n
+Память должна быть выделена. \n \n
+
+\return
+`RES_OK` --- расчёт произведен успешно. \n
+В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n
+
+\note
+Используемый алгоритм описан в статье:
+Rational Approximations for the Modified Bessel Function 
+of the First Kind – I0(x) for Computations with Double Precision 
+by PAVEL HOLOBORODKO on NOVEMBER 11, 2015 
+
+Пример использования функции `bessel_i0`:
+
+\include bessel_i0.c
+
+Данная программа рассчитывает значения функции \f$ I_0(x)\f$ переменной `x` 
+в интервале \f$[0 \ 3]\f$. 
+Рассчитанные данные сохраняются в текстовый файл `dat/dat0.txt` 
+и выводятся на график `img/bessel_i0.png`
+
+\image html bessel_i0.png
+
+\author Бахурин Сергей www.dsplib.org
+***************************************************************************** */
+#endif
 int DSPL_API bessel_i0(double* x, int n, double* y)
 {
     double P16[17] = { 1.0000000000000000000000801e+00,
@@ -281,9 +457,13 @@ int DSPL_API bessel_i0(double* x, int n, double* y)
 }
 
 
-/*******************************************************************************
-module operator for double
-*******************************************************************************/
+
+#ifdef DOXYGEN_ENGLISH
+
+#endif
+#ifdef DOXYGEN_RUSSIAN
+
+#endif
 double DSPL_API dmod (double x, double y)
 {
     if(y == 0.0)
@@ -294,9 +474,114 @@ double DSPL_API dmod (double x, double y)
 
 
 
-/******************************************************************************
-The cosine function the complex vector argument `x`
-*******************************************************************************/
+#ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup SPEC_MATH_TRIG_GROUP
+\fn int cos_cmplx(complex_t* x, int n, complex_t *y)
+\brief The cosine function the complex vector argument `x`.
+
+Function calculates the cosine function as: \n
+\f[
+\textrm{cos}(x) = \frac{\exp(jx) + \exp(-jx)}{2} 
+\f]    
+
+
+\param[in] x
+Pointer to the argument vector `x`. \n
+Vector size is `[n x 1]`. \n \n
+
+\param[in] n
+Input vector `x` and the cosine vector `y` size. \n \n
+
+\param[out] y
+Pointer to the output complex vector `y`,
+corresponds to the input vector `x`. \n
+Vector size is `[n x 1]`.    \n
+Memory must be allocated.    \n \n
+
+\return
+`RES_OK` if function calculated successfully. \n
+Else \ref ERROR_CODE_GROUP "code error". \n
+
+Example: \n
+\code{.cpp}
+    complex_t x[3] = {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}};
+    complex_t y[3];
+    int k;
+    
+    cos_cmplx(x, 3, y);
+    
+    for(k = 0; k < 3; k++)
+        printf("cos_cmplx(%.1f%+.1fj) = %9.3f%+9.3fj\n", 
+                RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
+    
+\endcode 
+
+Output is: \n
+\verbatim
+cos_cmplx(1.0+2.0j) =       2.033   -3.052j
+cos_cmplx(3.0+4.0j) =     -27.035   -3.851j
+cos_cmplx(5.0+6.0j) =      57.219 +193.428j
+\endverbatim
+
+\author Sergey Bakhurin www.dsplib.org
+***************************************************************************** */
+#endif
+#ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup SPEC_MATH_TRIG_GROUP
+\fn int cos_cmplx(complex_t* x, int n, complex_t *y)
+\brief  Косинус комплексного аргумента `x`.
+
+Функция рассчитывает значения косинуса комплексного аргумента, 
+заданного вектором `x` длины `n`:  \n
+\f[
+\textrm{cos}(x) = \frac{\exp(jx) + \exp(-jx)}{2} 
+\f]  
+
+\param[in]  x
+Указатель на вектор аргумента комплексного косинуса. \n
+Размер вектора `[n x 1]`.  \n \n
+
+\param[in]  n
+Размер входного и выходного векторов `x` и `y`. \n \n
+
+\param[out] y
+Указатель на вектор значений комплексного косинуса,
+соответствующего входному вектору `x`. \n
+Размер массива `[n x 1]`.  \n
+Память должна быть выделена.  \n \n
+
+\return
+`RES_OK` если значение функции рассчитано успешно   .  \n
+В противном случае \ref ERROR_CODE_GROUP "код ошибки": \n
+
+Например при выполнении следующего кода 
+\code{.cpp}
+    complex_t x[3] = {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}};
+    complex_t y[3];
+    int k;
+    
+    cos_cmplx(x, 3, y);
+    
+    for(k = 0; k < 3; k++)
+        printf("cos_cmplx(%.1f%+.1fj) = %9.3f%+9.3fj\n", 
+                RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
+    
+ \endcode 
+ \n
+
+Результатом работы будет
+
+\verbatim
+cos_cmplx(1.0+2.0j) =     2.033   -3.052j
+cos_cmplx(3.0+4.0j) =   -27.035   -3.851j
+cos_cmplx(5.0+6.0j) =    57.219 +193.428j
+\endverbatim
+
+\author Бахурин Сергей www.dsplib.org 
+***************************************************************************** */
+#endif
 int DSPL_API cos_cmplx(complex_t* x, int n, complex_t *y)
 {
     int k;
@@ -320,10 +605,116 @@ int DSPL_API cos_cmplx(complex_t* x, int n, complex_t *y)
 
 
 
+#ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup SPEC_MATH_COMMON_GROUP
+\fn int log_cmplx(complex_t* x, int n, complex_t *y)
+\brief The logarithm function the complex vector argument `x`.
 
-/******************************************************************************
-The logarithm function the complex vector argument `x`
-*******************************************************************************/
+Function calculates the logarithm function as: \n
+\f[
+\textrm{Ln}(x) = j \varphi + \ln(|x|), 
+\f]    
+here \f$\varphi\f$ - the complex number phase.
+
+\param[in] x
+Pointer to the argument vector `x`. \n
+Vector size is `[n x 1]`.    \n \n
+
+\param[in] n
+Input vector `x` and the logarithm vector `y` size. \n \n
+
+\param[out] y
+Pointer to the output complex vector `y`,
+corresponds to the input vector `x`. \n
+Vector size is `[n x 1]`.    \n
+Memory must be allocated.    \n \n
+
+\return
+`RES_OK` if function calculated successfully.    \n
+Else \ref ERROR_CODE_GROUP "code error". \n
+
+Example: \n
+\code{.cpp}
+    complex_t x[3] = {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}};
+    complex_t y[3];
+    int k;
+    
+    log_cmplx(x, 3, y);    
+
+    for(k = 0; k < 3; k++)
+        printf("log_cmplx(%.1f%+.1fj) = %.3f%+.3fj\n", 
+               RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
+\endcode 
+ \n
+
+Output is: \n
+\verbatim
+log_cmplx(1.0+2.0j) = 0.805+1.107j
+log_cmplx(3.0+4.0j) = 1.609+0.927j
+log_cmplx(5.0+6.0j) = 2.055+0.876j
+\endverbatim
+
+\author
+Sergey Bakhurin www.dsplib.org
+***************************************************************************** */
+#endif
+#ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup SPEC_MATH_COMMON_GROUP
+\fn int log_cmplx(complex_t* x, int n, complex_t *y)
+\brief  Натуральный логарифм комплексного аргумента `x`.
+
+Функция рассчитывает значения натурального логарифма комплексного аргумента, 
+заданного вектором `x` длины `n`:  \n
+\f[
+\textrm{Ln}(x) = j \varphi + \ln(|x|), 
+\f]  
+где \f$\varphi\f$ --- фаза комплексного числа.
+
+\param[in]  x
+Указатель на комплексный вектор аргумента логарифма. \n
+Размер вектора `[n x 1]`.  \n \n
+
+\param[in]  n
+Размер входного и выходного векторов `x` и `y`. \n \n
+
+\param[out] y
+Указатель на вектор значений комплексного логарифма,
+соответствующего входному вектору `x`. \n
+Размер массива `[n x 1]`.  \n
+Память должна быть выделена.  \n \n
+
+\return
+`RES_OK` если значение функции рассчитано успешно.  \n
+В противном случае \ref ERROR_CODE_GROUP "код ошибки": \n
+
+Например при выполнении следующего кода 
+\code{.cpp}
+    complex_t x[3] = {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}};
+    complex_t y[3];
+    int k;
+    
+    log_cmplx(x, 3, y);  
+    
+    for(k = 0; k < 3; k++)
+        printf("log_cmplx(%.1f%+.1fj) = %.3f%+.3fj\n", 
+                RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
+     
+ \endcode 
+ \n
+
+Результатом работы будет
+
+\verbatim
+log_cmplx(1.0+2.0j) = 0.805+1.107j
+log_cmplx(3.0+4.0j) = 1.609+0.927j
+log_cmplx(5.0+6.0j) = 2.055+0.876j
+\endverbatim
+
+\author Бахурин Сергей www.dsplib.org 
+***************************************************************************** */
+#endif
 int DSPL_API log_cmplx(complex_t* x, int n, complex_t *y)
 {
     int k;
@@ -346,9 +737,115 @@ int DSPL_API log_cmplx(complex_t* x, int n, complex_t *y)
 
 
 
-/******************************************************************************
-\brief    The sine function the complex vector argument `x`
-*******************************************************************************/
+#ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup SPEC_MATH_TRIG_GROUP
+\fn int sin_cmplx(complex_t* x, int n, complex_t *y)
+\brief The sine function the complex vector argument `x`.
+
+Function calculates the sine function as: \n
+\f[
+\textrm{cos}(x) = \frac{\exp(jx) - \exp(-jx)}{2j} 
+\f]    
+
+
+\param[in]    x
+Pointer to the argument vector `x`. \n
+Vector size is `[n x 1]`.    \n \n
+
+\param[in]    n
+Input vector `x` and the sine vector `y` size. \n \n
+
+\param[out] y
+Pointer to the output complex vector `y`,
+corresponds to the input vector `x`. \n
+Vector size is `[n x 1]`.    \n
+Memory must be allocated.    \n \n
+
+\return
+`RES_OK` if function calculated successfully.    \n
+Else \ref ERROR_CODE_GROUP "code error". \n
+
+Example: \n
+\code{.cpp}
+    complex_t x[3] = {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}};
+    complex_t y[3];
+    int k;
+    
+    sin_cmplx(x, 3, y);
+    
+    for(k = 0; k < 3; k++)
+        printf("sin_cmplx(%.1f%+.1fj) = %9.3f%+9.3fj\n", 
+                RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
+     
+\endcode 
+ \n
+
+Output is: \n
+\verbatim
+sin_cmplx(1.0+2.0j) =       3.166  +1.960j
+sin_cmplx(3.0+4.0j) =       3.854 -27.017j
+sin_cmplx(5.0+6.0j) =    -193.430 +57.218j
+\endverbatim
+
+\author Sergey Bakhurin www.dsplib.org
+***************************************************************************** */
+#endif
+#ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup SPEC_MATH_TRIG_GROUP
+\fn int sin_cmplx(complex_t* x, int n, complex_t *y)
+\brief  Синус комплексного аргумента `x`.
+
+Функция рассчитывает значения синуса комплексного аргумента, 
+заданного вектором `x` длины `n`:  \n
+\f[
+\textrm{sin}(x) = \frac{\exp(jx) - \exp(-jx)}{2j} 
+\f]  
+
+\param[in]  x
+Указатель на вектор аргумента комплексного синуса. \n
+Размер вектора `[n x 1]`.  \n \n
+
+\param[in]  n
+Размер входного и выходного векторов `x` и `y`. \n \n
+
+\param[out] y
+Указатель на вектор значений комплексного синуса,
+соответствующего входному вектору `x`. \n
+Размер массива `[n x 1]`.  \n
+Память должна быть выделена.  \n \n
+
+\return
+`RES_OK` если значение функции рассчитано успешно   .  \n
+В противном случае \ref ERROR_CODE_GROUP "код ошибки": \n
+
+Например при выполнении следующего кода 
+\code{.cpp}
+    complex_t x[3] = {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}};
+    complex_t y[3];
+    int k;
+    
+    sin_cmplx(x, 3, y);
+    
+    for(k = 0; k < 3; k++)
+        printf("sin_cmplx(%.1f%+.1fj) = %9.3f%+9.3fj\n", 
+                RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
+    
+ \endcode 
+ \n
+
+Результатом работы будет
+
+\verbatim
+sin_cmplx(1.0+2.0j) =     3.166   +1.960j
+sin_cmplx(3.0+4.0j) =     3.854  -27.017j
+sin_cmplx(5.0+6.0j) =  -193.430  +57.218j
+\endverbatim
+
+\author Бахурин Сергей www.dsplib.org 
+***************************************************************************** */
+#endif
 int DSPL_API sin_cmplx(complex_t* x, int n, complex_t *y)
 {
     int k;
@@ -374,10 +871,68 @@ int DSPL_API sin_cmplx(complex_t* x, int n, complex_t *y)
 
 
 
+#ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup SPEC_MATH_COMMON_GROUP
+\fn int sinc(double* x, int n, double a, double* y)
+\brief Function \f$ \textrm{sinc}(x,a) = \frac{\sin(ax)}{ax}\f$ 
+for the real vector `x`.
 
-/*******************************************************************************
-sinc(x) = sin(pi*x)/(pi*x)
-*******************************************************************************/
+\param[in] x
+Pointer to the input vector \f$ x \f$. \n
+Vector size is `[n x 1]`. \n \n
+
+\param[in] n
+Input and output vectors size. \n \n
+
+\param[in]    a
+Function parameter \f$ \textrm{sinc}(x,a) = \frac{\sin(ax)}{ax}\f$. \n\n
+
+\param[out]    y
+Pointer to the `sinc` function output vector. \n
+Vector size is `[n x 1]`. \n
+Memory must be allocated. \n \n
+
+\return
+`RES_OK` if function calculated successfully.    \n
+Else \ref ERROR_CODE_GROUP "code error". \n
+
+\author Sergey Bakhurin www.dsplib.org
+***************************************************************************** */
+#endif
+#ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup SPEC_MATH_COMMON_GROUP
+\fn int sinc(double* x, int n, double a, double* y)
+\brief Функция \f$ \textrm{sinc}(x,a) = \frac{\sin(ax)}{ax}\f$.
+
+Функция рассчитывает значения функции для вещественного вектора `x`.
+
+\param[in]  x
+Указатель на вектор переменной \f$ x \f$. \n
+Размер вектора `[n x 1]`. \n
+Память должна быть выделена. \n \n
+
+\param[in]  n
+Размер входного вектора `x`. \n \n
+
+\param[in]  a
+Параметр функции \f$ \textrm{sinc}(x,a) = \frac{\sin(ax)}{ax}\f$. \n\n
+
+
+\param[out]  y
+Указатель на вектор значений функции. \n
+ Размер вектора `[n x 1]`. \n
+ Память должна быть выделена. \n  \n
+
+
+\return
+`RES_OK` --- расчёт произведен успешно. \n
+В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n
+
+\author Бахурин Сергей www.dsplib.org
+***************************************************************************** */
+#endif
 int DSPL_API sinc(double* x, int n, double a, double* y)
 {
     int k;
@@ -397,39 +952,117 @@ int DSPL_API sinc(double* x, int n, double a, double* y)
 
 
 
-/*******************************************************************************
-Sine integral
---------------------------------------------------------------------------------
-This function uses Padé approximants of the convergent Taylor series [1]
+#ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup SPEC_MATH_TRANSCEND
+\fn int sine_int(double* x, int n, double* si)
+\brief Sine integral function \f$\textrm{Si}(x)\f$ for the real vector `x`.
 
+\f[ \textrm{Si}(x) = \int_{0}^{x} \frac{\sin(x)}{x} \, dx\f]
 
-[1]
-https://www.sciencedirect.com/science/article/pii/S221313371500013X?via%3Dihub
+This function uses 
+<a href = "https://www.sciencedirect.com/science/article/pii/S221313371500013X?via%3Dihub">
+Padé approximants of the convergent Taylor series.
+</a>
 
-*******************************************************************************/
+\param[in] x
+Pointer to the input vector \f$ x \f$. \n
+Vector size is `[n x 1]`. \n
+Memory must be allocated. \n\n
+
+\param[in] n
+Size of input vector `x`. \n\n
+
+\param[out] si
+Pointer to the `Si` function vector. \n
+Vector size is `[n x 1]`. \n
+Memory must be allocated. \n\n
+
+\return
+`RES_OK` if function calculated successfully.    \n
+Else \ref ERROR_CODE_GROUP "code error". \n
+
+Example:
+
+\include sine_int_test.c
+
+This program calcultes sine integral \f$\textrm{Si}(x)\f$ and 
+\f$\textrm{sinc}(x)\f$ functions for input `x` vector in interval
+\f$[-6\pi \ 6\pi]\f$. 
+Functions values saved to th    
+`dat/dat0.txt` and `dat/dat1.txt` files and showed on the figure:
+
+\image html sine_int.png
+
+\author Sergey Bakhurin www.dsplib.org
+***************************************************************************** */
+#endif
+#ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup SPEC_MATH_TRANSCEND
+\fn int sine_int(double* x, int n, double* si)
+\brief Функция интегрального синуса
+\f[ \textrm{Si}(x) = \int_{0}^{x} \frac{\sin(x)}{x} \, dx\f]
+Функция рассчитывает значения функции для интегрального синуса 
+для произвольного вещественного вектора `x`.
+
+\param[in] x
+Указатель на вектор переменной \f$ x \f$. \n
+Размер вектора `[n x 1]`. \n
+Память должна быть выделена. \n\n
+
+\param[in] n
+Размер входного вектора `x`. \n\n
+
+\param[out] si
+Указатель на вектор значений функции интегрального синуса. \n
+Размер вектора `[n x 1]`. \n
+Память должна быть выделена. \n\n
+
+\return
+`RES_OK` --- расчёт произведен успешно. \n
+В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n
+
+Пример использования функции `sine_int`:
+
+\include sine_int_test.c
+
+Данная программа рассчитывает значения функции интегрального синуса и
+функции \ref sinc для вектора переменной `x` 
+в интервале \f$[-6\pi \ 6\pi]\f$. 
+Рассчитанные данные сохраняются в текстовые файлы 
+`dat/dat0.txt` и `dat/dat1.txt`
+
+и выводятся на график `img/sine_int.png`
+
+\image html sine_int.png
+
+\author Бахурин Сергей www.dsplib.org
+***************************************************************************** */
+#endif
 int DSPL_API sine_int(double* x, int n, double* si)
 {
     int k, sgn, p;
     double num, den, y, x2, x22, z, f, g;
 
-    double A[8] =     {+1.00000000000000000E0,
-                       -4.54393409816329991E-2,
-                       +1.15457225751016682E-3,
-                       -1.41018536821330254E-5,
-                       +9.43280809438713025E-8,
-                       -3.53201978997168357E-10,
-                       +7.08240282274875911E-13,
-                       -6.05338212010422477E-16};
+    double A[8] =   {+1.00000000000000000E0,
+                     -4.54393409816329991E-2,
+                     +1.15457225751016682E-3,
+                     -1.41018536821330254E-5,
+                     +9.43280809438713025E-8,
+                     -3.53201978997168357E-10,
+                     +7.08240282274875911E-13,
+                     -6.05338212010422477E-16};
 
 
 
-    double B[7]    =    {+1.0,
-                         +1.01162145739225565E-2,
-                         +4.99175116169755106E-5,
-                         +1.55654986308745614E-7,
-                         +3.28067571055789734E-10,
-                         +4.50490975753865810E-13,
-                         +3.21107051193712168E-16};
+    double B[7] =   {+1.0,
+                     +1.01162145739225565E-2,
+                     +4.99175116169755106E-5,
+                     +1.55654986308745614E-7,
+                     +3.28067571055789734E-10,
+                     +4.50490975753865810E-13,
+                     +3.21107051193712168E-16};
 
 
 
@@ -563,28 +1196,29 @@ int DSPL_API sine_int(double* x, int n, double* si)
 
 
 
-
-
-/******************************************************************************
+#ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
 \ingroup SPEC_MATH_COMMON_GROUP
 \fn int sqrt_cmplx(complex_t* x, int n, complex_t *y)
 \brief Square root of the complex vector argguument `x`.
 
 Function calculates square root value of vector `x` length `n`:    \n
 \f[
-y(k) = \sqrt{x(k)}, \qquad k = 0 \ldots n-1.
-\f]
+y(k) = \sqrt{x(k)}, \qquad k = 0 \ldots n-1. 
+\f]    
 
 
-\param[in]    x     Pointer to the input complex vector `x`. \n
-                                Vector size is `[n x 1]`.    \n \n
+\param[in] x
+Pointer to the input complex vector `x`. \n
+Vector size is `[n x 1]`.    \n \n
 
-\param[in]    n     Size of input and output vectors `x` and `y`. \n \n
+\param[in] n
+Size of input and output vectors `x` and `y`. \n \n
 
-
-\param[out] y     Pointer to the square root vector `y`. \n
-                                Vector size is `[n x 1]`.    \n
-                                Memory must be allocated.    \n \n
+\param[out] y
+Pointer to the square root vector `y`. \n
+Vector size is `[n x 1]`. \n
+Memory must be allocated. \n \n
 
 \return `RES_OK` if function is calculated successfully.    \n
 Else \ref ERROR_CODE_GROUP "code error". \n
@@ -594,15 +1228,70 @@ Example
     complex_t x[3] = {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}};
     complex_t y[3]
     int k;
-
+    
     sqrt_cmplx(x, 3, y);
-
+    
     for(k = 0; k < 3; k++)
-        printf("sqrt_cmplx(%.1f%+.1fj) = %.3f%+.3fj\n",
-                        RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
-
- \endcode
+        printf("sqrt_cmplx(%.1f%+.1fj) = %.3f%+.3fj\n", 
+                RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
+ 
+ \endcode 
  \n
+
+Result:
+
+\verbatim
+sqrt_cmplx(1.0+2.0j) = 1.272+0.786j
+sqrt_cmplx(3.0+4.0j) = 2.000+1.000j
+sqrt_cmplx(5.0+6.0j) = 2.531+1.185j
+\endverbatim
+
+\author Sergey Bakhurin www.dsplib.org 
+***************************************************************************** */
+#endif
+#ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup SPEC_MATH_COMMON_GROUP
+\fn int sqrt_cmplx(complex_t* x, int n, complex_t *y)
+\brief  Квадратный корень из комплексного вектора `x` (поэлементный).
+
+Функция рассчитывает значения квадратного корня комплексного аргумента, 
+заданного вектором `x` длины `n`:  \n
+\f[
+y(k) = \sqrt{x(k)}, \qquad k = 0 \ldots n-1. 
+\f]  
+
+\param[in]  x
+Указатель на вектор аргумента квадратного корня. \n
+Размер вектора `[n x 1]`.  \n \n
+
+\param[in]  n
+Размер входного и выходного векторов `x` и `y`. \n \n
+
+\param[out] y
+Указатель на вектор значений комплексного корня,
+соответствующего входному вектору `x`. \n
+Размер массива `[n x 1]`.  \n
+Память должна быть выделена.  \n \n
+
+\return
+`RES_OK` если значение функции рассчитано успешно   .  \n
+В противном случае \ref ERROR_CODE_GROUP "код ошибки": \n
+
+Например при выполнении следующего кода 
+\code{.cpp}
+    complex_t x[3] = {{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}};
+    complex_t y[3];
+    int k;
+    
+    sqrt_cmplx(x, 3, y);
+    
+    for(k = 0; k < 3; k++)
+        printf("sqrt_cmplx(%.1f%+.1fj) = %.3f%+.3fj\n", 
+                RE(x[k]), IM(x[k]), RE(y[k]), IM(y[k]));
+ 
+\endcode 
+\n
 
 Результатом работы будет
 
@@ -612,8 +1301,9 @@ sqrt_cmplx(3.0+4.0j) = 2.000+1.000j
 sqrt_cmplx(5.0+6.0j) = 2.531+1.185j
 \endverbatim
 
-\author Sergey Bakhurin www.dsplib.org
-*******************************************************************************/
+\author Бахурин Сергей www.dsplib.org 
+***************************************************************************** */
+#endif
 int DSPL_API sqrt_cmplx(complex_t* x, int n, complex_t *y)
 {
     int k;

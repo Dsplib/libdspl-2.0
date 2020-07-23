@@ -11,11 +11,11 @@
 *
 * DSPL is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.    See the
 * GNU General Public License for more details.
 *
 * You should have received a copy of the GNU General Public License
-* along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+* along with Foobar. If not, see <http://www.gnu.org/licenses/>.
 */
 
 
@@ -24,48 +24,52 @@
 #include "dspl.h"
 
 
-/******************************************************************************
-Numerical integration of real data using the trapezoidal method.
-*******************************************************************************/
+#ifdef DOXYGEN_ENGLISH
+
+#endif
+#ifdef DOXYGEN_RUSSIAN
+
+#endif
 int DSPL_API trapint(double* x, double* y, int n, double* sum)
 {
-  int k;
+    int k;
 
-  if(!x || !y)
-    return ERROR_PTR;
-  if(n<2)
-    return ERROR_SIZE;
-  *sum = 0.0;
+    if(!x || !y)
+        return ERROR_PTR;
+    if(n<2)
+        return ERROR_SIZE;
+    *sum = 0.0;
 
-  for(k = 1; k < n; k++)
-    *sum += 0.5 * (x[k] - x[k-1]) * (y[k] + y[k-1]);
+    for(k = 1; k < n; k++)
+        *sum += 0.5 * (x[k] - x[k-1]) * (y[k] + y[k-1]);
 
-  return RES_OK;
+    return RES_OK;
 }
 
 
 
+#ifdef DOXYGEN_ENGLISH
 
-/*******************************************************************************
-Numerical integration of complex data using the trapezoidal method.
-*******************************************************************************/
+#endif
+#ifdef DOXYGEN_RUSSIAN
+
+#endif
 int DSPL_API trapint_cmplx(double* x, complex_t* y, int n, complex_t* sum)
 {
+    int k;
+    double dx;
+    if(!x || !y)
+        return ERROR_PTR;
+    if(n<2)
+        return ERROR_SIZE;
+    RE(*sum) = IM(*sum) = 0.0;
 
-  int k;
-  double dx;
-  if(!x || !y)
-    return ERROR_PTR;
-  if(n<2)
-    return ERROR_SIZE;
-  RE(*sum) = IM(*sum) = 0.0;
-
-  for(k = 1; k < n; k++)
-  {
-    dx = 0.5 * (x[k] - x[k-1]);
-    RE(*sum) +=  dx * (RE(y[k]) + RE(y[k-1]));
-    IM(*sum) +=  dx * (IM(y[k]) + IM(y[k-1]));
-  }
-  return RES_OK;
+    for(k = 1; k < n; k++)
+    {
+        dx = 0.5 * (x[k] - x[k-1]);
+        RE(*sum) +=    dx * (RE(y[k]) + RE(y[k-1]));
+        IM(*sum) +=    dx * (IM(y[k]) + IM(y[k-1]));
+    }
+    return RES_OK;
 }
 

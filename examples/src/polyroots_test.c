@@ -8,10 +8,10 @@
 int main(int argc, char* argv[])
 {
     void* hdspl;                     /* DSPL handle           */
-    double a[N+1] = {2.0, 2.0, 1.0}; /* P(x) = 0.5 - 2x + x^2 */
+    double a[N+1] = {2.0, 2.0, 1.0}; /* P(x) = 2 + 2x + x^2   */
     complex_t r[N] = {0};            /* roots                 */
     int err, n, info;
-    hdspl = dspl_load();            /* Load DSPL functions   */
+    hdspl = dspl_load();            /* Load DSPL functions    */
     if(!hdspl)
     {
         printf("libdspl loading error!\n");

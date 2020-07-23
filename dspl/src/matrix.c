@@ -5,17 +5,17 @@
 * This file is part of libdspl-2.0.
 *
 * is free software: you can redistribute it and/or modify
-* it under the terms of the GNU Lesser  General Public License as published by
+* it under the terms of the GNU Lesser    General Public License as published by
 * the Free Software Foundation, either version 3 of the License, or
 * (at your option) any later version.
 *
 * DSPL is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.    See the
 * GNU General Public License for more details.
 *
 * You should have received a copy of the GNU Lesser General Public License
-* along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+* along with Foobar.    If not, see <http://www.gnu.org/licenses/>.
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -27,415 +27,457 @@
 
 
 
+#ifdef DOXYGEN_ENGLISH
 
+#endif
+#ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup SPEC_MATH_LINALG_GROUP
+\fn int matrix_eig_cmplx(complex_t* a, int n, complex_t* v, int* info)
+
+\brief Расчет собственных значений квадратной комплексной матрицы.
+
+Данная функция производит расчет `n` собственных значений квадратной матрицы 
+размером `n x n`. 
+
+\param[in]  a
+Указатель на комплексную матрицу размерности `n x n`. \n
+Матрица должна быть расположена в памяти по столбцам. \n\n
+
+\param[in]  n
+Размерность квадратной матрицы.\n
+
+\param[out]  v
+Указатель на вектор собственных значений матрицы. \n 
+Размер вектора `n x 1`. \n 
+Память должна быть выделена. \n\n
+
+\param[out]  info
+Указатель на код возврата функции `zgees` пакета LAPACK. \n
+В случае возникновения ошибки при расчете вектора собственных значений,
+пакет LAPACK возвращает код ошибки, который может быть прочитан по данному
+указателю. \n
+
+\return
+`RES_OK` --- функция выполнена успешно. \n
+В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n
+При возникновении ошибки `ERROR_LAPACK` по адресу  
+`info` будет записан код ошибки пакета LAPACK. \n
+
+
+Пример расчета собственных значений матрицы:
+\include matrix_eig.c
+
+Данная программа рассчитывает собственные значения матрицы размерности `3 x 3`
+и выводит собственные значения на печать. \n
+
+Результат работы программы:
+\verbatim
+A = [ % size [3 x 3] type: complex
+1.00   +0.00i,     2.00   +0.00i,     3.00   +0.00i;
+1.00   +0.00i,     0.00   +0.00i,     0.00   +0.00i;
+0.00   +0.00i,     1.00   +0.00i,     0.00   +0.00i;];
+
+v = [ % size [3 x 1] type: complex
+ 2.374424 -0.000000i;    
+-0.687212 +0.889497i;
+-0.687212 -0.889497i;];
+\endverbatim
+
+\author Бахурин Сергей www.dsplib.org
+***************************************************************************** */
+#endif
 int DSPL_API matrix_eig_cmplx(complex_t* a, int n, complex_t* v, int* info)
 {
-  int err;
-  int sdim = 0;
-  int ldvs = 1;
-  int lwork = 2*n;
-  if(!a || !v)
-    return ERROR_PTR;
-  
-  if(n<1)
-    return ERROR_MATRIX_SIZE;
-  
-  complex_t *work=(complex_t*)malloc(lwork*sizeof(complex_t)); 
-  double *rwork = (double*)malloc(n*sizeof(double)); 
+    int err;
+    int sdim = 0;
+    int ldvs = 1;
+    int lwork = 2*n;
+    if(!a || !v)
+        return ERROR_PTR;
+    
+    if(n<1)
+        return ERROR_MATRIX_SIZE;
+    
+    complex_t *work=(complex_t*)malloc(lwork*sizeof(complex_t)); 
+    double *rwork = (double*)malloc(n*sizeof(double)); 
 
-  zgees_("N", "N", NULL, &n, a, &n, &sdim, v, NULL, &ldvs, work, &lwork, 
-         rwork, NULL, &err);
-  
-  if(err!=0)
-  {
-    if(info)
-      *info = err;
-    err = ERROR_LAPACK;
-  }
-  else
-    err = RES_OK;
-  
-  free(work);
-  free(rwork);
-  return err;
+    zgees_("N", "N", NULL, &n, a, &n, &sdim, v, NULL, &ldvs, work, &lwork, 
+           rwork, NULL, &err);
+    
+    if(err!=0)
+    {
+        if(info)
+            *info = err;
+        err = ERROR_LAPACK;
+    }
+    else
+        err = RES_OK;
+    
+    free(work);
+    free(rwork);
+    return err;
 }
 
 
 
+#ifdef DOXYGEN_ENGLISH
 
-/*******************************************************************************
-Real matrix eye
-*******************************************************************************/
+#endif
+#ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup SPEC_MATH_LINALG_GROUP
+\fn int matrix_eye(double* a, int n, int m)
+\brief Генерирование единичной вещественой матрицы размерности `n x m`.
+
+Данная функция заполняет матрицу нулями 
+и записывает единицы на главной диагонали
+
+\param[in]  a
+Указатель на вещественную матрицу размерности `n x m`. \n
+Матрица должна быть расположена в памяти по столбцам. \n \n
+
+\param[in]  n
+Количество строк матрицы. \n\n
+
+\param[in]  m
+Количество столбцов матрицы. \n\n
+
+\return
+`RES_OK` --- функция выполнена успешно. \n
+В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n
+
+\author Бахурин Сергей www.dsplib.org
+***************************************************************************** */
+#endif
 int DSPL_API matrix_eye(double* a, int n, int m)
 {
-  int  p, k;
-  if(!a)
-    return ERROR_PTR;
-  if (n < 1 || m < 1)
-    return ERROR_MATRIX_SIZE;
-    
-  k = 0;
-  memset(a, 0, n*m*sizeof(double));
-  for(p = 0; p < m; p++)
-  {
-    a[k] = 1.0;
-    k += n+1;
-  }
+    int    p, k;
+    if(!a)
+        return ERROR_PTR;
+    if (n < 1 || m < 1)
+        return ERROR_MATRIX_SIZE;
+        
+    k = 0;
+    memset(a, 0, n*m*sizeof(double));
+    for(p = 0; p < m; p++)
+    {
+        a[k] = 1.0;
+        k += n+1;
+    }
 
-  return RES_OK;
+    return RES_OK;
 }
 
 
-/*******************************************************************************
-Complex matrix eye 
-*******************************************************************************/
+#ifdef DOXYGEN_ENGLISH
+
+#endif
+#ifdef DOXYGEN_RUSSIAN
+
+#endif
 int DSPL_API matrix_eye_cmplx(complex_t* a, int n, int m)
 {
-  int p, k;
-  if(!a)
-    return ERROR_PTR;
-  if (n < 1 || m < 1)
-    return ERROR_MATRIX_SIZE;
-    
-  k = 0;
-  memset(a, 0, n*m*sizeof(complex_t));
-  for(p = 0; p < m; p++)
-  {
-    RE(a[k]) = 1.0;
-    k += n+1;
-  }
-
-  return RES_OK;
-}
-
-
-
-
-/*******************************************************************************
-matrix LU decomposition
-******************************************************************************
-int DSPL_API matrix_lu(matrix_t* a, matrix_t* L, matrix_t* U, matrix_t* P)
-{
-  int err, k, n, m, N, ind;
-  double *rl, *ru, mu, ukk, gmax;
-   
-  if(!a || !L || !U || !P)
-    return ERROR_PTR;
-  
-  if(a->n != a->m || a->n < 1)
-    return ERROR_MATRIX_SIZE;
-  
-  N = a->n;
-  err = matrix_create(L, N, N, a->type);
-  if(err != RES_OK)
-    return err;
-  
-  err = matrix_create(U, N, N, a->type);
-  if(err != RES_OK)
-    return err;
-  err = matrix_create_eye(P, N, a->type);
-  if(err != RES_OK)
-    return err;
-
-  if((a->type & DAT_MASK) == DAT_DOUBLE)
-  {
-    rl = (double*)L->dat;
-    ru = (double*)U->dat;
-    
-    memcpy(ru, (double*)a->dat, N*N*sizeof(double));
-    memset(rl, 0,  N*N*sizeof(double));
-    
-    find_max_abs(ru, N*N, &gmax, NULL);
-    for(k = 0; k < N; k++)
+    int p, k;
+    if(!a)
+        return ERROR_PTR;
+    if (n < 1 || m < 1)
+        return ERROR_MATRIX_SIZE;
+        
+    k = 0;
+    memset(a, 0, n*m*sizeof(complex_t));
+    for(p = 0; p < m; p++)
     {
-      find_max_abs(ru+k*N+k, N-k, NULL, &ind);
-      ind += k;
-      matrix_swap_rows(U, k, ind);
-      matrix_swap_rows(L, k, ind);
-      matrix_swap_rows(P, k, ind);
-      ukk = ru[N*k+k];
-      if(fabs(ukk / gmax) < MATRIX_SINGULAR_THRESHOLD)
-        return ERROR_MATRIX_SINGULAR;
-      
-      for(m = k+1; m < N; m++)
-      {
-        mu = ru[m+k*N] / ukk;
-        rl[m+k*N] = mu;
-        for(n = k; n < N; n++)
-        {
-          ru[m + n*N] -= ru[k + n*N] * mu;
-        }
-      }
+        RE(a[k]) = 1.0;
+        k += n+1;
     }
-    for(n =0; n < N; n++)
-      rl[n+n*N] = 1.0;
-  }
-  
-  return RES_OK;
+
+    return RES_OK;
 }
-*/
 
 
-/*******************************************************************************
-real matrix multiplication
-*******************************************************************************/
+
+
+
+#ifdef DOXYGEN_ENGLISH
+
+#endif
+#ifdef DOXYGEN_RUSSIAN
+
+#endif
 int DSPL_API matrix_mul(double* a, int na, int ma, 
                         double* b, int nb, int mb,
                         double* c)
 {
-  
-  double alpha = 1;
-  double beta = 0.0;
-  
-  if(!a || !b || !c)
-    return ERROR_PTR;
-  if(na < 1 || ma < 1 || nb < 1 || mb < 1 || ma != nb)
-    return ERROR_MATRIX_SIZE;
+    
+    double alpha = 1;
+    double beta = 0.0;
+    
+    if(!a || !b || !c)
+        return ERROR_PTR;
+    if(na < 1 || ma < 1 || nb < 1 || mb < 1 || ma != nb)
+        return ERROR_MATRIX_SIZE;
 
-  /* BLAS DGEMM */
-  dgemm_("N", "N", &na, &mb, &ma, &alpha, a, &na, b, &nb, &beta, c, &na);
+    /* BLAS DGEMM */
+    dgemm_("N", "N", &na, &mb, &ma, &alpha, a, &na, b, &nb, &beta, c, &na);
 
-  return RES_OK;
+    return RES_OK;
 }
 
 
 
-/*******************************************************************************
-real matrix print
-*******************************************************************************/
+#ifdef DOXYGEN_ENGLISH
+
+#endif
+#ifdef DOXYGEN_RUSSIAN
+
+#endif
 int DSPL_API matrix_print(double* a, int n, int m, 
                           const char* name, const char* format)
 {
-  int p,q;
-  
-  if(!a)
-    return ERROR_PTR;
-  if(n < 1 || m < 1)
-    return ERROR_SIZE;
+    int p,q;
     
-  printf("\n%s = [ %% size [%d x %d] type: real", name, n, m);
-  
-  for(p = 0; p < n; p++)
-  {
-    printf("\n");
-    for(q = 0; q < m; q++)
+    if(!a)
+        return ERROR_PTR;
+    if(n < 1 || m < 1)
+        return ERROR_SIZE;
+        
+    printf("\n%s = [ %% size [%d x %d] type: real", name, n, m);
+    
+    for(p = 0; p < n; p++)
     {
-      printf(format, a[q*n + p]);
-      if(q == m-1)
-        printf(";");
-      else
-        printf(", ");
+        printf("\n");
+        for(q = 0; q < m; q++)
+        {
+            printf(format, a[q*n + p]);
+            if(q == m-1)
+                printf(";");
+            else
+                printf(", ");
+        }
     }
-  }
-  printf("];\n");
-  
-  return RES_OK;
+    printf("];\n");
+    
+    return RES_OK;
 }
 
 
-/*******************************************************************************
-complex matrix print
-*******************************************************************************/
+#ifdef DOXYGEN_ENGLISH
+
+#endif
+#ifdef DOXYGEN_RUSSIAN
+
+#endif
 int DSPL_API matrix_print_cmplx(complex_t* a, int n, int m, 
                                 const char* name, const char* format)
 {
-  int p,q;
+    int p,q;
 
-  if(!a)
-    return ERROR_PTR;
-  if(n < 1 || m < 1)
-    return ERROR_MATRIX_SIZE;
+    if(!a)
+        return ERROR_PTR;
+    if(n < 1 || m < 1)
+        return ERROR_MATRIX_SIZE;
 
-  if(!a)
-    return ERROR_PTR;
-  if(n < 1 || m < 1)
-    return ERROR_SIZE;
+    if(!a)
+        return ERROR_PTR;
+    if(n < 1 || m < 1)
+        return ERROR_SIZE;
+        
+    printf("\n%s = [ %% size [%d x %d] type: complex", name, n, m);
     
-  printf("\n%s = [ %% size [%d x %d] type: complex", name, n, m);
-  
-  for(p = 0; p < n; p++)
-  {
-    printf("\n");
-    for(q = 0; q < m; q++)
+    for(p = 0; p < n; p++)
     {
-      printf(format, RE(a[q*n + p]), IM(a[q*n + p]));
-      if(q == m-1)
-        printf(";");
-      else
-        printf(", ");
+        printf("\n");
+        for(q = 0; q < m; q++)
+        {
+            printf(format, RE(a[q*n + p]), IM(a[q*n + p]));
+            if(q == m-1)
+                printf(";");
+            else
+                printf(", ");
+        }
     }
-  }
-  printf("];\n");
+    printf("];\n");
 
-  return RES_OK;
+    return RES_OK;
 }
 
 
 
 
 
+#ifdef DOXYGEN_ENGLISH
 
-/*******************************************************************************
-Real matrix transpose
-*******************************************************************************/
+#endif
+#ifdef DOXYGEN_RUSSIAN
+
+#endif
 int DSPL_API matrix_transpose(double* a, int n, int m, double* b)
 {
-  int p, q, i, j, aind, bind;
-  if(!a || !b)
-    return ERROR_PTR;
-  if(n < 1 || m < 1)
-    return ERROR_MATRIX_SIZE;
-    
-    
-  for(p = 0; p < n - DSPL_MATRIX_BLOCK; p+=DSPL_MATRIX_BLOCK)
-  {
-    for(q = 0; q < m - DSPL_MATRIX_BLOCK; q+=DSPL_MATRIX_BLOCK)
+    int p, q, i, j, aind, bind;
+    if(!a || !b)
+        return ERROR_PTR;
+    if(n < 1 || m < 1)
+        return ERROR_MATRIX_SIZE;
+        
+        
+    for(p = 0; p < n - DSPL_MATRIX_BLOCK; p+=DSPL_MATRIX_BLOCK)
     {
-      for(i = 0; i < DSPL_MATRIX_BLOCK; i++)
-      {
-        for(j = 0; j < DSPL_MATRIX_BLOCK; j++)
+        for(q = 0; q < m - DSPL_MATRIX_BLOCK; q+=DSPL_MATRIX_BLOCK)
         {
-          aind = (q+j) * n + p + i;
-          bind = (p+i) * m + q + j;
-          b[bind] = a[aind];
+            for(i = 0; i < DSPL_MATRIX_BLOCK; i++)
+            {
+                for(j = 0; j < DSPL_MATRIX_BLOCK; j++)
+                {
+                    aind = (q+j) * n + p + i;
+                    bind = (p+i) * m + q + j;
+                    b[bind] = a[aind];
+                }
+            }
         }
-      }
     }
-  }
-  for(i = p; i < n; i++)
-    for(j = 0; j < m; j++)
-      b[i*m + j] = a[j*n+i];
+    for(i = p; i < n; i++)
+        for(j = 0; j < m; j++)
+            b[i*m + j] = a[j*n+i];
 
-  for(i = 0; i < p; i++)
-    for(j = q; j < m; j++)
-      b[i*m + j] = a[j*n+i];
-      
-  return RES_OK;
+    for(i = 0; i < p; i++)
+        for(j = q; j < m; j++)
+            b[i*m + j] = a[j*n+i];
+            
+    return RES_OK;
 }
 
 
 
 
 
-/*******************************************************************************
-Complex matrix transpose
-*******************************************************************************/
+#ifdef DOXYGEN_ENGLISH
+
+#endif
+#ifdef DOXYGEN_RUSSIAN
+
+#endif
 int DSPL_API matrix_transpose_cmplx(complex_t* a, int n, int m, complex_t* b)
 {
-  int p, q, i, j, aind, bind;
-  
-  if(!a || !b)
-    return ERROR_PTR;
-  if(n < 1 || m < 1)
-    return ERROR_MATRIX_SIZE;
+    int p, q, i, j, aind, bind;
     
-  for(p = 0; p < n - DSPL_MATRIX_BLOCK; p+=DSPL_MATRIX_BLOCK)
-  {
-    for(q = 0; q < m - DSPL_MATRIX_BLOCK; q+=DSPL_MATRIX_BLOCK)
+    if(!a || !b)
+        return ERROR_PTR;
+    if(n < 1 || m < 1)
+        return ERROR_MATRIX_SIZE;
+        
+    for(p = 0; p < n - DSPL_MATRIX_BLOCK; p+=DSPL_MATRIX_BLOCK)
     {
-      for(i = 0; i < DSPL_MATRIX_BLOCK; i++)
-      {
-        for(j = 0; j < DSPL_MATRIX_BLOCK; j++)
+        for(q = 0; q < m - DSPL_MATRIX_BLOCK; q+=DSPL_MATRIX_BLOCK)
         {
-          aind = (q+j) * n + p + i;
-          bind = (p+i) * m + q + j;
-          RE(b[bind]) = RE(a[aind]);
-          IM(b[bind]) = IM(a[aind]);
+            for(i = 0; i < DSPL_MATRIX_BLOCK; i++)
+            {
+                for(j = 0; j < DSPL_MATRIX_BLOCK; j++)
+                {
+                    aind = (q+j) * n + p + i;
+                    bind = (p+i) * m + q + j;
+                    RE(b[bind]) = RE(a[aind]);
+                    IM(b[bind]) = IM(a[aind]);
+                }
+            }
         }
-      }
     }
-  }
-  for(i = p; i < n; i++)
-  {
-    for(j = 0; j < m; j++)
+    for(i = p; i < n; i++)
     {
-      RE(b[i*m + j]) = RE(a[j*n+i]);
-      IM(b[i*m + j]) = IM(a[j*n+i]);
+        for(j = 0; j < m; j++)
+        {
+            RE(b[i*m + j]) = RE(a[j*n+i]);
+            IM(b[i*m + j]) = IM(a[j*n+i]);
+        }
     }
-  }
 
-  for(i = 0; i < p; i++)
-  {
-    for(j = q; j < m; j++)
+    for(i = 0; i < p; i++)
     {
-      RE(b[i*m + j]) = RE(a[j*n+i]);
-      IM(b[i*m + j]) = IM(a[j*n+i]);
+        for(j = q; j < m; j++)
+        {
+            RE(b[i*m + j]) = RE(a[j*n+i]);
+            IM(b[i*m + j]) = IM(a[j*n+i]);
+        }
     }
-  }
-  return RES_OK;
+    return RES_OK;
 }
 
 
 
 
 
-/*******************************************************************************
-Hermite matrix transpose
-*******************************************************************************/
+#ifdef DOXYGEN_ENGLISH
+
+#endif
+#ifdef DOXYGEN_RUSSIAN
+
+#endif
 int DSPL_API matrix_transpose_hermite(complex_t* a, int n, int m, complex_t* b)
 {
-  int p, q, i, j, aind, bind;
-  
-  if(!a || !b)
-    return ERROR_PTR;
-  if(n < 1 || m < 1)
-    return ERROR_MATRIX_SIZE;
-  
-  for(p = 0; p < n - DSPL_MATRIX_BLOCK; p+=DSPL_MATRIX_BLOCK)
-  {
-    for(q = 0; q < m - DSPL_MATRIX_BLOCK; q+=DSPL_MATRIX_BLOCK)
+    int p, q, i, j, aind, bind;
+    
+    if(!a || !b)
+        return ERROR_PTR;
+    if(n < 1 || m < 1)
+        return ERROR_MATRIX_SIZE;
+    
+    for(p = 0; p < n - DSPL_MATRIX_BLOCK; p+=DSPL_MATRIX_BLOCK)
     {
-      for(i = 0; i < DSPL_MATRIX_BLOCK; i++)
-      {
-        for(j = 0; j < DSPL_MATRIX_BLOCK; j++)
+        for(q = 0; q < m - DSPL_MATRIX_BLOCK; q+=DSPL_MATRIX_BLOCK)
         {
-          aind = (q+j) * n + p + i;
-          bind = (p+i) * m + q + j;
-          RE(b[bind]) =  RE(a[aind]);
-          IM(b[bind]) = -IM(a[aind]);
+            for(i = 0; i < DSPL_MATRIX_BLOCK; i++)
+            {
+                for(j = 0; j < DSPL_MATRIX_BLOCK; j++)
+                {
+                    aind = (q+j) * n + p + i;
+                    bind = (p+i) * m + q + j;
+                    RE(b[bind]) =    RE(a[aind]);
+                    IM(b[bind]) = -IM(a[aind]);
+                }
+            }
         }
-      }
     }
-  }
-  for(i = p; i < n; i++)
-  {
-    for(j = 0; j < m; j++)
+    for(i = p; i < n; i++)
     {
-      RE(b[i*m + j]) = RE(a[j*n+i]);
-      IM(b[i*m + j]) = -IM(a[j*n+i]);
+        for(j = 0; j < m; j++)
+        {
+            RE(b[i*m + j]) = RE(a[j*n+i]);
+            IM(b[i*m + j]) = -IM(a[j*n+i]);
+        }
     }
-  }
 
-  for(i = 0; i < p; i++)
-  {
-    for(j = q; j < m; j++)
+    for(i = 0; i < p; i++)
     {
-      RE(b[i*m + j]) =  RE(a[j*n+i]);
-      IM(b[i*m + j]) = -IM(a[j*n+i]);
+        for(j = q; j < m; j++)
+        {
+            RE(b[i*m + j]) =    RE(a[j*n+i]);
+            IM(b[i*m + j]) = -IM(a[j*n+i]);
+        }
     }
-  }
-  
-  return RES_OK;
+    
+    return RES_OK;
 }
 
 
 
 
+#ifdef DOXYGEN_ENGLISH
 
-/*******************************************************************************
- * Vector dot product
- ******************************************************************************/
+#endif
+#ifdef DOXYGEN_RUSSIAN
+
+#endif
 int DSPL_API vector_dot(double* x, double* y, int n, double* p)
 {
-  int inc = 1;
-  
-  if(!x || !y || !p)
-    return ERROR_PTR;
-  if(n<1)
-    return ERROR_SIZE;
+    int inc = 1;
     
-  *p = ddot_(&n, x, &inc, y, &inc); 
-  
-  return RES_OK;
+    if(!x || !y || !p)
+        return ERROR_PTR;
+    if(n<1)
+        return ERROR_SIZE;
+
+    *p = ddot_(&n, x, &inc, y, &inc); 
+
+    return RES_OK;
 }
 

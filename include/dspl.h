@@ -22,10 +22,7 @@
 #ifndef DSPL_H
 #define DSPL_H
 
-
-
 #include <math.h>
-
 
 /* math const definition */
 #ifndef M_PI
@@ -35,7 +32,6 @@
 #ifndef M_2PI
     #define M_2PI       6.283185307179586476925286766559
 #endif
-
 
 
 #ifdef DOXYGEN_ENGLISH
@@ -241,6 +237,54 @@ typedef struct
 #define RAND_TYPE_MT19937  0x00000002
 #define RAND_MT19937_NN    312
 
+#ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup SPEC_MATH_RAND_GEN_GROUP
+\struct random_t
+\brief Структура параметров датчиков псевдослучайных чисел.
+
+Структура хранит инициализацию и текущие регистры различных датчиков 
+псевдослучайных чисел. В библиотеке используются следующие датчики: 
+\li MRG32K3A -- 32 битный датчик разработан Пьером Лекуэром [1]. 
+\li MT19937-64 -- 64-битный датчик 
+    <a href = "https://en.wikipedia.org/wiki/Mersenne_Twister">
+	Вихрь Мерсенна 
+	</a> [2, 3]. 
+
+\note
+[1] Pierre L'Ecuyer, (1999) Good Parameters and Implementations for Combined 
+    Multiple Recursive Random Number Generators. Operations Research 
+    47(1):159-164. https://doi.org/10.1287/opre.47.1.159 \n\n
+[2] T. Nishimura, ``Tables of 64-bit Mersenne Twisters // ACM Transactions
+    on Modeling and Computer Simulation 10. (2000) 348--357. \n\n
+[3] M. Matsumoto and T. Nishimura  Mersenne Twister: a 623-dimensionally
+    equidistributed uniform pseudorandom number generator // ACM Transactions
+    on Modeling and Computer Simulation 8. (Jan. 1998) 3--30.  \n\n
+
+\param  mrg32k3a_seed
+Начальная инициализация датчика MRG32K3A. \n \n
+
+\param  mrg32k3a_x
+Первый вектор состояния рекурсивного датчика MRG32K3A. \n \n
+
+\param  mrg32k3a_y
+Второй вектор состояния рекурсивного датчика MRG32K3A. \n \n
+
+\param  mt19937_mt
+Первый вектор состояния рекурсивного датчика MT19937-64. \n \n
+
+\param  mt19937_mti
+Текущий индекс в векторе состояния датчика MT19937-64. \n \n
+
+Параметры данной структуры заполняются автоматически функцией `random_init` 
+и используются функциями генерации псевдослучайных векторов. 
+
+\author Бахурин Сергей. www.dsplib.org 
+***************************************************************************** */
+#endif
+#ifdef DOXYGEN_RUSSIAN
+
+#endif
 typedef struct
 {
 

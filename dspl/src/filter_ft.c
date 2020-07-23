@@ -24,9 +24,13 @@
 #include "dspl.h"
 
 
-/******************************************************************************
- * Recalculate ws frequency to 1 rad/s for HPF and BANDSTOP filters
- ******************************************************************************/
+
+#ifdef DOXYGEN_ENGLISH
+
+#endif
+#ifdef DOXYGEN_RUSSIAN
+
+#endif
 double DSPL_API filter_ws1(int ord, double rp, double rs, int type)
 {
     double es2, ep2, gs2, x, ws;
@@ -90,9 +94,13 @@ double DSPL_API filter_ws1(int ord, double rp, double rs, int type)
     return ws;
 }
 
-/******************************************************************************
- * low 2 bandpass transformation
- ******************************************************************************/
+
+#ifdef DOXYGEN_ENGLISH
+
+#endif
+#ifdef DOXYGEN_RUSSIAN
+
+#endif
 int DSPL_API low2bp(double* b, double* a, int ord,
                     double w0, double wpl, double wph,
                     double* beta, double* alpha)
@@ -118,9 +126,13 @@ int DSPL_API low2bp(double* b, double* a, int ord,
 
 
 
-/******************************************************************************
- * low 2 bandstop transformation
- ******************************************************************************/
+
+#ifdef DOXYGEN_ENGLISH
+
+#endif
+#ifdef DOXYGEN_RUSSIAN
+
+#endif
 int DSPL_API low2bs(double* b, double* a, int ord,
                     double w0, double wsl, double wsh,
                     double* beta, double* alpha)
@@ -145,9 +157,126 @@ int DSPL_API low2bs(double* b, double* a, int ord,
 
 
 
-/******************************************************************************
- * low 2 high transformation
- ******************************************************************************/
+
+#ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup IIR_FILTER_DESIGN_GROUP
+\fn int  low2high (double* b, double* a, int ord, double w0, double w1,
+                   double* beta, double* alpha)
+\brief Lowpass to highpass filter frequency transform
+
+Function transforms lowpass filter transfer function \f$ H(s) \f$ 
+to the highpass filter transfer function \f$ F(s) \f$.
+
+Filter order, magnitude ripple in passband and stopband 
+supression still the same.
+
+\param[in]  b
+Pointer to the lowpass filter transfer function \f$H(s)\f$ numerator 
+coefficients vector. \n
+Vector size is `[ord+1 x 1]`. \n 
+\n
+
+\param[in]  a
+Pointer to the lowpass filter transfer function \f$H(s)\f$ denominator 
+coefficients vector. \n
+Vector size is `[ord+1 x 1]`. \n 
+\n
+
+\param[in]  ord
+Filter order. \n 
+\n
+
+\param[in]  w0
+Lowpass filter cutoff frequency. \n 
+\n
+
+\param[in]  w1
+Highpass filter cutoff frequency after transformation. \n 
+\n
+
+\param[in,out]  beta
+Pointer to the highwpass filter transfer function \f$F(s)\f$ numerator 
+coefficients vector after transformation. \n
+Vector size is `[ord+1 x 1]`. \n 
+Memory must be allocated. \n
+\n
+
+\param[in,out]  alpha
+Pointer to the highwpass filter transfer function \f$F(s)\f$ denominator 
+coefficients vector after transformation. \n
+Vector size is `[ord+1 x 1]`. \n 
+Memory must be allocated. \n
+\n
+
+\return
+`RES_OK` if filter coefficients is calculated successfully. \n 
+Else \ref ERROR_CODE_GROUP "code error".
+
+\author Sergey Bakhurin www.dsplib.org
+***************************************************************************** */
+#endif
+#ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup IIR_FILTER_DESIGN_GROUP
+\fn int  low2high (double* b, double* a, int ord, double w0, double w1,
+                   double* beta, double* alpha)
+\brief  Частотное преобразование ФНЧ-ФВЧ
+
+Функция производит перобразование передаточной функции \f$ H(s) \f$ 
+аналогового ФНЧ с частотой среза `w0` рад/c 
+в передаточную функцию \f$ F(s) \f$ аналоговго ФВЧ с частотой среза `w1` рад/c.
+
+Неравномерность АЧХ в полосе пропускания, уровень подавления в полосе 
+заграждения и порядок фильтра остаются неизменными.
+
+\param[in]  b
+Указатель на вектор коэффициентов числителя передаточной функции \f$H(s)\f$
+исходного аналогового ФНЧ. \n
+Размер вектора `[ord+1 x 1]`. \n
+Память должна быть выделена. \n 
+\n
+
+\param[in]  a
+Указатель на вектор коэффициентов знаменателя передаточной функции \f$H(s)\f$
+исходного аналогового ФНЧ. \n
+Размер вектора `[ord+1 x 1]`. \n
+Память должна быть выделена. \n 
+\n
+
+\param[in]  ord
+Порядок исходного фильтра и фильтра после переобразования. \n 
+\n
+
+\param[in]  w0
+Частота среза исходного ФНЧ. \n 
+\n
+
+\param[in]  w1
+Требуемая частота среза  ФВЧ после преобразования. \n 
+\n
+
+\param[in,out]  beta
+Указатель на вектор коэффициентов числителя передаточной функции \f$F(s)\f$
+ФВЧ после преобразования. \n
+Размер вектора `[ord+1 x 1]`. \n
+Память должна быть выделена. \n 
+\n
+
+\param[in,out]  alpha
+Указатель на вектор коэффициентов знаменателя передаточной функции \f$F(s)\f$
+аналогового ФВЧ после преобразования. \n
+Размер вектора `[ord+1 x 1]`. \n
+Память должна быть выделена. \n 
+\n
+
+\return
+`RES_OK` --- преобразование рассчитано успешно. \n
+В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n
+
+\author Бахурин Сергей www.dsplib.org
+***************************************************************************** */
+#endif
 int DSPL_API low2high(double* b, double* a, int ord, double w0, double w1,
                       double* beta, double* alpha)
 {
@@ -173,9 +302,127 @@ int DSPL_API low2high(double* b, double* a, int ord, double w0, double w1,
 
 
 
-/******************************************************************************
- low 2 low transformation
-*******************************************************************************/
+
+#ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup IIR_FILTER_DESIGN_GROUP
+\fn int  low2low(double* b, double* a, int ord, double w0, double w1,
+                 double* beta, double* alpha)
+
+Lowpass to lowpass filter frequency transform
+
+Function transforms lowpass filter transfer function \f$ H(s) \f$ 
+to the lowpass filter transfer function \f$ F(s) \f$ 
+with other cutoff frequency.
+
+Filter order, magnitude ripple in passband and stopband 
+supression still the same.
+
+\param[in]  b
+Pointer to the input lowpass filter transfer function \f$H(s)\f$ numerator 
+coefficients vector. \n
+Vector size is `[ord+1 x 1]`. \n 
+\n
+
+\param[in]  a
+Pointer to the input lowpass filter transfer function \f$H(s)\f$ denominator 
+coefficients vector. \n
+Vector size is `[ord+1 x 1]`. \n 
+\n
+
+\param[in]  ord
+Filter order. \n 
+\n
+
+\param[in]  w0
+Input lowpass filter cutoff frequency. \n 
+\n
+
+\param[in]  w1
+Lowpass filter cutoff frequency after transformation. \n 
+\n
+
+\param[in,out]  beta
+Pointer to the lowpass filter transfer function \f$F(s)\f$ numerator 
+coefficients vector after transformation. \n
+Vector size is `[ord+1 x 1]`. \n 
+Memory must be allocated. \n
+\n
+
+\param[in,out]  alpha
+Pointer to the lowpass filter transfer function \f$F(s)\f$ denominator 
+coefficients vector after transformation. \n
+Vector size is `[ord+1 x 1]`. \n 
+Memory must be allocated. \n
+\n
+
+\return
+`RES_OK` if filter coefficients is calculated successfully. \n 
+Else \ref ERROR_CODE_GROUP "code error".
+
+\author Sergey Bakhurin www.dsplib.org
+***************************************************************************** */
+#endif
+#ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup IIR_FILTER_DESIGN_GROUP
+\fn int  low2low(double* b, double* a, int ord, double w0, double w1,
+                 double* beta, double* alpha)
+\brief  Частотное преобразование ФНЧ-ФНЧ
+
+Функция производит преобразование передаточной функции \f$ H(s) \f$ 
+аналогового ФНЧ с частотой среза `w0` рад/c 
+в передаточную функцию \f$ F(s) \f$ аналоговго ФНЧ с частотой среза `w1` рад/c.
+
+Неравномерность АЧХ в полосе пропускания, уровень подавления в полосе 
+заграждения и порядок фильтра остаются неизменными.
+
+\param[in]  b
+Указатель на вектор коэффициентов числителя передаточной функции \f$H(s)\f$
+исходного аналогового ФНЧ. \n
+Размер вектора `[ord+1 x 1]`. \n
+Память должна быть выделена. \n 
+\n
+
+\param[in]  a
+Указатель на вектор коэффициентов знаменателя передаточной функции \f$H(s)\f$
+исходного аналогового ФНЧ. \n
+Размер вектора `[ord+1 x 1]`. \n
+Память должна быть выделена. \n 
+\n
+
+\param[in]  ord
+Порядок исходного фильтра и фильтра после преобразования. \n 
+\n
+
+\param[in]  w0
+Частота среза исходного ФНЧ. \n 
+\n
+
+\param[in]  w1
+Требуемая частота среза ФНЧ после преобразования. \n 
+\n
+
+\param[in,out]  beta   Указатель на вектор коэффициентов числителя 
+передаточной функции \f$F(s)\f$ ФНЧ после преобразования. \n
+Размер вектора `[ord+1 x 1]`. \n
+Память должна быть выделена. \n 
+\n
+
+\param[in,out]  alpha
+Указатель на вектор коэффициентов знаменателя передаточной функции \f$F(s)\f$
+аналогового ФНЧ после преобразования. \n
+Размер вектора `[ord+1 x 1]`. \n
+Память должна быть выделена. \n 
+\n
+
+\return
+`RES_OK` --- Преоборазование расчитано успешно. \n
+В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n
+
+\author Бахурин Сергей www.dsplib.org
+***************************************************************************** */
+#endif
 int DSPL_API low2low(double* b, double* a, int ord, double w0, double w1,
                      double* beta, double* alpha)
 {
@@ -198,9 +445,160 @@ int DSPL_API low2low(double* b, double* a, int ord, double w0, double w1,
 
 
 
-/******************************************************************************
-Rational composition
-*******************************************************************************/
+#ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup IIR_FILTER_DESIGN_GROUP
+\fn int ratcompos(  double* b, double* a, int n, 
+                    double* c, double* d, int p, 
+                    double* beta, double* alpha)  
+\brief  Rational composition
+
+Function calcultes composition \f$Y(s) = (H \circ F)(s) = H(F(s))\f$, here
+
+\f[
+H(s) = \frac{\sum\limits_{m = 0}^{n} b_m s^m}
+{\sum\limits_{k = 0}^{n} a_k s^k}, \quad 
+F(s) = \frac{\sum\limits_{m = 0}^{p} d_m s^m}
+{\sum\limits_{k = 0}^{p} c_k s^k}, \quad 
+Y(s) = \frac{\sum\limits_{m = 0}^{n p} \beta_m s^m}
+{\sum\limits_{k = 0}^{n  p} \alpha_k s^k}
+\f]
+
+This function is using for filter frequency transform.
+
+\param[in]  b
+Pointer to the \f$H(s)\f$ polynomial function 
+numerator coefficients vector. \n
+Vector size is `[n+1 x 1]`. \n
+\n
+
+\param[in]  a
+Pointer to the \f$H(s)\f$ polynomial function 
+denominator coefficients vector. \n
+Vector size is `[n+1 x 1]`. \n
+\n
+
+\param[in]  n
+Order of \f$H(s)\f$ numerator and denominator polynomials. \n 
+\n
+
+\param[in]  c
+Pointer to the \f$F(s)\f$ polynomial function 
+numerator coefficients vector. \n
+Vector size is `[p+1 x 1]`. \n
+\n
+
+\param[in]  d
+Pointer to the \f$F(s)\f$ polynomial function 
+denominator coefficients vector. \n
+Vector size is `[p+1 x 1]`. \n
+\n
+
+\param[in]  p
+Order of \f$F(s)\f$ numerator and denominator polynomials. \n 
+\n
+
+\param[in,out]  beta
+Pointer to the numerator coefficients vector of 
+\f$Y(s) = (H \circ F)(s)\f$. \n
+Vector size is `[n*p+1 x 1]`. \n
+Memory must be allocated. \n 
+\n
+
+\param[in,out]  alpha
+Pointer to the denominator coefficients vector of 
+\f$Y(s) = (H \circ F)(s)\f$. \n
+Vector size is `[n*p+1 x 1]`. \n
+Memory must be allocated. \n 
+\n
+
+
+\return
+`RES_OK` if rational composition is calculated successfully. \n 
+Else \ref ERROR_CODE_GROUP "code error".
+
+\author Sergey Bakhurin www.dsplib.org
+***************************************************************************** */
+#endif
+#ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup IIR_FILTER_DESIGN_GROUP
+\fn int ratcompos(  double* b, double* a, int n, 
+                    double* c, double* d, int p, 
+                    double* beta, double* alpha)  
+\brief  Рациональная композиця 
+
+Функция рассчитывает композицию вида \f$Y(s) = (H \circ F)(s) = H(F(s))\f$, где
+
+\f[
+H(s) = \frac{\sum\limits_{m = 0}^{n} b_m s^m}
+{\sum\limits_{k = 0}^{n} a_k s^k}, \quad 
+F(s) = \frac{\sum\limits_{m = 0}^{p} d_m s^m}
+{\sum\limits_{k = 0}^{p} c_k s^k}, \quad 
+Y(s) = \frac{\sum\limits_{m = 0}^{n p} \beta_m s^m}
+{\sum\limits_{k = 0}^{n  p} \alpha_k s^k}
+\f]
+
+Функция рациональной композиции необходима для произведения частотных
+преобразований передаточных характеристик аналоговых и цифровых фильтров,
+а также для билинейного преобразования передаточных характеристик аналоговых 
+фильтров в соответствующие передаточные характеристики цифровых фильтров.
+
+\param[in]  b
+Указатель на вектор коэффициентов числителя функции \f$H(s)\f$. \n
+Размер вектора `[n+1 x 1]`. \n
+Память должна быть выделена. \n 
+\n
+
+\param[in]  a
+Указатель на вектор коэффициентов знаменателя функции \f$H(s)\f$. \n
+Размер вектора `[n+1 x 1]`. \n
+Память должна быть выделена. \n 
+\n
+
+\param[in]  n
+Порядок полиномов рациональной функции \f$H(s)\f$. \n 
+\n
+
+\param[in]  c
+Указатель на вектор коэффициентов числителя функции \f$F(s)\f$. \n
+Размер вектора `[p+1 x 1]`. \n
+Память должна быть выделена. \n 
+\n
+
+\param[in]  d
+Указатель на вектор коэффициентов знаменателя функции \f$F(s)\f$. \n
+Размер вектора `[p+1 x 1]`. \n
+Память должна быть выделена. \n 
+\n
+
+\param[in]  p
+Порядок полиномов рациональной 
+функции \f$F(s)\f$. \n 
+\n
+
+\param[in,out]  beta
+Указатель на вектор коэффициентов 
+числителя функции \f$Y(s) = (H \circ F)(s)\f$. \n
+Размер вектора `[n*p+1 x 1]`. \n
+Память должна быть выделена. \n 
+\n
+
+\param[in,out]  alpha
+Указатель на вектор коэффициентов знаменателя 
+функции \f$Y(s) = (H \circ F)(s)\f$. \n
+Размер вектора `[n*p+1 x 1]`. \n
+Память должна быть выделена. \n 
+\n
+      
+
+\return
+`RES_OK` --- Рациональная композиция рассчитана успешно. \n
+В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n
+
+\author Бахурин Сергей www.dsplib.org
+***************************************************************************** */
+#endif
 int DSPL_API ratcompos(double* b, double* a, int n,
                        double* c, double* d, int p,
                        double* beta, double* alpha)
@@ -275,7 +673,6 @@ int DSPL_API ratcompos(double* b, double* a, int n,
             ndn[i*k2 + k] *= b[i];
         }
     }
-
 
 
     memset(alpha, 0, k2s);

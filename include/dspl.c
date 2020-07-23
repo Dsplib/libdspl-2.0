@@ -183,10 +183,6 @@ p_writetxt_cmplx_re                     writetxt_cmplx_re             ;
 p_writetxt_int                          writetxt_int                  ;
 
 
-
-
-
-
 #ifdef WIN_OS
 #define LOAD_FUNC(fn) \
         fname = #fn;\
@@ -205,206 +201,305 @@ p_writetxt_int                          writetxt_int                  ;
 
 
 
+#ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup SYS_LOADING_GROUP
+\fn void* dspl_load()
+\brief Perform dynamic linking and load libdspl-2.0 functions.
 
+This function attempts to link to the library `libdspl.dll` in
+Windows system and the `libdspl.so` library on the Linux system.
+The library is assumed to be in the same directory as the application.
+user, or the path to the library is registered in the operating path variables
+system.
+
+Upon successful binding and loading of library functions, the handle is returned
+libraries, as well as in the address space of the application appear
+pointers to libdspl-2.0 functions.
+
+\note
+The returned handle is of type `void *`, which can be cast on Windows
+to type `HINSTANCE`. In practice, this is not necessary, because this
+the type is cast to `HINSTANCE` automatically if the compiler flag is set,
+indicating that the application is being built on Windows.
+
+An example of a simple program that implements dynamic binding with DSPL-2.0.
+
+\code
+#include <stdio.h>
+#include <stdlib.h>
+#include "dspl.h"
+
+int main (int argc, char* argv[])
+{
+    void * hdspl;         // DSPL handle 
+    hdspl = dspl_load (); // Dynamic linking 
+    
+    // Check the pointer. If `NULL`, then the link failed 
+    if (! hdspl)
+    {
+        printf ("libdspl loading error! \n");
+        return -1;
+    }
+    
+    // The link was successful, you can call the functions of DSPL-2.0
+    
+    //Before correctly terminating the application, you must unlink
+    //library and clear memory.
+    dspl_free(hdspl);
+    
+    return 0;
+}
+\endcode
+
+\author Bakhurin Sergey. www.dsplib.org
+***************************************************************************** */
+#endif
+#ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup SYS_LOADING_GROUP
+\fn void* dspl_load()
+\brief Произвести динамическую линковку и загрузить функции libdspl-2.0.
+
+Данная функция производит попытку связывания с библиотекой `libdspl.dll` в 
+системе Windows и с библиотекой `libdspl.so` в системе Linux. 
+Предполагается, что библиотека находится в одной директории с приложением
+пользователя, или путь к библиотеке прописан в переменных пути операционной
+системы.
+
+При удачном связывании и загрузке функций библиотеки возвращается хэндл 
+библиотеки, а также в адресном пространстве приложения появляются 
+указатели на функции libdspl-2.0. 
+
+\note
+Возвращаемый хэндл имеет тип `void*`, который в ОС Windows может быть приведен
+к типу `HINSTANCE`. На практике необходимости в этом, нет, потому что данный
+тип приводится к `HINSTANCE` автоматически, если выставлен флаг компилятора, 
+указывающий, что сборка приложения производится в ОС Windows.
+
+Пример простейшей программы реализующей динамическое связывание с DSPL-2.0.
+
+\code
+#include <stdio.h>
+#include <stdlib.h>
+#include "dspl.h"
+
+int main(int argc, char* argv[])
+{
+    void* hdspl;           // DSPL хэндл                             
+    hdspl = dspl_load();   // Динамическая линковка                  
+    
+    // Проверяем указатель. Если `NULLL`, то линковка прошла неудачно
+    if(!hdspl)
+    {
+        printf("libdspl loading error!\n");
+        return -1;
+    }
+    
+    // Линковка прошла успешно можно вызывать функции DSPL-2.0
+     
+    // Перед корректным завершением приложения необходимо разлинковать 
+    // библиотеку и очистить память.
+    dspl_free(hdspl); 
+   
+    return 0;
+}
+\endcode
+
+\author Бахурин Сергей. www.dsplib.org
+***************************************************************************** */
+#endif
 void* dspl_load()
 {
-
-
-  char* fname;
-  #ifdef WIN_OS
-    HINSTANCE handle;
-    handle = LoadLibrary(TEXT("libdspl.dll"));
-    if (!handle)
-    {
-      printf("libdspl.dll loading ERROR!\n");
-      return NULL;
-    }
-  #endif /* WIN_OS */
-
-
-  #ifdef LINUX_OS
-    char* error;
-    void *handle;
-    /* open the *.so */
-    handle = dlopen ("./libdspl.so", RTLD_LAZY);
-    if (!handle)
-    {
-      printf("libdspl.so loading ERROR!\n");
-      return NULL;
-    }
-  #endif  /* LINUX_OS */
-
-
-
-
-
-  LOAD_FUNC(acos_cmplx);
-  LOAD_FUNC(array_scale_lin);
-  LOAD_FUNC(asin_cmplx);
-
-  LOAD_FUNC(bessel_i0);
-  LOAD_FUNC(bilinear);
-  LOAD_FUNC(butter_ap);
-  LOAD_FUNC(butter_ap_zp);
-
-  LOAD_FUNC(cheby_poly1);
-  LOAD_FUNC(cheby_poly2);
-  LOAD_FUNC(cheby1_ap);
-  LOAD_FUNC(cheby1_ap_zp);
-  LOAD_FUNC(cheby2_ap);
-  LOAD_FUNC(cheby2_ap_wp1);
-  LOAD_FUNC(cheby2_ap_zp);
-  LOAD_FUNC(cmplx2re);
-  LOAD_FUNC(concat);
-  LOAD_FUNC(conv);
-  LOAD_FUNC(conv_cmplx);
-  LOAD_FUNC(conv_fft);
-  LOAD_FUNC(conv_fft_cmplx);
-  LOAD_FUNC(cos_cmplx);
-
-  LOAD_FUNC(decimate);
-  LOAD_FUNC(decimate_cmplx);
-  LOAD_FUNC(dft);
-  LOAD_FUNC(dft_cmplx);
-  LOAD_FUNC(dmod);
-  LOAD_FUNC(dspl_info);
-
-  LOAD_FUNC(ellip_acd);
-  LOAD_FUNC(ellip_acd_cmplx);
-  LOAD_FUNC(ellip_ap);
-  LOAD_FUNC(ellip_ap_zp);
-  LOAD_FUNC(ellip_asn);
-  LOAD_FUNC(ellip_asn_cmplx);
-  LOAD_FUNC(ellip_cd);
-  LOAD_FUNC(ellip_cd_cmplx);
-  LOAD_FUNC(ellip_landen);
-  LOAD_FUNC(ellip_modulareq);
-  LOAD_FUNC(ellip_rat);
-  LOAD_FUNC(ellip_sn);
-  LOAD_FUNC(ellip_sn_cmplx);
-
-  LOAD_FUNC(farrow_lagrange);
-  LOAD_FUNC(farrow_spline);
-  LOAD_FUNC(fft);
-  LOAD_FUNC(fft_cmplx);
-  LOAD_FUNC(fft_create);
-  LOAD_FUNC(fft_free);
-  LOAD_FUNC(fft_mag);
-  LOAD_FUNC(fft_mag_cmplx);
-  LOAD_FUNC(fft_shift);
-  LOAD_FUNC(fft_shift_cmplx);
-  LOAD_FUNC(filter_freq_resp);
-  LOAD_FUNC(filter_iir);
-  LOAD_FUNC(filter_ws1);
-  LOAD_FUNC(filter_zp2ab);
-  LOAD_FUNC(find_max_abs);
-  LOAD_FUNC(fir_linphase);
-  LOAD_FUNC(flipip);
-  LOAD_FUNC(flipip_cmplx);
-  LOAD_FUNC(fourier_integral_cmplx);
-  LOAD_FUNC(fourier_series_dec);
-  LOAD_FUNC(fourier_series_dec_cmplx);
-  LOAD_FUNC(fourier_series_rec);
-  LOAD_FUNC(freqz);
-  LOAD_FUNC(freqs);
-  LOAD_FUNC(freqs_cmplx);
-  LOAD_FUNC(freqs2time);
-
-  LOAD_FUNC(gnuplot_close);   
-  LOAD_FUNC(gnuplot_cmd);     
-  LOAD_FUNC(gnuplot_create);  
-  LOAD_FUNC(goertzel);
-  LOAD_FUNC(goertzel_cmplx);
-
-  LOAD_FUNC(histogram);
-  LOAD_FUNC(histogram_norm);
-
-  LOAD_FUNC(idft_cmplx);
-  LOAD_FUNC(ifft_cmplx);
-  LOAD_FUNC(iir);
-
-  LOAD_FUNC(linspace);
-  LOAD_FUNC(log_cmplx);
-  LOAD_FUNC(logspace);
-  LOAD_FUNC(low2bp);
-  LOAD_FUNC(low2bs);
-  LOAD_FUNC(low2high);
-  LOAD_FUNC(low2low);
-
-  LOAD_FUNC(matrix_eig_cmplx);
-  LOAD_FUNC(matrix_eye);
-  LOAD_FUNC(matrix_eye_cmplx);
-  LOAD_FUNC(matrix_mul);
-  LOAD_FUNC(matrix_print);
-  LOAD_FUNC(matrix_print_cmplx);
-  LOAD_FUNC(matrix_transpose);
-  LOAD_FUNC(matrix_transpose_cmplx);
-  LOAD_FUNC(matrix_transpose_hermite);
-  LOAD_FUNC(minmax);
-  
-  LOAD_FUNC(ones);
-
-  LOAD_FUNC(poly_z2a_cmplx);
-  LOAD_FUNC(polyroots);
-  LOAD_FUNC(polyval);
-  LOAD_FUNC(polyval_cmplx);
-
-  LOAD_FUNC(randi);
-  LOAD_FUNC(randb);
-  LOAD_FUNC(randb2);
-  LOAD_FUNC(randn);
-  LOAD_FUNC(random_init);
-  LOAD_FUNC(randu);
-  LOAD_FUNC(ratcompos);
-  LOAD_FUNC(re2cmplx);
-  LOAD_FUNC(readbin);
-
-  LOAD_FUNC(signal_pimp);
-  LOAD_FUNC(signal_saw);
-  LOAD_FUNC(sin_cmplx);
-  LOAD_FUNC(sinc);
-  LOAD_FUNC(sine_int);
-  LOAD_FUNC(sqrt_cmplx);
-
-  LOAD_FUNC(trapint);
-  LOAD_FUNC(trapint_cmplx);
-
-  LOAD_FUNC(unwrap);
-
-  LOAD_FUNC(vector_dot);
-  LOAD_FUNC(verif);
-  LOAD_FUNC(verif_cmplx);
-
-  LOAD_FUNC(window);
-  LOAD_FUNC(writebin);
-  LOAD_FUNC(writetxt);
-  LOAD_FUNC(writetxt_3d);
-  LOAD_FUNC(writetxt_3dline);
-  LOAD_FUNC(writetxt_cmplx);
-  LOAD_FUNC(writetxt_cmplx_im);
-  LOAD_FUNC(writetxt_cmplx_re);
-  LOAD_FUNC(writetxt_int);
-
-  #ifdef WIN_OS
-  return (void*)handle;
-  exit_label:
-    printf("function %s loading ERROR!\n", fname);
-    if(handle)
-      FreeLibrary(handle);
-    return NULL;
-  #endif /* WIN_OS */
-
-
-  #ifdef LINUX_OS
-    return handle;
-  exit_label:
-    printf("function %s loading ERROR!\n", fname);
-    if(handle)
-      dlclose(handle);
-    return NULL;
-  #endif /* LINUX_OS */
-
-
+    char* fname;
+    #ifdef WIN_OS
+        HINSTANCE handle;
+        handle = LoadLibrary(TEXT("libdspl.dll"));
+        if (!handle)
+        {
+            printf("libdspl.dll loading ERROR!\n");
+            return NULL;
+        }
+    #endif /* WIN_OS */
+    
+    
+    #ifdef LINUX_OS
+        char* error;
+        void *handle;
+        /* open the *.so */
+        handle = dlopen ("./libdspl.so", RTLD_LAZY);
+        if (!handle)
+        {
+            printf("libdspl.so loading ERROR!\n");
+            return NULL;
+        }
+    #endif  /* LINUX_OS */
+    
+    LOAD_FUNC(acos_cmplx);
+    LOAD_FUNC(array_scale_lin);
+    LOAD_FUNC(asin_cmplx);
+    
+    LOAD_FUNC(bessel_i0);
+    LOAD_FUNC(bilinear);
+    LOAD_FUNC(butter_ap);
+    LOAD_FUNC(butter_ap_zp);
+    
+    LOAD_FUNC(cheby_poly1);
+    LOAD_FUNC(cheby_poly2);
+    LOAD_FUNC(cheby1_ap);
+    LOAD_FUNC(cheby1_ap_zp);
+    LOAD_FUNC(cheby2_ap);
+    LOAD_FUNC(cheby2_ap_wp1);
+    LOAD_FUNC(cheby2_ap_zp);
+    LOAD_FUNC(cmplx2re);
+    LOAD_FUNC(concat);
+    LOAD_FUNC(conv);
+    LOAD_FUNC(conv_cmplx);
+    LOAD_FUNC(conv_fft);
+    LOAD_FUNC(conv_fft_cmplx);
+    LOAD_FUNC(cos_cmplx);
+    
+    LOAD_FUNC(decimate);
+    LOAD_FUNC(decimate_cmplx);
+    LOAD_FUNC(dft);
+    LOAD_FUNC(dft_cmplx);
+    LOAD_FUNC(dmod);
+    LOAD_FUNC(dspl_info);
+    
+    LOAD_FUNC(ellip_acd);
+    LOAD_FUNC(ellip_acd_cmplx);
+    LOAD_FUNC(ellip_ap);
+    LOAD_FUNC(ellip_ap_zp);
+    LOAD_FUNC(ellip_asn);
+    LOAD_FUNC(ellip_asn_cmplx);
+    LOAD_FUNC(ellip_cd);
+    LOAD_FUNC(ellip_cd_cmplx);
+    LOAD_FUNC(ellip_landen);
+    LOAD_FUNC(ellip_modulareq);
+    LOAD_FUNC(ellip_rat);
+    LOAD_FUNC(ellip_sn);
+    LOAD_FUNC(ellip_sn_cmplx);
+    
+    LOAD_FUNC(farrow_lagrange);
+    LOAD_FUNC(farrow_spline);
+    LOAD_FUNC(fft);
+    LOAD_FUNC(fft_cmplx);
+    LOAD_FUNC(fft_create);
+    LOAD_FUNC(fft_free);
+    LOAD_FUNC(fft_mag);
+    LOAD_FUNC(fft_mag_cmplx);
+    LOAD_FUNC(fft_shift);
+    LOAD_FUNC(fft_shift_cmplx);
+    LOAD_FUNC(filter_freq_resp);
+    LOAD_FUNC(filter_iir);
+    LOAD_FUNC(filter_ws1);
+    LOAD_FUNC(filter_zp2ab);
+    LOAD_FUNC(find_max_abs);
+    LOAD_FUNC(fir_linphase);
+    LOAD_FUNC(flipip);
+    LOAD_FUNC(flipip_cmplx);
+    LOAD_FUNC(fourier_integral_cmplx);
+    LOAD_FUNC(fourier_series_dec);
+    LOAD_FUNC(fourier_series_dec_cmplx);
+    LOAD_FUNC(fourier_series_rec);
+    LOAD_FUNC(freqz);
+    LOAD_FUNC(freqs);
+    LOAD_FUNC(freqs_cmplx);
+    LOAD_FUNC(freqs2time);
+    
+    LOAD_FUNC(gnuplot_close);   
+    LOAD_FUNC(gnuplot_cmd);     
+    LOAD_FUNC(gnuplot_create);  
+    LOAD_FUNC(goertzel);
+    LOAD_FUNC(goertzel_cmplx);
+    
+    LOAD_FUNC(histogram);
+    LOAD_FUNC(histogram_norm);
+    
+    LOAD_FUNC(idft_cmplx);
+    LOAD_FUNC(ifft_cmplx);
+    LOAD_FUNC(iir);
+    
+    LOAD_FUNC(linspace);
+    LOAD_FUNC(log_cmplx);
+    LOAD_FUNC(logspace);
+    LOAD_FUNC(low2bp);
+    LOAD_FUNC(low2bs);
+    LOAD_FUNC(low2high);
+    LOAD_FUNC(low2low);
+    
+    LOAD_FUNC(matrix_eig_cmplx);
+    LOAD_FUNC(matrix_eye);
+    LOAD_FUNC(matrix_eye_cmplx);
+    LOAD_FUNC(matrix_mul);
+    LOAD_FUNC(matrix_print);
+    LOAD_FUNC(matrix_print_cmplx);
+    LOAD_FUNC(matrix_transpose);
+    LOAD_FUNC(matrix_transpose_cmplx);
+    LOAD_FUNC(matrix_transpose_hermite);
+    LOAD_FUNC(minmax);
+    
+    LOAD_FUNC(ones);
+    
+    LOAD_FUNC(poly_z2a_cmplx);
+    LOAD_FUNC(polyroots);
+    LOAD_FUNC(polyval);
+    LOAD_FUNC(polyval_cmplx);
+    
+    LOAD_FUNC(randi);
+    LOAD_FUNC(randb);
+    LOAD_FUNC(randb2);
+    LOAD_FUNC(randn);
+    LOAD_FUNC(random_init);
+    LOAD_FUNC(randu);
+    LOAD_FUNC(ratcompos);
+    LOAD_FUNC(re2cmplx);
+    LOAD_FUNC(readbin);
+    
+    LOAD_FUNC(signal_pimp);
+    LOAD_FUNC(signal_saw);
+    LOAD_FUNC(sin_cmplx);
+    LOAD_FUNC(sinc);
+    LOAD_FUNC(sine_int);
+    LOAD_FUNC(sqrt_cmplx);
+    
+    LOAD_FUNC(trapint);
+    LOAD_FUNC(trapint_cmplx);
+    
+    LOAD_FUNC(unwrap);
+    
+    LOAD_FUNC(vector_dot);
+    LOAD_FUNC(verif);
+    LOAD_FUNC(verif_cmplx);
+    
+    LOAD_FUNC(window);
+    LOAD_FUNC(writebin);
+    LOAD_FUNC(writetxt);
+    LOAD_FUNC(writetxt_3d);
+    LOAD_FUNC(writetxt_3dline);
+    LOAD_FUNC(writetxt_cmplx);
+    LOAD_FUNC(writetxt_cmplx_im);
+    LOAD_FUNC(writetxt_cmplx_re);
+    LOAD_FUNC(writetxt_int);
+    
+    #ifdef WIN_OS
+    return (void*)handle;
+    exit_label:
+        printf("function %s loading ERROR!\n", fname);
+        if(handle)
+            FreeLibrary(handle);
+        return NULL;
+    #endif /* WIN_OS */
+    
+    
+    #ifdef LINUX_OS
+      return handle;
+    exit_label:
+        printf("function %s loading ERROR!\n", fname);
+        if(handle)
+            dlclose(handle);
+        return NULL;
+    #endif /* LINUX_OS */
 }
 
 
@@ -412,17 +507,51 @@ void* dspl_load()
 
 
 
+#ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup SYS_LOADING_GROUP
+\fn void dspl_free(void* handle)
+\brief Cleans up the previously linked DSPL-2.0 dynamic library.
 
+This cross-platform function clears the library `libdspl.dll` in
+Windows system and from the library `libdspl.so` on the Linux system.
+After cleaning the library, all functions will become unavailable.
+
+\param [in] handle
+Handle of the previously linked DSPL-2.0 library. \n
+This pointer can be `NULL`, in this case no action
+are being produced.
+
+\author Bakhurin Sergey. www.dsplib.org
+***************************************************************************** */
+#endif
+#ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup SYS_LOADING_GROUP
+\fn void dspl_free(void* handle)
+\brief Очищает связанную ранее динамическую библиотеку DSPL-2.0.
+
+Данная кроссплатформенная функция производит очистку библиотеки `libdspl.dll` в 
+системе Windows и с библиотеки `libdspl.so` в системе Linux. 
+После очистки библиотеки все функции станут недоступны.
+
+\param[in] handle
+Хэндл прилинкованной ранее библиотеки DSPL-2.0. \n
+Данный указатель может быть `NULL`, в этом случае никакие действия не 
+производятся.
+
+\author Бахурин Сергей. www.dsplib.org
+**************************************************************************** */
+#endif
 void dspl_free(void* handle)
 {
-  #ifdef WIN_OS
-    FreeLibrary((HINSTANCE)handle);
-  #endif /* WIN_OS */
-
-  #ifdef LINUX_OS
-    dlclose(handle);
-  #endif /* LINUX_OS */
-
+    #ifdef WIN_OS
+        FreeLibrary((HINSTANCE)handle);
+    #endif /* WIN_OS */
+    
+    #ifdef LINUX_OS
+        dlclose(handle);
+    #endif /* LINUX_OS */
 }
 
 #endif /* BUILD_LIB */
