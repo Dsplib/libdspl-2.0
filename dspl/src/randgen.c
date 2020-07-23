@@ -30,7 +30,48 @@
 
 
 #ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup SPEC_MATH_RAND_GEN_GROUP
+\fn int random_init(random_t* prnd, int type, void* seed)
+\brief Pseudorandom numbers generators initialization. 
 
+\param[in,out] prnd
+Pointer to the pseudorandom generators parameters and state vectors.\n\n
+
+\param[in]  type
+Pseudorandom generator algorithm:
+\verbatim
+RAND_TYPE_MRG32K3A - 32-bits MRG32K3A generator
+RAND_TYPE_MT19937  - 64-bits MT19937-64 generator
+\endverbatim
+
+\param[in]  seed
+Pointer to the generator start initialization. \n
+Type of this pointer is `void*` because different generators are using
+different initial values. For example, if we initialize the MRG32K3A generator,
+then the `type` parameter is specified as` RAND_TYPE_MRG32K3A`, and `seed`
+converts to `double` pointer:
+\code
+    random_t rnd = {0};
+    double seed = 1234.0;
+    random_init(&rnd, RAND_TYPE_MRG32K3A, (void*)&seed);
+\endcode
+For 64-bits Mersenne Twister pseudorandom number generator 
+(`type` sets as `RAND_TYPE_MT19937`), `seed` converts to the 
+`unsigned long long` pointer:
+\code
+    random_t rnd = {0};
+    unsigned long long seed = 1234353456;
+    random_init(&rnd, RAND_TYPE_MT19937, (void*)&seed);
+\endcode
+Pseudorandom numbers will be repeated each program restart 
+if `seed` value is the same.\n
+The `seed` pointer can be `NULL`. Pseudorandom generators will be initialized
+by pseudorandom numbers in this case and program will generate different 
+pseudorandom numbers each restart.
+
+\author Sergey Bakhurin. www.dsplib.org
+****************************************************************************  */
 #endif
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
@@ -38,7 +79,7 @@
 \fn int random_init(random_t* prnd, int type, void* seed)
 \brief Инициализация датчиков псевдослучайных чисел. 
 
-\param[in,out]  prnd
+\param[in,out] prnd
 Указатель на структуру параметров и векторов состояния 
 датчиков псевдослучайных чисел, которая будет инициализирована. \n\n
 
