@@ -894,7 +894,7 @@ Memory must be allocated. \n \n
 
 \return
 `RES_OK` if filter output is calculated successfully. \n
-Else \ref ERROR_CODE_GROUP "code error": \n
+Else \ref ERROR_CODE_GROUP "code error". \n
 
 Example:
 

@@ -35,6 +35,7 @@ DSPL-2.0 --- свободная библиотека алгоритмов циф
 
 \subsection sec_doc_content Разделы документации
 <b>Математические функции:</b> \n
+
   - \ref ARRAY_GROUP \n
   - \ref SPEC_MATH_COMMON_GROUP \n
   - \ref SPEC_MATH_POLY_GROUP \n
@@ -47,12 +48,14 @@ DSPL-2.0 --- свободная библиотека алгоритмов циф
 \n
 
 <b>Алгоритмы спектрального анализа: </b> \n
+
   - \ref DFT_GROUP \n
   - \ref WIN_GROUP \n
   - \ref HILBERT_GROUP \n
 \n
 
 <b>Расчет и анализ аналоговых и цифровых фильтров:</b>\n
+
   - \ref FILTER_CONV_GROUP \n
   - \ref IIR_FILTER_DESIGN_GROUP \n
   - \ref FIR_FILTER_DESIGN_GROUP \n
@@ -60,12 +63,14 @@ DSPL-2.0 --- свободная библиотека алгоритмов циф
 \n
 
 <b>Прочие алгоритмы:</b> \n
+
   - \ref RESAMPLING_GROUP \n
   - \ref IN_OUT_GROUP \n
   - \ref PLOT_GROUP \n
 \n
 
 <b>Приложения</b>\n
+
   - \ref TYPES_GROUP \n
   - \ref ERROR_CODE_GROUP \n
 ***************************************************************************** */

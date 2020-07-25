@@ -238,6 +238,9 @@ typedef struct
 #define RAND_MT19937_NN    312
 
 #ifdef DOXYGEN_ENGLISH
+
+#endif
+#ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_RAND_GEN_GROUP
 \struct random_t
@@ -247,9 +250,9 @@ typedef struct
 псевдослучайных чисел. В библиотеке используются следующие датчики: 
 \li MRG32K3A -- 32 битный датчик разработан Пьером Лекуэром [1]. 
 \li MT19937-64 -- 64-битный датчик 
-    <a href = "https://en.wikipedia.org/wiki/Mersenne_Twister">
-	Вихрь Мерсенна 
-	</a> [2, 3]. 
+<a href = "https://en.wikipedia.org/wiki/Mersenne_Twister">
+Вихрь Мерсенна 
+</a> [2, 3]. 
 
 \note
 [1] Pierre L'Ecuyer, (1999) Good Parameters and Implementations for Combined 
@@ -282,21 +285,18 @@ typedef struct
 \author Бахурин Сергей. www.dsplib.org 
 ***************************************************************************** */
 #endif
-#ifdef DOXYGEN_RUSSIAN
-
-#endif
 typedef struct
 {
 
-  double mrg32k3a_seed;
-  double mrg32k3a_x[3];
-  double mrg32k3a_y[3];
+    double mrg32k3a_seed;
+    double mrg32k3a_x[3];
+    double mrg32k3a_y[3];
 
-  /* The array for the MT19937 state vector */
-  unsigned long long mt19937_mt[RAND_MT19937_NN];
-  int                mt19937_mti;
+    /* The array for the MT19937 state vector */
+    unsigned long long mt19937_mt[RAND_MT19937_NN];
+    int                mt19937_mti;
 
-  int type;
+    int type;
 
 }random_t;
 

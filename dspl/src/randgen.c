@@ -155,7 +155,47 @@ int DSPL_API random_init(random_t* prnd, int type, void* seed)
 
 
 #ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup SPEC_MATH_RAND_GEN_GROUP
+\fn int randb(double* x, int n, random_t* prnd)
+\brief Binary unipolar [0, 1] pseudorandom vector. 
 
+The function generates a unipolar pseudo-random vector,
+each element of which takes an equally probable value of 0 or 1
+
+\param[in,out] x  
+Pointer to the unipolar pseudo-random vector.  \n
+Vector size is `[n x 1]`. \n
+Memory must be allocated. \n\n
+
+\param[in] n
+Size of vector `x`. \n\n
+
+\param[in] prnd
+Pointer to the `random_t` structure. \n
+The structure must be pre-filled with the \ref random_init function. \n
+This pointer can be `NULL`, then it will be used
+built-in pseudorandom generator defined by the C language standard.
+However, this mode is not recommended, 
+for example in cryptography and other tasks.
+There is no guarantee of the quality of the pseudorandom numbers produced if
+the `prnd` parameter is set to` NULL`. \n\n
+
+\return
+`RES_OK` --- if pseudorandom vector is calculated successfully. \n
+Else \ref ERROR_CODE_GROUP "code error".
+
+Example:
+
+\include randb_test.c
+
+Program genrates unipolar [0, 1] and bipolar[-1, 1] pseudorandom binary vectors.
+
+As a result of the program run, you can see the graph:
+\image html randb_test.png
+
+\author Sergey Bakhurin. www.dsplib.org
+***************************************************************************** */
 #endif
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
@@ -229,7 +269,47 @@ int DSPL_API randb(double* x, int n, random_t* prnd)
 
 
 #ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup SPEC_MATH_RAND_GEN_GROUP
+\fn int randb2(double* x, int n, random_t* prnd)
+\brief Binary bipolar [-1, 1] pseudorandom vector. 
 
+The function generates a unipolar pseudo-random vector,
+each element of which takes an equally probable value of -1 or 1
+
+\param[in,out] x  
+Pointer to the bipolar pseudorandom vector.  \n
+Vector size is `[n x 1]`. \n
+Memory must be allocated. \n\n
+
+\param[in] n
+Size of vector `x`. \n\n
+
+\param[in] prnd
+Pointer to the `random_t` structure. \n
+The structure must be pre-filled with the \ref random_init function. \n
+This pointer can be `NULL`, then it will be used
+built-in pseudorandom generator defined by the C language standard.
+However, this mode is not recommended, 
+for example in cryptography and other tasks.
+There is no guarantee of the quality of the pseudorandom numbers produced if
+the `prnd` parameter is set to` NULL`. \n\n
+
+\return
+`RES_OK` --- if pseudorandom vector is calculated successfully. \n
+Else \ref ERROR_CODE_GROUP "code error".
+
+Example:
+
+\include randb_test.c
+
+Program genrates unipolar [0, 1] and bipolar[-1, 1] pseudorandom binary vectors.
+
+As a result of the program run, you can see the graph:
+\image html randb_test.png
+
+\author Sergey Bakhurin. www.dsplib.org
+***************************************************************************** */
 #endif
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
@@ -298,6 +378,9 @@ int DSPL_API randb2(double* x, int n, random_t* prnd)
     }
     return RES_OK;
 }
+
+
+
 
 #ifdef DOXYGEN_ENGLISH
 
