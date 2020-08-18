@@ -1069,6 +1069,14 @@ DECLARE_FUNC(int,        goertzel_cmplx,              complex_t*
                                                 COMMA int
                                                 COMMA complex_t*);
 /*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        group_delay,                 double*          b
+                                                COMMA double*          a
+                                                COMMA int              ord
+                                                COMMA int              flag
+                                                COMMA double*          w
+                                                COMMA int              n
+                                                COMMA double*          tau);
+/*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        histogram,                   double*          x
                                                 COMMA int              n
                                                 COMMA int              nh

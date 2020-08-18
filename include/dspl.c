@@ -113,6 +113,7 @@ p_gnuplot_create                        gnuplot_create                ;
 p_gnuplot_open                          gnuplot_open                  ;
 p_goertzel                              goertzel                      ;
 p_goertzel_cmplx                        goertzel_cmplx                ;
+p_group_delay                           group_delay                   ;
 
 p_histogram                             histogram                     ;
 p_histogram_norm                        histogram_norm                ;
@@ -414,6 +415,7 @@ void* dspl_load()
     LOAD_FUNC(gnuplot_open);
     LOAD_FUNC(goertzel);
     LOAD_FUNC(goertzel_cmplx);
+    LOAD_FUNC(group_delay);
     
     LOAD_FUNC(histogram);
     LOAD_FUNC(histogram_norm);
