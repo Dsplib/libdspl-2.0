@@ -7,7 +7,7 @@
 #define ORD 14
 
 // Frequency response vector size
-#define N   1001
+#define N   5001
 
 
 int main(int argc, char* argv[])
@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
 
     // Calculate Chebyshev type 2 digital bandstop filter
     int res = iir(rp, rs, ORD, 0.3, 0.7,
-                  DSPL_FILTER_CHEBY2 | DSPL_FILTER_BSTOP, b, a);
+                  DSPL_FILTER_ELLIP | DSPL_FILTER_BSTOP, b, a);
     if(res != RES_OK)
         printf("error code = 0x%8x\n", res);
 

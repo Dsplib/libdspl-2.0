@@ -110,6 +110,7 @@ p_freqz                                 freqz                         ;
 p_gnuplot_close                         gnuplot_close                 ;
 p_gnuplot_cmd                           gnuplot_cmd                   ;
 p_gnuplot_create                        gnuplot_create                ;
+p_gnuplot_open                          gnuplot_open                  ;
 p_goertzel                              goertzel                      ;
 p_goertzel_cmplx                        goertzel_cmplx                ;
 
@@ -409,7 +410,8 @@ void* dspl_load()
     
     LOAD_FUNC(gnuplot_close);   
     LOAD_FUNC(gnuplot_cmd);     
-    LOAD_FUNC(gnuplot_create);  
+    LOAD_FUNC(gnuplot_create);
+    LOAD_FUNC(gnuplot_open);
     LOAD_FUNC(goertzel);
     LOAD_FUNC(goertzel_cmplx);
     

@@ -25,7 +25,103 @@
 #include "dspl.h"
 
 
+int DSPL_API group_delay(double* b, double* a, int ord, int flag,
+                         double* w, int n, double* tau)
+{
+    double r, i, dr, di, br, bi, ar, ai, dbr, dbi, dar, dai, ar2ai2, ar2ai22;
+    int t, m;
+    
+    double *pa = NULL;
+    
+    if(!b || !w || !tau || (!a && (flag & DSPL_FLAG_ANALOG)))
+        return ERROR_PTR;
+    if(ord < 1)
+        return ERROR_FILTER_ORD;
+    if(n < 1)
+        return ERROR_SIZE;
 
+
+    if(a)
+      pa = a;
+    else
+    {
+        pa = (double*)malloc((ord+1) * sizeof(double));
+        memset(pa, 0, (ord+1) * sizeof(double));
+        pa[0] = 1.0;
+    }
+    
+    for(t = 0; t < n; t++)
+    {
+        br = bi = ar = ai = dbr = dbi = dar = dai = 0.0;
+        if(flag & DSPL_FLAG_ANALOG)
+        {
+            /* Br, Ar, Bi, Ai, Br', Ar', Bi', Ai' for analog filter */
+            for(m = 0; m < ord+1; m+=4)
+            {
+                br  +=  b[m] * pow(w[t], (double)m);
+                ar  += pa[m] * pow(w[t], (double)m);
+                dbr +=  b[m] * (double) m * pow(w[t], (double)(m-1));
+                dar += pa[m] * (double) m * pow(w[t], (double)(m-1));
+            }
+            for(m = 2; m < ord+1; m+=4)
+            {
+                br  -=  b[m] * pow(w[t], (double)m);
+                ar  -= pa[m] * pow(w[t], (double)m);
+                dbr -=  b[m] * (double) m * pow(w[t], (double)(m-1));
+                dar -= pa[m] * (double) m * pow(w[t], (double)(m-1));
+            }
+            
+            for(m = 1; m < ord+1; m+=4)
+            {
+                bi  +=  b[m] * pow(w[t], (double)m) ;
+                ai  += pa[m] * pow(w[t], (double)m) ;
+                dbi +=  b[m] * (double) m * pow(w[t], (double)(m-1)) ;
+                dai += pa[m] * (double) m * pow(w[t], (double)(m-1)) ;
+            }
+            
+            for(m = 3; m < ord+1; m+=4)
+            {
+                bi  -=  b[m] * pow(w[t], (double)m) ;
+                ai  -= pa[m] * pow(w[t], (double)m) ;
+                dbi -=  b[m] * (double) m * pow(w[t], (double)(m-1)) ;
+                dai -= pa[m] * (double) m * pow(w[t], (double)(m-1)) ;
+            }
+        }
+        else
+        {
+            /* Br, Ar, Bi, Ai, Br', Ar', Bi', Ai' for digital filter */
+            for(m = 0; m < ord+1; m++)
+            {
+                br +=  b[m] * cos(w[t]*(double)m);
+                bi -=  b[m] * sin(w[t]*(double)m);
+                ar += pa[m] * cos(w[t]*(double)m);
+                ai -= pa[m] * sin(w[t]*(double)m);
+                  
+                dbr -=  b[m] *(double)m * sin(w[t]*(double)m);
+                dbi -=  b[m] *(double)m * cos(w[t]*(double)m);
+                dar -= pa[m] *(double)m * sin(w[t]*(double)m);
+                dai -= pa[m] *(double)m * cos(w[t]*(double)m);
+            }
+        }
+        ar2ai2 = (ar * ar + ai * ai);
+        ar2ai22 = ar2ai2 * ar2ai2;
+        r = (br * ar + bi * ai) / ar2ai2;
+        i = (br * ai - bi * ar) / ar2ai2;
+        
+        dr = ((dbr * ar + dar * br + dbi * ai + dai * bi) * ar2ai2 -
+              (2.0 * ar * dar + 2.0 * ai * dai) * (br * ar + bi * ai))/ar2ai22;
+        
+        di = ((dbr * ai + dai * br - dbi * ar - dar * bi) * ar2ai2 -
+              (2.0 * ar * dar + 2.0 * ai * dai) * (br * ai - bi * ar))/ar2ai22;
+        
+        tau[t] = -(dr * i - di * r) / (r*r  +  i*i);
+    }
+    
+    if(pa != a)
+      free(pa);
+    
+    return RES_OK;
+}
 
 
 #ifdef DOXYGEN_ENGLISH
@@ -241,9 +337,9 @@ int DSPL_API filter_freq_resp(double* b, double* a, int ord,
 {
     int res, k, flag_analog;
 
-    complex_t *hc = NULL;
-    double *phi0 = NULL;
-    double *phi1 = NULL;
+    complex_t *hc  = NULL;
+    double *phi0   = NULL;
+    double *phi1   = NULL;
     double *w0     = NULL;
     double *w1     = NULL;
 
@@ -296,34 +392,8 @@ int DSPL_API filter_freq_resp(double* b, double* a, int ord,
 
 
     if(tau)
-    {
-        phi0 = (double*) malloc(n*sizeof(double));
-        phi1 = (double*) malloc(n*sizeof(double));
-        w0   = (double*) malloc(n*sizeof(double));
-        w1   = (double*) malloc(n*sizeof(double));
+        res = group_delay(b, a, ord, flag, w, n, tau);
 
-        w0[0] = w[0] - (w[1] - w[0])*0.02;
-        w1[0] = w[0] + (w[1] - w[0])*0.02;
-
-        for(k = 1; k < n; k++)
-        {
-            w0[k] = w[k] - (w[k] - w[k-1])*0.02;
-            w1[k] = w[k] + (w[k] - w[k-1])*0.02;
-        }
-        res = filter_freq_resp(b, a, ord, w0, n, 
-                               DSPL_FLAG_UNWRAP | flag_analog,
-                               NULL, phi0, NULL);
-        if(res != RES_OK)
-            goto exit_label;
-        res = filter_freq_resp(b, a, ord, w1, n, 
-                               DSPL_FLAG_UNWRAP | flag_analog, 
-                               NULL, phi1, NULL);
-        if(res != RES_OK)
-            goto exit_label;
-
-        for(k = 0; k < n; k++)
-            tau[k] = (phi0[k] - phi1[k])/(w1[k] - w0[k]);
-    }
 
 
 exit_label:
@@ -585,11 +655,6 @@ int DSPL_API freqs_cmplx(double* b, double* a, int ord,
 }
 
 
-
-
-
-
-
 #ifdef DOXYGEN_ENGLISH
 
 #endif
@@ -734,7 +799,6 @@ H(z) = \frac  {\sum_{k = 0}^{N} b_k  z^{-k}}
 Комплексный коэффициент передачи рассчитывается путем 
 подстановки \f$z = e^{j \omega} \f$. \n
 
-  
 \param[in]  b
 Указатель на вектор коэффициентов числителя 
 передаточной функции \f$H(z)\f$. \n
@@ -754,7 +818,7 @@ H(z) = \frac  {\sum_{k = 0}^{N} b_k  z^{-k}}
 для которого будет рассчитан комплексный коэффициент передачи 
 \f$ H \left(e^{j \omega} \right)\f$. \n
 Размер вектора `[n x 1]`. \n \n
-      
+
 \param[in]  n
 Размер вектора нормированной циклической частоты `w`. \n \n
 
@@ -764,7 +828,6 @@ H(z) = \frac  {\sum_{k = 0}^{N} b_k  z^{-k}}
 циклической частоты `w`. \n
 Размер вектора `[n x 1]`. \n
 Память должна быть выделена. \n \n
-
 
 \return
 `RES_OK` Комплексный коэффициент передачи рассчитан успешно. \n

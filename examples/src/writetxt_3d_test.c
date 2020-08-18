@@ -2,31 +2,31 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-
+ 
 #include "dspl.h"
-
+ 
 #define NX  20
 #define NY  30
-
+ 
 int main(int argc, char* argv[])
 {
     void* hdspl;            /* DSPL handle        */
     void* hplot;            /* GNUPLOT handles    */
-
+ 
     hdspl = dspl_load();    /* Load DSPL function */
-
+ 
     double x[NX];
     double y[NY];
     double z[NX * NY];
     int n, m;
     int err;
-
+ 
     /* x vector from -2 to 2 */
     linspace(-2.0, 2.0, NX, DSPL_SYMMETRIC, x);
-
+ 
     /* y vector from -2.5 to 2.5 */
     linspace(-2.5, 2.5, NY, DSPL_SYMMETRIC, y);
-
+ 
     /* z(x,y) = x * exp(-x^2 - y^2) */
     for(n = 0; n < NX; n++)
     {
@@ -35,11 +35,11 @@ int main(int argc, char* argv[])
             z[n + m*NX] = x[n]*exp(-x[n]*x[n] - y[m]*y[m]);
         }
     }
-
+ 
     /* Save to files "dat/data3d.txt" */
     err = writetxt_3d(x, NX, y, NY, z, "dat/data3d.txt");
     printf("writetxt_3d error 0x%8x\n", err);
-
+ 
     /* plotting 3d surface by GNUPLOT */
     /* Create window 0 */
     err = gnuplot_create(argc, argv, 560, 480, "img/writetxt_3d.png", &hplot);
@@ -50,8 +50,7 @@ int main(int argc, char* argv[])
     gnuplot_cmd(hplot, "set ylabel 'y'");
     gnuplot_cmd(hplot, "splot 'dat/data3d.txt' with lines");
     gnuplot_close(hplot);
-
+ 
     dspl_free(hdspl);      /* free dspl handle */
     return 0;
 }
-

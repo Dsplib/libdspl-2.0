@@ -1055,6 +1055,8 @@ DECLARE_FUNC(int,        gnuplot_create,              int               argc
                                                 COMMA char*             fn_png
                                                 COMMA void**            hplot);
 /*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        gnuplot_open,                void**            hplot);
+/*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        goertzel,                    double*
                                                 COMMA int
                                                 COMMA int*
