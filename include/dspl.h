@@ -1213,6 +1213,14 @@ DECLARE_FUNC(int,        minmax,                      double*          x
 DECLARE_FUNC(int,       ones,                         double*          x
                                                 COMMA int              n);
 /*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        phase_delay,                 double*          b
+                                                COMMA double*          a
+                                                COMMA int              ord
+                                                COMMA int              flag
+                                                COMMA double*          w
+                                                COMMA int              n
+                                                COMMA double*          tau);
+/*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        poly_z2a_cmplx,              complex_t*
                                                 COMMA int
                                                 COMMA int

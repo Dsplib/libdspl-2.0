@@ -143,6 +143,7 @@ p_minmax                                minmax                        ;
 
 p_ones                                  ones                          ;
 
+p_phase_delay                           phase_delay                   ;
 p_poly_z2a_cmplx                        poly_z2a_cmplx                ;
 p_polyroots                             polyroots                     ;
 p_polyval                               polyval                       ;
@@ -445,6 +446,7 @@ void* dspl_load()
     
     LOAD_FUNC(ones);
     
+    LOAD_FUNC(phase_delay);
     LOAD_FUNC(poly_z2a_cmplx);
     LOAD_FUNC(polyroots);
     LOAD_FUNC(polyval);

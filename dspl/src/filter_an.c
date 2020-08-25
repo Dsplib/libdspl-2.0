@@ -25,15 +25,153 @@
 #include "dspl.h"
 
 
+
+
+
+#ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup FILTER_ANALYSIS_GROUP
 int DSPL_API group_delay(double* b, double* a, int ord, int flag,
                          double* w, int n, double* tau)
+
+\brief
+Group delay calculation for digital or analog filter corresponds to 
+\f$H(s)\f$, or \f$H(z)\f$ transfer function.
+
+Group delay is describes as:
+\f[
+\tau_g(\omega) = - \dfrac{d\Phi(\omega)}{d\omega},
+\f]
+here \f$\Phi(\omega)\f$ -- filter phase response, \f$\omega\f$ is angular
+frequency for analog filter, or normalized frequency for digital filter.
+
+\param[in]  b
+Pointer to the \f$ H(s) \f$ or \f$H(z)\f$  transfer function 
+numerator coefficients vector. \n 
+Vector size is `[ord+1 x 1]`. \n \n 
+
+\param[in]  a
+Pointer to the \f$ H(s) \f$ or \f$H(z)\f$ transfer function 
+denominator coefficients vector. \n 
+Vector size is `[ord+1 x 1]`. \n \n 
+
+\param[in]  ord
+Filter order. \n
+Transfer function \f$ H(s) \f$ or \f$H(z)\f$ numerator 
+and denominator coefficients number equals `ord+1`. \n \n 
+
+\param[in]  flag
+Binary flags to set calculation rules: \n 
+\verbatim
+DSPL_FLAG_ANALOG  Coefficients corresponds to analog filter
+DSPL_FLAG_DIGITAL Coefficients corresponds to digital filter
+\endverbatim
+\n \n
+
+\param[in]  w
+Pointer to the angular frequency  \f$ \omega \f$ (rad/s), 
+which used for analog filter characteristics calculation
+(flag sets as `DSPL_FLAG_ANALOG`). \n
+For digital filter (flag sets as `DSPL_FLAG_DIGITAL`),
+ parameter `w` describes normalized frequency of
+frequency response \f$ H \left(\mathrm{e}^{j\omega} \right) \f$.
+Digital filter frequency response is \f$ 2\pi \f$-periodic function,
+and vector `w` advisable to set from 0 to \f$ \pi \f$,
+or from 0 to \f$ 2\pi \f$, or from \f$ -\pi \f$ to \f$ \pi \f$.
+Vector size is `[n x 1]`. \n \n
+
+\param[in]  n
+Size of frequency vector `w`. \n  \n 
+
+\param[out]  tau
+Pointer to the group delay vector. \n 
+Vector size is  `[n x 1]`. \n
+Memory must be allocated. \n \n
+
+\return
+\return `RES_OK` if function is calculated successfully. \n
+Else \ref ERROR_CODE_GROUP "code error".
+
+\author Sergey Bakhurin www.dsplib.org
+***************************************************************************** */
+#endif
+#ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup FILTER_ANALYSIS_GROUP
+int DSPL_API group_delay(double* b, double* a, int ord, int flag,
+                         double* w, int n, double* tau)
+\brief
+Расчет группового времени запаздывания цифрового или аналогового фильтра.
+
+Групповое время запаздывания определяется как:
+\f[
+\tau_g(\omega) = - \dfrac{d\Phi(\omega)}{d\omega},
+\f]
+где \f$\Phi(\omega)\f$ -- ФЧХ фильтра, \f$\omega\f$ циктическая частот в случае 
+аналогового фильтра, или нормированная частота цифрового фильтра.
+
+\param[in]  b
+Указатель на вектор коэффициентов числителя передаточной функции 
+аналогового фильтра \f$ H(s) \f$  или цифрового фильтра \f$ H(z) \f$. \n 
+Размер вектора `[ord+1 x 1]`. \n \n 
+
+\param[in]  a
+Указатель на вектор коэффициентов числителя передаточной функции 
+аналогового фильтра \f$ H(s) \f$  или цифрового фильтра \f$ H(z) \f$. \n 
+Размер вектора `[ord+1 x 1]`. \n  
+Параметр может быть `NULL`. В этом случае расчет производится для цифрового 
+КИХ-фильтра с коэффициентами, заданными вектором `b`. \n\n
+
+\param[in]  ord
+Порядок фильтра. Количество коэффициентов 
+числителя и знаменателя передаточной
+функции \f$ H(s) \f$ или \f$ H(z) \f$ равно `ord+1`. \n  \n 
+
+\param[in]  flag
+Флаг который задает тип фильтра: \n 
+\verbatim
+DSPL_FLAG_ANALOG  Коэффициенты относятся к аналоговому фильтру
+DSPL_FLAG_DIGITAL  Коэффициенты относятся к цифровому фильтру
+\endverbatim
+
+\param[in]  w
+Указатель на вектор значений циклической частоты  \f$ \omega \f$ (рад/с), 
+для которого будет рассчитаны  АЧХ, ФЧХ и ГВЗ аналогового фильтра, 
+если установлен  флаг `DSPL_FLAG_ANALOG`. \n
+В случае если флаг `DSPL_FLAG_ANALOG` не установлен, то  вектор частоты `w` 
+используется как нормированная частота комплексного коэффициента передачи 
+\f$ H \left(\mathrm{e}^{j\omega} \right) \f$  цифрового фильтра. \n
+В этом случае характеристика цифрового фильтра является 
+\f$ 2\pi \f$-периодической, и вектор частоты может содержать 
+произвольные значения, однако целесообразно задавать 
+его от 0 до \f$ \pi \f$, а такжет от 0 до \f$ 2\pi \f$, или 
+от \f$ -\pi \f$ до \f$ \pi \f$. \n
+Размер вектора `[n x 1]`. \n \n 
+
+\param[in]  n
+Размер вектора циклической частоты `w`. \n  \n 
+
+\param[out]  tau
+Указатель на вектор групповой задержки. \n 
+Размер вектора `[n x 1]`. \n
+Память должна быть выделена. \n
+
+\return
+`RES_OK`  Параметры фильтра рассчитаны успешно. \n
+В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n
+
+\author Бахурин Сергей www.dsplib.org
+***************************************************************************** */
+#endif
+int DSPL_API group_delay(double* pb, double* pa, int ord, int flag,
+                         double* w, int n, double* tau)
 {
-    double r, i, dr, di, br, bi, ar, ai, dbr, dbi, dar, dai, ar2ai2, ar2ai22;
+    double a, b, c, d, da, db, dc, dd, f, e;
     int t, m;
     
-    double *pa = NULL;
+    double *qa = NULL;
     
-    if(!b || !w || !tau || (!a && (flag & DSPL_FLAG_ANALOG)))
+    if(!pb || !w || !tau || (!pa && (flag & DSPL_FLAG_ANALOG)))
         return ERROR_PTR;
     if(ord < 1)
         return ERROR_FILTER_ORD;
@@ -41,84 +179,76 @@ int DSPL_API group_delay(double* b, double* a, int ord, int flag,
         return ERROR_SIZE;
 
 
-    if(a)
-      pa = a;
+    if(pa)
+      qa = pa;
     else
     {
-        pa = (double*)malloc((ord+1) * sizeof(double));
-        memset(pa, 0, (ord+1) * sizeof(double));
-        pa[0] = 1.0;
+        qa = (double*)malloc((ord+1) * sizeof(double));
+        memset(qa, 0, (ord+1) * sizeof(double));
+        qa[0] = 1.0;
     }
     
     for(t = 0; t < n; t++)
     {
-        br = bi = ar = ai = dbr = dbi = dar = dai = 0.0;
+        a = b = c = d = da = db = dc = dd = 0.0;
         if(flag & DSPL_FLAG_ANALOG)
-        {
-            /* Br, Ar, Bi, Ai, Br', Ar', Bi', Ai' for analog filter */
+        { 
             for(m = 0; m < ord+1; m+=4)
             {
-                br  +=  b[m] * pow(w[t], (double)m);
-                ar  += pa[m] * pow(w[t], (double)m);
-                dbr +=  b[m] * (double) m * pow(w[t], (double)(m-1));
-                dar += pa[m] * (double) m * pow(w[t], (double)(m-1));
+                a  += pb[m] * pow(w[t], (double)m);
+                c  += qa[m] * pow(w[t], (double)m);
+                da += pb[m] * (double) m * pow(w[t], (double)(m-1));
+                dc += qa[m] * (double) m * pow(w[t], (double)(m-1));
             }
             for(m = 2; m < ord+1; m+=4)
             {
-                br  -=  b[m] * pow(w[t], (double)m);
-                ar  -= pa[m] * pow(w[t], (double)m);
-                dbr -=  b[m] * (double) m * pow(w[t], (double)(m-1));
-                dar -= pa[m] * (double) m * pow(w[t], (double)(m-1));
+                a  -= pb[m] * pow(w[t], (double)m);
+                c  -= qa[m] * pow(w[t], (double)m);
+                da -= pb[m] * (double) m * pow(w[t], (double)(m-1));
+                dc -= qa[m] * (double) m * pow(w[t], (double)(m-1));
             }
             
             for(m = 1; m < ord+1; m+=4)
             {
-                bi  +=  b[m] * pow(w[t], (double)m) ;
-                ai  += pa[m] * pow(w[t], (double)m) ;
-                dbi +=  b[m] * (double) m * pow(w[t], (double)(m-1)) ;
-                dai += pa[m] * (double) m * pow(w[t], (double)(m-1)) ;
+                b  += pb[m] * pow(w[t], (double)m) ;
+                d  += qa[m] * pow(w[t], (double)m) ;
+                db += pb[m] * (double) m * pow(w[t], (double)(m-1)) ;
+                dd += qa[m] * (double) m * pow(w[t], (double)(m-1)) ;
             }
             
             for(m = 3; m < ord+1; m+=4)
             {
-                bi  -=  b[m] * pow(w[t], (double)m) ;
-                ai  -= pa[m] * pow(w[t], (double)m) ;
-                dbi -=  b[m] * (double) m * pow(w[t], (double)(m-1)) ;
-                dai -= pa[m] * (double) m * pow(w[t], (double)(m-1)) ;
+                b  -= pb[m] * pow(w[t], (double)m) ;
+                d  -= qa[m] * pow(w[t], (double)m) ;
+                db -= pb[m] * (double) m * pow(w[t], (double)(m-1)) ;
+                dd -= qa[m] * (double) m * pow(w[t], (double)(m-1)) ;
             }
+            
         }
         else
         {
-            /* Br, Ar, Bi, Ai, Br', Ar', Bi', Ai' for digital filter */
             for(m = 0; m < ord+1; m++)
             {
-                br +=  b[m] * cos(w[t]*(double)m);
-                bi -=  b[m] * sin(w[t]*(double)m);
-                ar += pa[m] * cos(w[t]*(double)m);
-                ai -= pa[m] * sin(w[t]*(double)m);
+                a += pb[m] * cos(w[t]*(double)m);
+                b -= pb[m] * sin(w[t]*(double)m);
+                c += qa[m] * cos(w[t]*(double)m);
+                d -= qa[m] * sin(w[t]*(double)m);
                   
-                dbr -=  b[m] *(double)m * sin(w[t]*(double)m);
-                dbi -=  b[m] *(double)m * cos(w[t]*(double)m);
-                dar -= pa[m] *(double)m * sin(w[t]*(double)m);
-                dai -= pa[m] *(double)m * cos(w[t]*(double)m);
+                da -= pb[m] *(double)m * sin(w[t]*(double)m);
+                db -= pb[m] *(double)m * cos(w[t]*(double)m);
+                dc -= qa[m] *(double)m * sin(w[t]*(double)m);
+                dd -= qa[m] *(double)m * cos(w[t]*(double)m);
             }
         }
-        ar2ai2 = (ar * ar + ai * ai);
-        ar2ai22 = ar2ai2 * ar2ai2;
-        r = (br * ar + bi * ai) / ar2ai2;
-        i = (br * ai - bi * ar) / ar2ai2;
         
-        dr = ((dbr * ar + dar * br + dbi * ai + dai * bi) * ar2ai2 -
-              (2.0 * ar * dar + 2.0 * ai * dai) * (br * ar + bi * ai))/ar2ai22;
-        
-        di = ((dbr * ai + dai * br - dbi * ar - dar * bi) * ar2ai2 -
-              (2.0 * ar * dar + 2.0 * ai * dai) * (br * ai - bi * ar))/ar2ai22;
-        
-        tau[t] = -(dr * i - di * r) / (r*r  +  i*i);
+        f = da * c + a * dc + db * d + b * dd;
+        e = db * c + b * dc - da * d - a * dd;
+        tau[t] = (f * (b * c - a * d) - e * (a * c + b * d)) / 
+                 ((a * a + b * b) * (c * c + d * d));
     }
     
-    if(pa != a)
-      free(pa);
+    if(qa != pa)
+      free(qa);
     
     return RES_OK;
 }
@@ -223,7 +353,6 @@ In addition, GNUPLOT will build the following graphs from data stored in files:
 
 \author Sergey Bakhurin www.dsplib.org
 ***************************************************************************** */
-
 #endif
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
@@ -923,7 +1052,35 @@ exit_label:
 
 
 
+#ifdef DOXYGEN_ENGLISH
 
+#endif
+#ifdef DOXYGEN_RUSSIAN
+
+#endif
+int DSPL_API phase_delay(double* b, double* a, int ord, int flag,
+                         double* w, int n, double* tau)
+{
+    int err, i;
+    double *phi =  NULL;
+
+    if(n > 0)
+        phi = (double*)malloc(n*sizeof(double));
+    else
+        return ERROR_SIZE;
+
+    err = filter_freq_resp(b, a, ord, w, n, 
+                           flag | DSPL_FLAG_UNWRAP, NULL, phi, NULL);
+    if(err!=RES_OK)
+        goto exit_label;
+    for(i = 0; i < n; i++)
+        tau[i] = w[i] ? ( - phi[i] / w[i]) : ( - phi[i] / (w[i] + 1E-9) );
+
+exit_label:
+    if(phi)
+        free(phi);
+    return err;
+}
 
 
 
