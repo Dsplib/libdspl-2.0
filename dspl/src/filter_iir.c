@@ -410,7 +410,8 @@ int DSPL_API iir(double rp, double rs, int ord, double w0, double w1,
     double *at = NULL;
     double wa0, wa1, ws;
     int err, ord_ap = ord;
-
+    int i;
+    
     if(((type & DSPL_FILTER_TYPE_MASK) == DSPL_FILTER_LPF) ||
          ((type & DSPL_FILTER_TYPE_MASK) == DSPL_FILTER_HPF))
     {
@@ -477,6 +478,14 @@ int DSPL_API iir(double rp, double rs, int ord, double w0, double w1,
 
 
     err = bilinear(bt, at, ord, b, a);
+    
+    for(i =  1; i <= ord; i++)
+    {
+        a[i] /= a[0];
+        b[i] /= a[0];
+    }
+    b[0] /= a[0];
+    a[0] = 1.0;
 
 error_proc:
 

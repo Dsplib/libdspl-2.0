@@ -993,15 +993,16 @@ dat/sf.txt - сигнал на выходе фильтра.
 int DSPL_API filter_iir(double* b, double* a, int ord,
                         double* x, int n, double* y)
 {
-    double* buf = NULL;
-    double* an  = NULL;
+    double *buf = NULL;
+    double *an  = NULL;
+    double *bn  = NULL;
     double  u;
     int     k;
     int     m;
     int     count;
 
     if(!b || !x || !y)
-        return    ERROR_PTR;
+        return ERROR_PTR;
 
     if(ord < 1 || n < 1)
         return ERROR_SIZE;
@@ -1016,10 +1017,19 @@ int DSPL_API filter_iir(double* b, double* a, int ord,
     memset(buf, 0, count*sizeof(double));
 
     if(!a)
+    {
         memset(an, 0, count*sizeof(double));
+        bn = b;
+    }
     else
+    {
+        bn =  (double*) malloc(count*sizeof(double));
         for(k = 0; k < count; k++)
+        {
             an[k] = a[k] / a[0];
+            bn[k] = b[k] / a[0];
+        }
+    }
 
     for(k = 0; k < n; k++)
     {
@@ -1032,13 +1042,15 @@ int DSPL_API filter_iir(double* b, double* a, int ord,
         buf[0] = x[k] - u;
         y[k] = 0.0;
         for(m = 0; m < count; m++)
-            y[k] += buf[m] * b[m];
+            y[k] += buf[m] * bn[m];
     }
 
     if(buf)
         free(buf);
     if(an)
         free(an);
+    if(bn && (bn != b))
+        free(bn);
     return RES_OK;
 }
 
