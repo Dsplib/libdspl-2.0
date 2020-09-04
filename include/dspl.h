@@ -561,6 +561,7 @@ Variable `z = 1-2j`, here `j` - imaginary unit, but variable `y = 5`.
 #define ERROR_WIN_SYM                         0x23091925
 #define ERROR_WIN_TYPE                        0x23092025
 /* X                                          0x24xxxxxx*/
+#define ERROR_XCORR_FLAG                      0x24031518
 /* Y                                          0x25xxxxxx*/
 /* Z                                          0x26xxxxxx*/
 
@@ -617,6 +618,11 @@ Variable `z = 1-2j`, here `j` - imaginary unit, but variable `y = 5`.
 #define DSPL_FILTER_CHEBY1                    0x00000200
 #define DSPL_FILTER_CHEBY2                    0x00000400
 #define DSPL_FILTER_ELLIP                     0x00000800
+
+
+#define DSPL_XCORR_NOSCALE                    0x00000000
+#define DSPL_XCORR_BIASED                     0x00000001
+#define DSPL_XCORR_UNBIASED                   0x00000002
 
 
 
@@ -1399,6 +1405,24 @@ DECLARE_FUNC(int,        writetxt_int,                int*
                                                 COMMA int*
                                                 COMMA int
                                                 COMMA char*);
+/*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        xcorr,                       double*           x
+                                                COMMA int               nx
+                                                COMMA double*           y
+                                                COMMA int               ny
+                                                COMMA int               flag
+                                                COMMA int               nr
+                                                COMMA double*           r
+                                                COMMA double*           t);
+/*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        xcorr_cmplx,                 complex_t*        x
+                                                COMMA int               nx
+                                                COMMA complex_t*        y
+                                                COMMA int               ny
+                                                COMMA int               flag
+                                                COMMA int               nr
+                                                COMMA complex_t*        r
+                                                COMMA double*           t);
 /*----------------------------------------------------------------------------*/
 
 

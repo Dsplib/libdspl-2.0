@@ -258,3 +258,7 @@ int DSPL_API minmax(double* x, int n, double* xmin, double* xmax)
     
     return RES_OK;
 }
+
+
+
+

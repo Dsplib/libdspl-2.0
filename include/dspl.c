@@ -185,6 +185,9 @@ p_writetxt_cmplx_im                     writetxt_cmplx_im             ;
 p_writetxt_cmplx_re                     writetxt_cmplx_re             ;
 p_writetxt_int                          writetxt_int                  ;
 
+p_xcorr                                 xcorr                         ;
+p_xcorr_cmplx                           xcorr_cmplx                   ;
+
 
 #ifdef WIN_OS
 #define LOAD_FUNC(fn) \
@@ -487,6 +490,10 @@ void* dspl_load()
     LOAD_FUNC(writetxt_cmplx_im);
     LOAD_FUNC(writetxt_cmplx_re);
     LOAD_FUNC(writetxt_int);
+    
+    LOAD_FUNC(xcorr);
+    LOAD_FUNC(xcorr_cmplx);
+
     
     #ifdef WIN_OS
     return (void*)handle;

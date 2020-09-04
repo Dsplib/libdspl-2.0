@@ -44,9 +44,6 @@ void DSPL_API dspl_info()
 }
 
 
-
-
-
 #ifdef DOXYGEN_ENGLISH
 
 #endif
@@ -90,7 +87,6 @@ int DSPL_API readbin(char* fn, void** x, int* k, int* dtype)
 
     if(k)
         *k = n*m;
-
     switch(t)
     {
         case DAT_DOUBLE:
@@ -111,6 +107,7 @@ int DSPL_API readbin(char* fn, void** x, int* k, int* dtype)
                 err = ERROR_FREAD_SIZE;
                 goto exit_label;
             }
+            break;
         default:
             err = ERROR_DAT_TYPE;
             goto exit_label;
@@ -321,6 +318,7 @@ int DSPL_API writebin(void* x, int n, int dtype, char* fn)
         res = ERROR_FWRITE_SIZE;
         goto exit_label;
     }
+
 
 
     if(fwrite(&n, sizeof(int), 1, pFile) != 1)
