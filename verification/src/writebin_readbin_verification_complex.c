@@ -9,6 +9,7 @@ int main(int argc, char* argv[])
     void* hdspl;            /* DSPL handle        */
     complex_t    *pxd = NULL;
     complex_t    *pyd = NULL;
+    char str[512] = {0};
     
     int nx, ny, tx, err, verr;
     double derr;
@@ -17,7 +18,10 @@ int main(int argc, char* argv[])
     
     hdspl = dspl_load();    /* Load DSPL function */
     
-    printf("writebin and readbin for complex data:.........");
+    sprintf(str, "writebin and readbin for complex data:");
+    while(strlen(str) < 48)
+      str[strlen(str)] = 46;
+    
     
     err = random_init(&rnd, RAND_TYPE_MRG32K3A, NULL);
     if(err != RES_OK)
@@ -29,16 +33,21 @@ int main(int argc, char* argv[])
     
     pxd = (complex_t*) malloc(nx * sizeof(complex_t));
     
+    
+    /****************** verifiсation function start  **************************/
     err  = randn((double*)pxd, 2*nx, 1.0, 10.0, &rnd);
     if(err != RES_OK)
         goto exit_error_code;
-    
+      
+    /************ Write input verification data to the file  ******************/
     err = writebin((void*)pxd, nx, DAT_COMPLEX, "dat/x.dat");
     if(err != RES_OK)
         goto exit_error_code;
-
+    
+    /************ RUN external verificator (octave or python)  ****************/
     err = system("octave octave/writebin_readbin_verification.m");
 
+    /***************** Read external verificator output  **********************/
     err = readbin("dat/y.dat", (void**)(&pyd), &ny, &tx);
     if(err != RES_OK)
         goto exit_error_code;
@@ -47,26 +56,35 @@ int main(int argc, char* argv[])
         err = ERROR_DAT_TYPE;
         goto exit_error_code;
     }
+    
+    /**************************** Verification  *******************************/
     verr = verif_cmplx(pxd, pyd, ny, 1E-12, &derr);
     if(verr != DSPL_VERIF_SUCCESS)
         goto exit_error_verif;
 
-     printf("ok (err = %12.4E)\n", derr);
+     sprintf(str, "%s ok (err = %12.4E)", str,  derr);
      goto exit_label;
-     
+
 exit_error_code:
-     printf("FAILED (with code = 0x%8x)\n", err);
+     sprintf(str, "%s FAILED (with code = 0x%8x)", str, err);
      goto exit_label;
+
 exit_error_verif:
-     printf("FAILED (err = %12.4E)\n", derr);
-    
+     sprintf(str, "%s FAILED (err = %12.4E)", str, derr);
+
 exit_label:
+    /************************ write str to log file  **************************/
+    
+    
     if(pxd)
         free(pxd);
     if(pyd)
         free(pyd);
+      
     /* free dspl handle */
     dspl_free(hdspl);
+    
+    printf("%s\n", str);
     return 0;
 }
 
