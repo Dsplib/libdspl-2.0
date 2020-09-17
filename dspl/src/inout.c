@@ -26,6 +26,35 @@
 #include "dspl.h"
 
 
+
+#ifdef DOXYGEN_ENGLISH
+
+#endif
+#ifdef DOXYGEN_RUSSIAN
+
+#endif
+int DSPL_API addlog(char* str, char* fn)
+{
+    FILE* pFile = NULL;
+    if(!str)
+        return ERROR_PTR;
+
+    pFile = fopen(fn, "a+");
+    if(pFile == NULL)
+        return ERROR_FOPEN;
+
+    fprintf(pFile, "%s\n", str);
+
+    fclose(pFile);
+    return RES_OK;
+}
+
+
+
+
+
+
+
 #ifdef DOXYGEN_ENGLISH
 
 #endif

@@ -674,6 +674,9 @@ DECLARE_FUNC(int,        acos_cmplx,                  complex_t*
                                                 COMMA int
                                                 COMMA complex_t*);
 /*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        addlog,                      char*         str
+                                                COMMA char*         fn);
+/*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        array_scale_lin,             double*       x
                                                 COMMA int           n
                                                 COMMA double        xmin

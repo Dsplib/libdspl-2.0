@@ -10,6 +10,7 @@
 *.html
 *.png
 *.def
+*.log
 
 !header_ru.html
 !footer_ru.html

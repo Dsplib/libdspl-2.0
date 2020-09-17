@@ -3,6 +3,10 @@
 #include <string.h>
 #include <time.h>
 #include "dspl.h"
+#include "dspl_verif.h"
+
+#define ARRAY_MAX_SIZE 1000000
+
 
 int main(int argc, char* argv[])
 {
@@ -19,15 +23,15 @@ int main(int argc, char* argv[])
     hdspl = dspl_load();    /* Load DSPL function */
     
     sprintf(str, "writebin and readbin for complex data:");
-    while(strlen(str) < 48)
-      str[strlen(str)] = 46;
+    while(strlen(str) < VERIF_STR_LEN)
+      str[strlen(str)] = VERIF_CHAR_POINT;
     
     
     err = random_init(&rnd, RAND_TYPE_MRG32K3A, NULL);
     if(err != RES_OK)
         goto exit_error_code;
 
-    err = randi(&nx, 1, 1, 1000000, &rnd);
+    err = randi(&nx, 1, 1, ARRAY_MAX_SIZE, &rnd);
     if(err != RES_OK)
         goto exit_error_code;
     
@@ -58,7 +62,7 @@ int main(int argc, char* argv[])
     }
     
     /**************************** Verification  *******************************/
-    verr = verif_cmplx(pxd, pyd, ny, 1E-12, &derr);
+    verr = verif_cmplx(pxd, pyd, ny, VERIF_LEVEL_COMPLEX, &derr);
     if(verr != DSPL_VERIF_SUCCESS)
         goto exit_error_verif;
 
@@ -75,6 +79,8 @@ exit_error_verif:
 exit_label:
     /************************ write str to log file  **************************/
     
+    printf("%s\n", str);
+    addlog(str, "verification.log");
     
     if(pxd)
         free(pxd);
@@ -84,7 +90,7 @@ exit_label:
     /* free dspl handle */
     dspl_free(hdspl);
     
-    printf("%s\n", str);
+    
     return 0;
 }
 

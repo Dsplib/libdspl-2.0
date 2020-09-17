@@ -36,6 +36,7 @@
 #ifndef BUILD_LIB
 
 p_acos_cmplx                            acos_cmplx                    ;
+p_addlog                                addlog                        ;
 p_array_scale_lin                       array_scale_lin               ;
 p_asin_cmplx                            asin_cmplx                    ;
 
@@ -342,6 +343,7 @@ void* dspl_load()
     #endif  /* LINUX_OS */
     
     LOAD_FUNC(acos_cmplx);
+    LOAD_FUNC(addlog);
     LOAD_FUNC(array_scale_lin);
     LOAD_FUNC(asin_cmplx);
     

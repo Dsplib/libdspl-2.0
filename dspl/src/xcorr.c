@@ -47,15 +47,33 @@ int DSPL_API xcorr(double* x, int nx, double* y, int ny,
     fft_t fft = {0};
     int err;
     complex_t *cr = (complex_t*)malloc((2 * nr + 1) * sizeof(complex_t));
+    if(!cr)
+    {
+        err = ERROR_MALLOC;
+        goto exit_label;
+    }
     complex_t *cx = (complex_t*)malloc( nx * sizeof(complex_t));
+    if(!cx)
+    {
+        err = ERROR_MALLOC;
+        goto exit_label;
+    }
     complex_t *cy = (complex_t*)malloc( ny * sizeof(complex_t));
+    if(!cy)
+    {
+        err = ERROR_MALLOC;
+        goto exit_label;
+    }
     
     err = re2cmplx(x, nx, cx);
     if(err != RES_OK)
         goto exit_label;
+      
     err = re2cmplx(y, ny, cy);
+    
     if(err != RES_OK)
         goto exit_label;
+      
     err = xcorr_krn(cx, nx, cy, ny, &fft, flag, nr, cr, t);
     if(err != RES_OK)
         goto exit_label;
@@ -65,6 +83,11 @@ int DSPL_API xcorr(double* x, int nx, double* y, int ny,
 exit_label:
     if(cr)
         free(cr);
+    if(cx)
+        free(cx);
+    if(cy)
+        free(cy);
+      
     fft_free(&fft);
     return err;
 }
@@ -148,12 +171,46 @@ int xcorr_krn(complex_t* x, int nx, complex_t* y, int ny, fft_t* pfft,
     
     /* memory allocation */
     px = (complex_t*)malloc(nfft * sizeof(complex_t));
+    if(!px)
+    {
+        err = ERROR_MALLOC;
+        goto exit_label;
+    }
+    
     py = (complex_t*)malloc(nfft * sizeof(complex_t));
+    if(!py)
+    {
+        err = ERROR_MALLOC;
+        goto exit_label;
+    }
+    
     pc = (complex_t*)malloc(nfft * sizeof(complex_t));
-
+    if(!pc)
+    {
+        err = ERROR_MALLOC;
+        goto exit_label;
+    }
+    
     pX = (complex_t*)malloc(nfft * sizeof(complex_t));
+    if(!pX)
+    {
+        err = ERROR_MALLOC;
+        goto exit_label;
+    }
+    
     pY = (complex_t*)malloc(nfft * sizeof(complex_t));
+    if(!pY)
+    {
+        err = ERROR_MALLOC;
+        goto exit_label;
+    }
+    
     pC = (complex_t*)malloc(nfft * sizeof(complex_t));
+    if(!pC)
+    {
+        err = ERROR_MALLOC;
+        goto exit_label;
+    }
     
     memset(px, 0, nfft * sizeof(complex_t));
     memset(py, 0, nfft * sizeof(complex_t));
@@ -204,8 +261,32 @@ exit_label:
 
 
 
+#ifdef DOXYGEN_ENGLISH
+/*******************************************************************************
+Return FFT size for autocorrelation or cross correlation vector calculation
 
-/*  
+Cross-correlation vector size is 
+N = 2 * nx - 1,   if   nx >  ny;
+N = 2 * ny - 1,   if   nx <= ny.
+
+If cross-correlation size N may not be efficient for FFT 
+then we can add zeros to get high-performance FFT size.
+
+For example if N = 1025, then we can add zeros to 2048-points FFT but this way
+seems not so good because too much zeros.
+
+If we rewrite  N = 2^L + D, then we can use
+
+               NFFT = 2^L + 2^(L - P), here  P = 0,1,2 or 3.
+
+So NFFT = 2^(L-P) * (2^P + 1). Then 2^(L-P) can use radix-2 FFT, and additional
+composite multiplication if P = 0,1,2 or 3 equals 
+9, 5, 3 or 2, and we have high-performance FFT algorithms for its points. 
+If P = 4 then composite  multiplier is (2^P + 1) = 17, has no good FFT. 
+*******************************************************************************/
+#endif
+#ifdef DOXYGEN_RUSSIAN
+/*******************************************************************************
 Возвращает размер FFT для расчета полного вектора автокорреляции 
 или кросскорреляции.
 
@@ -223,11 +304,12 @@ N = 2 * ny - 1,   eсли   nx <= ny.
 
                NFFT = 2^L + 2^(L - P), где  P = 0,1,2 или 3.
 
-Тогда NFFT = 2^(L-P) * (2^P + 1). Тогда 2^(L-P) реалиуем как radix-2, а 
+Тогда NFFT = 2^(L-P) * (2^P + 1). Тогда 2^(L-P) реализуем как radix-2, а 
 дополнительный составной множитель при P = 0,1,2 или 3 равен соответсвенно 
 9, 5, 3 или 2, а для этих длин существуют хорошие процедуры. 
 При P = 4 составной множитель будет (2^P + 1) = 17, что не очень хорошо. 
-*/
+*******************************************************************************/
+#endif
 int xcorr_fft_size(int nx, int ny, int* pnfft, int* pndata)
 {
     int nfft, nfft2, r2, dnfft;
@@ -236,9 +318,7 @@ int xcorr_fft_size(int nx, int ny, int* pnfft, int* pndata)
         return ERROR_SIZE;
     if(!pnfft || !pndata)
         return ERROR_PTR;
-      
-    
-      
+
     if(nx > ny)
     {
         nfft  = 2*nx - 1;
