@@ -870,8 +870,14 @@ int DSPL_API writetxt_3d(double* x, int nx, double* y, int ny,
     for(k = 0; k < ny; k++)
     {
         for(n = 0; n < nx; n++)
-            fprintf(pFile, "%+.12E\t%+.12E\t%+.12E\n",
-                            x[n], y[k], z[n+k*nx]);
+        {
+            if(!isnan(z[n+k*nx]))
+            {
+                fprintf(pFile, "%+.12E\t%+.12E\t%+.12E\n",
+                               x[n], y[k], z[n+k*nx]);
+                
+            }
+        }
         fprintf(pFile, "\n");
 
     }

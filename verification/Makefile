@@ -39,4 +39,5 @@ bin/$(LIB_NAME):$(RELEASE_DIR)/$(LIB_NAME)
 clean:
 	rm -f   $(OBJ_DIR)/*.o
 	rm -f   bin/*.exe
-
+	rm -f   bin/*.dll
+	rm -f   bin/*.so

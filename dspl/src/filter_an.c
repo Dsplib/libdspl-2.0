@@ -1064,7 +1064,7 @@ Phase delay calculation for digital or analog filter corresponds to
 
 Group delay is describes as:
 \f[
-\tau_\{\varphi}(\omega) = - \frac{\Phi(\omega)}{\omega},
+\tau_{\varphi}(\omega) = - \frac{\Phi(\omega)}{\omega},
 \f]
 here \f$\Phi(\omega)\f$ -- filter phase response, \f$\omega\f$ is angular
 frequency for analog filter, or normalized frequency for digital filter.
@@ -1125,11 +1125,11 @@ Else \ref ERROR_CODE_GROUP "code error".
 \fn int DSPL_API phase_delay(double* b, double* a, int ord, int flag,
                          double* w, int n, double* tau)
 \brief
-Расчет задержки цифрового или аналогового фильтра.
+Расчет фазовой задержки цифрового или аналогового фильтра.
 
 Фазовая задержка определяется как:
 \f[
-\tau_g(\omega) = - \frac{\Phi(\omega)}{\omega},
+\tau_{\varphi}(\omega) = - \frac{\Phi(\omega)}{\omega},
 \f]
 где \f$\Phi(\omega)\f$ -- ФЧХ фильтра, \f$\omega\f$ циктическая частот в случае 
 аналогового фильтра, или нормированная частота цифрового фильтра.

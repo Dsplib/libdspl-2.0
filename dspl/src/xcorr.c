@@ -36,29 +36,203 @@ int xcorr_scale_cmplx(complex_t* x, int nd, int flag);
 
 
 #ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup SPEC_MATH_STAT_GROUP
+\fn int xcorr(double* x, int nx, double* y, int ny, 
+                   int flag, int nr, double* r, double* t)
+\brief Estimates the cross-correlation vector for real 
+discrete-time sequences `x` and `y`.
 
+Estimate the cross correlation \f$\widehat{r}_{xy}(k)\f$ of vector arguments 
+`x` and `y` or estimate autocorrelation vector if \f$x = y \f$.
+
+Cross-correlation vector is defined as:
+
+\f[
+\widehat{r}_{xy}(k) = 
+\frac{1}{N-k} \sum\limits_{n = 0}^{N-k-1} x(n+k)y^*(n), \qquad 0 \leq k <N;
+\f]
+
+\f[
+\widehat{r}_{xy}(k) = 
+\frac{1}{N+k} \sum\limits_{n = 0}^{N+k-1} y^*(n-k)x(n), \qquad  -N < k < 0.
+\f]
+here \f$ N = \max(n_x, n_y) \f$.
+
+This function uses the FFT algorithm to estimate the scaled correlation vector:
+\f[
+\breve{r}_{xy}(k) = \operatorname{IFFT}\Big[ 
+\operatorname{FFT}\big[ \mathbf{x} \big] 
+\operatorname{FFT}^*\big[ \mathbf{y} \big] 
+\Big]
+\f]
+
+
+\param[in] x
+Pointer to the discrete-time vector `x`. \n
+Vector size is `[nx x 1]`. \n
+\n
+
+\param[in] nx
+Size of vector `x`. \n
+\n
+
+\param[in] y
+Pointer to the discrete-time vector `y`. \n
+Vector size is `[ny x 1]`. \n
+\n
+
+\param[in] ny
+Size of vector `y`. \n
+\n
+
+\param[in] flag
+Flag specifies the type of scaling applied to the correlation vector
+\f$\breve{r}_{xy}(k)\f$.\n 
+Is one of:\n
+`DSPL_XCORR_NOSCALE` unscaled correlation vector from IFFT output 
+\f$\breve{r}_{xy}(k)\f$;\n
+`DSPL_XCORR_BIASED`  biased correlation vector \f$\breve{r}_{xy}(k)/N \f$;\n
+`DSPL_XCORR_UNBIASED` unbiased correlation vector 
+\f$\widehat{r}_{xy}(k) = \frac{\breve{r}_{xy}(k)}{N-|k|} \f$;\n
+\n
+
+\param[in] nr
+Maximum correlation lag.\n
+Correlation vector \f$\widehat{r}_{xy}(k)\f$ is calculated for 
+\f$ k= -n_r,\,\, -n_r +1, \ldots n_r\f$.\n
+\n
+
+\param[out] r
+Pointer to the cross-correlation or autocorrelation vector. \n
+Vector size is `[(2*nr+1) x 1]`. \n
+Memory must be allocated. \n
+\n
+
+\param[out] r
+Pointer to the cross-correlation argument vector  
+\f$ k= -n_r,\,\, -n_r +1, \ldors n_r\f$.\n
+Vector size is `[(2*nr+1) x 1]`. \n
+Pointer can be `NULL`. \n
+\n
+
+\return
+`RES_OK` if function returns successfully. \n
+Else \ref ERROR_CODE_GROUP "code error".
+
+\author Sergey Bakhurin www.dsplib.org
+***************************************************************************** */
 #endif
 #ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup SPEC_MATH_STAT_GROUP
+\fn int xcorr(double* x, int nx, double* y, int ny, 
+                   int flag, int nr, double* r, double* t)
+\brief Оценка вектора взаимной корреляции для дискретных 
+вещественных последовательностей `x` и `y`.
 
+Функция производит оценку вектора взаимной корреляции \f$\widehat{r}_{xy}(k)\f$ 
+для векторов `x` и `y` или вектора автокорреляции
+\f$\widehat{r}_{xx}(k)\f$ если \f$x = y \f$.
+
+Несмещенная оценка вектора взаимной корреляции:
+\f[
+\widehat{r}_{xy}(k) = 
+\frac{1}{N-k} \sum\limits_{n = 0}^{N-k-1} x(n+k)y^*(n), \qquad 0 \leq k <N;
+\f]
+
+\f[
+\widehat{r}_{xy}(k) = 
+\frac{1}{N+k} \sum\limits_{n = 0}^{N+k-1} y^*(n-k)x(n), \qquad  -N < k < 0.
+\f]
+где \f$ N = \max(n_x, n_y) \f$.
+
+Данная функция использует алгоритм FFT для вычислительной эффективности оценки:
+\f[
+\breve{r}_{xy}(k) = \operatorname{IFFT}\Big[ 
+\operatorname{FFT}\big[ \mathbf{x} \big] 
+\operatorname{FFT}^*\big[ \mathbf{y} \big] 
+\Big]
+\f]
+ 
+
+\param[in] x
+Указатель на первую дискретную последовательность `x`. \n
+Размер вектора `[nx x 1]`. \n
+\n
+
+\param[in] nx
+Размер вектора первой дискретной последовательности `x`. \n
+\n
+
+\param[in] y
+Указатель на вторую дискретную последовательность `y`. \n
+Размер вектора `[ny x 1]`. \n
+\n
+
+\param[in] ny
+Размер вектора второй дискретной последовательности `y`. \n
+\n
+
+\param[in] flag
+Флаг задает способ масштабирования выходного корреляционного вектора
+\f$\breve{r}_{xy}(k)\f$.\n 
+Может принимать одно из следующих значений:\n
+`DSPL_XCORR_NOSCALE` немасштабированный выход алгоритма IFFT 
+\f$\breve{r}_{xy}(k)\f$;\n
+`DSPL_XCORR_BIASED`  Смещенная оценка \f$\breve{r}_{xy}(k)/N \f$;\n
+`DSPL_XCORR_UNBIASED` Несмещенная оценка
+\f$\widehat{r}_{xy}(k) = \frac{\breve{r}_{xy}(k)}{N-|k|} \f$;\n
+\n
+
+\param[in] nr
+Диапазон оценки вектора корреляции относительно нуля.\n
+Вектор \f$\widehat{r}_{xy}(k)\f$ рассчитывается для значений аргумента 
+\f$ k= -n_r,\,\, -n_r +1, \ldots n_r\f$.\n
+\n
+
+\param[out] r
+Указатель на масштабированный вектор взаимной корреляции. \n
+Размер вектора `[(2*nr+1) x 1]`. \n
+Память должна быть выделена. \n
+\n
+
+\param[out] t
+Указатель на значения аргумента вектора взаимной корреляции  
+\f$ k= -n_r,\,\, -n_r +1, \ldors n_r\f$.\n
+Размер вектора `[(2*nr+1) x 1]`. \n
+Указатель может быть `NULL`. В этом случае значения аргумента не возвращаются.\n
+\n
+
+\return
+`RES_OK` Если функция рассчитана успешно. \n
+В противном случае \ref ERROR_CODE_GROUP "код ошибки".
+
+\author Бахурин Сергей www.dsplib.org
+***************************************************************************** */
 #endif
 int DSPL_API xcorr(double* x, int nx, double* y, int ny, 
                    int flag, int nr, double* r, double* t)
 {
     fft_t fft = {0};
     int err;
-    complex_t *cr = (complex_t*)malloc((2 * nr + 1) * sizeof(complex_t));
+    complex_t *cx = NULL;
+    complex_t *cy = NULL;
+    complex_t *cr = NULL;
+    
+    cr = (complex_t*)malloc((2 * nr + 1) * sizeof(complex_t));
     if(!cr)
     {
         err = ERROR_MALLOC;
         goto exit_label;
     }
-    complex_t *cx = (complex_t*)malloc( nx * sizeof(complex_t));
+    cx = (complex_t*)malloc( nx * sizeof(complex_t));
     if(!cx)
     {
         err = ERROR_MALLOC;
         goto exit_label;
     }
-    complex_t *cy = (complex_t*)malloc( ny * sizeof(complex_t));
+    cy = (complex_t*)malloc( ny * sizeof(complex_t));
     if(!cy)
     {
         err = ERROR_MALLOC;
@@ -97,10 +271,180 @@ exit_label:
 
 
 #ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup SPEC_MATH_STAT_GROUP
+int xcorr_cmplx(complex_t* x, int nx, complex_t* y, int ny, 
+                         int flag, int nr, complex_t* r, double* t)
+\brief Estimates the cross-correlation vector for complex 
+discrete-time sequences `x` and `y`.
 
+Estimate the cross correlation \f$\widehat{r}_{xy}(k)\f$ of vector arguments 
+`x` and `y` or estimate autocorrelation vector if \f$x = y \f$.
+
+Cross-correlation vector is defined as:
+
+\f[
+\widehat{r}_{xy}(k) = 
+\frac{1}{N-k} \sum\limits_{n = 0}^{N-k-1} x(n+k)y^*(n), \qquad 0 \leq k <N;
+\f]
+
+\f[
+\widehat{r}_{xy}(k) = 
+\frac{1}{N+k} \sum\limits_{n = 0}^{N+k-1} y^*(n-k)x(n), \qquad  -N < k < 0.
+\f]
+here \f$ N = \max(n_x, n_y) \f$.
+
+This function uses the FFT algorithm to estimate the scaled correlation vector:
+\f[
+\breve{r}_{xy}(k) = \operatorname{IFFT}\Big[ 
+\operatorname{FFT}\big[ \mathbf{x} \big] 
+\operatorname{FFT}^*\big[ \mathbf{y} \big] 
+\Big]
+\f]
+
+
+\param[in] x
+Pointer to the discrete-time vector `x`. \n
+Vector size is `[nx x 1]`. \n
+\n
+
+\param[in] nx
+Size of vector `x`. \n
+\n
+
+\param[in] y
+Pointer to the discrete-time vector `y`. \n
+Vector size is `[ny x 1]`. \n
+\n
+
+\param[in] ny
+Size of vector `y`. \n
+\n
+
+\param[in] flag
+Flag specifies the type of scaling applied to the correlation vector
+\f$\breve{r}_{xy}(k)\f$.\n 
+Is one of:\n
+`DSPL_XCORR_NOSCALE` unscaled correlation vector from IFFT output 
+\f$\breve{r}_{xy}(k)\f$;\n
+`DSPL_XCORR_BIASED`  biased correlation vector \f$\breve{r}_{xy}(k)/N \f$;\n
+`DSPL_XCORR_UNBIASED` unbiased correlation vector 
+\f$\widehat{r}_{xy}(k) = \frac{\breve{r}_{xy}(k)}{N-|k|} \f$;\n
+\n
+
+\param[in] nr
+Maximum correlation lag.\n
+Correlation vector \f$\widehat{r}_{xy}(k)\f$ is calculated for 
+\f$ k= -n_r,\,\, -n_r +1, \ldots n_r\f$.\n
+\n
+
+\param[out] r
+Pointer to the cross-correlation or autocorrelation vector. \n
+Vector size is `[(2*nr+1) x 1]`. \n
+Memory must be allocated. \n
+\n
+
+\param[out] r
+Pointer to the cross-correlation argument vector  
+\f$ k= -n_r,\,\, -n_r +1, \ldors n_r\f$.\n
+Vector size is `[(2*nr+1) x 1]`. \n
+Pointer can be `NULL`. \n
+\n
+
+\return
+`RES_OK` if function returns successfully. \n
+Else \ref ERROR_CODE_GROUP "code error".
+
+\author Sergey Bakhurin www.dsplib.org
+***************************************************************************** */
 #endif
 #ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup SPEC_MATH_STAT_GROUP
+int xcorr_cmplx(complex_t* x, int nx, complex_t* y, int ny, 
+                         int flag, int nr, complex_t* r, double* t)
+\brief Оценка вектора взаимной корреляции для дискретных 
+комплексных последовательностей `x` и `y`.
 
+Функция производит оценку вектора взаимной корреляции \f$\widehat{r}_{xy}(k)\f$ 
+для векторов `x` и `y` или вектора автокорреляции
+\f$\widehat{r}_{xx}(k)\f$ если \f$x = y \f$.
+
+Несмещенная оценка вектора взаимной корреляции:
+\f[
+\widehat{r}_{xy}(k) = 
+\frac{1}{N-k} \sum\limits_{n = 0}^{N-k-1} x(n+k)y^*(n), \qquad 0 \leq k <N;
+\f]
+
+\f[
+\widehat{r}_{xy}(k) = 
+\frac{1}{N+k} \sum\limits_{n = 0}^{N+k-1} y^*(n-k)x(n), \qquad  -N < k < 0.
+\f]
+где \f$ N = \max(n_x, n_y) \f$.
+
+Данная функция использует алгоритм FFT для вычислительной эффективности оценки:
+\f[
+\breve{r}_{xy}(k) = \operatorname{IFFT}\Big[ 
+\operatorname{FFT}\big[ \mathbf{x} \big] 
+\operatorname{FFT}^*\big[ \mathbf{y} \big] 
+\Big]
+\f]
+ 
+
+\param[in] x
+Указатель на первую дискретную последовательность `x`. \n
+Размер вектора `[nx x 1]`. \n
+\n
+
+\param[in] nx
+Размер вектора первой дискретной последовательности `x`. \n
+\n
+
+\param[in] y
+Указатель на вторую дискретную последовательность `y`. \n
+Размер вектора `[ny x 1]`. \n
+\n
+
+\param[in] ny
+Размер вектора второй дискретной последовательности `y`. \n
+\n
+
+\param[in] flag
+Флаг задает способ масштабирования выходного корреляционного вектора
+\f$\breve{r}_{xy}(k)\f$.\n 
+Может принимать одно из следующих значений:\n
+`DSPL_XCORR_NOSCALE` немасштабированный выход алгоритма IFFT 
+\f$\breve{r}_{xy}(k)\f$;\n
+`DSPL_XCORR_BIASED`  Смещенная оценка \f$\breve{r}_{xy}(k)/N \f$;\n
+`DSPL_XCORR_UNBIASED` Несмещенная оценка
+\f$\widehat{r}_{xy}(k) = \frac{\breve{r}_{xy}(k)}{N-|k|} \f$;\n
+\n
+
+\param[in] nr
+Диапазон оценки вектора корреляции относительно нуля.\n
+Вектор \f$\widehat{r}_{xy}(k)\f$ рассчитывается для значений аргумента 
+\f$ k= -n_r,\,\, -n_r +1, \ldots n_r\f$.\n
+\n
+
+\param[out] r
+Указатель на масштабированный вектор взаимной корреляции. \n
+Размер вектора `[(2*nr+1) x 1]`. \n
+Память должна быть выделена. \n
+\n
+
+\param[out] t
+Указатель на значения аргумента вектора взаимной корреляции  
+\f$ k= -n_r,\,\, -n_r +1, \ldors n_r\f$.\n
+Размер вектора `[(2*nr+1) x 1]`. \n
+Указатель может быть `NULL`. В этом случае значения аргумента не возвращаются.\n
+\n
+
+\return
+`RES_OK` Если функция рассчитана успешно. \n
+В противном случае \ref ERROR_CODE_GROUP "код ошибки".
+
+\author Бахурин Сергей www.dsplib.org
+***************************************************************************** */
 #endif
 int DSPL_API xcorr_cmplx(complex_t* x, int nx, complex_t* y, int ny, 
                          int flag, int nr, complex_t* r, double* t)
@@ -115,7 +459,12 @@ int DSPL_API xcorr_cmplx(complex_t* x, int nx, complex_t* y, int ny,
 
 
 
+#ifdef DOXYGEN_ENGLISH
 
+#endif
+#ifdef DOXYGEN_RUSSIAN
+
+#endif
 int xcorr_get_lag_cmplx(complex_t* x, int nd, int nr, complex_t* r, double* t)
 {
     int i;
@@ -148,7 +497,7 @@ int xcorr_get_lag_cmplx(complex_t* x, int nd, int nr, complex_t* r, double* t)
 
 #endif
 int xcorr_krn(complex_t* x, int nx, complex_t* y, int ny, fft_t* pfft,
-                       int flag, int nr, complex_t* r, double* t)
+              int flag, int nr, complex_t* r, double* t)
 {
     complex_t *px = NULL;
     complex_t *py = NULL;
@@ -351,7 +700,12 @@ int xcorr_fft_size(int nx, int ny, int* pnfft, int* pndata)
 
 
 
+#ifdef DOXYGEN_ENGLISH
 
+#endif
+#ifdef DOXYGEN_RUSSIAN
+
+#endif
 int xcorr_scale_cmplx(complex_t* x, int nd, int flag)
 {
     int i;

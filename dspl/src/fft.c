@@ -590,7 +590,7 @@ label_size:
             memcpy(t1, t0, n*sizeof(complex_t));
             matrix_transpose_cmplx(t1, n2, n1, t0);
         }
-     
+        
         if(n1 == 16)
             for(k = 0; k < n2; k++)
                 dft16(t0+16*k, t1+16*k);
@@ -785,13 +785,13 @@ int DSPL_API fft_create(fft_t* pfft, int n)
     while(s > 1)
     {
         n2 = 1;
-        if(s%16== 0) { n2 = 16; goto label_size; }
-        if(s%7 == 0) { n2 =  7; goto label_size; }
-        if(s%8 == 0) { n2 =  8; goto label_size; }
-        if(s%5 == 0) { n2 =  5; goto label_size; }
-        if(s%4 == 0) { n2 =  4; goto label_size; }
-        if(s%3 == 0) { n2 =  3; goto label_size; }
-        if(s%2 == 0) { n2 =  2; goto label_size; }
+        if(s%16== 0)  { n2 = 16; goto label_size; }
+        if(s%7 == 0)  { n2 =  7; goto label_size; }
+        if(s%8 == 0)  { n2 =  8; goto label_size; }
+        if(s%5 == 0)  { n2 =  5; goto label_size; }
+        if(s%4 == 0)  { n2 =  4; goto label_size; }
+        if(s%3 == 0)  { n2 =  3; goto label_size; }
+        if(s%2 == 0)  { n2 =  2; goto label_size; }
 
 
 label_size:

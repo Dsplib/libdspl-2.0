@@ -13,11 +13,9 @@ DSPL-2.0 --- свободная библиотека алгоритмов циф
 условии динамической линковки.
 
 
-Исходные коды библиотеки доступны на
-<a href = "https://github.com/Dsplib/libdspl-2.0">GitHub</a>. \n
+<!-- Place this tag where you want the button to render. -->
+<a class="github-button" href="https://github.com/Dsplib/libdspl-2.0" data-color-scheme="no-preference: light; light: light; dark: light;" data-size="large" data-show-count="true" aria-label="Follow @Dsplib on GitHub">Исходные коды библиотеки libdspl-2.0 на GitHub</a>
 
-Вы также можете внести свой вклад в развитие данной библиотеки.
-\b Присоединяйтесь!
 
 
 \subsection sec_doc_start Компиляция и запуск программ DSPL-2.0

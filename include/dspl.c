@@ -140,6 +140,8 @@ p_matrix_print_cmplx                    matrix_print_cmplx            ;
 p_matrix_transpose                      matrix_transpose              ;
 p_matrix_transpose_cmplx                matrix_transpose_cmplx        ;
 p_matrix_transpose_hermite              matrix_transpose_hermite      ;
+p_mean                                  mean                          ;
+p_mean_cmplx                            mean_cmplx                    ;
 p_minmax                                minmax                        ;
 
 p_ones                                  ones                          ;
@@ -166,6 +168,8 @@ p_sin_cmplx                             sin_cmplx                     ;
 p_sinc                                  sinc                          ;
 p_sine_int                              sine_int                      ;
 p_sqrt_cmplx                            sqrt_cmplx                    ;
+p_std                                   std                           ;
+p_std_cmplx                             std_cmplx                     ;
 
 p_trapint                               trapint                       ;
 p_trapint_cmplx                         trapint_cmplx                 ;
@@ -174,7 +178,10 @@ p_unwrap                                unwrap                        ;
 
 p_vector_dot                            vector_dot                    ;
 p_verif                                 verif                         ;
+p_verif_data_gen                        verif_data_gen                ;
 p_verif_cmplx                           verif_cmplx                   ;
+p_verif_str                             verif_str                     ;
+p_verif_str_cmplx                       verif_str_cmplx               ;
 
 p_window                                window                        ;
 p_writebin                              writebin                      ;
@@ -447,6 +454,8 @@ void* dspl_load()
     LOAD_FUNC(matrix_transpose);
     LOAD_FUNC(matrix_transpose_cmplx);
     LOAD_FUNC(matrix_transpose_hermite);
+    LOAD_FUNC(mean);
+    LOAD_FUNC(mean_cmplx);
     LOAD_FUNC(minmax);
     
     LOAD_FUNC(ones);
@@ -473,6 +482,8 @@ void* dspl_load()
     LOAD_FUNC(sinc);
     LOAD_FUNC(sine_int);
     LOAD_FUNC(sqrt_cmplx);
+    LOAD_FUNC(std);
+    LOAD_FUNC(std_cmplx);
     
     LOAD_FUNC(trapint);
     LOAD_FUNC(trapint_cmplx);
@@ -481,7 +492,10 @@ void* dspl_load()
     
     LOAD_FUNC(vector_dot);
     LOAD_FUNC(verif);
+    LOAD_FUNC(verif_data_gen);
     LOAD_FUNC(verif_cmplx);
+    LOAD_FUNC(verif_str);
+    LOAD_FUNC(verif_str_cmplx);
     
     LOAD_FUNC(window);
     LOAD_FUNC(writebin);

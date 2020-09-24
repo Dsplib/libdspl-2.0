@@ -227,6 +227,68 @@ exit_label:
 
 
 
+
+
+
+#ifdef DOXYGEN_ENGLISH
+
+#endif
+#ifdef DOXYGEN_RUSSIAN
+
+#endif
+int DSPL_API mean(double* x, int n, double* m)
+{
+    int k; 
+    double sum;
+    if(!x || !m)
+        return ERROR_PTR;
+    if(n<1)
+        return ERROR_SIZE;
+
+    sum = x[0];
+    for(k = 1; k < n; k++)
+        sum += x[k];
+
+    (*m) = sum / (double)n;
+    return RES_OK;
+}
+
+
+
+
+
+#ifdef DOXYGEN_ENGLISH
+
+#endif
+#ifdef DOXYGEN_RUSSIAN
+
+#endif
+int DSPL_API mean_cmplx(complex_t* x, int n, complex_t* m)
+{
+    int k; 
+    complex_t sum;
+    if(!x || !m)
+        return ERROR_PTR;
+    if(n<1)
+        return ERROR_SIZE;
+
+    RE(sum) = RE(x[0]);
+    IM(sum) = IM(x[0]);
+    for(k = 1; k < n; k++)
+    {
+        RE(sum) += RE(x[k]);
+        IM(sum) += IM(x[k]);
+    }
+    RE(sum) /= (double)n;
+    IM(sum) /= (double)n;
+    memcpy(m, sum, sizeof(complex_t));
+    
+    return RES_OK;
+}
+
+
+
+
 #ifdef DOXYGEN_ENGLISH
 
 #endif
@@ -257,6 +319,61 @@ int DSPL_API minmax(double* x, int n, double* xmin, double* xmax)
         *xmax = max;
     
     return RES_OK;
+}
+
+
+#ifdef DOXYGEN_ENGLISH
+
+#endif
+#ifdef DOXYGEN_RUSSIAN
+
+#endif
+int DSPL_API std(double* x, int n, double* s)
+{
+    int k, err; 
+    double sum, m;
+    err = mean(x, n, &m);
+    if(err != RES_OK)
+        goto exit_label;
+    sum = (x[0] - m) * (x[0] - m);
+    for(k = 1; k < n; k++)
+        sum += (x[k] - m) * (x[k] - m);
+    (*s) = sqrt(sum / (double)(n-1));
+exit_label:
+    return err;
+}
+
+
+
+
+
+#ifdef DOXYGEN_ENGLISH
+
+#endif
+#ifdef DOXYGEN_RUSSIAN
+
+#endif
+int DSPL_API std_cmplx(complex_t* x, int n, double* s)
+{
+    int k, err; 
+    complex_t tmp, m;
+    double sum;
+    err = mean_cmplx(x, n, &m);
+    if(err != RES_OK)
+        goto exit_label;
+      
+    RE(tmp) = RE(x[0]) - RE(m);
+    IM(tmp) = IM(x[0]) - IM(m);
+    sum = ABSSQR(tmp);
+    for(k = 1; k < n; k++)
+    {
+        RE(tmp) = RE(x[k]) - RE(m);
+        IM(tmp) = IM(x[k]) - IM(m);
+        sum += ABSSQR(tmp);
+    }
+    *s = sqrt(sum / (double)(n-1));
+exit_label:
+    return err;
 }
 
 

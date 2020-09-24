@@ -635,6 +635,15 @@ Variable `z = 1-2j`, here `j` - imaginary unit, but variable `y = 5`.
 #define PLOT_HOLD                             0x00000001
 
 
+
+#define VERIF_STR_BUF         128
+#define VERIF_STR_LEN         48
+#define VERIF_CHAR_POINT      46
+#define VERIF_LEVEL_COMPLEX   1E-11
+#define VERIF_LEVEL_DOUBLE    1E-12
+
+
+
 #ifdef __cplusplus
   extern "C" {
 #endif
@@ -1214,12 +1223,20 @@ DECLARE_FUNC(int,        matrix_transpose_hermite,    complex_t*       a
                                                 COMMA int              m
                                                 COMMA complex_t*       b);
 /*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        mean,                        double*          x
+                                                COMMA int              n
+                                                COMMA double*          m);
+/*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        mean_cmplx,                  complex_t*       x
+                                                COMMA int              n
+                                                COMMA complex_t*       m);
+/*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        minmax,                      double*          x
                                                 COMMA int              n
                                                 COMMA double*          xmin
                                                 COMMA double*          xmax);
 /*----------------------------------------------------------------------------*/
-DECLARE_FUNC(int,       ones,                         double*          x
+DECLARE_FUNC(int,        ones,                        double*          x
                                                 COMMA int              n);
 /*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        phase_delay,                 double*          b
@@ -1330,6 +1347,14 @@ DECLARE_FUNC(int,        sqrt_cmplx,                  complex_t*
                                                 COMMA int
                                                 COMMA complex_t*);
 /*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        std,                         double*          x
+                                                COMMA int              n
+                                                COMMA double*          s);
+/*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        std_cmplx,                   complex_t*       x
+                                                COMMA int              n
+                                                COMMA double*          s);
+/*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        trapint,                     double*
                                                 COMMA double*
                                                 COMMA int
@@ -1356,11 +1381,27 @@ DECLARE_FUNC(int,        verif,                       double*          x
                                                 COMMA double           eps
                                                 COMMA double*          err);
 /*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        verif_data_gen,              int              len
+                                                COMMA int              type
+                                                COMMA char*            fn);
+/*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        verif_cmplx,                 complex_t*       x
                                                 COMMA complex_t*       y
                                                 COMMA size_t           n
                                                 COMMA double           eps
                                                 COMMA double*          err);
+/*----------------------------------------------------------------------------*/
+DECLARE_FUNC(void,       verif_str,                   double*          yout
+                                                COMMA int              nout
+                                                COMMA char*            str_msg
+                                                COMMA char*            outfn
+                                                COMMA char*            logfn);
+/*----------------------------------------------------------------------------*/
+DECLARE_FUNC(void,       verif_str_cmplx,             complex_t*          yout
+                                                COMMA int              nout
+                                                COMMA char*            str_msg
+                                                COMMA char*            outfn
+                                                COMMA char*            logfn);
 /*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        window,                      double*          w
                                                 COMMA int              n
