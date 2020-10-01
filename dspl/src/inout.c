@@ -505,7 +505,10 @@ int DSPL_API writetxt(double* x, double* y, int n, char* fn)
 
     if(y)
         for(k = 0; k < n; k++)
-            fprintf(pFile, "%+.12E\t%+.12E\n", x[k], y[k]);
+            if(!isnan(x[k]) && !isnan(y[k]) && !isinf(x[k]) && !isinf(y[k]))
+                fprintf(pFile, "%+.12E\t%+.12E\n", x[k], y[k]);
+            else 
+                break;  
 
     else
         for(k = 0; k < n; k++)

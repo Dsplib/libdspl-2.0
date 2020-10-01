@@ -28,7 +28,141 @@
 
 
 #ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup WIN_GROUP
+\fn int window(double* w, int n, int win_type, double param)
+\brief Window function calculation
 
+The function calculates a periodic or symmetric window function
+according to parameter `win_type`. \n
+
+A periodic window function is used for spectral analysis, 
+and a symmetric window function can be used to design FIR filters.
+
+\param [in,out] w
+Pointer to the window. \n
+Vector size is `[n x 1]`. \n
+Memory must be allocated. \n
+The calculated window function will be placed at the given address. \n \n
+
+\param [in]  n
+Size of window function `w` vector. \n \n
+
+\param [in]  win_type
+Combination of flags for specifying the type of window function. \n
+Combination of `DSPL_WIN_MASK | DSPL_WIN_SYM_MASK` bit masks 
+is used to set the window type.\n
+Bit mask `DSPL_WIN_MASK` sets the window type.
+Can be one of follow: \n
+\verbatim
+-------------------------------------------------------------------------
+ win_type                    |  Description
+-----------------------------|-------------------------------------------
+ DSPL_WIN_BARTLETT           | Nonparametric Bartlett window
+-----------------------------|-------------------------------------------
+ DSPL_WIN_BARTLETT_HANN      | Nonparametric Bartlett-Hann window
+-----------------------------|-------------------------------------------
+ DSPL_WIN_BLACKMAN           | Nonparametric  Blackman window 
+-----------------------------|-------------------------------------------
+ DSPL_WIN_BLACKMAN_HARRIS    | Nonparametric Blackman-Harris window
+-----------------------------|-------------------------------------------
+ DSPL_WIN_BLACKMAN_NUTTALL   | Nonparametric Blackman-Nuttall
+-----------------------------|-------------------------------------------
+ DSPL_WIN_CHEBY              | Parametric Dolph-Chebyshev window.
+                             | Parametr  `win_param` sets sidelobe attenuation 
+                             | level in dB.
+-----------------------------|-------------------------------------------
+ DSPL_WIN_COS                | Nonparametric Cosine window
+-----------------------------|-------------------------------------------
+ DSPL_WIN_FLAT_TOP           | Nonparametric maxflat window
+-----------------------------|-------------------------------------------
+ DSPL_WIN_GAUSSIAN           | Nonparametric Gauss window
+-----------------------------|-------------------------------------------
+ DSPL_WIN_HAMMING            | Nonparametric Hamming window
+-----------------------------|-------------------------------------------
+ DSPL_WIN_HANN               | Nonparametric Hann window
+-----------------------------|-------------------------------------------
+ DSPL_WIN_KAISER             | Parametric Kaiser window
+-----------------------------|-------------------------------------------
+ DSPL_WIN_LANCZOS            | Nonparametric Lanczos window
+-----------------------------|-------------------------------------------
+ DSPL_WIN_NUTTALL            | Nonparametric Nuttall window
+-----------------------------|-------------------------------------------
+ DSPL_WIN_RECT               | Nonparametric rectangular window
+-------------------------------------------------------------------------
+\endverbatim
+\n 
+Bit mask `DSPL_WIN_SYM_MASK` sets window function symmetry: \n
+\verbatim
+-------------------------------------------------------------------------
+ DSPL_WIN_SYM_MASK           | Description
+-----------------------------|-------------------------------------------
+ DSPL_WIN_SYMMETRIC          | Symmetry window (default value)
+ DSPL_WIN_PERIODIC           | Periodic window
+-------------------------------------------------------------------------
+\endverbatim
+ \n \n
+
+\param [in]  param
+Window function parameter. \n
+This parameter is using only to parametric window functions, 
+and ignored for nonparametric windows. \n
+\n
+
+\return  
+`RES_OK` if window function is calculated successfully. \n
+Else \ref ERROR_CODE_GROUP "error code".
+
+The following program calculates 64 samples window functions, 
+draws their spectrum when using the bin indices of 
+the discrete Fourier transform along the frequency axis.
+
+\include windows_test.c
+
+A personal graph is displayed for each type of window function.
+
+Rectangular window
+\image html win_rect.png
+\n
+\n
+
+Nonparametric windows
+\image html win_bartlett.png
+\image html win_flattop.png
+\image html win_bartletthann.png
+\image html win_hann.png
+\image html win_hamming.png
+\image html win_lanczos.png
+\image html win_blackman.png
+\image html win_blackmanharris.png
+\image html win_blackmannuttall.png
+\image html win_cos.png
+\image html win_nuttall.png
+\n
+\n
+
+Parametric Dolph-Chebyshev windows
+\image html win_cheby50.png
+\image html win_cheby80.png
+\image html win_cheby120.png
+\n
+\n
+
+Parametric Gaussian windows
+\image html win_gaussian0p5.png
+\image html win_gaussian0p3.png
+
+\n
+\n
+Parametric Kaiser windows
+\image html win_kaiser4p0.png
+\image html win_kaiser8p0.png
+\image html win_kaiser12p0.png
+\n
+\n
+
+\author Sergey Bakhurin. www.dsplib.org
+***************************************************************************** */
 #endif
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
@@ -119,6 +253,54 @@
 \return  
 `RES_OK` если оконная функция рассчитана успешно. \n
 В противном случае \ref ERROR_CODE_GROUP "код ошибки".
+
+Следующая программа производит расчет оконных функций длительности 64 отсчета, 
+строит их спектральную плотность при использовании по оси частот индексы бинов 
+дискретного преобразования Фурье.
+
+\include windows_test.c
+
+Для каждого вида оконной функция выводится персональный график.
+
+Прямоугольное окно
+\image html win_rect.png
+\n
+\n
+
+Непраметрические окна
+\image html win_bartlett.png
+\image html win_flattop.png
+\image html win_bartletthann.png
+\image html win_hann.png
+\image html win_hamming.png
+\image html win_lanczos.png
+\image html win_blackman.png
+\image html win_blackmanharris.png
+\image html win_blackmannuttall.png
+\image html win_cos.png
+\image html win_nuttall.png
+\n
+\n
+
+Параметрические окна Дольф-Чебышева
+\image html win_cheby50.png
+\image html win_cheby80.png
+\image html win_cheby120.png
+\n
+\n
+
+Параметрические окна Гаусса
+\image html win_gaussian0p5.png
+\image html win_gaussian0p3.png
+
+\n
+\n
+Параметрические окна Кайзера
+\image html win_kaiser4p0.png
+\image html win_kaiser8p0.png
+\image html win_kaiser12p0.png
+\n
+\n
 
 \author Бахурин Сергей. www.dsplib.org
 ***************************************************************************** */
@@ -484,7 +666,7 @@ Gaussian window function
 ******************************************************************************/
 int win_gaussian(double *w, int n, int win_type, double alpha)
 {
-    double x = 0.0;
+    double a = 0.0;
     double y;
     double sigma;
     int i;
@@ -496,16 +678,16 @@ int win_gaussian(double *w, int n, int win_type, double alpha)
 
     switch(win_type & DSPL_WIN_SYM_MASK)
     {
-        case DSPL_WIN_SYMMETRIC: x = (double)(n-1)*0.5; break;
-        case DSPL_WIN_PERIODIC : x = (double)(n)*0.5; break;
+        case DSPL_WIN_SYMMETRIC: a = (double)(n-1)*0.5; break;
+        case DSPL_WIN_PERIODIC : a = (double)(n)*0.5; break;
         default: return ERROR_WIN_SYM;
     }
 
 
-    sigma = alpha / x;
+    sigma = 1.0 / (alpha * a);
     for(i = 0; i<n; i++)
     {
-        y = ((double)i - x)*sigma;
+        y = ((double)i - a)*sigma;
         w[i] = exp(-0.5*y*y);
     }
         return RES_OK;
@@ -585,7 +767,7 @@ Kaiser window function
 ******************************************************************************/
 int win_kaiser(double* w, int n, int win_type, double param)
 {
-    double num, den, x, y;
+    double num, den, x, y, L;
     int i, err;
     if(!w)
         return ERROR_PTR;
@@ -594,8 +776,8 @@ int win_kaiser(double* w, int n, int win_type, double param)
 
     switch(win_type & DSPL_WIN_SYM_MASK)
     {
-        case DSPL_WIN_SYMMETRIC: x = 1.0/(double)(n-1); break;
-        case DSPL_WIN_PERIODIC : x = 1.0/(double)n; break;
+        case DSPL_WIN_SYMMETRIC: L = (double)(n-1) / 2.0; break;
+        case DSPL_WIN_PERIODIC : L = (double)n / 2.0; break;
         default: return ERROR_WIN_SYM;
     }
 
@@ -603,9 +785,9 @@ int win_kaiser(double* w, int n, int win_type, double param)
     if(err != RES_OK)
         return err;
     for(i = 0; i < n; i++)
-    {
-        y = (double)(2*i) / x - 1.0;
-        y = param * sqrt(1.0 - y*y);
+    { 
+        x = 2.0*((double)i - L) / (double)n;
+        y = param * sqrt(1.0 - x*x);
         err = bessel_i0(&y, 1, &num);
         if(err != RES_OK)
             return err;
