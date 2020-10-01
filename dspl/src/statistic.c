@@ -231,10 +231,80 @@ exit_label:
 
 
 #ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup SPEC_MATH_STAT_GROUP
+\fn int mean(double* x, int n, double* m)
+\brief Calculates the mean of the input vector `x`
 
+Function calculates the mean value
+\f[
+m = \sum_{i = 0}^{n-1} x(i)
+\f]
+
+\param[in] x
+Pointer to the real input vector `x`. \n
+Vector size is `[n x 1]`. \n \n
+
+\param[in]  n
+Size of input vector `x`. \n \n
+
+\param[out] m
+Pointer to the variable which keeps vector `x` mean value.\n
+Memory must be allocated. \n \n
+
+`RES_OK` if function calculates successfully,
+ else \ref ERROR_CODE_GROUP "code error".
+
+Example:
+\code{.cpp}
+    double a[5] = {0.0, 1.0, 2.0, 3.0, 4.0};
+    double m;
+    mean(a, 5, &m);
+    printf("\n\n Mean value:    %8.1f\n", m);
+\endcode 
+As result the variable `m` will keep value `2`.
+
+\author Sergey Bakhurin www.dsplib.org
+***************************************************************************** */
 #endif
 #ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup SPEC_MATH_STAT_GROUP
+\fn int mean(double* x, int n, double* m)
+\brief Выборочная оценка математического ожидания вещественного вектора `x`
 
+Функция рассчитывает оценку математического ожидания
+\f[
+m = \sum_{i = 0}^{n-1} x(i)
+\f]
+
+\param[in] x
+Указатель на вещественный вектор `x`. \n
+Размер вектора `[n x 1]`. \n \n
+
+\param[in]  n
+Размер входного вектора `x`. \n \n
+
+\param[out] m
+Указатель на адрес памяти, в который сохранить
+рассчитанное значение математического ожидания вектора `x`. \n
+Память должна быть выделена. \n \n
+
+\return
+`RES_OK` если функция выполнена успешно. \n
+ В противном случае \ref ERROR_CODE_GROUP "код ошибки".
+
+Пример:
+\code{.cpp}
+    double a[5] = {0.0, 1.0, 2.0, 3.0, 4.0};
+    double m;
+    mean(a, 5, &m);
+    printf("\n\n Mean value:    %8.1f\n", m);
+\endcode 
+В результате в переменную `m` будет записано значение `2`.
+ 
+\author Бахурин Сергей. www.dsplib.org
+***************************************************************************** */
 #endif
 int DSPL_API mean(double* x, int n, double* m)
 {
@@ -258,10 +328,80 @@ int DSPL_API mean(double* x, int n, double* m)
 
 
 #ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup SPEC_MATH_STAT_GROUP
+\fn int mean_cmplx(complex_t* x, int n, complex_t* m)
+\brief Calculates the mean of the complex input vector `x`
 
+Function calculates the mean value
+\f[
+m = \sum_{i = 0}^{n-1} x(i)
+\f]
+
+\param[in] x
+Pointer to the complex input vector `x`. \n
+Vector size is `[n x 1]`. \n \n
+
+\param[in]  n
+Size of input vector `x`. \n \n
+
+\param[out] m
+Pointer to the variable which keeps vector `x` mean value.\n
+Memory must be allocated. \n \n
+
+`RES_OK` if function calculates successfully,
+ else \ref ERROR_CODE_GROUP "code error".
+
+Example:
+\code{.cpp}
+    complex_t a[3] = {{0.0, -1.0}, {1.0, 2.0}, {3.0, 5.0}};
+    complex_t m;
+    mean_cmplx(a, 3, &m);
+    printf("\n\n Mean value:    %8.1f%+3.1fj\n", RE(m), IM(m));
+\endcode 
+As result the variable `m` will keep value `1 + 3j`.
+
+\author Sergey Bakhurin www.dsplib.org
+***************************************************************************** */
 #endif
 #ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup SPEC_MATH_STAT_GROUP
+\fn int mean_cmplx(complex_t* x, int n, complex_t* m)
+\brief Выборочная оценка математического ожидания комплексного вектора `x`
 
+Функция рассчитывает оценку математического ожидания
+\f[
+m = \sum_{i = 0}^{n-1} x(i)
+\f]
+
+\param[in] x
+Указатель на комплексный вектор `x`. \n
+Размер вектора `[n x 1]`. \n \n
+
+\param[in]  n
+Размер входного вектора `x`. \n \n
+
+\param[out] m
+Указатель на адрес памяти, в который сохранить
+рассчитанное значение математического ожидания вектора `x`. \n
+Память должна быть выделена. \n \n
+
+\return
+`RES_OK` если функция выполнена успешно. \n
+ В противном случае \ref ERROR_CODE_GROUP "код ошибки".
+
+Пример:
+\code{.cpp}
+    complex_t a[3] = {{0.0, -1.0}, {1.0, 2.0}, {3.0, 5.0}};
+    complex_t m;
+    mean_cmplx(a, 3, &m);
+    printf("\n\n Mean value:    %8.1f%+3.1fj\n", RE(m), IM(m));
+\endcode 
+В результате в переменную `m` будет записано значение `1 + 3j`.
+ 
+\author Бахурин Сергей. www.dsplib.org
+***************************************************************************** */
 #endif
 int DSPL_API mean_cmplx(complex_t* x, int n, complex_t* m)
 {

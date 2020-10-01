@@ -18,10 +18,10 @@ int main(int argc, char* argv[])
     
     hdspl = dspl_load();    /* Load DSPL function */
     
-    /* genreation real random data for verification */ 
+    /* generation real random data for verification */ 
     verif_data_gen(SIZE, DAT_DOUBLE, "dat/real.dat");
     
-    /* genreation complex random data for verification */ 
+    /* generation complex random data for verification */ 
     verif_data_gen(SIZE, DAT_COMPLEX, "dat/complex.dat");
 
     /* RUN verification in octave */
