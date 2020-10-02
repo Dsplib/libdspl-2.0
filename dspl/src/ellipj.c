@@ -529,6 +529,15 @@ Memory must be allocated. \n \n
 \return
 `RES_OK` successful exit, else \ref ERROR_CODE_GROUP "error code". \n
 
+Example
+\include ellip_cd_test.c
+
+The program calculates two periods of the \f$ y = \textrm{cd}(u K(k), k)\f$  
+function for different modulus values `k = 0`, `k= 0.9` и `k = 0.99`.
+Also program draws the plot of calculated elliptic functions.
+
+\image html ellip_cd.png
+
 \author  Sergey Bakhurin  www.dsplib.org   
 ***************************************************************************** */
 #endif
@@ -569,9 +578,17 @@ Memory must be allocated. \n \n
 `RES_OK` Расчет произведен успешно. \n
 В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n
 
-\author
-Бахурин Сергей
-www.dsplib.org  
+Пример представлен в следующем листинге:
+
+\include ellip_cd_test.c
+
+Программа рассчитывает два периода эллиптической функции
+\f$ y = \textrm{cd}(u K(k), k)\f$  для  `k = 0`, `k= 0.9` и `k = 0.99`,
+а также выводит графики данных функций
+
+\image html ellip_cd.png
+
+\author Бахурин Сергей www.dsplib.org  
 ***************************************************************************** */
 #endif
 int DSPL_API ellip_cd(double* u, int n, double k, double* y)
@@ -1028,6 +1045,15 @@ Memory must be allocated. \n \n
 \return
 `RES_OK` successful exit, else \ref ERROR_CODE_GROUP "error code". \n
 
+Example
+\include ellip_sn_test.c
+
+The program calculates two periods of the \f$ y = \textrm{sn}(u K(k), k)\f$  
+function for different modulus values `k = 0`, `k= 0.9` и `k = 0.99`.
+Also program draws the plot of calculated elliptic functions.
+
+\image html ellip_sn.png
+
 \author  Sergey Bakhurin  www.dsplib.org  
  **************************************************************************** */
 #endif
@@ -1067,6 +1093,17 @@ Memory must be allocated. \n \n
 \return
 `RES_OK` Расчет произведен успешно. \n
 В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n
+
+
+Пример представлен в следующем листинге:
+
+\include ellip_sn_test.c
+
+Программа рассчитывает два периода эллиптической функции
+\f$ y = \textrm{sn}(u K(k), k)\f$  для  `k = 0`, `k= 0.9` и `k = 0.99`,
+а также выводит графики данных функций
+
+\image html ellip_sn.png
 
 \author Бахурин Сергей www.dsplib.org
 ***************************************************************************** */
