@@ -40,9 +40,9 @@
 \typedef complex_t
 \brief Complex data type.
 
-libdspl-2.0 describes complex numbers data type as an array 
+libdspl-2.0 describes complex numbers data type as an array
 of two `double` elements.
-First element sets real part, second --- imaginary part. 
+First element sets real part, second --- imaginary part.
 
 For example:
 
@@ -50,7 +50,7 @@ For example:
     complex_t z;
     z[0] =  1.0;
     z[1] = -2.0;
-\endcode 
+\endcode
 
 Variable `z = 1-2j`, here `j` - imaginary unit.
 
@@ -62,25 +62,25 @@ special macros: \ref RE, \ref IM, \ref ABSSQR
 /*! ****************************************************************************
 \ingroup TYPES_GROUP
 \typedef complex_t
-\brief РћРїРёСЃР°РЅРёРµ РєРѕРјРїР»РµРєСЃРЅРѕРіРѕ С‚РёРїР° РґР°РЅРЅС‹С….
+\brief Описание комплексного типа данных.
 
-РљРѕРјРїР»РµРєСЃРЅС‹Р№ С‚РёРї РґР°РЅРЅС‹С… РІ Р±РёР±Р»РёРѕС‚РµРєРµ libdspl-2.0 РѕРїСЂРµРґРµР»РµРЅ РєР°Рє 
-РјР°СЃСЃРёРІ РёР· РґРІСѓС… СЌР»РµРјРµРЅС‚РѕРІ С‚РёРїР° `double`.
-РџСЂРё СЌС‚РѕРј РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ РјР°СЃСЃРёРІР° РѕРїСЂРµРґРµР»СЏРµС‚ СЂРµР°Р»СЊРЅСѓСЋ С‡Р°СЃС‚СЊ 
-РєРѕРјРїР»РµРєСЃРЅРѕРіРѕ С‡РёСЃР»Р°, Р° РІС‚РѕСЂРѕР№ - РјРЅРёРјСѓСЋ.
+Комплексный тип данных в библиотеке libdspl-2.0 определен как
+массив из двух элементов типа `double`.
+При этом первый элемент массива определяет реальную часть
+комплексного числа, а второй - мнимую.
 
-РќР°РїСЂРёРјРµСЂ:
+Например:
 
 \code{.cpp}
     complex_t z;
     z[0] =  1.0;
     z[1] = -2.0;
-\endcode 
+\endcode
 
-РџРµСЂРµРјРµРЅРЅР°СЏ `z = 1-2j`, РіРґРµ `j` - РјРЅРёРјР°СЏ РµРґРёРЅРёС†Р°.
+Переменная `z = 1-2j`, где `j` - мнимая единица.
 
-Р”Р»СЏ СѓРґРѕР±СЃС‚РІР° СЂР°Р±РѕС‚С‹ СЃ РєРѕРјРїР»РµРєСЃРЅС‹РјРё С‡РёСЃР»Р°РјРё СЂРµР°Р»РёР·РѕРІР°РЅС‹ 
-СЃРїРµС†РёР°Р»СЊРЅС‹Рµ РјР°РєСЂРѕСЃС‹: \ref RE, \ref IM, \ref ABSSQR
+Для удобства работы с комплексными числами реализованы
+специальные макросы: \ref RE, \ref IM, \ref ABSSQR
 ***************************************************************************** */
 #endif
 typedef double complex_t[2];
@@ -93,13 +93,13 @@ typedef double complex_t[2];
 \struct fft_t
 \brief Fast Fourier Transform Object Data Structure
 
-The structure stores pointers to twiddle factors and arrays of intermediate 
+The structure stores pointers to twiddle factors and arrays of intermediate
 data of the fast Fourier transform algorithm.
 
 The libdspl-2.0 library uses an FFT algorithm for composite size.
 
 \param  n
-The size of the FFT vector for which memory is allocated 
+The size of the FFT vector for which memory is allocated
 in the structure arrays.  \n
 The parameter `n` must be equal to an integer power of two (radix 2). \n \n
 
@@ -112,7 +112,7 @@ must be filled with the \ref fft_create function. \n\n
 \param  t0
 Pointer to the vector of intermediate results of the FFT algorithm. \n
 The size of the vector is `[n x 1]`. \n
-Memory must be allocated by \ref fft_create function. \n\n 
+Memory must be allocated by \ref fft_create function. \n\n
 
 \param  t1
 Pointer to the vector of intermediate results. \n
@@ -122,105 +122,105 @@ The structure is populated with the \ref fft_create function once
 before using the FFT algorithm. \n
 A pointer to an object of this structure may be
 reused when calling FFT functions. \n
-Before exiting the program, dedicated memory for twiddle factors and arrays of 
-intermediate data must be cleared by the \ref fft_free function. 
+Before exiting the program, dedicated memory for twiddle factors and arrays of
+intermediate data must be cleared by the \ref fft_free function.
 
 For example:
 
 \code
-fft_t pfft = {0};     // Structure fft_t and clear all fields 
-int n = 64;           // FFT size 
+fft_t pfft = {0};     // Structure fft_t and clear all fields
+int n = 64;           // FFT size
 
 int err;
 
-// Create and fill FFT structure for 64-points FFT 
+// Create and fill FFT structure for 64-points FFT
 err = fft_create(&pfft, n);
 
 // FFT calculation here
 // FFT calculation here one more
-// ...  
+// ...
 
 // Clear fft structure
 fft_free(&pfft);
 \endcode
 
 \note
-It is important to note that if the object `fft_t` was created for the FFT size 
+It is important to note that if the object `fft_t` was created for the FFT size
 equal to` n`, it can only be used for FFT of size `n`. \n \n
-ItвЂ™s also worth noting that the FFT functions independently control the size, 
+It’s also worth noting that the FFT functions independently control the size,
 and independently allocate the memory of the FFT object, if necessary.
 So if you call any function using the `fft_t` structure with filled
 data for the FFT length `k` for calculating the FFT of length`n`,
 then the structure arrays will be automatically recreated for the length `n`.
 
-\author  Sergey Bakhurin  www.dsplib.org  
+\author  Sergey Bakhurin  www.dsplib.org
 ***************************************************************************** */
 #endif
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup DFT_GROUP
 \struct fft_t
-\brief РЎС‚СЂСѓРєС‚СѓСЂР° РґР°РЅРЅС‹С… РѕР±СЉРµРєС‚Р° Р±С‹СЃС‚СЂРѕРіРѕ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏ Р¤СѓСЂСЊРµ
+\brief Структура данных объекта быстрого преобразования Фурье
 
-РЎС‚СЂСѓРєС‚СѓСЂР° С…СЂР°РЅРёС‚ СѓРєР°Р·Р°С‚РµР»Рё РЅР° РјР°СЃСЃРёРІС‹ РїРѕРІРѕСЂРѕС‚РЅС‹С… РєРѕСЌС„С„РёС†РёРµРЅС‚РѕРІ 
-Рё РјР°СЃСЃРёРІС‹ РїСЂРѕРјРµР¶СѓС‚РѕС‡РЅС‹С… РґР°РЅРЅС‹С… Р°Р»РіРѕСЂРёС‚РјР° Р±С‹СЃС‚СЂРѕРіРѕ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏ Р¤СѓСЂСЊРµ.
+Структура хранит указатели на массивы поворотных коэффициентов
+и массивы промежуточных данных алгоритма быстрого преобразования Фурье.
 
-Р‘РёР±Р»РёРѕС‚РµРєР° libdspl-2.0 РёСЃРїРѕР»СЊР·СѓРµС‚ РґР»СЏ Р‘РџР¤ Р°Р»РіРѕСЂРёС‚Рј РґР»СЏ СЃРѕСЃС‚Р°РІРЅРѕР№ РґР»РёРЅС‹
+Библиотека libdspl-2.0 использует для БПФ алгоритм для составной длины
 
 \param  n
-Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂР° Р‘РџР¤, РґР»СЏ РєРѕС‚РѕСЂРѕРіРѕ РІС‹РґРµР»РµРЅР° РїР°РјСЏС‚СЊ РІ РјР°СЃСЃРёРІР°С… СЃС‚СЂСѓРєС‚СѓСЂС‹.  \n
-РџР°СЂРјРµС‚СЂ `n` РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СЂР°РІРµРЅ С†РµР»РѕР№ СЃС‚РµРїРµРЅРё РґРІРѕР№РєРё. \n \n
+Размер вектора БПФ, для которого выделена память в массивах структуры.  \n
+Парметр `n` должен быть равен целой степени двойки. \n \n
 
 \param  w
-РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РІРµРєС‚РѕСЂ РїРѕРІРѕСЂРѕС‚РЅС‹С… РєРѕСЌС„С„РёС†РёРµРЅС‚РѕРІ Р°Р»РіРѕСЂРёС‚РјР° Р‘РџР¤. \n
-Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂР° `[n x 1]`.  \n
-РџР°РјСЏС‚СЊ РґРѕР»Р¶РЅР° Р±С‹С‚СЊ РІС‹РґРµР»РµРЅР° Рё РјР°СЃСЃРёРІ РїРѕРІРѕСЂРѕС‚РЅС‹С… РєРѕСЌС„С„РёС†РёРµРЅС‚РѕРІ 
-РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ Р·Р°РїРѕР»РЅРµРЅ С„СѓРЅРєС†РёРµР№ \ref fft_create.  \n \n
+Указатель на вектор поворотных коэффициентов алгоритма БПФ. \n
+Размер вектора `[n x 1]`.  \n
+Память должна быть выделена и массив поворотных коэффициентов
+должен быть заполнен функцией \ref fft_create.  \n \n
 
 \param  t0
-РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РІРµРєС‚РѕСЂ РїСЂРѕРјРµР¶СѓС‚РѕС‡РЅС‹С… РІС‹С‡РёСЃР»РµРЅРёР№ Р°Р»РіРѕСЂРёС‚РјР° Р‘РџР¤. \n
-Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂР° `[n x 1]`. \n
-РџР°РјСЏС‚СЊ РґРѕР»Р¶РЅР° Р±С‹С‚СЊ РІС‹РґРµР»РµРЅР° С„СѓРЅРєС†РёРµР№ \ref fft_create. \n \n
+Указатель на вектор промежуточных вычислений алгоритма БПФ. \n
+Размер вектора `[n x 1]`. \n
+Память должна быть выделена функцией \ref fft_create. \n \n
 
 \param  t1
-РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РІРµРєС‚РѕСЂ РїСЂРѕРјРµР¶СѓС‚РѕС‡РЅС‹С… РІС‹С‡РёСЃР»РµРЅРёР№ Р°Р»РіРѕСЂРёС‚РјР° Р‘РџР¤. \n
-Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂР° `[n x 1]`. \n
-РџР°РјСЏС‚СЊ РґРѕР»Р¶РЅР° Р±С‹С‚СЊ РІС‹РґРµР»РµРЅР° С„СѓРЅРєС†РёРµР№ \ref fft_create. \n \n
-РЎС‚СЂСѓРєС‚СѓСЂР° Р·Р°РїРѕР»РЅСЏРµС‚СЃСЏ С„СѓРЅРєС†РёРµР№ \ref fft_create РѕРґРёРЅ СЂР°Р· 
-РґРѕ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ Р°Р»РіРѕСЂРёС‚РјР° Р‘РџР¤.  \n
-РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РѕР±СЉРµРєС‚ РґР°РЅРЅРѕР№ СЃС‚СЂСѓРєС‚СѓСЂС‹ РјРѕР¶РµС‚ Р±С‹С‚СЊ 
-РјРЅРѕРіРѕРєСЂР°С‚РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°РЅ РїСЂРё РІС‹Р·РѕРІРµ С„СѓРЅРєС†РёР№ Р‘РџР¤. \n
-РџРµСЂРµРґ РІС‹С…РѕРґРѕРј РёР· РїСЂРѕРіСЂР°РјРјС‹ РІС‹РґРµР»РµРЅРЅСѓСЋ РїР°РјСЏС‚СЊ РїРѕРґ РїРѕРІРѕСЂРѕС‚РЅС‹Рµ 
-РєРѕСЌС„С„РёС†РёРµРЅС‚С‹ Рё РјР°СЃСЃРёРІС‹ РїСЂРѕРјРµР¶СѓС‚РѕС‡РЅС‹С… РґР°РЅРЅС‹С…
-РЅРµРѕР±С…РѕРґРёРјРѕ РѕС‡РёСЃС‚РёС‚СЊ С„СѓРЅРєС†РёРµР№ \ref fft_free. РќР°РїСЂРёРјРµСЂ:
+Указатель на вектор промежуточных вычислений алгоритма БПФ. \n
+Размер вектора `[n x 1]`. \n
+Память должна быть выделена функцией \ref fft_create. \n \n
+Структура заполняется функцией \ref fft_create один раз
+до использования алгоритма БПФ.  \n
+Указатель на объект данной структуры может быть
+многократно использован при вызове функций БПФ. \n
+Перед выходом из программы выделенную память под поворотные
+коэффициенты и массивы промежуточных данных
+необходимо очистить функцией \ref fft_free. Например:
 \code
-fft_t pfft = {0};     // РѕР±СЉСЏРІР»СЏРµРј РѕР±СЉРµРєС‚ fft_t Рё РѕР±РЅСѓР»СЏРµРј РІСЃРµ РїРѕР»СЏ
-int n = 64;           // Р Р°Р·РјРµСЂ Р‘РџР¤ 
+fft_t pfft = {0};     // объявляем объект fft_t и обнуляем все поля
+int n = 64;           // Размер БПФ
 int err;
 
-// СЃРѕР·РґР°РµРј РѕР±СЉРµРєС‚ РґР»СЏ 64-С‚РѕС‡РµС‡РЅРѕРіРѕ Р‘РџР¤ 
+// создаем объект для 64-точечного БПФ
 err = fft_create(&pfft, n);
 
-// Р’С‹Р·РѕРІ Р‘РџР¤ С„СѓРЅРєС†РёРё
-// Р•С‰Рµ СЂР°Р· РІС‹Р·РѕРІ Р‘РџР¤ С„СѓРЅРєС†РёРё    
-// ...  
+// Вызов БПФ функции
+// Еще раз вызов БПФ функции
+// ...
 
-// РѕС‡РёСЃС‚РёС‚СЊ РїР°РјСЏС‚СЊ РѕР±СЉРµРєС‚Р° Р‘РџР¤  
+// очистить память объекта БПФ
 fft_free(&pfft);
 \endcode
 
 \note
-Р’Р°Р¶РЅРѕ РѕС‚РјРµС‚РёС‚СЊ, С‡С‚Рѕ РµСЃР»Рё РѕР±СЉРµРєС‚ `fft_t` Р±С‹Р» СЃРѕР·РґР°РЅ РґР»СЏ СЂР°Р·РјРµСЂР° Р‘РџР¤ СЂР°РІРЅРѕРіРѕ `n`, 
-С‚Рѕ РѕРЅ РјРѕР¶РµС‚ Р±С‹С‚СЊ РёСЃРїРѕР»СЊР·РѕРІР°РЅ С‚РѕР»СЊРєРѕ РґР»СЏ Р‘РџР¤ СЂР°Р·РјРµСЂР° `n`.  \n\n
-РўР°РєР¶Рµ РЅРµРѕР±С…РѕРґРёРјРѕ Р·Р°РјРµС‚РёС‚СЊ, С‡С‚Рѕ С„СѓРЅРєС†РёРё Р‘РџР¤ СЃР°РјРѕСЃС‚РѕСЏС‚РµР»СЊРЅРѕ РєРѕРЅС‚СЂРѕР»РёСЂСѓСЋС‚ СЂР°Р·РјРµСЂ, 
-Рё СЃР°РјРѕСЃС‚РѕСЏС‚РµР»СЊРЅРѕ РІС‹РґРµР»СЏСЋС‚ РїР°РјСЏС‚СЊ РѕР±СЉРµРєС‚Р° Р‘РџР¤ РїСЂРё РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё. 
-РўР°Рє РµСЃР»Рё РІС‹Р·РІР°С‚СЊ Р»СЋР±СѓСЋ С„СѓРЅРєС†РёСЋ РёСЃРїРѕР»СЊР·СѓСЋС‰СѓСЋ СЃС‚СЂСѓРєС‚СѓСЂСѓ `fft_t` СЃ Р·Р°РїРѕР»РЅРµРЅРЅС‹РјРё 
-РґР°РЅРЅС‹РјРё РґР»СЏ РґР»РёРЅС‹ Р‘РџР¤ `k` РґР»СЏ СЂР°СЃС‡РµС‚Р° Р‘РџР¤ РґР»РёРЅС‹ `n`, 
-С‚Рѕ РјР°СЃСЃРёРІС‹ СЃС‚СЂСѓРєС‚СѓСЂС‹ Р±СѓРґСѓС‚ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё РїРµСЂРµСЃРѕР·РґР°РЅС‹ РґР»СЏ РґР»РёРЅС‹ `n`.
+Важно отметить, что если объект `fft_t` был создан для размера БПФ равного `n`,
+то он может быть использован только для БПФ размера `n`.  \n\n
+Также необходимо заметить, что функции БПФ самостоятельно контролируют размер,
+и самостоятельно выделяют память объекта БПФ при необходимости.
+Так если вызвать любую функцию использующую структуру `fft_t` с заполненными
+данными для длины БПФ `k` для расчета БПФ длины `n`,
+то массивы структуры будут автоматически пересозданы для длины `n`.
 
 \author
-Р‘Р°С…СѓСЂРёРЅ РЎРµСЂРіРµР№.
-www.dsplib.org 
+Бахурин Сергей.
+www.dsplib.org
 ***************************************************************************** */
 #endif
 typedef struct
@@ -244,19 +244,19 @@ typedef struct
 /*! ****************************************************************************
 \ingroup SPEC_MATH_RAND_GEN_GROUP
 \struct random_t
-\brief РЎС‚СЂСѓРєС‚СѓСЂР° РїР°СЂР°РјРµС‚СЂРѕРІ РґР°С‚С‡РёРєРѕРІ РїСЃРµРІРґРѕСЃР»СѓС‡Р°Р№РЅС‹С… С‡РёСЃРµР».
+\brief Структура параметров датчиков псевдослучайных чисел.
 
-РЎС‚СЂСѓРєС‚СѓСЂР° С…СЂР°РЅРёС‚ РёРЅРёС†РёР°Р»РёР·Р°С†РёСЋ Рё С‚РµРєСѓС‰РёРµ СЂРµРіРёСЃС‚СЂС‹ СЂР°Р·Р»РёС‡РЅС‹С… РґР°С‚С‡РёРєРѕРІ 
-РїСЃРµРІРґРѕСЃР»СѓС‡Р°Р№РЅС‹С… С‡РёСЃРµР». Р’ Р±РёР±Р»РёРѕС‚РµРєРµ РёСЃРїРѕР»СЊР·СѓСЋС‚СЃСЏ СЃР»РµРґСѓСЋС‰РёРµ РґР°С‚С‡РёРєРё: 
-\li MRG32K3A -- 32 Р±РёС‚РЅС‹Р№ РґР°С‚С‡РёРє СЂР°Р·СЂР°Р±РѕС‚Р°РЅ РџСЊРµСЂРѕРј Р›РµРєСѓСЌСЂРѕРј [1]. 
-\li MT19937-64 -- 64-Р±РёС‚РЅС‹Р№ РґР°С‚С‡РёРє 
+Структура хранит инициализацию и текущие регистры различных датчиков
+псевдослучайных чисел. В библиотеке используются следующие датчики:
+\li MRG32K3A -- 32 битный датчик разработан Пьером Лекуэром [1].
+\li MT19937-64 -- 64-битный датчик
 <a href = "https://en.wikipedia.org/wiki/Mersenne_Twister">
-Р’РёС…СЂСЊ РњРµСЂСЃРµРЅРЅР° 
-</a> [2, 3]. 
+Вихрь Мерсенна
+</a> [2, 3].
 
 \note
-[1] Pierre L'Ecuyer, (1999) Good Parameters and Implementations for Combined 
-    Multiple Recursive Random Number Generators. Operations Research 
+[1] Pierre L'Ecuyer, (1999) Good Parameters and Implementations for Combined
+    Multiple Recursive Random Number Generators. Operations Research
     47(1):159-164. https://doi.org/10.1287/opre.47.1.159 \n\n
 [2] T. Nishimura, ``Tables of 64-bit Mersenne Twisters // ACM Transactions
     on Modeling and Computer Simulation 10. (2000) 348--357. \n\n
@@ -265,24 +265,24 @@ typedef struct
     on Modeling and Computer Simulation 8. (Jan. 1998) 3--30.  \n\n
 
 \param  mrg32k3a_seed
-РќР°С‡Р°Р»СЊРЅР°СЏ РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РґР°С‚С‡РёРєР° MRG32K3A. \n \n
+Начальная инициализация датчика MRG32K3A. \n \n
 
 \param  mrg32k3a_x
-РџРµСЂРІС‹Р№ РІРµРєС‚РѕСЂ СЃРѕСЃС‚РѕСЏРЅРёСЏ СЂРµРєСѓСЂСЃРёРІРЅРѕРіРѕ РґР°С‚С‡РёРєР° MRG32K3A. \n \n
+Первый вектор состояния рекурсивного датчика MRG32K3A. \n \n
 
 \param  mrg32k3a_y
-Р’С‚РѕСЂРѕР№ РІРµРєС‚РѕСЂ СЃРѕСЃС‚РѕСЏРЅРёСЏ СЂРµРєСѓСЂСЃРёРІРЅРѕРіРѕ РґР°С‚С‡РёРєР° MRG32K3A. \n \n
+Второй вектор состояния рекурсивного датчика MRG32K3A. \n \n
 
 \param  mt19937_mt
-РџРµСЂРІС‹Р№ РІРµРєС‚РѕСЂ СЃРѕСЃС‚РѕСЏРЅРёСЏ СЂРµРєСѓСЂСЃРёРІРЅРѕРіРѕ РґР°С‚С‡РёРєР° MT19937-64. \n \n
+Первый вектор состояния рекурсивного датчика MT19937-64. \n \n
 
 \param  mt19937_mti
-РўРµРєСѓС‰РёР№ РёРЅРґРµРєСЃ РІ РІРµРєС‚РѕСЂРµ СЃРѕСЃС‚РѕСЏРЅРёСЏ РґР°С‚С‡РёРєР° MT19937-64. \n \n
+Текущий индекс в векторе состояния датчика MT19937-64. \n \n
 
-РџР°СЂР°РјРµС‚СЂС‹ РґР°РЅРЅРѕР№ СЃС‚СЂСѓРєС‚СѓСЂС‹ Р·Р°РїРѕР»РЅСЏСЋС‚СЃСЏ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё С„СѓРЅРєС†РёРµР№ `random_init` 
-Рё РёСЃРїРѕР»СЊР·СѓСЋС‚СЃСЏ С„СѓРЅРєС†РёСЏРјРё РіРµРЅРµСЂР°С†РёРё РїСЃРµРІРґРѕСЃР»СѓС‡Р°Р№РЅС‹С… РІРµРєС‚РѕСЂРѕРІ. 
+Параметры данной структуры заполняются автоматически функцией `random_init`
+и используются функциями генерации псевдослучайных векторов.
 
-\author Р‘Р°С…СѓСЂРёРЅ РЎРµСЂРіРµР№. www.dsplib.org 
+\author Бахурин Сергей. www.dsplib.org
 ***************************************************************************** */
 #endif
 typedef struct
@@ -313,11 +313,11 @@ Example:
     complex_t z;
     RE(z) =  1.0;
     IM(z) = -2.0;
-\endcode 
+\endcode
 
 Variable `z = 1-2j`, here `j` - imaginary unit.
 
-This macro can be used to return 
+This macro can be used to return
 real part of the complex number:
 
 \code{.cpp}
@@ -325,7 +325,7 @@ real part of the complex number:
     double    r;
     r = RE(z);
 \endcode
-In this example `z = 3-4i`, 
+In this example `z = 3-4i`,
 but variable `r` will keep 3.
 ***************************************************************************** */
 #endif
@@ -333,27 +333,27 @@ but variable `r` will keep 3.
 /*! ****************************************************************************
 \ingroup TYPES_GROUP
 \def RE(x)
-\brief РњР°РєСЂРѕСЃ РѕРїСЂРµРґРµР»СЏСЋС‰РёР№ СЂРµР°Р»СЊРЅСѓСЋ С‡Р°СЃС‚СЊ РєРѕРјРїР»РµРєСЃРЅРѕРіРѕ С‡РёСЃР»Р°.
+\brief Макрос определяющий реальную часть комплексного числа.
 
-РќР°РїСЂРёРјРµСЂ:
+Например:
 \code{.cpp}
     complex_t z;
     RE(z) =  1.0;
     IM(z) = -2.0;
-\endcode 
+\endcode
 
-РџРµСЂРµРјРµРЅРЅР°СЏ `z = 1-2j`, РіРґРµ `j` --- РјРЅРёРјР°СЏ РµРґРёРЅРёС†Р°.
+Переменная `z = 1-2j`, где `j` --- мнимая единица.
 
-РђРЅР°Р»РѕРіРёС‡РЅРѕ, РјР°РєСЂРѕСЃ РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ 
-СЂРµР°Р»СЊРЅРѕР№ С‡Р°СЃС‚Рё РєРѕРјРїР»РµРєСЃРЅРѕРіРѕ С‡РёСЃР»Р°:
+Аналогично, макрос можно использовать для получения
+реальной части комплексного числа:
 
 \code{.cpp}
     complex_t z = {3.0, -4.0};
     double    r;
     r = RE(z);
 \endcode
-Р’ РґР°РЅРЅРѕРј РїСЂРёРјРµСЂРµ РїРµСЂРµРјРµРЅРЅР°СЏ `z = 3-4i`, Р° РІ РїРµСЂРµРјРµРЅРѕР№ `r`
-Р±СѓРґРµС‚ С…СЂР°РЅРёС‚СЊСЃСЏ С‡РёСЃР»Рѕ 3.
+В данном примере переменная `z = 3-4i`, а в переменой `r`
+будет храниться число 3.
 ***************************************************************************** */
 #endif
 #define RE(x) (x[0])
@@ -371,18 +371,18 @@ Example:
     complex_t z;
     RE(z) =  1.0;
     IM(z) = -2.0;
-\endcode 
+\endcode
 
 Variable `z = 1-2j`, here `j` - imaginary unit.
 
-This macro can be used to return 
+This macro can be used to return
 imaginary part of the complex number:
 \code{.cpp}
     complex_t z = {3.0, -4.0};
     double    r;
     r = IM(z);
-\endcode    
-In this example `z = 3-4i`, 
+\endcode
+In this example `z = 3-4i`,
 but variable `r` will keep -4.
 ***************************************************************************** */
 
@@ -392,26 +392,26 @@ but variable `r` will keep -4.
 /*! ****************************************************************************
 \ingroup TYPES_GROUP
 \def IM(x)
-\brief РњР°РєСЂРѕСЃ РѕРїСЂРµРґРµР»СЏСЋС‰РёР№ РјРЅРёРјСѓСЋ С‡Р°СЃС‚СЊ РєРѕРјРїР»РµРєСЃРЅРѕРіРѕ С‡РёСЃР»Р°.
+\brief Макрос определяющий мнимую часть комплексного числа.
 
-РќР°РїСЂРёРјРµСЂ:
+Например:
 \code{.cpp}
     complex_t z;
     RE(z) =  1.0;
     IM(z) = -2.0;
-\endcode 
+\endcode
 
-РџРµСЂРµРјРµРЅРЅР°СЏ `z = 1-2j`, РіРґРµ `j` - РјРЅРёРјР°СЏ РµРґРёРЅРёС†Р°.
+Переменная `z = 1-2j`, где `j` - мнимая единица.
 
-РђРЅР°Р»РѕРіРёС‡РЅРѕ, РјР°РєСЂРѕСЃ РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ 
-РјРЅРёРјРѕР№ С‡Р°СЃС‚Рё РєРѕРјРїР»РµРєСЃРЅРѕРіРѕ С‡РёСЃР»Р°:
+Аналогично, макрос можно использовать для получения
+мнимой части комплексного числа:
 \code{.cpp}
     complex_t z = {3.0, -4.0};
     double r;
     r = IM(z);
 \endcode
-Р’ РґР°РЅРЅРѕРј РїСЂРёРјРµСЂРµ РїРµСЂРµРјРµРЅРЅР°СЏ `z = 3-4i`, 
-Р° РІ РїРµСЂРµРјРµРЅРѕР№ `r` Р±СѓРґРµС‚ С…СЂР°РЅРёС‚СЊСЃСЏ С‡РёСЃР»Рѕ -4.
+В данном примере переменная `z = 3-4i`,
+а в переменой `r` будет храниться число -4.
 ***************************************************************************** */
 #endif
 #define IM(x) (x[1])
@@ -425,13 +425,13 @@ but variable `r` will keep -4.
 /*! ****************************************************************************
 \ingroup TYPES_GROUP
 \def ABSSQR(x)
-\brief 
+\brief
 The macro returns the square of the modulus of a complex number `x`.
 
 Square of the modulus of a complex number \f$ x = a + j  b \f$ equals:
 
 \f[
-    |x|^2 = x x^* = a^2 + b^2. 
+    |x|^2 = x x^* = a^2 + b^2.
 \f]
 
 Example:
@@ -441,33 +441,33 @@ Example:
     RE(z) =  1.0;
     IM(z) = -2.0;
     y = ABSSQR(z);
-\endcode 
+\endcode
 
-Variable `z = 1-2j`, here `j` - imaginary unit, but variable `y = 5`. 
+Variable `z = 1-2j`, here `j` - imaginary unit, but variable `y = 5`.
 ***************************************************************************** */
 #endif
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup TYPES_GROUP
 \def ABSSQR(x)
-\brief РњР°РєСЂРѕСЃ РІРѕР·РІСЂР°С‰Р°РµС‚ РєРІР°РґСЂР°С‚ РјРѕРґСѓР»СЏ РєРѕРјРїР»РµРєСЃРЅРѕРіРѕ С‡РёСЃР»Р° `x`.
+\brief Макрос возвращает квадрат модуля комплексного числа `x`.
 
-РљРІР°РґСЂР°С‚ РјРѕРґСѓР»СЏ РєРѕРјРїР»РµРєСЃРЅРѕРіРѕ С‡РёСЃР»Р° \f$ x = a + j  b \f$ СЂР°РІРµРЅ:
+Квадрат модуля комплексного числа \f$ x = a + j  b \f$ равен:
 
 \f[
-    |x|^2 = x x^* = a^2 + b^2. 
+    |x|^2 = x x^* = a^2 + b^2.
 \f]
 
-РќР°РїСЂРёРјРµСЂ:
+Например:
 \code{.cpp}
     complex_t z;
     double y;
     RE(z) =  1.0;
     IM(z) = -2.0;
     y = ABSSQR(z);
-\endcode 
+\endcode
 
-РџРµСЂРµРјРµРЅРЅР°СЏ `z = 1-2j`, РіРґРµ `j` - РјРЅРёРјР°СЏ РµРґРёРЅРёС†Р°, Р° РїРµСЂРµРјРµРЅРЅР°СЏ `y = 5`. 
+Переменная `z = 1-2j`, где `j` - мнимая единица, а переменная `y = 5`.
 ***************************************************************************** */
 #endif
 #define ABSSQR(x) ((SQR(RE(x))) + (SQR(IM(x))))
@@ -528,6 +528,7 @@ Variable `z = 1-2j`, here `j` - imaginary unit, but variable `y = 5`.
 #define ERROR_GNUPLOT_TERM                    0x07161220
 /* H                                          0x08xxxxxx*/
 /* I                                          0x09xxxxxx*/
+#define ERROR_INF                             0x09140600
 /* J                                          0x10xxxxxx*/
 /* K                                          0x11xxxxxx*/
 /* L                                          0x12xxxxxx*/
@@ -537,6 +538,7 @@ Variable `z = 1-2j`, here `j` - imaginary unit, but variable `y = 5`.
 #define ERROR_MATRIX_SIZE                     0x13011926
 #define ERROR_MIN_MAX                         0x13091413
 /* N                                          0x14xxxxxx*/
+#define ERROR_NAN                             0x14011400
 #define ERROR_NEGATIVE                        0x14050701
 /* O                                          0x15xxxxxx*/
 /* P                                          0x16xxxxxx*/
@@ -634,8 +636,6 @@ Variable `z = 1-2j`, here `j` - imaginary unit, but variable `y = 5`.
 
 #define PLOT_HOLD                             0x00000001
 
-
-
 #define VERIF_STR_BUF         128
 #define VERIF_STR_LEN         48
 #define VERIF_CHAR_POINT      46
@@ -689,7 +689,7 @@ DECLARE_FUNC(int,        addlog,                      char*         str
 DECLARE_FUNC(int,        array_scale_lin,             double*       x
                                                 COMMA int           n
                                                 COMMA double        xmin
-                                                COMMA double        xmax 
+                                                COMMA double        xmax
                                                 COMMA double        dx
                                                 COMMA double        h
                                                 COMMA double*       y);
@@ -1067,7 +1067,7 @@ DECLARE_FUNC(void,       gnuplot_cmd,                 void*             h
                                                 COMMA char*             cmd);
 /*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        gnuplot_create,              int               argc
-                                                COMMA char*             argv[] 
+                                                COMMA char*             argv[]
                                                 COMMA int               w
                                                 COMMA int               h
                                                 COMMA char*             fn_png
@@ -1416,7 +1416,7 @@ DECLARE_FUNC(int,        writebin,                    void*
 DECLARE_FUNC(int,        writetxt,                    double*
                                                 COMMA double*
                                                 COMMA int
-                                                COMMA char*);
+                                                COMMA char*     );
 /*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        writetxt_3d,                 double*          x
                                                 COMMA int              nx

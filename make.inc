@@ -2,30 +2,19 @@ CC       = gcc
 FORTRAN  = g++
 AR       = ar
 
-
-
-
 # DSPL source and obj file path
 DSPL_SRC_DIR = src
 DSPL_OBJ_DIR = obj
 
-
-
-
-
-
 # BLAS source path
-BLAS_LIB_DIR = ../blas
+BLAS_LIB_DIR = blas
 BLAS_SRC_DIR = $(BLAS_LIB_DIR)/src
 BLAS_RELEASE_DIR = $(BLAS_LIB_DIR)/bin
-
 BLAS_LIB_NAME = $(BLAS_RELEASE_DIR)/libblas.a
 
-
 # LAPACK source path
-LAPACK_LIB_DIR  = ../lapack
+LAPACK_LIB_DIR  =   lapack
 LAPACK_RELEASE_DIR = $(LAPACK_LIB_DIR)/bin
-
 
 LAPACK_DOUBLE_SRC_DIR  = $(LAPACK_LIB_DIR)/src
 LAPACK_DOUBLE_LIB_NAME = $(LAPACK_RELEASE_DIR)/liblapack_double.a
@@ -33,12 +22,11 @@ LAPACK_DOUBLE_LIB_NAME = $(LAPACK_RELEASE_DIR)/liblapack_double.a
 LAPACK_COMPLEX_SRC_DIR  = $(LAPACK_LIB_DIR)/src
 LAPACK_COMPLEX_LIB_NAME = $(LAPACK_RELEASE_DIR)/liblapack_complex.a
 
-
-#common source for DSPL and examples
-#COMMON_SRC_DIR = $(COMMON_DIR)/src
-
 INC_DIR = ../include
-RELEASE_DIR = ../bin
+RELEASE_DIR = ../_release
+EXAMPLE_BIN_DIR = ../examples/bin
+VERIFICATION_BIN_DIR = ../verification/bin
+PERFORMANCE_BIN_DIR = ../performance/bin
 
 ifeq ($(OS),Windows_NT)
 	DSPL_LIBNAME = libdspl.dll

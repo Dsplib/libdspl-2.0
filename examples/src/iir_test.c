@@ -51,9 +51,17 @@ void freq_resp_write2txt(double* b, double* a, int ord, int n, char* fn)
     /* Magnitude (dB) calculation */
     filter_freq_resp(b, a, ord, w, n, DSPL_FLAG_LOGMAG, mag, NULL, NULL);
 
-    /* Frequency normalization from 0 to 1 */
+    /* Frequency normalization from 0 to 1 and check magnitude */
+
     for(k = 0; k < N; k++)
-      w[k] /= M_PI;
+    {
+        w[k] /= M_PI;
+
+        /* Set magnitude to -400 dB if it is inf. */
+        if(isinf(mag[k]))
+            mag[k] = -400.0;
+    }
+
 
     /* Save magnitude to the txt file */
     writetxt(w, mag, n, fn);

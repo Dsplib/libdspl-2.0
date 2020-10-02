@@ -9,12 +9,12 @@ cd ../../
 mingw32-make clean
 mingw32-make
 
-cd bin
+cd examples/bin
 for file in *.exe
 do
     "./$file" --plotpng
 done
-cd ../dspl/dox
+cd ../../dspl/dox
 
 doxygen doxyfile_ru
 doxygen doxyfile_en

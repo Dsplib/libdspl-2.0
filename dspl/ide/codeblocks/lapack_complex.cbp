@@ -1555,10 +1555,6 @@
 		<Unit filename="../../lapack/src/zupmtr.f">
 			<Option weight="0" />
 		</Unit>
-		<Extensions>
-			<code_completion />
-			<envvars />
-			<debugger />
-		</Extensions>
+		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

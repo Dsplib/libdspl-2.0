@@ -826,8 +826,8 @@ WARN_LOGFILE           =
 INPUT                  = ru \
                          ../src \
                          ../../include \
-                         ../../bin/img \
-                         ../../examples/src
+                         ../../examples/src \
+                         ../../examples/bin/img
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
@@ -946,7 +946,7 @@ EXCLUDE_SYMBOLS        =
 # command).
 
 EXAMPLE_PATH           = ../../examples/src \
-                         ../../bin/img
+                         ../../examples/bin/img
 
 # If the value of the EXAMPLE_PATH tag contains directories, you can use the
 # EXAMPLE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp and
@@ -968,7 +968,8 @@ EXAMPLE_RECURSIVE      = YES
 # \image command).
 
 IMAGE_PATH             = ru/img \
-                         ../../bin/img
+                         ../../bin/img \
+                         ../../examples/bin/img
 
 # The INPUT_FILTER tag can be used to specify a program that doxygen should
 # invoke to filter for each input file. Doxygen will invoke the filter program

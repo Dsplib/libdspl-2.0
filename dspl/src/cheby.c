@@ -30,10 +30,10 @@
 \fn int cheby_poly1(double* x, int n, int ord, double* y)
 \brief Chebyshev polynomial of the first kind order `ord`
 
-Function calculates Chebyshev polynomial \f$ C_ord(x)\f$ of the first kind 
+Function calculates Chebyshev polynomial \f$ C_{ord}(x)\f$ of the first kind
 order `ord` for the real vector `x` (length `n`) by recurrent equation:
 \f[
-C_{ord}(x) = 2 x C_{ord-1}(x) - C_{ord-2}(x), 
+C_{ord}(x) = 2 x C_{ord-1}(x) - C_{ord-2}(x),
 \f]
 where \f$ C_0(x) = 1 \f$, \f$ C_1(x) = x\f$
 
@@ -52,7 +52,7 @@ Pointer to the Chebyshev polynomial values, corresponds to the argument `x`. \n
 Vector size is `[n x 1]`. \n
 Memory must be allocated. \n \n
 
-\return 
+\return
 `RES_OK` if Chebyshev polynomial is calculated successfully. \n
 Else \ref ERROR_CODE_GROUP "code error". \n
 
@@ -82,10 +82,10 @@ GNUPLOT package will create Chebyshev polynomials plot from saved text-files:
 \fn int cheby_poly1(double* x, int n, int ord, double* y)
 \brief Многочлен Чебышева первого рода порядка `ord`
 
-Функция производит расчет многочлена Чебышева первого рода \f$ C_ord(x)\f$ для 
+Функция производит расчет многочлена Чебышева первого рода \f$ C_{ord}(x)\f$ для
 вещественного вектора `x` длины `n`на основе рекуррентной формулы
 \f[
-C_{ord}(x) = 2 x C_{ord-1}(x) - C_{ord-2}(x), 
+C_{ord}(x) = 2 x C_{ord-1}(x) - C_{ord-2}(x),
 \f]
 где \f$ C_0(x) = 1 \f$, \f$ C_1(x) = x\f$
 
@@ -100,12 +100,12 @@ C_{ord}(x) = 2 x C_{ord-1}(x) - C_{ord-2}(x),
 Порядок полинома Чебышева первого рода. \n \n
 
 \param[out] y
-Указатель на вектор значений полинома Чебышева, 
+Указатель на вектор значений полинома Чебышева,
 соответствующих аргументу `x`. \n
 Размер вектора `[n x 1]`. \n
 Память должна быть выделена. \n \n
 
-\return 
+\return
 `RES_OK` Расчет произведен успешно. \n
 В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n
 
@@ -113,7 +113,7 @@ C_{ord}(x) = 2 x C_{ord-1}(x) - C_{ord-2}(x),
 
 \include cheby_poly1_test.c
 
-В каталоге `dat` будут созданы текстовые файлы значений 
+В каталоге `dat` будут созданы текстовые файлы значений
 полиномов порядка 1-4: \n
 
 \verbatim
@@ -123,7 +123,7 @@ cheby_poly1_ord3.txt
 cheby_poly1_ord4.txt
 \endverbatim
 
-Кроме того программа GNUPLOT произведет построение следующих графиков 
+Кроме того программа GNUPLOT произведет построение следующих графиков
 по сохраненным в файлах данным:
 
 \image html cheby_poly1.png
@@ -182,10 +182,10 @@ int DSPL_API cheby_poly1(double* x, int n, int ord, double* y)
 \fn int cheby_poly2(double* x, int n, int ord, double* y)
 \brief Chebyshev polynomial of the second kind order `ord`
 
-Function calculates Chebyshev polynomial \f$ U_ord(x)\f$ of the first kind 
+Function calculates Chebyshev polynomial \f$ U_ord(x)\f$ of the first kind
 order `ord` for the real vector `x` (length `n`) by recurrent equation:
 \f[
-U_{ord}(x) = 2 x U_{ord-1}(x) - U_{ord-2}(x), 
+U_{ord}(x) = 2 x U_{ord-1}(x) - U_{ord-2}(x),
 \f]
 where \f$ U_0(x) = 1 \f$, \f$ U_1(x) = 2x\f$
 
@@ -204,7 +204,7 @@ Pointer to the Chebyshev polynomial values, corresponds to the argument `x`. \n
 Vector size is `[n x 1]`. \n
 Memory must be allocated. \n \n
 
-\return 
+\return
 `RES_OK` if Chebyshev polynomial is calculated successfully. \n
 Else \ref ERROR_CODE_GROUP "code error". \n
 
@@ -233,10 +233,10 @@ GNUPLOT package will create Chebyshev polynomials plot from saved text-files:
 \fn int cheby_poly2(double* x, int n, int ord, double* y)
 \brief Многочлен Чебышева второго рода порядка `ord`
 
-Функция производит расчет многочлена Чебышева второго рода \f$ U_{ord}(x)\f$ 
+Функция производит расчет многочлена Чебышева второго рода \f$ U_{ord}(x)\f$
 для вещественного вектора `x` длины `n`на основе рекуррентной формулы
 \f[
-U_{ord}(x) = 2 x U_{ord-1}(x) - U_{ord-2}(x), 
+U_{ord}(x) = 2 x U_{ord-1}(x) - U_{ord-2}(x),
 \f]
 где \f$ U_0(x) = 1 \f$, \f$ U_1(x) = 2x\f$
 
@@ -251,12 +251,12 @@ U_{ord}(x) = 2 x U_{ord-1}(x) - U_{ord-2}(x),
 Порядок полинома Чебышева второго рода. \n \n
 
 \param[out] y
-Указатель на вектор значений полинома Чебышева, 
+Указатель на вектор значений полинома Чебышева,
 соответствующих аргументу `x`. \n
 Размер вектора `[n x 1]`. \n
 Память должна быть выделена. \n \n
 
-\return 
+\return
 `RES_OK`    Расчет произведен успешно. \n
 В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n
 
@@ -264,7 +264,7 @@ U_{ord}(x) = 2 x U_{ord-1}(x) - U_{ord-2}(x),
 
 \include cheby_poly2_test.c
 
-В каталоге `dat` будут созданы текстовые файлы значений 
+В каталоге `dat` будут созданы текстовые файлы значений
 полиномов порядка 1-4: \n
 
 \verbatim
@@ -274,7 +274,7 @@ cheby_poly2_ord3.txt
 cheby_poly2_ord4.txt
 \endverbatim
 
-Кроме того программа GNUPLOT произведет построение следующих графиков 
+Кроме того программа GNUPLOT произведет построение следующих графиков
 по сохраненным в файлах данным:
 
 \image html cheby_poly2.png

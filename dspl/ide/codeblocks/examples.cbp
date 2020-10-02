@@ -2,14 +2,14 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="examples" />
+		<Option title="example" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="../../bin/example" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="../../bin" />
-				<Option object_output="../../examples/obj" />
+				<Option output="../../../_release/test" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../../../_release/" />
+				<Option object_output="../test" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -17,9 +17,9 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="../../bin/example" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="../../bin" />
-				<Option object_output="../../examples/obj" />
+				<Option output="../../../_release/test" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../../../_release/" />
+				<Option object_output="../test" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -33,19 +33,15 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-DWIN_OS" />
-			<Add directory="../../include" />
+			<Add directory="../../../include" />
 		</Compiler>
-		<Unit filename="../../examples/src/dspl_info_test.c">
+		<Unit filename="../../../include/dspl.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../include/dspl.c">
+		<Unit filename="../../../include/dspl.h" />
+		<Unit filename="../test/test.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../include/dspl.h" />
-		<Extensions>
-			<code_completion />
-			<envvars />
-			<debugger />
-		</Extensions>
+		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

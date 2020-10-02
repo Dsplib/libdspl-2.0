@@ -1,0 +1,1013 @@
+# depslib dependency file v1.0
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dbbcsd.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dbdsdc.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dbdsqr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dbdsvdx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\ddisna.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgbbrd.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgbcon.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgbequ.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgbequb.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgbrfs.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgbrfsx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgbsv.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgbsvx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgbsvxx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgbtf2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgbtrf.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgbtrs.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgebak.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgebal.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgebd2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgebrd.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgecon.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgeequ.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgeequb.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgees.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgeesx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgeev.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgeevx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgehd2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgehrd.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgejsv.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgelq.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgelq2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgelqf.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgelqt.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgelqt3.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgels.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgelsd.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgelss.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgelsy.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgemlq.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgemlqt.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgemqr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgemqrt.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgeql2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgeqlf.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgeqp3.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgeqr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgeqr2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgeqr2p.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgeqrf.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgeqrfp.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgeqrt.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgeqrt2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgeqrt3.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgerfs.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgerfsx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgerq2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgerqf.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgesc2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgesdd.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgesv.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgesvd.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgesvdx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgesvj.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgesvx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgesvxx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgetc2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgetf2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgetrf.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgetrf2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgetri.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgetrs.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgetsls.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dggbak.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dggbal.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgges.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgges3.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dggesx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dggev.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dggev3.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dggevx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dggglm.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgghd3.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgghrd.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgglse.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dggqrf.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dggrqf.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dggsvd3.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dggsvp3.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgsvj0.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgsvj1.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgtcon.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgtrfs.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgtsv.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgtsvx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgttrf.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgttrs.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dgtts2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dhgeqz.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dhsein.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dhseqr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\disnan.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dla_gbamv.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dla_gbrcond.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dla_gbrfsx_extended.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dla_gbrpvgrw.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dla_geamv.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dla_gercond.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dla_gerfsx_extended.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dla_gerpvgrw.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dla_lin_berr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dla_porcond.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dla_porfsx_extended.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dla_porpvgrw.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dla_syamv.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dla_syrcond.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dla_syrfsx_extended.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dla_syrpvgrw.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dla_wwaddw.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlabad.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlabrd.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlacn2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlacon.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlacpy.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dladiv.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlae2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaebz.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaed0.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaed1.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaed2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaed3.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaed4.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaed5.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaed6.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaed7.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaed8.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaed9.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaeda.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaein.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaev2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaexc.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlag2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlag2s.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlags2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlagtf.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlagtm.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlagts.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlagv2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlahqr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlahr2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaic1.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaisnan.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaln2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlals0.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlalsa.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlalsd.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlamch.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlamrg.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlamswlq.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlamtsqr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaneg.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlangb.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlange.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlangt.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlanhs.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlansb.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlansf.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlansp.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlanst.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlansy.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlantb.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlantp.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlantr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlanv2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlapll.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlapmr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlapmt.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlapy2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlapy3.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaqgb.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaqge.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaqp2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaqps.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaqr0.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaqr1.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaqr2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaqr3.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaqr4.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaqr5.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaqsb.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaqsp.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaqsy.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaqtr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlar1v.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlar2v.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlarf.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlarfb.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlarfg.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlarfgp.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlarft.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlarfx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlarfy.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlargv.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlarnv.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlarra.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlarrb.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlarrc.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlarrd.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlarre.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlarrf.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlarrj.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlarrk.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlarrr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlarrv.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlarscl2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlartg.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlartgp.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlartgs.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlartv.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaruv.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlarz.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlarzb.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlarzt.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlas2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlascl.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlascl2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlasd0.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlasd1.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlasd2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlasd3.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlasd4.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlasd5.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlasd6.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlasd7.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlasd8.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlasda.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlasdq.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlasdt.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaset.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlasq1.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlasq2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlasq3.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlasq4.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlasq5.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlasq6.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlasr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlasrt.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlassq.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlasv2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaswlq.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlaswp.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlasy2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlasyf.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlasyf_aa.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlasyf_rk.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlasyf_rook.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlat2s.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlatbs.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlatdf.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlatps.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlatrd.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlatrs.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlatrz.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlatsqr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlauu2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dlauum.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dopgtr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dopmtr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dorbdb.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dorbdb1.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dorbdb2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dorbdb3.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dorbdb4.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dorbdb5.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dorbdb6.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dorcsd.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dorcsd2by1.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dorg2l.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dorg2r.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dorgbr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dorghr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dorgl2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dorglq.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dorgql.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dorgqr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dorgr2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dorgrq.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dorgtr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dorm22.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dorm2l.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dorm2r.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dormbr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dormhr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dorml2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dormlq.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dormql.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dormqr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dormr2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dormr3.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dormrq.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dormrz.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dormtr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dpbcon.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dpbequ.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dpbrfs.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dpbstf.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dpbsv.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dpbsvx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dpbtf2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dpbtrf.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dpbtrs.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dpftrf.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dpftri.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dpftrs.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dpocon.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dpoequ.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dpoequb.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dporfs.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dporfsx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dposv.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dposvx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dposvxx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dpotf2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dpotrf.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dpotrf2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dpotri.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dpotrs.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dppcon.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dppequ.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dpprfs.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dppsv.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dppsvx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dpptrf.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dpptri.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dpptrs.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dpstf2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dpstrf.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dptcon.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dpteqr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dptrfs.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dptsv.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dptsvx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dpttrf.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dpttrs.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dptts2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\drscl.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsb2st_kernels.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsbev.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsbev_2stage.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsbevd.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsbevd_2stage.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsbevx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsbevx_2stage.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsbgst.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsbgv.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsbgvd.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsbgvx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsbtrd.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsfrk.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsgesv.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dspcon.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dspev.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dspevd.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dspevx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dspgst.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dspgv.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dspgvd.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dspgvx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsposv.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsprfs.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dspsv.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dspsvx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsptrd.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsptrf.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsptri.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsptrs.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dstebz.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dstedc.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dstegr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dstein.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dstemr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsteqr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsterf.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dstev.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dstevd.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dstevr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dstevx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsycon.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsycon_3.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsycon_rook.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsyconv.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsyconvf.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsyconvf_rook.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsyequb.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsyev.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsyev_2stage.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsyevd.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsyevd_2stage.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsyevr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsyevr_2stage.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsyevx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsyevx_2stage.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsygs2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsygst.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsygv.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsygv_2stage.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsygvd.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsygvx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsyrfs.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsyrfsx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsysv.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsysv_aa.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsysv_aa_2stage.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsysv_rk.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsysv_rook.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsysvx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsysvxx.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsyswapr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsytd2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsytf2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsytf2_rk.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsytf2_rook.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsytrd.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsytrd_2stage.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsytrd_sb2st.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsytrd_sy2sb.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsytrf.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsytrf_aa.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsytrf_aa_2stage.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsytrf_rk.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsytrf_rook.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsytri.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsytri2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsytri2x.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsytri_3.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsytri_3x.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsytri_rook.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsytrs.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsytrs2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsytrs_3.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsytrs_aa.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsytrs_aa_2stage.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dsytrs_rook.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtbcon.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtbrfs.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtbtrs.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtfsm.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtftri.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtfttp.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtfttr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtgevc.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtgex2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtgexc.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtgsen.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtgsja.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtgsna.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtgsy2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtgsyl.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtpcon.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtplqt.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtplqt2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtpmlqt.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtpmqrt.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtpqrt.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtpqrt2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtprfb.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtprfs.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtptri.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtptrs.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtpttf.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtpttr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtrcon.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtrevc.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtrevc3.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtrexc.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtrrfs.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtrsen.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtrsna.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtrsyl.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtrti2.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtrtri.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtrtrs.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtrttf.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtrttp.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dtzrzf.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\dzsum1.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\icmax1.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\ieeeck.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\ilaclc.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\ilaclr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\iladiag.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\iladlc.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\iladlr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\ilaenv.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\ilaenv2stage.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\ilaprec.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\ilaslc.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\ilaslr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\ilatrans.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\ilauplo.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\ilazlc.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\ilazlr.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\iparam2stage.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\iparmq.f
+
+1510546554 source:f:\dsplib.org\libdspl-2.0\dspl\lapack\src\izmax1.f
+

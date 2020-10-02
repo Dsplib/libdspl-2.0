@@ -164,22 +164,22 @@ type     4 bytes type int.
          Can take on value:
          DAT_DOUBLE,  if x pointer to the real vector;
          DAT_COMPLEX, if x pointer to the complex vector;
-            
+
 n        4 bytes type int.
          Number of array rows.
 
-m        4 bytes type int. 
-         Number of array columns. 
+m        4 bytes type int.
+         Number of array columns.
          This parameter equals 1 because this function saves 1D vector.
-        
+
 data     Data in binary raw.
-         Data size is: 
+         Data size is:
          n * sizeof(double),    if dtype==DAT_DOUBLE;
          n * sizeof(complex_t), if dtype==DAT_COMPLEX.
 \endverbatim
 
-Binary file can be used for algorithms verification by external packages like 
-GNU Octave, Matlab, Python because the function writes to a file 
+Binary file can be used for algorithms verification by external packages like
+GNU Octave, Matlab, Python because the function writes to a file
 without loss of accuracy. \n \n
 
 \param[in] x
@@ -192,7 +192,7 @@ Size of input vector. \n \n
 \param[in] dtype
 Type of data. \n
 
-Can be one of follow: \n 
+Can be one of follow: \n
 `DAT_DOUBLE` -- real data; \n
 `DAT_COMPLEX` -- complex data. \n \n
 
@@ -200,7 +200,7 @@ Can be one of follow: \n
 File name. \n \n
 
 \return
-`RES_OK` if file is saved successfully. \n 
+`RES_OK` if file is saved successfully. \n
 Else \ref ERROR_CODE_GROUP "code error".
 
 Reading saved binary file from GNU Octave or Matlab:
@@ -210,21 +210,21 @@ function [dat, n, m] = readbin(fn)
     if(~fid)
         error('cannot to open file');
     end
-    type = fread(fid, 1, 'int32');    
+    type = fread(fid, 1, 'int32');
     n    = fread(fid, 1, 'int32');
     m    = fread(fid, 1, 'int32');
-    
+
     if(type==0)
         dat = fread(fid, [n*m, 1], 'double');
     end
-    
+
     if(type==1)
         y = fread(fid, [n*m*2, 1], 'double');
         dat = y(1:2:end) + 1i * y(2:2:end);
     end
-    
+
     dat = reshape(dat, n, m);
-    
+
     fclose(fid);
 end
 \endcode
@@ -236,93 +236,93 @@ end
 /*! ****************************************************************************
 \ingroup IN_OUT_GROUP
 \fn    int writebin(void* x, int n, int dtype, char* fn)
-\brief РЎРѕС…СЂР°РЅРёС‚СЊ РґР°РЅРЅС‹Рµ РІ Р±РёРЅР°СЂРЅС‹Р№ С„Р°Р№Р»
+\brief Сохранить данные в бинарный файл
 
-Р¤СѓРЅРєС†РёСЏ СЃРѕС…СЂР°РЅСЏРµС‚ СЂРµР°Р»СЊРЅС‹Р№ РёР»Рё РєРѕРјРїР»РµРєСЃРЅС‹Р№ РІРµРєС‚РѕСЂ РґР°РЅРЅС‹С… 
-СЂР°Р·РјРµСЂР° `[n x 1]` РІ Р±РёРЅР°СЂРЅС‹Р№ С„Р°Р№Р» `fn`.    \n \n
+Функция сохраняет реальный или комплексный вектор данных
+размера `[n x 1]` в бинарный файл `fn`.    \n \n
 
-Р¤Р°Р№Р» СЏРІР»СЏРµС‚СЃСЏ СѓРЅРёРІРµСЂСЃР°Р»СЊРЅС‹Рј РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РєР°Рє РѕРґРЅРѕРјРµСЂРЅС‹С…, 
-С‚Р°Рє Рё РґРІСѓРјРµСЂРЅС‹С… РјР°СЃСЃРёРІРѕРІ Рё РёРјРµРµС‚ СЃР»РµРґСѓСЋС‰РёР№ С„РѕСЂРјР°С‚:    \n \n
+Файл является универсальным для хранения как одномерных,
+так и двумерных массивов и имеет следующий формат:    \n \n
 \verbatim
 
-type     4 Р±Р°Р№С‚Р° С‚РёРїР° int.
-         РњРѕР¶РµС‚ РїСЂРёРЅРёРјР°С‚СЊ Р·РЅР°С‡РµРЅРёРµ:
-         DAT_DOUBLE,    РµСЃР»Рё x СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РІРµРєС‚РѕСЂ РІРµС‰РµСЃС‚РІРµРЅРЅС‹С… С‡РёСЃРµР»;
-         DAT_COMPLEX, РµСЃР»Рё x СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РІРµРєС‚РѕСЂ РєРѕРјРїР»РµРєСЃРЅС‹С… С‡РёСЃРµР».
-            
-n        4 Р±Р°Р№С‚Р° С‚РёРїР° int.
-         РљРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє РґР°РЅРЅС‹С….
+type     4 байта типа int.
+         Может принимать значение:
+         DAT_DOUBLE,    если x указатель на вектор вещественных чисел;
+         DAT_COMPLEX, если x указатель на вектор комплексных чисел.
 
-m        4 Р±Р°Р№С‚Р° С‚РёРїР° int. 
-         РљРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚РѕР»Р±С†РѕРІ РґР°РЅРЅС‹С…. 
-         РџСЂРё СЃРѕС…СЂР°РЅРµРЅРёРё РІРµРєС‚РѕСЂР° РІСЃРµРіРґР° СЂР°РІРЅРѕ 1.
-        
-data     Р”Р°РЅРЅС‹Рµ РІ Р±РёРЅР°СЂРЅРѕРј РІРёРґРµ.
-         Р Р°Р·РјРµСЂ РґР°РЅРЅС‹С…: 
-         n * sizeof(double),    РµСЃР»Рё dtype==DAT_DOUBLE;
-         n * sizeof(complex_t), РµСЃР»Рё dtype==DAT_COMPLEX.
+n        4 байта типа int.
+         Количество строк данных.
+
+m        4 байта типа int.
+         Количество столбцов данных.
+         При сохранении вектора всегда равно 1.
+
+data     Данные в бинарном виде.
+         Размер данных:
+         n * sizeof(double),    если dtype==DAT_DOUBLE;
+         n * sizeof(complex_t), если dtype==DAT_COMPLEX.
 \endverbatim
 
-Р¤Р°Р№Р» РјРѕР¶РµС‚ Р±С‹С‚СЊ РёСЃРїРѕР»СЊР·РѕРІР°РЅ РґР»СЏ РІРµСЂРёС„РёРєР°С†РёРё Р°Р»РіРѕСЂРёС‚РјРѕРІ СЃС‚РѕСЂРѕРЅРЅРёРјРё РїР°РєРµС‚Р°РјРё,
-С‚Р°РєРёРјРё РєР°Рє GNU Octave, Matlab, Python Рё С‚.Рґ. \n \n
+Файл может быть использован для верификации алгоритмов сторонними пакетами,
+такими как GNU Octave, Matlab, Python и т.д. \n \n
 
 \param[in] x
-РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РјР°СЃСЃРёРІ РґР°РЅРЅС‹С….    \n
-Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂР° `[n x 1]`. \n 
+Указатель на массив данных.    \n
+Размер вектора `[n x 1]`. \n
 \n
 
 \param[in] n
-Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂР° РґР°РЅРЅС‹С…. \n 
+Размер вектора данных. \n
 \n
 
 \param[in] dtype
-РўРёРї РґР°РЅРЅС‹С…. \n
-РњРѕР¶РµС‚ РїСЂРёРЅРёРјР°С‚СЊ Р·РЅР°С‡РµРЅРёСЏ: \n 
-`DAT_DOUBLE`  -- РІРµС‰РµСЃС‚РІРµРЅРЅС‹Рµ РґР°РЅРЅС‹Рµ; \n
-`DAT_COMPLEX` -- РєРѕРјРїР»РµРєСЃРЅС‹Рµ РґР°РЅРЅС‹Рµ. \n 
+Тип данных. \n
+Может принимать значения: \n
+`DAT_DOUBLE`  -- вещественные данные; \n
+`DAT_COMPLEX` -- комплексные данные. \n
 \n
 
 \param[in] fn
-РРјСЏ С„Р°Р№Р»Р°. \n 
+Имя файла. \n
 \n
 
 \return
-`RES_OK` --- С„Р°Р№Р» СЃРѕС…СЂР°РЅРµРЅ СѓСЃРїРµС€РЅРѕ. \n
-Р’ РїСЂРѕС‚РёРІРЅРѕРј СЃР»СѓС‡Р°Рµ \ref ERROR_CODE_GROUP "РєРѕРґ РѕС€РёР±РєРё". \n
+`RES_OK` --- файл сохранен успешно. \n
+В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n
 
-\note 
-Р”Р°РЅРЅР°СЏ С„СѓРЅРєС†РёСЏ РїСЂРѕРёР·РІРѕРґРёС‚ Р·Р°РїРёСЃСЊ РІ С„Р°Р№Р» Р±РµР· РїРѕС‚РµСЂРё С‚РѕС‡РЅРѕСЃС‚Рё, 
-РїРѕСЌС‚РѕРјСѓ СЂРµРєРѕРјРµРЅРґСѓРµС‚СЃСЏ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РµРµ РґР»СЏ РІРµСЂРёС„РёРєР°С†РёРё РґР°РЅРЅС‹С… DSPL. \n 
+\note
+Данная функция производит запись в файл без потери точности,
+поэтому рекомендуется использовать ее для верификации данных DSPL. \n
 \n
 
 
-Р¤СѓРЅРєС†РёСЏ РґР»СЏ С‡С‚РµРЅРёСЏ Р±РёРЅР°СЂРЅРѕРіРѕ С„Р°Р№Р»Р° РІ GNU Octave Рё Matlab:
+Функция для чтения бинарного файла в GNU Octave и Matlab:
 \code{.m}
 function [dat, n, m] = readbin(fn)
     fid = fopen(fn);
     if(~fid)
         error('cannot to open file');
     end
-    type = fread(fid, 1, 'int32');    
+    type = fread(fid, 1, 'int32');
     n    = fread(fid, 1, 'int32');
     m    = fread(fid, 1, 'int32');
-    
+
     if(type==0)
         dat = fread(fid, [n*m, 1], 'double');
     end
-    
+
     if(type==1)
         y = fread(fid, [n*m*2, 1], 'double');
         dat = y(1:2:end) + 1i * y(2:2:end);
     end
-    
+
     dat = reshape(dat, n, m);
-    
+
     fclose(fid);
 end
 \endcode
 
-\author Р‘Р°С…СѓСЂРёРЅ РЎРµСЂРіРµР№ www.dsplib.org
+\author Бахурин Сергей www.dsplib.org
 ***************************************************************************** */
 #endif
 int DSPL_API writebin(void* x, int n, int dtype, char* fn)
@@ -409,7 +409,7 @@ x[0]        y[0]
 x[1]        y[1]
 ...         ...
 x[n-1]    y[n-1]
-\endverbatim    
+\endverbatim
 
 Text file can be used to plotting data with a third-party program
 for example, the GNUPLOT package (see \ref PLOT_GROUP). \n
@@ -421,76 +421,76 @@ Vector size is `[n x 1]`. \n \n
 \param[in] y
 Pointer to the vector `y`. \n
 Vector size is    `[n x 1]`. \n
-This pointer can be `NULL`. 
+This pointer can be `NULL`.
 File will have only one column corresponds to `x` vector in this case. \n \n
 
 \param[in] n
 Size of vectors `x` and `y`. \n \n
 
-\param[in] fn 
+\param[in] fn
 File name. \n \n
 
 
 \return
-`RES_OK` if file is saved successfully. \n 
+`RES_OK` if file is saved successfully. \n
 Else \ref ERROR_CODE_GROUP "code error".
 
-\note 
+\note
 This function rounds data when writing to a file.
 So, it is not recommended to use it to verify algorithms.
 
-\author Sergey Bakhurin www.dsplib.org 
+\author Sergey Bakhurin www.dsplib.org
 ***************************************************************************** */
 #endif
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup IN_OUT_GROUP
 \fn    int writetxt(double* x, double* y, int n, char* fn)
-\brief РЎРѕС…СЂР°РЅРёС‚СЊ РІРµС‰РµСЃС‚РІРµРЅРЅС‹Рµ РґР°РЅРЅС‹Рµ РІ С‚РµРєСЃС‚РѕРІС‹Р№ С„Р°Р№Р»
+\brief Сохранить вещественные данные в текстовый файл
 
-Р¤СѓРЅРєС†РёСЏ СЃРѕС…СЂР°РЅСЏРµС‚ РІРµС‰РµСЃС‚РІРµРЅРЅС‹Рµ РґР°РЅРЅС‹Рµ РІ С‚РµРєСЃС‚РѕРІС‹Р№ С„Р°Р№Р» `fn`. \n
-Р¤Р°Р№Р» РёРјРµРµС‚ СЃР»РµРґСѓСЋС‰РёР№ С„РѕСЂРјР°С‚: \n
+Функция сохраняет вещественные данные в текстовый файл `fn`. \n
+Файл имеет следующий формат: \n
 \verbatim
 x[0]        y[0]
 x[1]        y[1]
 ...         ...
 x[n-1]    y[n-1]
-\endverbatim    
+\endverbatim
 
-Р¤Р°Р№Р» РјРѕР¶РµС‚ Р±С‹С‚СЊ РёСЃРїРѕР»СЊР·РѕРІР°РЅ РґР»СЏ РїРѕСЃС‚СЂРѕРµРЅРёСЏ РіСЂР°С„РёРєР° СЃС‚РѕСЂРѕРЅРЅРµР№ РїСЂРѕРіСЂР°РјРјРѕР№,
-РЅР°РїСЂРёРјРµСЂ РїР°РєРµС‚РѕРј GNUPLOT (СЃРј. СЂР°Р·РґРµР» \ref PLOT_GROUP). \n
+Файл может быть использован для построения графика сторонней программой,
+например пакетом GNUPLOT (см. раздел \ref PLOT_GROUP). \n
 
 \param[in] x
-РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РїРµСЂРІС‹Р№ РІРµРєС‚РѕСЂ. \n
-Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂР° `[n x 1]`. \n \n
+Указатель на первый вектор. \n
+Размер вектора `[n x 1]`. \n \n
 
 \param[in] y
-РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РІС‚РѕСЂРѕР№ РІРµРєС‚РѕСЂ. \n
-Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂР° `[n x 1]`. \n
-РњРѕР¶РµС‚ Р±С‹С‚СЊ `NULL`. \n
-Р¤Р°Р№Р» Р±СѓРґРµС‚ СЃРѕРґРµСЂР¶Р°С‚СЊ С‚РѕР»СЊРєРѕ РѕРґРёРЅ СЃС‚РѕР»Р±РµС† СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РёР№ 
-РІРµРєС‚РѕСЂСѓ `x` РµСЃР»Рё `y == NULL`. \n \n
+Указатель на второй вектор. \n
+Размер вектора `[n x 1]`. \n
+Может быть `NULL`. \n
+Файл будет содержать только один столбец соответствующий
+вектору `x` если `y == NULL`. \n \n
 
 \param[in] n
-Р Р°Р·РјРµСЂ РІС…РѕРґРЅС‹С… РІРµРєС‚РѕСЂРѕРІ. \n \n
+Размер входных векторов. \n \n
 
-\param[in] fn 
-РРјСЏ С„Р°Р№Р»Р°. \n \n
+\param[in] fn
+Имя файла. \n \n
 
 \return
-`RES_OK` --- С„Р°Р№Р» СЃРѕС…СЂР°РЅРµРЅ СѓСЃРїРµС€РЅРѕ. \n
-Р’ РїСЂРѕС‚РёРІРЅРѕРј СЃР»СѓС‡Р°Рµ \ref ERROR_CODE_GROUP "РєРѕРґ РѕС€РёР±РєРё": \n
+`RES_OK` --- файл сохранен успешно. \n
+В противном случае \ref ERROR_CODE_GROUP "код ошибки": \n
 
-\note 
-Р”Р°РЅРЅР°СЏ С„СѓРЅРєС†РёСЏ РїСЂРѕРёР·РІРѕРґРёС‚ РѕРєСЂСѓРіР»РµРЅРёРµ РґР°РЅРЅС‹С… РїСЂРё Р·Р°РїРёСЃРё РІ С„Р°Р№Р». 
-РџРѕСЌС‚РѕРјСѓ РЅРµ СЂРµРєРѕРјРµРЅРґСѓРµС‚СЃСЏ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РµРµ РґР»СЏ РІРµСЂРёС„РёРєР°С†РёРё РґР°РЅРЅС‹С… DSPL.
+\note
+Данная функция производит округление данных при записи в файл.
+Поэтому не рекомендуется использовать ее для верификации данных DSPL.
 
-\author Р‘Р°С…СѓСЂРёРЅ РЎРµСЂРіРµР№ www.dsplib.org    
+\author Бахурин Сергей www.dsplib.org
 ***************************************************************************** */
 #endif
 int DSPL_API writetxt(double* x, double* y, int n, char* fn)
 {
-    int k;
+    int k, err;
     FILE* pFile = NULL;
     if(!x)
         return ERROR_PTR;
@@ -504,19 +504,43 @@ int DSPL_API writetxt(double* x, double* y, int n, char* fn)
         return ERROR_FOPEN;
 
     if(y)
+    {
         for(k = 0; k < n; k++)
-            if(!isnan(x[k]) && !isnan(y[k]) && !isinf(x[k]) && !isinf(y[k]))
-                fprintf(pFile, "%+.12E\t%+.12E\n", x[k], y[k]);
-            else 
-                break;  
-
+        {
+            if(isnan(x[k]) || isnan(y[k]))
+            {
+                err = ERROR_NAN;
+                goto exit_label;
+            }
+            if(isinf(x[k]) || isinf(y[k]))
+            {
+                err = ERROR_INF;
+                goto exit_label;
+            }
+            fprintf(pFile, "%+.12E\t%+.12E\n", x[k], y[k]);
+        }
+    }
     else
+    {
         for(k = 0; k < n; k++)
+        {
+            if(isnan(x[k]))
+            {
+                err = ERROR_NAN;
+                goto exit_label;
+            }
+            if(isinf(x[k]))
+            {
+                err = ERROR_INF;
+                goto exit_label;
+            }
             fprintf(pFile, "%+.12E\n", x[k]);
-
-
+        }
+    }
+    err = RES_OK;
+exit_label:
     fclose(pFile);
-    return RES_OK;
+    return err;
 }
 
 
@@ -565,7 +589,7 @@ x[0]        y[0]
 x[1]        y[1]
 ...         ...
 x[n-1]    y[n-1]
-\endverbatim    
+\endverbatim
 
 Text file can be used to plotting data with a third-party program
 for example, the GNUPLOT package (see \ref PLOT_GROUP). \n
@@ -577,20 +601,20 @@ Vector size is `[n x 1]`. \n \n
 \param[in] y
 Pointer to the interger vector `y`. \n
 Vector size is    `[n x 1]`. \n
-This pointer can be `NULL`. 
+This pointer can be `NULL`.
 File will have only one column corresponds to `x` vector in this case. \n \n
 
 \param[in] n
 Size of vectors `x` and `y`. \n \n
 
-\param[in] fn 
+\param[in] fn
 File name. \n \n
 
 \return
-`RES_OK` if file is saved successfully. \n 
+`RES_OK` if file is saved successfully. \n
 Else \ref ERROR_CODE_GROUP "code error".
 
-\author Sergey Bakhurin www.dsplib.org 
+\author Sergey Bakhurin www.dsplib.org
 ***************************************************************************** */
 #endif
 #ifdef DOXYGEN_RUSSIAN
@@ -598,43 +622,43 @@ Else \ref ERROR_CODE_GROUP "code error".
 \ingroup IN_OUT_GROUP
 \fn    int writetxt_int(int* x, int* y, int n, char* fn)
 
-\brief РЎРѕС…СЂР°РЅРёС‚СЊ С†РµР»РѕС‡РёСЃР»РµРЅРЅС‹Рµ РґР°РЅРЅС‹Рµ РІ С‚РµРєСЃС‚РѕРІС‹Р№ С„Р°Р№Р»
+\brief Сохранить целочисленные данные в текстовый файл
 
-Р¤СѓРЅРєС†РёСЏ СЃРѕС…СЂР°РЅСЏРµС‚ С†РµР»РѕС‡РёСЃР»РµРЅРЅС‹Рµ РґР°РЅРЅС‹Рµ РІ С‚РµРєСЃС‚РѕРІС‹Р№ С„Р°Р№Р» `fn`. \n
-Р¤Р°Р№Р» РёРјРµРµС‚ СЃР»РµРґСѓСЋС‰РёР№ С„РѕСЂРјР°С‚: \n
+Функция сохраняет целочисленные данные в текстовый файл `fn`. \n
+Файл имеет следующий формат: \n
 
 \verbatim
 x[0]        y[0]
 x[1]        y[1]
 ...         ...
 x[n-1]    y[n-1]
-\endverbatim    
+\endverbatim
 
-Р¤Р°Р№Р» РјРѕР¶РµС‚ Р±С‹С‚СЊ РёСЃРїРѕР»СЊР·РѕРІР°РЅ РґР»СЏ РїРѕСЃС‚СЂРѕРµРЅРёСЏ РіСЂР°С„РёРєР° СЃС‚РѕСЂРѕРЅРЅРµР№ РїСЂРѕРіСЂР°РјРјРѕР№,
-РЅР°РїСЂРёРјРµСЂ РїР°РєРµС‚РѕРј GNUPLOT (СЃРј. СЂР°Р·РґРµР» \ref PLOT_GROUP). \n
+Файл может быть использован для построения графика сторонней программой,
+например пакетом GNUPLOT (см. раздел \ref PLOT_GROUP). \n
 
 \param[in] x
-РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РїРµСЂРІС‹Р№ РІРµРєС‚РѕСЂ.    \n
-Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂР° `[n x 1]`. \n \n
+Указатель на первый вектор.    \n
+Размер вектора `[n x 1]`. \n \n
 
 \param[in] y
-РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РІС‚РѕСЂРѕР№ РІРµРєС‚РѕСЂ.    \n
-Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂР°    `[n x 1]`.    \n
-РњРѕР¶РµС‚ Р±С‹С‚СЊ `NULL`.    \n
-Р¤Р°Р№Р» Р±СѓРґРµС‚ СЃРѕРґРµСЂР¶Р°С‚СЊ С‚РѕР»СЊРєРѕ РѕРґРёРЅ СЃС‚РѕР»Р±РµС† СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РёР№ 
-РІРµРєС‚РѕСЂСѓ `x` РµСЃР»Рё `y == NULL`. \n \n
+Указатель на второй вектор.    \n
+Размер вектора    `[n x 1]`.    \n
+Может быть `NULL`.    \n
+Файл будет содержать только один столбец соответствующий
+вектору `x` если `y == NULL`. \n \n
 
 \param[in] n
-Р Р°Р·РјРµСЂ РІС…РѕРґРЅС‹С… РІРµРєС‚РѕСЂРѕРІ. \n \n
+Размер входных векторов. \n \n
 
-\param[in] fn 
-РРјСЏ С„Р°Р№Р»Р°. \n \n
+\param[in] fn
+Имя файла. \n \n
 
 \return
-`RES_OK` --- С„Р°Р№Р» СЃРѕС…СЂР°РЅРµРЅ СѓСЃРїРµС€РЅРѕ. \n
-Р’ РїСЂРѕС‚РёРІРЅРѕРј СЃР»СѓС‡Р°Рµ \ref ERROR_CODE_GROUP "РєРѕРґ РѕС€РёР±РєРё": \n
+`RES_OK` --- файл сохранен успешно. \n
+В противном случае \ref ERROR_CODE_GROUP "код ошибки": \n
 
-\author Р‘Р°С…СѓСЂРёРЅ РЎРµСЂРіРµР№ www.dsplib.org    
+\author Бахурин Сергей www.dsplib.org
 ***************************************************************************** */
 #endif
 int DSPL_API writetxt_int(int* x, int* y, int n, char* fn)
@@ -680,7 +704,7 @@ follow figure:
 
 \image html writetxt_3d_matrix.png
 
-Matrix `z` writen in the memory by columns as it it showed on the figure by 
+Matrix `z` writen in the memory by columns as it it showed on the figure by
 red arrow. \n
 
 Text file fas follow format: \n
@@ -707,8 +731,8 @@ x[1]        y[ny-1] z[1, ny-1]
 x[2]        y[ny-1] z[2, ny-1]
 ...         ...         ...
 x[nx-1] y[ny-1] z[nx-1, ny-1]
-\endverbatim    
-Each `z` matrix value is writen on individual line corresponds to `x` 
+\endverbatim
+Each `z` matrix value is writen on individual line corresponds to `x`
 and `y` values. Matrix columns are separated from each other by an empty line.
 
 The file can be used to build a 3D surface with a third-party program
@@ -731,15 +755,15 @@ Vector size is    `[ny x 1]`. \n\n
 Size of vector `y`. \n\n
 
 \param[in] z
-Pointer to the matrix `z(x, y)`. \n 
+Pointer to the matrix `z(x, y)`. \n
 Size of matrix is    `[nx x ny]`. \n\n
 
-\param[in] fn 
+\param[in] fn
 3D data file name. \n\n
 
 
 \return
-`RES_OK` if file is saved successfully. \n 
+`RES_OK` if file is saved successfully. \n
 Else \ref ERROR_CODE_GROUP "code error".
 
 Example of 3D surface plotting:
@@ -758,7 +782,7 @@ In addition, GNUPLOT built a 3D surface by data
 
 \image html writetxt_3d.png
 
-\author Sergey Bakhurin www.dsplib.org 
+\author Sergey Bakhurin www.dsplib.org
 ***************************************************************************** */
 #endif
 #ifdef DOXYGEN_RUSSIAN
@@ -766,17 +790,17 @@ In addition, GNUPLOT built a 3D surface by data
 \ingroup IN_OUT_GROUP
 \fn int writetxt_3d(double* x, int nx, double* y, int ny, double* z, char* fn)
 
-\brief РЎРѕС…СЂР°РЅРёС‚СЊ РґР°РЅРЅС‹Рµ РґР»СЏ РїРѕСЃС‚СЂРѕРµРЅРёСЏ 3D РіСЂР°С„РёРєР°
+\brief Сохранить данные для построения 3D графика
 
-Р¤СѓРЅРєС†РёСЏ СЃРѕС…СЂР°РЅСЏРµС‚ РІРµС‰РµСЃС‚РІРµРЅРЅС‹Рµ РґР°РЅРЅС‹Рµ РІ С‚РµРєСЃС‚РѕРІС‹Р№ С„Р°Р№Р» `fn` 
-РґР»СЏ РїРѕСЃС‚СЂРѕРµРЅРёСЏ 3D РїРѕРІРµСЂС…РЅРѕСЃС‚Рё. \n
-Р¤СѓРЅРєС†РёСЏ \f$ z(x,y)\f$ РѕРїРёСЃС‹РІР°РµС‚СЃСЏ РјР°С‚СЂРёС†РµР№ Р·РЅР°С‡РµРЅРёР№ `z[x[n], y[n]]` 
-РєР°Рє СЌС‚Рѕ РїРѕРєР°Р·Р°РЅРѕ РЅР° СЂРёСЃСѓРЅРєРµ
+Функция сохраняет вещественные данные в текстовый файл `fn`
+для построения 3D поверхности. \n
+Функция \f$ z(x,y)\f$ описывается матрицей значений `z[x[n], y[n]]`
+как это показано на рисунке
 
 \image html writetxt_3d_matrix.png
 
-РњР°С‚СЂРёС†Р° `z` С…СЂР°РЅРёС‚СЃСЏ РІ РїР°РјСЏС‚Рё РїРѕ СЃС‚РѕР»Р±С†Р°Рј, РєР°Рє СЌС‚Рѕ РїРѕРєР°Р·Р°РЅРѕ РєСЂР°СЃРЅРѕР№ СЃС‚СЂРµР»РєРѕР№. \n
-Р¤Р°Р№Р» РёРјРµРµС‚ СЃР»РµРґСѓСЋС‰РёР№ С„РѕСЂРјР°С‚: \n
+Матрица `z` хранится в памяти по столбцам, как это показано красной стрелкой. \n
+Файл имеет следующий формат: \n
 
 \verbatim
 x[0]        y[0]        z[0, 0]
@@ -800,57 +824,57 @@ x[1]        y[ny-1] z[1, ny-1]
 x[2]        y[ny-1] z[2, ny-1]
 ...         ...         ...
 x[nx-1] y[ny-1] z[nx-1, ny-1]
-\endverbatim    
-РўР°РєРёРј РѕР±СЂР°Р·РѕРј, РєР°Р¶РґРѕРµ Р·РЅР°С‡РµРЅРёРµ РјР°С‚СЂРёС†С‹ `z` Р·Р°РїРёСЃР°РЅРѕ РѕС‚РґРµР»СЊРЅРѕР№ СЃС‚СЂРѕРєРѕР№ СЃРѕ
-СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РёРјРё Р·РЅР°С‡РµРЅРёСЏРјРё `x` Рё `y`. РЎС‚РѕР»Р±С†С‹ РјР°С‚СЂРёС†С‹ РѕС‚РґРµР»РµРЅС‹ РїСѓСЃС‚РѕР№ СЃС‚СЂРѕРєРѕР№.
+\endverbatim
+Таким образом, каждое значение матрицы `z` записано отдельной строкой со
+соответствующими значениями `x` и `y`. Столбцы матрицы отделены пустой строкой.
 
-Р¤Р°Р№Р» РјРѕР¶РµС‚ Р±С‹С‚СЊ РёСЃРїРѕР»СЊР·РѕРІР°РЅ РґР»СЏ РїРѕСЃС‚СЂРѕРµРЅРёСЏ РіСЂР°С„РёРєР° СЃС‚РѕСЂРѕРЅРЅРµР№ РїСЂРѕРіСЂР°РјРјРѕР№,
-РЅР°РїСЂРёРјРµСЂ РїР°РєРµС‚РѕРј GNUPLOT (СЃРј. СЂР°Р·РґРµР» \ref PLOT_GROUP). РўР°РєР¶Рµ РґР°РЅРЅС‹Р№ С„РѕСЂРјР°С‚
-РїРѕРґРґРµСЂР¶РёРІР°РµС‚СЃСЏ РїР°РєРµС‚Р°РјРё pgfplot3d РёР·РґР°С‚РµР»СЊСЃРєРѕР№ СЃРёСЃС‚РµРјС‹ Latex. \n
+Файл может быть использован для построения графика сторонней программой,
+например пакетом GNUPLOT (см. раздел \ref PLOT_GROUP). Также данный формат
+поддерживается пакетами pgfplot3d издательской системы Latex. \n
 
 \param[in] x
-РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РІРµРєС‚РѕСЂ Р·РЅР°С‡РµРЅРёР№ РѕСЃРё `x`. \n
-Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂР° `[nx x 1]`. \n \n
+Указатель на вектор значений оси `x`. \n
+Размер вектора `[nx x 1]`. \n \n
 
 \param[in] nx
-Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂР° РѕСЃРё `x`. \n \n
+Размер вектора оси `x`. \n \n
 
 
 \param[in] y
-РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РІС‚РѕСЂРѕР№ РІРµРєС‚РѕСЂ Р·РЅР°С‡РµРЅРёР№ РѕСЃРё `y`. \n
-Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂР°    `[ny x 1]`. \n
+Указатель на второй вектор значений оси `y`. \n
+Размер вектора    `[ny x 1]`. \n
 
 \param[in] ny
-Р Р°Р·РјРµСЂ РІРµРєС‚РѕСЂР° РѕСЃРё `y`. \n \n
+Размер вектора оси `y`. \n \n
 
 \param[in] z
-РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РјР°С‚СЂРёС†Сѓ Р·РЅР°С‡РµРЅРёР№ С„СѓРЅРєС†РёРё `z(x, y)`. \n \n
+Указатель на матрицу значений функции `z(x, y)`. \n \n
 
-\param[in] fn 
-РРјСЏ С„Р°Р№Р»Р°. \n \n
+\param[in] fn
+Имя файла. \n \n
 
 \return
-`RES_OK` --- С„Р°Р№Р» СЃРѕС…СЂР°РЅРµРЅ СѓСЃРїРµС€РЅРѕ. \n
-Р’ РїСЂРѕС‚РёРІРЅРѕРј СЃР»СѓС‡Р°Рµ \ref ERROR_CODE_GROUP "РєРѕРґ РѕС€РёР±РєРё": \n
+`RES_OK` --- файл сохранен успешно. \n
+В противном случае \ref ERROR_CODE_GROUP "код ошибки": \n
 
-РџСЂРёРјРµСЂ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ С„СѓРЅРєС†РёРё Рё РїРѕСЃС‚РѕСЂРµРЅРёСЏ 3D РїРѕРІРµСЂС…РЅРѕСЃС‚Рё РїСЂРёРІРµРґРµРЅ
-РІ СЃР»РµРґСѓСЋС‰РµРј Р»РёСЃС‚РёРЅРіРµ:
+Пример использования функции и посторения 3D поверхности приведен
+в следующем листинге:
 
 \include writetxt_3d_test.c
 
-Р”Р°РЅРЅР°СЏ РїСЂРѕРіСЂР°РјРјР° СЂР°СЃСЃС‡РёС‚С‹РІР°РµС‚ Рё СЃС‚СЂРѕРёС‚ РїРѕРІРµСЂС…РЅРѕСЃС‚СЊ С„СѓРЅРєС†РёРё
+Данная программа рассчитывает и строит поверхность функции
 
 \f[
 z(x,y) = x \exp(-x^2 -y^2)
 \f]
 
-Р’ РєР°С‚Р°Р»РѕРіРµ `dat` Р±СѓРґРµС‚ СЃРѕР·РґР°РЅ С„Р°Р№Р» `data3d.txt`.\n
-РљСЂРѕРјРµ С‚РѕРіРѕ РїСЂРѕРіСЂР°РјРјР° GNUPLOT РїСЂРѕРёР·РІРµРґРµС‚ РїРѕСЃС‚СЂРѕРµРЅРёРµ 3D РїРѕРІРµСЂС…РЅРѕСЃС‚Рё 
-РїРѕ СЃРѕС…СЂР°РЅРµРЅРЅС‹Рј РІ С„Р°Р№Р» РґР°РЅРЅС‹Рј:
+В каталоге `dat` будет создан файл `data3d.txt`.\n
+Кроме того программа GNUPLOT произведет построение 3D поверхности
+по сохраненным в файл данным:
 
 \image html writetxt_3d.png
 
-\author Р‘Р°С…СѓСЂРёРЅ РЎРµСЂРіРµР№ www.dsplib.org    
+\author Бахурин Сергей www.dsplib.org
 ***************************************************************************** */
 #endif
 int DSPL_API writetxt_3d(double* x, int nx, double* y, int ny,
@@ -878,7 +902,7 @@ int DSPL_API writetxt_3d(double* x, int nx, double* y, int ny,
             {
                 fprintf(pFile, "%+.12E\t%+.12E\t%+.12E\n",
                                x[n], y[k], z[n+k*nx]);
-                
+
             }
         }
         fprintf(pFile, "\n");

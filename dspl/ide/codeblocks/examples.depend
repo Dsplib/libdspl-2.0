@@ -1,0 +1,47 @@
+# depslib dependency file v1.0
+1577612574 source:f:\dsplib.org\libdspl-2.0\examples\src\dspl_info_test.c
+	<stdio.h>
+	<stdlib.h>
+	"dspl.h"
+
+1601636764 f:\dsplib.org\libdspl-2.0\include\dspl.h
+	<math.h>
+
+1600865764 source:f:\dsplib.org\libdspl-2.0\include\dspl.c
+	<windows.h>
+	<dlfcn.h>
+	<stdio.h>
+	"dspl.h"
+	<stdio.h>
+	<stdlib.h>
+	"dspl.h"
+	<stdio.h>
+	<stdlib.h>
+	"dspl.h"
+
+1587906336 source:d:\dsplib.org\libdspl-2.0\examples\src\dspl_info_test.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1587817856 d:\dsplib.org\libdspl-2.0\include\dspl.h
+	<math.h>
+
+1587816431 source:d:\dsplib.org\libdspl-2.0\include\dspl.c
+	<windows.h>
+	<dlfcn.h>
+	<stdio.h>
+	"dspl.h"
+
+1601633739 source:f:\dsplib.org\libdspl-2.0\dspl\ide\test\test.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1601637095 source:f:\dsplib.org\libdspl-2.0\dspl\ide\test\src\test.c
+	<stdio.h>
+	<stdlib.h>
+	"dspl.h"
+
