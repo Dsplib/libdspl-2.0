@@ -15,9 +15,6 @@
 		</Project>
 		<Project filename="examples.cbp">
 			<Depends filename="dspl.cbp" />
-			<Depends filename="blas.cbp" />
-			<Depends filename="lapack_complex.cbp" />
-			<Depends filename="lapack_double.cbp" />
 		</Project>
 	</Workspace>
 </CodeBlocks_workspace_file>
