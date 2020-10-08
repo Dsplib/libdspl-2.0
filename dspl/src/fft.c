@@ -178,35 +178,35 @@ Result:
 #endif
 int DSPL_API ifft_cmplx(complex_t *x, int n, fft_t* pfft, complex_t* y)
 {
-     int err, k;
-     double norm;
+    int err, k;
+    double norm;
 
-     if(!x || !pfft || !y)
+    if(!x || !pfft || !y)
         return ERROR_PTR;
-     if(n<1)
+    if(n<1)
         return ERROR_SIZE;
 
 
-     err = fft_create(pfft, n);
-     if(err != RES_OK)
+    err = fft_create(pfft, n);
+    if(err != RES_OK)
         return err;
 
-     memcpy(pfft->t1, x, n*sizeof(complex_t));
-     for(k = 0; k < n; k++)
+    memcpy(pfft->t1, x, n*sizeof(complex_t));
+    for(k = 0; k < n; k++)
         IM(pfft->t1[k]) = -IM(pfft->t1[k]);
 
-     err = fft_krn(pfft->t1, pfft->t0, pfft, n, 0);
+    err = fft_krn(pfft->t1, pfft->t0, pfft, n, 0);
 
-     if(err!=RES_OK)
+    if(err!=RES_OK)
         return err;
 
-     norm = 1.0 / (double)n;
-     for(k = 0; k < n; k++)
-     {
+    norm = 1.0 / (double)n;
+    for(k = 0; k < n; k++)
+    {
          RE(y[k]) =  RE(pfft->t0[k])*norm;
          IM(y[k]) = -IM(pfft->t0[k])*norm;
-     }
-     return RES_OK;
+    }
+    return RES_OK;
 }
 
 
@@ -372,6 +372,123 @@ int DSPL_API fft(double* x, int n, fft_t* pfft, complex_t* y)
     return fft_krn(pfft->t1, y, pfft, n, 0);
 }
 
+
+
+#ifdef DOXYGEN_ENGLISH
+
+#endif
+#ifdef DOXYGEN_RUSSIAN
+
+#endif
+int DSPL_API fft_abs(double* x, int n, fft_t* pfft, 
+                     double fs, int flag,
+                     double* mag, double* freq)
+{
+    int k, err = RES_OK;
+    complex_t *X = NULL;
+    if(!x || !pfft)
+        return ERROR_PTR;
+
+    if(n<1)
+        return ERROR_SIZE;
+
+    if(mag)
+    {    
+        X = (complex_t*)malloc(n*sizeof(complex_t));
+        err = fft(x, n, pfft, X);
+        if(err!=RES_OK)
+            goto error_proc;
+        
+
+        for(k = 0; k < n; k++)
+            mag[k] = ABS(X[k]);
+        if(flag & DSPL_FLAG_FFT_SHIFT)
+        {
+            err = fft_shift(mag, n, mag);
+            if(err!=RES_OK)
+                goto error_proc;
+        }
+    }
+    
+    if(freq)
+    {
+        if(flag & DSPL_FLAG_FFT_SHIFT)
+            if(n%2)
+                err = linspace(-fs*0.5 + fs*0.5/(double)n, 
+                                fs*0.5 - fs*0.5/(double)n, 
+                                n, DSPL_SYMMETRIC, freq);
+            else
+                err = linspace(-fs*0.5, fs*0.5, n, DSPL_PERIODIC, freq);
+        else
+            err = linspace(0, fs, n, DSPL_PERIODIC, freq);
+    } 
+
+error_proc:
+    if(X)
+        free(X);
+
+    return err;
+}
+
+
+
+
+#ifdef DOXYGEN_ENGLISH
+
+#endif
+#ifdef DOXYGEN_RUSSIAN
+
+#endif
+int DSPL_API fft_abs_cmplx(complex_t* x, int n, fft_t* pfft, 
+                           double fs, int flag,
+                           double* mag, double* freq)
+{
+    int k, err = RES_OK;
+    complex_t *X = NULL;
+    
+    if(!x || !pfft)
+        return ERROR_PTR;
+    
+    if(n<1)
+        return ERROR_SIZE;
+    
+    if(mag)
+    {    
+        X = (complex_t*)malloc(n*sizeof(complex_t));
+        err = fft_cmplx(x, n, pfft, X);
+        if(err!=RES_OK)
+            goto error_proc;
+        
+        
+        for(k = 0; k < n; k++)
+            mag[k] = ABS(X[k]);
+          
+        if(flag & DSPL_FLAG_FFT_SHIFT)
+        {
+            err = fft_shift(mag, n, mag);
+            if(err!=RES_OK)
+                goto error_proc;
+        }
+    }
+    
+    if(freq)
+    {
+        if(flag & DSPL_FLAG_FFT_SHIFT)
+            if(n%2)
+                err = linspace(-fs*0.5 + fs*0.5/(double)n, 
+                                fs*0.5 - fs*0.5/(double)n, 
+                                n, DSPL_SYMMETRIC, freq);
+            else
+                err = linspace(-fs*0.5, fs*0.5, n, DSPL_PERIODIC, freq);
+        else
+            err = linspace(0, fs, n, DSPL_PERIODIC, freq);
+    }         
+error_proc:    
+    if(X)
+        free(X);
+        
+    return err;
+}
 
 
 
@@ -904,6 +1021,8 @@ void DSPL_API fft_free(fft_t *pfft)
 
 
 
+
+
 #ifdef DOXYGEN_ENGLISH
 
 #endif
@@ -914,52 +1033,20 @@ int DSPL_API fft_mag(double* x, int n, fft_t* pfft,
                      double fs, int flag,
                      double* mag, double* freq)
 {
-    int k, err = RES_OK;
-    complex_t *X = NULL;
-    if(!x || !pfft)
-        return ERROR_PTR;
-
-    if(n<1)
-        return ERROR_SIZE;
-
+    int k, err;
+    err = fft_abs(x, n, pfft, fs, flag, mag, freq);
+    if(err != RES_OK)
+        return err;
     if(mag)
-    {    
-        X = (complex_t*)malloc(n*sizeof(complex_t));
-        err = fft(x, n, pfft, X);
-        if(err!=RES_OK)
-            goto error_proc;
-        
+    {
         if(flag & DSPL_FLAG_LOGMAG)
             for(k = 0; k < n; k++)
-                mag[k] = 10.0*log10(ABSSQR(X[k])+DBL_EPSILON);
+                mag[k] = 20.0 * log10(mag[k] + DBL_EPSILON);
         else
             for(k = 0; k < n; k++)
-                mag[k] = ABS(X[k]);
-        if(flag & DSPL_FLAG_FFT_SHIFT)
-        {
-            err = fft_shift(mag, n, mag);
-            if(err!=RES_OK)
-                goto error_proc;
-        }
+                mag[k] *= mag[k];
     }
     
-    if(freq)
-    {
-        if(flag & DSPL_FLAG_FFT_SHIFT)
-            if(n%2)
-                err = linspace(-fs*0.5 + fs*0.5/(double)n, 
-                                fs*0.5 - fs*0.5/(double)n, 
-                                n, DSPL_SYMMETRIC, freq);
-            else
-                err = linspace(-fs*0.5, fs*0.5, n, DSPL_PERIODIC, freq);
-        else
-            err = linspace(0, fs, n, DSPL_PERIODIC, freq);
-    } 
-
-error_proc:
-    if(X)
-        free(X);
-
     return err;
 }
 
@@ -979,52 +1066,20 @@ int DSPL_API fft_mag_cmplx(complex_t* x, int n, fft_t* pfft,
                            double fs, int flag,
                            double* mag, double* freq)
 {
-    int k, err = RES_OK;
-    complex_t *X = NULL;
-    
-    if(!x || !pfft)
-        return ERROR_PTR;
-    
-    if(n<1)
-        return ERROR_SIZE;
-    
+    int k, err;
+    err = fft_abs_cmplx(x, n, pfft, fs, flag, mag, freq);
+    if(err != RES_OK)
+        return err;
     if(mag)
-    {    
-        X = (complex_t*)malloc(n*sizeof(complex_t));
-        err = fft_cmplx(x, n, pfft, X);
-        if(err!=RES_OK)
-            goto error_proc;
-        
+    {
         if(flag & DSPL_FLAG_LOGMAG)
             for(k = 0; k < n; k++)
-                mag[k] = 10.0*log10(ABSSQR(X[k]));
+                mag[k] = 20.0 * log10(mag[k] + DBL_EPSILON);
         else
             for(k = 0; k < n; k++)
-                mag[k] = ABS(X[k]);
-        if(flag & DSPL_FLAG_FFT_SHIFT)
-        {
-            err = fft_shift(mag, n, mag);
-            if(err!=RES_OK)
-                goto error_proc;
-        }
+                mag[k] *= mag[k];
     }
     
-    if(freq)
-    {
-        if(flag & DSPL_FLAG_FFT_SHIFT)
-            if(n%2)
-                err = linspace(-fs*0.5 + fs*0.5/(double)n, 
-                                fs*0.5 - fs*0.5/(double)n, 
-                                n, DSPL_SYMMETRIC, freq);
-            else
-                err = linspace(-fs*0.5, fs*0.5, n, DSPL_PERIODIC, freq);
-        else
-            err = linspace(0, fs, n, DSPL_PERIODIC, freq);
-    }         
-error_proc:    
-    if(X)
-        free(X);
-        
     return err;
 }
 

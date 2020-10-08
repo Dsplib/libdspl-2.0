@@ -521,6 +521,7 @@ Variable `z = 1-2j`, here `j` - imaginary unit, but variable `y = 5`.
 #define ERROR_FNAME                           0x06140113
 #define ERROR_FOPEN                           0x06151605
 #define ERROR_FREAD_SIZE                      0x06180501
+#define ERROR_FS                              0x06190000
 #define ERROR_FWRITE_SIZE                     0x06231820
 /* G                                          0x07xxxxxx*/
 #define ERROR_GNUPLOT_CREATE                  0x07161203
@@ -541,6 +542,7 @@ Variable `z = 1-2j`, here `j` - imaginary unit, but variable `y = 5`.
 #define ERROR_NAN                             0x14011400
 #define ERROR_NEGATIVE                        0x14050701
 /* O                                          0x15xxxxxx*/
+#define ERROR_OVERLAP                         0x15220412
 /* P                                          0x16xxxxxx*/
 #define ERROR_POLY_AN                         0x16150114
 #define ERROR_POLY_ORD                        0x16151518
@@ -582,6 +584,8 @@ Variable `z = 1-2j`, here `j` - imaginary unit, but variable `y = 5`.
 #define DSPL_FLAG_LOGMAG                      0x00000002
 #define DSPL_FLAG_UNWRAP                      0x00000004
 #define DSPL_FLAG_FFT_SHIFT                   0x00000008
+#define DSPL_FLAG_PSD_TWOSIDED                DSPL_FLAG_FFT_SHIFT
+
 
 
 
@@ -917,6 +921,22 @@ DECLARE_FUNC(int,        fft,                         double*
                                                 COMMA int
                                                 COMMA fft_t*
                                                 COMMA complex_t* );
+/*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        fft_abs,                     double*          x
+                                                COMMA int              n
+                                                COMMA fft_t*           pfft
+                                                COMMA double           fs
+                                                COMMA int              flag
+                                                COMMA double*          mag
+                                                COMMA double*          freq);
+/*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        fft_abs_cmplx,               complex_t*       x
+                                                COMMA int              n
+                                                COMMA fft_t*           pfft
+                                                COMMA double           fs
+                                                COMMA int              flag
+                                                COMMA double*          mag
+                                                COMMA double*          freq);
 /*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        fft_cmplx,                   complex_t*
                                                 COMMA int
@@ -1268,6 +1288,49 @@ DECLARE_FUNC(int,        polyval_cmplx,               complex_t*
                                                 COMMA complex_t*
                                                 COMMA int
                                                 COMMA complex_t*);
+/*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        psd_bartlett,                double*         x
+                                                COMMA int             n
+                                                COMMA int             nfft
+                                                COMMA fft_t*          pfft
+                                                COMMA double          fs
+                                                COMMA int             flag 
+                                                COMMA double*         ppsd 
+                                                COMMA double*         pfrq);
+/*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        psd_periodogram,             double*         x
+                                                COMMA int             n
+                                                COMMA int             win_type
+                                                COMMA double          win_param
+                                                COMMA fft_t*          pfft
+                                                COMMA double          fs
+                                                COMMA int             flag
+                                                COMMA double*         ppsd
+                                                COMMA double*         pfrq);
+/*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        psd_welch,                   double*         x
+                                                COMMA int             n
+                                                COMMA int             win_type
+                                                COMMA double          win_param
+                                                COMMA int             npsd
+                                                COMMA int             noverlap
+                                                COMMA fft_t*          pfft
+                                                COMMA double          fs
+                                                COMMA int             flag
+                                                COMMA double*         ppsd
+                                                COMMA double*         pfrq);
+/*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,       psd_welch_cmplx,              complex_t*      x
+                                                COMMA int             n
+                                                COMMA int             win_type
+                                                COMMA double          win_param
+                                                COMMA int             npsd
+                                                COMMA int             noverlap
+                                                COMMA fft_t*          pfft
+                                                COMMA double          fs
+                                                COMMA int             flag
+                                                COMMA double*         ppsd
+                                                COMMA double*         pfrq);
 /*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        randb,                       double*          x
                                                 COMMA int              n

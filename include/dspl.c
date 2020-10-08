@@ -84,6 +84,8 @@ p_ellip_sn_cmplx                        ellip_sn_cmplx                ;
 p_farrow_lagrange                       farrow_lagrange               ;
 p_farrow_spline                         farrow_spline                 ;
 p_fft                                   fft                           ;
+p_fft_abs                               fft_abs                       ;
+p_fft_abs_cmplx                         fft_abs_cmplx                 ;
 p_fft_cmplx                             fft_cmplx                     ;
 p_fft_create                            fft_create                    ;
 p_fft_free                              fft_free                      ;
@@ -151,6 +153,10 @@ p_poly_z2a_cmplx                        poly_z2a_cmplx                ;
 p_polyroots                             polyroots                     ;
 p_polyval                               polyval                       ;
 p_polyval_cmplx                         polyval_cmplx                 ;
+p_psd_bartlett                          psd_bartlett                  ;
+p_psd_periodogram                       psd_periodogram               ;
+p_psd_welch                             psd_welch                     ;
+p_psd_welch_cmplx                       psd_welch_cmplx               ;
 
 p_randb                                 randb                         ;
 p_randb2                                randb2                        ;
@@ -465,6 +471,10 @@ void* dspl_load()
     LOAD_FUNC(polyroots);
     LOAD_FUNC(polyval);
     LOAD_FUNC(polyval_cmplx);
+    LOAD_FUNC(psd_bartlett);
+    LOAD_FUNC(psd_periodogram);
+    LOAD_FUNC(psd_welch);
+    LOAD_FUNC(psd_welch_cmplx);
     
     LOAD_FUNC(randi);
     LOAD_FUNC(randb);

@@ -141,6 +141,9 @@
 		<Unit filename="../../src/polyval.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../src/psd.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../src/randgen.c">
 			<Option compilerVar="CC" />
 		</Unit>
