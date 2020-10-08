@@ -13,6 +13,8 @@ data types conversion.
 
 \defgroup WIN_GROUP Windows function for filter design and spectrum analysis.
 
+\defgroup PSD_GROUP Digital spectral analysis
+
 \defgroup HILBERT_GROUP Hilbert transform algorithms.
 
 \defgroup FILTER_CONV_GROUP Convolution and digital filtration.
