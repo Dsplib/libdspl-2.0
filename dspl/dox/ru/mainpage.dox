@@ -49,6 +49,7 @@ DSPL-2.0 --- свободная библиотека алгоритмов циф
 
   - \ref DFT_GROUP \n
   - \ref WIN_GROUP \n
+  - \ref PSD_GROUP \n
   - \ref HILBERT_GROUP \n
 \n
 

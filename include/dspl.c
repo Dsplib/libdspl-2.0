@@ -154,7 +154,9 @@ p_polyroots                             polyroots                     ;
 p_polyval                               polyval                       ;
 p_polyval_cmplx                         polyval_cmplx                 ;
 p_psd_bartlett                          psd_bartlett                  ;
+p_psd_bartlett_cmplx                    psd_bartlett_cmplx            ;
 p_psd_periodogram                       psd_periodogram               ;
+p_psd_periodogram_cmplx                 psd_periodogram_cmplx         ;
 p_psd_welch                             psd_welch                     ;
 p_psd_welch_cmplx                       psd_welch_cmplx               ;
 
@@ -162,6 +164,7 @@ p_randb                                 randb                         ;
 p_randb2                                randb2                        ;
 p_randi                                 randi                         ;
 p_randn                                 randn                         ;
+p_randn_cmplx                           randn_cmplx                   ;
 p_random_init                           random_init                   ;
 p_randu                                 randu                         ;
 p_ratcompos                             ratcompos                     ;
@@ -472,7 +475,9 @@ void* dspl_load()
     LOAD_FUNC(polyval);
     LOAD_FUNC(polyval_cmplx);
     LOAD_FUNC(psd_bartlett);
+    LOAD_FUNC(psd_bartlett_cmplx);
     LOAD_FUNC(psd_periodogram);
+    LOAD_FUNC(psd_periodogram_cmplx);
     LOAD_FUNC(psd_welch);
     LOAD_FUNC(psd_welch_cmplx);
     
@@ -480,6 +485,7 @@ void* dspl_load()
     LOAD_FUNC(randb);
     LOAD_FUNC(randb2);
     LOAD_FUNC(randn);
+    LOAD_FUNC(randn_cmplx);
     LOAD_FUNC(random_init);
     LOAD_FUNC(randu);
     LOAD_FUNC(ratcompos);

@@ -57,6 +57,7 @@ Dsplib toolchain includes GCC, GNUPLOT, CodeBlocks IDE, Far file manager and als
 <b>Digital spectral analysis: </b> \n
   - \ref DFT_GROUP \n
   - \ref WIN_GROUP \n
+  - \ref PSD_GROUP \n
   - \ref HILBERT_GROUP \n
 \n
 

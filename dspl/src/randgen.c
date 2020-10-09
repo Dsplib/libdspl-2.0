@@ -627,6 +627,35 @@ exit_label:
 
 
 
+#ifdef DOXYGEN_ENGLISH
+
+#endif
+#ifdef DOXYGEN_RUSSIAN
+
+#endif
+int DSPL_API randn_cmplx(complex_t* x, int n, complex_t* mu, 
+                         double sigma, random_t* prnd)
+{
+    int err, i;
+    
+    err = randn((double*)x, 2*n, 0.0, sigma / M_SQRT2, prnd);
+    if(err!= RES_OK)
+        return err;
+    if(mu)
+    {
+        for(i = 0; i < n; i++)
+        {
+            RE(x[i]) += RE(mu[0]);
+            IM(x[i]) += IM(mu[0]);
+        }
+    }
+    return err;
+}
+
+
+
+
+
 
 #ifdef DOXYGEN_ENGLISH
 
