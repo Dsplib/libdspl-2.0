@@ -249,9 +249,9 @@ exit_label:
 /*! ****************************************************************************
 \ingroup PSD_GROUP
 \fn int psd_periodogram(double* x, int n,
-                    int win_type, double win_param,
-                    fft_t* pfft, double fs,
-                    int flag, double* ppsd, double* pfrq)
+                        int win_type, double win_param,
+                        fft_t* pfft, double fs,
+                        int flag, double* ppsd, double* pfrq)
 \brief Непараметрическая оценка спектральной плотности мощности (СПМ) 
 вещественного сигнала методом модифицированной периодограммы.
 
@@ -709,38 +709,175 @@ exit_label:
 
 #endif
 #ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup PSD_GROUP
+int psd_welch(double* x, int n, 
+              int win_type, double win_param,
+              int nfft, int noverlap, fft_t* pfft, double fs,
+              int flag, double* ppsd, double* pfrq)
 
+\brief Непараметрическая оценка спектральной плотности мощности (СПМ) 
+вещественного сигнала методом Уэлча.
+
+Функция рассчитывает спектральную плотность мощности \f$ X(f) \f$ 
+выборки сигнала длительности \$n \$ отсчетов методом Уэлча:
+\f[
+  X(f) = \frac{1}{U P F_s }  \sum_{p = 0}^{P-1}\left| \sum_{m = 0}^{n_{FFT}-1} 
+  w(m) x(m+p \cdot n_{\text{overlap}})   \exp 
+   \left( -j 2\pi f m \right) \right|^2,
+\f]
+где \f$ w(m) \f$ -- отсчёты оконной функции, \f$ F_s \f$ -- частота 
+дискретизации (Гц), \f$P = n/n_{\text{overlap}}\f$ -- количество сегментов 
+смещений выборки сигналов размера \f$n_{FFT}\f$,
+
+ \f$ U \f$ нормировочный коэффициент равный
+\f[
+    U = \sum_{m = 0}^{n-1} w^2(m),
+\f]
+
+Процедура разбиения исходной последовательности длительности `n` отсчетов 
+на сегменты длины \f$n_{FFT}\f$ отсчетов, перекрывающихся с интервалом 
+\f$n_{\text{overlap}}\f$ отсчетов, показан на следующем рисунке
+
+\image html welch_overlap.png
+
+Расчет спектральной плотности мощности ведется при помощи алгоритмов быстрого
+преобразования Фурье, для дискретной сетки частот от 0 Гц до \f$ F_s \f$ Гц 
+(по умолчанию), или от \f$-F_s /2 \f$ до \f$F_s /2 \f$, если установлен флаг 
+расчета двусторонней периодограммы.
+
+\note Периодограмма Уэлча возвращает смещенную, но состоятельную оценку СПМ.
+
+\param[in]  x
+Указатель на входной вектор комплексного сигнала \f$x(m)\f$, 
+\f$ m = 0 \ldots n-1 \f$.  \n
+Размер вектора `[n x 1]`.  \n \n
+
+\param[in]  n
+Размер вектора входного сигнала.
+Также размер выходного вектора СПМ и 
+вектора частоты также равны `n`.\n\n
+
+\param[in]  win_type
+Тип оконной функции, применяемой для модифицированной периодограммы.\n
+Подробнее смотри описание функции \ref window. \n\n
+
+
+\param[in] win_type
+Параметр оконной функции.\n 
+Данный параметр используется, если задано параметрическая оконная функция.
+Для непараметрических окон данный параметр игнорируется.\n
+Подробнее смотри описание функции \ref window. \n\n
+
+\param[in] nfft
+Размер перекрывающегося сегмента.\n
+Размер выходного вектора СПМ, и соответсвующего ей вектора частоты.\n\n
+
+\param[in] noverlap
+Размер сдвига сегментов относительно друг друга (отсчетов).\n
+`noverlap = nfft` задает оценку без перекрытия сегментов. \n
+Обычно используют сдвиг равный половине размера сегмента `noverlap = nfft/2`.\n
+
+
+\param[in] pfft
+Указатель на структуру \ref fft_t.  \n
+Указатель может быть `NULL`. В этом случае объект структуры будет 
+создан внутри функции и удален перед завершением.\n
+Если предполагается многократный вызов функции, то рекомендуется создать 
+объект \ref fft_t и передавать в функцию, чтобы не 
+создавать его каждый раз. \n\n
+
+\param[in] fs
+частота дискретизации выборки исходного сигнала (Гц). \n\n
+
+\param[in] flag
+Комбинация битовых флагов, задающих режим расчета:
+\verbatim
+DSPL_FLAG_LOGMAG - СПМ считать в логарифмическом масштабе в единицах дБ/Гц
+DSPL_FLAG_PSD_TWOSIDED - двусторонняя СПМ (от -Fs/2 до Fs/2)
+\endverbatim
+
+\param[in, out] ppsd
+Указатель на вектор СПМ рассчитанных по входному сигналу $x$. \n
+Размер вектора `[nfft x 1]`. \n
+Память должна быть выделена. \n\n
+
+\param[in, out] pfrq
+Указатель на вектор частоты, соответствующей 
+значениям рассчитанного вектора СПМ. \n
+Размер вектора `[nfft x 1]`. \n
+Указатель может быть `NULL`,в этом случае вектор частоты не 
+рассчитывается и не возвращается. \n\n
+
+\return
+`RES_OK` если расчет произведен успешно.  \n
+В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n \n
+
+Пример периодограммных оценок СПМ для различной длины выборки сигнала:
+
+\include psd_welch_cmplx_test.c
+
+Программа производит расчет СПМ сигнала, состоящего из двух комплексных 
+гармоник на фоне белого гауссова шума. 
+Расчет ведется по выборке сигнала длины 8192 отсчета.
+
+Рассчитанные СПМ выводятся на графики:
+
+`nfft = 8192, noverlap = 4096`:
+\image html psd_welch_cmplx_8192.png
+
+`nfft = 1024, noverlap = 512`:
+\image html psd_welch_cmplx_1024.png
+
+`nfft = 256, noverlap = 128`:
+\image html psd_welch_cmplx_256.png
+
+Можно видеть, что уменьшение `nfft` при фиксированной длительности сигнала
+позволяет уменьшить флуктуации шума и делает оценку состоятельной.
+
+\author Бахурин Сергей www.dsplib.org 
+***************************************************************************** */
 #endif
 int DSPL_API psd_welch(double* x, int n, 
                       int win_type, double win_param,
-                      int npsd, int noverlap, fft_t* pfft, double fs,
+                      int nfft, int noverlap, fft_t* pfft, double fs,
                       int flag, double* ppsd, double* pfrq)
 {
-    double *win = NULL;
-    double wg;
-    complex_t *tmp = NULL;
-    double *s = NULL;
-    int err, k, pos, cnt;
+    int err, pos, cnt, k;
+    double *pdgr = NULL;
+    double *tmp = NULL;
+    double *w = NULL;
     fft_t *ptr_fft = NULL;
+    double wn;
+    
+    pos = cnt = 0;
+    
+    pdgr = (double*)malloc(nfft * sizeof(double));
+    if(!pdgr)
+        return ERROR_MALLOC;
+      
+    tmp = (double*) malloc(nfft * sizeof(double));
+    if(!tmp)
+        return ERROR_MALLOC;
 
-    if(!x || !ppsd)
-        return  ERROR_PTR;
-
-    if(n<1 || npsd < 1)
-        return ERROR_SIZE;
-
-    if(noverlap < 1 || noverlap > npsd)
-        return ERROR_OVERLAP;
-
-    if(fs < 0.0)
-        return ERROR_FS;
-
-    win = (double*)malloc(npsd * sizeof(double));
-    if(!win)
+    /* window malloc */
+    w = (double*)malloc(nfft*sizeof(double));
+    if(!w)
     {
         err = ERROR_MALLOC;
         goto exit_label;
     }
+    
+    /* create window */
+    err = window(w, nfft, win_type, win_param);
+    if(err != RES_OK)
+        goto exit_label;
+    
+    /* window normalization wn = sum(w.^2) */
+    wn = 0.0; 
+    for(k = 0; k < nfft; k++)
+        wn += w[k]*w[k];
+
 
     if(!pfft)
     {
@@ -749,142 +886,261 @@ int DSPL_API psd_welch(double* x, int n,
     }
     else
         ptr_fft = pfft;
-      
-
-    err = window(win, npsd, win_type, win_param);
-    if(err != RES_OK)
-        goto exit_label;
-
-    wg = 0.0;
-    for(k = 0; k < npsd; k++)
-        wg += win[k] * win[k];
-    wg = 1.0 / wg;
     
     
-    tmp = (complex_t*)malloc(npsd*sizeof(complex_t));
-    if(!tmp)
+    
+    
+    memset(ppsd, 0, nfft * sizeof(double));
+    while(pos + nfft <= n)
     {
-        err = ERROR_MALLOC;
-        goto exit_label;
-    }
-
-    s = (double*)malloc(npsd*sizeof(double));
-    if(!s)
-    {
-        err = ERROR_MALLOC;
-        goto exit_label;
-    }
-
-    pos = 0;
-    cnt = 0;
-    memset(ppsd, 0, npsd*sizeof(double));
-    while(pos+npsd <= n)
-    {
-        for(k = 0; k < npsd; k++)
-            s[k] = x[k+pos]*win[k];
-
-        err = fft(s, npsd, ptr_fft, tmp);
+        for(k = 0; k < nfft; k++)
+            tmp[k] = x[pos+k] * w[k];
+        err = fft_mag(tmp, nfft, ptr_fft, fs, 
+                      flag & DSPL_FLAG_FFT_SHIFT, pdgr, NULL);
         if(err != RES_OK)
             goto exit_label;
-
-        for(k = 0; k < npsd; k++)
-            ppsd[k] += wg * ABSSQR(tmp[k]);
-
+        for(k = 0; k < nfft; k++)
+            ppsd[k] += pdgr[k];
         pos += noverlap;
         cnt++;
-        
-    }
-
-    for(k = 0; k < npsd; k++)
-        ppsd[k] /= (double)cnt * fs;
-
-    if(flag & DSPL_FLAG_LOGMAG)
-    {
-        for(k = 0; k < npsd; k++)
-            ppsd[k] = 10.0 * log10(ppsd[k] + DBL_EPSILON);
     }
     
-
-
-    if(flag & DSPL_FLAG_PSD_TWOSIDED)
+    if(pos < n)
     {
-        err = fft_shift(ppsd, npsd, ppsd);
+
+        memset(tmp ,0, nfft * sizeof(double));
+        for(k = 0; k < n - pos; k++)
+            tmp[k] = x[pos+k] * w[k];
+
+
+        err = fft_mag(tmp, nfft, ptr_fft, fs, 
+                      flag & DSPL_FLAG_FFT_SHIFT, pdgr, NULL);
         if(err != RES_OK)
             goto exit_label;
+        
+        for(k = 0; k < nfft; k++)
+            ppsd[k] += pdgr[k];
+        
+        cnt++;
     }
 
+    /* fill frequency */
     if(pfrq)
     {
-        if(flag & DSPL_FLAG_PSD_TWOSIDED)
-        {
-            err = linspace(-0.5*fs, fs*0.5, npsd, DSPL_PERIODIC, pfrq);
-            if(err != RES_OK)
-                goto exit_label;
-        }
+        if(flag & DSPL_FLAG_FFT_SHIFT)
+            if(n%2)
+                err = linspace(-fs*0.5 + fs*0.5/(double)nfft, 
+                                fs*0.5 - fs*0.5/(double)nfft, 
+                                n, DSPL_SYMMETRIC, pfrq);
+            else
+                err = linspace(-fs*0.5, fs*0.5, nfft, DSPL_PERIODIC, pfrq);
         else
-        {
-            err = linspace(0, fs, npsd, DSPL_PERIODIC, pfrq);
-            if(err != RES_OK)
-                goto exit_label;
-        }
+            err = linspace(0, fs, nfft, DSPL_PERIODIC, pfrq);
+    }
+    
+    /* scale magnitude */
+    if(flag & DSPL_FLAG_LOGMAG)
+    {
+        printf("wn = %f\n", wn);
+        for(k = 0; k < nfft; k++)
+            ppsd[k] = 10.0 * log10(ppsd[k] / (fs * wn * (double)cnt));
+    }
+    else
+    {
+        for(k = 0; k < nfft; k++)
+            ppsd[k] /=  fs * wn * (double)cnt;
     }
 
-    err = RES_OK;
+
 exit_label:
-    if(win)
-        free(win);
+    if(pdgr)
+        free(pdgr);
     if(tmp)
         free(tmp);
-    if(s)
-        free(s);
+    if(w)
+        free(w);
     if(ptr_fft && (ptr_fft != pfft))
+    {
+        fft_free(ptr_fft);
         free(ptr_fft);
+    }
     return err;
 }
-
-
-
-
-
 
 
 #ifdef DOXYGEN_ENGLISH
 
 #endif
 #ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup PSD_GROUP
+int psd_welch_cmplx(complex_t* x, int n, 
+                      int win_type, double win_param,
+                      int nfft, int noverlap, fft_t* pfft, double fs,
+                      int flag, double* ppsd, double* pfrq)
+\brief Непараметрическая оценка спектральной плотности мощности (СПМ) 
+комплексного сигнала методом Уэлча.
 
+Функция рассчитывает спектральную плотность мощности \f$ X(f) \f$ 
+выборки сигнала длительности \$n \$ отсчетов методом Уэлча:
+\f[
+  X(f) = \frac{1}{U P F_s }  \sum_{p = 0}^{P-1}\left| \sum_{m = 0}^{n_{FFT}-1} 
+  w(m) x(m+p \cdot n_{\text{overlap}})   \exp 
+   \left( -j 2\pi f m \right) \right|^2,
+\f]
+где \f$ w(m) \f$ -- отсчёты оконной функции, \f$ F_s \f$ -- частота 
+дискретизации (Гц), \f$P = n/n_{\text{overlap}}\f$ -- количество сегментов 
+смещений выборки сигналов размера \f$n_{FFT}\f$,
+
+ \f$ U \f$ нормировочный коэффициент равный
+\f[
+    U = \sum_{m = 0}^{n-1} w^2(m),
+\f]
+
+Процедура разбиения исходной последовательности длительности `n` отсчетов 
+на сегменты длины \f$n_{FFT}\f$ отсчетов, перекрывающихся с интервалом 
+\f$n_{\text{overlap}}\f$ отсчетов, показан на следующем рисунке
+
+\image html welch_overlap.png
+
+Расчет спектральной плотности мощности ведется при помощи алгоритмов быстрого
+преобразования Фурье, для дискретной сетки частот от 0 Гц до \f$ F_s \f$ Гц 
+(по умолчанию), или от \f$-F_s /2 \f$ до \f$F_s /2 \f$, если установлен флаг 
+расчета двусторонней периодограммы.
+
+\note Периодограмма Уэлча возвращает смещенную, но состоятельную оценку СПМ.
+
+\param[in]  x
+Указатель на входной вектор комплексного сигнала \f$x(m)\f$, 
+\f$ m = 0 \ldots n-1 \f$.  \n
+Размер вектора `[n x 1]`.  \n \n
+
+\param[in]  n
+Размер вектора входного сигнала.
+Также размер выходного вектора СПМ и 
+вектора частоты также равны `n`.\n\n
+
+\param[in]  win_type
+Тип оконной функции, применяемой для модифицированной периодограммы.\n
+Подробнее смотри описание функции \ref window. \n\n
+
+
+\param[in] win_type
+Параметр оконной функции.\n 
+Данный параметр используется, если задано параметрическая оконная функция.
+Для непараметрических окон данный параметр игнорируется.\n
+Подробнее смотри описание функции \ref window. \n\n
+
+\param[in] nfft
+Размер перекрывающегося сегмента.\n
+Размер выходного вектора СПМ, и соответсвующего ей вектора частоты.\n\n
+
+\param[in] noverlap
+Размер сдвига сегментов относительно друг друга (отсчетов).\n
+`noverlap = nfft` задает оценку без перекрытия сегментов. \n
+Обычно используют сдвиг равный половине размера сегмента `noverlap = nfft/2`.\n
+
+
+\param[in] pfft
+Указатель на структуру \ref fft_t.  \n
+Указатель может быть `NULL`. В этом случае объект структуры будет 
+создан внутри функции и удален перед завершением.\n
+Если предполагается многократный вызов функции, то рекомендуется создать 
+объект \ref fft_t и передавать в функцию, чтобы не 
+создавать его каждый раз. \n\n
+
+\param[in] fs
+частота дискретизации выборки исходного сигнала (Гц). \n\n
+
+\param[in] flag
+Комбинация битовых флагов, задающих режим расчета:
+\verbatim
+DSPL_FLAG_LOGMAG - СПМ считать в логарифмическом масштабе в единицах дБ/Гц
+DSPL_FLAG_PSD_TWOSIDED - двусторонняя СПМ (от -Fs/2 до Fs/2)
+\endverbatim
+
+\param[in, out] ppsd
+Указатель на вектор СПМ рассчитанных по входному сигналу $x$. \n
+Размер вектора `[nfft x 1]`. \n
+Память должна быть выделена. \n\n
+
+\param[in, out] pfrq
+Указатель на вектор частоты, соответствующей 
+значениям рассчитанного вектора СПМ. \n
+Размер вектора `[nfft x 1]`. \n
+Указатель может быть `NULL`,в этом случае вектор частоты не 
+рассчитывается и не возвращается. \n\n
+
+\return
+`RES_OK` если расчет произведен успешно.  \n
+В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n \n
+
+Пример периодограммных оценок СПМ для различной длины выборки сигнала:
+
+\include psd_welch_cmplx_test.c
+
+Программа производит расчет СПМ сигнала, состоящего из двух комплексных 
+гармоник на фоне белого гауссова шума. 
+Расчет ведется по выборке сигнала длины 8192 отсчета.
+
+Рассчитанные СПМ выводятся на графики:
+
+`nfft = 8192, noverlap = 4096`:
+\image html psd_welch_cmplx_8192.png
+
+`nfft = 1024, noverlap = 512`:
+\image html psd_welch_cmplx_1024.png
+
+`nfft = 256, noverlap = 128`:
+\image html psd_welch_cmplx_256.png
+
+Можно видеть, что уменьшение `nfft` при фиксированной длительности сигнала
+позволяет уменьшить флуктуации шума и делает оценку состоятельной.
+
+\author Бахурин Сергей www.dsplib.org 
+***************************************************************************** */
 #endif
 int DSPL_API psd_welch_cmplx(complex_t* x, int n, 
-                             int win_type, double win_param,
-                             int npsd, int noverlap, fft_t* pfft, double fs,
-                             int flag, double* ppsd, double* pfrq)
+                      int win_type, double win_param,
+                      int nfft, int noverlap, fft_t* pfft, double fs,
+                      int flag, double* ppsd, double* pfrq)
 {
-    double    *win     = NULL;
-    complex_t *tmp     = NULL;
-    complex_t *s       = NULL;
-    fft_t     *ptr_fft = NULL;
+    int err, pos, cnt, k;
+    double *pdgr = NULL;
+    complex_t *tmp = NULL;
+    double *w = NULL;
+    fft_t *ptr_fft = NULL;
+    double wn;
     
-    double wg;
-    int err, k, pos, cnt;
+    pos = cnt = 0;
     
-    if(!x || !ppsd)
-        return  ERROR_PTR;
+    pdgr = (double*)malloc(nfft * sizeof(double));
+    if(!pdgr)
+        return ERROR_MALLOC;
+      
+    tmp = (complex_t*) malloc(nfft * sizeof(complex_t));
+    if(!tmp)
+        return ERROR_MALLOC;
 
-    if(n<1 || npsd < 1)
-        return ERROR_SIZE;
 
-    if(noverlap < 1 || noverlap > npsd)
-        return ERROR_OVERLAP;
-
-    if(fs < 0.0)
-        return ERROR_FS;
-
-    win = (double*)malloc(npsd * sizeof(double));
-    if(!win)
+    /* window malloc */
+    w = (double*)malloc(nfft*sizeof(double));
+    if(!w)
     {
         err = ERROR_MALLOC;
         goto exit_label;
     }
+    
+    /* create window */
+    err = window(w, nfft, win_type, win_param);
+    if(err != RES_OK)
+        goto exit_label;
+    
+    /* window normalization wn = sum(w.^2) */
+    wn = 0.0; 
+    for(k = 0; k < nfft; k++)
+        wn += w[k]*w[k];
+
 
     if(!pfft)
     {
@@ -893,93 +1149,88 @@ int DSPL_API psd_welch_cmplx(complex_t* x, int n,
     }
     else
         ptr_fft = pfft;
-
-    err = window(win, npsd, win_type, win_param);
-    if(err != RES_OK)
-        goto exit_label;
-
-    wg = 0.0;
-    for(k = 0; k < npsd; k++)
-        wg += win[k] * win[k];
-    wg = 1.0 / wg;
-
-    tmp = (complex_t*)malloc(npsd*sizeof(complex_t));
-    if(!tmp)
+    
+    
+    
+    
+    memset(ppsd, 0, nfft * sizeof(double));
+    while(pos + nfft <= n)
     {
-        err = ERROR_MALLOC;
-        goto exit_label;
-    }
-
-    s = (complex_t*)malloc(npsd*sizeof(complex_t));
-    if(!s)
-    {
-        err = ERROR_MALLOC;
-        goto exit_label;
-    }
-
-    pos = 0;
-    cnt = 0;
-    memset(ppsd, 0, npsd*sizeof(double));
-    while(pos+npsd <= n)
-    {
-        for(k = 0; k < npsd; k++)
+        for(k = 0; k < nfft; k++)
         {
-            RE(s[k]) = RE(x[k+pos])*win[k];
-            IM(s[k]) = IM(x[k+pos])*win[k];
+            RE(tmp[k]) = RE(x[pos+k]) * w[k];
+            IM(tmp[k]) = IM(x[pos+k]) * w[k];
         }
-        err = fft_cmplx(s, npsd, ptr_fft, tmp);
+        err = fft_mag_cmplx(tmp, nfft, ptr_fft, fs, 
+                      flag & DSPL_FLAG_FFT_SHIFT, pdgr, NULL);
         if(err != RES_OK)
             goto exit_label;
-
-        for(k = 0; k < npsd; k++)
-            ppsd[k] += wg * ABSSQR(tmp[k]);
-
+        for(k = 0; k < nfft; k++)
+            ppsd[k] += pdgr[k];
         pos += noverlap;
         cnt++;
-        
     }
-
-    for(k = 0; k < npsd; k++)
-        ppsd[k] /= (double)cnt * fs;
-
-    if(flag & DSPL_FLAG_LOGMAG)
+    
+    if(pos < n)
     {
-        for(k = 0; k < npsd; k++)
-            ppsd[k] = 10.0 * log10(ppsd[k] + DBL_EPSILON);
-    }
 
-    if(flag & DSPL_FLAG_PSD_TWOSIDED)
-    {
-        err = fft_shift(ppsd, npsd, ppsd);
+        memset(tmp ,0, nfft * sizeof(complex_t));
+        for(k = 0; k < n - pos; k++)
+        {
+            RE(tmp[k]) = RE(x[pos+k]) * w[k];
+            IM(tmp[k]) = IM(x[pos+k]) * w[k];
+        }
+
+        err = fft_mag_cmplx(tmp, nfft, ptr_fft, fs, 
+                      flag & DSPL_FLAG_FFT_SHIFT, pdgr, NULL);
         if(err != RES_OK)
             goto exit_label;
+        
+        for(k = 0; k < nfft; k++)
+            ppsd[k] += pdgr[k];
+        
+        cnt++;
     }
 
+    /* fill frequency */
     if(pfrq)
     {
-        if(flag & DSPL_FLAG_PSD_TWOSIDED)
-        {
-            err = linspace(-0.5*fs, fs*0.5, npsd, DSPL_PERIODIC, pfrq);
-            if(err != RES_OK)
-                goto exit_label;
-        }
+        if(flag & DSPL_FLAG_FFT_SHIFT)
+            if(n%2)
+                err = linspace(- fs * 0.5 + fs * 0.5 / (double)nfft, 
+                                 fs * 0.5 - fs * 0.5 / (double)nfft, 
+                                 n, DSPL_SYMMETRIC, pfrq);
+            else
+                err = linspace(-fs*0.5, fs*0.5, nfft, DSPL_PERIODIC, pfrq);
         else
-        {
-            err = linspace(0, fs, npsd, DSPL_PERIODIC, pfrq);
-            if(err != RES_OK)
-                goto exit_label;
-        }
+            err = linspace(0, fs, nfft, DSPL_PERIODIC, pfrq);
     }
-    err = RES_OK;
+    
+    /* scale magnitude */
+    if(flag & DSPL_FLAG_LOGMAG)
+    {
+        for(k = 0; k < nfft; k++)
+            ppsd[k] = 10.0 * log10(ppsd[k] / (fs * wn * (double)cnt));
+    }
+    else
+    {
+        for(k = 0; k < nfft; k++)
+            ppsd[k] /=  fs * wn * (double)cnt;
+    }
+
 
 exit_label:
-    if(win)
-        free(win);
+    if(pdgr)
+        free(pdgr);
     if(tmp)
         free(tmp);
-    if(s)
-        free(s);
+    if(w)
+        free(w);
     if(ptr_fft && (ptr_fft != pfft))
+    {
+        fft_free(ptr_fft);
         free(ptr_fft);
+    }
     return err;
 }
+
