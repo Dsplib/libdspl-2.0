@@ -199,6 +199,8 @@ int DSPL_API matrix_eye_cmplx(complex_t* a, int n, int m)
 
 
 
+
+
 #ifdef DOXYGEN_ENGLISH
 
 #endif
@@ -225,6 +227,57 @@ int DSPL_API matrix_mul(double* a, int na, int ma,
 }
 
 
+
+
+#ifdef DOXYGEN_ENGLISH
+
+#endif
+#ifdef DOXYGEN_RUSSIAN
+
+#endif
+int DSPL_API matrix_svd(double* a, int n, int m, 
+                        double* u, double* s, double* vt, int* info)
+{
+    char jobz = 'A';
+    double* work = NULL;
+    int* iwork = NULL;
+    int lwork, mn, mx, err;
+    int pi;
+    
+    if(!a || !u || !s || !vt)
+        return ERROR_PTR;
+    if(n < 1 || m < 1)
+        return ERROR_SIZE;
+      
+    
+    if(n > m)
+    {
+        mn = m;
+        mx = n;
+    }
+    else
+    { 
+        mn = n; 
+        mx = m;
+    }
+    
+    err = RES_OK;
+    
+    lwork = 4 * mn * mn + 6 * mn + mx;
+    work = (double*) malloc(lwork*sizeof(double));
+    iwork = (int*) malloc(8*mn*sizeof(int));
+    dgesdd_(&jobz, &n, &m, a, &n, s, u, &n, vt, &m, work, &lwork, iwork, &pi);
+    
+    if(info)
+        *info = pi;
+    if(pi)
+        err = ERROR_LAPACK;
+    if(work)
+        free(work);
+    if(iwork)
+        free(iwork);
+    return err;
+}
 
 #ifdef DOXYGEN_ENGLISH
 

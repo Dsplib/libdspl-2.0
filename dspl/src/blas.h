@@ -362,5 +362,10 @@ int FORTRAN_FUNC(xher2m)(const char*, const char*, const char*, const int*, cons
 
 void FORTRAN_FUNC(zgees)(const char*, const char*, void*, int*, complex_t*, int*, int*, complex_t*, complex_t*, int*, complex_t*, int*, double*, int*, int*);
 
+void FORTRAN_FUNC(dgesdd)(const char*, int*, int*, double*, int*, double*, 
+                          double*, int*, double*, int*, double*, 
+                          int*, int*, int*);
+
+
 #endif
 
