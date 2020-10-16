@@ -1216,6 +1216,13 @@ DECLARE_FUNC(int,        matrix_mul,                  double*          a
                                                 COMMA int              mb
                                                 COMMA double*          c);
 /*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        matrix_pinv,                 double*          a
+                                                COMMA int              n
+                                                COMMA int              m
+                                                COMMA double*          tol
+                                                COMMA double*          inv
+                                                COMMA int*             info);
+/*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        matrix_print,                double*          a
                                                 COMMA int              n
                                                 COMMA int              m

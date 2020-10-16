@@ -137,6 +137,7 @@ p_matrix_eig_cmplx                      matrix_eig_cmplx              ;
 p_matrix_eye                            matrix_eye                    ;
 p_matrix_eye_cmplx                      matrix_eye_cmplx              ;
 p_matrix_mul                            matrix_mul                    ;
+p_matrix_pinv                           matrix_pinv                   ;
 p_matrix_print                          matrix_print                  ;
 p_matrix_print_cmplx                    matrix_print_cmplx            ;
 p_matrix_svd                            matrix_svd                    ;
@@ -350,6 +351,7 @@ void* dspl_load()
     LOAD_FUNC(matrix_eye);
     LOAD_FUNC(matrix_eye_cmplx);
     LOAD_FUNC(matrix_mul);
+    LOAD_FUNC(matrix_pinv);
     LOAD_FUNC(matrix_print);
     LOAD_FUNC(matrix_print_cmplx);
     LOAD_FUNC(matrix_svd);
