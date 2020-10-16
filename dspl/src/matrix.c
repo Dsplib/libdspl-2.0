@@ -28,7 +28,60 @@
 
 
 #ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup SPEC_MATH_LINALG_GROUP
+\fn int matrix_eig_cmplx(complex_t* a, int n, complex_t* v, int* info)
 
+\brief Eigenvalues calculation of the complex square matrix `a`.
+
+Function calculates `n` eigenvalues of the matrix `a` size `n x n`. 
+
+\param[in]  a
+Pointer to the complex matrix `a` size `n x n`. \n
+Matrix is stored in the memory as column-major array. \n\n
+
+\param[in]  n
+Size of matrix `n x n`.\n\n
+
+\param[out]  v
+Pointer to the eigenvalues vector. \n 
+Vector size is `]n x 1]`. \n 
+Memory must be allocated. \n\n
+
+\param[out]  info
+Pointer to the `zgees`  LAPACK subroutine output parameter. \n
+If an error occurs while calculating the vector of eigenvalues, 
+the LAPACK subroutine returns an error code that can be read 
+from this pointer. \n\n
+
+\return
+`RES_OK` --- function is calculated successfully. \n
+Else \ref ERROR_CODE_GROUP "code error". \n
+If an `ERROR_LAPACK` error occurs, the LAPACK package 
+error code will be written to the `info` address. \n
+
+
+Eigenvalues calculation example:
+\include matrix_eig.c
+
+This program calculates eigenvalues of the matrix size  `3 x 3` 
+and print its to display.\n
+
+Result:
+\verbatim
+A = [ % size [3 x 3] type: complex
+1.00   +0.00i,     2.00   +0.00i,     3.00   +0.00i;
+1.00   +0.00i,     0.00   +0.00i,     0.00   +0.00i;
+0.00   +0.00i,     1.00   +0.00i,     0.00   +0.00i;];
+
+v = [ % size [3 x 1] type: complex
+ 2.374424 -0.000000i;    
+-0.687212 +0.889497i;
+-0.687212 -0.889497i;];
+\endverbatim
+
+\author Sergey Bakhurin www.dsplib.org
+***************************************************************************** */
 #endif
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
@@ -122,13 +175,35 @@ int DSPL_API matrix_eig_cmplx(complex_t* a, int n, complex_t* v, int* info)
 
 
 #ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup SPEC_MATH_LINALG_GROUP
+\fn int matrix_eye(double* a, int n, int m)
+\brief The real identity matrix size `n x m` generation.
+ 
+ Function fills matrix `a` by zeros and sets main diagonal as ones.
 
+\param[in]  a
+Pointer to the real matrix size `n x m`. \n
+Matrix is stored in the memory as column-major array. \n \n
+
+\param[in]  n
+Matrix `a` rows number. \n\n
+
+\param[in]  m
+Matrix `a` columns number.. \n\n
+
+\return
+`RES_OK` --- function is calculated successfully. \n
+Else \ref ERROR_CODE_GROUP "code error". \n
+
+\author Sergey Bakhurin www.dsplib.org
+***************************************************************************** */
 #endif
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_LINALG_GROUP
 \fn int matrix_eye(double* a, int n, int m)
-\brief Генерирование единичной вещественой матрицы размерности `n x m`.
+\brief Генерирование единичной вещественной матрицы размерности `n x m`.
 
 Данная функция заполняет матрицу нулями 
 и записывает единицы на главной диагонали
@@ -172,9 +247,55 @@ int DSPL_API matrix_eye(double* a, int n, int m)
 
 #ifdef DOXYGEN_ENGLISH
 
+/*! ****************************************************************************
+\ingroup SPEC_MATH_LINALG_GROUP
+\fn int matrix_eye_cmplx(complex_t* a, int n, int m)
+\brief The complex identity matrix size `n x m` generation.
+ 
+ Function fills matrix `a` by zeros and sets main diagonal as ones.
+
+\param[in]  a
+Pointer to the complex matrix size `n x m`. \n
+Matrix is stored in the memory as column-major array. \n \n
+
+\param[in]  n
+Matrix `a` rows number. \n\n
+
+\param[in]  m
+Matrix `a` columns number.. \n\n
+
+\return
+`RES_OK` --- function is calculated successfully. \n
+Else \ref ERROR_CODE_GROUP "code error". \n
+
+\author Sergey Bakhurin www.dsplib.org
+***************************************************************************** */
 #endif
 #ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup SPEC_MATH_LINALG_GROUP
+\fn int matrix_eye_cmplx(complex_t* a, int n, int m)
+\brief Генерирование единичной комплексной матрицы размерности `n x m`.
 
+Данная функция заполняет матрицу нулями 
+и записывает единицы на главной диагонали
+
+\param[in]  a
+Указатель на комплексную матрицу размерности `n x m`. \n
+Матрица должна быть расположена в памяти по столбцам. \n \n
+
+\param[in]  n
+Количество строк матрицы. \n\n
+
+\param[in]  m
+Количество столбцов матрицы. \n\n
+
+\return
+`RES_OK` --- функция выполнена успешно. \n
+В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n
+
+\author Бахурин Сергей www.dsplib.org
+***************************************************************************** */
 #endif
 int DSPL_API matrix_eye_cmplx(complex_t* a, int n, int m)
 {
@@ -205,7 +326,85 @@ int DSPL_API matrix_eye_cmplx(complex_t* a, int n, int m)
 
 #endif
 #ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup SPEC_MATH_LINALG_GROUP
+\fn int matrix_mul(double* a, int na, int ma, double* b, int nb, int mb,
+                   double* c)
+\brief Произведение вещественных матриц.
 
+Функция рассчитывает произведение матриц \f$\mathbf{C} = \mathbf{AB}\f$,
+где \f$\mathbf{A}\f$ --  матрица размерности \f$N_A\f$ строк и
+\f$M_A\f$ столбцов, матрица размерности \f$N_B\f$ строк и
+\f$M_B\f$ столбцов, а результирующая матрица \f$\mathbf{C} = \mathbf{AB}\f$ 
+имеет размерность \f$N_A\f$ строк и
+\f$M_B\f$ столбцов. 
+
+\note
+Для умножения матриц необходимо выполнение равенства \f$M_A = N_B\f$. \n
+Функция использует подпрограмму `dgemm` пакета BLAS.
+
+
+\param[in]  a
+Указатель на матрицу \f$\mathbf{A}\f$  размерности `na x ma`. \n
+Матрица должна быть расположена в памяти по столбцам. \n \n
+
+\param[in]  na
+Количество строк матрицы `a`. \n\n
+
+\param[in]  ma
+Количество столбцов матрицы `a`. \n\n
+
+\param[in]  b
+Указатель на матрицу \f$\mathbf{B}\f$  размерности `nb x mb`. \n
+Матрица должна быть расположена в памяти по столбцам. \n \n
+
+\param[in]  nb
+Количество строк матрицы `b`. \n
+Необходимо выполнение равенства `ma = nb`. \n\n
+
+\param[in]  mb
+Количество столбцов матрицы `b`. \n\n
+
+\param[out] c
+Указатель на матрицу \f$\mathbf{С} = \mathbf{AB}\f$.\n
+Размер матрицы `na x mb`. \n
+Память должна быть выделена. \n\n
+
+\return
+`RES_OK` --- функция выполнена успешно. \n
+В противном случае \ref ERROR_CODE_GROUP "код ошибки". \n
+
+Пример умножения матриц:
+\include matrix_mul.c
+
+Программа формирует и умножает две матрицы. 
+Исходные матрицы и их произведение выводится на печать.
+
+Результат работы программы:
+\verbatim
+
+A = [ % size [4 x 5] type: real
+0.00,     4.00,     8.00,    12.00,    16.00;
+1.00,     5.00,     9.00,    13.00,    17.00;
+2.00,     6.00,    10.00,    14.00,    18.00;
+3.00,     7.00,    11.00,    15.00,    19.00;];
+
+B = [ % size [5 x 3] type: real
+0.00,     5.00,    10.00;
+1.00,     6.00,    11.00;
+2.00,     7.00,    12.00;
+3.00,     8.00,    13.00;
+4.00,     9.00,    14.00;];
+
+C = [ % size [4 x 3] type: real
+120.00,   320.00,   520.00;
+130.00,   355.00,   580.00;
+140.00,   390.00,   640.00;
+150.00,   425.00,   700.00;]; 
+\endverbatim
+
+\author Бахурин Сергей www.dsplib.org
+***************************************************************************** */
 #endif
 int DSPL_API matrix_mul(double* a, int na, int ma, 
                         double* b, int nb, int mb,

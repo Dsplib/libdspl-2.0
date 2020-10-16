@@ -5,7 +5,7 @@
 
 #define N 4
 #define M 3
-#define K 10
+#define K 5
 
 int main()
 {
