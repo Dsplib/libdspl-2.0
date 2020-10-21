@@ -247,7 +247,6 @@ int DSPL_API matrix_eye(double* a, int n, int m)
 
 
 #ifdef DOXYGEN_ENGLISH
-
 /*! ****************************************************************************
 \ingroup SPEC_MATH_LINALG_GROUP
 \fn int matrix_eye_cmplx(complex_t* a, int n, int m)
@@ -324,7 +323,84 @@ int DSPL_API matrix_eye_cmplx(complex_t* a, int n, int m)
 
 
 #ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup SPEC_MATH_LINALG_GROUP
+\fn int matrix_mul(double* a, int na, int ma, double* b, int nb, int mb,
+                   double* c)
+\brief Matrix multiplication.
 
+The function calculates the product of matrices \f$\mathbf{C} = \mathbf{AB}\f$,
+here \f$\mathbf{A}\f$ -- matrix contains \f$N_A\f$ rows and
+\f$M_A\f$ columns, \f$\mathbf{B}\f$ -- matrix contains \f$N_B\f$ rows and 
+\f$M_B\f$ columns, product matrix \f$\mathbf{C} = \mathbf{AB}\f$ 
+ contains\f$N_A\f$ rows and \f$M_B\f$ columns. 
+
+\note
+Matrix multiplication requires the equality \f$M_A = N_B\f$. \n
+Function uses BLAS subroutine `dgemm`.
+
+
+\param[in]  a
+Pointer to the input matrix \f$\mathbf{A}\f$  size `na x ma`. \n
+Matrix must be located in memory as column-major array. \n \n
+
+\param[in]  na
+Matrix `a` rows number. \n\n
+
+\param[in]  ma
+Matrix `a` columns number. \n\n
+
+\param[in]  b
+Pointer to the input matrix \f$\mathbf{B}\f$  size `nb x mb`. \n
+Matrix must be located in memory as column-major array. \n \n
+
+\param[in]  nb
+Matrix `b` rows number. \n
+Necessary equality `ma = nb`. \n\n
+
+\param[in]  mb
+Matrix `a` columns number. \n\n
+
+\param[out] c
+Pointer to the output matrix \f$\mathbf{С} = \mathbf{AB}\f$.\n
+Matrix size is  `na x mb`. \n
+Memory must be allocated. \n\n
+
+\return
+`RES_OK` --- function is calculated successfully. \n
+Else \ref ERROR_CODE_GROUP "error code". \n
+
+Example:
+\include matrix_mul.c
+
+The program forms and multiplies two matrices.
+The original matrices and their product are printed.
+
+The result of the program:
+\verbatim
+
+A = [ % size [4 x 5] type: real
+0.00,     4.00,     8.00,    12.00,    16.00;
+1.00,     5.00,     9.00,    13.00,    17.00;
+2.00,     6.00,    10.00,    14.00,    18.00;
+3.00,     7.00,    11.00,    15.00,    19.00;];
+
+B = [ % size [5 x 3] type: real
+0.00,     5.00,    10.00;
+1.00,     6.00,    11.00;
+2.00,     7.00,    12.00;
+3.00,     8.00,    13.00;
+4.00,     9.00,    14.00;];
+
+C = [ % size [4 x 3] type: real
+120.00,   320.00,   520.00;
+130.00,   355.00,   580.00;
+140.00,   390.00,   640.00;
+150.00,   425.00,   700.00;]; 
+\endverbatim
+
+\author Sergey Bakhurin www.dsplib.org
+***************************************************************************** */
 #endif
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************

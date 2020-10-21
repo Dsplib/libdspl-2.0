@@ -68,7 +68,67 @@ int DSPL_API poly_z2a_cmplx(complex_t* z, int nz, int ord, complex_t* a)
 
 
 #ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup SPEC_MATH_COMMON_GROUP
+\fn int polyroots(double* a, int ord, complex_t* r, int* info)
+\brief Function calculates real polynomial roots.
 
+Function calculates roots of the real polynomial \f$P_N(x)\f$ order \f$N\f$ 
+with `a` coefficient vector size `[(N+1) x 1]`. 
+\f[
+  P_N(x) = a_0 + a_1 x + a_2  x^2 + a_3  x^3 + ... a_N  x^N.
+\f]
+
+The roots of the polynomial are calculated as eigenvalues of the polynomial 
+companion matrix. To calculate the eigenvalues, 
+a subroutine of the LAPACK package is used.
+
+
+\param[in]  a
+Pointer to the vector of coefficients. \n
+Vector size is `[ord+1 x 1]`. \n
+Coefficient `a[0]` corresponds to the \f$a_0\f$ polynomial coefficient. \n 
+Coefficient `a[ord]` cannot be zero. \n \n
+
+\param[in]  ord
+Polynomial order \f$N\f$.  \n \n
+
+\param[out]  r
+Pointer to the polynomial roots vector.  \n
+Vector size is `[ord x 1]`. \n
+Memory must be allocated. \n
+The roots of a real polynomial can be either real or form simple 
+or multiple complex conjugate pairs of roots. Therefore, the output 
+root vector is of a complex data type. \n \n
+
+\param[out]  info
+Pointer to the LAPACK subroutine error code. \n 
+This code is returned by the LAPACK subroutine and translated through 
+this variable for analysis.. \n\n
+
+\return
+`RES_OK` --- roots are calculated successfully.  \n  
+Else \ref ERROR_CODE_GROUP "code error".
+
+Example:
+
+\include polyroots_test.c
+
+This program calculates the roots of the polynomial
+\f[
+P(x) = 2 + 2x + x^2
+\f]
+and prints the calculated roots.
+The result of the program:
+
+\verbatim
+Error code: 0x00000000
+r[0] = -1.00000 1.00000 j
+r[1] = -1.00000-1.00000 j
+\endverbatim
+
+\author Sergey Bakhurin. www.dsplib.org
+***************************************************************************** */
 #endif
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
@@ -99,7 +159,11 @@ int DSPL_API poly_z2a_cmplx(complex_t* z, int nz, int ord, complex_t* a)
 \param[out]  r
 Указатель на вектор комплексных корней полинома.  \n
 Размер вектора `[ord x 1]`. \n
-Память должна быть выделена. \n \n
+Память должна быть выделена. \n
+Корни вещественного полинома могут быть как вещественными, 
+так и образовывать простые или кратные комплексно-сопряженные пары корней.
+Поэтому выходной вектор корней имеет комплексный тип данных.
+\n \n
 
 \param[out]  info
 Указатель наа код возврата пакета LAPACK. \n 
