@@ -96,7 +96,6 @@ In addition, GNUPLOT will build the following graphs from data stored in files:
 
 \author Sergey Bakhurin www.dsplib.org
 ***************************************************************************** */
-
 #endif
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
@@ -208,11 +207,6 @@ exit_label:
         free(p);
     return res;
 }
-
-
-
-
-
 
 
 

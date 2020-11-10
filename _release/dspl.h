@@ -225,10 +225,19 @@ www.dsplib.org
 #endif
 typedef struct
 {
-   complex_t*  w;
-   complex_t*  t0;
-   complex_t*  t1;
-   int         n;
+    complex_t*  w;
+    complex_t*  t0;
+    complex_t*  t1;
+   
+    complex_t    w32[ 32];
+    complex_t    w64[ 64];
+    complex_t   w128[128];
+    complex_t   w256[256];
+    complex_t   w512[512];
+    complex_t*  w1024;
+    complex_t*  w2048;
+    complex_t*  w4096;
+    int         n;
 } fft_t;
 
 
@@ -1216,6 +1225,13 @@ DECLARE_FUNC(int,        matrix_mul,                  double*          a
                                                 COMMA int              mb
                                                 COMMA double*          c);
 /*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        matrix_pinv,                 double*          a
+                                                COMMA int              n
+                                                COMMA int              m
+                                                COMMA double*          tol
+                                                COMMA double*          inv
+                                                COMMA int*             info);
+/*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        matrix_print,                double*          a
                                                 COMMA int              n
                                                 COMMA int              m
@@ -1227,6 +1243,14 @@ DECLARE_FUNC(int,        matrix_print_cmplx,          complex_t*       a
                                                 COMMA int              m
                                                 COMMA const char*      name
                                                 COMMA const char*      format);
+/*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        matrix_svd,                  double*          a
+                                                COMMA int              n
+                                                COMMA int              m
+                                                COMMA double*          u
+                                                COMMA double*          s
+                                                COMMA double*          vt
+                                                COMMA int*             info);
 /*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        matrix_transpose,            double*          a
                                                 COMMA int              n
@@ -1563,49 +1587,6 @@ DECLARE_FUNC(int,        xcorr_cmplx,                 complex_t*        x
 #endif
 
 
-
-
-
-
-#ifdef DOXYGEN_ENGLISH
-/*! ****************************************************************************
-\ingroup SYS_LOADING_GROUP
-\fn void dspl_free(void* handle)
-\brief Cleans up the previously linked DSPL-2.0 dynamic library.
-
-This cross-platform function clears the library `libdspl.dll` in
-Windows system and from the library `libdspl.so` on the Linux system.
-After cleaning the library, all functions will become unavailable.
-
-\param [in] handle
-Handle of the previously linked DSPL-2.0 library. \n
-This pointer can be `NULL`, in this case no action
-are being produced.
-
-\author Bakhurin Sergey. www.dsplib.org
-***************************************************************************** */
-#endif
-#ifdef DOXYGEN_RUSSIAN
-/*! ****************************************************************************
-\ingroup SYS_LOADING_GROUP
-\fn void dspl_free(void* handle)
-\brief Очищает связанную ранее динамическую библиотеку DSPL-2.0.
-
-Данная кроссплатформенная функция производит очистку библиотеки `libdspl.dll` в 
-системе Windows и с библиотеки `libdspl.so` в системе Linux. 
-После очистки библиотеки все функции станут недоступны.
-
-\param[in] handle
-Хэндл прилинкованной ранее библиотеки DSPL-2.0. \n
-Данный указатель может быть `NULL`, в этом случае никакие действия не 
-производятся.\n\n
-
-\author Бахурин Сергей. www.dsplib.org
-**************************************************************************** */
-#endif
-void* dspl_load();
-
-
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SYS_LOADING_GROUP
@@ -1694,7 +1675,7 @@ int main(int argc, char* argv[])
     void* hdspl;           // DSPL хэндл
     hdspl = dspl_load();   // Динамическая линковка
     
-    // Проверяем указатель. Если `NULLL`, то линковка прошла неудачно
+    // Проверяем указатель. Если `NULL`, то линковка прошла неудачно
     if(!hdspl)
     {
         printf("libdspl loading error!\n");
@@ -1713,6 +1694,48 @@ int main(int argc, char* argv[])
 
 \author Бахурин Сергей. www.dsplib.org
 ***************************************************************************** */
+#endif
+void* dspl_load();
+
+
+
+
+
+#ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup SYS_LOADING_GROUP
+\fn void dspl_free(void* handle)
+\brief Cleans up the previously linked DSPL-2.0 dynamic library.
+
+This cross-platform function clears the library `libdspl.dll` in
+Windows system and from the library `libdspl.so` on the Linux system.
+After cleaning the library, all functions will become unavailable.
+
+\param [in] handle
+Handle of the previously linked DSPL-2.0 library. \n
+This pointer can be `NULL`, in this case no action
+are being produced.
+
+\author Bakhurin Sergey. www.dsplib.org
+***************************************************************************** */
+#endif
+#ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup SYS_LOADING_GROUP
+\fn void dspl_free(void* handle)
+\brief Очищает связанную ранее динамическую библиотеку DSPL-2.0.
+
+Данная кроссплатформенная функция производит очистку библиотеки `libdspl.dll` в 
+системе Windows и с библиотеки `libdspl.so` в системе Linux. 
+После очистки библиотеки все функции станут недоступны.
+
+\param[in] handle
+Хэндл прилинкованной ранее библиотеки DSPL-2.0. \n
+Данный указатель может быть `NULL`, в этом случае никакие действия не 
+производятся.\n\n
+
+\author Бахурин Сергей. www.dsplib.org
+**************************************************************************** */
 #endif
 void  dspl_free(void* handle);
 

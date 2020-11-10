@@ -137,8 +137,10 @@ p_matrix_eig_cmplx                      matrix_eig_cmplx              ;
 p_matrix_eye                            matrix_eye                    ;
 p_matrix_eye_cmplx                      matrix_eye_cmplx              ;
 p_matrix_mul                            matrix_mul                    ;
+p_matrix_pinv                           matrix_pinv                   ;
 p_matrix_print                          matrix_print                  ;
 p_matrix_print_cmplx                    matrix_print_cmplx            ;
+p_matrix_svd                            matrix_svd                    ;
 p_matrix_transpose                      matrix_transpose              ;
 p_matrix_transpose_cmplx                matrix_transpose_cmplx        ;
 p_matrix_transpose_hermite              matrix_transpose_hermite      ;
@@ -349,8 +351,10 @@ void* dspl_load()
     LOAD_FUNC(matrix_eye);
     LOAD_FUNC(matrix_eye_cmplx);
     LOAD_FUNC(matrix_mul);
+    LOAD_FUNC(matrix_pinv);
     LOAD_FUNC(matrix_print);
     LOAD_FUNC(matrix_print_cmplx);
+    LOAD_FUNC(matrix_svd);
     LOAD_FUNC(matrix_transpose);
     LOAD_FUNC(matrix_transpose_cmplx);
     LOAD_FUNC(matrix_transpose_hermite);
@@ -437,8 +441,6 @@ void* dspl_load()
         return NULL;
     #endif /* LINUX_OS */
 }
-
-
 
 
 

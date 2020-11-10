@@ -675,13 +675,21 @@ int fft_krn(complex_t* t0, complex_t* t1, fft_t* p, int n, int addr)
     complex_t tmp;
     
     n1 = 1;
-    if(n%16== 0) { n1 = 16; goto label_size; }
-    if(n%7 == 0) { n1 =  7; goto label_size; }
-    if(n%8 == 0) { n1 =  8; goto label_size; }
-    if(n%5 == 0) { n1 =  5; goto label_size; }
-    if(n%4 == 0) { n1 =  4; goto label_size; }
-    if(n%3 == 0) { n1 =  3; goto label_size; }
-    if(n%2 == 0) { n1 =  2; goto label_size; }
+    if(n % 4096 == 0) { n1 = 4096; goto label_size; }
+    if(n % 2048 == 0) { n1 = 2048; goto label_size; }
+    if(n % 1024 == 0) { n1 = 1024; goto label_size; }
+    if(n %  512 == 0) { n1 =  512; goto label_size; }
+    if(n %  256 == 0) { n1 =  256; goto label_size; }
+    if(n %  128 == 0) { n1 =  128; goto label_size; }
+    if(n %   64 == 0) { n1 =   64; goto label_size; }
+    if(n %   32 == 0) { n1 =   32; goto label_size; }
+    if(n %   16 == 0) { n1 =   16; goto label_size; }
+    if(n %    7 == 0) { n1 =    7; goto label_size; }
+    if(n %    8 == 0) { n1 =    8; goto label_size; }
+    if(n %    5 == 0) { n1 =    5; goto label_size; }
+    if(n %    4 == 0) { n1 =    4; goto label_size; }
+    if(n %    3 == 0) { n1 =    3; goto label_size; }
+    if(n %    2 == 0) { n1 =    2; goto label_size; }
 
 label_size:
     if(n1 == 1)
@@ -708,6 +716,38 @@ label_size:
             memcpy(t1, t0, n*sizeof(complex_t));
             matrix_transpose_cmplx(t1, n2, n1, t0);
         }
+        
+        if(n1 == 4096)
+            for(k = 0; k < n2; k++)
+                dft4096(t0+4096*k, t1+4096*k, p->w4096, p->w256);
+              
+        if(n1 == 2048)
+            for(k = 0; k < n2; k++)
+                dft2048(t0+2048*k, t1+2048*k, p->w2048, p->w32, p->w64);
+        
+        if(n1 == 1024)
+            for(k = 0; k < n2; k++)
+                dft1024(t0+1024*k, t1+1024*k, p->w1024, p->w32);
+              
+        if(n1 == 512)
+            for(k = 0; k < n2; k++)
+                dft512(t0+512*k, t1+512*k, p->w512, p->w32);
+              
+        if(n1 == 256)
+            for(k = 0; k < n2; k++)
+                dft256(t0+256*k, t1+256*k, p->w256);
+              
+        if(n1 == 128)
+            for(k = 0; k < n2; k++)
+                dft128(t0+128*k, t1+128*k, p->w128);
+              
+        if(n1 == 64)
+            for(k = 0; k < n2; k++)
+                dft64(t0+64*k, t1+64*k, p->w64);
+
+        if(n1 == 32)
+            for(k = 0; k < n2; k++)
+                dft32(t0+32*k, t1+32*k, p->w32);
         
         if(n1 == 16)
             for(k = 0; k < n2; k++)
@@ -752,6 +792,7 @@ label_size:
             {
                 fft_krn(t1+k*n2, t0+k*n2, p, n2, addr+n);
             }
+            
             matrix_transpose_cmplx(t0, n2, n1, t1);
         }
     }
@@ -903,13 +944,21 @@ int DSPL_API fft_create(fft_t* pfft, int n)
     while(s > 1)
     {
         n2 = 1;
-        if(s%16== 0)  { n2 = 16; goto label_size; }
-        if(s%7 == 0)  { n2 =  7; goto label_size; }
-        if(s%8 == 0)  { n2 =  8; goto label_size; }
-        if(s%5 == 0)  { n2 =  5; goto label_size; }
-        if(s%4 == 0)  { n2 =  4; goto label_size; }
-        if(s%3 == 0)  { n2 =  3; goto label_size; }
-        if(s%2 == 0)  { n2 =  2; goto label_size; }
+        if(s%4096 == 0)  { n2 = 4096; goto label_size; }
+        if(s%2048 == 0)  { n2 = 2048; goto label_size; }
+        if(s%1024 == 0)  { n2 = 1024; goto label_size; }
+        if(s%512  == 0)  { n2 =  512; goto label_size; }
+        if(s%256  == 0)  { n2 =  256; goto label_size; }
+        if(s%128  == 0)  { n2 =  128; goto label_size; }
+        if(s% 64  == 0)  { n2 =   64; goto label_size; }
+        if(s% 32  == 0)  { n2 =   32; goto label_size; }
+        if(s% 16  == 0)  { n2 =   16; goto label_size; }
+        if(s%  7  == 0)  { n2 =    7; goto label_size; }
+        if(s%  8  == 0)  { n2 =    8; goto label_size; }
+        if(s%  5  == 0)  { n2 =    5; goto label_size; }
+        if(s%  4  == 0)  { n2 =    4; goto label_size; }
+        if(s%  3  == 0)  { n2 =    3; goto label_size; }
+        if(s%  2  == 0)  { n2 =    2; goto label_size; }
 
 
 label_size:
@@ -962,6 +1011,123 @@ label_size:
     pfft->t1 = pfft->t1 ? (complex_t*) realloc(pfft->t1, n*sizeof(complex_t)):
                           (complex_t*) malloc(           n*sizeof(complex_t));
     pfft->n = n;
+    
+    /* w32 fill */
+    addr = 0;
+    for(k = 0; k < 4; k++)
+    {
+        for(m = 0; m < 8; m++)
+        {
+            phi = - M_2PI * (double)(k*m) / 32.0;
+            RE(pfft->w32[addr]) = cos(phi);
+            IM(pfft->w32[addr]) = sin(phi);
+            addr++;
+        }
+    }
+    
+    
+    /* w64 fill */
+    addr = 0;
+    for(k = 0; k < 8; k++)
+    {
+        for(m = 0; m < 8; m++)
+        {
+            phi = - M_2PI * (double)(k*m) / 64.0;
+            RE(pfft->w64[addr]) = cos(phi);
+            IM(pfft->w64[addr]) = sin(phi);
+            addr++;
+        }
+    }
+    
+    /* w128 fill */
+    addr = 0;
+    for(k = 0; k < 8; k++)
+    {
+        for(m = 0; m < 16; m++)
+        {
+            phi = - M_2PI * (double)(k*m) / 128.0;
+            RE(pfft->w128[addr]) = cos(phi);
+            IM(pfft->w128[addr]) = sin(phi);
+            addr++;
+        }
+    }
+    
+    /* w256 fill */
+    addr = 0;
+    for(k = 0; k < 16; k++)
+    {
+        for(m = 0; m < 16; m++)
+        {
+            phi = - M_2PI * (double)(k*m) / 256.0;
+            RE(pfft->w256[addr]) = cos(phi);
+            IM(pfft->w256[addr]) = sin(phi);
+            addr++;
+        }
+    }
+    
+    /* w512 fill */
+    addr = 0;
+    for(k = 0; k < 16; k++)
+    {
+        for(m = 0; m < 32; m++)
+        {
+            phi = - M_2PI * (double)(k*m) / 512.0;
+            RE(pfft->w512[addr]) = cos(phi);
+            IM(pfft->w512[addr]) = sin(phi);
+            addr++;
+        }
+    }
+    
+    /* w1024 fill */
+    if(pfft->w1024 == NULL)
+    {
+        pfft->w1024 = (complex_t*) malloc(1024 * sizeof(complex_t));
+        addr = 0;
+        for(k = 0; k < 32; k++)
+        {
+            for(m = 0; m < 32; m++)
+            {
+                phi = - M_2PI * (double)(k*m) / 1024.0;
+                RE(pfft->w1024[addr]) = cos(phi);
+                IM(pfft->w1024[addr]) = sin(phi);
+                addr++;
+            }
+        }
+    }
+    
+    /* w2048 fill */
+    if(pfft->w2048 == NULL)
+    {
+        pfft->w2048= (complex_t*) malloc(2048 * sizeof(complex_t));
+        addr = 0;
+        for(k = 0; k < 32; k++)
+        {
+            for(m = 0; m < 64; m++)
+            {
+                phi = - M_2PI * (double)(k*m) / 2048.0;
+                RE(pfft->w2048[addr]) = cos(phi);
+                IM(pfft->w2048[addr]) = sin(phi);
+                addr++;
+            }
+        }
+    }
+    
+    /* w4096 fill */
+    if(pfft->w4096 == NULL)
+    {
+        pfft->w4096= (complex_t*) malloc(4096 * sizeof(complex_t));
+        addr = 0;
+        for(k = 0; k < 16; k++)
+        {
+            for(m = 0; m < 256; m++)
+            {
+                phi = - M_2PI * (double)(k*m) / 4096.0;
+                RE(pfft->w4096[addr]) = cos(phi);
+                IM(pfft->w4096[addr]) = sin(phi);
+                addr++;
+            }
+        }
+    }
 
     return RES_OK;
 error_proc:
@@ -1016,6 +1182,16 @@ void DSPL_API fft_free(fft_t *pfft)
         free(pfft->t0);
     if(pfft->t1)
         free(pfft->t1);
+      
+    if(pfft->w1024)
+        free(pfft->w1024);
+      
+    if(pfft->w2048)
+        free(pfft->w2048);
+      
+    if(pfft->w4096)
+        free(pfft->w4096);
+      
     memset(pfft, 0, sizeof(fft_t));
 }
 
