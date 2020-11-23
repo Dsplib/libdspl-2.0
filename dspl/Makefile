@@ -22,7 +22,7 @@ $(RELEASE_DIR)/$(LIB_NAME): $(DSPL_OBJ_FILES)  $(BLAS_LIB_NAME) $(LAPACK_DOUBLE_
 
 #Compile libdspl obj files from c sources
 $(DSPL_OBJ_DIR)/%.o:$(DSPL_SRC_DIR)/%.c
-	$(CC) $(CFLAGS)  $< -o $@ -lm
+	$(CC) $(CFLAGS)  $< -o $@ -lm 
 
 #Copy libdspl.dll to the examples "bin" folder 
 $(EXAMPLE_BIN_DIR)/$(LIB_NAME):$(RELEASE_DIR)/$(LIB_NAME)

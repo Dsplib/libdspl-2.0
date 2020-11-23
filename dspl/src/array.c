@@ -611,6 +611,38 @@ int DSPL_API decimate_cmplx(complex_t* x, int n, int d, complex_t* y, int* cnt)
 
 
 
+int DSPL_API find_nearest(double* x, int n, double val, int *idx, double* dist)
+{
+    double mind, dv;
+    int iv, i;
+    
+    if(!x)
+        return ERROR_PTR;
+    if(n < 1)
+        return ERROR_SIZE;
+    
+    mind = fabs(x[0] - val);
+    iv = 0;
+    for(i = 1; i < n; i++)
+    {
+        dv = fabs(x[i] - val);
+        if( dv < mind)
+        {
+            mind =  dv;
+            iv = i;
+        }
+    }
+    
+    if(idx)
+        *idx = iv;
+    if(dist)
+        *dist = fabs(x[iv] - val);
+    
+    return RES_OK;
+    
+}
+
+
 
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
@@ -1308,5 +1340,69 @@ int DSPL_API ones(double* x, int n)
         return ERROR_SIZE;
     for(i = 0; i < n; i++)
         x[i] = 1.0;
- return RES_OK;
+    return RES_OK;
 }
+
+
+#ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup ARRAY_GROUP
+\fn int sum(double* x, int n, double* s)
+\author Sergey Bakhurin www.dsplib.org
+***************************************************************************** */
+#endif
+#ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup ARRAY_GROUP
+\fn int sum(double* x, int n, double* s)
+\author Бахурин Сергей www.dsplib.org
+***************************************************************************** */
+#endif
+int DSPL_API sum(double* x, int n, double* s)
+{
+    int i;
+    double z = 0.0;
+    if(!x || !s)
+        return ERROR_PTR;
+    if(n<1)
+        return ERROR_SIZE;
+      
+    for(i = 0; i < n; i++)
+        z += x[i];
+    *s = z;
+    return RES_OK;
+}
+
+#ifdef DOXYGEN_ENGLISH
+/*! ****************************************************************************
+\ingroup ARRAY_GROUP
+\fn int sum(double* x, int n, double* s)
+\author Sergey Bakhurin www.dsplib.org
+***************************************************************************** */
+#endif
+#ifdef DOXYGEN_RUSSIAN
+/*! ****************************************************************************
+\ingroup ARRAY_GROUP
+\fn int sum(double* x, int n, double* s)
+\author Бахурин Сергей www.dsplib.org
+***************************************************************************** */
+#endif
+int DSPL_API sum_sqr(double* x, int n, double* s)
+{
+    int i;
+    double z = 0.0;
+    if(!x || !s)
+        return ERROR_PTR;
+    if(n<1)
+        return ERROR_SIZE;
+      
+    for(i = 0; i < n; i++)
+        z += x[i]*x[i];
+    *s = z;
+    return RES_OK;
+}
+
+
+
+
+

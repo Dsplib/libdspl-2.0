@@ -118,7 +118,32 @@ Memory must be allocated by \ref fft_create function. \n\n
 Pointer to the vector of intermediate results. \n
 The size of the vector is `[n x 1]`. \n
 The memory must be allocated with the \ref fft_create function. \n\n
-The structure is populated with the \ref fft_create function once
+
+\param w32
+Static twiddle factors vector for 32-points FFT. \n \n
+
+\param w64
+Static twiddle factors vector for 32-points FFT. \n \n
+
+\param w128
+Static twiddle factors vector for 32-points FFT. \n \n
+
+\param w256
+Static twiddle factors vector for 32-points FFT. \n \n
+
+\param w512
+Static twiddle factors vector for 32-points FFT. \n \n
+
+\param w1024
+Dynamic twiddle factors vector for 32-points FFT. \n \n
+
+\param w2048
+Dynamic twiddle factors vector for 32-points FFT. \n \n
+
+\param w4096
+Dynamic twiddle factors vector for 32-points FFT. \n \n
+
+The structure is calculated with the \ref fft_create function once
 before using the FFT algorithm. \n
 A pointer to an object of this structure may be
 reused when calling FFT functions. \n
@@ -186,6 +211,32 @@ then the structure arrays will be automatically recreated for the length `n`.
 Указатель на вектор промежуточных вычислений алгоритма БПФ. \n
 Размер вектора `[n x 1]`. \n
 Память должна быть выделена функцией \ref fft_create. \n \n
+
+\param w32
+Статический вектор поворотных коэффициентов 32-точечного БПФ. \n \n
+
+\param w64
+Статический вектор поворотных коэффициентов 64-точечного БПФ. \n \n
+
+\param w128
+Статический вектор поворотных коэффициентов 128-точечного БПФ. \n \n
+
+\param w256
+Статический вектор поворотных коэффициентов 256-точечного БПФ. \n \n
+
+\param w512
+Статический вектор поворотных коэффициентов 512-точечного БПФ. \n \n
+
+\param w1024
+Статический вектор поворотных коэффициентов 1024-точечного БПФ. \n \n
+
+\param w2048
+Статический вектор поворотных коэффициентов 2048-точечного БПФ. \n \n
+
+\param w4096
+Статический вектор поворотных коэффициентов 4096-точечного БПФ. \n \n
+
+
 Структура заполняется функцией \ref fft_create один раз
 до использования алгоритма БПФ.  \n
 Указатель на объект данной структуры может быть
@@ -229,6 +280,7 @@ typedef struct
     complex_t*  t0;
     complex_t*  t1;
    
+    /* radix-2 twiddle factors vectors */
     complex_t    w32[ 32];
     complex_t    w64[ 64];
     complex_t   w128[128];

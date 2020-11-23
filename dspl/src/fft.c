@@ -22,6 +22,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <float.h>
+
 #include "dspl.h"
 #include "dspl_internal.h"
 
@@ -788,6 +789,7 @@ label_size:
 
             matrix_transpose_cmplx(t0, n1, n2, t1);
             
+            
             for(k = 0; k < n1; k++)
             {
                 fft_krn(t1+k*n2, t0+k*n2, p, n2, addr+n);
@@ -1210,9 +1212,20 @@ int DSPL_API fft_mag(double* x, int n, fft_t* pfft,
                      double* mag, double* freq)
 {
     int k, err;
-    err = fft_abs(x, n, pfft, fs, flag, mag, freq);
+    fft_t *cfft = NULL;
+    
+    if(pfft)
+        cfft = pfft;
+    else
+    {
+        cfft = (fft_t*) malloc(sizeof(fft_t));
+        memset(cfft, 0, sizeof(fft_t));
+    }
+    
+    err = fft_abs(x, n, cfft, fs, flag, mag, freq);
     if(err != RES_OK)
-        return err;
+        goto error_proc;
+    
     if(mag)
     {
         if(flag & DSPL_FLAG_LOGMAG)
@@ -1222,7 +1235,9 @@ int DSPL_API fft_mag(double* x, int n, fft_t* pfft,
             for(k = 0; k < n; k++)
                 mag[k] *= mag[k];
     }
-    
+error_proc:
+    if(cfft && cfft != pfft)
+        free(cfft);
     return err;
 }
 
@@ -1243,9 +1258,20 @@ int DSPL_API fft_mag_cmplx(complex_t* x, int n, fft_t* pfft,
                            double* mag, double* freq)
 {
     int k, err;
-    err = fft_abs_cmplx(x, n, pfft, fs, flag, mag, freq);
+     fft_t *cfft = NULL;
+    
+    if(pfft)
+        cfft = pfft;
+    else
+    {
+        cfft = (fft_t*) malloc(sizeof(fft_t));
+        memset(cfft, 0, sizeof(fft_t));
+    }
+    
+    err = fft_abs_cmplx(x, n, cfft, fs, flag, mag, freq);
     if(err != RES_OK)
-        return err;
+        goto error_proc;
+      
     if(mag)
     {
         if(flag & DSPL_FLAG_LOGMAG)
@@ -1255,7 +1281,9 @@ int DSPL_API fft_mag_cmplx(complex_t* x, int n, fft_t* pfft,
             for(k = 0; k < n; k++)
                 mag[k] *= mag[k];
     }
-    
+error_proc:
+    if(cfft && cfft != pfft)
+        free(cfft);
     return err;
 }
 

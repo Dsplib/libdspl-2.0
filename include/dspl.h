@@ -119,7 +119,29 @@ Pointer to the vector of intermediate results. \n
 The size of the vector is `[n x 1]`. \n
 The memory must be allocated with the \ref fft_create function. \n\n
 
+\param w32
+Static twiddle factors vector for 32-points FFT. \n \n
 
+\param w64
+Static twiddle factors vector for 32-points FFT. \n \n
+
+\param w128
+Static twiddle factors vector for 32-points FFT. \n \n
+
+\param w256
+Static twiddle factors vector for 32-points FFT. \n \n
+
+\param w512
+Static twiddle factors vector for 32-points FFT. \n \n
+
+\param w1024
+Dynamic twiddle factors vector for 32-points FFT. \n \n
+
+\param w2048
+Dynamic twiddle factors vector for 32-points FFT. \n \n
+
+\param w4096
+Dynamic twiddle factors vector for 32-points FFT. \n \n
 
 The structure is calculated with the \ref fft_create function once
 before using the FFT algorithm. \n
@@ -258,6 +280,7 @@ typedef struct
     complex_t*  t0;
     complex_t*  t1;
    
+    /* radix-2 twiddle factors vectors */
     complex_t    w32[ 32];
     complex_t    w64[ 64];
     complex_t   w128[128];
@@ -1045,6 +1068,12 @@ DECLARE_FUNC(int,        find_max_abs,                double*        a
                                                 COMMA double*        m
                                                 COMMA int*          ind);
 /*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        find_nearest,                double*        x
+                                                COMMA int            n
+                                                COMMA double         val
+                                                COMMA int*           idx
+                                                COMMA double*        dist);
+/*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        fir_linphase,                int            ord
                                                 COMMA double         w0
                                                 COMMA double         w1
@@ -1493,6 +1522,14 @@ DECLARE_FUNC(int,        std,                         double*          x
                                                 COMMA double*          s);
 /*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        std_cmplx,                   complex_t*       x
+                                                COMMA int              n
+                                                COMMA double*          s);
+/*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        sum,                         double*          x
+                                                COMMA int              n
+                                                COMMA double*          s);
+/*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        sum_sqr,                     double*          x
                                                 COMMA int              n
                                                 COMMA double*          s);
 /*----------------------------------------------------------------------------*/
