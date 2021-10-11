@@ -3,6 +3,8 @@
 #include <string.h>
 #include "dspl.h"
 
+
+  
 int main()
 {
     void* handle;             /* DSPL handle */
