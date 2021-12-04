@@ -34,8 +34,8 @@ int main(int argc, char* argv[])
     verif_str(&yd, 1, "mean for double data:", 
                       "dat/mean_real.dat", 
                       "verification.log");
-    std(xd, SIZE, &yd);
-    verif_str(&yd, 1, "std for double data:", "dat/std_real.dat", 
+    stat_std(xd, SIZE, &yd);
+    verif_str(&yd, 1, "stat_std for double data:", "dat/std_real.dat", 
               "verification.log");
 
 
@@ -48,8 +48,8 @@ int main(int argc, char* argv[])
                       
 
     /*------------------------------------------------------------------------*/
-    std_cmplx(xc, SIZE, &yd);
-    verif_str(&yd, 1, "std for complex data:", 
+    stat_std_cmplx(xc, SIZE, &yd);
+    verif_str(&yd, 1, "stat_std for complex data:", 
                       "dat/std_cmplx.dat", 
                       "verification.log");
 

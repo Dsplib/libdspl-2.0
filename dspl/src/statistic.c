@@ -473,7 +473,7 @@ int DSPL_API minmax(double* x, int n, double* xmin, double* xmax)
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SPEC_MATH_STAT_GROUP
-\fn int std(double* x, int n, double* s)
+\fn int stat_std(double* x, int n, double* s)
 \brief Calculates the standard deviation of the input vector `x`
 
 Function calculates the the standard deviation value
@@ -503,7 +503,7 @@ Example:
 \code{.cpp}
     double a[5] = {0.0, 1.0, 2.0, 3.0, 4.0};
     double s;
-    std(a, 5, &s);
+    stat_std(a, 5, &s);
     printf("\n\n Standard deviation value:    %8.1f\n", s);
 \endcode 
 As result the variable `s` will keep value `1.5811`.
@@ -513,7 +513,7 @@ As result the variable `s` will keep value `1.5811`.
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_STAT_GROUP
-\fn int std(double* x, int n, double* s)
+\fn int stat_std(double* x, int n, double* s)
 \brief Выборочная оценка стандартного отклонения вещественного вектора `x`
 
 Функция рассчитывает оценку стандартного отклонения
@@ -545,7 +545,7 @@ s = \sqrt{\frac{1}{n-1} \sum_{i = 0}^{n-1} \big(x(i) - \mu \big)^2},
 \code{.cpp}
     double a[5] = {0.0, 1.0, 2.0, 3.0, 4.0};
     double s;
-    std(a, 5, &s);
+    stat_std(a, 5, &s);
     printf("\n\n Standard deviation value:    %8.1f\n", s);
 \endcode 
 В результате в переменную `s` будет записано значение `1.5811`.
@@ -553,7 +553,7 @@ s = \sqrt{\frac{1}{n-1} \sum_{i = 0}^{n-1} \big(x(i) - \mu \big)^2},
 \author Бахурин Сергей. www.dsplib.org
 ***************************************************************************** */
 #endif
-int DSPL_API std(double* x, int n, double* s)
+int DSPL_API stat_std(double* x, int n, double* s)
 {
     int k, err; 
     double sum, m;
@@ -577,7 +577,7 @@ exit_label:
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SPEC_MATH_STAT_GROUP
-\fn int std_cmplx(complex_t* x, int n, double* s)
+\fn int stat_std_cmplx(complex_t* x, int n, double* s)
 \brief Calculates the standard deviation of the complex input vector `x`
 
 Function calculates the the standard deviation value
@@ -607,7 +607,7 @@ Example:
 \code{.cpp}
     complex_t a[3] = {{0.0, -1.0}, {1.0, 2.0}, {3.0, 5.0}};
     double s;
-    std_cmplx(a, 3, &s);
+    stat_std_cmplx(a, 3, &s);
     printf("\n\n Standard deviation value:    %8.1f\n", s);
 \endcode 
 As result the variable `s` will keep value `3.3665`.
@@ -617,7 +617,7 @@ As result the variable `s` will keep value `3.3665`.
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_STAT_GROUP
-\fn int std_cmplx(complex_t* x, int n, double* s)
+\fn int stat_std_cmplx(complex_t* x, int n, double* s)
 \brief Выборочная оценка стандартного отклонения комплексного вектора `x`
 
 Функция рассчитывает оценку стандартного отклонения
@@ -651,7 +651,7 @@ s = \sqrt{\frac{1}{n-1} \sum_{i = 0}^{n-1} \big|x(i) - \mu \big|^2},
 \code{.cpp}
     complex_t a[3] = {{0.0, -1.0}, {1.0, 2.0}, {3.0, 5.0}};
     double s;
-    std_cmplx(a, 3, &s);
+    stat_std_cmplx(a, 3, &s);
     printf("\n\n Standard deviation value:    %8.1f\n", s);
 \endcode 
 В результате в переменную `s` будет записано значение `3.3665`.
@@ -659,7 +659,7 @@ s = \sqrt{\frac{1}{n-1} \sum_{i = 0}^{n-1} \big|x(i) - \mu \big|^2},
 \author Бахурин Сергей. www.dsplib.org
 ***************************************************************************** */
 #endif
-int DSPL_API std_cmplx(complex_t* x, int n, double* s)
+int DSPL_API stat_std_cmplx(complex_t* x, int n, double* s)
 {
     int k, err; 
     complex_t tmp, m;

@@ -1517,11 +1517,11 @@ DECLARE_FUNC(int,        sqrt_cmplx,                  complex_t*
                                                 COMMA int
                                                 COMMA complex_t*);
 /*----------------------------------------------------------------------------*/
-DECLARE_FUNC(int,        std,                         double*          x
+DECLARE_FUNC(int,        stat_std,                    double*          x
                                                 COMMA int              n
                                                 COMMA double*          s);
 /*----------------------------------------------------------------------------*/
-DECLARE_FUNC(int,        std_cmplx,                   complex_t*       x
+DECLARE_FUNC(int,        stat_std_cmplx,              complex_t*       x
                                                 COMMA int              n
                                                 COMMA double*          s);
 /*----------------------------------------------------------------------------*/

@@ -180,8 +180,8 @@ p_sin_cmplx                             sin_cmplx                     ;
 p_sinc                                  sinc                          ;
 p_sine_int                              sine_int                      ;
 p_sqrt_cmplx                            sqrt_cmplx                    ;
-p_std                                   std                           ;
-p_std_cmplx                             std_cmplx                     ;
+p_stat_std                              stat_std                      ;
+p_stat_std_cmplx                        stat_std_cmplx                ;
 p_sum                                   sum                           ;
 p_sum_sqr                               sum_sqr                       ;
 
@@ -397,8 +397,8 @@ void* dspl_load()
     LOAD_FUNC(sinc);
     LOAD_FUNC(sine_int);
     LOAD_FUNC(sqrt_cmplx);
-    LOAD_FUNC(std);
-    LOAD_FUNC(std_cmplx);
+    LOAD_FUNC(stat_std);
+    LOAD_FUNC(stat_std_cmplx);
     LOAD_FUNC(sum);
     LOAD_FUNC(sum_sqr);
     
