@@ -1068,6 +1068,12 @@ DECLARE_FUNC(int,        find_max_abs,                double*        a
                                                 COMMA double*        m
                                                 COMMA int*          ind);
 /*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        find_nearest,                double*        x
+                                                COMMA int            n
+                                                COMMA double         val
+                                                COMMA int*           idx
+                                                COMMA double*        dist);
+/*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        fir_linphase,                int            ord
                                                 COMMA double         w0
                                                 COMMA double         w1
@@ -1511,11 +1517,19 @@ DECLARE_FUNC(int,        sqrt_cmplx,                  complex_t*
                                                 COMMA int
                                                 COMMA complex_t*);
 /*----------------------------------------------------------------------------*/
-DECLARE_FUNC(int,        std,                         double*          x
+DECLARE_FUNC(int,        stat_std,                    double*          x
                                                 COMMA int              n
                                                 COMMA double*          s);
 /*----------------------------------------------------------------------------*/
-DECLARE_FUNC(int,        std_cmplx,                   complex_t*       x
+DECLARE_FUNC(int,        stat_std_cmplx,              complex_t*       x
+                                                COMMA int              n
+                                                COMMA double*          s);
+/*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        sum,                         double*          x
+                                                COMMA int              n
+                                                COMMA double*          s);
+/*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        sum_sqr,                     double*          x
                                                 COMMA int              n
                                                 COMMA double*          s);
 /*----------------------------------------------------------------------------*/

@@ -98,6 +98,7 @@ p_filter_iir                            filter_iir                    ;
 p_filter_ws1                            filter_ws1                    ;
 p_filter_zp2ab                          filter_zp2ab                  ;
 p_find_max_abs                          find_max_abs                  ;
+p_find_nearest                          find_nearest                  ;
 p_fir_linphase                          fir_linphase                  ;
 p_flipip                                flipip                        ;
 p_flipip_cmplx                          flipip_cmplx                  ;
@@ -179,8 +180,10 @@ p_sin_cmplx                             sin_cmplx                     ;
 p_sinc                                  sinc                          ;
 p_sine_int                              sine_int                      ;
 p_sqrt_cmplx                            sqrt_cmplx                    ;
-p_std                                   std                           ;
-p_std_cmplx                             std_cmplx                     ;
+p_stat_std                              stat_std                      ;
+p_stat_std_cmplx                        stat_std_cmplx                ;
+p_sum                                   sum                           ;
+p_sum_sqr                               sum_sqr                       ;
 
 p_trapint                               trapint                       ;
 p_trapint_cmplx                         trapint_cmplx                 ;
@@ -312,6 +315,7 @@ void* dspl_load()
     LOAD_FUNC(filter_ws1);
     LOAD_FUNC(filter_zp2ab);
     LOAD_FUNC(find_max_abs);
+    LOAD_FUNC(find_nearest);
     LOAD_FUNC(fir_linphase);
     LOAD_FUNC(flipip);
     LOAD_FUNC(flipip_cmplx);
@@ -393,8 +397,10 @@ void* dspl_load()
     LOAD_FUNC(sinc);
     LOAD_FUNC(sine_int);
     LOAD_FUNC(sqrt_cmplx);
-    LOAD_FUNC(std);
-    LOAD_FUNC(std_cmplx);
+    LOAD_FUNC(stat_std);
+    LOAD_FUNC(stat_std_cmplx);
+    LOAD_FUNC(sum);
+    LOAD_FUNC(sum_sqr);
     
     LOAD_FUNC(trapint);
     LOAD_FUNC(trapint_cmplx);

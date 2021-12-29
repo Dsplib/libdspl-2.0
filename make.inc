@@ -22,6 +22,8 @@ LAPACK_DOUBLE_LIB_NAME = $(LAPACK_RELEASE_DIR)/liblapack_double.a
 LAPACK_COMPLEX_SRC_DIR  = $(LAPACK_LIB_DIR)/src
 LAPACK_COMPLEX_LIB_NAME = $(LAPACK_RELEASE_DIR)/liblapack_complex.a
 
+
+
 INC_DIR = ../include
 RELEASE_DIR = ../_release
 EXAMPLE_BIN_DIR = ../examples/bin
