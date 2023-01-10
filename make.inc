@@ -1,5 +1,5 @@
 CC       = gcc
-FORTRAN  = g++
+FORTRAN  = gfortran
 AR       = ar
 
 # DSPL source and obj file path

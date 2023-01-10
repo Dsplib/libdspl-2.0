@@ -1,6 +1,5 @@
 
-
-FORTRAN  = g++
+FORTRAN  = gfortran
 OPTS     = -O3 -fPIC
 DRVOPTS  = $(OPTS)
 NOOPT    =
