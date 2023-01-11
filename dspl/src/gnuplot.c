@@ -19,6 +19,7 @@
 */
 #include <stdio.h>
 #include <unistd.h>
+#include <string.h>
 #include "dspl.h"
 
 #define GNUPLOT_NO     1
@@ -489,7 +490,3 @@ int DSPL_API gnuplot_open(void** hplot)
         return ERROR_GNUPLOT_CREATE;
     return RES_OK;
 }
-
-
-
-
