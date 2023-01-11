@@ -34,6 +34,7 @@ ifeq ($(OS),Windows_NT)
 	DSPL_LIBNAME = libdspl.dll
 	DEF_OS = WIN_OS
 	LFLAGS = -lm
+	EXTRAFLIBS = -lgfortran -lquadmath
 else
 	UNAME_S := $(shell uname -s)
 	UNAME_P := $(shell uname -p)
@@ -41,10 +42,16 @@ else
 		DSPL_LIBNAME = libdspl.so
 		DEF_OS = LINUX_OS
 		LFLAGS = -lm -ldl
+		EXTRAFLIBS = -lgfortran -lquadmath
 	else ifeq ($(UNAME_S),Darwin)
 		DSPL_LIBNAME = libdspl.so
 		DEF_OS = LINUX_OS
 		LFLAGS = -lm -ldl
+		ifeq ($(UNAME_P),powerpc)
+			EXTRAFLIBS = -lgfortran
+		else
+			EXTRAFLIBS = -lgfortran -lquadmath
+		endif
 	endif
 endif
 
