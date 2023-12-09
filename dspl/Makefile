@@ -19,6 +19,8 @@ all: $(RELEASE_DIR)/$(LIB_NAME)\
 $(RELEASE_DIR)/$(LIB_NAME): $(DSPL_OBJ_FILES)  $(BLAS_LIB_NAME) $(LAPACK_DOUBLE_LIB_NAME) $(LAPACK_COMPLEX_LIB_NAME)
 	$(CC) -shared -o $(RELEASE_DIR)/$(LIB_NAME)  $(DSPL_OBJ_FILES) -lm  -L$(LAPACK_RELEASE_DIR) -llapack_complex -llapack_double -L$(BLAS_RELEASE_DIR) -lblas -lgfortran -lquadmath
 
+
+
 #Compile libdspl obj files from c sources
 $(DSPL_OBJ_DIR)/%.o:$(DSPL_SRC_DIR)/%.c
 	$(CC) $(CFLAGS)  $< -o $@ -lm 

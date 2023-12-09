@@ -11,5 +11,8 @@
 #include "array/sum.c"
 #include "array/sum_sqr.c"
 
+#include "array/verif.c"
+#include "array/verif_cmplx.c"
+
 
 

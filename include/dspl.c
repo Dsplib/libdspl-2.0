@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2020 Sergey Bakhurin
+* Copyright (c) 2015-2022 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -17,6 +17,7 @@
 * You should have received a copy of the GNU Lesser General Public License
 * along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 */
+
 
 
 

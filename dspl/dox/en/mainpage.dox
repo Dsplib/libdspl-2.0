@@ -12,7 +12,13 @@ This allows to use this library in all applications with dynamic linking.
 
 
 Source codes are available on
-<a href = "https://github.com/Dsplib/libdspl-2.0">GitHub</a>. \n
+<a href = "https://sourceforge.net/p/libdspl-2-0/code/ci/master/tree/">
+SourceForge</a>.\n
+
+Precompiled releases:\n
+<a href = "https://sourceforge.net/projects/libdspl-2-0/files/">
+<img alt="libdspl-2.0 on SourceForge" src="https://img.shields.io/sourceforge/dw/libdspl-2-0?label=libdspl-2.0%20downloads">
+</a>
 
 DSPL-2.0 includes follow algorithms sets: \n
   - Digital spectral analysis, discrete and fast Fourier transform algorithms. \n

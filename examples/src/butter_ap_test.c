@@ -18,13 +18,26 @@ int main(int argc, char* argv[])
     /* Load DSPL functions */
     hdspl = dspl_load();
 
-    double a[ORD+1]; /* H(s) numerator     coefficients vector  */
-    double b[ORD+1]; /* H(s) denominator coefficients vector    */
-    double Rp = 1.0; /* Magnitude ripple from 0 to 1 rad/s      */
-    double w[N];     /* Angular frequency (rad/s)               */
-    double mag[N];   /* Filter Magnitude (dB)                   */
-    double phi[N];   /* Phase response                          */
-    double tau[N];   /* Group delay                             */
+    /* H(s) numerator coefficients vector  */
+    double a[ORD+1]; 
+    
+    /* H(s) denominator coefficients vector */
+    double b[ORD+1]; 
+    
+    /* Magnitude ripple from 0 to 1 rad/s */
+    double Rp = 1.0; 
+    
+    /* Angular frequency (rad/s) */
+    double w[N];
+    
+    /* Filter Magnitude (dB) */
+    double mag[N];
+    
+    /* Phase response */
+    double phi[N];
+    
+    /* Group delay */
+    double tau[N];
 
 
     int k;
@@ -36,15 +49,15 @@ int main(int argc, char* argv[])
 
     /* Print H(s) coefficients */
     for(k = 0; k < ORD+1; k++)
-        printf("b[%2d] = %9.3f         a[%2d] = %9.3f\n", k, b[k], k, a[k]);
+        printf("b[%2d] = %9.3f a[%2d] = %9.3f\n", k, b[k], k, a[k]);
 
     /* Frequency in logarithmic scale from 0.01 to 100 rad/s */
     logspace(-2.0, 2.0, N , DSPL_SYMMETRIC, w);
 
     /* Filter frequency parameter calculation */
     filter_freq_resp(b, a, ORD, w, N,
-                     DSPL_FLAG_LOGMAG|DSPL_FLAG_UNWRAP|DSPL_FLAG_ANALOG,
-                     mag, phi, tau);
+        DSPL_FLAG_LOGMAG|DSPL_FLAG_UNWRAP|DSPL_FLAG_ANALOG,
+                mag, phi, tau);
 
     /* Write Magnitude, phase response and group delay to the files */
     writetxt(w, mag, N, "dat/butter_ap_test_mag.txt");

@@ -62,7 +62,7 @@
 *> \param[in,out] A
 *> \verbatim
 *>          A is REAL array, dimension (LDA,N)
-*>          On entry, the NB diagonal matrix D and the multipliers
+*>          On entry, the block diagonal matrix D and the multipliers
 *>          used to obtain the factor U or L as computed by SSYTRF.
 *>
 *>          On exit, if INFO = 0, the (symmetric) inverse of the original
@@ -82,7 +82,7 @@
 *> \param[in] IPIV
 *> \verbatim
 *>          IPIV is INTEGER array, dimension (N)
-*>          Details of the interchanges and the NB structure of D
+*>          Details of the interchanges and the block structure of D
 *>          as determined by SSYTRF.
 *> \endverbatim
 *>
@@ -96,11 +96,11 @@
 *>          LWORK is INTEGER
 *>          The dimension of the array WORK.
 *>          WORK is size >= (N+NB+1)*(NB+3)
-*>          If LDWORK = -1, then a workspace query is assumed; the routine
+*>          If LWORK = -1, then a workspace query is assumed; the routine
 *>           calculates:
 *>              - the optimal size of the WORK array, returns
 *>          this value as the first entry of the WORK array,
-*>              - and no error message related to LDWORK is issued by XERBLA.
+*>              - and no error message related to LWORK is issued by XERBLA.
 *> \endverbatim
 *>
 *> \param[out] INFO
@@ -120,17 +120,14 @@
 *> \author Univ. of Colorado Denver
 *> \author NAG Ltd.
 *
-*> \date November 2017
-*
 *> \ingroup realSYcomputational
 *
 *  =====================================================================
       SUBROUTINE SSYTRI2( UPLO, N, A, LDA, IPIV, WORK, LWORK, INFO )
 *
-*  -- LAPACK computational routine (version 3.8.0) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2017
 *
 *     .. Scalar Arguments ..
       CHARACTER          UPLO

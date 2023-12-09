@@ -101,18 +101,16 @@
 *> \author Univ. of Colorado Denver
 *> \author NAG Ltd.
 *
-*> \date December 2016
-*
 *> \ingroup doubleOTHERauxiliary
 *
 *  =====================================================================
       DOUBLE PRECISION FUNCTION DLANHS( NORM, N, A, LDA, WORK )
 *
-*  -- LAPACK auxiliary routine (version 3.7.0) --
+*  -- LAPACK auxiliary routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     December 2016
 *
+      IMPLICIT NONE
 *     .. Scalar Arguments ..
       CHARACTER          NORM
       INTEGER            LDA, N
@@ -129,14 +127,17 @@
 *     ..
 *     .. Local Scalars ..
       INTEGER            I, J
-      DOUBLE PRECISION   SCALE, SUM, VALUE
+      DOUBLE PRECISION   SUM, VALUE
 *     ..
-*     .. External Subroutines ..
-      EXTERNAL           DLASSQ
+*     .. Local Arrays ..
+      DOUBLE PRECISION   SSQ( 2 ), COLSSQ( 2 )
 *     ..
 *     .. External Functions ..
       LOGICAL            LSAME, DISNAN
       EXTERNAL           LSAME, DISNAN
+*     ..
+*     .. External Subroutines ..
+      EXTERNAL           DLASSQ, DCOMBSSQ
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          ABS, MIN, SQRT
@@ -188,13 +189,20 @@
       ELSE IF( ( LSAME( NORM, 'F' ) ) .OR. ( LSAME( NORM, 'E' ) ) ) THEN
 *
 *        Find normF(A).
+*        SSQ(1) is scale
+*        SSQ(2) is sum-of-squares
+*        For better accuracy, sum each column separately.
 *
-         SCALE = ZERO
-         SUM = ONE
+         SSQ( 1 ) = ZERO
+         SSQ( 2 ) = ONE
          DO 90 J = 1, N
-            CALL DLASSQ( MIN( N, J+1 ), A( 1, J ), 1, SCALE, SUM )
+            COLSSQ( 1 ) = ZERO
+            COLSSQ( 2 ) = ONE
+            CALL DLASSQ( MIN( N, J+1 ), A( 1, J ), 1,
+     $                   COLSSQ( 1 ), COLSSQ( 2 ) )
+            CALL DCOMBSSQ( SSQ, COLSSQ )
    90    CONTINUE
-         VALUE = SCALE*SQRT( SUM )
+         VALUE = SSQ( 1 )*SQRT( SSQ( 2 ) )
       END IF
 *
       DLANHS = VALUE

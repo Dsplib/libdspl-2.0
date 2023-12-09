@@ -13,10 +13,14 @@ DSPL-2.0 --- свободная библиотека алгоритмов циф
 условии динамической линковки.
 
 
-<!-- Place this tag where you want the button to render. -->
-<a class="github-button" href="https://github.com/Dsplib/libdspl-2.0" data-color-scheme="no-preference: light; light: light; dark: light;" data-size="large" data-show-count="true" aria-label="Follow @Dsplib on GitHub">libdspl-2.0 на GitHub</a>
+Исходные коды последней версии библиотеки доступны на 
+<a href = "https://sourceforge.net/p/libdspl-2-0/code/ci/master/tree/">
+SourceForge</a>.\n
 
-
+Там же можно скачать стабильные сборки библиотеки.\n
+<a href = "https://sourceforge.net/projects/libdspl-2-0/files/">
+<img alt="libdspl-2.0 on SourceForge" src="https://img.shields.io/sourceforge/dw/libdspl-2-0?label=libdspl-2.0%20downloads">
+</a>
 
 \subsection sec_doc_start Компиляция и запуск программ DSPL-2.0
 

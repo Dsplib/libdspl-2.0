@@ -272,8 +272,6 @@
 *> \author Univ. of Colorado Denver
 *> \author NAG Ltd.
 *
-*> \date June 2016
-*
 *> \ingroup realGEeigen
 *
 *  =====================================================================
@@ -281,10 +279,9 @@
      $                   WR, WI, VS, LDVS, RCONDE, RCONDV, WORK, LWORK,
      $                   IWORK, LIWORK, BWORK, INFO )
 *
-*  -- LAPACK driver routine (version 3.7.0) --
+*  -- LAPACK driver routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     June 2016
 *
 *     .. Scalar Arguments ..
       CHARACTER          JOBVS, SENSE, SORT
@@ -583,7 +580,9 @@
                      IF( N.GT.I+1 )
      $                  CALL SSWAP( N-I-1, A( I, I+2 ), LDA,
      $                              A( I+1, I+2 ), LDA )
-                     CALL SSWAP( N, VS( 1, I ), 1, VS( 1, I+1 ), 1 )
+                     IF( WANTVS ) THEN
+                       CALL SSWAP( N, VS( 1, I ), 1, VS( 1, I+1 ), 1 )
+                     END IF
                      A( I, I+1 ) = A( I+1, I )
                      A( I+1, I ) = ZERO
                   END IF

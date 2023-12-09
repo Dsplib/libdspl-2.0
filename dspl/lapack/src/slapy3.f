@@ -31,7 +31,7 @@
 *> \verbatim
 *>
 *> SLAPY3 returns sqrt(x**2+y**2+z**2), taking care not to cause
-*> unnecessary overflow.
+*> unnecessary overflow and unnecessary underflow.
 *> \endverbatim
 *
 *  Arguments:
@@ -61,17 +61,14 @@
 *> \author Univ. of Colorado Denver
 *> \author NAG Ltd.
 *
-*> \date December 2016
-*
 *> \ingroup OTHERauxiliary
 *
 *  =====================================================================
       REAL             FUNCTION SLAPY3( X, Y, Z )
 *
-*  -- LAPACK auxiliary routine (version 3.7.0) --
+*  -- LAPACK auxiliary routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     December 2016
 *
 *     .. Scalar Arguments ..
       REAL               X, Y, Z

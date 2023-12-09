@@ -69,7 +69,7 @@
 *> \verbatim
 *>          LDH is INTEGER
 *>              The leading dimension of H as declared in
-*>              the calling procedure.  LDH.GE.N
+*>              the calling procedure.  LDH >= N
 *> \endverbatim
 *>
 *> \param[in] SR1
@@ -108,8 +108,6 @@
 *> \author Univ. of Colorado Denver
 *> \author NAG Ltd.
 *
-*> \date June 2017
-*
 *> \ingroup doubleOTHERauxiliary
 *
 *> \par Contributors:
@@ -121,10 +119,9 @@
 *  =====================================================================
       SUBROUTINE DLAQR1( N, H, LDH, SR1, SI1, SR2, SI2, V )
 *
-*  -- LAPACK auxiliary routine (version 3.7.1) --
+*  -- LAPACK auxiliary routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     June 2017
 *
 *     .. Scalar Arguments ..
       DOUBLE PRECISION   SI1, SI2, SR1, SR2
@@ -147,6 +144,13 @@
       INTRINSIC          ABS
 *     ..
 *     .. Executable Statements ..
+*
+*     Quick return if possible
+*
+      IF( N.NE.2 .AND. N.NE.3 ) THEN
+         RETURN
+      END IF
+*
       IF( N.EQ.2 ) THEN
          S = ABS( H( 1, 1 )-SR2 ) + ABS( SI2 ) + ABS( H( 2, 1 ) )
          IF( S.EQ.ZERO ) THEN

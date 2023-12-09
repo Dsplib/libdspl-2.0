@@ -191,9 +191,10 @@
 *> \param[out] INFO
 *> \verbatim
 *>          INFO is INTEGER
-*>          = 0:  successful exit.
-*>          < 0:  if INFO = -i, the i-th argument had an illegal value.
-*>          > 0:  SBDSDC did not converge, updating process failed.
+*>          <  0:  if INFO = -i, the i-th argument had an illegal value.
+*>          = -4:  if A had a NAN entry.
+*>          >  0:  SBDSDC did not converge, updating process failed.
+*>          =  0:  successful exit.
 *> \endverbatim
 *
 *  Authors:
@@ -203,8 +204,6 @@
 *> \author Univ. of California Berkeley
 *> \author Univ. of Colorado Denver
 *> \author NAG Ltd.
-*
-*> \date June 2016
 *
 *> \ingroup realGEsing
 *
@@ -219,10 +218,9 @@
      $                   WORK, LWORK, IWORK, INFO )
       implicit none
 *
-*  -- LAPACK driver routine (version 3.7.0) --
+*  -- LAPACK driver routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     June 2016
 *
 *     .. Scalar Arguments ..
       CHARACTER          JOBZ
@@ -267,9 +265,9 @@
      $                   XERBLA
 *     ..
 *     .. External Functions ..
-      LOGICAL            LSAME
+      LOGICAL            LSAME, SISNAN
       REAL               SLAMCH, SLANGE
-      EXTERNAL           SLAMCH, SLANGE, LSAME
+      EXTERNAL           SLAMCH, SLANGE, LSAME, SISNAN
 *     ..
 *     .. Intrinsic Functions ..
       INTRINSIC          INT, MAX, MIN, SQRT
@@ -322,7 +320,7 @@
 *
             IF( WNTQN ) THEN
 *              sbdsdc needs only 4*N (or 6*N for uplo=L for LAPACK <= 3.6)
-*              keep 7*N for backwards compatability.
+*              keep 7*N for backwards compatibility.
                BDSPAC = 7*N
             ELSE
                BDSPAC = 3*N*N + 4*N
@@ -448,7 +446,7 @@
 *
             IF( WNTQN ) THEN
 *              sbdsdc needs only 4*N (or 6*N for uplo=L for LAPACK <= 3.6)
-*              keep 7*N for backwards compatability.
+*              keep 7*N for backwards compatibility.
                BDSPAC = 7*M
             ELSE
                BDSPAC = 3*M*M + 4*M
@@ -599,6 +597,10 @@
 *     Scale A if max element outside range [SMLNUM,BIGNUM]
 *
       ANRM = SLANGE( 'M', M, N, A, LDA, DUM )
+      IF( SISNAN( ANRM ) ) THEN
+          INFO = -4
+          RETURN
+      END IF
       ISCL = 0
       IF( ANRM.GT.ZERO .AND. ANRM.LT.SMLNUM ) THEN
          ISCL = 1

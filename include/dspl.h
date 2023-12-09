@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2020 Sergey Bakhurin
+* Copyright (c) 2015-2022 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -1482,7 +1482,8 @@ DECLARE_FUNC(int,        re2cmplx,                    double*
 /*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        readbin,                     char*           fn
                                                 COMMA void**          x
-                                                COMMA int*            k
+                                                COMMA int*            pn
+                                                COMMA int*            pm
                                                 COMMA int*            dtype);
 /*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        signal_pimp,                 double*
@@ -1587,6 +1588,7 @@ DECLARE_FUNC(int,        window,                      double*          w
                                                 COMMA double           param);
 /*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        writebin,                    void*
+                                                COMMA int
                                                 COMMA int
                                                 COMMA int
                                                 COMMA char*);

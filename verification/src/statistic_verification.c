@@ -12,7 +12,7 @@ int main(int argc, char* argv[])
 {
     void* hdspl;            /* DSPL handle        */
 
-    int err, verr, nx, type;
+    int err, verr, nx, mx, type;
     double derr;
     complex_t  yc;
     double     yd;
@@ -29,7 +29,7 @@ int main(int argc, char* argv[])
     
     
     /*------------------------------------------------------------------------*/
-    readbin("dat/real.dat", (void**)(&xd), &nx, &type);
+    readbin("dat/real.dat", (void**)(&xd), &nx, &mx, &type);
     mean(xd, SIZE, &yd);
     verif_str(&yd, 1, "mean for double data:", 
                       "dat/mean_real.dat", 
@@ -40,7 +40,7 @@ int main(int argc, char* argv[])
 
 
     /*------------------------------------------------------------------------*/
-    readbin("dat/complex.dat", (void**)(&xc), &nx, &type);
+    readbin("dat/complex.dat", (void**)(&xc), &nx, &mx, &type);
     mean_cmplx(xc, SIZE, &yc);
     verif_str_cmplx(&yc, 1, "mean for complex data:", 
                       "dat/mean_cmplx.dat", 

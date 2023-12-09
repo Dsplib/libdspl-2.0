@@ -24,7 +24,7 @@
 *>
 *> \verbatim
 *>
-*> ZPOTRF2 computes the Cholesky factorization of a real symmetric
+*> ZPOTRF2 computes the Cholesky factorization of a Hermitian
 *> positive definite matrix A using the recursive algorithm.
 *>
 *> The factorization has the form
@@ -63,7 +63,7 @@
 *> \param[in,out] A
 *> \verbatim
 *>          A is COMPLEX*16 array, dimension (LDA,N)
-*>          On entry, the symmetric matrix A.  If UPLO = 'U', the leading
+*>          On entry, the Hermitian matrix A.  If UPLO = 'U', the leading
 *>          N-by-N upper triangular part of A contains the upper
 *>          triangular part of the matrix A, and the strictly lower
 *>          triangular part of A is not referenced.  If UPLO = 'L', the
@@ -99,17 +99,14 @@
 *> \author Univ. of Colorado Denver
 *> \author NAG Ltd.
 *
-*> \date December 2016
-*
 *> \ingroup complex16POcomputational
 *
 *  =====================================================================
       RECURSIVE SUBROUTINE ZPOTRF2( UPLO, N, A, LDA, INFO )
 *
-*  -- LAPACK computational routine (version 3.7.0) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     December 2016
 *
 *     .. Scalar Arguments ..
       CHARACTER          UPLO

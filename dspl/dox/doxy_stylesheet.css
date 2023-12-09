@@ -354,6 +354,7 @@ address.footer {
 img.footer {
 	border: 0px;
 	vertical-align: middle;
+	width: 85px;
 }
 
 /* @group Code Colorization */

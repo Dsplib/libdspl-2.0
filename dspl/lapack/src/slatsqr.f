@@ -1,3 +1,4 @@
+*> \brief \b SLATSQR
 *
 *  Definition:
 *  ===========
@@ -19,8 +20,22 @@
 *> \verbatim
 *>
 *> SLATSQR computes a blocked Tall-Skinny QR factorization of
-*> an M-by-N matrix A, where M >= N:
-*> A = Q * R .
+*> a real M-by-N matrix A for M >= N:
+*>
+*>    A = Q * ( R ),
+*>            ( 0 )
+*>
+*> where:
+*>
+*>    Q is a M-by-M orthogonal matrix, stored on exit in an implicit
+*>    form in the elements below the diagonal of the array A and in
+*>    the elements of the array T;
+*>
+*>    R is an upper-triangular N-by-N matrix, stored on exit in
+*>    the elements on and above the diagonal of the array A.
+*>
+*>    0 is a (M-N)-by-N zero matrix, and is not stored.
+*>
 *> \endverbatim
 *
 *  Arguments:
@@ -149,10 +164,9 @@
       SUBROUTINE SLATSQR( M, N, MB, NB, A, LDA, T, LDT, WORK,
      $                    LWORK, INFO)
 *
-*  -- LAPACK computational routine (version 3.7.0) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd. --
-*     December 2016
 *
 *     .. Scalar Arguments ..
       INTEGER           INFO, LDA, M, N, MB, NB, LDT, LWORK

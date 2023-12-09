@@ -134,8 +134,6 @@
 *> \author Univ. of Colorado Denver
 *> \author NAG Ltd.
 *
-*> \date June 2016
-*
 *> \ingroup complexOTHERauxiliary
 *
 *> \par Further Details:
@@ -169,10 +167,9 @@
       SUBROUTINE CLATDF( IJOB, N, Z, LDZ, RHS, RDSUM, RDSCAL, IPIV,
      $                   JPIV )
 *
-*  -- LAPACK auxiliary routine (version 3.7.0) --
+*  -- LAPACK auxiliary routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     June 2016
 *
 *     .. Scalar Arguments ..
       INTEGER            IJOB, LDZ, N
@@ -261,7 +258,7 @@
 *
 *        Solve for U- part, lockahead for RHS(N) = +-1. This is not done
 *        In BSOLVE and will hopefully give us a better estimate because
-*        any ill-conditioning of the original matrix is transfered to U
+*        any ill-conditioning of the original matrix is transferred to U
 *        and not to L. U(N, N) is an approximation to sigma_min(LU).
 *
          CALL CCOPY( N-1, RHS, 1, WORK, 1 )

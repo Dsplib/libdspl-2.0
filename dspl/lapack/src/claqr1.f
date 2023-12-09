@@ -64,7 +64,7 @@
 *> \verbatim
 *>          LDH is INTEGER
 *>              The leading dimension of H as declared in
-*>              the calling procedure.  LDH.GE.N
+*>              the calling procedure.  LDH >= N
 *> \endverbatim
 *>
 *> \param[in] S1
@@ -94,8 +94,6 @@
 *> \author Univ. of Colorado Denver
 *> \author NAG Ltd.
 *
-*> \date June 2017
-*
 *> \ingroup complexOTHERauxiliary
 *
 *> \par Contributors:
@@ -107,10 +105,9 @@
 *  =====================================================================
       SUBROUTINE CLAQR1( N, H, LDH, S1, S2, V )
 *
-*  -- LAPACK auxiliary routine (version 3.7.1) --
+*  -- LAPACK auxiliary routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     June 2017
 *
 *     .. Scalar Arguments ..
       COMPLEX            S1, S2
@@ -142,6 +139,13 @@
       CABS1( CDUM ) = ABS( REAL( CDUM ) ) + ABS( AIMAG( CDUM ) )
 *     ..
 *     .. Executable Statements ..
+*
+*     Quick return if possible
+*
+      IF( N.NE.2 .AND. N.NE.3 ) THEN
+         RETURN
+      END IF
+*
       IF( N.EQ.2 ) THEN
          S = CABS1( H( 1, 1 )-S2 ) + CABS1( H( 2, 1 ) )
          IF( S.EQ.RZERO ) THEN

@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2020 Sergey Bakhurin
+* Copyright (c) 2015-2022 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.

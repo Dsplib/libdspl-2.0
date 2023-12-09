@@ -562,3 +562,1000 @@
 	<string.h>
 	"dspl.h"
 
+1641063289 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\array\array_scale_lin.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063289 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\array\concat.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063289 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\array\decimate.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063289 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\array\decimate_cmplx.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063289 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\array\find_nearest.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063289 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\array\flipip.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063289 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\array\flipip_cmplx.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063289 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\array\linspace.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063289 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\array\logspace.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063289 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\array\ones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063289 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\array\sum.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063289 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\array\sum_sqr.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063289 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\array\verif.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063289 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\array\verif_cmplx.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063289 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\convolution\conv.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063290 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\convolution\conv_cmplx.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063290 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\convolution\conv_fft.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063290 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\convolution\conv_fft_cmplx.c
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063290 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\convolution\filter_iir.c
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063290 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\dft\dft.c
+	<stdlib.h>
+	<math.h>
+	"dspl.h"
+
+1641063290 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\dft\dft_cmplx.c
+	<stdlib.h>
+	<math.h>
+	"dspl.h"
+
+1641063290 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\dft\fft.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+	"dft.h"
+
+1640938254 d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\dft\dft.h
+
+1641063290 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\dft\fft_abs.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+
+1641063290 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\dft\fft_abs_cmplx.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+
+1641063290 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\dft\fft_cmplx.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+
+1641063290 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\dft\fft_create.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+	"dft.h"
+
+1641063290 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\dft\fft_free.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+
+1641063290 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\dft\fft_krn.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+	"dft.h"
+
+1641063290 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\dft\fft_mag.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+
+1641063290 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\dft\fft_mag_cmplx.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+
+1641063290 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\dft\fft_shift.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+
+1641063290 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\dft\fft_shift_cmplx.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+
+1641063291 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\dft\fft_subkernel.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"dspl.h"
+	"dft.h"
+
+1641063291 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\dft\fourier_integral_cmplx.c
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063291 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\dft\fourier_series_dec.c
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063291 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\dft\fourier_series_dec_cmplx.c
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063291 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\dft\fourier_series_rec.c
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063291 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\dft\goertzel.c
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063291 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\dft\goertzel_cmplx.c
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063291 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\dft\idft_cmplx.c
+	<stdlib.h>
+	<math.h>
+	"dspl.h"
+
+1641063291 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\dft\ifft_cmplx.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+
+1641063291 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\filter_design\bilinear.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063291 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\filter_design\butter_ap.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063291 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\filter_design\butter_ap_zp.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063291 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\filter_design\cheby1_ap.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063291 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\filter_design\cheby1_ap_zp.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063291 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\filter_design\cheby2_ap.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063291 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\filter_design\cheby2_ap_wp1.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063291 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\filter_design\cheby2_ap_zp.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063291 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\filter_design\ellip_ap.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063292 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\filter_design\ellip_ap_zp.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063292 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\filter_design\filter_freq_resp.c
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063292 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\filter_design\filter_ws1.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063292 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\filter_design\filter_zp2ab.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063292 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\filter_design\fir_linphase.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063292 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\filter_design\freqs.c
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063292 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\filter_design\freqs2time.c
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063292 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\filter_design\freqs_cmplx.c
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063292 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\filter_design\freqz.c
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063292 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\filter_design\group_delay.c
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063292 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\filter_design\iir.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063292 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\filter_design\low2bp.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063292 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\filter_design\low2bs.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063292 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\filter_design\low2high.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063292 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\filter_design\low2low.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063292 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\filter_design\phase_delay.c
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063292 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\filter_design\ratcompos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063292 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\filter_design\win.c
+	<stdio.h>
+	<math.h>
+	"dspl.h"
+
+1641063292 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\gnuplot\gnuplot_close.c
+	<stdio.h>
+	<unistd.h>
+	"dspl.h"
+
+1641063293 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\gnuplot\gnuplot_cmd.c
+	<stdio.h>
+	<unistd.h>
+	"dspl.h"
+
+1641063293 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\gnuplot\gnuplot_create.c
+	<stdio.h>
+	<unistd.h>
+	"dspl.h"
+
+1641063293 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\gnuplot\gnuplot_open.c
+	<stdio.h>
+	<unistd.h>
+	"dspl.h"
+
+1641063293 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\inout\addlog.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063288 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\inout\dspl_info.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063293 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\inout\readbin.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063293 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\inout\verif_data_gen.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063293 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\inout\verif_str.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063293 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\inout\verif_str_cmplx.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063293 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\inout\writebin.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063293 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\inout\writetxt.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063293 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\inout\writetxt_3d.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063293 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\inout\writetxt_3dline.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063293 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\inout\writetxt_cmplx.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063293 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\inout\writetxt_cmplx_im.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063293 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\inout\writetxt_cmplx_re.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063293 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\inout\writetxt_int.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063293 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_ellipj\ellip_acd.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063294 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_ellipj\ellip_acd_cmplx.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063294 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_ellipj\ellip_asn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063294 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_ellipj\ellip_asn_cmplx.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063294 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_ellipj\ellip_cd.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063294 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_ellipj\ellip_cd_cmplx.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063294 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_ellipj\ellip_landen.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063294 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_ellipj\ellip_modulareq.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063294 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_ellipj\ellip_rat.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063294 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_ellipj\ellip_sn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063294 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_ellipj\ellip_sn_cmplx.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063294 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_matrix\matrix_eig_cmplx.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+	"blas.h"
+
+1640942476 d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_matrix\blas.h
+	<stdio.h>
+	<stdlib.h>
+
+1641063294 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_matrix\matrix_eye.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+	"blas.h"
+
+1641063294 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_matrix\matrix_eye_cmplx.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+	"blas.h"
+
+1641063294 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_matrix\matrix_mul.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+	"blas.h"
+
+1641063294 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_matrix\matrix_pinv.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+	"blas.h"
+
+1641063294 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_matrix\matrix_print.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+	"blas.h"
+
+1641063294 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_matrix\matrix_print_cmplx.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+	"blas.h"
+
+1641063295 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_matrix\matrix_svd.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+	"blas.h"
+
+1641063295 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_matrix\matrix_transpose.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+	"blas.h"
+
+1641063295 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_matrix\matrix_transpose_cmplx.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+	"blas.h"
+
+1641063295 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_matrix\matrix_transpose_hermite.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+	"blas.h"
+
+1641063295 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_matrix\vector_dot.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+	"blas.h"
+
+1641063295 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_poly\cheby_poly1.c
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063295 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_poly\cheby_poly2.c
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063295 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_poly\poly_z2a_cmplx.c
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063295 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_poly\polyroots.c
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063295 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_poly\polyval.c
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063295 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_poly\polyval_cmplx.c
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063295 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_stat\find_max_abs.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063295 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_stat\histogram.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063295 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_stat\histogram_norm.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063295 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_stat\mean.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063295 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_stat\mean_cmplx.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063295 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_stat\minmax.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063295 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_stat\stat_std.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063295 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_stat\stat_std_cmplx.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063296 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_stat\xcorr.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dspl.h"
+
+1641063296 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_std\acos_cmplx.c
+	<stdio.h>
+	<stdlib.h>
+	"dspl.h"
+
+1641063296 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_std\asin_cmplx.c
+	<stdio.h>
+	<stdlib.h>
+	"dspl.h"
+
+1641063296 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_std\bessel_i0.c
+	<stdio.h>
+	<stdlib.h>
+	"dspl.h"
+
+1641063296 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_std\cos_cmplx.c
+	<stdio.h>
+	<stdlib.h>
+	"dspl.h"
+
+1641063296 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_std\dmod.c
+	<stdio.h>
+	<stdlib.h>
+	"dspl.h"
+
+1641063296 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_std\log_cmplx.c
+	<stdio.h>
+	<stdlib.h>
+	"dspl.h"
+
+1641063296 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_std\sin_cmplx.c
+	<stdio.h>
+	<stdlib.h>
+	"dspl.h"
+
+1641063296 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_std\sinc.c
+	<stdio.h>
+	<stdlib.h>
+	"dspl.h"
+
+1641063296 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_std\sine_int.c
+	<stdio.h>
+	<stdlib.h>
+	"dspl.h"
+
+1641063296 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_std\sqrt_cmplx.c
+	<stdio.h>
+	<stdlib.h>
+	"dspl.h"
+
+1641063296 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_std\trapint.c
+	<stdio.h>
+	<stdlib.h>
+	"dspl.h"
+
+1641063296 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_std\trapint_cmplx.c
+	<stdio.h>
+	<stdlib.h>
+	"dspl.h"
+
+1641063296 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\math_std\unwrap.c
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063296 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\psd\psd_bartlett.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+
+1641063296 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\psd\psd_bartlett_cmplx.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+
+1641063296 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\psd\psd_periodogram.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+
+1641063296 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\psd\psd_periodogram_cmplx.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+
+1641063297 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\psd\psd_welch.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+
+1641063297 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\psd\psd_welch_cmplx.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<float.h>
+	"dspl.h"
+
+1640697542 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\randomgen\mt19937.c
+	<stdio.h>
+	"dspl.h"
+	"mt19937.h"
+
+1640937815 d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\randomgen\mt19937.h
+
+1641063297 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\randomgen\randb.c
+	<stdlib.h>
+	<math.h>
+	<time.h>
+	"dspl.h"
+	"randomgen.h"
+
+1640938070 d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\randomgen\randomgen.h
+	"dspl.h"
+
+1641063297 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\randomgen\randb2.c
+	<stdlib.h>
+	<math.h>
+	<time.h>
+	"dspl.h"
+	"randomgen.h"
+
+1641063297 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\randomgen\randi.c
+	<stdlib.h>
+	<math.h>
+	<time.h>
+	"dspl.h"
+	"randomgen.h"
+
+1641063297 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\randomgen\randn.c
+	<stdlib.h>
+	<math.h>
+	<time.h>
+	"dspl.h"
+	"randomgen.h"
+
+1641063297 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\randomgen\randn_cmplx.c
+	<stdlib.h>
+	<math.h>
+	<time.h>
+	"dspl.h"
+	"randomgen.h"
+
+1641063297 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\randomgen\random_init.c
+	<stdlib.h>
+	<math.h>
+	<time.h>
+	"dspl.h"
+	"randomgen.h"
+
+1641063297 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\randomgen\randu.c
+	<stdlib.h>
+	<math.h>
+	<time.h>
+	"dspl.h"
+	"randomgen.h"
+
+1641063297 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\randomgen\randu_mrg32k3a.c
+	<stdlib.h>
+	<math.h>
+	<time.h>
+	"dspl.h"
+	"randomgen.h"
+
+1641063297 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\resampling\farrow_lagrange.c
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063297 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\resampling\farrow_spline.c
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063297 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\signals\signal_pimp.c
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063297 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\signals\signal_saw.c
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"dspl.h"
+
+1641063297 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\types\cmplx2re.c
+	<stdio.h>
+	<stdlib.h>
+	"dspl.h"
+
+1641063297 source:d:\dsplib.org\sourceforge\libdspl-2-0-code\dspl\src\types\re2cmplx.c
+	<stdio.h>
+	<stdlib.h>
+	"dspl.h"
+

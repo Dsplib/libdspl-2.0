@@ -1,3 +1,4 @@
+*> \brief \b CLAMSWLQ
 *
 *  Definition:
 *  ===========
@@ -43,7 +44,7 @@
 *> \verbatim
 *>          TRANS is CHARACTER*1
 *>          = 'N':  No transpose, apply Q;
-*>          = 'C':  Transpose, apply Q**H.
+*>          = 'C':  Conjugate transpose, apply Q**H.
 *> \endverbatim
 *>
 *> \param[in] M
@@ -78,14 +79,6 @@
 *>          NB is INTEGER
 *>          The column block size to be used in the blocked QR.
 *>          NB > M.
-*> \endverbatim
-*>
-*> \param[in] NB
-*> \verbatim
-*>          NB is INTEGER
-*>          The block size to be used in the blocked QR.
-*>                MB > M.
-*>
 *> \endverbatim
 *>
 *> \param[in] A
@@ -202,10 +195,9 @@
       SUBROUTINE CLAMSWLQ( SIDE, TRANS, M, N, K, MB, NB, A, LDA, T,
      $    LDT, C, LDC, WORK, LWORK, INFO )
 *
-*  -- LAPACK computational routine (version 3.7.1) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     June 2017
 *
 *     .. Scalar Arguments ..
       CHARACTER         SIDE, TRANS

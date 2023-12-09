@@ -261,11 +261,11 @@
 *> \param[out] INFO
 *> \verbatim
 *>          INFO is INTEGER
-*>          = 0 : successful exit
-*>          < 0 : if INFO = -i, the i-th argument had an illegal value
+*>          = 0:  successful exit
+*>          < 0:  if INFO = -i, the i-th argument had an illegal value
 *>          <= N: if INFO = i, then i eigenvectors failed to converge.
 *>                  Their indices are stored in IFAIL.
-*>          > N : SPBSTF returned an error code; i.e.,
+*>          > N:  SPBSTF returned an error code; i.e.,
 *>                if INFO = N + i, for 1 <= i <= N, then the leading
 *>                minor of order i of B is not positive definite.
 *>                The factorization of B could not be completed and
@@ -280,8 +280,6 @@
 *> \author Univ. of Colorado Denver
 *> \author NAG Ltd.
 *
-*> \date June 2016
-*
 *> \ingroup realOTHEReigen
 *
 *> \par Contributors:
@@ -294,10 +292,9 @@
      $                   LDBB, Q, LDQ, VL, VU, IL, IU, ABSTOL, M, W, Z,
      $                   LDZ, WORK, IWORK, IFAIL, INFO )
 *
-*  -- LAPACK driver routine (version 3.7.1) --
+*  -- LAPACK driver routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     June 2016
 *
 *     .. Scalar Arguments ..
       CHARACTER          JOBZ, RANGE, UPLO

@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2019 Sergey Bakhurin
+* Copyright (c) 2015-2022 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -22,7 +22,48 @@
 #include <stdlib.h>
 #include <string.h>
 #include "dspl.h"
-#include "dspl_internal.h"
+
+
+
+
+/******************************************************************************
+ * Linear phase lowpass filter
+ ******************************************************************************/
+int fir_linphase_lpf(int ord, double wp, int win_type,
+                     double win_param, double* h)
+{
+    int n, err = RES_OK;
+    double *w = NULL;
+
+
+    w = (double*)malloc((ord+1)*sizeof(double));
+
+    err = linspace(-(double)ord*0.5, (double)ord*0.5, ord+1, DSPL_SYMMETRIC, w);
+
+    if(err!=RES_OK)
+        goto error_proc;
+
+    err = sinc(w, ord+1, M_PI*wp, h);
+
+    if(err!=RES_OK)
+        goto error_proc;
+
+    err = window(w, ord+1, win_type | DSPL_SYMMETRIC, win_param);
+
+    if(err!=RES_OK)
+        goto error_proc;
+
+    for(n = 0; n < ord+1; n++)
+        h[n] *= w[n] * wp;
+
+error_proc:
+    if(w)
+        free(w);
+    return err;
+}
+
+
+
 
 
 

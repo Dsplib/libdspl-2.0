@@ -85,7 +85,7 @@
 *>     The leading dimension of the array AF.  LDAF >= max(1,N).
 *> \endverbatim
 *>
-*> \param[in] WORK
+*> \param[out] WORK
 *> \verbatim
 *>          WORK is DOUBLE PRECISION array, dimension (2*N)
 *> \endverbatim
@@ -98,18 +98,15 @@
 *> \author Univ. of Colorado Denver
 *> \author NAG Ltd.
 *
-*> \date December 2016
-*
 *> \ingroup doublePOcomputational
 *
 *  =====================================================================
       DOUBLE PRECISION FUNCTION DLA_PORPVGRW( UPLO, NCOLS, A, LDA, AF,
      $                                        LDAF, WORK )
 *
-*  -- LAPACK computational routine (version 3.7.0) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     December 2016
 *
 *     .. Scalar Arguments ..
       CHARACTER*1        UPLO
@@ -207,4 +204,7 @@
       END IF
 
       DLA_PORPVGRW = RPVGRW
+*
+*     End of DLA_PORPVGRW
+*
       END

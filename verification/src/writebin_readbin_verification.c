@@ -12,7 +12,7 @@ int main(int argc, char* argv[])
     complex_t *xc = NULL;
     double    *xd = NULL;
 
-    int nx, type, err, verr;
+    int nx, mx, type, err, verr;
     double derr;
    
     
@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
 
     /*------------------------------------------------------------------------*/
     /* Read real input data from the file */ 
-    readbin("dat/real.dat", (void**)(&xd), &nx, &type);
+    readbin("dat/real.dat", (void**)(&xd), &nx, &mx, &type);
     
     /* Processing */
     
@@ -42,7 +42,7 @@ int main(int argc, char* argv[])
 
     /*------------------------------------------------------------------------*/
     /* Read complex input data from the file */ 
-    readbin("dat/complex.dat", (void**)(&xc), &nx, &type);
+    readbin("dat/complex.dat", (void**)(&xc), &nx, &mx, &type);
     
     /* Processing */
     

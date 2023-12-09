@@ -75,97 +75,484 @@
 			<Mode after="always" />
 		</ExtraCommands>
 		<Unit filename="../../../include/dspl.h" />
-		<Unit filename="../../src/array.c">
+		<Unit filename="../../src/array/array_scale_lin.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/blas.h" />
-		<Unit filename="../../src/cheby.c">
+		<Unit filename="../../src/array/concat.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/complex.c">
+		<Unit filename="../../src/array/decimate.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/conv.c">
+		<Unit filename="../../src/array/decimate_cmplx.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/dft.c">
+		<Unit filename="../../src/array/find_nearest.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/dspl_internal.h" />
-		<Unit filename="../../src/ellipj.c">
+		<Unit filename="../../src/array/flipip.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/fft.c">
+		<Unit filename="../../src/array/flipip_cmplx.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/fft_subkernel.c">
+		<Unit filename="../../src/array/linspace.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/filter_an.c">
+		<Unit filename="../../src/array/logspace.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/filter_ap.c">
+		<Unit filename="../../src/array/ones.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/filter_fir.c">
+		<Unit filename="../../src/array/sum.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/filter_ft.c">
+		<Unit filename="../../src/array/sum_sqr.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/filter_iir.c">
+		<Unit filename="../../src/array/verif.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/fourier_series.c">
+		<Unit filename="../../src/array/verif_cmplx.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/gnuplot.c">
+		<Unit filename="../../src/convolution/conv.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/goertzel.c">
+		<Unit filename="../../src/convolution/conv_cmplx.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/inout.c">
+		<Unit filename="../../src/convolution/conv_fft.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/math.c">
+		<Unit filename="../../src/convolution/conv_fft_cmplx.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/matrix.c">
+		<Unit filename="../../src/convolution/filter_iir.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/mt19937.c">
+		<Unit filename="../../src/dft/dft.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/mt19937.h" />
-		<Unit filename="../../src/polyval.c">
+		<Unit filename="../../src/dft/dft.h" />
+		<Unit filename="../../src/dft/dft_cmplx.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/psd.c">
+		<Unit filename="../../src/dft/fft.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/randgen.c">
+		<Unit filename="../../src/dft/fft_abs.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/resampling.c">
+		<Unit filename="../../src/dft/fft_abs_cmplx.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/signals.c">
+		<Unit filename="../../src/dft/fft_cmplx.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/statistic.c">
+		<Unit filename="../../src/dft/fft_create.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/trapint.c">
+		<Unit filename="../../src/dft/fft_free.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/verification.c">
+		<Unit filename="../../src/dft/fft_krn.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/win.c">
+		<Unit filename="../../src/dft/fft_mag.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/xcorr.c">
+		<Unit filename="../../src/dft/fft_mag_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/dft/fft_shift.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/dft/fft_shift_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/dft/fft_subkernel.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/dft/fourier_integral_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/dft/fourier_series_dec.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/dft/fourier_series_dec_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/dft/fourier_series_rec.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/dft/goertzel.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/dft/goertzel_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/dft/idft_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/dft/ifft_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/filter_design/bilinear.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/filter_design/butter_ap.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/filter_design/butter_ap_zp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/filter_design/cheby1_ap.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/filter_design/cheby1_ap_zp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/filter_design/cheby2_ap.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/filter_design/cheby2_ap_wp1.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/filter_design/cheby2_ap_zp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/filter_design/ellip_ap.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/filter_design/ellip_ap_zp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/filter_design/filter_design.h" />
+		<Unit filename="../../src/filter_design/filter_freq_resp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/filter_design/filter_ws1.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/filter_design/filter_zp2ab.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/filter_design/fir_linphase.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/filter_design/freqs.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/filter_design/freqs2time.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/filter_design/freqs_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/filter_design/freqz.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/filter_design/group_delay.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/filter_design/iir.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/filter_design/low2bp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/filter_design/low2bs.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/filter_design/low2high.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/filter_design/low2low.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/filter_design/phase_delay.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/filter_design/ratcompos.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/filter_design/win.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/gnuplot/gnuplot.h" />
+		<Unit filename="../../src/gnuplot/gnuplot_close.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/gnuplot/gnuplot_cmd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/gnuplot/gnuplot_create.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/gnuplot/gnuplot_open.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/inout/addlog.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/inout/dspl_info.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/inout/readbin.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/inout/verif_data_gen.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/inout/verif_str.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/inout/verif_str_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/inout/writebin.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/inout/writetxt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/inout/writetxt_3d.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/inout/writetxt_3dline.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/inout/writetxt_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/inout/writetxt_cmplx_im.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/inout/writetxt_cmplx_re.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/inout/writetxt_int.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_ellipj/ellip_acd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_ellipj/ellip_acd_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_ellipj/ellip_asn.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_ellipj/ellip_asn_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_ellipj/ellip_cd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_ellipj/ellip_cd_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_ellipj/ellip_landen.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_ellipj/ellip_modulareq.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_ellipj/ellip_rat.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_ellipj/ellip_sn.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_ellipj/ellip_sn_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_matrix/blas.h" />
+		<Unit filename="../../src/math_matrix/matrix_eig_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_matrix/matrix_eye.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_matrix/matrix_eye_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_matrix/matrix_mul.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_matrix/matrix_pinv.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_matrix/matrix_print.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_matrix/matrix_print_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_matrix/matrix_svd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_matrix/matrix_transpose.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_matrix/matrix_transpose_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_matrix/matrix_transpose_hermite.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_matrix/vector_dot.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_poly/cheby_poly1.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_poly/cheby_poly2.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_poly/poly_z2a_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_poly/polyroots.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_poly/polyval.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_poly/polyval_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_stat/find_max_abs.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_stat/histogram.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_stat/histogram_norm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_stat/mean.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_stat/mean_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_stat/minmax.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_stat/stat_std.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_stat/stat_std_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_stat/xcorr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_std/acos_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_std/asin_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_std/bessel_i0.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_std/cos_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_std/dmod.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_std/log_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_std/sin_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_std/sinc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_std/sine_int.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_std/sqrt_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_std/trapint.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_std/trapint_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/math_std/unwrap.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/psd/psd_bartlett.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/psd/psd_bartlett_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/psd/psd_periodogram.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/psd/psd_periodogram_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/psd/psd_welch.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/psd/psd_welch_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/randomgen/mt19937.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/randomgen/mt19937.h" />
+		<Unit filename="../../src/randomgen/randb.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/randomgen/randb2.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/randomgen/randi.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/randomgen/randn.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/randomgen/randn_cmplx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/randomgen/random_init.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/randomgen/randomgen.h" />
+		<Unit filename="../../src/randomgen/randu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/randomgen/randu_mrg32k3a.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/resampling/farrow_lagrange.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/resampling/farrow_spline.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/signals/signal_pimp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/signals/signal_saw.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/types/cmplx2re.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/types/re2cmplx.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions />

@@ -21,20 +21,24 @@ BLASLIB      = bin/libblas.a
 BLAS_OBJ_DIR = obj
 
 # DSPL src and obj files list
-BLAS_SRC_FILES	= $(wildcard src/*.f)
-BLAS_OBJ_FILES	= $(addprefix $(BLAS_OBJ_DIR)/,$(notdir $(BLAS_SRC_FILES:.f=.o)))
+BLAS_SRC_FILES	 = $(wildcard src/*.f)
+BLAS90_SRC_FILES = $(wildcard src/*.f90)
+BLAS_OBJ_FILES	 = $(addprefix $(BLAS_OBJ_DIR)/,$(notdir $(BLAS_SRC_FILES:.f=.o)))
+BLAS90_OBJ_FILES = $(addprefix $(BLAS_OBJ_DIR)/,$(notdir $(BLAS90_SRC_FILES:.f90=.o)))
 
 all: $(BLASLIB)
 
 
-$(BLASLIB): $(BLAS_OBJ_FILES)
-	$(ARCH) $(ARCHFLAGS) $@ $(BLAS_OBJ_FILES)
+$(BLASLIB): $(BLAS_OBJ_FILES) $(BLAS90_OBJ_FILES)
+	$(ARCH) $(ARCHFLAGS) $@ $(BLAS_OBJ_FILES) $(BLAS90_OBJ_FILES)
 	$(RANLIB) $@
 
 
 $(BLAS_OBJ_DIR)/%.o:src/%.f
 	$(FORTRAN) $(OPTS) -c $< -o $@
 
+$(BLAS_OBJ_DIR)/%.o:src/%.f90
+	$(FORTRAN) $(OPTS) -c $< -o $@
 
 clean:
 	rm -f   $(BLAS_OBJ_DIR)/*.o

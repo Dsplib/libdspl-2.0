@@ -34,46 +34,13 @@
 				</Linker>
 			</Target>
 		</Build>
-		<Unit filename="../../lapack/src/icmax1.f">
-			<Option weight="0" />
-		</Unit>
 		<Unit filename="../../lapack/src/ieeeck.f">
-			<Option weight="0" />
-		</Unit>
-		<Unit filename="../../lapack/src/ilaclc.f">
-			<Option weight="0" />
-		</Unit>
-		<Unit filename="../../lapack/src/ilaclr.f">
-			<Option weight="0" />
-		</Unit>
-		<Unit filename="../../lapack/src/iladiag.f">
-			<Option weight="0" />
-		</Unit>
-		<Unit filename="../../lapack/src/iladlc.f">
-			<Option weight="0" />
-		</Unit>
-		<Unit filename="../../lapack/src/iladlr.f">
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../lapack/src/ilaenv.f">
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../lapack/src/ilaenv2stage.f">
-			<Option weight="0" />
-		</Unit>
-		<Unit filename="../../lapack/src/ilaprec.f">
-			<Option weight="0" />
-		</Unit>
-		<Unit filename="../../lapack/src/ilaslc.f">
-			<Option weight="0" />
-		</Unit>
-		<Unit filename="../../lapack/src/ilaslr.f">
-			<Option weight="0" />
-		</Unit>
-		<Unit filename="../../lapack/src/ilatrans.f">
-			<Option weight="0" />
-		</Unit>
-		<Unit filename="../../lapack/src/ilauplo.f">
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../lapack/src/ilazlc.f">
@@ -90,6 +57,12 @@
 		</Unit>
 		<Unit filename="../../lapack/src/izmax1.f">
 			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/la_constants.f90">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/la_xisnan.f90">
+			<Option weight="1" />
 		</Unit>
 		<Unit filename="../../lapack/src/zbbcsd.f">
 			<Option weight="0" />
@@ -280,6 +253,9 @@
 		<Unit filename="../../lapack/src/zgesvd.f">
 			<Option weight="0" />
 		</Unit>
+		<Unit filename="../../lapack/src/zgesvdq.f">
+			<Option weight="0" />
+		</Unit>
 		<Unit filename="../../lapack/src/zgesvdx.f">
 			<Option weight="0" />
 		</Unit>
@@ -311,6 +287,9 @@
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../lapack/src/zgetsls.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/zgetsqrhrt.f">
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../lapack/src/zggbak.f">
@@ -910,6 +889,18 @@
 		<Unit filename="../../lapack/src/zlaqsy.f">
 			<Option weight="0" />
 		</Unit>
+		<Unit filename="../../lapack/src/zlaqz0.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/zlaqz1.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/zlaqz2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/zlaqz3.f">
+			<Option weight="0" />
+		</Unit>
 		<Unit filename="../../lapack/src/zlar1v.f">
 			<Option weight="0" />
 		</Unit>
@@ -923,6 +914,9 @@
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../lapack/src/zlarfb.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/zlarfb_gett.f">
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../lapack/src/zlarfg.f">
@@ -952,8 +946,8 @@
 		<Unit filename="../../lapack/src/zlarscl2.f">
 			<Option weight="0" />
 		</Unit>
-		<Unit filename="../../lapack/src/zlartg.f">
-			<Option weight="0" />
+		<Unit filename="../../lapack/src/zlartg.f90">
+			<Option weight="1" />
 		</Unit>
 		<Unit filename="../../lapack/src/zlartv.f">
 			<Option weight="0" />
@@ -979,8 +973,8 @@
 		<Unit filename="../../lapack/src/zlasr.f">
 			<Option weight="0" />
 		</Unit>
-		<Unit filename="../../lapack/src/zlassq.f">
-			<Option weight="0" />
+		<Unit filename="../../lapack/src/zlassq.f90">
+			<Option weight="2" />
 		</Unit>
 		<Unit filename="../../lapack/src/zlaswlq.f">
 			<Option weight="0" />
@@ -1022,6 +1016,12 @@
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../lapack/src/zlatsqr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/zlaunhr_col_getrfnp.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/zlaunhr_col_getrfnp2.f">
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../lapack/src/zlauu2.f">
@@ -1505,6 +1505,15 @@
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../lapack/src/zungtr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/zungtsqr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/zungtsqr_row.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/zunhr_col.f">
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../lapack/src/zunm22.f">

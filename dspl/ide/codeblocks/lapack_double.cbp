@@ -46,6 +46,9 @@
 		<Unit filename="../../lapack/src/dbdsvdx.f">
 			<Option weight="0" />
 		</Unit>
+		<Unit filename="../../lapack/src/dcombssq.f">
+			<Option weight="0" />
+		</Unit>
 		<Unit filename="../../lapack/src/ddisna.f">
 			<Option weight="0" />
 		</Unit>
@@ -223,6 +226,9 @@
 		<Unit filename="../../lapack/src/dgesvd.f">
 			<Option weight="0" />
 		</Unit>
+		<Unit filename="../../lapack/src/dgesvdq.f">
+			<Option weight="0" />
+		</Unit>
 		<Unit filename="../../lapack/src/dgesvdx.f">
 			<Option weight="0" />
 		</Unit>
@@ -254,6 +260,9 @@
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../lapack/src/dgetsls.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dgetsqrhrt.f">
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../lapack/src/dggbak.f">
@@ -508,6 +517,12 @@
 		<Unit filename="../../lapack/src/dlamch.f">
 			<Option weight="0" />
 		</Unit>
+		<Unit filename="../../lapack/src/dlamchf77.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlamchtst.f">
+			<Option weight="0" />
+		</Unit>
 		<Unit filename="../../lapack/src/dlamrg.f">
 			<Option weight="0" />
 		</Unit>
@@ -557,6 +572,12 @@
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../lapack/src/dlanv2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaorhr_col_getrfnp.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaorhr_col_getrfnp2.f">
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../lapack/src/dlapll.f">
@@ -616,6 +637,21 @@
 		<Unit filename="../../lapack/src/dlaqtr.f">
 			<Option weight="0" />
 		</Unit>
+		<Unit filename="../../lapack/src/dlaqz0.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaqz1.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaqz2.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaqz3.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlaqz4.f">
+			<Option weight="0" />
+		</Unit>
 		<Unit filename="../../lapack/src/dlar1v.f">
 			<Option weight="0" />
 		</Unit>
@@ -626,6 +662,9 @@
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../lapack/src/dlarfb.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dlarfb_gett.f">
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../lapack/src/dlarfg.f">
@@ -682,7 +721,7 @@
 		<Unit filename="../../lapack/src/dlarscl2.f">
 			<Option weight="0" />
 		</Unit>
-		<Unit filename="../../lapack/src/dlartg.f">
+		<Unit filename="../../lapack/src/dlartg.f90">
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../lapack/src/dlartgp.f">
@@ -778,7 +817,7 @@
 		<Unit filename="../../lapack/src/dlasrt.f">
 			<Option weight="0" />
 		</Unit>
-		<Unit filename="../../lapack/src/dlassq.f">
+		<Unit filename="../../lapack/src/dlassq.f90">
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../lapack/src/dlasv2.f">
@@ -899,6 +938,15 @@
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../lapack/src/dorgtr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dorgtsqr.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dorgtsqr_row.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dorhr_col.f">
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../lapack/src/dorm22.f">
@@ -1109,6 +1157,24 @@
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../lapack/src/dsbtrd.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsecnd_EXT_ETIME.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsecnd_EXT_ETIME_.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsecnd_INT_CPU_TIME.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsecnd_INT_ETIME.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsecnd_NONE.f">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="../../lapack/src/dsecndtst.f">
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../lapack/src/dsfrk.f">
@@ -1495,67 +1561,12 @@
 		<Unit filename="../../lapack/src/dzsum1.f">
 			<Option weight="0" />
 		</Unit>
-		<Unit filename="../../lapack/src/icmax1.f">
-			<Option weight="0" />
-		</Unit>
-		<Unit filename="../../lapack/src/ieeeck.f">
-			<Option weight="0" />
-		</Unit>
-		<Unit filename="../../lapack/src/ilaclc.f">
-			<Option weight="0" />
-		</Unit>
-		<Unit filename="../../lapack/src/ilaclr.f">
-			<Option weight="0" />
-		</Unit>
-		<Unit filename="../../lapack/src/iladiag.f">
-			<Option weight="0" />
-		</Unit>
 		<Unit filename="../../lapack/src/iladlc.f">
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../lapack/src/iladlr.f">
 			<Option weight="0" />
 		</Unit>
-		<Unit filename="../../lapack/src/ilaenv.f">
-			<Option weight="0" />
-		</Unit>
-		<Unit filename="../../lapack/src/ilaenv2stage.f">
-			<Option weight="0" />
-		</Unit>
-		<Unit filename="../../lapack/src/ilaprec.f">
-			<Option weight="0" />
-		</Unit>
-		<Unit filename="../../lapack/src/ilaslc.f">
-			<Option weight="0" />
-		</Unit>
-		<Unit filename="../../lapack/src/ilaslr.f">
-			<Option weight="0" />
-		</Unit>
-		<Unit filename="../../lapack/src/ilatrans.f">
-			<Option weight="0" />
-		</Unit>
-		<Unit filename="../../lapack/src/ilauplo.f">
-			<Option weight="0" />
-		</Unit>
-		<Unit filename="../../lapack/src/ilazlc.f">
-			<Option weight="0" />
-		</Unit>
-		<Unit filename="../../lapack/src/ilazlr.f">
-			<Option weight="0" />
-		</Unit>
-		<Unit filename="../../lapack/src/iparam2stage.F">
-			<Option weight="0" />
-		</Unit>
-		<Unit filename="../../lapack/src/iparmq.f">
-			<Option weight="0" />
-		</Unit>
-		<Unit filename="../../lapack/src/izmax1.f">
-			<Option weight="0" />
-		</Unit>
-		<Extensions>
-			<code_completion />
-			<envvars />
-			<debugger />
-		</Extensions>
+		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

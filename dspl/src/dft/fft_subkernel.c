@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2019 Sergey Bakhurin
+* Copyright (c) 2015-2022 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -23,7 +23,7 @@
 #include <string.h>
 
 #include "dspl.h"
-#include "dspl_internal.h"
+#include "dft.h"
 
 
 

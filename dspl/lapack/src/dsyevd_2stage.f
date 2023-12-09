@@ -180,8 +180,6 @@
 *> \author Univ. of Colorado Denver
 *> \author NAG Ltd.
 *
-*> \date November 2017
-*
 *> \ingroup doubleSYeigen
 *
 *> \par Contributors:
@@ -229,10 +227,9 @@
 *
       IMPLICIT NONE
 *
-*  -- LAPACK driver routine (version 3.8.0) --
+*  -- LAPACK driver routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2017
 *
 *     .. Scalar Arguments ..
       CHARACTER          JOBZ, UPLO
@@ -385,7 +382,7 @@
       IF( .NOT.WANTZ ) THEN
          CALL DSTERF( N, W, WORK( INDE ), INFO )
       ELSE
-*        Not available in this release, and agrument checking should not
+*        Not available in this release, and argument checking should not
 *        let it getting here
          RETURN
          CALL DSTEDC( 'I', N, W, WORK( INDE ), WORK( INDWRK ), N,

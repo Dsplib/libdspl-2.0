@@ -28,15 +28,15 @@
 #define N  1024
 
 
-/*******************************************************************************
- * function calculates filter frequency response and save magnitude to
- * the text file.
- * params: b - pointer to the transfer fuction H(z) numerator vector
- *         a - pointer to the transfer fuction H(z) denominator vector
- *         ord - filter order
- *         n - number of magnitude vector size
- *         fn - file name
- ******************************************************************************/
+/*
+function calculates filter frequency response and save magnitude to
+the text file.
+params: b - pointer to the transfer fuction H(z) numerator vector
+        a - pointer to the transfer fuction H(z) denominator vector
+        ord - filter order
+        n - number of magnitude vector size
+        fn - file name
+ */
 void freq_resp_write2txt(double* b, double* a, int ord, int n, char* fn)
 {
     double *w = NULL, *mag = NULL;
@@ -71,9 +71,9 @@ void freq_resp_write2txt(double* b, double* a, int ord, int n, char* fn)
 }
 
 
-/*******************************************************************************
+/*
  * Main program
- ******************************************************************************/
+ */
 int main(int argc, char* argv[])
 {
     void* hdspl;           /* DSPL handle         */
@@ -83,7 +83,7 @@ int main(int argc, char* argv[])
     /* Transfer function H(z) coeff. vectors */
     double a[MAX_ORD+1], b[MAX_ORD+1];
 
-    /*------------------------------------------------------------------------*/
+    /* Batterworth */
 
     /* LPF Batterworth */
     iir(RP, RS, LPF_ORD, 0.3, 0.0, DSPL_FILTER_BUTTER | DSPL_FILTER_LPF, b, a);
@@ -101,7 +101,7 @@ int main(int argc, char* argv[])
     iir(RP, RS, BSF_ORD, 0.3, 0.7, DSPL_FILTER_BUTTER | DSPL_FILTER_BSTOP, b, a);
     freq_resp_write2txt(b, a, BSF_ORD, N, "dat/iir_butter_bsf.txt");
 
-    /*------------------------------------------------------------------------*/
+    /* Chebyshev type 1 */
 
     /* LPF Chebyshev type 1 */
     iir(RP, RS, LPF_ORD, 0.3, 0.0, DSPL_FILTER_CHEBY1 | DSPL_FILTER_LPF, b, a);
@@ -119,7 +119,7 @@ int main(int argc, char* argv[])
     iir(RP, RS, BSF_ORD, 0.3, 0.7, DSPL_FILTER_CHEBY1 | DSPL_FILTER_BSTOP, b, a);
     freq_resp_write2txt(b, a, BSF_ORD, N, "dat/iir_cheby1_bsf.txt");
 
-    /*------------------------------------------------------------------------*/
+    /* Chebyshev type 2 */
 
     /* LPF Chebyshev type 2 */
     iir(RP, RS, LPF_ORD, 0.3, 0.0, DSPL_FILTER_CHEBY2 | DSPL_FILTER_LPF, b, a);
@@ -137,7 +137,7 @@ int main(int argc, char* argv[])
     iir(RP, RS, BSF_ORD, 0.3, 0.7, DSPL_FILTER_CHEBY2 | DSPL_FILTER_BSTOP, b, a);
     freq_resp_write2txt(b, a, BSF_ORD, N, "dat/iir_cheby2_bsf.txt");
 
-    /*------------------------------------------------------------------------*/
+    /* Elliptic */
 
     /* LPF Elliptic */
     iir(RP, RS, LPF_ORD, 0.3, 0.0, DSPL_FILTER_ELLIP | DSPL_FILTER_LPF, b, a);
@@ -154,8 +154,6 @@ int main(int argc, char* argv[])
     /* Band-stop Elliptic */
     iir(RP, RS, BSF_ORD, 0.3, 0.7, DSPL_FILTER_ELLIP | DSPL_FILTER_BSTOP, b, a);
     freq_resp_write2txt(b, a, BSF_ORD, N, "dat/iir_ellip_bsf.txt");
-
-    /*------------------------------------------------------------------------*/
 
     /* plotting by GNUPLOT */
     gnuplot_create(argc, argv, 920, 840, "img/iir_test.png", &hplot);

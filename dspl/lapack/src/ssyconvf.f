@@ -38,7 +38,7 @@
 *> SSYCONVF converts the factorization output format used in
 *> SSYTRF provided on entry in parameter A into the factorization
 *> output format used in SSYTRF_RK (or SSYTRF_BK) that is stored
-*> on exit in parameters A and E. It also coverts in place details of
+*> on exit in parameters A and E. It also converts in place details of
 *> the intechanges stored in IPIV from the format used in SSYTRF into
 *> the format used in SSYTRF_RK (or SSYTRF_BK).
 *>
@@ -47,7 +47,7 @@
 *> converts the factorization output format used in SSYTRF_RK
 *> (or SSYTRF_BK) provided on entry in parameters A and E into
 *> the factorization output format used in SSYTRF that is stored
-*> on exit in parameter A. It also coverts in place details of
+*> on exit in parameter A. It also converts in place details of
 *> the intechanges stored in IPIV from the format used in SSYTRF_RK
 *> (or SSYTRF_BK) into the format used in SSYTRF.
 *> \endverbatim
@@ -189,8 +189,6 @@
 *> \author Univ. of Colorado Denver
 *> \author NAG Ltd.
 *
-*> \date November 2017
-*
 *> \ingroup singleSYcomputational
 *
 *> \par Contributors:
@@ -206,10 +204,9 @@
 *  =====================================================================
       SUBROUTINE SSYCONVF( UPLO, WAY, N, A, LDA, E, IPIV, INFO )
 *
-*  -- LAPACK computational routine (version 3.8.0) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2017
 *
 *     .. Scalar Arguments ..
       CHARACTER          UPLO, WAY
@@ -291,7 +288,7 @@
 *
 *           Convert PERMUTATIONS and IPIV
 *
-*           Apply permutaions to submatrices of upper part of A
+*           Apply permutations to submatrices of upper part of A
 *           in factorization order where i decreases from N to 1
 *
             I = N
@@ -344,7 +341,7 @@
 *
 *           Revert PERMUTATIONS and IPIV
 *
-*           Apply permutaions to submatrices of upper part of A
+*           Apply permutations to submatrices of upper part of A
 *           in reverse factorization order where i increases from 1 to N
 *
             I = 1
@@ -435,7 +432,7 @@
 *
 *           Convert PERMUTATIONS and IPIV
 *
-*           Apply permutaions to submatrices of lower part of A
+*           Apply permutations to submatrices of lower part of A
 *           in factorization order where k increases from 1 to N
 *
             I = 1
@@ -488,7 +485,7 @@
 *
 *           Revert PERMUTATIONS and IPIV
 *
-*           Apply permutaions to submatrices of lower part of A
+*           Apply permutations to submatrices of lower part of A
 *           in reverse factorization order where i decreases from N to 1
 *
             I = N

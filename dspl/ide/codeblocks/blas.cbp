@@ -34,6 +34,7 @@
 				</Linker>
 			</Target>
 		</Build>
+		<Unit filename="../../blas/src/CMakeLists.txt" />
 		<Unit filename="../../blas/src/Makefile" />
 		<Unit filename="../../blas/src/caxpy.f">
 			<Option weight="0" />
@@ -92,7 +93,7 @@
 		<Unit filename="../../blas/src/chpr2.f">
 			<Option weight="0" />
 		</Unit>
-		<Unit filename="../../blas/src/crotg.f">
+		<Unit filename="../../blas/src/crotg.f90">
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../blas/src/cscal.f">
@@ -167,13 +168,13 @@
 		<Unit filename="../../blas/src/dger.f">
 			<Option weight="0" />
 		</Unit>
-		<Unit filename="../../blas/src/dnrm2.f">
+		<Unit filename="../../blas/src/dnrm2.f90">
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../blas/src/drot.f">
 			<Option weight="0" />
 		</Unit>
-		<Unit filename="../../blas/src/drotg.f">
+		<Unit filename="../../blas/src/drotg.f90">
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../blas/src/drotm.f">
@@ -248,7 +249,7 @@
 		<Unit filename="../../blas/src/dzasum.f">
 			<Option weight="0" />
 		</Unit>
-		<Unit filename="../../blas/src/dznrm2.f">
+		<Unit filename="../../blas/src/dznrm2.f90">
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../blas/src/icamax.f">
@@ -279,7 +280,7 @@
 		<Unit filename="../../blas/src/scasum.f">
 			<Option weight="0" />
 		</Unit>
-		<Unit filename="../../blas/src/scnrm2.f">
+		<Unit filename="../../blas/src/scnrm2.f90">
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../blas/src/scopy.f">
@@ -303,13 +304,13 @@
 		<Unit filename="../../blas/src/sger.f">
 			<Option weight="0" />
 		</Unit>
-		<Unit filename="../../blas/src/snrm2.f">
+		<Unit filename="../../blas/src/snrm2.f90">
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../blas/src/srot.f">
 			<Option weight="0" />
 		</Unit>
-		<Unit filename="../../blas/src/srotg.f">
+		<Unit filename="../../blas/src/srotg.f90">
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../blas/src/srotm.f">
@@ -447,7 +448,7 @@
 		<Unit filename="../../blas/src/zhpr2.f">
 			<Option weight="0" />
 		</Unit>
-		<Unit filename="../../blas/src/zrotg.f">
+		<Unit filename="../../blas/src/zrotg.f90">
 			<Option weight="0" />
 		</Unit>
 		<Unit filename="../../blas/src/zscal.f">
@@ -490,9 +491,6 @@
 			<Option weight="0" />
 		</Unit>
 		<Extensions>
-			<code_completion />
-			<envvars />
-			<debugger />
 			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>

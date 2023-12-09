@@ -6,7 +6,7 @@
 *            http://www.netlib.org/lapack/explore-html/
 *
 *> \htmlonly
-*> Download DTPMQRT + dependencies
+*> Download DTPMLQT + dependencies
 *> <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dtpmlqt.f">
 *> [TGZ]</a>
 *> <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dtpmlqt.f">
@@ -94,7 +94,7 @@
 *>
 *> \param[in] V
 *> \verbatim
-*>          V is DOUBLE PRECISION array, dimension (LDA,K)
+*>          V is DOUBLE PRECISION array, dimension (LDV,K)
 *>          The i-th row must contain the vector which defines the
 *>          elementary reflector H(i), for i = 1,2,...,k, as returned by
 *>          DTPLQT in B.  See Further Details.
@@ -175,8 +175,6 @@
 *> \author Univ. of Colorado Denver
 *> \author NAG Ltd.
 *
-*> \date November 2017
-*
 *> \ingroup doubleOTHERcomputational
 *
 *> \par Further Details:
@@ -216,10 +214,9 @@
       SUBROUTINE DTPMLQT( SIDE, TRANS, M, N, K, L, MB, V, LDV, T, LDT,
      $                    A, LDA, B, LDB, WORK, INFO )
 *
-*  -- LAPACK computational routine (version 3.8.0) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     November 2017
 *
 *     .. Scalar Arguments ..
       CHARACTER SIDE, TRANS

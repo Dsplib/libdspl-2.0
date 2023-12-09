@@ -47,10 +47,10 @@
 *> \verbatim
 *>          JOB is CHARACTER*1
 *>          Specifies the type of backward transformation required:
-*>          = 'N', do nothing, return immediately;
-*>          = 'P', do backward transformation for permutation only;
-*>          = 'S', do backward transformation for scaling only;
-*>          = 'B', do backward transformations for both permutation and
+*>          = 'N': do nothing, return immediately;
+*>          = 'P': do backward transformation for permutation only;
+*>          = 'S': do backward transformation for scaling only;
+*>          = 'B': do backward transformations for both permutation and
 *>                 scaling.
 *>          JOB must be the same as the argument JOB supplied to SGEBAL.
 *> \endverbatim
@@ -122,18 +122,15 @@
 *> \author Univ. of Colorado Denver
 *> \author NAG Ltd.
 *
-*> \date December 2016
-*
 *> \ingroup realGEcomputational
 *
 *  =====================================================================
       SUBROUTINE SGEBAK( JOB, SIDE, N, ILO, IHI, SCALE, M, V, LDV,
      $                   INFO )
 *
-*  -- LAPACK computational routine (version 3.7.0) --
+*  -- LAPACK computational routine --
 *  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 *  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
-*     December 2016
 *
 *     .. Scalar Arguments ..
       CHARACTER          JOB, SIDE

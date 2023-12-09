@@ -43,7 +43,6 @@ Filters Frequency Transformation
 /* 
 FIR design
 */
-#include "filter_design/fir_linphase_lpf.c"
 #include "filter_design/fir_linphase.c"
 
 
@@ -52,4 +51,8 @@ IIR design
 */
 #include "filter_design/bilinear.c"
 #include "filter_design/iir.c"
-#include "filter_design/iir_ap.c"
+
+/* 
+window functions
+*/
+#include "filter_design/win.c"
