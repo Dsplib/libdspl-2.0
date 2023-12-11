@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -29,9 +29,6 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup DFT_GROUP
-\fn int fourier_series_dec(double* t, double* s, int nt, double period,
-                           int nw, double* w, complex_t* y)
-
 \brief
 Fourier series coefficient calculation for periodic signal
 
@@ -87,9 +84,6 @@ it is more expedient to use fast Fourier transform algorithms.
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup DFT_GROUP
-\fn int fourier_series_dec(double* t, double* s, int nt, double period,
-                           int nw, double* w, complex_t* y)
-
 \brief
 Расчет коэффициентов разложения в ряд Фурье
 

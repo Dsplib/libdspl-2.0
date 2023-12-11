@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -27,10 +27,8 @@
 
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
-\ingroup ARRAY_GROUP
-\fn int array_scale_lin(double* x, int n,
-                        double xmin, double xmax, double dx,
-                        double h, double* y)
+\ingroup ARRAY_GROUP     
+
 \brief Vector `x` linear transformation
 
 Function transforms values \f$x(i)\f$, \f$i = 0,1,\ldots n\f$
@@ -100,9 +98,7 @@ Else \ref ERROR_CODE_GROUP "code error".
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup ARRAY_GROUP
-\fn int array_scale_lin(double* x, int n,
-                        double xmin, double xmax, double dx,
-                        double h, double* y)
+
 \brief Линейное растяжение вектора данных `x`
 Функция производит преобразование значений \f$x(i)\f$, \f$i = 0,1,\ldots n\f$
 в значения \f$y(i)\f$, в соответствии с формулой:

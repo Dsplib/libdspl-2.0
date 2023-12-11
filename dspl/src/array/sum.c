@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -28,15 +28,48 @@
 
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
-\ingroup ARRAY_GROUP
-\fn int sum(double* x, int n, double* s)
+\ingroup ARRAY_GROUP     
+
 \author Sergey Bakhurin www.dsplib.org
 ***************************************************************************** */
 #endif
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup ARRAY_GROUP
-\fn int sum(double* x, int n, double* s)
+\brief Расчет суммы элеметов массива
+
+\param[in] x
+Указатель на вещественный вектор `x`. \n
+Размер вектора `[n x 1]`. \n    
+\n
+
+\param[in] n
+Размер вектора `x`. \n
+\n
+
+\param[in] n
+Указатель на переменную суммы элементов массива. \n
+По данному указателю будет записан результат работы функции.
+\n
+
+
+\return
+`RES_OK` если функция выполнена успешно. \n
+В противном случае \ref ERROR_CODE_GROUP "код ошибки".
+
+Пример:
+\code{.cpp}
+double y[5] = {0.0, 1.0, 2.0, 3.0, 4.0};
+double s;
+sum(y, 5, &s);
+printf("s = %6.1f% \n", s);
+\endcode
+ \n
+Результат выполнения:
+\verbatim
+    s = 10
+\endverbatim
+
 \author Бахурин Сергей www.dsplib.org
 ***************************************************************************** */
 #endif

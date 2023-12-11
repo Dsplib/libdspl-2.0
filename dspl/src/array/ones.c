@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -28,8 +28,8 @@
 
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
-\ingroup ARRAY_GROUP
-\fn int ones(double* x, int n)
+\ingroup ARRAY_GROUP     
+
 \brief Function fills all real vector `x` by ones values.
 
 \param[in, out] x
@@ -66,7 +66,6 @@ Vector `y` values are:
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup ARRAY_GROUP
-\fn int ones(double* x, int n)
 \brief Функция заполнения вещественного массива единицами
 
 \param[in, out] x

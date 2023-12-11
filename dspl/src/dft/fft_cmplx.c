@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -29,7 +29,6 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup DFT_GROUP
-\fn int fft_cmplx(complex_t* x, int n, fft_t* pfft, complex_t* y)
 \brief Fast Fourier transform for the complex vector.
 
 Function calculated \f$ n \f$-points FFT for the complex vector 
@@ -102,7 +101,6 @@ y[17] =    -0.300    0.588
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup DFT_GROUP
-\fn int fft_cmplx(complex_t* x, int n, fft_t* pfft, complex_t* y)
 \brief Быстрое преобразование Фурье комплексного сигнала
 
 Функция рассчитывает \f$ n \f$-точечное  быстрое преобразование Фурье 

@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -28,8 +28,7 @@
 
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
-\ingroup DFT_GROUP
-\fn int ifft_cmplx(complex_t* x, int n, fft_t* pfft, complex_t* y)
+\ingroup DFT_GROUP                                                 
 \brief Inverse fast Fourier transform
 
 Function calculates \f$ n \f$-point IFFT of complex data 
@@ -104,7 +103,6 @@ Result:
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup DFT_GROUP
-\fn int ifft_cmplx(complex_t* x, int n, fft_t* pfft, complex_t* y)
 \brief Обратное быстрое преобразование Фурье
 
 Функция рассчитывает \f$ n \f$-точечное обратное быстрое преобразование Фурье 

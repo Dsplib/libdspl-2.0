@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -29,7 +29,6 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup FILTER_CONV_GROUP
-\fn int conv(double* a, int na, double* b, int nb, double* c) 
 \brief Real vectors linear convolution.
 
 Function convolves two real vectors \f$ c = a * b\f$ length `na` and `nb`.
@@ -93,7 +92,6 @@ cr[5] =  12.0
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup FILTER_CONV_GROUP
-\fn int conv(double* a, int na, double* b, int nb, double* c) 
 \brief Линейная свертка двух вещественных векторов
 
 Функция рассчитывает линейную свертку двух векторов \f$ c = a * b\f$.

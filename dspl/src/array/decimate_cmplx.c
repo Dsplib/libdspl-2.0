@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -27,8 +27,8 @@
 
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
-\ingroup ARRAY_GROUP
-\fn int decimate_cmplx(complex_t* x, int n, int d, complex_t* y, int* cnt)
+\ingroup ARRAY_GROUP     
+
 \brief
 Complex vector decimation
 
@@ -88,7 +88,7 @@ c = [0.0+0.0j, 2.0+2.0j, 4.0+4.0j, 6.0+6.0j, 8.0+8.0j]
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup ARRAY_GROUP
-\fn int decimate_cmplx(complex_t* x, int n, int d, complex_t* y, int* cnt)
+
 \brief Децимация комплексного вектора данных
 
 Функция производит децимацию комплексного вектора `x` в `d` раз. \n

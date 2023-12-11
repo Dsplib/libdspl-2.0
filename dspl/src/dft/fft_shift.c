@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -31,8 +31,7 @@
 
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
-\ingroup DFT_GROUP
-\fn int fft_shift(double* x, int n, double* y)
+\ingroup DFT_GROUP                            
 \brief Perform a shift of the vector `x`, for use with the `fft` and `ifft` 
 functions, in order 
  <a href="http://en.dsplib.org/content/dft_freq/dft_freq.html">
@@ -61,8 +60,7 @@ Else \ref ERROR_CODE_GROUP "code error".
 #endif
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
-\ingroup DFT_GROUP
-\fn int fft_shift(double* x, int n, double* y)
+\ingroup DFT_GROUP                            
 \brief Перестановка спектральных отсчетов дискретного преобразования Фурье
 
 Функция производит 

@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -26,8 +26,6 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup FILTER_CONV_GROUP
-\fn int conv_fft_cmplx(complex_t* a, int na, complex_t* b, int nb,
-                       fft_t* pfft, int nfft, complex_t* c) 
 \brief Complex vectors fast linear convolution by using fast Fourier
 transform algorithms
 
@@ -104,8 +102,6 @@ c[ 18] =    -37.00  +484.00j    d[ 18] =    -37.00  +484.00j
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup FILTER_CONV_GROUP
-\fn int conv_fft_cmplx(complex_t* a, int na, complex_t* b, int nb,
-                       fft_t* pfft, complex_t* c) 
 \brief Линейная свертка двух комплексных векторов с использованием алгоритмов
 быстрого преобразования Фурье
 

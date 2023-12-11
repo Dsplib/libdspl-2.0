@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -28,7 +28,6 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup DFT_GROUP
-\fn int dft(double* x, int n, complex_t* y)
 \brief Discrete Fourier transform of a real signal.
 
 The function calculates the \f$ n \f$ -point discrete Fourier transform
@@ -96,7 +95,6 @@ fast Fourier transform algorithms.
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup DFT_GROUP
-\fn int dft(double* x, int n, complex_t* y)
 \brief Дискретное преобразование Фурье вещественного сигнала.
 
 Функция рассчитывает \f$ n \f$-точечное  дискретное преобразование Фурье 

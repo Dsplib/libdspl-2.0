@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -36,9 +36,7 @@
 
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
-\ingroup DFT_GROUP
-\fn int    fourier_series_rec(double* w, complex_t* s, int nw,
-                              double* t, int nt, complex_t* y)
+\ingroup DFT_GROUP       
 \brief Time signal reconstruction from Fourier series coefficients.
 
 Function reconstructs the time signal:
@@ -96,8 +94,6 @@ can be ignored.
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup DFT_GROUP
-\fn int    fourier_series_rec(double* w, complex_t* s, int nw,
-                              double* t, int nt, complex_t* y)
 \brief Восстановление сигнала при усечении ряда Фурье
 
 Функция рассчитывает восстановленный сигнал при усечении ряда Фурье:

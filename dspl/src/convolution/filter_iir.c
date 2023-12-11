@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -26,7 +26,6 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup FILTER_CONV_GROUP
-\fn int filter_iir(double* b, double* a, int ord, double* x, int n, double* y)
 \brief Real IIR filtration
 
 Function calculates real IIR filter output for real signal. The real filter
@@ -99,7 +98,6 @@ GNUPLOT script for make plots is:
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup FILTER_CONV_GROUP
-\fn int filter_iir(double* b, double* a, int ord, double* x, int n, double* y)
 \brief Фильтрация вещественного сигнала вещественным БИХ-фильтром
 
 Функция рассчитывает выход фильтра заданного выражением

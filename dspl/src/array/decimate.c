@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -28,7 +28,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup ARRAY_GROUP
-\fn int decimate(double* x, int n, int d, double* y, int* cnt)
+
 \brief
 Real vector decimation
 
@@ -83,7 +83,7 @@ c = [0.0, 2.0, 4.0, 6.0, 8.0]
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup ARRAY_GROUP
-\fn int decimate(double* x, int n, int d, double* y, int* cnt)
+
 \brief Децимация вещественного вектора данных
 
 Функция производит децимацию вещественного вектора `x` в `d` раз. \n

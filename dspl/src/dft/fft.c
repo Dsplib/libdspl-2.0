@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -30,7 +30,6 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup DFT_GROUP
-\fn int fft(double* x, int n, fft_t* pfft, complex_t* y)
 \brief Fast Fourier transform for the real vector.
 
 Function calculated \f$ n \f$-points FFT for the real vector 
@@ -101,7 +100,6 @@ y[13] =    -7.000  -30.669
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup DFT_GROUP
-\fn int fft(double* x, int n, fft_t* pfft, complex_t* y)
 \brief Быстрое преобразование Фурье вещественного сигнала
 
 Функция рассчитывает \f$ n \f$-точечное  быстрое преобразование Фурье 

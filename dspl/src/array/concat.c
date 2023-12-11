@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -28,7 +28,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup ARRAY_GROUP
-\fn int concat(void* a, size_t na, void* b, size_t nb, void* c)
+
 \brief
 Concatenate arrays `a` and `b`
 
@@ -89,7 +89,7 @@ c = [1.0, 2.0, 3.0, 4.0, 5.0]
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup ARRAY_GROUP
-\fn int concat(void* a, size_t na, void* b, size_t nb, void* c)
+
 \brief Конкатенация двух массивов данных
 
 Функция производит конкатенацию двух массивов. Пусть массивы `a` и `b`

@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -33,7 +33,6 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup DFT_GROUP
-\fn int fft_create(fft_t* pfft, int n)
 \brief Function creates and fill `fft_t` structure.
 
 The function allocates memory and calculates twiddle factors 
@@ -97,7 +96,6 @@ The "magic number" 46340 because \f$\sqrt{2^{31}} = 46340.95\f$. \n
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup DFT_GROUP
-\fn int fft_create(fft_t* pfft, int n)
 \brief Заполнение структуры `fft_t` для алгоритма БПФ
 
 Функция производит выделение памяти и рассчет векторов 

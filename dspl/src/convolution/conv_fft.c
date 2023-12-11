@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -31,8 +31,6 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup FILTER_CONV_GROUP
-\fn int conv_fft(double* a, int na, double* b, int nb,
-                 fft_t* pfft, int nfft, double* c) 
 \brief Real vectors fast linear convolution by using fast Fourier
 transform algorithms
 
@@ -111,8 +109,6 @@ c[ 18] =     72.00    d[ 18] =     72.00
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup FILTER_CONV_GROUP
-\fn int conv_fft(double* a, int na, double* b, int nb,
-                 fft_t* pfft, double* c) 
 \brief Линейная свертка двух вещественных векторов с использованием алгоритмов
 быстрого преобразования Фурье
 

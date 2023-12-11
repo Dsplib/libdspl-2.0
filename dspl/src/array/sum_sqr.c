@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -27,15 +27,15 @@
 
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
-\ingroup ARRAY_GROUP
-\fn int sum(double* x, int n, double* s)
+\ingroup ARRAY_GROUP                    
+
 \author Sergey Bakhurin www.dsplib.org
 ***************************************************************************** */
 #endif
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup ARRAY_GROUP
-\fn int sum(double* x, int n, double* s)
+
 \author Бахурин Сергей www.dsplib.org
 ***************************************************************************** */
 #endif

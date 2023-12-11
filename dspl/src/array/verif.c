@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -27,8 +27,8 @@
 
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
-\ingroup ARRAY_GROUP
-\fn int verif(double* x,    double* y, size_t n, double eps, double* err)
+\ingroup ARRAY_GROUP     
+
 \brief Real arrays verification
 
 Function calculates a maximum relative error between two real arrays `x`
@@ -78,7 +78,7 @@ Otherwise `DSPL_VERIF_FAILED`.
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup ARRAY_GROUP
-\fn int verif(double* x, double* y, size_t n, double eps, double* err)
+
 \brief Верификация вещественных массивов
 
 Функция производит расчет максимальной относительной ошибки между вещественными

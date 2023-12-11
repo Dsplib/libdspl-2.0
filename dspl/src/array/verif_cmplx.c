@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -31,8 +31,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup ARRAY_GROUP
-\fn int verif_cmplx(complex_t* x, complex_t* y, size_t n,
-                    double eps, double* err)
+
 \brief
 Complex arrays verification
 
@@ -87,8 +86,7 @@ www.dsplib.org
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup ARRAY_GROUP
-\fn int verif_cmplx(complex_t* x,    complex_t* y, size_t n,
-                    double eps, double* err)
+
 \brief Верификация комплексных массивов
 
 Функция производит расчет максимальной относительной ошибки между комплексными

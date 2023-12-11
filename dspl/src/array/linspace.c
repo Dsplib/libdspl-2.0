@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -29,7 +29,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup ARRAY_GROUP
-\fn int linspace(double x0, double x1, int n, int type, double* x)
+
 \brief Function fills a vector with `n` linearly spaced elements
 between `x0` and `x1`.
 
@@ -96,7 +96,7 @@ Values in the vector `x` are:
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup ARRAY_GROUP
-\fn int linspace(double x0, double x1, int n, int type, double* x)
+
 \brief Функция заполняет массив линейно-нарастающими, равноотстоящими
 значениями от `x0` до `x1`
 

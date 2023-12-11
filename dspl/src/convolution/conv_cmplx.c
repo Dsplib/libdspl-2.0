@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -30,7 +30,6 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup FILTER_CONV_GROUP
-\fn int conv_cmplx(complex_t* a, int na, complex_t* b, int nb, complex_t* c) 
 \brief Complex vectors linear convolution.
 
 Function convolves two complex vectors \f$ c = a * b\f$ length `na` and `nb`.
@@ -94,7 +93,6 @@ cc[5] =   0.0+24.0j
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup FILTER_CONV_GROUP
-\fn int conv_cmplx(complex_t* a, int na, complex_t* b, int nb, complex_t* c) 
 \brief Линейная свертка двух комплексных векторов
 
 Функция рассчитывает линейную свертку двух векторов \f$ c = a * b\f$.

@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -30,7 +30,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup ARRAY_GROUP
-\fn int flipip_cmplx(complex_t* x, int n)
+
 \brief Flip complex vector `x` in place
 
 Function flips complex vector `x` length `n` in the memory
@@ -79,7 +79,7 @@ Program result:
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup ARRAY_GROUP
-\fn int flipip_cmplx(complex_t* x, int n)
+
 \brief Функция отражения комплексного вектора `x`
 
 Функция производит отражение комплексного вектора длины `n`

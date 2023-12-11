@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -27,7 +27,6 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup DFT_GROUP
-\fn int goertzel_cmplx(complex_t *x, int n, int *ind, int k, complex_t *y)
 \brief <a href = "http://en.dsplib.org/content/goertzel/goertzel.html">
 Goertzel algorithm </a> individual DFT samples calculation for 
 the complex input vector `x`.
@@ -77,7 +76,6 @@ with indices modulo `n`. \n
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup DFT_GROUP
-\fn int goertzel_cmplx(complex_t *x, int n, int *ind, int k, complex_t *y)
 \brief <a href = "http://ru.dsplib.org/content/goertzel/goertzel.html">
 Алгоритм Гёрцеля</a> для расчета отдельных спектральных отсчетов дискретного 
 преобразования Фурье комплексного сигнала `x`.

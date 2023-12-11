@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -32,8 +32,7 @@
 
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
-\ingroup DFT_GROUP
-\fn void fft_free(fft_t *pfft)
+\ingroup DFT_GROUP            
 \brief Free `fft_t` structure.
 
 The function clears the intermediate data memory
@@ -48,7 +47,6 @@ Pointer to the `fft_t` object. \n
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup DFT_GROUP
-\fn void fft_free(fft_t *pfft)
 \brief Очистить структуру `fft_t` алгоритма БПФ
 
 Функция производит очищение памяти промежуточных данных 

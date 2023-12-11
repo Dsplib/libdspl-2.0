@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -27,7 +27,6 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup DFT_GROUP
-\fn int idft_cmplx(complex_t* x, int n, complex_t* y)
 \brief Inverse discrete Fourier transform of the complex spectrum.
 
 The function calculates the \f$ n \f$ -point inverse discrete transform
@@ -96,7 +95,6 @@ use fast Fourier transform algorithms.
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup DFT_GROUP
-\fn int idft_cmplx(complex_t* x, int n, complex_t* y)
 \brief Обратное дискретное преобразование Фурье комплексного спектра.
 
 Функция рассчитывает \f$ n \f$-точечное обратное дискретное преобразование
