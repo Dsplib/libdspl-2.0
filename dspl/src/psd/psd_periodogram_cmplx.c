@@ -36,6 +36,7 @@
                               int win_type, double win_param,
                               fft_t* pfft, double fs,
                               int flag, double* ppsd, double* pfrq)
+
 \brief Непараметрическая оценка спектральной плотности мощности (СПМ) 
 комплексного сигнала методом модифицированной периодограммы.
 

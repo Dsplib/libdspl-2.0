@@ -107,7 +107,6 @@ In addition, GNUPLOT will build the following graphs from data stored in files:
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup IIR_FILTER_DESIGN_GROUP
-\fn int ellip_ap(double rp, double rs, int ord, double* b, double* a)
 
 \brief
 Расчет передаточной характеристики \f$ H(s) \f$ аналогового 

@@ -35,6 +35,7 @@
 \fn int psd_bartlett(double* x, int n, int nfft,
                           fft_t* pfft, double fs,
                           int flag, double* ppsd, double* pfrq)
+
 \brief Непараметрическая оценка спектральной плотности мощности (СПМ) 
 вещественного сигнала методом Бартлетта.
 
