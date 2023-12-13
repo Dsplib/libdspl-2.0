@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -28,8 +28,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup IIR_FILTER_DESIGN_GROUP
-\fn int cheby1_ap_zp( int ord, double rp, complex_t* z, int* nz, 
-                      complex_t* p, int* np)
+
 \brief
 Function calculates arrays of zeros and poles for analog normlized lowpass 
 Chebyshev type 1 filter transfer function \f$ H(s) \f$ order `ord` .
@@ -115,7 +114,7 @@ from data stored in `dat/cheby1_ap_zp.txt` file:
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup IIR_FILTER_DESIGN_GROUP
-\fn int cheby1_ap_zp(int ord, double rp, complex_t* z, int* nz, complex_t* p, int* np)
+
 \brief
 Расчет массивов нулей и полюсов передаточной функции   \f$ H(s) \f$ 
 аналогового нормированного ФНЧ Чебышёва первого рода.

@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -29,7 +29,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SPEC_MATH_STAT_GROUP
-\fn int find_max_abs(double* a, int n, double* m, int* ind)
+
 \brief Find maximum absolute value from the real vector `a`
 
 Function searches maximum absolute value in the real vector `a`.
@@ -76,7 +76,7 @@ and variable `ind` will keep `2`.
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_STAT_GROUP
-\fn int find_max_abs(double* a, int n, double* m, int* ind)
+
 \brief Поиск максимального по модулю элемента вещественного вектора `a`
 
 Функция производит поиск максимального по модулю значения вектора `a`. \n

@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -26,7 +26,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup PLOT_GROUP
-\fn void gnuplot_cmd(void* h, char* cmd)
+
 \brief Function sends `cmd` command to GNUPLOT corresponds to `h` handle.
 
 \note From a system point of view, `h` is a pointer to an open file,
@@ -52,7 +52,7 @@ GNUPLOT command string. \n \n
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup PLOT_GROUP
-\fn void gnuplot_cmd(void* h, char* cmd)
+
 \brief Функция посылает команду `cmd` пакету GNUPLOT, для построения 
 или оформления графика, соответсвующего хэндлу `h`.
 

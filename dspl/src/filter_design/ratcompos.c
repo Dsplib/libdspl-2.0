@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -30,9 +30,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup IIR_FILTER_DESIGN_GROUP
-\fn int ratcompos(  double* b, double* a, int n, 
-                    double* c, double* d, int p, 
-                    double* beta, double* alpha)  
+
 \brief  Rational composition
 
 Function calcultes composition \f$Y(s) = (H \circ F)(s) = H(F(s))\f$, here
@@ -105,9 +103,7 @@ Else \ref ERROR_CODE_GROUP "code error".
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup IIR_FILTER_DESIGN_GROUP
-\fn int ratcompos(  double* b, double* a, int n, 
-                    double* c, double* d, int p, 
-                    double* beta, double* alpha)  
+
 \brief  Рациональная композиця 
 
 Функция рассчитывает композицию вида \f$Y(s) = (H \circ F)(s) = H(F(s))\f$, где

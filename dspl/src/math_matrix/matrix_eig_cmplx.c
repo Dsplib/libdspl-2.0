@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -30,7 +30,6 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SPEC_MATH_LINALG_GROUP
-\fn int matrix_eig_cmplx(complex_t* a, int n, complex_t* v, int* info)
 
 \brief Eigenvalues calculation of the complex square matrix `a`.
 
@@ -86,7 +85,6 @@ v = [ % size [3 x 1] type: complex
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_LINALG_GROUP
-\fn int matrix_eig_cmplx(complex_t* a, int n, complex_t* v, int* info)
 
 \brief Расчет собственных значений квадратной комплексной матрицы.
 

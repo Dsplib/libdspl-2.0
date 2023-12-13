@@ -28,8 +28,6 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup IIR_FILTER_DESIGN_GROUP
-\fn int butter_ap_zp(int ord, double rp, complex_t* z, int* nz, 
-                     complex_t* p, int* np)
 
 \brief
 Function calculates arrays of zeros and poles for analog normlized lowpass 
@@ -115,8 +113,6 @@ from data stored in `dat/butter_ap_zp.txt` file:
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup IIR_FILTER_DESIGN_GROUP
-\fn int butter_ap_zp(int ord, double rp, complex_t* z, int* nz, 
-                     complex_t* p, int* np)
 
 \brief
 Расчет массивов нулей и полюсов передаточной функции 

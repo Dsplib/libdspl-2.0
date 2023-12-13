@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -29,7 +29,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SPEC_MATH_STAT_GROUP
-\fn int mean(double* x, int n, double* m)
+
 \brief Calculates the mean of the input vector `x`
 
 Function calculates the mean value
@@ -66,7 +66,7 @@ As result the variable `m` will keep value `2`.
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_STAT_GROUP
-\fn int mean(double* x, int n, double* m)
+
 \brief Выборочная оценка математического ожидания вещественного вектора `x`
 
 Функция рассчитывает оценку математического ожидания

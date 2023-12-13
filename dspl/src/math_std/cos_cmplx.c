@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -28,7 +28,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SPEC_MATH_TRIG_GROUP
-\fn int cos_cmplx(complex_t* x, int n, complex_t *y)
+
 \brief The cosine function the complex vector argument `x`.
 
 Function calculates the cosine function as: \n
@@ -81,7 +81,7 @@ cos_cmplx(5.0+6.0j) =      57.219 +193.428j
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_TRIG_GROUP
-\fn int cos_cmplx(complex_t* x, int n, complex_t *y)
+
 \brief  Косинус комплексного аргумента `x`.
 
 Функция рассчитывает значения косинуса комплексного аргумента, 

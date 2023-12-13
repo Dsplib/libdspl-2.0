@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -29,7 +29,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
  \ingroup IN_OUT_GROUP
- \fn    int readbin(char* fn, void** x, int* pn, int* pm, int* dtype)
+
  \brief Read array from the bin-file
  
  Function reads real or complex 1D/2D array size `n x m` from 
@@ -169,7 +169,7 @@
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
  \ingroup IN_OUT_GROUP
- \fn    int readbin(char* fn, void** x, int* pn, int* pm, int* dtype)
+
  \brief Считать данные из бинарного файла
  
  Функция считывает реальные или комплексные данные из бинарного файла 

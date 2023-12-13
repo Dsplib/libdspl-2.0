@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -29,7 +29,6 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup FILTER_ANALYSIS_GROUP
-\fn int freqz(double* b, double* a, int ord, double* w, int n, complex_t *h)
 
 \brief Function calculates the digital filter frequency response 
 \f$ H \left(e^{j \omega} \right)\f$ corresponds to transfer function \f$H(z)\f$.
@@ -86,7 +85,6 @@ Else \ref ERROR_CODE_GROUP "code error".
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup FILTER_ANALYSIS_GROUP
-\fn int freqz(double* b, double* a, int ord, double* w, int n, complex_t *h)
 
 \brief  Расчет комплексного коэффициента передачи 
   \f$ H \left(e^{j \omega} \right)\f$ цифрового фильтра.

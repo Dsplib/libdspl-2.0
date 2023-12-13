@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -32,7 +32,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SPEC_MATH_STAT_GROUP
-\fn int mean_cmplx(complex_t* x, int n, complex_t* m)
+
 \brief Calculates the mean of the complex input vector `x`
 
 Function calculates the mean value
@@ -69,7 +69,7 @@ As result the variable `m` will keep value `1 + 3j`.
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_STAT_GROUP
-\fn int mean_cmplx(complex_t* x, int n, complex_t* m)
+
 \brief Выборочная оценка математического ожидания комплексного вектора `x`
 
 Функция рассчитывает оценку математического ожидания

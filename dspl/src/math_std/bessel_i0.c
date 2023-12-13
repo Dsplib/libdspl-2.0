@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -28,7 +28,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SPEC_MATH_TRANSCEND
-\fn int bessel_i0(double* x, int n, double* y)
+
 \brief Modified Bessel Function of the First Kind – \f$ I_0(x)\f$ [1].
 
 \param[in] x
@@ -69,7 +69,7 @@ Data saved if `dat/dat0.txt` file and shows on the plot
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_TRANSCEND
-\fn int bessel_i0(double* x, int n, double* y)
+
 \brief
 Модифицированная функция Бесселя первого рода \f$ I_0(x)\f$.
 

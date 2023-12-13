@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -29,8 +29,6 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup FILTER_ANALYSIS_GROUP
-\fn int filter_freq_resp(double* b, double* a, int ord, double* w, int n, 
-        int flag, double* mag, double* phi, double* tau)
 
 \brief
 Magnitude, phase response and group delay vectors calculation 
@@ -129,8 +127,6 @@ In addition, GNUPLOT will build the following graphs from data stored in files:
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup FILTER_ANALYSIS_GROUP
-\fn int filter_freq_resp(double* b, double* a, int ord, double* w, int n, 
-        int flag, double* mag, double* phi, double* tau)
 
 \brief
 Расчет амплитудно-частотной (АЧХ), фазочастотной характеристик (ФЧХ), а также 

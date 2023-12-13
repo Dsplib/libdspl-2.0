@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -26,7 +26,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SPEC_MATH_TRANSCEND
-\fn int sine_int(double* x, int n, double* si)
+
 \brief Sine integral function \f$\textrm{Si}(x)\f$ for the real vector `x`.
 
 \f[ \textrm{Si}(x) = \int_{0}^{x} \frac{\sin(x)}{x} \, dx\f]
@@ -71,7 +71,7 @@ Functions values saved to th
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_TRANSCEND
-\fn int sine_int(double* x, int n, double* si)
+
 \brief Функция интегрального синуса
 \f[ \textrm{Si}(x) = \int_{0}^{x} \frac{\sin(x)}{x} \, dx\f]
 Функция рассчитывает значения функции для интегрального синуса 

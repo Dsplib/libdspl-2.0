@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -28,7 +28,6 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup IIR_FILTER_DESIGN_GROUP
-\fn int cheby1_ap(double Rp, int ord, double* b, double* a)
 
 \brief
 Function calculates the transfer function \f$ H(s) \f$ coefficients of
@@ -37,7 +36,7 @@ analog normalized lowpass Chebyshev type 1 filter.
 Analog normalized lowpass filter magnitude ripple equals \f$ -R_p \f$ dB 
 for angular frequency \f$ \omega \f$ from 0 to 1 rad/s.
 
-\param[in]  Rp
+\param[in]  rp
 Magnitude ripple in passband (dB). \n
 This parameter sets maximum filter distortion from 0 to 1 rad/s frequency. \n
 Parameter must be positive. \n 
@@ -101,7 +100,6 @@ In addition, GNUPLOT will build the following graphs from data stored in files:
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup IIR_FILTER_DESIGN_GROUP
-\fn int cheby1_ap(double Rp, int ord, double* b, double* a)
 
 \brief
 Расчет передаточной характеристики \f$ H(s) \f$ аналогового 
@@ -114,7 +112,7 @@ In addition, GNUPLOT will build the following graphs from data stored in files:
 Особенностью фильтра Чебышёва первого рода являются 
 равноволновые пульсации АЧХ в полосе пропускания.
 
-\param[in]  Rp
+\param[in]  rp
 Неравномерность АЧХ в полосе пропускания (дБ). \n
 Параметр задает уровень искажений в полосе от 0 до 1 рад/с. \n
 Значение должно быть положительным. \n

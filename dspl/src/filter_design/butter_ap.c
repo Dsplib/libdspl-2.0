@@ -27,7 +27,6 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
  \ingroup IIR_FILTER_DESIGN_GROUP
- \fn int butter_ap(double Rp, int ord, double* b, double* a)
  
  \brief
  Function calculates the transfer function \f$ H(s) \f$ coefficients of
@@ -98,10 +97,7 @@
 #endif
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
- 
- \ingroup IIR_FILTER_DESIGN_GROUP
- 
- \fn int butter_ap(double Rp, int ord, double* b, double* a)
+  \ingroup IIR_FILTER_DESIGN_GROUP
  
  \brief
  Расчет передаточной характеристики \f$ H(s) \f$ аналогового 
@@ -111,7 +107,7 @@
  аналогового нормированного ФНЧ Баттерворта порядка `ord` с частотой среза 
  1 рад/с по уровню \f$ -R_p \f$ дБ.
  
- \param [in]  Rp
+ \param [in]  rp
  Неравномерность АЧХ в полосе пропускания (дБ). \n
  Параметр задает уровень искажений в полосе от 0 до 1 рад/с. \n
  Значение должно быть положительным. \n 
@@ -123,7 +119,7 @@
  передаточной функции \f$ H(s) \f$ равно `ord+1`. \n 
  \n
  
-  \param [out]  b
+ \param [out]  b
  Указатель на вектор коэффициентов числителя 
  передаточной функции \f$ H(s) \f$. \n
  Размер вектора `[ord+1 x 1]`. \n

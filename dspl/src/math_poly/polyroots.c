@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -28,7 +28,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SPEC_MATH_POLY_GROUP
-\fn int polyroots(double* a, int ord, complex_t* r, int* info)
+
 \brief Function calculates real polynomial roots.
 
 Function calculates roots of the real polynomial \f$P_N(x)\f$ order \f$N\f$ 
@@ -91,7 +91,7 @@ r[1] = -1.00000-1.00000 j
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_POLY_GROUP
-\fn int polyroots(double* a, int ord, complex_t* r, int* info)
+
 \brief Расчет корней вещественного полинома
 
 Функция рассчитывает корни полинома \f$P_N(x)\f$  \f$N-\f$ого 

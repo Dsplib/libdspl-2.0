@@ -32,8 +32,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup PLOT_GROUP
-\fn int gnuplot_create(int argc, char* argv[], int w, int h, char* fn_png, 
-                       void** hplot) 
+
 \brief Create GNUPLOT chart. 
 
 This function opens the GNUPLOT package depending on the `argv` parameters 
@@ -116,8 +115,7 @@ The saved data is displayed on three graphs
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup PLOT_GROUP
-\fn int gnuplot_create(int argc, char* argv[], int w, int h, char* fn_png, 
-                       void** hplot) 
+
 \brief Создать график GNUPLOT.
 
 Данная функция открывает пакет GNUPLOT в зависимости от передаваемых в программу

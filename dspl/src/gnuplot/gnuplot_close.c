@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -28,7 +28,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup PLOT_GROUP
-\fn void gnuplot_close(void* h) 
+ 
 \brief Close GNUPLOT handle. 
 
 This function closes the previously opened GNUPLOT handle after transferring all
@@ -54,7 +54,7 @@ GNUPLOT handle which will be closed. \n
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup PLOT_GROUP
-\fn void gnuplot_close(void* h) 
+
 \brief Закрыть хэндл GNUPLOT. 
 
 Данная функция закрывает открытый ранее хэндл GNUPLOT после передачи всех 

@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -33,7 +33,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
  \ingroup IN_OUT_GROUP
- \fn    int writebin(void* x, int n, int m, int dtype, char* fn)
+
  \brief Save 1D vector or 2D matrix to the binary file
  
  Function saves real or complex 1D/2D data size `n x m` to the 
@@ -127,7 +127,7 @@
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
  \ingroup IN_OUT_GROUP
- \fn    int writebin(void* x, int n, int m, int dtype, char* fn)
+
  \brief Сохранить данные в бинарный файл
  
  Функция сохраняет реальный или комплексный массив данных

@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -32,9 +32,6 @@
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup PSD_GROUP
-\fn int psd_bartlett(double* x, int n, int nfft,
-                          fft_t* pfft, double fs,
-                          int flag, double* ppsd, double* pfrq)
 
 \brief Непараметрическая оценка спектральной плотности мощности (СПМ) 
 вещественного сигнала методом Бартлетта.

@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -28,7 +28,7 @@
 #if DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SPEC_MATH_TRIG_GROUP
-\fn int acos_cmplx(complex_t* x, int n, complex_t *y)
+
 \brief The inverse of the cosine function the complex vector argument `x`.
 
 Function calculates the inverse of the cosine function as: \n
@@ -81,7 +81,7 @@ acos_cmplx(5.0+6.0j) = 0.880-2.749j
 #if DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_TRIG_GROUP
-\fn int acos_cmplx(complex_t* x, int n, complex_t *y)
+
 \brief  Арккосинус комплексного аргумента `x`.
 
 Функция рассчитывает значения арккосинуса комплексного аргумента, 

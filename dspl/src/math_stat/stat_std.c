@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -32,7 +32,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SPEC_MATH_STAT_GROUP
-\fn int stat_std(double* x, int n, double* s)
+
 \brief Calculates the standard deviation of the input vector `x`
 
 Function calculates the the standard deviation value
@@ -73,7 +73,7 @@ As result the variable `s` will keep value `1.5811`.
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_STAT_GROUP
-\fn int stat_std(double* x, int n, double* s)
+
 \brief Выборочная оценка стандартного отклонения вещественного вектора `x`
 
 Функция рассчитывает оценку стандартного отклонения

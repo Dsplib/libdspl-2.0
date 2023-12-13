@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -29,8 +29,6 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup FILTER_ANALYSIS_GROUP
-\fn int DSPL_API group_delay(double* b, double* a, int ord, int flag,
-                         double* w, int n, double* tau)
 
 \brief
 Group delay calculation for digital or analog filter corresponds to 
@@ -43,12 +41,12 @@ Group delay is describes as:
 here \f$\Phi(\omega)\f$ -- filter phase response, \f$\omega\f$ is angular
 frequency for analog filter, or normalized frequency for digital filter.
 
-\param[in]  b
+\param[in]  pb
 Pointer to the \f$ H(s) \f$ or \f$H(z)\f$  transfer function 
 numerator coefficients vector. \n 
 Vector size is `[ord+1 x 1]`. \n \n 
 
-\param[in]  a
+\param[in]  pa
 Pointer to the \f$ H(s) \f$ or \f$H(z)\f$ transfer function 
 denominator coefficients vector. \n 
 Vector size is `[ord+1 x 1]`. \n \n 
@@ -96,8 +94,7 @@ Else \ref ERROR_CODE_GROUP "code error".
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup FILTER_ANALYSIS_GROUP
-\fn int DSPL_API group_delay(double* b, double* a, int ord, int flag,
-                         double* w, int n, double* tau)
+
 \brief
 Расчет группового времени запаздывания цифрового или аналогового фильтра.
 
@@ -108,12 +105,12 @@ Else \ref ERROR_CODE_GROUP "code error".
 где \f$\Phi(\omega)\f$ -- ФЧХ фильтра, \f$\omega\f$ циктическая частот в случае 
 аналогового фильтра, или нормированная частота цифрового фильтра.
 
-\param[in]  b
+\param[in]  pb
 Указатель на вектор коэффициентов числителя передаточной функции 
 аналогового фильтра \f$ H(s) \f$  или цифрового фильтра \f$ H(z) \f$. \n 
 Размер вектора `[ord+1 x 1]`. \n \n 
 
-\param[in]  a
+\param[in]  pa
 Указатель на вектор коэффициентов числителя передаточной функции 
 аналогового фильтра \f$ H(s) \f$  или цифрового фильтра \f$ H(z) \f$. \n 
 Размер вектора `[ord+1 x 1]`. \n  

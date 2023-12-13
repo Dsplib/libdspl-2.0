@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -30,7 +30,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SPEC_MATH_ELLIP_GROUP
-\fn int ellip_asn_cmplx(complex_t* w, int n, double k, complex_t* u)
+
 \brief  Inverse Jacobi elliptic function \f$ u = \textrm{sn}^{-1}(w, k)\f$ 
 of complex vector argument
 
@@ -65,7 +65,7 @@ Memory must be allocated. \n \n
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_ELLIP_GROUP
-\fn int ellip_asn_cmplx(complex_t* w, int n, double k, complex_t* u)  
+
 \brief  Обратная эллиптическая функция Якоби 
   \f$ u = \textrm{sn}^{-1}(w, k)\f$ комплексного аргумента
 

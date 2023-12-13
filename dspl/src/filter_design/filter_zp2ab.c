@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -29,8 +29,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup IIR_FILTER_DESIGN_GROUP
-\fn int filter_zp2ab(complex_t *z, int nz, complex_t *p, int np, int ord, 
- double* b, double* a)  
+
 \brief  
 Function recalculates complex zeros and poles of transfer function \f$ H(s) \f$
 to the coefficients of \f$ H(s) \f$ numerator and denominator polynomials. 
@@ -99,8 +98,7 @@ and poles are not fulfilled.
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup IIR_FILTER_DESIGN_GROUP
-\fn int filter_zp2ab(complex_t *z, int nz, complex_t *p, int np, int ord, 
- double* b, double* a)  
+
 \brief  Функция пересчета нулей и полюсов аналогового фильтра в коэффициенты 
         передаточной характеристики \f$ H(s) \f$
   

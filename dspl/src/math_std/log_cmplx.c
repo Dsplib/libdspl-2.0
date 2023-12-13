@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -29,7 +29,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SPEC_MATH_COMMON_GROUP
-\fn int log_cmplx(complex_t* x, int n, complex_t *y)
+
 \brief The logarithm function the complex vector argument `x`.
 
 Function calculates the logarithm function as: \n
@@ -83,7 +83,7 @@ Sergey Bakhurin www.dsplib.org
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_COMMON_GROUP
-\fn int log_cmplx(complex_t* x, int n, complex_t *y)
+
 \brief  Натуральный логарифм комплексного аргумента `x`.
 
 Функция рассчитывает значения натурального логарифма комплексного аргумента, 

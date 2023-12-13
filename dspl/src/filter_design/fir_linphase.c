@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -70,8 +70,7 @@ error_proc:
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup FIR_FILTER_DESIGN_GROUP
-\fn int DSPL_API  fir_linphase(int ord, double w0, double w1, int filter_type, 
-int win_type, double win_param, double* h)
+
 \brief
 Function calculates linear-phase FIR filter coefficients by window method
 
@@ -193,8 +192,7 @@ This function calculates coeffictiens of lowpass, highpass, bandpass
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup FIR_FILTER_DESIGN_GROUP
-\fn int DSPL_API  fir_linphase(int ord, double w0, double w1, int filter_type, 
-                               int win_type, double win_param, double* h)
+
 \brief
 Расчет коэффициентов линейно-фазового КИХ-фильтра 
 методом оконного взвешивания.

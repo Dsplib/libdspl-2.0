@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -29,7 +29,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SPEC_MATH_POLY_GROUP
-\fn int cheby_poly1(double* x, int n, int ord, double* y)
+
 \brief Chebyshev polynomial of the first kind order `ord`
 
 Function calculates Chebyshev polynomial \f$ C_{ord}(x)\f$ of the first kind
@@ -81,7 +81,7 @@ GNUPLOT package will create Chebyshev polynomials plot from saved text-files:
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_POLY_GROUP
-\fn int cheby_poly1(double* x, int n, int ord, double* y)
+
 \brief Многочлен Чебышева первого рода порядка `ord`
 
 Функция производит расчет многочлена Чебышева первого рода \f$ C_{ord}(x)\f$ для

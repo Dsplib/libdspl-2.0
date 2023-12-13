@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2023 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -28,7 +28,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SPEC_MATH_COMMON_GROUP
-\fn int sqrt_cmplx(complex_t* x, int n, complex_t *y)
+
 \brief Square root of the complex vector argguument `x`.
 
 Function calculates square root value of vector `x` length `n`:    \n
@@ -81,7 +81,7 @@ sqrt_cmplx(5.0+6.0j) = 2.531+1.185j
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_COMMON_GROUP
-\fn int sqrt_cmplx(complex_t* x, int n, complex_t *y)
+
 \brief  Квадратный корень из комплексного вектора `x` (поэлементный).
 
 Функция рассчитывает значения квадратного корня комплексного аргумента, 

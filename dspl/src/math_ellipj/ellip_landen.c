@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -30,7 +30,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SPEC_MATH_ELLIP_GROUP
-\fn int  ellip_landen(double k, int n, double* y)
+
 \brief  Function calculates complete elliptical integral 
 coefficients  \f$ k_i \f$ 
 
@@ -101,7 +101,7 @@ Result:
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_ELLIP_GROUP
-\fn int  ellip_landen(double k, int n, double* y)
+
 \brief  Расчет коэффициентов \f$ k_i \f$ ряда полного эллиптического интеграла.  
 
 Полный эллиптический интеграл \f$ K(k) \f$ может быть представлен рядом:

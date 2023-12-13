@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -29,7 +29,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup FILTER_ANALYSIS_GROUP
-\fn int freqs(double* b, double* a, int ord, double* w, int n, complex_t *h)
+
 \brief Analog filter frequency response \f$ H(j \omega) \f$ calculation
 
 Function calculates analog filter frequency response \f$ H(j \omega)\f$ 

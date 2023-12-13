@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -30,7 +30,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup IN_OUT_GROUP
-\fn int writetxt(double* x, double* y, int n, char* fn)
+
 \brief Save real data \f$y(x)\f$ to the text file `fn`. \n
 
 File format is:
@@ -76,7 +76,7 @@ So, it is not recommended to use it to verify algorithms.
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup IN_OUT_GROUP
-\fn    int writetxt(double* x, double* y, int n, char* fn)
+
 \brief Сохранить вещественные данные в текстовый файл
 
 Функция сохраняет вещественные данные в текстовый файл `fn`. \n

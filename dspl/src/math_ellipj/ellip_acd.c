@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -29,7 +29,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SPEC_MATH_ELLIP_GROUP
-\fn int ellip_acd(double* w, int n, double k, double* u)  
+
 \brief  Inverse Jacobi elliptic function \f$ u = \textrm{cd}^{-1}(w, k)\f$ 
 of the real vector argument
 
@@ -64,7 +64,7 @@ Memory must be allocated. \n \n
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_ELLIP_GROUP
-\fn int ellip_acd(double* w, int n, double k, double* u)  
+
 \brief  Обратная эллиптическая функция Якоби 
   \f$ u = \textrm{cd}^{-1}(w, k)\f$ вещественного аргумента
 

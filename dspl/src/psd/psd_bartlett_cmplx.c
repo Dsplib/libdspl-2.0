@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -31,9 +31,6 @@
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup PSD_GROUP
-\fn int psd_bartlett_cmplx(complex_t* x, int n, int nfft,
-                                fft_t* pfft, double fs,
-                                int flag, double* ppsd, double* pfrq)
 
 \brief Непараметрическая оценка спектральной плотности мощности (СПМ) 
 комплексного сигнала методом Бартлетта.
@@ -114,7 +111,7 @@ DSPL_FLAG_PSD_TWOSIDED - двусторонняя СПМ (от -Fs/2 до Fs/2)
 
 Пример оценок СПМ методом Бартлетта:
 
-\include psd_bartlett_test_cmplx.c
+\include psd_bartlett_cmplx_test.c
 
 Программа производит расчет СПМ сигнала, состоящего из двух комплексных 
 экспонент на фоне белого гауссова шума. 

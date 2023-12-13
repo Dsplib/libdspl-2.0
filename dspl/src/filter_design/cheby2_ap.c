@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -28,7 +28,6 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup IIR_FILTER_DESIGN_GROUP
-\fn int cheby2_ap(double Rs, int ord, double *b, double *a)
 
 \brief
 Function calculates the transfer function \f$ H(s) \f$ coefficients of
@@ -39,7 +38,7 @@ suppression in stopband.
 Also analog normalized Chebyshev type 2 filter magnitude equals \f$-Rs\f$ dB 
 for angular frequency \f$\omega = 1\f$ rad/s.
 
-\param[in]  Rs
+\param[in]  rs
 Suppression level in stopband (dB). \n
 This parameter sets filter supression for \f$\omega \geq 1\f$ rad/s frequency. \n
 Parameter must be positive. \n 
@@ -103,7 +102,6 @@ In addition, GNUPLOT will build the following graphs from data stored in files:
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup IIR_FILTER_DESIGN_GROUP
-\fn int cheby2_ap(double Rs, int ord, double *b, double *a)
 
 \brief
 Расчет передаточной характеристики \f$ H(s) \f$ аналогового 
@@ -117,7 +115,7 @@ In addition, GNUPLOT will build the following graphs from data stored in files:
 1) равноволновые пульсации  АЧХ в полосе заграждения. \n
 2) уровень АЧХ \f$H(j\cdot 1) = -R_s\f$ дБ. \n
 
-\param[in]  Rs
+\param[in]  rs
 Уровень подавления в полосе пропускания (дБ). \n
 Значение должно быть положительным. \n 
 \n

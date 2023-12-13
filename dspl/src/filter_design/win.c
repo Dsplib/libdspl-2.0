@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -51,7 +51,7 @@ int win_rect            (double *w, int n);
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup WIN_GROUP
-\fn int window(double* w, int n, int win_type, double param)
+
 \brief Window function calculation
 
 The function calculates a periodic or symmetric window function
@@ -188,7 +188,7 @@ Parametric Kaiser windows
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup WIN_GROUP
-\fn int window(double* w, int n, int win_type, double param)
+
 \brief Расчет функции оконного взвешивания
 
 Функция рассчитывает периодическую или симметричную оконную функцию

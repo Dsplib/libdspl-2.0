@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -29,9 +29,8 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup IIR_FILTER_DESIGN_GROUP
-\fn int  low2low(double* b, double* a, int ord, double w0, double w1,
-                 double* beta, double* alpha)
 
+\brief
 Lowpass to lowpass filter frequency transform
 
 Function transforms lowpass filter transfer function \f$ H(s) \f$ 
@@ -89,8 +88,7 @@ Else \ref ERROR_CODE_GROUP "code error".
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup IIR_FILTER_DESIGN_GROUP
-\fn int  low2low(double* b, double* a, int ord, double w0, double w1,
-                 double* beta, double* alpha)
+
 \brief  Частотное преобразование ФНЧ-ФНЧ
 
 Функция производит преобразование передаточной функции \f$ H(s) \f$ 

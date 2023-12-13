@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -30,7 +30,7 @@
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_POLY_GROUP
-\fn int polyval(double* a, int ord, double* x, int n, double* y)
+
 \brief Расчет вещественного полинома
 
 Функция рассчитывает полином \f$P_N(x)\f$  \f$N-\f$ого порядка для вещественного

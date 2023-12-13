@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -27,7 +27,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SPEC_MATH_TRIG_GROUP
-\fn int sin_cmplx(complex_t* x, int n, complex_t *y)
+
 \brief The sine function the complex vector argument `x`.
 
 Function calculates the sine function as: \n
@@ -81,7 +81,7 @@ sin_cmplx(5.0+6.0j) =    -193.430 +57.218j
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_TRIG_GROUP
-\fn int sin_cmplx(complex_t* x, int n, complex_t *y)
+
 \brief  Синус комплексного аргумента `x`.
 
 Функция рассчитывает значения синуса комплексного аргумента, 

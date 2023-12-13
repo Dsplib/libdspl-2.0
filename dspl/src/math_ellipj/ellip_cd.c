@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -30,7 +30,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SPEC_MATH_ELLIP_GROUP
-\fn int ellip_cd(double* u, int n, double k, double* y)
+
 \brief  Jacobi elliptic function \f$ y = \textrm{cd}(u K(k), k)\f$ 
 of real vector argument
 
@@ -75,7 +75,7 @@ Also program draws the plot of calculated elliptic functions.
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_ELLIP_GROUP
-\fn int ellip_cd(double* u, int n, double k, double* y)  
+
 \brief  Эллиптическая функция Якоби 
 \f$ y = \textrm{cd}(u K(k), k)\f$ вещественного аргумента
 

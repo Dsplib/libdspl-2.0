@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -27,7 +27,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup PLOT_GROUP
-\fn int gnuplot_open(void** hplot)
+
 \brief Open GNUPLOT program. 
 
 This function opens the GNUPLOT package. 
@@ -66,7 +66,7 @@ but does not create terminals.
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup PLOT_GROUP
-\fn int gnuplot_open(void** hplot)
+
 \brief Открыть пакет GNUPLOT.
 
 Данная функция открывает пакет GNUPLOT. 

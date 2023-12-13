@@ -29,7 +29,6 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
  \ingroup IIR_FILTER_DESIGN_GROUP
- \fn int bilinear(double* bs, double* as, int ord, double* bz, double* az)
  
  \brief
  Transform a s-plane analog filter transfer function \f$ H(s) \f$ to the
@@ -118,7 +117,6 @@
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
  \ingroup IIR_FILTER_DESIGN_GROUP
- \fn int bilinear(double* bs, double* as, int ord, double* bz, double* az)
  
  \brief
  Билинейное преобразование передаточной характеристики аналогового 

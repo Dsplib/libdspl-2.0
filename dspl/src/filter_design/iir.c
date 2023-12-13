@@ -1,7 +1,7 @@
 /*
 * \file iir.c
 * \author Sergey Bakhurin <admin\dsplib.org>
-* \copyright Copyright (c) 2015-2022 Sergey Bakhurin
+* \copyright Copyright (c) 2015-2024 Sergey Bakhurin
 *
 * \section DESCRIPTION
 * Digital Signal Processing Library [http://dsplib.org]
@@ -62,10 +62,7 @@ int iir_ap(double rp, double rs, int ord, int type, double* b, double* a)
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
  \ingroup IIR_FILTER_DESIGN_GROUP
-
- \fn int iir(double rp, double rs, int ord,    double    w0, double    w1, 
-             int type, double* b,    double* a)
- 
+                                                 
  \brief
  Digital IIR filter design.
  
@@ -153,9 +150,7 @@ int iir_ap(double rp, double rs, int ord, int type, double* b, double* a)
 #endif
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
- \ingroup IIR_FILTER_DESIGN_GROUP
- \fn int iir(double rp, double rs, int ord, double w0, double w1, 
-             int type, double* b, double* a)
+ \ingroup IIR_FILTER_DESIGN_GROUP             
  
  \brief
  Функция расчета коэффициентов передаточной характеристики \f$ H(z) \f$

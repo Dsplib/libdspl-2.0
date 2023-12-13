@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -29,7 +29,6 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup IN_OUT_GROUP
-\fn int writetxt_int(int* x, int* y, int n, char* fn)
 
 \brief Save interger data \f$y(x)\f$ to the text file `fn`. \n
 
@@ -71,7 +70,6 @@ Else \ref ERROR_CODE_GROUP "code error".
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup IN_OUT_GROUP
-\fn    int writetxt_int(int* x, int* y, int n, char* fn)
 
 \brief Сохранить целочисленные данные в текстовый файл
 

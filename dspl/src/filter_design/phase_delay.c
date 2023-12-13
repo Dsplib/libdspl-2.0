@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -30,8 +30,6 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup FILTER_ANALYSIS_GROUP
-\fn int DSPL_API phase_delay(double* b, double* a, int ord, int flag,
-                         double* w, int n, double* tau)
 
 \brief
 Phase delay calculation for digital or analog filter corresponds to 
@@ -97,8 +95,7 @@ Else \ref ERROR_CODE_GROUP "code error".
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup FILTER_ANALYSIS_GROUP
-\fn int DSPL_API phase_delay(double* b, double* a, int ord, int flag,
-                         double* w, int n, double* tau)
+
 \brief
 Расчет фазовой задержки цифрового или аналогового фильтра.
 

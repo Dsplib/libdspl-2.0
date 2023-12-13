@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -38,8 +38,7 @@ int xcorr_scale_cmplx(complex_t* x, int nd, int flag);
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SPEC_MATH_STAT_GROUP
-\fn int xcorr(double* x, int nx, double* y, int ny, 
-                   int flag, int nr, double* r, double* t)
+
 \brief Estimates the cross-correlation vector for real 
 discrete-time sequences `x` and `y`.
 
@@ -126,8 +125,7 @@ Else \ref ERROR_CODE_GROUP "code error".
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_STAT_GROUP
-\fn int xcorr(double* x, int nx, double* y, int ny, 
-                   int flag, int nr, double* r, double* t)
+
 \brief Оценка вектора взаимной корреляции для дискретных 
 вещественных последовательностей `x` и `y`.
 
@@ -199,7 +197,7 @@ Else \ref ERROR_CODE_GROUP "code error".
 
 \param[out] t
 Указатель на значения аргумента вектора взаимной корреляции  
-\f$ k= -n_r,\,\, -n_r +1, \ldors n_r\f$.\n
+\f$ k= -n_r,\,\, -n_r +1, \ldots n_r\f$.\n
 Размер вектора `[(2*nr+1) x 1]`. \n
 Указатель может быть `NULL`. В этом случае значения аргумента не возвращаются.\n
 \n
@@ -273,8 +271,7 @@ exit_label:
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SPEC_MATH_STAT_GROUP
-int xcorr_cmplx(complex_t* x, int nx, complex_t* y, int ny, 
-                         int flag, int nr, complex_t* r, double* t)
+
 \brief Estimates the cross-correlation vector for complex 
 discrete-time sequences `x` and `y`.
 
@@ -346,7 +343,7 @@ Memory must be allocated. \n
 
 \param[out] r
 Pointer to the cross-correlation argument vector  
-\f$ k= -n_r,\,\, -n_r +1, \ldors n_r\f$.\n
+\f$ k= -n_r,\,\, -n_r +1, \ldots n_r\f$.\n
 Vector size is `[(2*nr+1) x 1]`. \n
 Pointer can be `NULL`. \n
 \n
@@ -361,8 +358,7 @@ Else \ref ERROR_CODE_GROUP "code error".
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_STAT_GROUP
-int xcorr_cmplx(complex_t* x, int nx, complex_t* y, int ny, 
-                         int flag, int nr, complex_t* r, double* t)
+
 \brief Оценка вектора взаимной корреляции для дискретных 
 комплексных последовательностей `x` и `y`.
 
@@ -434,7 +430,7 @@ int xcorr_cmplx(complex_t* x, int nx, complex_t* y, int ny,
 
 \param[out] t
 Указатель на значения аргумента вектора взаимной корреляции  
-\f$ k= -n_r,\,\, -n_r +1, \ldors n_r\f$.\n
+\f$ k= -n_r,\,\, -n_r +1, \ldots n_r\f$.\n
 Размер вектора `[(2*nr+1) x 1]`. \n
 Указатель может быть `NULL`. В этом случае значения аргумента не возвращаются.\n
 \n

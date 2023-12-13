@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -26,7 +26,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SPEC_MATH_COMMON_GROUP
-\fn int sinc(double* x, int n, double a, double* y)
+
 \brief Function \f$ \textrm{sinc}(x,a) = \frac{\sin(ax)}{ax}\f$ 
 for the real vector `x`.
 
@@ -55,7 +55,7 @@ Else \ref ERROR_CODE_GROUP "code error". \n
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_COMMON_GROUP
-\fn int sinc(double* x, int n, double a, double* y)
+
 \brief Функция \f$ \textrm{sinc}(x,a) = \frac{\sin(ax)}{ax}\f$.
 
 Функция рассчитывает значения функции для вещественного вектора `x`.

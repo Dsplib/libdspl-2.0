@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -28,8 +28,6 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup IN_OUT_GROUP
-\fn    int writetxt_3d(double* x, int nx, double* y, int ny,
-                       double* z, char* fn)
 
 \brief Save data \f$ z(x,y)\f$    to the text file `fn` for 3D surface plotting.
 
@@ -122,7 +120,6 @@ In addition, GNUPLOT built a 3D surface by data
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup IN_OUT_GROUP
-\fn int writetxt_3d(double* x, int nx, double* y, int ny, double* z, char* fn)
 
 \brief Сохранить данные для построения 3D графика
 

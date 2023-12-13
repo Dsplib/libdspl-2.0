@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -30,8 +30,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SPEC_MATH_LINALG_GROUP
-\fn int matrix_mul(double* a, int na, int ma, double* b, int nb, int mb,
-                   double* c)
+
 \brief Matrix multiplication.
 
 The function calculates the product of matrices \f$\mathbf{C} = \mathbf{AB}\f$,
@@ -110,8 +109,7 @@ C = [ % size [4 x 3] type: real
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_LINALG_GROUP
-\fn int matrix_mul(double* a, int na, int ma, double* b, int nb, int mb,
-                   double* c)
+
 \brief Произведение вещественных матриц.
 
 Функция рассчитывает произведение матриц \f$\mathbf{C} = \mathbf{AB}\f$,

@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -31,10 +31,7 @@
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup PSD_GROUP
-int psd_welch_cmplx(complex_t* x, int n, 
-                      int win_type, double win_param,
-                      int nfft, int noverlap, fft_t* pfft, double fs,
-                      int flag, double* ppsd, double* pfrq)
+
 \brief Непараметрическая оценка спектральной плотности мощности (СПМ) 
 комплексного сигнала методом Уэлча.
 

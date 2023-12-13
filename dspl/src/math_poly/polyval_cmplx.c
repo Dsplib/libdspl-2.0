@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -33,7 +33,7 @@
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_POLY_GROUP
-\fn int polyval_cmplx(complex_t* a, int ord, complex_t* x, int n, complex_t* y)
+
 \brief Расчет комплексного полинома
 
 Функция рассчитывает полином \f$P_N(x)\f$ \f$N\f$-го порядка 

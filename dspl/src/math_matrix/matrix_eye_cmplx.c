@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -30,7 +30,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SPEC_MATH_LINALG_GROUP
-\fn int matrix_eye_cmplx(complex_t* a, int n, int m)
+
 \brief The complex identity matrix size `n x m` generation.
  
  Function fills matrix `a` by zeros and sets main diagonal as ones.
@@ -55,7 +55,7 @@ Else \ref ERROR_CODE_GROUP "code error". \n
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_LINALG_GROUP
-\fn int matrix_eye_cmplx(complex_t* a, int n, int m)
+
 \brief Генерирование единичной комплексной матрицы размерности `n x m`.
 
 Данная функция заполняет матрицу нулями 
