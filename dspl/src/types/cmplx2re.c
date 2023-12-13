@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -27,7 +27,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup TYPES_GROUP
-\fn int cmplx2re(complex_t* x, int n, double* re, double* im)
+
 \brief  Separate complex vector to the real and image vectors
 
 Function fills `re` and `im` vectors corresponds to real and image
@@ -78,7 +78,7 @@ re[2] = 5.0; im[2] = 6.0;
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup TYPES_GROUP
-\fn int cmplx2re(complex_t* x, int n, double* re, double* im)
+
 \brief  Преобразование массива комплексных данных в два массива
         вещественных данных, содержащих реальную и мнимую части 
         исходного массива

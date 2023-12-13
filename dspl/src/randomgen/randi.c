@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -35,7 +35,7 @@
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_RAND_GEN_GROUP
-\fn int randi(int* x, int n, int start, int stop, random_t* prnd)
+
 \brief  Генерация целочисленного вектора равномерно 
 распределенных псевдослучайных чисел.
 

@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -33,9 +33,8 @@
 #endif
 #ifdef DOXYGEN_RUSSIAN
 /*!*****************************************************************************
-\ingroup RESAMPLING_GROUP
-\fn  int farrow_lagrange(double *s, int n, double p, double q, 
-                         double frd, double **y, int *ny)
+\ingroup RESAMPLING_GROUP                                
+
 \brief Передискретизация вещественного сигнала на основе 
 полиномиальной Лагранжевой интерполяции.
 

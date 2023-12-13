@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -31,7 +31,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SPEC_MATH_RAND_GEN_GROUP
-\fn int random_init(random_t* prnd, int type, void* seed)
+
 \brief Pseudorandom numbers generators initialization. 
 
 \param[in,out] prnd
@@ -75,7 +75,7 @@ pseudorandom numbers each restart.
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_RAND_GEN_GROUP
-\fn int random_init(random_t* prnd, int type, void* seed)
+
 \brief Инициализация датчиков псевдослучайных чисел. 
 
 \param[in,out] prnd

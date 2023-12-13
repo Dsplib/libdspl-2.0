@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of DSPL.
@@ -28,7 +28,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! *****************************************************************************
 \ingroup TYPES_GROUP
-\fn int re2cmplx(double* x, int n, complex_t *y)
+
 \brief  Convert real array to the complex array.
 
 Function copies the vector `x` to the real part of vector `y`.
@@ -74,7 +74,7 @@ Vector `y` will keep:
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup TYPES_GROUP
-\fn int re2cmplx(double* x, int n, complex_t *y)
+
 \brief Преобразование массива вещественных данных в массив комплексных данных.
 
 Функция заполняет реальные части массива `y` данных соответсвующими значениями 

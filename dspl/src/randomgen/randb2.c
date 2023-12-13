@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -29,10 +29,10 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SPEC_MATH_RAND_GEN_GROUP
-\fn int randb2(double* x, int n, random_t* prnd)
+
 \brief Binary bipolar [-1, 1] pseudorandom vector. 
 
-The function generates a unipolar pseudo-random vector,
+The function generates a bipolar pseudo-random vector,
 each element of which takes an equally probable value of -1 or 1
 
 \param[in,out] x  
@@ -72,7 +72,7 @@ As a result of the program run, you can see the graph:
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_RAND_GEN_GROUP
-\fn int randb2(double* x, int n, random_t* prnd)
+
 \brief Генерация бинарного биполярного [-1, 1] псевдослучайного вектора 
 
 Функция генерирует биполярный псевдослучайный вектор, 

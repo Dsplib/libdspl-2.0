@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -31,7 +31,7 @@
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup SPEC_MATH_RAND_GEN_GROUP
-\fn int randb(double* x, int n, random_t* prnd)
+
 \brief Binary unipolar [0, 1] pseudorandom vector. 
 
 The function generates a unipolar pseudo-random vector,
@@ -74,7 +74,7 @@ As a result of the program run, you can see the graph:
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_RAND_GEN_GROUP
-\fn int randb(double* x, int n, random_t* prnd)
+
 \brief Генерация бинарного униполярного [0, 1] псевдослучайного вектора 
 
 Функция генерирует униполярный псевдослучайный вектор, 

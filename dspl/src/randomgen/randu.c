@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2015-2022 Sergey Bakhurin
+* Copyright (c) 2015-2024 Sergey Bakhurin
 * Digital Signal Processing Library [http://dsplib.org]
 *
 * This file is part of libdspl-2.0.
@@ -39,7 +39,7 @@
 #ifdef DOXYGEN_RUSSIAN
 /*! ****************************************************************************
 \ingroup SPEC_MATH_RAND_GEN_GROUP
-\fn int randu(double* x, int n, random_t* prnd)
+
 \brief Генерация вектора равномерно-распределенных в интервале 
 от 0 до 1 псевдослучайных чисел.
 
