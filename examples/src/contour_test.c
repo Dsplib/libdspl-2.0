@@ -6,6 +6,7 @@
 #define N  3
 #define M  4
 
+#define BSIZE 256
 
 
 typedef double    point2d_t[2];
@@ -22,16 +23,18 @@ int add_linseg(linseg_t** ls, int* lsnum, int* lscnt,
 	int n, c;
 	n = *lsnum;
 	c = *lscnt;
+	// проверяем выделение памяти.
 	if((n == 0) && ((*ls)==NULL))
 	{
-		n = 128;
+		n = BSIZE;
 		(*ls) = (linseg_t*)malloc(n * sizeof(linseg_t));
 	}
 	else
 	{
+		// при необходимости увеличиваем
 		if(c >= n)
 		{
-			n += 128;
+			n += BSIZE;
 			(*ls) = (linseg_t*)realloc((*ls), n * sizeof(linseg_t));
 		}
 	}
@@ -39,7 +42,7 @@ int add_linseg(linseg_t** ls, int* lsnum, int* lscnt,
 	(*ls)[c].p[0][1] = p0[0][1];
 	(*ls)[c].p[1][0] = p1[0][0];
 	(*ls)[c].p[1][1] = p1[0][1];
-	(*ls)[c].flag = 0;
+	(*ls)[c].flag = 1;
 	c++;
 	(*lsnum) = n;
 	(*lscnt) = c;
@@ -78,19 +81,23 @@ int linseg_create(double* z, double* x, double* y,
 			switch(t)
 			{
 				case 0:
+				case 15:
 					break;
 				case 1:
+				case 14:
 					// z[i,j] * (1-dx) + z[i+1, j] * dx   = lev
 					// z[i,j]  + dx *(z[i+1, j] - z[i,j]) = lev
 					dx = (lev - z[i]) / (z[i+1] - z[i]);
 					p0[0] = x[in] + dx;
 					p0[1] = y[im];
+					
 					dy = (lev - z[i+1]) / (z[i+n+1] - z[i+1]);
 					p1[0] = x[in+1];
 					p1[1] = y[im] + dy;
 					add_linseg(ls, &lsnum, &lscnt, &p0, &p1);
 					break;
 				case 2:
+				case 13:
 					dx = (lev - z[i+n]) / (z[i+n+1] - z[i+n]);
 					p0[0] = x[in] + dx;
 					p0[1] = y[im + 1];
@@ -101,28 +108,56 @@ int linseg_create(double* z, double* x, double* y,
 					add_linseg(ls, &lsnum, &lscnt, &p0, &p1);
 					break;
 				case 3:
+				case 12:
 					dx = (lev - z[i]) / (z[i+1] - z[i]);
-					p0[0] = (double) in + dx;
+					p0[0] = x[in] + dx;
 					p0[1] = y[im];
-					p1[0] = (double) in + dx;
-					p1[1] = y[im + 1];
+					
+					dx = (lev - z[i+n]) / (z[i+n+1] - z[i+n]);
+					p1[0] = x[in] + dx;
+					p1[1] = y[im+1];
 					add_linseg(ls, &lsnum, &lscnt, &p0, &p1);
 					break;
 				case 4:
+				case 11:
 					dy = (lev - z[i]) / (z[i+n] - z[i]);
 					p0[0] = x[in];
 					p0[1] = y[im] + dy;
+					
 					dx = (lev - z[i+n]) / (z[i+n+1] - z[i+n]);
 					p1[0] = x[in] + dx;
 					p1[1] = y[im + 1];
 					add_linseg(ls, &lsnum, &lscnt, &p0, &p1);
 					break;
 				case 5:
+					dy = (lev - z[i]) / (z[i+n] - z[i]);
+					p0[0] = x[in];
+					p0[1] = y[im] + dy;
+					dx = (lev - z[i]) / (z[i+1] - z[i]);
+					p1[0] = x[in] + dx;
+					p1[1] = y[im];
+					add_linseg(ls, &lsnum, &lscnt, &p0, &p1);
+					
+					dx = (lev - z[i+n]) / (z[i+n+1] - z[i+n]);
+					p0[0] = x[in]+dx;
+					p0[1] = y[im+1];
+					dy = (lev - z[i+1]) / (z[i+n+1] - z[i+1]);
+					p1[0] = x[in+1];
+					p1[1] = y[im] + dy;
+					add_linseg(ls, &lsnum, &lscnt, &p0, &p1);
 					break;
 				case 6:
+				case 9:
+					dy = (lev - z[i]) / (z[i+n] - z[i]);
+					p0[0] = x[in];
+					p0[1] = y[im] + dy;
+					dy = (lev - z[i+1]) / (z[i+n+1] - z[i+1]);
+					p1[0] = x[in+1];
+					p1[1] = y[im];
+					add_linseg(ls, &lsnum, &lscnt, &p0, &p1);
 					break;
+				
 				case 7:
-					break;
 				case 8:
 					dy = (lev - z[i]) / (z[i+n] - z[i]);
 					p0[0] = x[in];
@@ -132,36 +167,128 @@ int linseg_create(double* z, double* x, double* y,
 					p1[1] = y[im];
 					add_linseg(ls, &lsnum, &lscnt, &p0, &p1);
 					break;
-				case 9:
-					break;
 				case 10:
-					break;
-				case 12:
-					dx = (lev - z[i]) / (z[i+1] - z[i]);
-					p0[0] = x[in] + dx;
-					p0[1] = y[im];
-					
+					dy = (lev - z[i]) / (z[i+n] - z[i]);
+					p0[0] = x[in];
+					p0[1] = y[im] + dy;
+					dx = (lev - z[i+n]) / (z[i+n+1] - z[i+1]);
 					p1[0] = x[in] + dx;
 					p1[1] = y[im+1];
 					add_linseg(ls, &lsnum, &lscnt, &p0, &p1);
-					break;
-				case 13:
-					break;
-				case 14:
-					break;
-				case 15:
+					
+					dx = (lev - z[i]) / (z[i+1] - z[i]);
+					p0[0] = x[in]+dx;
+					p0[1] = y[im];
+					dy = (lev - z[i+1]) / (z[i+n+1] - z[i+1]);
+					p1[0] = x[in+1];
+					p1[1] = y[im] + dy;
+					add_linseg(ls, &lsnum, &lscnt, &p0, &p1);
 					break;
 				default:
 					break;
 			}
-			
-			
 		}
 	}
 	*ls = (linseg_t*)realloc(*ls, lscnt * sizeof(linseg_t));
 	*sz = lscnt;
 	return RES_OK;
 }
+
+
+double dist(point2d_t* p0, point2d_t* p1)
+{
+	double dx, dy;
+	dx = p0[0][0] - p1[0][0];
+	dy = p0[0][1] - p1[0][1];
+	return sqrt(dx*dx + dy*dy);
+}
+
+
+
+int line_create(linseg_t *ls, int nls, point2d_t** line, int* np)
+{
+	int i, j, c, n;
+	if(!line || !ls ||  !np)
+		return ERROR_PTR;
+	
+	i = 0;
+	while(!(ls[i].flag) && i < nls)
+		i++;
+	if(i==nls)
+	{
+		*np = 0;
+		return RES_OK;
+	}
+	
+	n = BSIZE;
+	if((*line) == NULL)
+		(*line) = (point2d_t*)malloc(n*sizeof(point2d_t));
+	else
+		(*line) = (point2d_t*)realloc((*line), n*sizeof(point2d_t));
+
+	c = 0;
+	(*line)[c][0] = ls[i].p[0][0];
+	(*line)[c][1] = ls[i].p[0][1];
+	c++;
+	(*line)[c][0] = ls[i].p[1][0];
+	(*line)[c][1] = ls[i].p[1][1];
+	c++;
+	ls[0].flag = 0;
+	
+	for(i = 0; i < nls; i++)
+	{
+		for(j = 0; j < nls; j++)
+		{
+			if(ls[j].flag)
+			{
+				//сравниваем с первой точкой отрезка ls[j]
+				if(dist((*line)+c-1, ls[j].p) < 1E-8)
+				{
+					// проверяем выделение памяти.
+					// при необходимости увеличиваем
+					if(c>=n)
+					{
+						n += BSIZE;
+						(*line) = (point2d_t*)realloc(*line, n*sizeof(point2d_t));
+					}
+					//если первая точка совпадает, то добавляем
+					//в линию вторую точку
+					(*line)[c][0] = ls[j].p[1][0];
+					(*line)[c][1] = ls[j].p[1][1];
+					ls[j].flag = 0;
+					c++;
+				}
+			}
+			if(ls[j].flag)
+			{
+				//сравниваем со второй точкой отрезка ls[j]
+				if(dist((*line)+c-1, ls[j].p+1) < 1E-8)
+				{
+					// проверяем выделение памяти.
+					// при необходимости увеличиваем
+					if(c>=n)
+					{
+						n += BSIZE;
+						(*line) = (point2d_t*)realloc(*line, n*sizeof(point2d_t));
+					}
+					//если вторая точка совпадает, то добавляем
+					//в линию первую точку
+					(*line)[c][0] = ls[j].p[0][0];
+					(*line)[c][1] = ls[j].p[0][1];
+					ls[j].flag = 0;
+					c++;
+				}
+			}
+		}
+	}
+
+	
+	(*line) = (point2d_t*)realloc((*line), c*sizeof(point2d_t));
+	*np = c;
+	
+	return RES_OK;
+}
+
 
 int main(int argc, char* argv[])
 {
@@ -171,14 +298,32 @@ int main(int argc, char* argv[])
           0   0   0   0];
     in array a by columns
     */
-    double z[N*M] = { 0, 0, 0,   0, 1, 0,   0, 1, 0,   0, 0, 0};
+    double z[N*M] = { 0, 1, 0,   0, 1, 0,   0, 1, 0,   0, 1, 0};
 	double x[N] = {0.0, 1.0, 2.0};
     double y[M] = {0.0, 1.0, 2.0, 3.0};
 	linseg_t *ls = NULL;
 	int nls, i;
+	point2d_t** line = NULL;
+	int *np = NULL;
+	
+	line = (point2d_t**)malloc(10*sizeof(point2d_t*));
+	memset(line,0,10*sizeof(point2d_t*));
+	np = (int*)malloc(10*sizeof(int));
+	memset(np, 0, 10*sizeof(int));
 	
 	linseg_create(z, x, y, N, M, 0.1, &ls, &nls);
 	for(i =0; i< nls; i++)
 		printf("%d, [%.1f %.1f] -- [%.1f %.1f]\n", i, ls[i].p[0][0], ls[i].p[0][1], ls[i].p[1][0], ls[i].p[1][1]);
-    return 0;
+    
+	
+	line_create(ls, nls, line, np);
+	for(i =0; i< np[0]; i++)
+		printf("%[%.1f %.1f] -- ", line[0][i][0], line[0][i][1]);
+    printf("\n");
+	line_create(ls, nls, line+1, np+1);
+	for(i =0; i< np[1]; i++)
+		printf("%[%.1f %.1f] -- ", line[1][i][0], line[1][i][1]);
+    printf("\n");
+	
+	return 0;
 }
