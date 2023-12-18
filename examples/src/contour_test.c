@@ -9,8 +9,8 @@
 
 typedef double    point2d_t[2];
 typedef point2d_t linseg_t[2];
- 
- 
+
+
 int add_linseg(linseg_t** ls, int* lsnum, int* lscnt, point2d_t* p0, point2d_t* p1)
 {
 	int n, c;
