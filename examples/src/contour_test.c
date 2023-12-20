@@ -153,7 +153,7 @@ int linseg_create(double* z, double* x, double* y,
                     p0[1] = y[im] + dy;
                     dy = (lev - z[i+1]) / (z[i+n+1] - z[i+1]);
                     p1[0] = x[in+1];
-                    p1[1] = y[im];
+                    p1[1] = y[im]+dy;
                     add_linseg(ls, &lsnum, &lscnt, &p0, &p1);
                     break;
                 
@@ -207,7 +207,7 @@ double dist(point2d_t* p0, point2d_t* p1)
 
 int line_create(linseg_t* ls, int nls, point2d_t** line, int* np)
 {
-    int i, j, c, n;
+    int i, j, c, n, k;
     if(!line || !ls ||  !np)
         return ERROR_PTR;
     // printf("*line = %x, *np = %d \n", *line, *np);
@@ -243,11 +243,10 @@ int line_create(linseg_t* ls, int nls, point2d_t** line, int* np)
         {
             if(ls[j].flag)
             {
-                //сравниваем с первой точкой отрезка ls[j]
+                //сравниваем последнюю точку линии с первой точкой отрезка ls[j]
                 if(dist((*line)+c-1, ls[j].p) < 1E-8)
                 {
-                    // printf("c0 = %d, j0 = %d\n", c, j);
-                    
+        
                     // проверяем выделение памяти.
                     // при необходимости увеличиваем
                     if(c>=n)
@@ -255,8 +254,8 @@ int line_create(linseg_t* ls, int nls, point2d_t** line, int* np)
                         n += BSIZE;
                         (*line) = (point2d_t*)realloc(*line, n*sizeof(point2d_t));
                     }
-                    //если первая точка совпадает, то добавляем
-                    //в линию вторую точку
+                    //если первая точка отрезка совпадает, то добавляем
+                    //в линию вторую точку СЗАДИ
                     (*line)[c][0] = ls[j].p[1][0];
                     (*line)[c][1] = ls[j].p[1][1];
                     ls[j].flag = 0;
@@ -265,11 +264,10 @@ int line_create(linseg_t* ls, int nls, point2d_t** line, int* np)
             }
             if(ls[j].flag)
             {
-                //сравниваем со второй точкой отрезка ls[j]
+                // сравниваем последнюю точку линии 
+                // со второй точкой отрезка ls[j]
                 if(dist((*line)+c-1, ls[j].p+1) < 1E-8)
                 {
-                    // printf("c1 = %d, j1 = %d\n", c, j);
-                    
                     // проверяем выделение памяти.
                     // при необходимости увеличиваем
                     if(c>=n)
@@ -278,13 +276,69 @@ int line_create(linseg_t* ls, int nls, point2d_t** line, int* np)
                         (*line) = (point2d_t*)realloc(*line, n*sizeof(point2d_t));
                     }
                     //если вторая точка совпадает, то добавляем
-                    //в линию первую точку
+                    //в линию первую точку СЗАДИ
                     (*line)[c][0] = ls[j].p[0][0];
                     (*line)[c][1] = ls[j].p[0][1];
                     ls[j].flag = 0;
                     c++;
                 }
             }
+            
+            if(ls[j].flag)
+            {
+                //сравниваем последнюю точку линии с первой точкой отрезка ls[j]
+                if(dist((*line), ls[j].p) < 1E-8)
+                {
+        
+                    // проверяем выделение памяти.
+                    // при необходимости увеличиваем
+                    if(c>=n)
+                    {
+                        n += BSIZE;
+                        (*line) = (point2d_t*)realloc(*line, n*sizeof(point2d_t));
+                    }
+                    //если первая точка отрезка совпадает, то добавляем
+                    //в линию вторую точку СПЕРЕДИ
+                    for(k = c; k>0; k--)
+                    {
+                        (*line)[k][0] = (*line)[k-1][0];
+                        (*line)[k][1] = (*line)[k-1][1]; 
+                    }
+                    (*line)[0][0] = ls[j].p[1][0];
+                    (*line)[0][1] = ls[j].p[1][1];
+                    ls[j].flag = 0;
+                    c++;
+                }
+            }
+            if(ls[j].flag)
+            {
+                // сравниваем последнюю точку линии 
+                // со второй точкой отрезка ls[j]
+                if(dist((*line), ls[j].p+1) < 1E-8)
+                {
+                    // проверяем выделение памяти.
+                    // при необходимости увеличиваем
+                    if(c>=n)
+                    {
+                        n += BSIZE;
+                        (*line) = (point2d_t*)realloc(*line, n*sizeof(point2d_t));
+                    }
+                    //если вторая точка совпадает, то добавляем
+                    //в линию первую точку СПЕРЕДИ
+                    
+                    for(k = c; k>0; k--)
+                    {
+                        (*line)[k][0] = (*line)[k-1][0];
+                        (*line)[k][1] = (*line)[k-1][1]; 
+                    }
+                    
+                    (*line)[0][0] = ls[j].p[0][0];
+                    (*line)[0][1] = ls[j].p[0][1];
+                    ls[j].flag = 0;
+                    c++;
+                }
+            }
+            
         }
     }
     (*line) = (point2d_t*)realloc((*line), c*sizeof(point2d_t));
@@ -300,12 +354,12 @@ int line_create(linseg_t* ls, int nls, point2d_t** line, int* np)
 int main(int argc, char* argv[])
 {
     /* Matrix 
-    z = [ 0   0   1   0;
-          0   1   1   0;
-          0   0   0   0];
+    z = [ 0   0   1   1;
+          0   1   0   0;
+          0   1   0   0];
     in array a by columns
     */
-    double z[N*M] = { 0, 0, 0,   0, 1, 0,   1, 1, 0,   0, 0, 0};
+    double z[N*M] = { 1, 0, 1,   0, 0, 0,   0, 1, 0,   1, 0, 1};
     double x[N] = {0.0, 1.0, 2.0};
     double y[M] = {0.0, 1.0, 2.0, 3.0};
     linseg_t *ls = NULL;
@@ -328,9 +382,9 @@ int main(int argc, char* argv[])
     do
     {
         i++;
-        line_create(ls, nls, line+i, np);
+        line_create(ls, nls, line+i, np+i);
         for(j =0; j< np[i]; j++)
-            printf("%[%.1f %.1f] -- ", line[i][j][0], line[i][j][1]);
+            printf("[%.1f %.1f] -- ", line[i][j][0], line[i][j][1]);
         printf("\n");
     }while(np[i]);
 
