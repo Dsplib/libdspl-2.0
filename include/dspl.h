@@ -865,6 +865,8 @@ DECLARE_FUNC(int,        contour2d,                   double* z
                                                 COMMA double  lev 
                                                 COMMA contour2d_t* c);
 /*----------------------------------------------------------------------------*/
+DECLARE_FUNC(void,       contour2d_free,              contour2d_t* c);
+/*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        conv,                        double*
                                                 COMMA int
                                                 COMMA double*
