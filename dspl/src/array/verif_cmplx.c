@@ -18,14 +18,10 @@
 * along with Foobar.    If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "dspl.h"
-
-
-
 
 
 #ifdef DOXYGEN_ENGLISH
