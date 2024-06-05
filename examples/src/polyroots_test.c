@@ -26,6 +26,7 @@ int main(int argc, char* argv[])
     /* print roots */
     for(n = 0; n < N; n++)
         printf("r[%d] = % -8.5f% -8.5f j\n", n, RE(r[n]), IM(r[n]));
+    
 
     /* free dspl handle  */
     dspl_free(hdspl);

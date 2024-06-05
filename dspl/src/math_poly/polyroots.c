@@ -170,14 +170,13 @@ int DSPL_API polyroots(double* a, int ord, complex_t* r, int* info)
     t = (complex_t*)malloc(ord * ord * sizeof(complex_t));
     if(!t)
         return ERROR_MALLOC;
-    
+    memset(t, 0, ord * ord * sizeof(complex_t));
     for(m = 0; m < ord-1; m++)
     {
         RE(t[m * (ord+1) + 1]) = 1.0;
         RE(t[m + ord * (ord - 1)]) = -a[m] / a[ord];
     }
     RE(t[ord * ord - 1]) = -a[ord-1] / a[ord];
-
     err = matrix_eig_cmplx(t, ord, r, info);
     
     if(t)
