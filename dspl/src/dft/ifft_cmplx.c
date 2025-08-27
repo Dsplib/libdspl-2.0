@@ -24,6 +24,7 @@
 #include <float.h>
 
 #include "dspl.h"
+#include "dft.h"
 
 
 #ifdef DOXYGEN_ENGLISH

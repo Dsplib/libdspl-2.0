@@ -87,6 +87,27 @@ typedef double complex_t[2];
 
 
 
+/* Point 2D point2d_t[0] - x
+            point2d_t[1] - y
+*/
+typedef double  point2d_t[2];
+
+typedef struct
+{
+    point2d_t* points; /* line points array */
+    int npoints;       /* number of points  */
+}line2d_t;
+
+typedef struct
+{
+    line2d_t* lines;  /* lines array     */
+    int nlines;       /* number of lines */
+    double level;     /* contour level   */
+}contour2d_t;
+
+
+
+
 #ifdef DOXYGEN_ENGLISH
 /*! ****************************************************************************
 \ingroup DFT_GROUP
@@ -835,6 +856,16 @@ DECLARE_FUNC(int,        concat,                      void*
                                                 COMMA void*
                                                 COMMA size_t
                                                 COMMA void*);
+/*----------------------------------------------------------------------------*/
+DECLARE_FUNC(int,        contour2d,                   double* z
+                                                COMMA double* x 
+                                                COMMA double* y
+                                                COMMA int     n
+                                                COMMA int     m
+                                                COMMA double  lev 
+                                                COMMA contour2d_t* c);
+/*----------------------------------------------------------------------------*/
+DECLARE_FUNC(void,       contour2d_free,              contour2d_t* c);
 /*----------------------------------------------------------------------------*/
 DECLARE_FUNC(int,        conv,                        double*
                                                 COMMA int
