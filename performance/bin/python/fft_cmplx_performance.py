@@ -14,18 +14,31 @@ N =  4194304
 x = np.random.randn(N) + 1j * np.random.randn(N)
 
 
-k = 4
-s = N
-mflops = np.zeros(22)
-for q in range(22):
-    z = np.copy(x[0:s])
+for qqq in  (range(100000)):
+    k = 20
+    s = N
+    
     t = time.time()
     for i in range(k):
-        y = fft.fft(z)
+        y = fft.fft(x)
   
     dt = (time.time() - t)/float(k)
-    mflops[21-q] = 5.0 * s * np.log2(s) / dt / 1E6 
+    mflops = 5.0 * s * np.log2(s) / dt / 1E6 
 
-    print("size = %8d   Mflops = %12.3f" % (s, mflops[21-q]))
-    k = int(k * 1.7)
-    s = int(s / 2)
+    print("size = %8d   Mflops = %12.3f" % (s, mflops))
+        
+    """
+    mflops = np.zeros(22)
+    for q in range(22):
+        z = np.copy(x[0:s])
+        t = time.time()
+        for i in range(k):
+            y = fft.fft(z)
+      
+        dt = (time.time() - t)/float(k)
+        mflops[21-q] = 5.0 * s * np.log2(s) / dt / 1E6 
+    
+        print("size = %8d   Mflops = %12.3f" % (s, mflops[21-q]))
+        k = int(k * 1.7)
+        s = int(s / 2)
+    """

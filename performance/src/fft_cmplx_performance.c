@@ -44,7 +44,8 @@ int fft_perf_cmplx(int* len, double* dlen, double* mflops)
     if(err != RES_OK)
         goto exit_label;
 
-    
+    while(1){
+k = (int)( 8 * pow(SIZE_FACTOR, L));    
     printf("--------------------\n");
     printf("FFT size      MFlops\n");
     printf("--------------------\n");
@@ -69,6 +70,7 @@ int fft_perf_cmplx(int* len, double* dlen, double* mflops)
         
         k /= SIZE_FACTOR;
     }
+}
 
 exit_label:
     fft_free(&pfft);
